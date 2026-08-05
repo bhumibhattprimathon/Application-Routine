@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm interested in the Backend Software Engineer (MERN Stack) role in Noida. My backend focus fits well: I build Node.js and Express services backed by MongoDB and Redis, and design clean REST APIs for real-time data flows.
+
+At Primathon I built backend syncing automation across seven merchant systems and integrated AWS Lambda and S3 for scalable event processing, and at Paytm I optimized microservices for real-time transactions. I complement my MERN experience with Spring Boot and system-design depth, plus Docker and CI/CD for reliable delivery.
+
+As a 0-notice immediate joiner, I can start contributing to scalable product features quickly.
+
+Best regards, Bhumi Bhatt

@@ -1,26 +1,14 @@
 {
   "run_date": "2026-08-05",
   "run_type": "linkedin-morning-scan",
-  "status": "blocked_stopped",
-  "stopped_at_step": "STEP 1 - READ RESUME",
-  "reason": "Resume not available and cannot be fetched. Per RULE 10, the routine stops rather than proceeding without a resume.",
-  "details": {
-    "resume_expected_path": "~/linkedin-jobs/resumes/resume_master.pdf",
-    "resume_found_locally": false,
-    "resume_drive_link": "https://drive.google.com/file/d/1Q5eLX2d3OYepXl7CnPQF3qKKZlcJExov/view",
-    "resume_download_result": "BLOCKED - organization egress policy returned HTTP 403 (CONNECT tunnel failed) for drive.google.com:443",
-    "ntfy_notification_result": "BLOCKED - organization egress policy returned HTTP 403 for ntfy.sh:443 (both curl and WebFetch)",
-    "websearch_pipeline": "WORKING - WebSearch returns LinkedIn/Naukri job results normally",
-    "conclusion": "Job discovery, scoring, dashboard, and log steps all work; only the resume input and the ntfy channel are blocked by network policy."
-  },
-  "fixes_for_next_run": [
-    "Option A (recommended): commit the resume PDF into this repo (e.g. resumes/resume_master.pdf) so the ephemeral container always has it without needing Google Drive.",
-    "Option B: add drive.google.com to the environment's network allowlist so the routine can fetch the resume from the Drive link.",
-    "For notifications: add ntfy.sh to the network allowlist, OR rely on the routine's built-in push/email notification (owner already receives these).",
-    "The ephemeral container starts fresh each run: ~/linkedin-jobs/ does not persist. Keep the resume and application log inside the git repo (data/applications_log.json is already here)."
-  ],
-  "jobs_found": 0,
-  "jobs_qualified": 0,
-  "jobs_skipped": 0,
-  "fraud_detected": 0
+  "status": "completed",
+  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
+  "ntfy": "disabled per user instruction; report delivered via routine push/email channel",
+  "jobs_found": 35,
+  "jobs_qualified": 11,
+  "jobs_review": 9,
+  "jobs_skipped": 15,
+  "fraud_detected": 0,
+  "avg_match_qualified": 81.0,
+  "notes": "All listings are real LinkedIn postings found via WebSearch. Post-dates not verifiable without LinkedIn login; Easy-Apply status unknown. No fraudulent companies found in this batch."
 }

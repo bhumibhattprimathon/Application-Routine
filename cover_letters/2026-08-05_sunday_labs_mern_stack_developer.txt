@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the MERN Stack Developer position at Sunday Labs. I build across the full JavaScript stack — React.js on the front end and Node.js with Express on the back end, backed by MongoDB — and have shipped REST APIs and containerized services in production.
+
+Beyond MERN, my backend depth in Spring Boot microservices and system design helps me reason about scalability and clean API contracts, while Postman, JUnit, and Docker keep my delivery reliable. At Primathon I automated backend workflows across seven merchant systems, cutting manual effort by 70%, so I'm used to owning features end to end.
+
+I admire Sunday Labs' engineering culture and would contribute from day one as an immediate joiner with a 0-day notice period.
+
+Best regards, Bhumi Bhatt

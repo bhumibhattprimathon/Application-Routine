@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack JavaScript Engineer (React.js) role at Classplus. I build across the JavaScript stack — React.js interfaces backed by Node.js and Express services — and bring deeper backend experience in Spring Boot microservices, REST API design, MongoDB, MySQL, and Redis.
+
+At Paytm I optimized microservices for real-time merchant transactions, improving reliability by 67%, and at Primathon I automated analytics workflows that cut manual effort by 70%. I'd bring that performance-minded, ownership-driven approach to Classplus' fast-scaling edtech platform.
+
+As an immediate joiner with a 0-day notice period, I can onboard and add value quickly.
+
+Best regards, Bhumi Bhatt

@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'd love to join Kredmint as an SDE-1 and bring my backend and fintech experience to your embedded supply-chain finance platform. At Paytm I engineered microservices managing the QR-code lifecycle and real-time transaction notifications, and I independently architected a distributed payment gateway (Order, Payment, Merchant, Vault services) in Java and Spring Boot with system-design principles for fault tolerance.
+
+I work fluently across Java, Node.js, REST APIs, MySQL, MongoDB, and Redis, and I've integrated AWS Lambda, S3, and Timestream into real-time data pipelines. Having already shipped payment-adjacent systems, I understand the reliability and accuracy demands of financial software.
+
+As a 0-notice immediate joiner, I can plug into your team quickly and grow fast in a high-ownership startup.
+
+Best regards, Bhumi Bhatt

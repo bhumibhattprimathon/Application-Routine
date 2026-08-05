@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Full Stack Developer (React) role at Pinch. I build React.js front ends paired with Node.js and Express APIs and MongoDB, and I bring additional backend strength in Spring Boot microservices, REST design, and MySQL.
+
+At Primathon I owned admin APIs and automation across seven merchant systems, and I've shipped a distributed payment gateway with 30 REST APIs, so I'm comfortable delivering complete features from UI to database. I'd enjoy helping build Pinch's product end to end.
+
+As an immediate joiner with a 0-day notice period, I can ramp up and contribute quickly.
+
+Best regards, Bhumi Bhatt
