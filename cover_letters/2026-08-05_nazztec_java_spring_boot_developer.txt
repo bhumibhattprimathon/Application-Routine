@@ -1,9 +1,0 @@
-Dear Hiring Manager,
-
-I'm applying for the Java Spring Boot Developer position at NAZZTEC. Spring Boot microservices are the core of my work: I architected a distributed payment gateway with 30 REST APIs across four services and built QR-lifecycle microservices at Paytm powering real-time notifications.
-
-I'm fluent in Java, REST API design, MySQL, MongoDB, and Redis, with Docker and Jenkins for containerized, CI/CD-driven delivery, and JUnit/Mockito for testing. My 5-Star HackerRank Java rating reflects strong problem-solving fundamentals.
-
-I'd contribute production-ready backend services from the start, and as an immediate joiner with zero notice period I'm ready to begin right away.
-
-Best regards, Bhumi Bhatt

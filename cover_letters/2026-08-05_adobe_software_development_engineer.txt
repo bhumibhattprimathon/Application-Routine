@@ -1,9 +1,0 @@
-Dear Hiring Manager,
-
-I'm excited to apply for the Software Development Engineer role at Adobe in Noida. I bring 1.5+ years building production backend systems in Java, Spring Boot, and Node.js, including a distributed payment gateway with 30 REST APIs designed for scalability and fault tolerance.
-
-My CS fundamentals are strong — a 5-Star HackerRank Java rating with 250+ DSA problems solved, a 9.3 CGPA, and hands-on system design. I'm comfortable across C++ and Java, REST APIs, MySQL, MongoDB, Redis, and AWS (EC2, S3, Lambda), and I ship tested, CI/CD-delivered code.
-
-I'd relish the engineering depth and scale of Adobe's products and would ramp quickly. I'm an immediate joiner able to start with zero notice period.
-
-Best regards, Bhumi Bhatt

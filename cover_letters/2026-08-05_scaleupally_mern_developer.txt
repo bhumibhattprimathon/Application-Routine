@@ -1,9 +1,0 @@
-Dear Hiring Manager,
-
-I'd like to apply for the MERN Developer role at ScaleupAlly. I develop full-stack JavaScript applications with React.js, Node.js, Express, and MongoDB, and back them with solid REST API design and MySQL experience.
-
-At Primathon I engineered backend syncing automation across seven merchant systems and integrated AWS S3 and Lambda for scalable event handling, so I'm comfortable owning features end to end and shipping reliably with Git, Docker, and CI/CD. ScaleupAlly's strong engineering reputation and client work are a great match for my delivery-focused mindset.
-
-As a 0-notice immediate joiner, I can start contributing to your projects right away.
-
-Best regards, Bhumi Bhatt

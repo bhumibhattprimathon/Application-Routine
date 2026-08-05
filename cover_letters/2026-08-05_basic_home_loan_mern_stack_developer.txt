@@ -1,9 +1,0 @@
-Dear Hiring Manager,
-
-I'm writing to apply for the MERN Stack Developer role at BASIC Home Loan. Your fintech focus aligns closely with my background: at Paytm I built microservices for real-time transaction notifications, and I architected a distributed payment gateway handling Order, Payment, and Vault flows.
-
-I work across the MERN stack — React.js, Node.js, Express, and MongoDB — and complement it with strong backend fundamentals in REST API design, MySQL, and Redis. Having shipped payment-adjacent, reliability-critical systems, I understand the accuracy and security a lending platform demands.
-
-As an immediate joiner with a 0-day notice period, I'm ready to contribute to your loan and payments products right away.
-
-Best regards, Bhumi Bhatt

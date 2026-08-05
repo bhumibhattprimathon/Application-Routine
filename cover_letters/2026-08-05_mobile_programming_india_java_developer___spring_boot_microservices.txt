@@ -1,9 +1,0 @@
-Dear Hiring Manager,
-
-I'm excited to apply for the Java Developer (Spring Boot/Microservices) role at Mobile Programming India. In my current role at Primathon and earlier at Paytm, I've built and optimized production microservices in Java and Spring Boot — including a distributed payment gateway with 30 REST APIs across four services and QR-lifecycle microservices powering real-time merchant notifications.
-
-I'm fluent across the backend toolchain your team uses: REST API design, MySQL, Redis, Kafka, and Docker-based deployment, backed by JUnit/Mockito testing and CI/CD through Jenkins. My 5-Star HackerRank Java rating and system-design focus mean I can contribute to scalable service architecture quickly.
-
-As an immediate joiner with a 0-day notice period, I can start contributing right away and ramp fast on your codebase.
-
-Best regards, Bhumi Bhatt

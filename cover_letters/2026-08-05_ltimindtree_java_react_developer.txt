@@ -1,9 +1,0 @@
-Dear Hiring Manager,
-
-I'm excited to apply for the Java React Developer role at LTIMindtree in Noida. My profile maps directly to this position: I develop backend services in Java and Spring Boot and build responsive front ends in React.js, HTML5, and CSS3.
-
-At Paytm and Primathon I delivered microservices and admin APIs handling real-time merchant data, and I've built full REST-API layers connected to MySQL and MongoDB. I'm confident with Git, CI/CD, and Docker for smooth delivery, and my 5-Star HackerRank Java rating reflects strong DSA and system-design fundamentals.
-
-I'd bring both backend rigor and front-end capability to your client engagements, and as an immediate joiner with zero notice period I can onboard quickly.
-
-Best regards, Bhumi Bhatt

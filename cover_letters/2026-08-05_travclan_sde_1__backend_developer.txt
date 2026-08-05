@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the SDE-1 (Backend Developer) role at TravClan. Building reliable backend services for a high-volume B2B platform is exactly where my experience sits: at Paytm I developed microservices managing the QR-code lifecycle and real-time transaction notifications, and I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services.
+
+I work fluently in Java and Spring Boot as well as Node.js and Express, backed by MySQL, MongoDB, and Redis, and I've integrated AWS Lambda and S3 into real-time data pipelines. A B2B travel platform serving thousands of agents needs exactly this kind of scalable, well-tested API work, delivered with Git and CI/CD. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I'd bring from day one.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away.
+
+Best regards, Bhumi Bhatt
