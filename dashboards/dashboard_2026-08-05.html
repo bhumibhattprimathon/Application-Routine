@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-08-05</title><style>
+*{box-sizing:border-box}:root{--g:#22c55e;--y:#eab308;--r:#ef4444;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--bg:#f1f5f9}
+html,body{margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:34px 0 30px}
+h1{margin:0 0 4px;font-size:26px}.sub{color:#94a3b8;font-size:14px;margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+.card .n{font-size:30px;font-weight:800}.card .l{font-size:12px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+.card.g .n{color:#4ade80}.card.y .n{color:#fde047}.card.r .n{color:#f87171}
+.metrics{display:flex;gap:26px;margin-top:16px;color:#e2e8f0;font-size:14px;flex-wrap:wrap}.metrics b{color:#fff;font-size:18px}
+.freshpill{display:inline-block;margin-top:14px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);color:#86efac;padding:6px 12px;border-radius:20px;font-size:12.5px;font-weight:600}
+.openall{display:block;width:100%;margin:26px 0 8px;padding:20px;border:0;border-radius:16px;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;font-size:19px;font-weight:800;cursor:pointer;box-shadow:0 8px 24px rgba(34,197,94,.35)}
+.hint{text-align:center;color:var(--mut);font-size:12px;margin:0 0 8px}
+section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:22px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+h2{margin:0 0 4px;font-size:19px;display:flex;align-items:center;gap:9px}h2 .dot{width:12px;height:12px;border-radius:50%}.d-g{background:var(--g)}.d-y{background:var(--y)}.d-r{background:var(--r)}
+.s-desc{color:var(--mut);font-size:13px;margin:0 0 14px}.tblwrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);background:#f8fafc}tr:hover td{background:#f8fafc}.co{font-weight:700}.reason{color:#475569;max-width:340px}
+.badge{display:inline-block;min-width:34px;text-align:center;padding:3px 8px;border-radius:8px;font-weight:800;color:#fff}.b-green{background:var(--g)}.b-yellow{background:var(--y);color:#422006}
+.pill{background:#eef2ff;color:#3730a3;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600}
+.fresh{background:#ecfdf5;color:#047857;border-radius:6px;padding:2px 7px;font-size:12px;font-weight:600;white-space:nowrap}
+tr.fraud td{background:#fef2f2}.acts{white-space:nowrap}
+.btn{display:inline-block;border:0;border-radius:9px;padding:7px 12px;font-size:12.5px;font-weight:700;cursor:pointer;text-decoration:none;margin:2px 3px 2px 0}.btn-open{background:#0f172a;color:#fff}.btn-open.sm{padding:5px 10px}.btn-copy{background:#e0f2fe;color:#0369a1}.btn-copy.done{background:#22c55e;color:#fff}
+.rec{border:1px solid var(--line);border-left:5px solid var(--g);border-radius:12px;padding:14px 16px;margin-bottom:12px;background:#f8fefb}.rec-h{display:flex;align-items:center;gap:12px}.rec-h .btn{margin-left:auto}
+.rec-n{background:var(--g);color:#fff;font-weight:800;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 30px}.rec-t{font-weight:800}.rec-m{font-size:12.5px;color:var(--mut)}.rec p{margin:10px 0 0;font-size:14px;color:#334155}
+.chart{display:flex;align-items:flex-end;gap:20px;height:180px;padding:10px 6px;border-bottom:2px solid var(--line)}.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}.bar{width:54px;background:linear-gradient(180deg,#4ade80,#16a34a);border-radius:8px 8px 0 0;display:flex;justify-content:center;color:#fff;font-weight:800;font-size:13px;padding-top:6px}.bar-x{font-size:12px;color:var(--mut)}
+.clcard{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}.clcard-h{display:flex;align-items:center;gap:10px;font-size:14px;margin-bottom:8px}.clcard-h .btn{margin-left:auto}
+.clbody{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px;margin:0;color:#1e293b}.clstore{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:13px;color:#713f12;margin-top:22px}.note b{color:#78350f}
+footer{text-align:center;color:var(--mut);font-size:12px;margin-top:26px}@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}h1{font-size:20px}}
+</style></head><body>
+<header><div class="wrap"><h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-05</h1>
+<div class="sub">Morning scan for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner</div>
+<div class="cards">
+<div class="card"><div class="n">17</div><div class="l">Jobs Found (24h)</div></div>
+<div class="card g"><div class="n">1</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">6</div><div class="l">To Review</div></div>
+<div class="card r"><div class="n">10</div><div class="l">Skipped</div></div></div>
+<div class="metrics"><div>Avg match (qualified): <b>89.0</b></div><div>Avg salary est.: <b>~9.0 LPA</b></div><div>Fraud/spam blocked: <b>2</b></div></div>
+<div class="freshpill">✓ Live data from JSearch API · every job posted within the last 24 hours · apply links verified live</div>
+</div></header>
+<div class="wrap">
+<button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB</button>
+<p class="hint">Opens each qualified posting in a new tab. Allow pop-ups if blocked.</p>
+<section><h2><span class="dot d-g"></span>Qualified Jobs (1)</h2>
+<p class="s-desc">Trust ≥ 60 and match ≥ 65, posted in the last 24h. Tailored cover letter below.</p>
+<div class="tblwrap"><table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Posted</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead><tbody><tr><td>1</td><td><span class="badge b-green">89</span></td><td>82</td>
+      <td class="co">TravClan</td><td>SDE 1 (Backend Developer)</td><td>New Delhi</td>
+      <td><span class="fresh">7h ago</span></td><td>7–11 LPA (est)</td>
+      <td><span class="pill">backend</span></td><td>External (Freshteam)</td>
+      <td class="acts"><a class="btn btn-open" href="https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-1-backend-developer" target="_blank" rel="noopener">Open Job</a>
+      <button class="btn btn-copy" onclick="copyCL('cl_travclan-sde1',this)">Copy Cover Letter</button></td></tr></tbody></table></div></section>
+<section><h2><span class="dot d-g"></span>Top Recommendation</h2><p class="s-desc">The clear apply-now pick today.</p><div class="rec"><div class="rec-h"><span class="rec-n">★</span>
+      <div><div class="rec-t">SDE 1 (Backend Developer) — TravClan</div>
+      <div class="rec-m">New Delhi · posted 7h ago · Est. 7–11 LPA (est) · Match 89 · Trust 82</div></div>
+      <a class="btn btn-open" href="https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-1-backend-developer" target="_blank" rel="noopener">Open Job</a></div><p>TravClan is a genuinely fresh posting (7 hours old) for a true entry-level backend role (SDE-1) at a funded, credible B2B travel-tech startup ($6.9M raised, 232 employees, Delhi HQ). It maps cleanly onto Bhumi&#x27;s core — Java/Spring Boot and Node.js microservices, REST APIs, MySQL/MongoDB/Redis — and her Paytm payments-microservices background fits a high-volume transactional platform. The apply link is a live Freshteam ATS page, not a dead LinkedIn cache. This is the clear apply-now pick today.</p></div></section>
+<section><h2><span class="dot d-y"></span>Review Jobs (6)</h2>
+<p class="s-desc">Strong signal but need a manual check — usually an experience stretch or a company/JD to verify.</p>
+<div class="tblwrap"><table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Posted</th><th>Reason for Review</th><th></th></tr></thead><tbody><tr><td>1</td><td><span class="badge b-yellow">79</span></td><td>65</td>
+      <td class="co">Innova ESI</td><td>Java Full Stack Developer (Java, React, AWS, SQL)</td><td>Gurugram</td>
+      <td><span class="fresh">5h ago</span></td><td class="reason">Skills match Bhumi almost exactly (Java, Spring Boot, React, AWS, SQL, CI/CD) and &#x27;immediate joiner preferred&#x27; — but asks 4–6 yrs (she has 1.5). Worth a stretch application.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/java-full-stack-developer-4%2B-yrs-java-react-js-aws-sql-immediate-joiner-preferred-at-innova-esi-4448955175" target="_blank" rel="noopener">Open</a></td></tr><tr><td>2</td><td><span class="badge b-yellow">78</span></td><td>50</td>
+      <td class="co">Deep Logictech India</td><td>Java Developer – Spring Boot/Hibernate</td><td>Delhi (JD says Dehradun)</td>
+      <td><span class="fresh">11h ago</span></td><td class="reason">Java/Spring/Hibernate fit and 1–6 yrs range includes her, but company is unverified and the posting&#x27;s location is inconsistent (Delhi/Dehradun/Coimbatore) via an aggregator — verify before applying.</td>
+      <td><a class="btn btn-open sm" href="https://www.talentsjobs.in/java-developer-spring-boot-hibernate-deep-logictech-india-pvt-ltd-coimbatore-0-to-0-years-21343" target="_blank" rel="noopener">Open</a></td></tr><tr><td>3</td><td><span class="badge b-yellow">72</span></td><td>78</td>
+      <td class="co">Loop Subscriptions</td><td>Sr Software Development Engineer (Full Stack)</td><td>Gurugram</td>
+      <td><span class="fresh">23h ago</span></td><td class="reason">Legit funded SaaS (Shopify subscriptions, 8M subscribers) and a clean React/Node full-stack fit — but it&#x27;s a &#x27;Senior&#x27; SDE (likely 3–5+ yrs). Stretch for 1.5 yrs.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/sr-software-development-engineer-full-stack-at-loop-subscriptions-4448524114" target="_blank" rel="noopener">Open</a></td></tr><tr><td>4</td><td><span class="badge b-yellow">67</span></td><td>80</td>
+      <td class="co">CARPL.ai</td><td>Implementation Engineer</td><td>New Delhi</td>
+      <td><span class="fresh">11h ago</span></td><td class="reason">Well-funded health-AI startup ($10M IFC Series A). Implementation/integration role — partial backend fit (REST APIs, deployment), but more solutions-engineering than core dev.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/implementation-engineer-at-carpl-radiology-ai-platform-4447301941" target="_blank" rel="noopener">Open</a></td></tr><tr><td>5</td><td><span class="badge b-yellow">60</span></td><td>70</td>
+      <td class="co">EY (via aggregator)</td><td>Application Engineer (DE-Application Engineer)</td><td>New Delhi</td>
+      <td><span class="fresh">11h ago</span></td><td class="reason">EY is a top employer, but the posting is an aggregator repost with an obfuscated title/JD (&#x27;Buffer&#x27;, &#x27;Tech0279&#x27;). Confirm the real role and level on EY&#x27;s own careers site.</td>
+      <td><a class="btn btn-open sm" href="https://www.kitjob.in/job/308201719/de-application-engineer-iv-vg-pi-tech0279-buffer-delhi" target="_blank" rel="noopener">Open</a></td></tr><tr><td>6</td><td><span class="badge b-yellow">55</span></td><td>55</td>
+      <td class="co">Lakshay India</td><td>AI Agent Developer</td><td>Faridabad</td>
+      <td><span class="fresh">23h ago</span></td><td class="reason">AI-agent role (GPT/Claude/LangChain/n8n/Python). Aligns with Bhumi&#x27;s AI interest, but needs Python + LLM-tooling not on her resume, and company is lightly verified.</td>
+      <td><a class="btn btn-open sm" href="https://apna.co/job/faridabad/ai-agent-developer-168960552" target="_blank" rel="noopener">Open</a></td></tr></tbody></table></div></section>
+<section><h2><span class="dot d-r"></span>Skipped Jobs (10)</h2>
+<p class="s-desc">Filtered for seniority, off-stack skills, or fraud/spam (red-shaded rows).</p>
+<div class="tblwrap"><table><thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Posted</th><th>Skip Reason</th><th></th></tr></thead><tbody><tr><td>1</td><td class="co">Krenai</td><td>Senior Software Developer – Java (Spring Boot)</td>
+      <td>Gurugram</td><td><span class="fresh">1h ago</span></td>
+      <td class="reason">Experience: &#x27;Senior&#x27;, team-lead / ownership role — beyond 1.5 yrs.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/hiring-senior-software-developer-%E2%80%93-java-spring-boot-at-krenai-4449104247" target="_blank" rel="noopener">Open</a></td></tr><tr><td>2</td><td class="co">NTT DATA</td><td>Senior Python Full Stack Developer / Technical Lead</td>
+      <td>Noida</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">Experience: Senior / Technical Lead, and Python-centric (not her core).</td>
+      <td><a class="btn btn-open sm" href="https://apna.co/job/noida/software-development-senior-specialist-advisor-1104233396" target="_blank" rel="noopener">Open</a></td></tr><tr><td>3</td><td class="co">BitGo (Framework Ventures)</td><td>Software Engineer, Wallet Core</td>
+      <td>New Delhi</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">Skill: crypto wallet-core (C++/Go, blockchain custody) — off Bhumi&#x27;s Java/JS backend stack.</td>
+      <td><a class="btn btn-open sm" href="https://www.jobleads.com/in/job/software-engineer-wallet-core--new-delhi--ef5e72d7443c0b7e21c0fe528b0db32b9" target="_blank" rel="noopener">Open</a></td></tr><tr class="fraud"><td>4</td><td class="co">HighAtBuzz</td><td>&quot;Master New Skills… Online Skill Courses&quot;</td>
+      <td>Sonipat</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">FRAUD/SPAM: not a job — an online-course advertisement posing as a listing. Trust &lt;40.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/master-new-skills-level-with-top-rated-online-skill-courses-at-highatbuzz-4447312206" target="_blank" rel="noopener">Open</a></td></tr><tr class="fraud"><td>5</td><td class="co">HighAtBuzz</td><td>&quot;Online Learning Tools… Smart Time&quot;</td>
+      <td>Sonipat</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">FRAUD/SPAM: not a job — course/ad content, duplicate spam from same poster. Trust &lt;40.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/online-learning-tools-that-turn-study-time-into-smart-time-at-highatbuzz-4447304695" target="_blank" rel="noopener">Open</a></td></tr><tr><td>6</td><td class="co">OpenAI (hidden employer)</td><td>AI Deployment Engineer – Codex | APAC</td>
+      <td>New Delhi</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">Skill: forward-deployed AI engineer (Python, customer-facing Codex integration) — off her stack; employer masked on aggregator.</td>
+      <td><a class="btn btn-open sm" href="https://www.kitjob.in/job/308204876/ai-deployment-engineer-codex-apac-delhi" target="_blank" rel="noopener">Open</a></td></tr><tr><td>7</td><td class="co">NTT DATA</td><td>Senior GenAI Engineers</td>
+      <td>Fazilpur Badli, Haryana</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">Experience: Senior + GenAI/Python focus — beyond level and off-stack.</td>
+      <td><a class="btn btn-open sm" href="https://www.kitjob.in/job/308151069/senior-genai-engineers-fazilpur-badli" target="_blank" rel="noopener">Open</a></td></tr><tr><td>8</td><td class="co">NTT DATA</td><td>Delivery Specialist Advisor – Product Eng &amp; AI</td>
+      <td>Noida</td><td><span class="fresh">11h ago</span></td>
+      <td class="reason">Experience: 8–15 yrs, delivery-manager role.</td>
+      <td><a class="btn btn-open sm" href="https://apna.co/job/noida/systems-integration-specialist-advisor-1297328815" target="_blank" rel="noopener">Open</a></td></tr><tr><td>9</td><td class="co">BairesDev</td><td>.NET Software Engineer (Remote)</td>
+      <td>Remote</td><td><span class="fresh">12h ago</span></td>
+      <td class="reason">Skill: .NET/C# stack — resume is Java/JavaScript, no .NET.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/net-software-engineer-remote-work-ref%23297052-at-bairesdev-4438276045" target="_blank" rel="noopener">Open</a></td></tr><tr><td>10</td><td class="co">Gartner</td><td>Sr Software Engineer – GenAI/ML (4–6 yrs)</td>
+      <td>Gurugram</td><td><span class="fresh">14h ago</span></td>
+      <td class="reason">Experience: Senior, 4–6 yrs, GenAI/ML — too senior and off-stack.</td>
+      <td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/sr-software-engineer-genai-ml-4to6yrs-exp-chennai-gurgaon-at-gartner-4448575669" target="_blank" rel="noopener">Open</a></td></tr></tbody></table></div></section>
+<section><h2>Weekly Trend — Qualified per Day</h2><p class="s-desc">First run on real API data. Builds up each morning.</p><div class="chart"><div class="bar-wrap"><div class="bar" style="height:150px"><span>1</span></div><div class="bar-x">08-05</div></div></div></section>
+<section><h2>Cover Letters (1)</h2><p class="s-desc">Tailored per qualified job. Click COPY and paste into the application.</p><div class="clcard"><div class="clcard-h"><b>TravClan</b> — SDE 1 (Backend Developer)
+      <button class="btn btn-copy" onclick="copyCL('clc_travclan-sde1',this)">COPY</button></div>
+      <textarea id="clc_travclan-sde1" class="clstore" readonly>Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1 (Backend Developer) role at TravClan. Building reliable backend services for a high-volume B2B platform is exactly where my experience sits: at Paytm I developed microservices managing the QR-code lifecycle and real-time transaction notifications, and I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services.
+
+I work fluently in Java and Spring Boot as well as Node.js and Express, backed by MySQL, MongoDB, and Redis, and I&#x27;ve integrated AWS Lambda and S3 into real-time data pipelines. A B2B travel platform serving thousands of agents needs exactly this kind of scalable, well-tested API work, delivered with Git and CI/CD. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I&#x27;d bring from day one.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away.
+
+Best regards, Bhumi Bhatt</textarea>
+      <pre class="clbody">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1 (Backend Developer) role at TravClan. Building reliable backend services for a high-volume B2B platform is exactly where my experience sits: at Paytm I developed microservices managing the QR-code lifecycle and real-time transaction notifications, and I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services.
+
+I work fluently in Java and Spring Boot as well as Node.js and Express, backed by MySQL, MongoDB, and Redis, and I&#x27;ve integrated AWS Lambda and S3 into real-time data pipelines. A B2B travel platform serving thousands of agents needs exactly this kind of scalable, well-tested API work, delivered with Git and CI/CD. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I&#x27;d bring from day one.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away.
+
+Best regards, Bhumi Bhatt</pre></div></section>
+<div class="note"><b>Data &amp; method note.</b> This run uses the <b>JSearch API</b> (10 queries, <code>date_posted=today</code>, <code>country=in</code>) — <b>every one of the 17 jobs was posted within the last 24 hours</b> with a live apply link, replacing the earlier stale-link run. The honest reality of a single day: few entry-level backend matches surface, most fresh postings are senior or off-stack, and 2 were course-ad spam (blocked). Match scores use the routine rubric (skills 40 / experience 25 / title 20 / salary 15) against Bhumi's resume. Salaries are estimates (the API returned none for these postings). Companies featured were verified via Tracxn/Glassdoor/Inc42/Crunchbase.</div>
+<div><textarea id="cl_travclan-sde1" class="clstore" readonly>Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1 (Backend Developer) role at TravClan. Building reliable backend services for a high-volume B2B platform is exactly where my experience sits: at Paytm I developed microservices managing the QR-code lifecycle and real-time transaction notifications, and I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services.
+
+I work fluently in Java and Spring Boot as well as Node.js and Express, backed by MySQL, MongoDB, and Redis, and I&#x27;ve integrated AWS Lambda and S3 into real-time data pipelines. A B2B travel platform serving thousands of agents needs exactly this kind of scalable, well-tested API work, delivered with Git and CI/CD. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I&#x27;d bring from day one.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away.
+
+Best regards, Bhumi Bhatt</textarea></div>
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-08-05 · 17 live postings evaluated · source: JSearch API</footer></div>
+<script>
+var QURLS=["https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-1-backend-developer"];
+function openAll(){if(!QURLS.length){alert('No qualified jobs today.');return;}var b=0;QURLS.forEach(function(u){var w=window.open(u,'_blank');if(!w)b++;});if(b)alert('Browser blocked '+b+' pop-up(s). Allow pop-ups and click again.');}
+function copyCL(id,btn){var el=document.getElementById(id);if(!el)return;var t=el.value!==undefined?el.value:el.textContent;function ok(){var o=btn.textContent;btn.textContent='Copied!';btn.classList.add('done');setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fb(el);ok();});}else{fb(el);ok();}}
+function fb(el){el.style.position='static';el.style.opacity=1;el.select();try{document.execCommand('copy');}catch(e){}el.style.position='absolute';el.style.opacity=0;}
+</script></body></html>
