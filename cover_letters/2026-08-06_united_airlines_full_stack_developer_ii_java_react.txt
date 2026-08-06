@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Full Stack Developer II (Java + React) role on United Airlines' Customer Technology Platform team, because building real-time booking, payment, and reservation systems is exactly the work I have been doing.
+
+At Paytm I developed and optimized microservices managing the QR-code lifecycle for merchants, powering real-time transaction notifications — the same class of high-throughput, mission-critical messaging your Baggage, Flight Operations, and Check-in systems demand. I then architected a distributed payment gateway of 30 Java/Spring Boot REST APIs across four services, applying system-design principles for scalability and fault tolerance, and I have hands-on experience with Kafka, Redis caching, and AWS (EC2, S3, Lambda) for real-time data pipelines. On the client side I build interfaces in React.
+
+This blend of real-time middleware, Java backend depth, and AWS cloud delivery lines up closely with your Data Enablement team's charter. As an immediate joiner, I can begin contributing to these operational systems right away.
+
+Best regards,
+Bhumi Bhatt

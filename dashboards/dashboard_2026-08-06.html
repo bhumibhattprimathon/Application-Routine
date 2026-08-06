@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-06</title>
+<style>
+  :root { --green:#22c55e; --yellow:#eab308; --red:#ef4444; --ink:#0f172a; --line:#e2e8f0; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:#f8fafc; }
+  header { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:28px 22px; }
+  header h1 { margin:0 0 4px; font-size:22px; letter-spacing:.3px; }
+  header .sub { color:#94a3b8; font-size:13px; }
+  .wrap { max-width:1180px; margin:0 auto; padding:22px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:18px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; }
+  .card .n { font-size:30px; font-weight:700; line-height:1; }
+  .card .l { color:#64748b; font-size:12px; margin-top:6px; text-transform:uppercase; letter-spacing:.5px; }
+  .card.green .n{color:var(--green)} .card.yellow .n{color:var(--yellow)} .card.red .n{color:var(--red)}
+  .openall { display:block; width:100%; margin:22px 0 6px; padding:20px; font-size:19px; font-weight:700;
+      color:#fff; background:var(--green); border:none; border-radius:14px; cursor:pointer; box-shadow:0 6px 16px rgba(34,197,94,.35); }
+  .openall:hover { filter:brightness(1.05); }
+  .openall:disabled { background:#94a3b8; box-shadow:none; cursor:not-allowed; }
+  .hint { color:#64748b; font-size:12px; text-align:center; margin:0 0 8px; }
+  section { margin-top:30px; }
+  h2 { font-size:17px; border-left:5px solid #94a3b8; padding-left:10px; margin:0 0 12px; }
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  .tablewrap { overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:#fff; }
+  table { border-collapse:collapse; width:100%; font-size:13px; min-width:640px; }
+  th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f1f5f9; font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:#475569; position:sticky; top:0; }
+  tr:last-child td { border-bottom:none; }
+  .score { display:inline-block; min-width:30px; text-align:center; font-weight:700; color:#fff; border-radius:6px; padding:2px 6px; }
+  .s-green{background:var(--green)}
+  .tag { background:#e0e7ff; color:#3730a3; border-radius:6px; padding:2px 8px; font-size:11px; font-weight:600; }
+  .badge { border-radius:6px; padding:2px 8px; font-size:11px; font-weight:600; white-space:nowrap; }
+  .badge-red{background:#fee2e2;color:#991b1b} .badge-gray{background:#e2e8f0;color:#334155}
+  .btn { display:inline-block; border:none; border-radius:7px; padding:6px 11px; font-size:12px; font-weight:600; cursor:pointer; text-decoration:none; }
+  .btn-open { background:var(--ink); color:#fff; }
+  .btn-copy { background:#e0e7ff; color:#3730a3; margin-left:4px; }
+  .btn-copy:hover,.btn-open:hover { filter:brightness(1.08); }
+  .reason { color:#475569; max-width:520px; }
+  .mini,.reason a { color:#2563eb; font-size:11px; text-decoration:none; white-space:nowrap; }
+  .muted { color:#94a3b8; }
+  .rec { background:#fff; border:1px solid var(--line); border-left-width:5px; border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+  .rec-green{border-left-color:var(--green)} .rec-yellow{border-left-color:var(--yellow)}
+  .rec-head { display:flex; gap:12px; align-items:flex-start; }
+  .rec-num { flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
+  .rec-title { font-weight:700; }
+  .rec-meta { color:#64748b; font-size:12px; margin-top:2px; }
+  .rec-meta a{color:#2563eb;text-decoration:none}
+  .rec p { margin:10px 0 0; color:#334155; font-size:13px; line-height:1.5; }
+  .cover-box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:14px; }
+  .cover-head { display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:13px; margin-bottom:8px; }
+  .cover-box pre { white-space:pre-wrap; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; color:#1e293b; background:#f8fafc; padding:12px; border-radius:8px; margin:0; line-height:1.5; }
+  .bar-row { display:flex; align-items:center; gap:12px; margin:8px 0; }
+  .bar-label { flex:0 0 60px; font-size:12px; color:#475569; }
+  .bar-track { flex:1; background:#e2e8f0; border-radius:8px; height:26px; overflow:hidden; }
+  .bar-fill { background:var(--green); height:100%; color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; border-radius:8px; }
+  footer { color:#94a3b8; font-size:12px; text-align:center; padding:26px; }
+  @media (max-width:640px) { .card .n{font-size:24px} header h1{font-size:18px} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding:0;">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-06</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · Immediate joiner · Live data via JSearch (jobs posted ≤48h)</div>
+  </div>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">50</div><div class="l">Jobs Found</div></div>
+    <div class="card green"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="card yellow"><div class="n">10</div><div class="l">Review</div></div>
+    <div class="card red"><div class="n">37</div><div class="l">Skipped</div></div>
+    <div class="card red"><div class="n">9</div><div class="l">Fraud / Low-trust</div></div>
+    <div class="card"><div class="n">79.0</div><div class="l">Avg Match (qualified)</div></div>
+  </div>
+
+  <button class="openall" id="openAllBtn" onclick="openAll()">OPEN ALL 3 QUALIFIED JOBS</button>
+  <p class="hint">If nothing opens, allow pop-ups for this page and click again. Jobs also open individually from the table below.</p>
+
+  <section>
+    <h2 class="g">✅ Qualified — Ready to Apply (3)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+        <tbody><tr>
+          <td>1</td>
+          <td><span class="score s-green">85</span></td>
+          <td>80</td>
+          <td>BCforward</td>
+          <td>Full Stack Developer(Java/ Kotlin)-React-GCP (Gurugram)</td>
+          <td>Gurugram</td>
+          <td>8–13 LPA (est)</td>
+          <td><span class="tag">fullstack</span></td>
+          <td>External (Kit Job)</td>
+          <td><a class="btn btn-open" href="https://www.kitjob.in/job/307982847/full-stack-developer-java-kotlin-react-gcp-gurugram" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyText('cl_33', this)">Copy Cover Letter</button></td>
+        </tr><tr>
+          <td>2</td>
+          <td><span class="score s-green">80</span></td>
+          <td>92</td>
+          <td>United Airlines</td>
+          <td>Full Stack Developer II ( Java + React)</td>
+          <td>Gurugram</td>
+          <td>14–22 LPA (est)</td>
+          <td><span class="tag">fullstack</span></td>
+          <td>External (United Airlines Jobs)</td>
+          <td><a class="btn btn-open" href="https://careers.united.com/us/en/job/GGN00002551/Full-Stack-Developer-II-Java-React" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyText('cl_20', this)">Copy Cover Letter</button></td>
+        </tr><tr>
+          <td>3</td>
+          <td><span class="score s-green">72</span></td>
+          <td>68</td>
+          <td>Euphoric Thought Technologies Pvt Ltd</td>
+          <td>Backend Developer(Node.js/Python)</td>
+          <td>Gurugram</td>
+          <td>5.3–16.3 LPA (listed)</td>
+          <td><span class="tag">backend</span></td>
+          <td>External (Shine)</td>
+          <td><a class="btn btn-open" href="https://www.shine.com/jobs/backend-developernodejs-python/euphoric-thought-technologies-pvt-ltd/19383208" target="_blank" rel="noopener">Open Job</a> <span class="muted">—</span></td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="y">🟡 Review — Verify Before Applying (10)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th></tr></thead>
+        <tbody><tr>
+          <td>1</td>
+          <td>82</td>
+          <td>58</td>
+          <td>TechBliss Digital Solution Pvt. Ltd.</td>
+          <td>Job Opening  Java Fullstack Developer (Java, microservices, react, AI)</td>
+          <td>Gurugram</td>
+          <td class="reason">On skills this is the strongest match of the day — Java + microservices + React + AI is her exact stack including her AI-alerts project. Held back to review because the employer is a small Gurgaon staffing firm (1–50 employees, 193 followers, no product website), so the actual client/role is unclear. Verify who you&#x27;d really be working for before applying. <a class="mini" href="https://in.linkedin.com/jobs/view/job-opening-java-fullstack-developer-java-microservices-react-ai-at-techbliss-digital-solution-pvt-ltd-4448998443" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>2</td>
+          <td>66</td>
+          <td>62</td>
+          <td>Jobgether</td>
+          <td>Java/ Spring boot Developer</td>
+          <td>Remote</td>
+          <td class="reason">Clean Java + Spring Boot backend role, and remote. Held to review because Jobgether posts &#x27;on behalf of a partner company&#x27; and masks both the real employer and the experience band — confirm the hiring company and seniority before investing time. <a class="mini" href="https://bebee.com/in/jobs/java-spring-boot-developer-jobgether-jamai--fj-2295923239" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>3</td>
+          <td>63</td>
+          <td>78</td>
+          <td>Coders Brain Technology</td>
+          <td>Java full stack developer_Digital Aptech</td>
+          <td>New Delhi</td>
+          <td class="reason">Coders Brain is a legit IT firm (4.2★ Glassdoor) and the Java / J2EE / Spring Boot / Microservices / MySQL backend core fits well, but it asks 3–6 yrs (she has 1.5) and uses Angular where she uses React — a genuine stretch. <a class="mini" href="https://bebee.com/in/jobs/java-full-stack-developer-digital-aptech-coders-brain-technology-delhi--ss-in-1avrfgb" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>4</td>
+          <td>60</td>
+          <td>48</td>
+          <td>PEKLENC RESEARCH</td>
+          <td>Peklenc - Full Stack Engineer - Python/Node.js/TypeScript</td>
+          <td>New Delhi</td>
+          <td class="reason">Early-stage startup (Peklenc Research) that explicitly wants immediate / 0–10 day joiners — her exact availability — and the Node.js + AWS + GenAI angle aligns loosely with her AI project. Held to review because it leans Python/TypeScript and the company has no website or footprint to verify. <a class="mini" href="https://www.hirist.tech/j/peklenc-full-stack-engineer-python-node-js-type-script-1642949" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>5</td>
+          <td>58</td>
+          <td>48</td>
+          <td>YNS company</td>
+          <td>Mid-Level Full-Stack Engineer — Remote Contract, India</td>
+          <td>Remote</td>
+          <td class="reason">Node.js/React/Next + Postgres stack fits and it&#x27;s fully remote, but it&#x27;s a 3+ yr long-term contract from an unverified poster (xlink / &#x27;YNS company&#x27;, no website). The &#x27;authorized data ingestion&#x27; framing is unusual — vet the contract and client before applying. <a class="mini" href="https://in.linkedin.com/jobs/view/mid-level-full-stack-engineer-%E2%80%94-remote-contract-india-at-yns-company-4447389578" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>6</td>
+          <td>58</td>
+          <td>62</td>
+          <td>Qubrid AI</td>
+          <td>Junior Back End Engineer AI WFH</td>
+          <td>Remote</td>
+          <td class="reason">Labeled &#x27;Junior&#x27; (2 yrs is acceptable) at Qubrid AI, a real AI-infrastructure startup, and it&#x27;s WFH. But the JD expects end-to-end SaaS product ownership + Stripe integration and mandates working until 4 AM IST to overlap with the US — check whether the ownership bar and hours work for you. <a class="mini" href="https://in.linkedin.com/jobs/view/junior-back-end-engineer-ai-wfh-at-qubrid-ai-4449074184" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>7</td>
+          <td>55</td>
+          <td>46</td>
+          <td>Leading</td>
+          <td>Backend Engineer Ev Platforms Noida</td>
+          <td>Delhi NCR (per JD)</td>
+          <td class="reason">Advertised as a 2-yr &#x27;Junior&#x27; backend role via Weekday (a real recruiter), but the posting&#x27;s employer identity is garbled (listed as &#x27;Leading&#x27; with a mismatched US website) and the stack is Node.js / Nest.js / TypeScript / Postgres — not her Java core. <a class="mini" href="https://www.shine.com/jobs/backend-engineer-ev-platforms-noida/leading/19383242" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>8</td>
+          <td>55</td>
+          <td>45</td>
+          <td>Sagar</td>
+          <td>Computer engineer with react and spring boot experience</td>
+          <td>Remote</td>
+          <td class="reason">React + Spring Boot is a direct stack match and it&#x27;s remote, but the &#x27;employer&#x27; is listed only as a personal name (&#x27;Sagar&#x27;) on an obscure board (rockerstop) with no company details — verify legitimacy before applying. <a class="mini" href="https://www.rockerstop.com/jobs/computer-engineer-with-react-and-spring-boot-experience/28275" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>9</td>
+          <td>55</td>
+          <td>48</td>
+          <td>AARGUS INFOTEC PRIVATE LIMITED</td>
+          <td>Software Engineers-Full Stack Web/ Mobile App</td>
+          <td>Noida</td>
+          <td class="reason">Generic full-stack web/mobile role at a small unverified Noida firm (AARGUS Infotec, no website). The &#x27;strong foundational CS&#x27; framing could suit an entry-level dev, but the company needs vetting first. <a class="mini" href="https://bebee.com/in/jobs/software-engineers-full-stack-web-mobile-app-aargus-infotec-private-limited-noida--fj-2294391803" target="_blank" rel="noopener">open ↗</a></td>
+        </tr><tr>
+          <td>10</td>
+          <td>52</td>
+          <td>88</td>
+          <td>Mondelēz International</td>
+          <td>Full Stack Engineer, MDS Treasury &amp; Asset Management</td>
+          <td>Remote</td>
+          <td class="reason">Mondelēz is a top global MNC and the role is remote, but it&#x27;s a finance-domain full-stack position (Treasury &amp; Asset Management) that almost certainly wants more experience — confirm the level before applying. <a class="mini" href="https://www.simplyhired.co.in/job/4TBvI3EDeEU1hhwsGN0P1g7DBQ3PCd58fmaCNuU6tB00QRJlK6MvEg" target="_blank" rel="noopener">open ↗</a></td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="r">🔴 Skipped (37)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Category</th><th>Skip Reason</th></tr></thead>
+        <tbody><tr>
+          <td>1</td>
+          <td>Fresher Jobs</td>
+          <td>Adobe Off Campus Recruitment | Software Development Engineer</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Stale 2023 Adobe listing (posted Oct 2023, Job ID R141629) reposted by a &#x27;pay-after-placement&#x27; training lead-gen (&#x27;Jobs4fresher&#x27;) — not a live Adobe application. Trust &lt;40.</td>
+        </tr><tr>
+          <td>2</td>
+          <td>FlexBoard</td>
+          <td>Software Developer (Backend reputed company)</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Employer identity scrubbed to &#x27;reputed company&#x27; throughout the JD and routed via a throwaway domain (liveblog365) — anonymized scraper repost. Trust &lt;40.</td>
+        </tr><tr>
+          <td>3</td>
+          <td>FlexBoard</td>
+          <td>Senior Software Engineer, Backend (reputed company Platform) -  Remote</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Anonymized &#x27;reputed company&#x27; repost on a liveblog365 junk domain, senior role, no real employer — trust &lt;40.</td>
+        </tr><tr>
+          <td>4</td>
+          <td>FlexBoard</td>
+          <td>Backend Software Developer Job reputed company IND_280524_2</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Anonymized &#x27;reputed company&#x27; scraper repost (liveblog365), no identifiable employer — trust &lt;40.</td>
+        </tr><tr>
+          <td>5</td>
+          <td>FlexBoard</td>
+          <td>Full Stack Developer (remote or hybrid)</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Anonymized &#x27;reputed company&#x27; repost (liveblog365), employer scrubbed — trust &lt;40.</td>
+        </tr><tr>
+          <td>6</td>
+          <td>FlexBoard</td>
+          <td>Full-Stack Engineer</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Anonymized &#x27;reputed company&#x27; repost (liveblog365), employer scrubbed — trust &lt;40.</td>
+        </tr><tr>
+          <td>7</td>
+          <td>FlexBoard</td>
+          <td>Full-Stack Developer (Senior)</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Anonymized &#x27;reputed company&#x27; repost (liveblog365) + .NET/C# senior role — trust &lt;40 and off-stack.</td>
+        </tr><tr>
+          <td>8</td>
+          <td>FlexBoard</td>
+          <td>Senior Full Stack Engineer, CX Tools</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">Anonymized &#x27;reputed company&#x27; repost (liveblog365), senior, employer scrubbed — trust &lt;40.</td>
+        </tr><tr>
+          <td>9</td>
+          <td>vacancy global pro</td>
+          <td>[Remote] Java Backend Developer</td>
+          <td><span class="badge badge-red">Fraud/Low-trust</span></td>
+          <td class="reason">&#x27;vacancy global pro&#x27; on a throwaway railway.app domain, employer scrubbed to &#x27;reputed company&#x27;, and states &#x27;candidates in USA&#x27; while cross-posted to India — fake/scraped aggregator. Trust &lt;40.</td>
+        </tr><tr>
+          <td>10</td>
+          <td>AlphaSense</td>
+          <td>Senior Software Engineer (AI Applications)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior Software Engineer + Rust — beyond level and off her stack.</td>
+        </tr><tr>
+          <td>11</td>
+          <td>Kake</td>
+          <td>Senior Backend Engineer (TypeScript/Python/C#) - Remote</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior Backend Engineer, C#/TypeScript — senior and off-stack.</td>
+        </tr><tr>
+          <td>12</td>
+          <td>Ekloud, Inc.</td>
+          <td>GBS AI FACTORY LEAD</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">&#x27;AI Factory Lead&#x27; — a leadership role.</td>
+        </tr><tr>
+          <td>13</td>
+          <td>Droisys</td>
+          <td>27 || AI and ML Engineer || Noida (India)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior AI/ML Engineer — senior and off-stack (ML).</td>
+        </tr><tr>
+          <td>14</td>
+          <td>EXL</td>
+          <td>Assistant Manager-Data Science-Gen AI Engineer (Noida)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Assistant Manager, Data Science / GenAI — managerial + data-science.</td>
+        </tr><tr>
+          <td>15</td>
+          <td>ReraTracker</td>
+          <td>Sr. Full Stack Engineer,(Python + Next.js) 4+ yrs</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Sr. Full Stack, 4+ yrs, Python + Next.js — senior and off-stack.</td>
+        </tr><tr>
+          <td>16</td>
+          <td>GlobalLogic</td>
+          <td>Forward-Deployed AI Engineer- APAC IRC300057</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Forward-Deployed AI Engineer, ~12 yrs — far too senior.</td>
+        </tr><tr>
+          <td>17</td>
+          <td>Sabrixa</td>
+          <td>AI Engineer (RAG &amp; Agents)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">AI Engineer (RAG/Agents), 5 yrs + SAP — senior and off-stack.</td>
+        </tr><tr>
+          <td>18</td>
+          <td>SalaahTech</td>
+          <td>Senior Full-Stack Developer</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior Full-Stack with Android/Flutter/iOS/Go — senior and mobile-heavy.</td>
+        </tr><tr>
+          <td>19</td>
+          <td>Mulya Technologies</td>
+          <td>Senior AI Scientist -Research Engineer, Applied AI ( at par with Director)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior AI Scientist at Director level — far too senior.</td>
+        </tr><tr>
+          <td>20</td>
+          <td>HCLTech</td>
+          <td>Senior Technical Lead - Java, Spring Boot, AWS, Docker</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior Technical Lead, 7 yrs — great Java/Spring/AWS stack, but a lead role.</td>
+        </tr><tr>
+          <td>21</td>
+          <td>Prasha Consultancy Services Private Limited</td>
+          <td>Agentic AI Architect (Platform Engineering, Java, Spring Boot)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Agentic AI Architect, ~11 yrs — architect level.</td>
+        </tr><tr>
+          <td>22</td>
+          <td>Credgenics</td>
+          <td>Backend -Tech Lead</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Backend Tech Lead — a lead role (Credgenics is a legit fintech, but too senior).</td>
+        </tr><tr>
+          <td>23</td>
+          <td>IAT Networks</td>
+          <td>Fullstack Lead (Java | React | Angular | AWS) (Gurugram)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Fullstack Lead (Java/React/Angular/AWS), 10–14 yrs — a lead role, far beyond level.</td>
+        </tr><tr>
+          <td>24</td>
+          <td>Nagarro</td>
+          <td>Associate Distinguished Engineer (Enterprise Architect - Cloud, GenAI)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Associate Distinguished Engineer / Enterprise Architect, 15–19 yrs — far too senior.</td>
+        </tr><tr>
+          <td>25</td>
+          <td>7x Technologies</td>
+          <td>React / Next Js Frontend Developer New Delhi (India)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">React/Next Frontend Developer, 3 yrs, senior — frontend-only and senior.</td>
+        </tr><tr>
+          <td>26</td>
+          <td>Talent Toppers</td>
+          <td>Architect-Python FullStack (React)</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Python FullStack Architect — architect level.</td>
+        </tr><tr>
+          <td>27</td>
+          <td>Squash Apps</td>
+          <td>Senior Java backend with Azure cloud and SQL</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Senior Java backend + Azure — senior.</td>
+        </tr><tr>
+          <td>28</td>
+          <td>AVP VIGILANT TECHNOLOGY PVT LTD</td>
+          <td>Release Engineer</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Release Engineer, 5 yrs — DevOps/release, not application development.</td>
+        </tr><tr>
+          <td>29</td>
+          <td>Important Group</td>
+          <td>Cloud Developer Hiring Immediately Gurugram</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">Cloud Developer, 5–8 yrs (for Gemini Solutions) — senior cloud/DBA support.</td>
+        </tr><tr>
+          <td>30</td>
+          <td>Accenture India Private Limited</td>
+          <td>AWS AI &amp; LLM Software Engineer</td>
+          <td><span class="badge badge-gray">Experience</span></td>
+          <td class="reason">AWS AI &amp; LLM Software Engineer, 5 yrs — senior + AI/LLM focus.</td>
+        </tr><tr>
+          <td>31</td>
+          <td>Theody Svadhyay Trailblazer</td>
+          <td>Full Stack Development Trainer</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">Full Stack Development Trainer — a teaching role, not a developer position.</td>
+        </tr><tr>
+          <td>32</td>
+          <td>Softcrayons IT Education</td>
+          <td>AI/ML Engineer Computer Vision</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">AI/ML Computer Vision at a training institute — off her backend stack.</td>
+        </tr><tr>
+          <td>33</td>
+          <td>OEL Private limited</td>
+          <td>Android App Engineer</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">Android App Engineer — mobile/Kotlin, off her Java-backend stack.</td>
+        </tr><tr>
+          <td>34</td>
+          <td>Mindrift</td>
+          <td>Freelance Genai Developer - Prompt Engineering &amp; Data Workflows (New Delhi)</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">Freelance GenAI prompt-engineering / data workflows — freelance data-labeling, off-stack.</td>
+        </tr><tr>
+          <td>35</td>
+          <td>Entertainment and Media Cognizant</td>
+          <td>MERN Stack Trainer</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">MERN Stack Trainer in Amritsar — training role and out of region.</td>
+        </tr><tr>
+          <td>36</td>
+          <td>Royal Cyber</td>
+          <td>Dot Net Backend Developer</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">.NET Backend Developer, Bengaluru — off-stack and out of region.</td>
+        </tr><tr>
+          <td>37</td>
+          <td>Evolving Systems</td>
+          <td>iOS Systems &amp; Full-Stack Engineer (Python expert as backend development language)</td>
+          <td><span class="badge badge-gray">Skill mismatch</span></td>
+          <td class="reason">iOS + Python full-stack — mobile/Python, off her Java stack.</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>⭐ Top 5 Recommendations</h2>
+    
+        <div class="rec rec-green">
+          <div class="rec-head">
+            <span class="rec-num">1</span>
+            <div>
+              <div class="rec-title">BCforward — Full Stack Developer(Java/ Kotlin)-React-GCP (Gurugram)</div>
+              <div class="rec-meta">Match 85 · Trust 80 · Gurugram · 8–13 LPA (est) · <a href="https://www.kitjob.in/job/307982847/full-stack-developer-java-kotlin-react-gcp-gurugram" target="_blank" rel="noopener">Open ↗</a></div>
+            </div>
+          </div>
+          <p>Cleanest fit of the day. Asks 2–5 yrs with React + Java/Kotlin + Spring Boot + REST + JUnit + Git — six of her core skills line up almost exactly — and it explicitly wants immediate / 15-day joiners, which is her exact situation. BCforward is a large, established global staffing firm (real site, 550+ Glassdoor reviews). Only gaps are Kotlin/GCP/Postgres, all learnable.</p>
+        </div>
+        <div class="rec rec-green">
+          <div class="rec-head">
+            <span class="rec-num">2</span>
+            <div>
+              <div class="rec-title">United Airlines — Full Stack Developer II ( Java + React)</div>
+              <div class="rec-meta">Match 80 · Trust 92 · Gurugram · 14–22 LPA (est) · <a href="https://careers.united.com/us/en/job/GGN00002551/Full-Stack-Developer-II-Java-React" target="_blank" rel="noopener">Open ↗</a></div>
+            </div>
+          </div>
+          <p>Best-quality employer on the board. United&#x27;s Customer Technology Platform builds real-time booking / payment / reservation middleware in Java + React on cloud — an almost one-to-one mirror of Bhumi&#x27;s Paytm QR-microservices and Distributed Payment Gateway work. &#x27;Developer II&#x27; is a stretch (likely 3+ yrs) but the domain alignment is unusually strong; worth a confident application.</p>
+        </div>
+        <div class="rec rec-green">
+          <div class="rec-head">
+            <span class="rec-num">3</span>
+            <div>
+              <div class="rec-title">Euphoric Thought Technologies Pvt Ltd — Backend Developer(Node.js/Python)</div>
+              <div class="rec-meta">Match 72 · Trust 68 · Gurugram · 5.3–16.3 LPA (listed) · <a href="https://www.shine.com/jobs/backend-developernodejs-python/euphoric-thought-technologies-pvt-ltd/19383208" target="_blank" rel="noopener">Open ↗</a></div>
+            </div>
+          </div>
+          <p>Solid backend match — Node.js, MySQL/MongoDB, REST, AWS, Docker, Git and heavy DSA emphasis all map to her resume, and salary is posted (₹5.3–16.3 L). Euphoric Thought is a legitimate ~46-person product-engineering firm. It lists 4 yrs Node/Python as &#x27;preferred&#x27;, so it&#x27;s a stretch on paper, but &#x27;preferred&#x27; is not a hard gate.</p>
+        </div>
+        <div class="rec rec-yellow">
+          <div class="rec-head">
+            <span class="rec-num">4</span>
+            <div>
+              <div class="rec-title">TechBliss Digital Solution Pvt. Ltd. — Job Opening  Java Fullstack Developer (Java, microservices, react, AI)</div>
+              <div class="rec-meta">Match 82 · Trust 58 · Gurugram · 7–12 LPA (est) · <a href="https://in.linkedin.com/jobs/view/job-opening-java-fullstack-developer-java-microservices-react-ai-at-techbliss-digital-solution-pvt-ltd-4448998443" target="_blank" rel="noopener">Open ↗</a></div>
+            </div>
+          </div>
+          <p>On skills this is the strongest match of the day — Java + microservices + React + AI is her exact stack including her AI-alerts project. Held back to review because the employer is a small Gurgaon staffing firm (1–50 employees, 193 followers, no product website), so the actual client/role is unclear. Verify who you&#x27;d really be working for before applying.</p>
+        </div>
+        <div class="rec rec-yellow">
+          <div class="rec-head">
+            <span class="rec-num">5</span>
+            <div>
+              <div class="rec-title">Jobgether — Java/ Spring boot Developer</div>
+              <div class="rec-meta">Match 66 · Trust 62 · Remote · 8–14 LPA (est) · <a href="https://bebee.com/in/jobs/java-spring-boot-developer-jobgether-jamai--fj-2295923239" target="_blank" rel="noopener">Open ↗</a></div>
+            </div>
+          </div>
+          <p>Clean Java + Spring Boot backend role, and remote. Held to review because Jobgether posts &#x27;on behalf of a partner company&#x27; and masks both the real employer and the experience band — confirm the hiring company and seniority before investing time.</p>
+        </div>
+  </section>
+
+  <section>
+    <h2>📈 Weekly Trend — Qualified per Day</h2>
+    <div class="card">
+        <div class="bar-row">
+          <div class="bar-label">Aug 05</div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%">1</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Aug 06</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%">3</div></div>
+        </div></div>
+  </section>
+
+  <section>
+    <h2 class="g">✉️ Cover Letters</h2>
+    
+      <div class="cover-box">
+        <div class="cover-head">
+          <strong>BCforward</strong> — Full Stack Developer(Java/ Kotlin)-React-GCP (Gurugram)
+          <button class="btn btn-copy" onclick="copyText('cl_33', this)">COPY</button>
+        </div>
+        <pre id="pre_cl_33">Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer (Java/Kotlin, React, GCP) role at BCforward, where my Java and React experience maps directly to what your team is building.
+
+Over the past 1.5 years I have shipped production backend services in Java and Spring Boot, designing and maintaining REST APIs across microservices — including a distributed payment gateway with 30 REST endpoints spanning Order, Payment, Merchant, and Vault services. On the front end I build with React, and I test rigorously using JUnit and Mockito, with everything version-controlled and reviewed in Git. That combination of Spring Boot APIs, a React UI, and disciplined testing is precisely the full-stack profile your role describes.
+
+Because my notice period is zero days, I can start immediately and meet your &quot;immediate to 15-day joiner&quot; requirement without any transition delay. I pick up new tools quickly and would be glad to ramp on Kotlin, GCP, and PostgreSQL as I contribute to your web applications from day one.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+      </div>
+      <div class="cover-box">
+        <div class="cover-head">
+          <strong>United Airlines</strong> — Full Stack Developer II ( Java + React)
+          <button class="btn btn-copy" onclick="copyText('cl_20', this)">COPY</button>
+        </div>
+        <pre id="pre_cl_20">Dear Hiring Manager,
+
+I am excited to apply for the Full Stack Developer II (Java + React) role on United Airlines&#x27; Customer Technology Platform team, because building real-time booking, payment, and reservation systems is exactly the work I have been doing.
+
+At Paytm I developed and optimized microservices managing the QR-code lifecycle for merchants, powering real-time transaction notifications — the same class of high-throughput, mission-critical messaging your Baggage, Flight Operations, and Check-in systems demand. I then architected a distributed payment gateway of 30 Java/Spring Boot REST APIs across four services, applying system-design principles for scalability and fault tolerance, and I have hands-on experience with Kafka, Redis caching, and AWS (EC2, S3, Lambda) for real-time data pipelines. On the client side I build interfaces in React.
+
+This blend of real-time middleware, Java backend depth, and AWS cloud delivery lines up closely with your Data Enablement team&#x27;s charter. As an immediate joiner, I can begin contributing to these operational systems right away.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+      </div>
+  </section>
+
+</div>
+<footer>Generated 2026-08-06 · 50 unique live postings evaluated · Not affiliated with LinkedIn. Verify every posting before sharing personal data.</footer>
+
+<script>
+  var COVERS = {"cl_33": "Dear Hiring Manager,\n\nI am writing to apply for the Full Stack Developer (Java/Kotlin, React, GCP) role at BCforward, where my Java and React experience maps directly to what your team is building.\n\nOver the past 1.5 years I have shipped production backend services in Java and Spring Boot, designing and maintaining REST APIs across microservices — including a distributed payment gateway with 30 REST endpoints spanning Order, Payment, Merchant, and Vault services. On the front end I build with React, and I test rigorously using JUnit and Mockito, with everything version-controlled and reviewed in Git. That combination of Spring Boot APIs, a React UI, and disciplined testing is precisely the full-stack profile your role describes.\n\nBecause my notice period is zero days, I can start immediately and meet your \"immediate to 15-day joiner\" requirement without any transition delay. I pick up new tools quickly and would be glad to ramp on Kotlin, GCP, and PostgreSQL as I contribute to your web applications from day one.\n\nBest regards,\nBhumi Bhatt\n", "cl_20": "Dear Hiring Manager,\n\nI am excited to apply for the Full Stack Developer II (Java + React) role on United Airlines' Customer Technology Platform team, because building real-time booking, payment, and reservation systems is exactly the work I have been doing.\n\nAt Paytm I developed and optimized microservices managing the QR-code lifecycle for merchants, powering real-time transaction notifications — the same class of high-throughput, mission-critical messaging your Baggage, Flight Operations, and Check-in systems demand. I then architected a distributed payment gateway of 30 Java/Spring Boot REST APIs across four services, applying system-design principles for scalability and fault tolerance, and I have hands-on experience with Kafka, Redis caching, and AWS (EC2, S3, Lambda) for real-time data pipelines. On the client side I build interfaces in React.\n\nThis blend of real-time middleware, Java backend depth, and AWS cloud delivery lines up closely with your Data Enablement team's charter. As an immediate joiner, I can begin contributing to these operational systems right away.\n\nBest regards,\nBhumi Bhatt\n"};
+  var QUAL_URLS = ["https://www.kitjob.in/job/307982847/full-stack-developer-java-kotlin-react-gcp-gurugram", "https://careers.united.com/us/en/job/GGN00002551/Full-Stack-Developer-II-Java-React", "https://www.shine.com/jobs/backend-developernodejs-python/euphoric-thought-technologies-pvt-ltd/19383208"];
+  function openAll() {
+    if (!QUAL_URLS.length) return;
+    var blocked = 0;
+    QUAL_URLS.forEach(function(u){ var w = window.open(u,'_blank'); if(!w) blocked++; });
+    if (blocked) alert('Your browser blocked '+blocked+' pop-up(s). Please allow pop-ups for this page and click again.');
+  }
+  function copyText(key, btn) {
+    var txt = COVERS[key];
+    if (!txt) return;
+    var done = function(){ var o=btn.textContent; btn.textContent='Copied ✓'; setTimeout(function(){btn.textContent=o;},1400); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt); done(); });
+    } else { fallback(txt); done(); }
+  }
+  function fallback(txt) {
+    var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta);
+    ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta);
+  }
+  if (!QUAL_URLS.length) { var b=document.getElementById('openAllBtn'); if(b){b.disabled=true; b.textContent='No qualified jobs today';} }
+</script>
+</body>
+</html>

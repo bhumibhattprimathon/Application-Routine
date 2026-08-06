@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer (Java/Kotlin, React, GCP) role at BCforward, where my Java and React experience maps directly to what your team is building.
+
+Over the past 1.5 years I have shipped production backend services in Java and Spring Boot, designing and maintaining REST APIs across microservices — including a distributed payment gateway with 30 REST endpoints spanning Order, Payment, Merchant, and Vault services. On the front end I build with React, and I test rigorously using JUnit and Mockito, with everything version-controlled and reviewed in Git. That combination of Spring Boot APIs, a React UI, and disciplined testing is precisely the full-stack profile your role describes.
+
+Because my notice period is zero days, I can start immediately and meet your "immediate to 15-day joiner" requirement without any transition delay. I pick up new tools quickly and would be glad to ramp on Kotlin, GCP, and PostgreSQL as I contribute to your web applications from day one.
+
+Best regards,
+Bhumi Bhatt
