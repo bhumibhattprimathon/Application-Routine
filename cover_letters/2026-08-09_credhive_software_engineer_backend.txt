@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd love to join CredHive as a Backend Software Engineer, helping build the AI-driven data and credit-risk systems you're creating for Indian businesses. My 1.5 years of backend work center on exactly the responsibilities you list: designing RESTful APIs, modeling data across SQL (MySQL) and NoSQL (MongoDB) stores, and building data-processing pipelines. At Primathon I built backend syncing automation across seven merchant systems and integrated AWS Timestream, S3, and Lambda for real-time data ingestion - direct experience with the large-dataset pipelines your role emphasizes. I practice test-driven development with JUnit and Mockito and automate delivery through CI/CD, and my 5-star Java rating and 250+ solved DSA problems reflect the strong fundamentals your team from Apple and Amazon values. While my core has been Java and Node.js, I pick up new stacks quickly and am eager to deepen my Python for your platform. As an immediate joiner, I can contribute from day one. I'd be glad to discuss how I can help.
+
+Best regards,
+Bhumi Bhatt

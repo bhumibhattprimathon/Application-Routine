@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+The Software Engineer role at 30 Sundays stands out to me - building consumer travel products and internal tools on a backend I can take ownership of. My experience aligns closely with your Node.js focus: at CodeAlpha I built order and payment microservices with REST APIs, and at Primathon I now design admin APIs and backend automation, working across MySQL and MongoDB for both relational and document data. I've integrated third-party services and AWS components (Lambda, S3, Timestream) into production pipelines, and I use AI coding tools daily to move faster. My Distributed Payment Gateway project - 30 REST APIs across four services with system-design principles for scalability and fault tolerance - shows I can reason about the architecture patterns this role asks for. With a 9.3 CGPA, a 5-star Java rating, and 250+ DSA problems solved, I bring strong fundamentals and a fast learning curve. As a 0-day-notice immediate joiner, I'm ready to ship from the start. I'd welcome the opportunity to grow into this backend role.
+
+Best regards,
+Bhumi Bhatt

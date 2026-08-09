@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Backend Engineer position at Nat Habit and help scale the systems behind your fresh personal-care business. Much of your stack is already my daily toolkit: I build REST APIs and data-delivery services, manage SQL databases in MySQL, containerize applications with Docker, and deploy on AWS using EC2, Lambda, and S3 - the exact deployment surface your role describes. At Primathon I engineered backend automation across seven merchant systems and cut manual operational effort by 70% through automated analytics workflows, and my payment-gateway project demonstrates performance optimization on large-scale data systems. I write unit tests and maintain CI/CD pipelines, and my 250+ solved DSA problems and 5-star Java rating reflect solid engineering fundamentals. Your role is Python-first with Django and FastAPI; while my production work has been in Java and Node.js, I ramp on new frameworks quickly and am genuinely excited to build in Python here. As an immediate joiner with zero notice period, I can start contributing right away.
+
+Best regards,
+Bhumi Bhatt

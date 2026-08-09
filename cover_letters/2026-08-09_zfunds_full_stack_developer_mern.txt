@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Developer - MERN Stack role at ZFunds, where I can help modernize a mutual-fund distribution platform trusted by 12,500+ distributors. My 1.5 years building production systems map directly to your stack: I develop React.js interfaces backed by Node.js and Express.js services, design REST APIs, and model data in MongoDB and MySQL - the exact MERN foundation this role requires. At Primathon I engineered admin APIs and backend automation across seven merchant systems, and during my Paytm internship I optimized microservices powering real-time transaction flows, so I'm comfortable with the reliability demands of fintech integrations like BSE StAR MF and KFintech. I write tested, reviewable code with Git-based workflows and can ship features independently. As an immediate joiner with a 0-day notice period, I can start contributing to your product roadmap right away and ramp quickly alongside your senior engineers. I'd welcome the chance to bring my backend depth and full-stack range to ZFunds.
+
+Best regards,
+Bhumi Bhatt

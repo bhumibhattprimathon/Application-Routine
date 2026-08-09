@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm writing to express my interest in the Software Development Engineer role with Amazon's DaS FinTech team. Backend and financial systems are where I've spent my early career: at Paytm I developed and optimized microservices managing the QR-code lifecycle for merchants, improving service reliability and performance by 67%, and at Primathon I build admin APIs and real-time data pipelines on AWS Timestream, S3, and Lambda. My core language is Java, matching your primary stack, and my Distributed Payment Gateway project - 30 REST APIs across Order, Payment, Merchant, and Vault services - reflects the distributed-systems and object-oriented design this role demands. With 250+ DSA problems solved, a 5-star Java rating, and an AWS Developer - Associate certification, I bring the technical fundamentals Amazon prioritizes. I recognize this role leans senior; I'm applying as a driven engineer eager to grow into its scope, and as a 0-day-notice immediate joiner I can commit fully from day one. I'd be grateful for the chance to be considered.
+
+Best regards,
+Bhumi Bhatt
