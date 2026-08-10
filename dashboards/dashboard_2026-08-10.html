@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-10</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f8fafc;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;}
+  header{background:#0f172a;color:#fff;padding:28px 24px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px;}
+  header p{margin:0;color:#94a3b8;font-size:.9rem;}
+  .wrap{max-width:1140px;margin:0 auto;padding:24px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+  .card .n{font-size:2rem;font-weight:700;}
+  .card .l{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+  .card.g .n{color:var(--green);} .card.y .n{color:var(--yellow);} .card.r .n{color:var(--red);}
+  .meta{display:flex;flex-wrap:wrap;gap:20px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:22px;font-size:.92rem;}
+  .meta b{color:var(--ink);}
+  .openall{display:block;width:100%;border:0;border-radius:12px;padding:18px;font-size:1.15rem;font-weight:700;color:#fff;background:linear-gradient(90deg,#16a34a,#22c55e);cursor:pointer;margin-bottom:8px;}
+  .openall:hover{filter:brightness(1.05);}
+  .hint{font-size:.8rem;color:var(--muted);margin:0 0 26px;text-align:center;}
+  h2{font-size:1.15rem;margin:30px 0 10px;padding-left:12px;border-left:5px solid var(--muted);}
+  h2.g{border-color:var(--green);} h2.y{border-color:var(--yellow);} h2.r{border-color:var(--red);}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.88rem;}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f1f5f9;font-size:.75rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+  tr:last-child td{border-bottom:0;}
+  .tablewrap{overflow-x:auto;}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-weight:700;font-size:.8rem;}
+  .pill.g{background:#dcfce7;color:#166534;} .pill.y{background:#fef9c3;color:#854d0e;} .pill.r{background:#fee2e2;color:#991b1b;}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 11px;font-size:.8rem;cursor:pointer;text-decoration:none;color:var(--ink);margin:2px 2px 0 0;}
+  .btn.p{background:#0f172a;color:#fff;border-color:#0f172a;}
+  .btn:hover{filter:brightness(.97);}
+  .rec{background:#fff;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;margin-bottom:12px;}
+  .rec h3{margin:0 0 4px;font-size:1rem;} .rec .s{font-size:.8rem;color:var(--muted);margin-bottom:6px;} .rec p{margin:0;font-size:.9rem;}
+  .rec.stretch{border-left-color:var(--yellow);}
+  .trend{display:flex;align-items:flex-end;gap:26px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;height:200px;}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:0 0 70px;height:100%;}
+  .bar .fill{width:46px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:6px 6px 0 0;min-height:4px;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;font-size:.8rem;padding-top:4px;}
+  .bar .d{margin-top:8px;font-size:.78rem;color:var(--muted);}
+  .cl{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px;}
+  .cl h3{margin:0 0 8px;font-size:.98rem;}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.88rem;margin:0 0 10px;color:#1e293b;}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:30px 12px;}
+  .hidden{display:none;}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-10</h1>
+  <p>Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · Immediate joiner</p>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">26</div><div class="l">Jobs Found</div></div>
+    <div class="card g"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">9</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">16</div><div class="l">Skipped</div></div>
+    <div class="card r"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+
+  <div class="meta">
+    <span>Avg match (qualified): <b>76</b></span>
+    <span>Avg match (all scored): <b>55.6</b></span>
+    <span>Avg salary est. (qualified): <b>12–24 LPA</b></span>
+    <span>Source: <b>LinkedIn public jobs API, posted &lt;24h</b></span>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB</button>
+  <p class="hint">If nothing opens, allow pop-ups for this page. Each qualified job also has its own “Open Job” button below.</p>
+
+  <h2 class="g">✅ Qualified — Ready to Apply</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="pill g">76</span><br><small style="color:#854d0e">stretch</small></td>
+        <td>70</td>
+        <td>HuntingCube <small>(recruiter)</small></td>
+        <td>Senior Backend Engineer <br><small>Node.js · Express · REST · AWS · Docker · AI/LLM</small></td>
+        <td>Gurgaon</td>
+        <td>12–24 LPA</td>
+        <td>backend</td>
+        <td>External</td>
+        <td>
+          <a class="btn p" href="https://in.linkedin.com/jobs/view/senior-backend-engineer-at-huntingcube-4451336801" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn" onclick="copyCL('cl-huntingcube')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="hint" style="text-align:left;margin-top:8px">⚠️ <b>Stretch pick:</b> titled “Senior” (3–5 yr) while Bhumi has 1.5 yr — but the required stack is a near-exact match and it’s the strongest fit in today’s batch. Worth a quick application as an immediate joiner.</p>
+
+  <h2 class="y">🟡 Review — Worth a Look (verify before applying)</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>58</td><td>90</td><td>AlgoSec</td><td>Cloud Automation Developer (QA)</td><td>Reputable security firm; QA automation (Java+Selenium, 3+ yr) overlaps her Java/Selenium/AWS, but not backend-dev and slightly senior.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/cloud-automation-developer-india-at-algosec-4451377558" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>2</td><td>56</td><td>92</td><td>NTT DATA</td><td>MuleSoft Developer</td><td>Top-trust employer, Java-adjacent integration role — but centered on MuleSoft/Anypoint, not on her resume.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/mulesoft-developer-at-ntt-data-north-america-4423553589" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>3</td><td>56</td><td>90</td><td>AlgoSec</td><td>QA Automation Developer, India</td><td>Companion QA posting; same Java/Selenium overlap, same 3+ yr QA focus.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/qa-automation-developer-india-at-algosec-4451381405" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>4</td><td>54</td><td>70</td><td>HuntingCube</td><td>Frontend Developer</td><td>React overlaps, but frontend-only; her strength is backend/full-stack.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/frontend-developer-at-huntingcube-4451350156" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>5</td><td>53</td><td>70</td><td>HuntingCube</td><td>Junior Automation QA Tester</td><td>Junior level fits her experience and uses her Selenium/Playwright, but it's QA, not backend dev.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/junior-automation-qa-tester-at-huntingcube-4451342589" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>6</td><td>52</td><td>45</td><td>StarZen</td><td>Frontend Developer</td><td>Frontend-only; small / low-footprint company (trust ~45). Verify before applying.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/frontend-developer-at-starzen-4451331667" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>7</td><td>51</td><td>48</td><td>Viraaj HR Solutions</td><td>Azure Data Engineer</td><td>Staffing agency (trust ~48). Azure/ADF/Databricks stack is off her AWS/Java focus; only SQL overlaps.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/azure-data-engineer-at-viraaj-hr-solutions-private-limited-4450937470" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>8</td><td>50</td><td>50</td><td>iocombats</td><td>Full Stack Developer Intern (React &amp; Node)</td><td>React+Node fit, but an INTERNSHIP — a downgrade from her current 1.5-yr / 4 LPA position.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/full-stack-developer-intern-react-node-js-at-iocombats-4451357743" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>9</td><td>50</td><td>42</td><td>Web Jeevan</td><td>Workflow Automation Specialist</td><td>Automation aligns with her Primathon work, but reads as low-code at a small agency (trust ~42). Verify scope/pay.</td><td><a class="btn" href="https://in.linkedin.com/jobs/view/workflow-automation-specialist-at-web-jeevan-4451110070" target="_blank" rel="noopener">Open</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 class="r">🔴 Skipped</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Cyurae</td><td>Back End Developer (actually Senior)</td><td>Experience + Trust: 4–8 yr Python (off her Java stack), email-only apply, <b>no verifiable website/LinkedIn footprint</b> (trust ~32).</td></tr>
+      <tr><td>2</td><td>Expert Executive Recruiters</td><td>Java Software Engineer</td><td>Experience: requires 5+ yr Java (mid-senior); client undisclosed.</td></tr>
+      <tr><td>3</td><td>Tata Consultancy Services</td><td>Lead Java Developer</td><td>Experience: 'Lead' / team-lead seniority.</td></tr>
+      <tr><td>4</td><td>Cog Culture</td><td>Technical Lead</td><td>Experience: senior lead at a branding agency; stack likely CMS/web.</td></tr>
+      <tr><td>5</td><td>Macquarie Group</td><td>Executive/AM – Application Engineer</td><td>Experience: 5+ yr, data/ETL engineering (Airflow, Big Data) — off her backend core.</td></tr>
+      <tr><td>6</td><td>Tide</td><td>Engineering Manager, India</td><td>Experience: people-management role, far beyond entry level.</td></tr>
+      <tr><td>7</td><td>Bain &amp; Company</td><td>Lead, Data Scientist</td><td>Experience + Skill: 'Lead' data-science role — senior and off-stack.</td></tr>
+      <tr><td>8</td><td>EnCharge AI</td><td>Senior AI Scientist (Director-level)</td><td>Experience: 'at par with Director' AI research seniority.</td></tr>
+      <tr><td>9</td><td>INL International Technology</td><td>C++ Software Engineer</td><td>Skill/location: C++ systems role, Chinese-language posting, non-NCR (Dadri).</td></tr>
+      <tr><td>10</td><td>Air Liquide</td><td>Aveva Technical Solution Expert</td><td>Skill: AVEVA industrial-process software — unrelated to her dev stack.</td></tr>
+      <tr><td>11</td><td>Expert Executive Recruiters</td><td>QA Automation Developer</td><td>Role: QA automation via recruiter, undisclosed client; her target is backend dev.</td></tr>
+      <tr><td>12</td><td>iocombats</td><td>Founding Frontend Engineering Intern</td><td>Level + role: frontend internship, below her experience.</td></tr>
+      <tr><td>13</td><td>HT Digital Streams</td><td>Data Scientist</td><td>Skill: data-science / ML modeling — off her engineering stack.</td></tr>
+      <tr><td>14</td><td>Clinton Health Access Initiative</td><td>Applied AI Associate (Public Health)</td><td>Skill/domain: public-health analytics at an NGO — not software engineering.</td></tr>
+      <tr><td>15</td><td>Pragyan Impact Solutions</td><td>AI Video Producer</td><td>Role: AI video/content production — not an engineering role.</td></tr>
+      <tr><td>16</td><td>R Systems</td><td>Data Engineer</td><td>Skill: Azure BI (SQL/ADF/Databricks/Power BI) + healthcare — only SQL overlaps.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>⭐ Top Recommendations</h2>
+  <div class="rec stretch">
+    <h3>1. HuntingCube — Senior Backend Engineer <span class="pill g">76</span></h3>
+    <div class="s">Gurgaon · 12–24 LPA · backend resume · <b>stretch (Senior / 3–5 yr)</b></div>
+    <p>The clear #1 today. The required stack — Node.js, Express, REST APIs, microservices, MongoDB/MySQL, AWS, Docker, Git/CI-CD, and system design — maps almost line-for-line to Bhumi's resume, and the AI/LLM-integration angle matches her AI-driven alerts on the Distributed Payment Gateway. The only gap is years (1.5 vs 3–5). As an immediate joiner with strong DSA (5-Star Java, 250+ problems) and real microservices experience at Primathon &amp; Paytm, this is a stretch worth taking — cover letter is ready.</p>
+  </div>
+  <div class="rec">
+    <h3>2. AlgoSec — Cloud/QA Automation Developer <span class="pill y">58</span></h3>
+    <div class="s">Gurgaon · reputable security product firm (trust ~90)</div>
+    <p>A high-trust product company. The role is QA automation (Java + Selenium in CI/CD across AWS/Azure/GCP) rather than backend dev, but it leans directly on her Java, Selenium, Playwright and AWS experience. A solid fallback if she's open to an SDET/automation track at a strong brand.</p>
+  </div>
+  <div class="rec">
+    <h3>3. NTT DATA — MuleSoft Developer <span class="pill y">56</span></h3>
+    <div class="s">Delhi · top-trust global IT (trust ~92)</div>
+    <p>Enterprise integration on MuleSoft/Anypoint — Java-adjacent and at a very stable employer. She'd need to pick up MuleSoft, but her Java + REST + microservices base transfers well. Verify the seniority level before applying.</p>
+  </div>
+  <div class="rec">
+    <h3>4. HuntingCube — Junior Automation QA Tester <span class="pill y">53</span></h3>
+    <div class="s">Gurgaon · junior level fits her experience</div>
+    <p>The rare posting today that's actually pitched at 0–2 yr. It's QA rather than backend, but her Selenium/Playwright + JUnit/Mockito background fits cleanly, and the same recruiter also has the Senior Backend role — worth a conversation to see if a dev track is possible.</p>
+  </div>
+  <div class="rec">
+    <h3>5. iocombats — Full Stack Developer (React &amp; Node) <span class="pill y">50</span></h3>
+    <div class="s">Delhi · full-stack stack fit, but internship</div>
+    <p>The stack (React + Node/Express) is a genuine full-stack match. The catch is it's an internship — a step down from her current role — so only worth it if the specific team/product is compelling. Listed here for completeness of the full-stack options.</p>
+  </div>
+
+  <h2>📈 Weekly Trend — Qualified per Day</h2>
+  <div class="trend">
+    <div class="bar"><div class="fill" style="height:40%">1</div><div class="d">Aug 05</div></div>
+    <div class="bar"><div class="fill" style="height:40%">1</div><div class="d">Aug 10</div></div>
+  </div>
+  <p class="hint" style="text-align:left">Only two scan days on record so far (Aug 05 &amp; Aug 10), each yielding 1 clean/stretch qualifier. Entry-level backend/full-stack roles in the NCR 24-hour window remain scarce; most postings are senior/lead, QA, or data roles.</p>
+
+  <h2>✉️ Cover Letters</h2>
+  <div class="cl">
+    <h3>HuntingCube — Senior Backend Engineer</h3>
+    <pre id="cl-huntingcube">Dear Hiring Manager,
+
+I'm excited to apply for the Senior Backend Engineer role at HuntingCube, where building scalable Node.js services with AI/LLM integrations maps directly to the backend work I do every day.
+
+At Primathon I engineer production backend automation across seven merchant systems, and on my Distributed Payment Gateway project I built 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) with AI-driven daily alerts for transaction insights. That means designing Express services, optimizing REST APIs, and wiring in LLM-powered features is squarely in my wheelhouse. My stack aligns tightly with your requirements — Node.js and JavaScript, REST APIs and microservices, MySQL and MongoDB, AWS (EC2, S3, Lambda), Docker, and Git/CI/CD — reinforced by a 5-Star Java rating and 250+ DSA problems for the system-design fundamentals you value.
+
+As an immediate joiner with a zero-day notice period, I can start contributing to your backend reliability and AI-integration goals right away, and I ramp quickly on adjacent tools like NestJS and LangChain.
+
+Best regards,
+Bhumi Bhatt</pre>
+    <button class="btn p" onclick="copyCL('cl-huntingcube')">COPY</button>
+  </div>
+
+</div>
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-08-10 · 26 jobs screened · data from LinkedIn public postings (&lt;24h)</footer>
+
+<script>
+  var qualifiedUrls = [
+    "https://in.linkedin.com/jobs/view/senior-backend-engineer-at-huntingcube-4451336801"
+  ];
+  function openAll(){
+    if(!qualifiedUrls.length){ alert("No qualified jobs today."); return; }
+    qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText;
+    function done(){ alert("Cover letter copied to clipboard."); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text, done); });
+    } else { fallback(text, done); }
+  }
+  function fallback(text, cb){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); if(cb) cb();
+  }
+</script>
+</body>
+</html>

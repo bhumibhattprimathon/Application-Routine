@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Senior Backend Engineer role at HuntingCube, where building scalable Node.js services with AI/LLM integrations maps directly to the backend work I do every day.
+
+At Primathon I engineer production backend automation across seven merchant systems, and on my Distributed Payment Gateway project I built 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) with AI-driven daily alerts for transaction insights. That means designing Express services, optimizing REST APIs, and wiring in LLM-powered features is squarely in my wheelhouse. My stack aligns tightly with your requirements — Node.js and JavaScript, REST APIs and microservices, MySQL and MongoDB, AWS (EC2, S3, Lambda), Docker, and Git/CI/CD — reinforced by a 5-Star Java rating and 250+ DSA problems for the system-design fundamentals you value.
+
+As an immediate joiner with a zero-day notice period, I can start contributing to your backend reliability and AI-integration goals right away, and I ramp quickly on adjacent tools like NestJS and LangChain.
+
+Best regards,
+Bhumi Bhatt

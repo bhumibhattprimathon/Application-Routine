@@ -1,15 +1,18 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-10",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "data_source": "LinkedIn public guest jobs API (f_TPR=r86400 = posted <24h, entry-level filter), keywords across backend/Java/Spring/full-stack/Node/SWE/AI-ML, locations Delhi NCR + Gurugram + Noida",
+  "resume_source": "repo resumes/resume_master.pdf",
+  "rapidapi_jsearch": "unavailable this run — RapidAPI key returned 404 'endpoint /search does not exist' (JSearch subscription lapsed); pivoted to LinkedIn public jobs API",
+  "ntfy": "disabled per prior user instruction; reported via routine push/email channel",
+  "jobs_found": 26,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 9,
+  "jobs_skipped": 16,
+  "fraud_detected": 0,
+  "avg_match_qualified": 76.0,
+  "avg_match_all_scored": 55.6,
+  "top_pick": "HuntingCube — Senior Backend Engineer (Node.js, 12–24 LPA), stretch on seniority (3–5 yr)",
+  "notes": "Thin day for entry-level. All 26 discovered jobs posted <24h; batch dominated by senior/lead, QA, data-science, and frontend roles. Only 1 strong skills-match backend role (HuntingCube, via recruiter) and it is titled 'Senior' — flagged as a stretch. No outright scams this batch (fraud_detected=0), though Cyurae flagged low-trust/unverifiable (email-only apply, no web footprint) and skipped."
 }
