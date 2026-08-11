@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to contribute to Optum India as an Associate Software Engineer. Your ask for strong Java fundamentals combined with Generative-AI exposure is an unusually good fit for me.
+
+I engineer Java/Spring Boot microservices and REST APIs at Primathon, and I integrated AI-driven daily alerts into my Distributed Payment Gateway project to surface insights and monitor system health automatically. My B.Tech research paper explored Generative AI in personalized systems, so I'm comfortable pairing solid backend engineering with GenAI tooling.
+
+As an immediate joiner and quick learner with an AWS Developer Associate certification, I'm ready to add value to your healthtech platforms right away.
+
+Best regards,
+Bhumi Bhatt

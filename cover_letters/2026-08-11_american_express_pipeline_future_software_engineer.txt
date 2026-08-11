@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply to American Express's Future Software Engineer pipeline within Enterprise Technology Services, where backend engineering meets responsible AI at scale.
+
+At Primathon I build and maintain custom admin APIs and backend automation across seven merchant systems, and I architected a distributed payment gateway of 30 REST APIs across four Spring Boot microservices with AI-driven health alerts — directly relevant to Amex's platform and agentic-AI direction. My foundation is strong: 5-star Gold in Java on HackerRank, 250+ DSA problems, and an AWS Developer Associate certification.
+
+As an immediate joiner with 1.5 years shipping production microservices, I would contribute quickly while continuing to grow with a world-class engineering team.
+
+Best regards,
+Bhumi Bhatt

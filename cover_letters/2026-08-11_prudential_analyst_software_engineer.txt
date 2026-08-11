@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Analyst - Software Engineer role at the PFI Innovation Centre India. Joining a brand-new innovation team inside a 150-year global insurer is exactly the kind of high-impact, high-growth environment I'm looking for.
+
+I bring 1.5 years of building, testing, and debugging production backend services in Java, Spring Boot, and Node.js, including REST APIs and automation that cut manual effort by 70% at Primathon. My AWS Developer Associate certification and 5-star Java DSA background mean I can pick up new domains and technologies quickly.
+
+With a 0-day notice period, I can join immediately and grow alongside your engineering mission.
+
+Best regards,
+Bhumi Bhatt

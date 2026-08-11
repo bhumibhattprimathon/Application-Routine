@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm keen to join Thales in Noida as a Java Developer. As a 2025 Computer Science graduate (9.3 CGPA) with 1.5 years of hands-on Java engineering, I map closely to the profile you describe.
+
+My work at Primathon and Paytm centers on Java and Spring Boot microservices, REST APIs, and distributed backend pipelines, including a certified Distributed Payment Gateway I architected across four services. I bring solid fundamentals — 5-star Gold in Java, 250+ DSA problems solved — plus testing discipline with JUnit and Mockito.
+
+I'm an immediate joiner, eager to contribute reliable, well-tested Java systems while growing within Thales's engineering teams.
+
+Best regards,
+Bhumi Bhatt

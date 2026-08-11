@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for your Backend Engineer role building scalable e-commerce services in Gurugram. Your emphasis on Java, Spring Boot, and immediate availability matches my profile precisely.
+
+At Primathon and earlier at Paytm, I designed and optimized backend microservices and REST APIs handling real-time, merchant-facing workloads, improving service reliability by up to 67%. I work daily with Spring Boot, distributed systems, Kafka, Redis, and observability, and I hold an AWS Developer Associate certification with 5-star Java on HackerRank.
+
+I have a 0-day notice period and can join immediately to help build high-availability, fault-tolerant systems from day one.
+
+Best regards,
+Bhumi Bhatt
