@@ -1,15 +1,26 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-12",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "LinkedIn guest job-search API (seeMoreJobPostings, f_TPR=r86400 = last 24h) across 14 role/location queries; job descriptions fetched per posting; trust/fraud verified via Glassdoor/AmbitionBox/Crunchbase/YourStory.",
+  "data_source_notes": "JSearch/RapidAPI (used on 2026-08-05) was DOWN today: the endpoint returns 404 'Endpoint /search does not exist' (subscription/endpoint issue on RAPIDAPI_KEY). Plain WebSearch returned mostly aggregator category pages plus stale/expired LinkedIn postings (2022-2023 job IDs), so it was unsuitable as the primary source. The LinkedIn guest API provided genuinely fresh postings dated 2026-08-11/12 with direct apply links and was used instead.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt, Backend/Full-Stack, 1.5 yrs)",
+  "ntfy": "sent successfully today (HTTP 200 to ntfy.sh/bhumi-linkedin-jobs-2026, priority 3) — egress allowed it this run, unlike 2026-08-05 when it was blocked. Owner also notified via routine push/email channel.",
+  "jobs_found_fresh_24h": 82,
+  "jobs_evaluated_in_depth": 14,
+  "jobs_qualified": 3,
+  "jobs_review": 7,
+  "jobs_skipped": 4,
+  "fraud_detected": 0,
+  "avg_match_qualified": 83.0,
+  "avg_salary_qualified_est": "~8 LPA",
+  "qualified": [
+    {"company": "HuntingCube (client EngiNeo)", "role": "Backend Developer (Java 21, Spring Boot)", "location": "Gurgaon", "match": 88, "trust": 78},
+    {"company": "Iron Mountain", "role": "Associate Software Developer (React JS)", "location": "Delhi", "match": 85, "trust": 92},
+    {"company": "Crownstack", "role": "Full Stack AI Engineer", "location": "Noida", "match": 76, "trust": 80}
+  ],
+  "top_pick": "Backend Developer (Java 21, Spring Boot) at HuntingCube/EngiNeo — score 88",
+  "cover_letters_generated": 3,
+  "dashboard": "dashboards/dashboard_2026-08-12.html",
+  "notes": "All 14 evaluated jobs are new (zero overlap with the prior 17). Of 82 fresh postings, ~40 were Senior/Lead/Staff/Principal/SDE-2-3/Founding (5+ yrs) and ~7 were out-of-NCR (Bengaluru/Pune/Chennai) — filtered by title/location before deep scoring. No fraudulent/spam listings today. Two very clean entry-level matches (HuntingCube Java/Spring Boot; Iron Mountain 0-1yr React)."
 }

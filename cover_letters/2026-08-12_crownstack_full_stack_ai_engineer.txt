@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I would like to apply for the Full Stack AI Engineer role at Crownstack in Noida, where building AI-driven, data-heavy products alongside a modern full-stack is exactly the direction I am steering my career.
+
+On the backend I work with Node.js and Express, and I have designed REST APIs backed by MySQL and MongoDB; on the front end I build with React. I already develop AI-assisted — my Distributed Payment Gateway integrates AI-driven daily alerts that surface transaction insights and monitor system health, and my B.Tech research paper covered Generative AI in personalized systems, so LangChain and RAG pipelines are a natural next step rather than an unknown.
+
+Your good-to-have list of vector databases and AI/ML fundamentals lines up with where I am already investing my learning, and I ship production code with Git and CI/CD discipline.
+
+As an immediate joiner available from day one, I am eager to contribute across your stack and grow fast in an AI-native engineering team.
+
+Best regards,
+Bhumi Bhatt

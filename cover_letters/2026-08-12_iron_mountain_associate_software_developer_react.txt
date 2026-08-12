@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Associate Software Developer (React JS) position at Iron Mountain in Delhi, a role whose front-end focus and API-integration work fit my experience closely.
+
+I build interfaces with React.js and modern JavaScript (ES6+), styling with HTML5 and CSS3, and I am comfortable wiring components to backend services through RESTful APIs — a full-cycle view I gained shipping end-to-end features at Primathon and Paytm. On the data side I work daily with SQL and Git-based collaboration, so your stack of React, REST, SQL Server/PostgreSQL, and version control is familiar ground rather than a learning curve.
+
+Because I also come from a backend and microservices background, I can integrate cleanly with your API teams and reason about performance on both sides of the request.
+
+I am an immediate joiner with a 0-day notice period and would bring energy, clean code, and a genuine eagerness to grow within your engineering team from day one.
+
+Best regards,
+Bhumi Bhatt

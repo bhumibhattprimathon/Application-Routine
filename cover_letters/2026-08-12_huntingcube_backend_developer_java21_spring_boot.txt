@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Backend Developer (Java 21, Spring Boot) role at HuntingCube's client, where the emphasis on scalable microservices maps directly onto the work I do every day.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and my Distributed Payment Gateway project put 30 REST APIs into production across four Spring Boot microservices — Order, Payment, Merchant, and Vault. I work fluently with Spring Data JPA, REST API design, and containerized deployment using Docker, and I hold an AWS Certified Developer – Associate credential alongside a HackerRank 5-Star rating in Java.
+
+Your requirement for metadata-driven configuration and complex business-rule validation is exactly the kind of backend logic I enjoy building and hardening for production.
+
+As a 0-day-notice immediate joiner, I can start contributing to your microservices from week one and ramp quickly on your integration frameworks and ERP touchpoints.
+
+Best regards,
+Bhumi Bhatt
