@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm keen to join Clearwater Analytics as a Software Development Engineer and to contribute to the scalable, reliable systems your investment-analytics platform is known for.
+
+My 1.5 years at Primathon and Paytm have centered on writing production backend services in Java and Node.js, with strong object-oriented design and a 5-Star Gold HackerRank rating (250+ DSA problems solved) that map directly to your emphasis on data structures and problem-solving. I consistently back my code with JUnit and Mockito unit and integration tests, and I've shipped microservices on AWS (EC2, S3, Lambda) that improved backend service reliability by more than 60%.
+
+Being an immediate joiner, I can quickly take ownership of enhancements, defect resolution, and technical tasks with minimal ramp-up.
+
+Best regards,
+Bhumi Bhatt

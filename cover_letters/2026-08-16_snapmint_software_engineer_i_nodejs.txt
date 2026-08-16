@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer I (Node.js) role at Snapmint and to help scale the backend that already serves over 10 million EMI customers across India.
+
+At Primathon and during my Paytm internship I built and optimized Node.js/Express and microservice APIs handling real-time transaction flows, backed by MongoDB and MySQL — the exact stack this role centers on. My distributed payment gateway project (30 REST APIs across Order, Payment, Merchant, and Vault services) and my 5-Star Gold HackerRank Java rating with 250+ DSA problems solved reflect the data-structures depth and REST/microservices fluency you're looking for in a backend engineer.
+
+As an immediate joiner, I can start contributing to Snapmint's fintech platform from day one and grow quickly with the mentorship on offer.
+
+Best regards,
+Bhumi Bhatt

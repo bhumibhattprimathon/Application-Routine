@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-16",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "WebSearch + LinkedIn category/job pages via WebFetch (WebSearch surfaced only aggregate category pages, so individual live postings were extracted by fetching LinkedIn listing pages). Coverage: backend, full-stack, SDE/software-engineer, MERN; AI/ML sweep returned no Delhi-NCR individual postings.",
+  "discovery_window": "Roles posted within ~2 weeks; qualified picks are 1–2 days old. 11 days since previous run (2026-08-05), so all 9 evaluated jobs are new vs the log.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt — backend/full-stack, 1.5 yrs)",
+  "ntfy": "disabled per prior user instruction; reported via routine push/email (PushNotification) channel",
+  "jobs_found": 9,
+  "jobs_qualified": 2,
+  "jobs_review": 4,
+  "jobs_skipped": 3,
+  "fraud_detected": 0,
+  "avg_match_qualified": 84.0,
+  "top_pick": "Snapmint — Software Engineer I (Node.js), Gurugram (match 92, trust 90)",
+  "notes": "2 clean matches today: Snapmint SE-I (Node.js, 1–3 yrs, funded fintech) and Clearwater Analytics SDE (2+ yrs, NYSE SaaS). 4 review: Quest Global (perfect stack but 4+ yrs, Easy Apply), Descrptive (entry MERN, company unverified), Clovity (MERN, payment-delay reviews), Insurity (.NET-leaning). 3 experience-skips: Synechron (8 yrs), Energasia (4+ yrs IoT), Impetus (6–9 yrs). No fraud detected today."
 }

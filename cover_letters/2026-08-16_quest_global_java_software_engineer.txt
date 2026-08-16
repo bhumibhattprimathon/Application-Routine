@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to express my interest in the Java Software Engineer role at Quest Global in Noida, which closely matches my backend engineering focus.
+
+I build production services with Java and Spring Boot, designing microservices and RESTful APIs backed by MySQL and MongoDB, and I deploy them on AWS (EC2, S3, Lambda) using Docker and Jenkins CI/CD — closely mirroring your Java 8+, Spring Boot, AWS, and microservices requirements. My distributed payment gateway project (30 REST APIs across four services) and my AWS Certified Developer – Associate credential demonstrate the cloud-native, system-design skills this role calls for, while my React experience supports the full-stack collaboration you value.
+
+As an immediate joiner, I'm ready to ramp up quickly and grow into the responsibilities of the role.
+
+Best regards,
+Bhumi Bhatt
