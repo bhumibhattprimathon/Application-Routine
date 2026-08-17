@@ -1,15 +1,18 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-17",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
+  "data_source": "LinkedIn public guest listing pages via WebFetch (in.linkedin.com/jobs/*-jobs-<city>). JSearch API (RapidAPI) endpoint returned HTTP 404 this run (subscription appears inactive); WebSearch returns only aggregate category pages, not individual postings. Gurgaon/Noida city slugs returned live India postings; Delhi/ML slugs geo-resolved to US and were discarded.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt - Backend/Full-Stack, Java/Spring Boot, 1.5 yrs)",
+  "ntfy": "blocked by egress policy (per prior runs); reported via routine push/email channel instead",
+  "jobs_evaluated_in_detail": 17,
+  "jobs_surfaced_total": "~180 across guest listings",
+  "jobs_qualified": 4,
+  "jobs_review": 3,
   "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "fraud_detected": 0,
+  "avg_match_qualified": 79.5,
+  "avg_salary_qualified": "~8.4 LPA",
+  "top_pick": "GlobalLogic - Java Fullstack (IRC300668), Noida, match 91",
+  "notes": "Market reality for a 1.5-yr candidate: most fresh Java/backend postings in Delhi NCR carry a 3-9 yr floor (10 skipped on experience). 4 genuine entry-appropriate matches found: GlobalLogic (no exp floor, near-perfect stack fit), NatWest (entry/associate, Java+Node+AWS), Zimmer Biomet (entry Java web, MNC), Binaire (entry JS/TS startup, salary risk). No fraud/scam postings today - all discovered companies are registered and verifiable."
 }

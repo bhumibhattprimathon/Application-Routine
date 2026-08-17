@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-17</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#15803d; --yellow:#eab308; --yellow-d:#a16207;
+    --red:#ef4444; --red-d:#b91c1c; --ink:#0f172a; --slate:#475569; --line:#e2e8f0;
+    --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .wrap{max-width:1180px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .n{font-size:2rem;font-weight:700;line-height:1}
+  .card .l{font-size:.78rem;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+  .card.g .n{color:var(--green-d)} .card.y .n{color:var(--yellow-d)} .card.r .n{color:var(--red-d)}
+  .openall{display:block;width:100%;border:0;cursor:pointer;background:var(--green);color:#062e12;
+    font-size:1.15rem;font-weight:800;padding:18px;border-radius:14px;margin:6px 0 26px;
+    box-shadow:0 4px 14px rgba(34,197,94,.35);transition:transform .08s}
+  .openall:hover{transform:translateY(-1px);background:#16a34a;color:#fff}
+  .openall:active{transform:translateY(0)}
+  h2{font-size:1.15rem;margin:30px 0 10px;padding-left:12px;border-left:5px solid var(--slate)}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  .tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:.74rem;text-transform:uppercase;letter-spacing:.4px;color:var(--slate)}
+  tr:last-child td{border-bottom:0}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-weight:700;font-size:.82rem}
+  .pill.g{background:#dcfce7;color:var(--green-d)} .pill.y{background:#fef9c3;color:var(--yellow-d)} .pill.r{background:#fee2e2;color:var(--red-d)}
+  .btn{display:inline-block;border:0;cursor:pointer;border-radius:8px;padding:6px 11px;font-size:.82rem;font-weight:600;text-decoration:none}
+  .btn.open{background:#1d4ed8;color:#fff} .btn.open:hover{background:#1e40af}
+  .btn.copy{background:#e2e8f0;color:#0f172a;margin-top:4px} .btn.copy:hover{background:#cbd5e1}
+  .variant{font-size:.75rem;color:var(--slate);text-transform:capitalize}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .rec h3{margin:0 0 4px;font-size:1rem}
+  .rec .meta{font-size:.8rem;color:var(--slate);margin-bottom:6px}
+  .trend{display:flex;align-items:flex-end;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;height:210px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;flex:0 0 auto}
+  .bar .fill{width:56px;background:linear-gradient(180deg,#22c55e,#15803d);border-radius:8px 8px 0 0;transition:height .4s}
+  .bar .cnt{font-weight:700;margin-bottom:6px} .bar .day{font-size:.78rem;color:var(--slate);margin-top:8px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .cl h3{margin:0 0 8px;font-size:1rem}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.9rem;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px;margin:0}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:.85rem;color:#713f12;margin:14px 0}
+  footer{text-align:center;color:var(--slate);font-size:.8rem;padding:24px}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-17</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner (0-day notice)</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">17</div><div class="l">Jobs Evaluated</div></div>
+    <div class="card g"><div class="n">4</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">3</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">10</div><div class="l">Skipped</div></div>
+    <div class="card r"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">79.5</div><div class="l">Avg Match (Qual.)</div></div>
+    <div class="card"><div class="n">~8.4</div><div class="l">Avg Salary LPA</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 4 QUALIFIED JOBS</button>
+
+  <div class="note">
+    <strong>Discovery note:</strong> The JSearch/RapidAPI endpoint used by earlier runs returned HTTP 404 today (subscription appears inactive), and WebSearch only returns LinkedIn aggregate category pages. Jobs below were pulled from LinkedIn's public guest listing pages via direct fetch (Gurgaon/Noida slugs; Delhi/ML slugs geo-resolved to the US and were discarded). "Posted" times are LinkedIn's own labels. Market reality for a 1.5-yr candidate: most fresh Java/backend Delhi-NCR roles carry a 3–9 yr floor — hence 10 experience skips.
+  </div>
+
+  <!-- QUALIFIED -->
+  <h2 class="g">✅ Qualified — Ready to Apply</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="pill g">91</span></td><td>95</td>
+        <td>GlobalLogic</td><td>Java Fullstack (IRC300668)</td><td>Noida</td><td>7–11 LPA</td>
+        <td class="variant">fullstack</td><td>External</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/java-fullstack-irc300668-at-globallogic-4453527943" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn copy" onclick="copyCL('cl-globallogic')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="pill g">86</span></td><td>97</td>
+        <td>NatWest Group</td><td>Software Engineer (Associate)</td><td>Gurugram</td><td>9–14 LPA</td>
+        <td class="variant">backend</td><td>External</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-at-natwest-group-4453382375" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn copy" onclick="copyCL('cl-natwest')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="pill g">73</span></td><td>95</td>
+        <td>Zimmer Biomet</td><td>Web Developer (Java)</td><td>Gurgaon</td><td>6–9 LPA</td>
+        <td class="variant">backend</td><td>External</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/web-developer-java-at-zimmer-biomet-4453242616" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn copy" onclick="copyCL('cl-zimmer')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>4</td><td><span class="pill g">68</span></td><td>68</td>
+        <td>Binaire</td><td>JavaScript/TypeScript Developer</td><td>South Delhi</td><td>5–6 LPA ⚠</td>
+        <td class="variant">fullstack</td><td>External</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/javascript-typescript-developer-at-binaire-4451773632" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn copy" onclick="copyCL('cl-binaire')">Copy Cover Letter</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- REVIEW -->
+  <h2 class="y">🟡 Review — Worth a Look</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Open</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="pill y">72</span></td><td>90</td><td>GreyOrange</td><td>SDE I (Gurugram)</td>
+        <td>Strong skill fit (Java, microservices, REST, SQL) but requires <strong>3+ yrs</strong> (she has 1.5) — stretch.</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-i-at-greyorange-4449676202" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>2</td><td><span class="pill y">63</span></td><td>88</td><td>Insurity</td><td>Software Engineer I (Noida)</td>
+        <td>Entry-labeled but recommends 2–4 yrs; stack leans .NET/web (Java accepted). Moderate fit.</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-i-at-insurity-4451912864" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>3</td><td><span class="pill y">58</span></td><td>64</td><td>CredHive</td><td>Backend Engineer, 1–3 YOE (Delhi)</td>
+        <td>Experience range fits, but role is <strong>Python-primary</strong> (2+ yrs Python); resume is Java/JS — skills gap.</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-backend-1-3-yoe-at-credhive-4451048436" target="_blank" rel="noopener">Open</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- SKIPPED -->
+  <h2 class="r">🔴 Skipped</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Quest Global</td><td>Java Software Engineer (Noida)</td><td>Experience: mid-senior, 4+ yrs (3+ backend).</td></tr>
+      <tr><td>2</td><td>Emerson</td><td>Software Developer-Backend (Noida)</td><td>Experience: 3–4 yrs + industrial protocols (OPC UA, Modbus, DNP3) off-stack.</td></tr>
+      <tr><td>3</td><td>Energasia</td><td>Backend Java Developer (Delhi)</td><td>Experience: 4+ yrs backend Java + full SDLC.</td></tr>
+      <tr><td>4</td><td>Clearwater Analytics</td><td>Software Development Engineer (Noida)</td><td>Experience: 4+ yrs required.</td></tr>
+      <tr><td>5</td><td>Impetus</td><td>Java Software Engineer (Gurugram)</td><td>Experience: 6–9 yrs.</td></tr>
+      <tr><td>6</td><td>EXL</td><td>Full Stack Engineer (Gurugram)</td><td>Experience: 5+ yrs, mid-senior.</td></tr>
+      <tr><td>7</td><td>techcarrot</td><td>Full Stack React App Developer (Noida)</td><td>Experience: 5–7 yrs (React 4+ yrs).</td></tr>
+      <tr><td>8</td><td>Tata Consultancy Services</td><td>Java Software Engineer (Gurugram)</td><td>Experience: 8+ yrs incl. 5+ yrs tech lead.</td></tr>
+      <tr><td>9</td><td>Accenture in India</td><td>Full Stack Engineer (Gurugram)</td><td>Experience: 5+ yrs min.</td></tr>
+      <tr><td>10</td><td>Vutto</td><td>SDE II Fullstack (Delhi)</td><td>Experience: SDE-II, 4+ yrs with mentoring/architecture ownership.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TOP 5 -->
+  <h2>⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h3>1. GlobalLogic — Java Fullstack (IRC300668) · Noida · Match 91</h3>
+    <div class="meta">Trust 95 · Est. 7–11 LPA · External apply</div>
+    Near-perfect stack overlap: the role names Java, Spring Boot, REST APIs, microservices, React, AWS (S3/ECS/SQS) and Apache Kafka — every one of which is on Bhumi's resume and in her Distributed Payment Gateway project. Seniority is listed "Not Applicable" with no stated experience floor, so her 1.5 yrs is not a blocker. A Hitachi-owned global engineering firm means strong stability and structured growth. This is the day's best-fit apply.
+  </div>
+  <div class="rec">
+    <h3>2. NatWest Group — Software Engineer · Gurugram · Match 86</h3>
+    <div class="meta">Trust 97 · Est. 9–14 LPA · External apply</div>
+    An entry/associate-level role that only requires one of Java 21 / Node.js / Python — Bhumi has both Java and Node.js — plus hands-on AWS, which matches her EC2/S3/Lambda/Timestream pipeline work. The posting even welcomes AI coding assistants, which she uses daily. A FTSE-100 bank offers excellent compensation and brand value for an early-career engineer.
+  </div>
+  <div class="rec">
+    <h3>3. Zimmer Biomet — Web Developer (Java) · Gurgaon · Match 73</h3>
+    <div class="meta">Trust 95 · Est. 6–9 LPA · External apply</div>
+    Explicitly "Entry level" at a NYSE-listed global medical-devices company. Java web development plus Bhumi's testing discipline (JUnit, Mockito, Selenium) fits a regulated, quality-first environment well. A strong, stable first-MNC move; worth applying even though the full JD is partly gated behind sign-in.
+  </div>
+  <div class="rec">
+    <h3>4. Binaire — JavaScript/TypeScript Developer · South Delhi · Match 68</h3>
+    <div class="meta">Trust 68 · Est. 5–6 LPA (salary risk) · External apply · Freshest posting (19h)</div>
+    Entry-level with no experience floor at a registered Delhi product startup (photo/video/game apps). Bhumi's JavaScript, React, Node.js and REST experience covers the core; TypeScript/Electron/Firebase are stated growth areas. Salary likely near her floor, so treat as an upside/portfolio-building option rather than a primary target.
+  </div>
+  <div class="rec" style="border-left-color:var(--yellow)">
+    <h3>5. GreyOrange — SDE I · Gurugram · Match 72 (stretch)</h3>
+    <div class="meta">Trust 90 · Est. 10–16 LPA · Review</div>
+    A robotics-unicorn role whose skills (Java, microservices, REST, SQL, design patterns) line up beautifully — the only gap is the 3+ yr floor against her 1.5 yrs. High salary ceiling makes it a worthwhile stretch application if she wants to aim up.
+  </div>
+
+  <!-- WEEKLY TREND -->
+  <h2>📊 Weekly Trend — Jobs Qualified per Run</h2>
+  <div class="trend">
+    <div class="bar"><div class="cnt">1</div><div class="fill" style="height:22%"></div><div class="day">Aug 05</div></div>
+    <div class="bar"><div class="cnt">4</div><div class="fill" style="height:88%"></div><div class="day">Aug 17</div></div>
+  </div>
+
+  <!-- COVER LETTERS -->
+  <h2>✉️ Cover Letters</h2>
+
+  <div class="cl">
+    <h3>GlobalLogic — Java Fullstack <button class="btn copy" onclick="copyCL('cl-globallogic')">COPY</button></h3>
+    <pre id="cl-globallogic">Dear Hiring Manager,
+
+I'm excited to apply for the Java Fullstack Engineer (IRC300668) role at GlobalLogic in Noida. Your stack maps directly to how I build every day: at Primathon I engineer Spring Boot microservices and REST APIs, and my Distributed Payment Gateway project spans 30 REST APIs across four services using Java and system-design principles. On the frontend I work in React and JavaScript, and I've integrated AWS (S3, Lambda) and Apache Kafka into production backend pipelines for real-time event handling — the exact combination this role calls for. As an immediate joiner with a 0-day notice period, I can contribute to your delivery teams from week one, and my 5-Star Gold Java rating on HackerRank reflects the fundamentals I bring to scalable, fault-tolerant systems. I'd welcome the chance to grow across GlobalLogic's high-tech and healthcare engagements.
+
+Best regards, Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>NatWest Group — Software Engineer <button class="btn copy" onclick="copyCL('cl-natwest')">COPY</button></h3>
+    <pre id="cl-natwest">Dear Hiring Manager,
+
+I'm keen to apply for the Software Engineer role at NatWest Group in Gurugram. The position's flexibility across Java and Node.js fits my background precisely: I build Java and Spring Boot microservices at Primathon and have shipped Node.js/Express order and payment services with MySQL in earlier engineering roles. Your emphasis on hands-on AWS resonates strongly — I've integrated EC2, S3, Lambda, and Timestream into real-time backend pipelines, reducing manual operational effort by 70% through automated workflows. I'm comfortable owning the full software lifecycle from requirements through operations, and I regularly pair AI coding assistants into my workflow to move faster without sacrificing quality. As a 0-day-notice immediate joiner, I can step into your associate engineering team right away and grow within a global banking platform. I'd be glad to discuss how my backend and cloud experience can add value.
+
+Best regards, Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Zimmer Biomet — Web Developer (Java) <button class="btn copy" onclick="copyCL('cl-zimmer')">COPY</button></h3>
+    <pre id="cl-zimmer">Dear Hiring Manager,
+
+I'm writing to apply for the Web Developer (Java) position at Zimmer Biomet in Gurgaon. I bring 1.5+ years of hands-on Java engineering: at Primathon I build custom admin APIs and backend automation across seven merchant systems, and I've designed REST APIs and Java/Spring Boot services optimized for reliability and performance. On the web side I work with JavaScript, React, HTML5, and CSS3, and I test rigorously with JUnit, Mockito, and Selenium — a discipline that matters in a regulated, quality-driven medical-devices environment. My CS degree (9.3/10 CGPA) and AWS Certified Developer credential give me a solid foundation to reach your engineering standards quickly. As an immediate joiner available on 0 days' notice, I'm ready to contribute to Zimmer Biomet's mission of improving patient mobility from day one.
+
+Best regards, Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Binaire — JavaScript/TypeScript Developer <button class="btn copy" onclick="copyCL('cl-binaire')">COPY</button></h3>
+    <pre id="cl-binaire">Dear Hiring Manager,
+
+I'd love to join Binaire in South Delhi as a JavaScript/TypeScript Developer building your cross-platform photo, video, and utility applications. I work daily in JavaScript (ES6+) and React, and I've built Node.js and Express services with REST APIs backing production systems — the frontend-plus-backend blend this role needs. I'm eager to deepen into TypeScript, Electron, and Firebase, and my strong DSA foundation (250+ problems solved, 5-Star Gold Java on HackerRank) means I pick up new frameworks and performance patterns fast. I enjoy the ownership a product-focused startup offers, and I sweat the details — clean CSS layouts with Flexbox and Grid, and reliable, testable code. As an immediate joiner on 0 days' notice, I can start contributing to your multi-platform roadmap right away.
+
+Best regards, Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>Generated 2026-08-17 · Source: LinkedIn public guest listings (WebFetch) · No fraudulent postings detected this run</footer>
+
+<script>
+  var urls = [
+    "https://in.linkedin.com/jobs/view/java-fullstack-irc300668-at-globallogic-4453527943",
+    "https://in.linkedin.com/jobs/view/software-engineer-at-natwest-group-4453382375",
+    "https://in.linkedin.com/jobs/view/web-developer-java-at-zimmer-biomet-4453242616",
+    "https://in.linkedin.com/jobs/view/javascript-typescript-developer-at-binaire-4451773632"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u,"_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallback(text); });
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); flash(); }catch(e){} document.body.removeChild(ta);
+  }
+  function flash(){
+    var n=document.createElement("div");
+    n.textContent="Cover letter copied ✓";
+    n.style.cssText="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#15803d;color:#fff;padding:10px 18px;border-radius:10px;font-weight:600;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.25)";
+    document.body.appendChild(n); setTimeout(function(){ n.remove(); },1600);
+  }
+</script>
+</body>
+</html>

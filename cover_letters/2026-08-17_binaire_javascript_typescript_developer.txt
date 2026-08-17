@@ -1,0 +1,5 @@
+Dear Hiring Manager,
+
+I'd love to join Binaire in South Delhi as a JavaScript/TypeScript Developer building your cross-platform photo, video, and utility applications. I work daily in JavaScript (ES6+) and React, and I've built Node.js and Express services with REST APIs backing production systems — the frontend-plus-backend blend this role needs. I'm eager to deepen into TypeScript, Electron, and Firebase, and my strong DSA foundation (250+ problems solved, 5-Star Gold Java on HackerRank) means I pick up new frameworks and performance patterns fast. I enjoy the ownership a product-focused startup offers, and I sweat the details — clean CSS layouts with Flexbox and Grid, and reliable, testable code. As an immediate joiner on 0 days' notice, I can start contributing to your multi-platform roadmap right away.
+
+Best regards, Bhumi Bhatt

@@ -1,0 +1,5 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Fullstack Engineer (IRC300668) role at GlobalLogic in Noida. Your stack maps directly to how I build every day: at Primathon I engineer Spring Boot microservices and REST APIs, and my Distributed Payment Gateway project spans 30 REST APIs across four services using Java and system-design principles. On the frontend I work in React and JavaScript, and I've integrated AWS (S3, Lambda) and Apache Kafka into production backend pipelines for real-time event handling — the exact combination this role calls for. As an immediate joiner with a 0-day notice period, I can contribute to your delivery teams from week one, and my 5-Star Gold Java rating on HackerRank reflects the fundamentals I bring to scalable, fault-tolerant systems. I'd welcome the chance to grow across GlobalLogic's high-tech and healthcare engagements.
+
+Best regards, Bhumi Bhatt

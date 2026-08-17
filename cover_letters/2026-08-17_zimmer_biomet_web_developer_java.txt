@@ -1,0 +1,5 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Web Developer (Java) position at Zimmer Biomet in Gurgaon. I bring 1.5+ years of hands-on Java engineering: at Primathon I build custom admin APIs and backend automation across seven merchant systems, and I've designed REST APIs and Java/Spring Boot services optimized for reliability and performance. On the web side I work with JavaScript, React, HTML5, and CSS3, and I test rigorously with JUnit, Mockito, and Selenium — a discipline that matters in a regulated, quality-driven medical-devices environment. My CS degree (9.3/10 CGPA) and AWS Certified Developer credential give me a solid foundation to reach your engineering standards quickly. As an immediate joiner available on 0 days' notice, I'm ready to contribute to Zimmer Biomet's mission of improving patient mobility from day one.
+
+Best regards, Bhumi Bhatt

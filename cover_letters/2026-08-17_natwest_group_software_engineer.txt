@@ -1,0 +1,5 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Software Engineer role at NatWest Group in Gurugram. The position's flexibility across Java and Node.js fits my background precisely: I build Java and Spring Boot microservices at Primathon and have shipped Node.js/Express order and payment services with MySQL in earlier engineering roles. Your emphasis on hands-on AWS resonates strongly — I've integrated EC2, S3, Lambda, and Timestream into real-time backend pipelines, reducing manual operational effort by 70% through automated workflows. I'm comfortable owning the full software lifecycle from requirements through operations, and I regularly pair AI coding assistants into my workflow to move faster without sacrificing quality. As a 0-day-notice immediate joiner, I can step into your associate engineering team right away and grow within a global banking platform. I'd be glad to discuss how my backend and cloud experience can add value.
+
+Best regards, Bhumi Bhatt
