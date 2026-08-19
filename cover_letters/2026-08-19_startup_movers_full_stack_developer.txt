@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Full Stack Developer role at Startup Movers, building internal tools and data-driven systems end to end. My background fits your stack well: I develop backends with Node.js and Express.js, build interfaces with React.js, and model data in relational databases (MySQL, with hands-on SQL query design) — and I've shipped production microservices and 30+ REST API endpoints across roles at Primathon, Paytm, and CodeAlpha. I've integrated AWS services (Lambda, S3, Timestream) into real-time data pipelines, so architecting systems and managing data flow is familiar territory, and I'm quick to pick up adjacent tools like FastAPI and AI APIs. With 1.5 years turning business needs into working software and a habit of automating away manual effort, I bring practical full-stack range. I'm an immediate joiner based in Delhi NCR, eager to own features end-to-end and grow with your team.
+
+Best regards,
+Bhumi Bhatt

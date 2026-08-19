@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd love to join Primebook as a Backend Developer and help build the backend powering affordable, student-first computing at scale. My experience maps directly to your stack: I write production Java, design and optimize REST APIs, and work daily with MySQL — writing JOINs, aggregations, and tuned queries — while at Paytm and Primathon I built microservices handling real-time merchant transactions. I've also integrated AWS Lambda, S3, and Timestream into live backend pipelines, so the cloud tooling Primebook mentors on is already familiar to me. Having shipped a distributed payment gateway and reduced manual operational effort by 70% through backend automation, I combine clean-code discipline with a bias for shipping. I'm based in Delhi and available to join immediately, and I'm genuinely motivated by Primebook's mission to bridge India's digital divide. I'd bring energy, strong Java fundamentals, and a willingness to learn fast to your backend team.
+
+Best regards,
+Bhumi Bhatt

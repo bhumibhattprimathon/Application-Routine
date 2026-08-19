@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Developer (Spring Boot) role at Comviva, where building scalable backend systems for high-transaction telecom and eCommerce domains matches exactly what I do today. In my current role at Primathon and earlier at Paytm, I designed and shipped Spring Boot microservices and REST APIs — including a distributed payment gateway with 30 REST APIs across four services — using Java, Spring MVC, and both SQL (MySQL) and NoSQL (MongoDB) data stores. I've integrated Docker and AWS (EC2, S3, Lambda) into production backend pipelines and hold an AWS Certified Developer – Associate credential, so Comviva's desirable cloud and containerization skills are already part of my toolkit. As a 5-Star Gold Java developer on HackerRank with 250+ DSA problems solved, I bring strong fundamentals in OOP and system design. I'm an immediate joiner, eager to contribute to Comviva's backend engineering team from day one and to keep learning in a fast-moving product environment.
+
+Best regards,
+Bhumi Bhatt

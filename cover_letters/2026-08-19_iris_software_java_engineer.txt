@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Engineer position at Iris Software. Your requirements — Java 17+, Spring Boot, Hibernate/JPA, microservices, and REST APIs — align closely with the backend work I do every day. At Primathon and Paytm I've built and optimized Spring Boot microservices and REST endpoints, applying strong OOP and design-pattern fundamentals backed by 250+ solved DSA problems and 5-Star Gold Java on HackerRank. I manage relational data with MySQL, use Maven and Git-based CI/CD in Agile teams, and have shipped production systems such as a distributed payment gateway spanning 30 REST APIs. I take ownership of quality — writing JUnit and Mockito tests — and enjoy collaborating to deliver reliable, scalable services. I'm an immediate joiner, quick to ramp on adjacent tooling like Oracle/PL-SQL, and eager to contribute to Iris Software's engineering team from day one.
+
+Best regards,
+Bhumi Bhatt

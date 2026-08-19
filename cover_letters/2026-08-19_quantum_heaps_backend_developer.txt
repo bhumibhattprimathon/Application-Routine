@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Backend Developer role at Quantum Heaps and contribute to your unified sales SaaS platform. Your stack is squarely in my wheelhouse: I build backend services with Node.js and Express.js, model data in MongoDB, and design REST and secured (JWT/OAuth) APIs — skills I've applied in production at Primathon, where I engineered admin APIs and syncing automation across seven merchant systems. I'm comfortable with TypeScript, containerize services with Docker, and deploy on AWS (EC2, S3, Lambda), giving me the end-to-end backend range a fast-scaling SaaS product needs. I've delivered production-ready systems, including a distributed payment gateway across four services, and I care about reliability and clean architecture. As an immediate joiner comfortable in remote, ownership-driven teams, I'd bring both hands-on Node and MongoDB depth and the eagerness to grow quickly alongside Quantum Heaps.
+
+Best regards,
+Bhumi Bhatt
