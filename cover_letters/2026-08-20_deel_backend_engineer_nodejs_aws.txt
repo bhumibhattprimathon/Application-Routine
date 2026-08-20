@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer (Node.js + AWS) role at Deel, as Deel's global payments and payroll platform is exactly the kind of distributed, money-moving system I love building.
+
+I designed and shipped a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault microservices, and at Paytm I developed microservices powering real-time merchant transaction notifications. On the infrastructure side, I integrate AWS EC2, S3, Lambda, and Timestream into backend pipelines and build in Node.js and Express — directly matching your Node.js and AWS stack. My AWS Certified Developer – Associate certification backs this cloud experience.
+
+I am an immediate joiner with a 0-day notice period and a fast ramp-up on new codebases, ready to add value to Deel's backend team quickly.
+
+Best regards,
+Bhumi Bhatt

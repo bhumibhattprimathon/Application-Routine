@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my interest in the Java Software Engineer position at Publicis Sapient in Gurugram, where engineering rigor and clean, scalable design are clearly valued.
+
+My background is a strong fit: at Primathon I build custom admin APIs and backend automation across seven merchant systems, and I integrated AWS Timestream, S3, and Lambda into real-time data pipelines. My certified Distributed Payment Gateway project — 30 Spring Boot REST APIs across four microservices — demonstrates the system-design and fault-tolerance thinking your teams apply for enterprise clients. I work daily with Java, Spring Boot, microservices, MySQL, Docker, and CI/CD, and hold an AWS Certified Developer – Associate credential.
+
+I am an immediate joiner able to start with zero notice, and I learn new domains and frameworks quickly — an asset on fast-moving client engagements.
+
+Best regards,
+Bhumi Bhatt

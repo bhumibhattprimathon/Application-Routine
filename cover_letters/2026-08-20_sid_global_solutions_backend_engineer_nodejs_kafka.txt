@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am keen to apply for the Backend Engineer (Node.js + Kafka) role at SID Global Solutions in Gurugram, which aligns almost exactly with my hands-on backend toolkit.
+
+I build backend services in Node.js and Express, and I have worked with Kafka and Redis for event-driven, high-throughput processing — at Primathon I cut manual operational effort by 70% through automated backend workflows for analytics and meta-event handling. Earlier, at CodeAlpha, I built order and payment microservices with REST APIs and MySQL, containerized with Docker for production deployment. This combination of Node.js, Kafka, REST APIs, and microservices is precisely what this role calls for.
+
+With a 0-day notice period I can join immediately, and I am eager to contribute to your backend team while continuing to grow.
+
+Best regards,
+Bhumi Bhatt

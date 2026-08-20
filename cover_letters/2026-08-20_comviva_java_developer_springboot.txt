@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Java Developer (Spring Boot) role at Comviva in Gurugram, as Comviva's work on large-scale telecom and mobile-money platforms maps directly onto my backend and payments experience.
+
+At Primathon I engineer production Java and Spring Boot services, and I architected a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault microservices, applying system-design principles for scalability and fault tolerance. During my Paytm internship I built and optimized microservices for the merchant QR-code lifecycle, improving service reliability by 67%. My core stack — Java, Spring Boot, microservices, REST APIs, MySQL, and Kafka — matches your requirements closely, and my 5-Star HackerRank Gold in Java reflects strong fundamentals.
+
+As an immediate joiner with a 0-day notice period, I can contribute from day one and ramp quickly on Comviva's platforms.
+
+Best regards,
+Bhumi Bhatt

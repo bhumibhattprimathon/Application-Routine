@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-20</title>
+<style>
+  :root { --green:#22c55e; --yellow:#eab308; --red:#ef4444; --ink:#0f172a; --bg:#f1f5f9; --card:#ffffff; --line:#e2e8f0; --muted:#64748b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:28px 20px; }
+  header h1 { margin:0 0 4px; font-size:1.5rem; letter-spacing:.3px; }
+  header .sub { color:#94a3b8; font-size:.9rem; }
+  .wrap { max-width:1180px; margin:0 auto; padding:20px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:18px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  .card .n { font-size:2rem; font-weight:700; }
+  .card .l { color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.5px; margin-top:4px; }
+  .card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)}
+  .openall { display:block; width:100%; padding:20px; font-size:1.15rem; font-weight:700; color:#fff; background:var(--green);
+    border:none; border-radius:12px; cursor:pointer; margin:10px 0 6px; box-shadow:0 4px 14px rgba(34,197,94,.35); }
+  .openall:hover { filter:brightness(1.05); }
+  .hint { color:var(--muted); font-size:.8rem; text-align:center; margin-bottom:8px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin:18px 0; }
+  section h2 { margin:0 0 12px; font-size:1.15rem; display:flex; align-items:center; gap:8px; }
+  .tag { width:12px; height:12px; border-radius:3px; display:inline-block; }
+  .tag.g{background:var(--green)} .tag.y{background:var(--yellow)} .tag.r{background:var(--red)} .tag.b{background:#3b82f6}
+  table { width:100%; border-collapse:collapse; font-size:.88rem; }
+  .scroll { overflow-x:auto; }
+  th,td { text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f8fafc; font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); }
+  .co { font-weight:600; }
+  .muted { color:var(--muted); }
+  .score { font-weight:700; padding:2px 8px; border-radius:20px; color:#fff; }
+  .s-high{background:var(--green)} .s-mid{background:var(--yellow)} .s-low{background:var(--red)}
+  .trust { font-weight:600; }
+  .variant { font-size:.72rem; padding:2px 7px; border-radius:6px; background:#eef2ff; color:#4338ca; text-transform:uppercase; }
+  .btn { display:inline-block; border:none; border-radius:7px; padding:6px 11px; font-size:.78rem; cursor:pointer; text-decoration:none; margin:2px 3px 2px 0; }
+  .btn-open { background:#3b82f6; color:#fff; }
+  .btn-copy { background:#e2e8f0; color:#0f172a; }
+  .btn-copy.done { background:var(--green); color:#fff; }
+  .lnk { color:#3b82f6; font-size:.8rem; }
+  .hidden-cl { display:none; }
+  .rec { border-left:4px solid var(--green); background:#f8fafc; padding:12px 14px; border-radius:8px; margin-bottom:12px; }
+  .rec-head { font-size:.98rem; }
+  .rank { background:var(--green); color:#fff; border-radius:6px; padding:1px 8px; font-weight:700; margin-right:4px; }
+  .rec-score { display:block; color:var(--muted); font-size:.78rem; margin-top:3px; }
+  .rec p { margin:8px 0; color:#334155; font-size:.9rem; }
+  .bar-row { display:flex; align-items:center; gap:10px; margin:6px 0; }
+  .bar-label { width:96px; font-size:.8rem; color:var(--muted); }
+  .bar { background:var(--green); color:#fff; font-size:.78rem; font-weight:700; padding:4px 8px; border-radius:5px; min-width:22px; text-align:right; }
+  .cl-box { border:1px solid var(--line); border-radius:10px; margin-bottom:12px; overflow:hidden; }
+  .cl-head { background:#f8fafc; padding:9px 12px; border-bottom:1px solid var(--line); font-size:.9rem; display:flex; justify-content:space-between; align-items:center; }
+  .cl-box pre { margin:0; padding:12px; white-space:pre-wrap; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.82rem; line-height:1.45; }
+  .note { background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:12px 14px; border-radius:10px; font-size:.85rem; margin:14px 0; }
+  footer { text-align:center; color:var(--muted); font-size:.78rem; padding:24px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-20</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR / Gurugram / Noida / Remote · Immediate joiner</div>
+  </div>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">26</div><div class="l">Jobs Found</div></div>
+    <div class="card g"><div class="n">8</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">6</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">11</div><div class="l">Skipped</div></div>
+    <div class="card r"><div class="n">1</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">75.5</div><div class="l">Avg Match (qual.)</div></div>
+    <div class="card"><div class="n">10.5</div><div class="l">Avg Salary LPA (qual.)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 8 QUALIFIED JOBS</button>
+  <div class="hint">Tip: allow pop-ups for this page so every job opens in its own tab.</div>
+
+  <div class="note">
+    <strong>Data source note:</strong> Live postings were pulled from LinkedIn's public India job pages (via fetch) and scored against Bhumi's resume.
+    The JSearch bulk-search API used previously returned HTTP&nbsp;404 on its <code>/search</code> endpoint this run, so discovery fell back to LinkedIn pages.
+    All jobs below are real postings dated within roughly the last 24–48 hours in Bhumi's target locations. ntfy push is disabled per prior instruction — the summary is delivered through the routine's own push/email channel.
+  </div>
+
+  <section>
+    <h2><span class="tag g"></span> Qualified — Ready to Apply (8)</h2>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody>
+<tr>
+  <td>1</td>
+  <td><span class="score s-high">83</span></td>
+  <td><span class="trust">92</span></td>
+  <td class="co">Comviva</td>
+  <td>Java Developer (Spring Boot)</td>
+  <td>Gurugram</td>
+  <td>7-11 LPA (est)</td>
+  <td><span class="variant v-backend">backend</span></td>
+  <td>LinkedIn / company site</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-developer-springboot-at-comviva-4455709167" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl0')">Copy Cover Letter</button><div id="cl0" class="hidden-cl">Dear Hiring Manager,
+
+I am excited to apply for the Java Developer (Spring Boot) role at Comviva in Gurugram, as Comviva&#x27;s work on large-scale telecom and mobile-money platforms maps directly onto my backend and payments experience.
+
+At Primathon I engineer production Java and Spring Boot services, and I architected a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault microservices, applying system-design principles for scalability and fault tolerance. During my Paytm internship I built and optimized microservices for the merchant QR-code lifecycle, improving service reliability by 67%. My core stack — Java, Spring Boot, microservices, REST APIs, MySQL, and Kafka — matches your requirements closely, and my 5-Star HackerRank Gold in Java reflects strong fundamentals.
+
+As an immediate joiner with a 0-day notice period, I can contribute from day one and ramp quickly on Comviva&#x27;s platforms.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><span class="score s-high">81</span></td>
+  <td><span class="trust">68</span></td>
+  <td class="co">SID Global Solutions</td>
+  <td>Backend Engineer (Node.js + Kafka)</td>
+  <td>Gurugram</td>
+  <td>6-11 LPA (est)</td>
+  <td><span class="variant v-backend">backend</span></td>
+  <td>LinkedIn</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-engineer-node-js-%2B-kafka-at-sid-global-solutions-4439977781" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl1')">Copy Cover Letter</button><div id="cl1" class="hidden-cl">Dear Hiring Manager,
+
+I am keen to apply for the Backend Engineer (Node.js + Kafka) role at SID Global Solutions in Gurugram, which aligns almost exactly with my hands-on backend toolkit.
+
+I build backend services in Node.js and Express, and I have worked with Kafka and Redis for event-driven, high-throughput processing — at Primathon I cut manual operational effort by 70% through automated backend workflows for analytics and meta-event handling. Earlier, at CodeAlpha, I built order and payment microservices with REST APIs and MySQL, containerized with Docker for production deployment. This combination of Node.js, Kafka, REST APIs, and microservices is precisely what this role calls for.
+
+With a 0-day notice period I can join immediately, and I am eager to contribute to your backend team while continuing to grow.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><span class="score s-high">80</span></td>
+  <td><span class="trust">93</span></td>
+  <td class="co">Publicis Sapient</td>
+  <td>Java Software Engineer</td>
+  <td>Gurugram</td>
+  <td>9-14 LPA (est)</td>
+  <td><span class="variant v-backend">backend</span></td>
+  <td>LinkedIn</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-software-engineer-at-publicis-sapient-4454485969" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl2')">Copy Cover Letter</button><div id="cl2" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to express my interest in the Java Software Engineer position at Publicis Sapient in Gurugram, where engineering rigor and clean, scalable design are clearly valued.
+
+My background is a strong fit: at Primathon I build custom admin APIs and backend automation across seven merchant systems, and I integrated AWS Timestream, S3, and Lambda into real-time data pipelines. My certified Distributed Payment Gateway project — 30 Spring Boot REST APIs across four microservices — demonstrates the system-design and fault-tolerance thinking your teams apply for enterprise clients. I work daily with Java, Spring Boot, microservices, MySQL, Docker, and CI/CD, and hold an AWS Certified Developer – Associate credential.
+
+I am an immediate joiner able to start with zero notice, and I learn new domains and frameworks quickly — an asset on fast-moving client engagements.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><span class="score s-high">77</span></td>
+  <td><span class="trust">92</span></td>
+  <td class="co">Deel</td>
+  <td>Backend Engineer (Node.js + AWS)</td>
+  <td>Gurugram</td>
+  <td>18-30 LPA (est)</td>
+  <td><span class="variant v-backend">backend</span></td>
+  <td>LinkedIn / Deel careers</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-engineer-node-js-%2B-aws-at-deel-4454990373" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl3')">Copy Cover Letter</button><div id="cl3" class="hidden-cl">Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer (Node.js + AWS) role at Deel, as Deel&#x27;s global payments and payroll platform is exactly the kind of distributed, money-moving system I love building.
+
+I designed and shipped a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault microservices, and at Paytm I developed microservices powering real-time merchant transaction notifications. On the infrastructure side, I integrate AWS EC2, S3, Lambda, and Timestream into backend pipelines and build in Node.js and Express — directly matching your Node.js and AWS stack. My AWS Certified Developer – Associate certification backs this cloud experience.
+
+I am an immediate joiner with a 0-day notice period and a fast ramp-up on new codebases, ready to add value to Deel&#x27;s backend team quickly.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><span class="score s-high">73</span></td>
+  <td><span class="trust">62</span></td>
+  <td class="co">HuntingCube (recruiter)</td>
+  <td>SDE-1, Automation Engineering</td>
+  <td>Gurugram</td>
+  <td>6-10 LPA (est)</td>
+  <td><span class="variant v-backend">backend</span></td>
+  <td>LinkedIn</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/sde-1-automation-engineering-at-huntingcube-4456311112" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><span class="score s-high">72</span></td>
+  <td><span class="trust">92</span></td>
+  <td class="co">United Airlines India KC</td>
+  <td>Associate Engineer - Digital Technology</td>
+  <td>Gurugram</td>
+  <td>8-12 LPA (est)</td>
+  <td><span class="variant v-master">master</span></td>
+  <td>LinkedIn / company site</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/associate-engineer-digital-technology-at-united-airlines-india-knowledge-center-4425628844" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><span class="score s-high">72</span></td>
+  <td><span class="trust">95</span></td>
+  <td class="co">Tata Consultancy Services</td>
+  <td>Node.js Fullstack Developer</td>
+  <td>Gurugram</td>
+  <td>5-7 LPA (est) — salary risk</td>
+  <td><span class="variant v-fullstack">fullstack</span></td>
+  <td>LinkedIn / TCS careers</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/node-js-fullstack-developer-at-tata-consultancy-services-4454717429" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><span class="score s-high">66</span></td>
+  <td><span class="trust">85</span></td>
+  <td class="co">Appinventiv</td>
+  <td>Software Engineer</td>
+  <td>Delhi</td>
+  <td>5-9 LPA (est)</td>
+  <td><span class="variant v-master">master</span></td>
+  <td>LinkedIn</td>
+  <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4452804266" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Top 5 Recommendations</h2>
+<div class="rec">
+  <div class="rec-head"><span class="rank">#1</span> <strong>Java Developer (Spring Boot)</strong> — Comviva
+    <span class="rec-score">match 83 · trust 92 · 7-11 LPA (est)</span></div>
+  <p>Direct Java + Spring Boot + microservices match at a Tech Mahindra product company whose telecom/mobile-money platforms line up with Bhumi&#x27;s payments background. Non-senior &#x27;Java Developer&#x27; level is reachable at 1.5 yrs.</p>
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-developer-springboot-at-comviva-4455709167" target="_blank" rel="noopener">Open Job</a>
+</div>
+<div class="rec">
+  <div class="rec-head"><span class="rank">#2</span> <strong>Backend Engineer (Node.js + Kafka)</strong> — SID Global Solutions
+    <span class="rec-score">match 81 · trust 68 · 6-11 LPA (est)</span></div>
+  <p>Node.js + Kafka is an almost exact match to her resume (she lists both). Glassdoor 3.6/5 over 90 reviews confirms a real company, though it runs a project-based contractor model — verify contract terms.</p>
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-engineer-node-js-%2B-kafka-at-sid-global-solutions-4439977781" target="_blank" rel="noopener">Open Job</a>
+</div>
+<div class="rec">
+  <div class="rec-head"><span class="rank">#3</span> <strong>Java Software Engineer</strong> — Publicis Sapient
+    <span class="rec-score">match 80 · trust 93 · 9-14 LPA (est)</span></div>
+  <p>Global digital-engineering consultancy hiring core Java engineers. Her Spring Boot microservices, AWS pipelines and AWS-Developer cert fit well; &#x27;Software Engineer&#x27; (not senior) is an appropriate level.</p>
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-software-engineer-at-publicis-sapient-4454485969" target="_blank" rel="noopener">Open Job</a>
+</div>
+<div class="rec">
+  <div class="rec-head"><span class="rank">#4</span> <strong>Backend Engineer (Node.js + AWS)</strong> — Deel
+    <span class="rec-score">match 77 · trust 92 · 18-30 LPA (est)</span></div>
+  <p>Global payroll/payments unicorn — her distributed-payment-gateway and Paytm transaction work is a strong narrative fit for a money-movement backend. Node.js + AWS match exactly. Experience bar (likely 3-5 yrs) is a stretch at 1.5 yrs.</p>
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-engineer-node-js-%2B-aws-at-deel-4454990373" target="_blank" rel="noopener">Open Job</a>
+</div>
+<div class="rec">
+  <div class="rec-head"><span class="rank">#5</span> <strong>SDE-1, Automation Engineering</strong> — HuntingCube (recruiter)
+    <span class="rec-score">match 73 · trust 62 · 6-10 LPA (est)</span></div>
+  <p>SDE-1 is the ideal level for 1.5 yrs, and her automation stack (Selenium, Playwright, JUnit, Jenkins/CI-CD, backend automation at Primathon) fits. Posted by a recruiter so the end employer is hidden — confirm the client before applying.</p>
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/sde-1-automation-engineering-at-huntingcube-4456311112" target="_blank" rel="noopener">Open Job</a>
+</div>
+  </section>
+
+  <section>
+    <h2><span class="tag y"></span> Review — Verify Before Applying (6)</h2>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+      <tbody>
+<tr>
+  <td>1</td>
+  <td><span class="score s-mid">68</span></td>
+  <td><span class="trust">62</span></td>
+  <td class="co">Kosh</td>
+  <td>Software Developer <span class="muted">· Gurugram</span></td>
+  <td>Review: real YC fintech and good level/domain fit, but severe headcount decline (~87% YoY, ~22 employees) — stability risk.<br><a class="lnk" href="https://in.linkedin.com/jobs/view/software-developer-at-kosh-4454991440" target="_blank" rel="noopener">view posting →</a></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><span class="score s-mid">68</span></td>
+  <td><span class="trust">65</span></td>
+  <td class="co">Trademo</td>
+  <td>Software Development Engineer <span class="muted">· Gurugram</span></td>
+  <td>Review: funded SaaS with decent SDE fit, but low Glassdoor rating (2.7/5) — verify work environment.<br><a class="lnk" href="https://in.linkedin.com/jobs/view/software-development-engineer-at-trademo-4455256298" target="_blank" rel="noopener">view posting →</a></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><span class="score s-mid">62</span></td>
+  <td><span class="trust">58</span></td>
+  <td class="co">P.S. Global Group</td>
+  <td>Software Engineer <span class="muted">· New Delhi</span></td>
+  <td>Review: small staffing/software firm (trust 58); legitimate but verify the end client and role scope.<br><a class="lnk" href="https://in.linkedin.com/jobs/view/software-engineer-at-p-s-global-group-4455426857" target="_blank" rel="noopener">view posting →</a></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><span class="score s-mid">60</span></td>
+  <td><span class="trust">95</span></td>
+  <td class="co">MongoDB</td>
+  <td>Software Engineer 3 <span class="muted">· Gurugram</span></td>
+  <td>Review: excellent company and DB match, but SE-3 level is ~5+ yrs — too senior for now.<br><a class="lnk" href="https://in.linkedin.com/jobs/view/software-engineer-3-at-mongodb-4456363101" target="_blank" rel="noopener">view posting →</a></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><span class="score s-mid">55</span></td>
+  <td><span class="trust">80</span></td>
+  <td class="co">Smart Working</td>
+  <td>LLM Systems / AI Agent Engineer (Remote) <span class="muted">· Remote (Greater Delhi Area)</span></td>
+  <td>Review: remote + highly-rated employer, but LLM/agent/Python focus is off her core backend stack.<br><a class="lnk" href="https://in.linkedin.com/jobs/view/llm-systems-ai-agent-engineer-remote-full-time-as311-at-smart-working-4452573734" target="_blank" rel="noopener">view posting →</a></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><span class="score s-mid">55</span></td>
+  <td><span class="trust">93</span></td>
+  <td class="co">Accenture in India</td>
+  <td>AI / ML Engineer <span class="muted">· Gurugram</span></td>
+  <td>Review: excellent employer, but AI/ML role needs Python/ML depth outside her current stack.<br><a class="lnk" href="https://in.linkedin.com/jobs/view/ai-ml-engineer-at-accenture-in-india-4456374871" target="_blank" rel="noopener">view posting →</a></td>
+</tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="tag r"></span> Skipped (11)</h2>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+<tr>
+  <td>1</td>
+  <td class="co">NatWest Group</td>
+  <td>Software Engineer, AVP (Java, Kafka, AWS) <span class="muted">· Gurugram</span></td>
+  <td>Experience: AVP is a senior IC band (~5-8 yrs). Skills (Java/Kafka/AWS) match perfectly but level is too high.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td class="co">Luxoft India</td>
+  <td>Senior Backend Java Developer <span class="muted">· Gurugram</span></td>
+  <td>Experience: &#x27;Senior&#x27; Java role — beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td class="co">Luxoft</td>
+  <td>Senior Java Developer <span class="muted">· Gurugram</span></td>
+  <td>Experience: &#x27;Senior&#x27; Java role — beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td class="co">Iris Software</td>
+  <td>Java - Lead <span class="muted">· Gurugram</span></td>
+  <td>Experience: team-lead role — well beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td class="co">Transact Bridge</td>
+  <td>Senior Node.js Developer <span class="muted">· Noida</span></td>
+  <td>Experience: &#x27;Senior&#x27; Node.js role — beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td class="co">Zimyo</td>
+  <td>Manager - Full Stack Developer <span class="muted">· Gurugram</span></td>
+  <td>Experience: managerial role — beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td class="co">Snapmint</td>
+  <td>Senior Software Engineer II - Node.js <span class="muted">· Gurugram</span></td>
+  <td>Experience: &#x27;Senior SWE II&#x27; — beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td class="co">HuntingCube (recruiter)</td>
+  <td>Senior Backend Developer <span class="muted">· Delhi (Bawana)</span></td>
+  <td>Experience: &#x27;Senior&#x27; backend role — beyond 1.5 yrs.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td class="co">Rightsline</td>
+  <td>Agentic AI Operations Engineer <span class="muted">· Noida</span></td>
+  <td>Skill: AI-ops / LLM tooling + Python focus — off her Java/Node backend stack.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td class="co">AtkinsRéalis</td>
+  <td>Trainee <span class="muted">· Noida</span></td>
+  <td>Skill/role: generic engineering-consultancy &#x27;Trainee&#x27; — not a clear software-engineering role matching her stack.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td class="co">ASCENRA Technologies</td>
+  <td>Backend Engineer I/II &amp; AI Engineer (bulk posts) <span class="muted">· &#x27;Sadar, Uttar Pradesh&#x27; (ambiguous)</span></td>
+  <td>Fraud/unverifiable (trust 35): company has no findable website/Glassdoor/AmbitionBox footprint, posted multiple near-identical roles (Backend Engineer I, II, AI Engineer) within the same hour, and lists an ambiguous &#x27;Sadar, UP&#x27; location — classic low-signal / mass-posting pattern.</td>
+</tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="tag b"></span> Duplicates Skipped (already processed) (1)</h2>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Reason</th></tr></thead>
+      <tbody>
+<tr>
+  <td>1</td>
+  <td class="co">TravClan</td>
+  <td>Back End Developer (SDE 1) <span class="muted">· New Delhi</span></td>
+  <td>Repost of TravClan &#x27;SDE 1 (Backend Developer)&#x27; already logged 2026-08-05 (within 30 days) — same company + same title.</td>
+</tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Weekly Trend — Qualified per Run</h2>
+<div class="bar-row">
+  <span class="bar-label">2026-08-05</span>
+  <div class="bar" style="width:12%">1</div>
+</div>
+<div class="bar-row">
+  <span class="bar-label">2026-08-20</span>
+  <div class="bar" style="width:100%">8</div>
+</div>
+  </section>
+
+  <section>
+    <h2>Cover Letters (4)</h2>
+<div class="cl-box">
+  <div class="cl-head"><strong>Comviva</strong> — Java Developer (Spring Boot)
+    <button class="btn btn-copy" onclick="copyText('clbox0')">COPY</button></div>
+  <pre id="clbox0">Dear Hiring Manager,
+
+I am excited to apply for the Java Developer (Spring Boot) role at Comviva in Gurugram, as Comviva&#x27;s work on large-scale telecom and mobile-money platforms maps directly onto my backend and payments experience.
+
+At Primathon I engineer production Java and Spring Boot services, and I architected a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault microservices, applying system-design principles for scalability and fault tolerance. During my Paytm internship I built and optimized microservices for the merchant QR-code lifecycle, improving service reliability by 67%. My core stack — Java, Spring Boot, microservices, REST APIs, MySQL, and Kafka — matches your requirements closely, and my 5-Star HackerRank Gold in Java reflects strong fundamentals.
+
+As an immediate joiner with a 0-day notice period, I can contribute from day one and ramp quickly on Comviva&#x27;s platforms.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+  <div class="cl-head"><strong>SID Global Solutions</strong> — Backend Engineer (Node.js + Kafka)
+    <button class="btn btn-copy" onclick="copyText('clbox1')">COPY</button></div>
+  <pre id="clbox1">Dear Hiring Manager,
+
+I am keen to apply for the Backend Engineer (Node.js + Kafka) role at SID Global Solutions in Gurugram, which aligns almost exactly with my hands-on backend toolkit.
+
+I build backend services in Node.js and Express, and I have worked with Kafka and Redis for event-driven, high-throughput processing — at Primathon I cut manual operational effort by 70% through automated backend workflows for analytics and meta-event handling. Earlier, at CodeAlpha, I built order and payment microservices with REST APIs and MySQL, containerized with Docker for production deployment. This combination of Node.js, Kafka, REST APIs, and microservices is precisely what this role calls for.
+
+With a 0-day notice period I can join immediately, and I am eager to contribute to your backend team while continuing to grow.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+  <div class="cl-head"><strong>Publicis Sapient</strong> — Java Software Engineer
+    <button class="btn btn-copy" onclick="copyText('clbox2')">COPY</button></div>
+  <pre id="clbox2">Dear Hiring Manager,
+
+I am writing to express my interest in the Java Software Engineer position at Publicis Sapient in Gurugram, where engineering rigor and clean, scalable design are clearly valued.
+
+My background is a strong fit: at Primathon I build custom admin APIs and backend automation across seven merchant systems, and I integrated AWS Timestream, S3, and Lambda into real-time data pipelines. My certified Distributed Payment Gateway project — 30 Spring Boot REST APIs across four microservices — demonstrates the system-design and fault-tolerance thinking your teams apply for enterprise clients. I work daily with Java, Spring Boot, microservices, MySQL, Docker, and CI/CD, and hold an AWS Certified Developer – Associate credential.
+
+I am an immediate joiner able to start with zero notice, and I learn new domains and frameworks quickly — an asset on fast-moving client engagements.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+  <div class="cl-head"><strong>Deel</strong> — Backend Engineer (Node.js + AWS)
+    <button class="btn btn-copy" onclick="copyText('clbox3')">COPY</button></div>
+  <pre id="clbox3">Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer (Node.js + AWS) role at Deel, as Deel&#x27;s global payments and payroll platform is exactly the kind of distributed, money-moving system I love building.
+
+I designed and shipped a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault microservices, and at Paytm I developed microservices powering real-time merchant transaction notifications. On the infrastructure side, I integrate AWS EC2, S3, Lambda, and Timestream into backend pipelines and build in Node.js and Express — directly matching your Node.js and AWS stack. My AWS Certified Developer – Associate certification backs this cloud experience.
+
+I am an immediate joiner with a 0-day notice period and a fast ramp-up on new codebases, ready to add value to Deel&#x27;s backend team quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+  </section>
+
+</div>
+<footer>Generated by the LinkedIn Morning Scan routine · 2026-08-20 · 26 discovered / 8 qualified / 1 fraud blocked</footer>
+
+<script>
+  var QUALIFIED_URLS = ["https://in.linkedin.com/jobs/view/java-developer-springboot-at-comviva-4455709167", "https://in.linkedin.com/jobs/view/backend-engineer-node-js-%2B-kafka-at-sid-global-solutions-4439977781", "https://in.linkedin.com/jobs/view/java-software-engineer-at-publicis-sapient-4454485969", "https://in.linkedin.com/jobs/view/backend-engineer-node-js-%2B-aws-at-deel-4454990373", "https://in.linkedin.com/jobs/view/sde-1-automation-engineering-at-huntingcube-4456311112", "https://in.linkedin.com/jobs/view/associate-engineer-digital-technology-at-united-airlines-india-knowledge-center-4425628844", "https://in.linkedin.com/jobs/view/node-js-fullstack-developer-at-tata-consultancy-services-4454717429", "https://in.linkedin.com/jobs/view/software-engineer-at-appinventiv-4452804266"];
+  function openAll() {
+    if (!QUALIFIED_URLS.length) { alert('No qualified jobs to open.'); return; }
+    QUALIFIED_URLS.forEach(function(u) { window.open(u, '_blank'); });
+  }
+  function copyText(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var txt = el.innerText || el.textContent;
+    navigator.clipboard.writeText(txt).then(function() {
+      // find the button inside the same header
+      var btn = el.parentElement.querySelector('.btn-copy') || event.target;
+      if (btn) { var o=btn.textContent; btn.textContent='Copied!'; btn.classList.add('done'); setTimeout(function(){btn.textContent=o; btn.classList.remove('done');},1500); }
+    });
+  }
+  function copyCL(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var txt = el.innerText || el.textContent;
+    navigator.clipboard.writeText(txt);
+    var btn = event.target;
+    var o=btn.textContent; btn.textContent='Copied!'; btn.classList.add('done');
+    setTimeout(function(){btn.textContent=o; btn.classList.remove('done');},1500);
+  }
+</script>
+</body>
+</html>
