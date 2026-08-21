@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Associate Software Engineer role at PFI Innovation Centre India, as the stack you have described mirrors the one I build with every day.
+
+Across 1.5 years at Primathon and Paytm, I have shipped production Java and Spring Boot microservices, REST APIs, and React front ends, backed by MySQL and MongoDB and deployed through Jenkins CI/CD on AWS (EC2, S3, Lambda). I write my services test-first with JUnit and Mockito, and I use Git and Bitbucket-style workflows daily, which maps directly to your emphasis on automated testing and clean architectural standards for compliance-grade applications.
+
+Having recently engineered admin APIs and backend automation across seven merchant systems, I am comfortable owning features end to end and collaborating across teams.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your new Gurugram centre right away and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt

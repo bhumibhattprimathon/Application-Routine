@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at NuvoRetail, where I can help build the data-driven e-commerce products behind your Enlytical platform.
+
+I bring hands-on full-stack experience: React.js on the front end and Node.js with Express on the back end, connected through REST APIs to MySQL and MongoDB. At Primathon I built backend syncing automation and analytics workflows across seven merchant systems, reducing manual effort by 70% — directly relevant to the e-commerce integration and automation work your team does. I am also comfortable extending into Python-based services and enjoy shipping in a fast-paced startup setting.
+
+Your nice-to-haves around Express, testing, and AI/LLM workflows match my toolkit and my active interest in applied AI, which was the subject of my published research paper.
+
+As an immediate joiner available with a 0-day notice period, I can join your Dwarka team quickly and start delivering maintainable features right away.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-21</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);}
+  header{background:#0f172a;color:#fff;padding:28px 20px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px;}
+  header p{margin:0;color:#94a3b8;font-size:.9rem;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+  .card .n{font-size:1.9rem;font-weight:700;}
+  .card .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+  .n.green{color:var(--green);} .n.yellow{color:#b8860b;} .n.red{color:var(--red);}
+  .openall{display:block;width:100%;padding:18px;margin:8px 0 24px;font-size:1.15rem;font-weight:700;color:#fff;background:linear-gradient(90deg,#16a34a,#22c55e);border:none;border-radius:12px;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35);transition:transform .06s ease;}
+  .openall:hover{transform:translateY(-1px);} .openall:active{transform:translateY(1px);}
+  h2{font-size:1.15rem;margin:28px 0 10px;padding-left:10px;border-left:4px solid var(--muted);}
+  h2.g{border-color:var(--green);} h2.y{border-color:var(--yellow);} h2.r{border-color:var(--red);}
+  .tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;}
+  table{width:100%;border-collapse:collapse;min-width:640px;}
+  th,td{padding:10px 12px;text-align:left;font-size:.86rem;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+  tr:last-child td{border-bottom:none;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem;color:#fff;}
+  .b-green{background:var(--green);} .b-yellow{background:#d4a017;} .b-red{background:var(--red);} .b-slate{background:#475569;}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:.78rem;cursor:pointer;text-decoration:none;margin:2px 2px 0 0;}
+  .btn.job{background:#0f172a;color:#fff;border-color:#0f172a;}
+  .btn.copy{background:#ecfdf5;border-color:#a7f3d0;color:#065f46;}
+  .btn:hover{filter:brightness(.96);}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:12px 0;}
+  .rec h3{margin:0 0 6px;font-size:1rem;} .rec .meta{font-size:.8rem;color:var(--muted);margin-bottom:6px;} .rec p{margin:0;font-size:.9rem;line-height:1.45;}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0;}
+  .cl .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;}
+  .cl h3{margin:0;font-size:.95rem;} .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;line-height:1.5;margin:0;color:#1e293b;}
+  .bars{display:flex;align-items:flex-end;gap:18px;height:170px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;}
+  .bar{flex:1;max-width:90px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .bar .col{width:46px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:6px 6px 0 0;}
+  .bar .v{font-weight:700;font-size:.9rem;margin-bottom:4px;} .bar .d{font-size:.72rem;color:var(--muted);margin-top:6px;text-align:center;}
+  .note{font-size:.82rem;color:var(--muted);margin-top:6px;}
+  footer{max-width:1100px;margin:20px auto;padding:20px;color:var(--muted);font-size:.8rem;}
+  a{color:#2563eb;}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-21</h1>
+  <p>Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · immediate joiner · target 5.5–12 LPA</p>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">~90</div><div class="l">Live Postings Surfaced</div></div>
+    <div class="card"><div class="n green">4</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n yellow">2</div><div class="l">Review</div></div>
+    <div class="card"><div class="n red">12</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n red">0</div><div class="l">Fraud Detected</div></div>
+    <div class="card"><div class="n">84</div><div class="l">Avg Match (Qualified)</div></div>
+    <div class="card"><div class="n">~10 LPA</div><div class="l">Avg Salary Est.</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 4 QUALIFIED JOBS</button>
+
+  <h2 class="g">✅ Qualified Jobs</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="badge b-green">90</span></td><td>88</td>
+          <td>PFI Innovation Centre India<br><span class="note">Prudential Financial GCC</span></td>
+          <td>Associate Software Engineer</td><td>Gurugram</td><td>7–11 LPA</td><td>fullstack</td>
+          <td>External</td>
+          <td><a class="btn job" href="https://in.linkedin.com/jobs/view/associate-software-engineer-at-pfi-innovation-centre-india-4443722175" target="_blank" rel="noopener">Open Job</a>
+              <button class="btn copy" onclick="copyCL('cl1')">Copy Cover Letter</button></td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="badge b-green">88</span></td><td>90</td>
+          <td>Snapmint<br><span class="note">Funded BNPL fintech</span></td>
+          <td>SDE-1 (Backend)</td><td>Gurugram</td><td>8–12 LPA</td><td>backend</td>
+          <td>External</td>
+          <td><a class="btn job" href="https://in.linkedin.com/jobs/view/sde-1-at-snapmint-4456705362" target="_blank" rel="noopener">Open Job</a>
+              <button class="btn copy" onclick="copyCL('cl2')">Copy Cover Letter</button></td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="badge b-green">82</span></td><td>72</td>
+          <td>NuvoRetail<br><span class="note">Enlytical Technologies</span></td>
+          <td>Full Stack Developer (React/Python/Node)</td><td>Dwarka, New Delhi</td><td>5–8 LPA</td><td>fullstack</td>
+          <td>External</td>
+          <td><a class="btn job" href="https://in.linkedin.com/jobs/view/full-stack-developer-at-nuvoretail-4453893471" target="_blank" rel="noopener">Open Job</a>
+              <button class="btn copy" onclick="copyCL('cl3')">Copy Cover Letter</button></td>
+        </tr>
+        <tr>
+          <td>4</td><td><span class="badge b-green">76</span></td><td>85</td>
+          <td>Baazi Games<br><span class="note">In-person drive Aug 22</span></td>
+          <td>SDE-2 (Backend, Node.js) — <em>stretch</em></td><td>New Delhi</td><td>12–18 LPA</td><td>backend</td>
+          <td>External</td>
+          <td><a class="btn job" href="https://in.linkedin.com/jobs/view/software-engineer-at-baazi-games-4453880019" target="_blank" rel="noopener">Open Job</a>
+              <button class="btn copy" onclick="copyCL('cl4')">Copy Cover Letter</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="y">🟡 Review Jobs</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="badge b-yellow">60</span></td><td>55</td><td>HuntingCube (staffing)</td><td>Software Engineer II</td><td>Recruiter-posted, end client undisclosed — verify real employer &amp; required years.</td><td><a href="https://in.linkedin.com/jobs/view/software-engineer-ii-at-huntingcube-4456707993" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>2</td><td><span class="badge b-yellow">58</span></td><td>80</td><td>Titan Capital</td><td>Full Stack AI Engineer</td><td>Reputable VC, but role likely leans Python/LLM tooling not on her resume — partial fit.</td><td><a href="https://in.linkedin.com/jobs/view/full-stack-ai-engineer-at-titan-capital-4453835443" target="_blank" rel="noopener">Open</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="r">🔴 Skipped Jobs</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Accenture in India</td><td>Custom Software Engineer</td><td>Skill/Experience: Snowflake data-warehouse, min 3 yrs, Mid-Senior — off stack &amp; above level.</td></tr>
+        <tr><td>2</td><td>Learner Mobile</td><td>Lead Full Stack Engineer</td><td>Experience: 8+ yrs lead/principal; C#/.NET + Azure — off stack.</td></tr>
+        <tr><td>3</td><td>Orange Business</td><td>Software Engineer</td><td>Skill: C/C++ embedded Linux (Yocto/OpenWrt/TR-369).</td></tr>
+        <tr><td>4</td><td>GlobalLogic</td><td>Software Engineer IRC300484</td><td>Skill: web-crawl content QA (regex/HTML/SEO), not backend dev.</td></tr>
+        <tr><td>5</td><td>Expedia Group</td><td>SDE III</td><td>Experience: senior, 5+ yrs.</td></tr>
+        <tr><td>6</td><td>Luxoft</td><td>Senior Java Software Engineer</td><td>Experience: senior (stack itself is a good match).</td></tr>
+        <tr><td>7</td><td>Jitterbit</td><td>Senior Software Engineer – Backend</td><td>Experience: senior.</td></tr>
+        <tr><td>8</td><td>Toptal</td><td>Senior SSE – Backend Full Stack</td><td>Experience: senior freelance-marketplace bar (3+ yrs proven).</td></tr>
+        <tr><td>9</td><td>Tower Research Capital</td><td>Software Engineer II</td><td>Skill: HFT low-latency C++ — off stack, very competitive.</td></tr>
+        <tr><td>10</td><td>D. E. Shaw India</td><td>Principal, Tech (Middleware)</td><td>Experience: Principal-level.</td></tr>
+        <tr><td>11</td><td>EXL</td><td>Managers / Sr Managers / GenAI leads (cluster)</td><td>Experience: management &amp; senior IC roles.</td></tr>
+        <tr><td>12</td><td>Various (Moody's, Cvent, GreyOrange, Payoneer, NIIT…)</td><td>Staff / Lead / Architect roles</td><td>Experience: senior/lead — beyond entry level.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>⭐ Top 4 Recommendations</h2>
+
+  <div class="rec">
+    <h3>1. PFI Innovation Centre India — Associate Software Engineer</h3>
+    <div class="meta">Match 90 · Trust 88 · Gurugram · fullstack · 7–11 LPA (est)</div>
+    <p>This is the closest stack match of the day. The JD lists Java, Spring Boot, Node.js, React, JavaScript, AWS, Jenkins, GitHub and unit/integration testing — almost exactly Bhumi's toolkit. It is a genuine <strong>entry-level</strong> role at a brand-new Gurugram GCC of Prudential Financial (Fortune 100), meaning strong stability, structured upskilling and blue-chip resume value. Her JUnit/Mockito test-first habit and multi-system backend automation at Primathon map directly to the compliance-grade quality bar.</p>
+  </div>
+  <div class="rec">
+    <h3>2. Snapmint — SDE-1 (Backend)</h3>
+    <div class="meta">Match 88 · Trust 90 · Gurugram · backend · 8–12 LPA (est)</div>
+    <p>A clean entry-level backend role (1–3 yrs) at a well-funded fintech ($173M raised, General Atlantic-backed, 420+ employees, Glassdoor 3.8). Node.js, PostgreSQL/MongoDB, API design and TDD are all on Bhumi's resume, and her Paytm QR-microservices and Distributed Payment Gateway work put her squarely in Snapmint's payments/EMI domain. High trust + right level + domain fit make this a top apply.</p>
+  </div>
+  <div class="rec">
+    <h3>3. NuvoRetail — Full Stack Developer (React / Python / Node.js)</h3>
+    <div class="meta">Match 82 · Trust 72 · Dwarka, New Delhi · fullstack · 5–8 LPA (est)</div>
+    <p>An Associate full-stack role at an established (2018) Amazon Ads Verified Partner building the Enlytical analytics platform. React + Node + Express + REST + SQL/MongoDB align well; it asks 2–3 yrs (she has 1.5) and drew 200+ applicants, so move fast. Her 70% manual-effort-reduction automation work and interest in applied AI fit their data-driven, AI-curious roadmap.</p>
+  </div>
+  <div class="rec">
+    <h3>4. Baazi Games — SDE-2 (Backend, Node.js) <span class="note">— stretch</span></h3>
+    <div class="meta">Match 76 · Trust 85 · New Delhi · backend · 12–18 LPA (est)</div>
+    <p>A step up (SDE-2, 2–5 yrs) but the skills line up tightly: Node.js, REST/microservices, MySQL/PostgreSQL/MongoDB, high-scale transaction handling — exactly what Bhumi built at Paytm (67% reliability gain) and in her payment gateway. There is an <strong>in-person hiring drive on Aug 22, 2026</strong>, so it is highly actionable if she can attend. Apply as an ambitious stretch; the salary ceiling is well above target.</p>
+  </div>
+
+  <h2>📈 Weekly Trend — Qualified per Run</h2>
+  <div class="bars">
+    <div class="bar"><div class="v">1</div><div class="col" style="height:22%"></div><div class="d">Aug 05</div></div>
+    <div class="bar"><div class="v">4</div><div class="col" style="height:90%"></div><div class="d">Aug 21</div></div>
+  </div>
+  <p class="note">Only two runs recorded so far (Aug 05 &amp; Aug 21). Bars scale to the max qualified count in the window.</p>
+
+  <h2>✉️ Cover Letters</h2>
+
+  <div class="cl">
+    <div class="top"><h3>PFI Innovation Centre India — Associate Software Engineer</h3><button class="btn copy" onclick="copyCL('cl1')">COPY</button></div>
+    <pre id="cl1">Dear Hiring Manager,
+
+I am excited to apply for the Associate Software Engineer role at PFI Innovation Centre India, as the stack you have described mirrors the one I build with every day.
+
+Across 1.5 years at Primathon and Paytm, I have shipped production Java and Spring Boot microservices, REST APIs, and React front ends, backed by MySQL and MongoDB and deployed through Jenkins CI/CD on AWS (EC2, S3, Lambda). I write my services test-first with JUnit and Mockito, and I use Git and Bitbucket-style workflows daily, which maps directly to your emphasis on automated testing and clean architectural standards for compliance-grade applications.
+
+Having recently engineered admin APIs and backend automation across seven merchant systems, I am comfortable owning features end to end and collaborating across teams.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your new Gurugram centre right away and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="top"><h3>Snapmint — SDE-1 (Backend)</h3><button class="btn copy" onclick="copyCL('cl2')">COPY</button></div>
+    <pre id="cl2">Dear Hiring Manager,
+
+I would love to join Snapmint as an SDE-1 (Backend), building the services that power installment-based commerce for millions of shoppers.
+
+My background is squarely backend: at Paytm I developed and optimized Node.js microservices managing the QR-code lifecycle and real-time transaction notifications, and my Distributed Payment Gateway project spans 30 REST APIs across four services with MongoDB and MySQL persistence. I work comfortably with API design, backend services, and test-driven development using JUnit and Mockito, which aligns with your need for someone who can build, debug production systems, and write automated tests against PostgreSQL and MongoDB.
+
+Fintech is where I have spent most of my career, so Snapmint's payments-and-EMI domain feels familiar, and I am eager to take ownership in a fast-moving, well-funded team.
+
+I am an immediate joiner with a 0-day notice period and pick up new tools like Golang quickly, so I can contribute to your Gurugram engineering team from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="top"><h3>NuvoRetail — Full Stack Developer</h3><button class="btn copy" onclick="copyCL('cl3')">COPY</button></div>
+    <pre id="cl3">Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at NuvoRetail, where I can help build the data-driven e-commerce products behind your Enlytical platform.
+
+I bring hands-on full-stack experience: React.js on the front end and Node.js with Express on the back end, connected through REST APIs to MySQL and MongoDB. At Primathon I built backend syncing automation and analytics workflows across seven merchant systems, reducing manual effort by 70% — directly relevant to the e-commerce integration and automation work your team does. I am also comfortable extending into Python-based services and enjoy shipping in a fast-paced startup setting.
+
+Your nice-to-haves around Express, testing, and AI/LLM workflows match my toolkit and my active interest in applied AI, which was the subject of my published research paper.
+
+As an immediate joiner available with a 0-day notice period, I can join your Dwarka team quickly and start delivering maintainable features right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="top"><h3>Baazi Games — SDE-2 (Backend, Node.js)</h3><button class="btn copy" onclick="copyCL('cl4')">COPY</button></div>
+    <pre id="cl4">Dear Hiring Manager,
+
+I am keen to apply for the SDE-2 (Backend, Node.js) position at Baazi Games and contribute to the high-scale systems behind your real-money gaming platform.
+
+Backend performance under load is my core strength: at Paytm I improved microservice reliability and performance by 67% while handling real-time transaction notifications, and I have built REST APIs and microservices in Node.js and Express backed by MySQL, PostgreSQL-style stores, and MongoDB. My Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant, and Vault services — reflects exactly the transaction-heavy, fault-tolerant design your gaming workloads demand, and I deploy on AWS with Docker.
+
+I know I am early in the 2-5 year band, but my payments and high-throughput microservices experience closes much of that gap, and I am confident I can hold my own in your architecture and code reviews.
+
+I am an immediate joiner with a 0-day notice period and can attend your in-person drive, ready to start straight away.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated automatically by the LinkedIn Smart Apply routine · Data source: LinkedIn guest job-search (posted &lt; 24h), 5 discovery batches · All links verified live at run time on 2026-08-21.
+</footer>
+
+<script>
+  var qualifiedUrls = [
+    "https://in.linkedin.com/jobs/view/associate-software-engineer-at-pfi-innovation-centre-india-4443722175",
+    "https://in.linkedin.com/jobs/view/sde-1-at-snapmint-4456705362",
+    "https://in.linkedin.com/jobs/view/full-stack-developer-at-nuvoretail-4453893471",
+    "https://in.linkedin.com/jobs/view/software-engineer-at-baazi-games-4453880019"
+  ];
+  function openAll(){ qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(id); }, function(){ fallbackCopy(text); flash(id); });
+    } else { fallbackCopy(text); flash(id); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(id){
+    var btns = document.querySelectorAll("button.copy");
+    btns.forEach(function(b){
+      if(b.getAttribute("onclick") && b.getAttribute("onclick").indexOf("'"+id+"'")>-1){
+        var old=b.textContent; b.textContent="Copied ✓";
+        setTimeout(function(){ b.textContent=old; },1400);
+      }
+    });
+  }
+</script>
+</body>
+</html>

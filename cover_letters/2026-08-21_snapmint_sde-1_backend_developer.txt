@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I would love to join Snapmint as an SDE-1 (Backend), building the services that power installment-based commerce for millions of shoppers.
+
+My background is squarely backend: at Paytm I developed and optimized Node.js microservices managing the QR-code lifecycle and real-time transaction notifications, and my Distributed Payment Gateway project spans 30 REST APIs across four services with MongoDB and MySQL persistence. I work comfortably with API design, backend services, and test-driven development using JUnit and Mockito, which aligns with your need for someone who can build, debug production systems, and write automated tests against PostgreSQL and MongoDB.
+
+Fintech is where I have spent most of my career, so Snapmint's payments-and-EMI domain feels familiar, and I am eager to take ownership in a fast-moving, well-funded team.
+
+I am an immediate joiner with a 0-day notice period and pick up new tools like Golang quickly, so I can contribute to your Gurugram engineering team from day one.
+
+Best regards,
+Bhumi Bhatt

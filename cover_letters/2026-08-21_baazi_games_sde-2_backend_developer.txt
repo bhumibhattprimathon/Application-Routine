@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I am keen to apply for the SDE-2 (Backend, Node.js) position at Baazi Games and contribute to the high-scale systems behind your real-money gaming platform.
+
+Backend performance under load is my core strength: at Paytm I improved microservice reliability and performance by 67% while handling real-time transaction notifications, and I have built REST APIs and microservices in Node.js and Express backed by MySQL, PostgreSQL-style stores, and MongoDB. My Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant, and Vault services — reflects exactly the transaction-heavy, fault-tolerant design your gaming workloads demand, and I deploy on AWS with Docker.
+
+I know I am early in the 2-5 year band, but my payments and high-throughput microservices experience closes much of that gap, and I am confident I can hold my own in your architecture and code reviews.
+
+I am an immediate joiner with a 0-day notice period and can attend your in-person drive, ready to start straight away.
+
+Best regards,
+Bhumi Bhatt
