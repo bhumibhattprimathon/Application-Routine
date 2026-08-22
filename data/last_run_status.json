@@ -1,15 +1,21 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-22",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
+  "data_source": "WebFetch of India job aggregators (Internshala with post-dates, Cutshort). WebSearch returned only aggregate LinkedIn listing pages; direct WebFetch of LinkedIn geolocates to the US (returned Delhi, Ohio / Delhi, NY jobs) and is unusable for India roles.",
+  "resume_source": "repo resumes/resume_master.pdf (present)",
+  "blocked_tools": {
+    "jsearch_rapidapi": "Subscription lapsed — endpoint returns HTTP 404 'Endpoint /search does not exist' with no rate-limit headers (key not subscribed).",
+    "ntfy": "Blocked by environment egress policy; reported via routine push/email channel instead.",
+    "linkedin_direct": "WebFetch/WebSearch are US-geolocated; cannot retrieve Delhi-India LinkedIn postings."
+  },
+  "jobs_processed": 16,
+  "jobs_qualified": 3,
+  "jobs_review": 3,
   "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "fraud_detected": 0,
+  "avg_match_qualified": 79.0,
+  "top_pick": "SuperHuman Race — Node.js Developer (match 83, trust 80, 4-7 LPA, posted 1 day ago)",
+  "cover_letters_generated": 2,
+  "notes": "All jobs are real, live postings verified via aggregator fetch. 3 qualified (2 SuperHuman Race roles with cover letters + LambdaTest backend). 3 to review (Synthlane low-trust/unverified, Livekeeping Golang stretch, MCube AI internship). 10 skipped (6 salary <5 LPA, 1 low-match data-science, 3 too-senior). No outright fraud today. JSearch subscription needs renewal to restore LinkedIn <24h discovery."
 }

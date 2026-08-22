@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my interest in the Full Stack Developer position at SuperHuman Race, whose sustainability-tech platform is a mission I would be proud to help engineer.
+
+My strength is backend depth paired with working front-end skills: I design REST APIs and microservices in Node.js and Java/Spring Boot, and build interfaces with React, HTML5, and CSS3. At Primathon I integrated AWS (Lambda, S3, Timestream) into production backend pipelines for real-time data ingestion, and across internships at Paytm and CodeAlpha I shipped and optimized 30+ REST endpoints backed by MySQL. This combination of React on the front and AWS-connected services on the back maps directly to your full-stack requirements.
+
+Being an immediate joiner with a strong DSA foundation, I can ramp up fast and deliver end-to-end features from day one.
+
+Best regards,
+Bhumi Bhatt

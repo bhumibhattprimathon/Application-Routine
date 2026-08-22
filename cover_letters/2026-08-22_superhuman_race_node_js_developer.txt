@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer role at SuperHuman Race, where impact-focused ESG data runs on reliable backend services.
+
+At Primathon I build Node.js and Express backends, engineering admin APIs and syncing automation across seven merchant systems while reducing manual operational effort by 70%. My work pairs JavaScript services with MySQL and MongoDB data layers, Git-based CI/CD, and Docker containerization — the exact stack in your requirements. Earlier, at Paytm, I developed microservices managing the QR-code lifecycle, improving service reliability by 67%, which sharpened my instinct for writing performant, maintainable Node.js code.
+
+As a 0-day-notice immediate joiner, I can start contributing to your data-analytics platform right away and pick up your codebase quickly.
+
+Best regards,
+Bhumi Bhatt

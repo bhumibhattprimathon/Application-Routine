@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-22</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--bg:#f1f5f9;--card:#fff;--muted:#64748b;--line:#e2e8f0}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1200px;margin:0 auto;padding:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+.card .n{font-size:30px;font-weight:800}
+.card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.c-green .n{color:var(--green)} .c-yellow .n{color:var(--yellow)} .c-red .n{color:var(--red)}
+.openall{display:block;width:100%;padding:18px;margin:10px 0 24px;font-size:18px;font-weight:800;color:#fff;
+  background:var(--green);border:none;border-radius:14px;cursor:pointer;box-shadow:0 6px 18px rgba(34,197,94,.35)}
+.openall:hover{filter:brightness(1.05)} .openall:disabled{background:#94a3b8;box-shadow:none;cursor:not-allowed}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+h2{font-size:16px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+.d-green{background:var(--green)} .d-yellow{background:var(--yellow)} .d-red{background:var(--red)}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.score{font-weight:800;padding:2px 9px;border-radius:20px;color:#fff}
+.s-green{background:var(--green)} .s-yellow{background:var(--yellow);color:#3b2f00}
+.pill{background:#eef2ff;color:#3730a3;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600}
+.tag{padding:2px 9px;border-radius:6px;font-size:11px;font-weight:700} .tag-red{background:#fee2e2;color:#991b1b}
+.btn{border:none;border-radius:8px;padding:6px 11px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-open{background:var(--ink);color:#fff} .btn-open-sm{background:#334155;color:#fff}
+.btn-copy{background:#e0e7ff;color:#3730a3;margin-left:4px}
+.reason{color:#475569;font-size:12.5px;max-width:520px}
+.muted{color:var(--muted)} .nowrap{white-space:nowrap}
+.rec{border-left:4px solid var(--green);background:#f0fdf4;padding:10px 14px;border-radius:0 10px 10px 0;margin:10px 0}
+.rec-h{font-size:14px} .rec-score{background:var(--green);color:#fff;font-weight:800;border-radius:20px;padding:1px 9px;font-size:12px}
+.rec p{margin:6px 0 0;font-size:13px;color:#334155}
+.chart{display:flex;align-items:flex-end;gap:22px;height:190px;padding:10px 6px}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar{width:44px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:6px 6px 0 0}
+.bar-lbl{font-size:11px;color:var(--muted);text-align:center}
+.cl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.cl-box{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fafafa}
+.cl-title{font-weight:700;font-size:13px;margin-bottom:8px}
+.cl-box pre{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;max-height:230px;overflow:auto}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+.note{background:#fffbeb;border:1px solid #fde68a;color:#78350f;border-radius:10px;padding:10px 14px;font-size:12.5px;margin:8px 0}
+</style></head>
+<body>
+<header>
+  <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-08-22</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · Immediate joiner</div>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">16</div><div class="l">Jobs Processed</div></div>
+    <div class="card c-green"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="card c-yellow"><div class="n">3</div><div class="l">To Review</div></div>
+    <div class="card c-red"><div class="n">10</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">79.0</div><div class="l">Avg Match (qual.)</div></div>
+    <div class="card"><div class="n">~9.2</div><div class="l">Avg Salary LPA (qual.)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 3 QUALIFIED JOBS</button>
+
+  <div class="note"><b>Discovery note:</b> The JSearch API subscription (RapidAPI) has lapsed and returns 404, and ntfy.sh is blocked by the environment's egress policy. Today's jobs were sourced live via WebFetch of India job aggregators (<b>Internshala</b>, which shows post dates, and <b>Cutshort</b>) filtered to Bhumi's profile. Prefer the freshest postings (marked "Today"/"1 day ago"). Apply links open the aggregator posting or the employer careers page.</div>
+
+  <section>
+    <h2><span class="dot d-green"></span>Qualified Jobs — Ready to Apply</h2>
+    <div class="tablewrap"><table>
+      <tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply Type</th><th>Actions</th></tr>
+      <tr>
+<td>1</td><td><span class="score s-green">83</span></td><td>80</td>
+<td><strong>SuperHuman Race</strong></td><td>Node.js Developer</td><td>Delhi</td>
+<td>4-7 LPA</td><td><span class="pill">fullstack</span></td>
+<td>External (Internshala)</td>
+<td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl1')">Copy Cover Letter</button><div id="cl1" style="display:none">Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer role at SuperHuman Race, where impact-focused ESG data runs on reliable backend services.
+
+At Primathon I build Node.js and Express backends, engineering admin APIs and syncing automation across seven merchant systems while reducing manual operational effort by 70%. My work pairs JavaScript services with MySQL and MongoDB data layers, Git-based CI/CD, and Docker containerization — the exact stack in your requirements. Earlier, at Paytm, I developed microservices managing the QR-code lifecycle, improving service reliability by 67%, which sharpened my instinct for writing performant, maintainable Node.js code.
+
+As a 0-day-notice immediate joiner, I can start contributing to your data-analytics platform right away and pick up your codebase quickly.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>2</td><td><span class="score s-green">80</span></td><td>80</td>
+<td><strong>SuperHuman Race</strong></td><td>Full Stack Developer</td><td>Delhi</td>
+<td>3-6 LPA (salary risk)</td><td><span class="pill">fullstack</span></td>
+<td>External (Internshala)</td>
+<td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/full-stack-developer-job-in-delhi-at-superhuman-race-private-limited1787289305" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl2')">Copy Cover Letter</button><div id="cl2" style="display:none">Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer role at SuperHuman Race, where impact-focused ESG data runs on reliable backend services.
+
+At Primathon I build Node.js and Express backends, engineering admin APIs and syncing automation across seven merchant systems while reducing manual operational effort by 70%. My work pairs JavaScript services with MySQL and MongoDB data layers, Git-based CI/CD, and Docker containerization — the exact stack in your requirements. Earlier, at Paytm, I developed microservices managing the QR-code lifecycle, improving service reliability by 67%, which sharpened my instinct for writing performant, maintainable Node.js code.
+
+As a 0-day-notice immediate joiner, I can start contributing to your data-analytics platform right away and pick up your codebase quickly.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>3</td><td><span class="score s-green">74</span></td><td>90</td>
+<td><strong>TestMu AI (LambdaTest)</strong></td><td>Backend Developer</td><td>Noida</td>
+<td>10-25 LPA</td><td><span class="pill">backend</span></td>
+<td>External (Cutshort / LambdaTest careers)</td>
+<td class="nowrap"><a class="btn btn-open" href="https://www.lambdatest.com/careers" target="_blank" rel="noopener">Open Job</a> <span class="muted">—</span></td>
+</tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2><span class="dot d-yellow"></span>Review Jobs — Worth a Look / Verify First</h2>
+    <div class="tablewrap"><table>
+      <tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Reason for Review</th><th></th></tr>
+      <tr>
+<td>1</td><td><span class="score s-yellow">62</span></td><td>42</td>
+<td><strong>Synthlane Technologies</strong></td><td>Agentic AI Engineer (Fresher)</td><td>Gurgaon</td>
+<td>4-8 LPA</td>
+<td class="reason">Trust low (42): no company website or reviews found online, thin footprint. Salary &amp; fresher level fit perfectly and Bhumi has GenAI research + AI project experience, but agentic-AI/Python stack depth is uncertain. Verify the company before applying.</td>
+<td><a class="btn btn-open-sm" href="https://internshala.com/job/detail/fresher-agentic-ai-engineer-job-in-gurgaon-at-synthlane-technologies-private-limited1787225907" target="_blank" rel="noopener">Open</a></td>
+</tr>
+<tr>
+<td>2</td><td><span class="score s-yellow">62</span></td><td>82</td>
+<td><strong>Livekeeping Technologies</strong></td><td>Golang Developer</td><td>Noida (Sector 135)</td>
+<td>7-12 LPA</td>
+<td class="reason">Golang is not in Bhumi&#x27;s stack and role wants 2-4 yr (she has 1.5). Strong company (IndiaMART-backed, 51-200 employees) and salary in range; REST/SQL/Docker overlap. Stretch application if she&#x27;s open to learning Go.</td>
+<td><a class="btn btn-open-sm" href="https://cutshort.io/company/livekeeping-technologies-11-I5dEebOD" target="_blank" rel="noopener">Open</a></td>
+</tr>
+<tr>
+<td>3</td><td><span class="score s-yellow">58</span></td><td>55</td>
+<td><strong>MCube AI</strong></td><td>Backend Development (Internship)</td><td>Delhi NCR (multiple)</td>
+<td>25-40k/mo stipend; up to 10 LPA PPO</td>
+<td class="reason">It&#x27;s a 3-month internship, not a full-time role — a step back for someone with 1.5 yr experience. But the up-to-10 LPA pre-placement offer and Python/SQL/DSA focus make it worth a look if she wants the PPO route.</td>
+<td><a class="btn btn-open-sm" href="https://internshala.com/internship/detail/backend-development-internship-in-multiple-locations-at-mcube-ai-private-limited1787036740" target="_blank" rel="noopener">Open</a></td>
+</tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2><span class="dot d-red"></span>Skipped Jobs</h2>
+    <div class="tablewrap"><table>
+      <tr><th>#</th><th>Company</th><th>Role</th><th>Type</th><th>Skip Reason</th></tr>
+      <tr>
+<td>1</td><td><strong>SoftSensor.ai</strong></td><td>Associate Data Scientist (Fresher)</td>
+<td><span class="tag tag-red">Low match</span></td>
+<td class="reason">Low match (49): data-science track (Python, ML, NLP, Deep Learning) rather than Bhumi&#x27;s backend engineering path; Python not on her resume.</td>
+</tr>
+<tr>
+<td>2</td><td><strong>GenerativX</strong></td><td>Backend Developer</td>
+<td><span class="tag tag-red">Salary</span></td>
+<td class="reason">Salary: estimated top 4.8 LPA is below the 5 LPA floor. Good title &amp; DSA/REST/PostgreSQL overlap, but pay is under target (and Python/FastAPI are core here).</td>
+</tr>
+<tr>
+<td>3</td><td><strong>Stirring Minds</strong></td><td>Full Stack Developer</td>
+<td><span class="tag tag-red">Salary</span></td>
+<td class="reason">Salary: 2-3 LPA is well below the 5 LPA floor and below her current 4 LPA. MERN skills match but pay disqualifies.</td>
+</tr>
+<tr>
+<td>4</td><td><strong>Career Guide</strong></td><td>AI Associate (Fresher)</td>
+<td><span class="tag tag-red">Salary</span></td>
+<td class="reason">Salary: 2-2.2 LPA far below floor. Also a Python/ML/NLP/LLMOps role outside her backend track.</td>
+</tr>
+<tr>
+<td>5</td><td><strong>KASP Turnkey Solution</strong></td><td>Junior Software Developer (Fresher)</td>
+<td><span class="tag tag-red">Salary</span></td>
+<td class="reason">Salary: 2-3 LPA below floor.</td>
+</tr>
+<tr>
+<td>6</td><td><strong>AppVersal</strong></td><td>Golang Developer</td>
+<td><span class="tag tag-red">Salary</span></td>
+<td class="reason">Salary: 3-3.5 LPA below floor; Golang not in her stack.</td>
+</tr>
+<tr>
+<td>7</td><td><strong>Wissen Technology</strong></td><td>Senior Java Developer</td>
+<td><span class="tag tag-red">Experience</span></td>
+<td class="reason">Experience: requires 6-10 yrs (she has 1.5). Java/Spring Boot/AWS/microservices are a perfect skills fit — a company to revisit in a few years.</td>
+</tr>
+<tr>
+<td>8</td><td><strong>NeoGenCode Technologies</strong></td><td>Senior Java Developer</td>
+<td><span class="tag tag-red">Experience</span></td>
+<td class="reason">Experience: requires 5-12 yrs (she has 1.5).</td>
+</tr>
+<tr>
+<td>9</td><td><strong>Transact Bridge</strong></td><td>Sr. Node.js Developer</td>
+<td><span class="tag tag-red">Experience</span></td>
+<td class="reason">Experience: requires 4-7 yrs (she has 1.5). Node/MongoDB/AWS Lambda fit well — revisit later.</td>
+</tr>
+<tr>
+<td>10</td><td><strong>NAM Info (Finance client)</strong></td><td>Backend Java Developer</td>
+<td><span class="tag tag-red">Experience</span></td>
+<td class="reason">Experience: requires 3-6 yrs (she has 1.5). Java/Spring Boot/Kafka/microservices are an excellent skills match and salary is in range — borderline; worth a stretch if she wants to try.</td>
+</tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>⭐ Top Recommendations</h2>
+    <div class="rec">
+<div class="rec-h"><span class="rec-score">83</span> <strong>Node.js Developer</strong> — SuperHuman Race <span class="muted">(Delhi · 4-7 LPA)</span></div>
+<p>Node.js + JavaScript + MySQL + MongoDB + Git + Docker map directly to Bhumi&#x27;s stack (Primathon/Paytm Node &amp; Express work). 1-3 yr band fits her 1.5 yr. Only gaps: PHP and TypeScript. Legit ESG-tech firm (founded 2016, ~39 employees, Glassdoor 3.4).</p>
+</div>
+<div class="rec">
+<div class="rec-h"><span class="rec-score">80</span> <strong>Full Stack Developer</strong> — SuperHuman Race <span class="muted">(Delhi · 3-6 LPA (salary risk))</span></div>
+<p>Full-stack target title with React + Node.js + AWS + REST + SQL matching her profile. PHP/Laravel/CodeIgniter are the main gaps. Salary band starts below 5.5 LPA target (flagged as risk) but top end reaches 6 LPA; posted today.</p>
+</div>
+<div class="rec">
+<div class="rec-h"><span class="rec-score">74</span> <strong>Backend Developer</strong> — TestMu AI (LambdaTest) <span class="muted">(Noida · 10-25 LPA)</span></div>
+<p>High-trust unicorn, entry-friendly 1-3 yr band, and excellent pay (10-25 LPA). Her microservices/backend-systems depth is a strong fit; she&#x27;d need to pick up Golang (or lean on Python). Worth a strong application despite the language gap.</p>
+</div>
+<div class="rec">
+<div class="rec-h"><span class="rec-score">62</span> <strong>Agentic AI Engineer (Fresher)</strong> — Synthlane Technologies <span class="muted">(Gurgaon · 4-8 LPA)</span></div>
+<p>Trust low (42): no company website or reviews found online, thin footprint. Salary &amp; fresher level fit perfectly and Bhumi has GenAI research + AI project experience, but agentic-AI/Python stack depth is uncertain. Verify the company before applying.</p>
+</div>
+<div class="rec">
+<div class="rec-h"><span class="rec-score">62</span> <strong>Golang Developer</strong> — Livekeeping Technologies <span class="muted">(Noida (Sector 135) · 7-12 LPA)</span></div>
+<p>Golang is not in Bhumi&#x27;s stack and role wants 2-4 yr (she has 1.5). Strong company (IndiaMART-backed, 51-200 employees) and salary in range; REST/SQL/Docker overlap. Stretch application if she&#x27;s open to learning Go.</p>
+</div>
+  </section>
+
+  <section>
+    <h2>📈 Weekly Trend — Qualified per Run</h2>
+    <div class="chart"><div class="bar-wrap"><div class="bar" style="height:52px" title="1 qualified"></div><div class="bar-lbl">08-05<br><b>1</b></div></div>
+<div class="bar-wrap"><div class="bar" style="height:146px" title="3 qualified"></div><div class="bar-lbl">08-22<br><b>3</b></div></div></div>
+  </section>
+
+  <section>
+    <h2>✉️ Cover Letters</h2>
+    <div class="cl-grid"><div class="cl-box">
+<div class="cl-title">Superhuman Race Full Stack Developer</div>
+<pre id="clb1">Dear Hiring Manager,
+
+I am writing to express my interest in the Full Stack Developer position at SuperHuman Race, whose sustainability-tech platform is a mission I would be proud to help engineer.
+
+My strength is backend depth paired with working front-end skills: I design REST APIs and microservices in Node.js and Java/Spring Boot, and build interfaces with React, HTML5, and CSS3. At Primathon I integrated AWS (Lambda, S3, Timestream) into production backend pipelines for real-time data ingestion, and across internships at Paytm and CodeAlpha I shipped and optimized 30+ REST endpoints backed by MySQL. This combination of React on the front and AWS-connected services on the back maps directly to your full-stack requirements.
+
+Being an immediate joiner with a strong DSA foundation, I can ramp up fast and deliver end-to-end features from day one.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+<button class="btn btn-copy" onclick="copyCL('clb1')">COPY</button>
+</div>
+<div class="cl-box">
+<div class="cl-title">Superhuman Race Node Js Developer</div>
+<pre id="clb2">Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer role at SuperHuman Race, where impact-focused ESG data runs on reliable backend services.
+
+At Primathon I build Node.js and Express backends, engineering admin APIs and syncing automation across seven merchant systems while reducing manual operational effort by 70%. My work pairs JavaScript services with MySQL and MongoDB data layers, Git-based CI/CD, and Docker containerization — the exact stack in your requirements. Earlier, at Paytm, I developed microservices managing the QR-code lifecycle, improving service reliability by 67%, which sharpened my instinct for writing performant, maintainable Node.js code.
+
+As a 0-day-notice immediate joiner, I can start contributing to your data-analytics platform right away and pick up your codebase quickly.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+<button class="btn btn-copy" onclick="copyCL('clb2')">COPY</button>
+</div></div>
+  </section>
+
+  <footer>Generated 2026-08-22 · LinkedIn Smart Apply routine · 16 jobs processed this run · data persisted to repo</footer>
+</div>
+
+<script>
+var urls = ["https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544", "https://internshala.com/job/detail/full-stack-developer-job-in-delhi-at-superhuman-race-private-limited1787289305", "https://www.lambdatest.com/careers"];
+function openAll(){
+  if(!urls.length){ alert('No qualified jobs today.'); return; }
+  if(!confirm('Open '+urls.length+' job tabs? Allow pop-ups if prompted.')) return;
+  urls.forEach(function(u){ window.open(u,'_blank','noopener'); });
+}
+function copyCL(id){
+  var el=document.getElementById(id); if(!el) return;
+  var txt=el.innerText||el.textContent;
+  navigator.clipboard.writeText(txt).then(function(){
+    alert('Cover letter copied to clipboard!');
+  },function(){
+    var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');alert('Cover letter copied!');}catch(e){alert('Copy failed — select manually.');}
+    document.body.removeChild(ta);
+  });
+}
+</script>
+</body></html>
