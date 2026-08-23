@@ -1,15 +1,22 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-23",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "completed_with_caveat",
+  "data_source": "WebSearch (LinkedIn + ATS aggregators). No JSearch/RapidAPI key and no LinkedIn auth this run.",
+  "resume_source": "repo resumes/resume_master.pdf (read OK)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel",
+  "jobs_found_new": 7,
+  "jobs_qualified": 2,
+  "jobs_review": 0,
+  "jobs_skipped": 5,
+  "fraud_detected": 0,
+  "avg_match_qualified": 84.0,
+  "notes": "Low yield due to tooling limits: WebSearch returned mostly aggregate category pages; every individual posting that could be fetched was already filled/removed (all 3 Deloitte reqs verified closed; CG Infinity removed + 5+ yrs). Two qualified picks (Eternal/Zomato SE-Backend Gurugram, Park+ Backend Developer Gurgaon) were surfaced via WebSearch but their JD pages could not be fetched (Naukri JS-only, Instahyre 403) to confirm live status — flagged for manual verify-before-apply in the dashboard. Recommend restoring the JSearch (RapidAPI) key used on 2026-08-05 for reliable live discovery.",
+  "artifacts": {
+    "dashboard": "dashboards/dashboard_2026-08-23.html",
+    "cover_letters": [
+      "cover_letters/2026-08-23_eternal_zomato_software_engineer_backend.txt",
+      "cover_letters/2026-08-23_park_plus_backend_developer.txt"
+    ]
+  }
 }

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply — 2026-08-23</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .n{font-size:1.9rem;font-weight:700}
+  .card .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .n.green{color:var(--green)} .n.yellow{color:var(--yellow)} .n.red{color:var(--red)}
+  .openall{display:block;width:100%;padding:18px;margin:6px 0 26px;border:0;border-radius:12px;background:var(--green);color:#03260f;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+  .openall:hover{filter:brightness(1.05)}
+  h2{margin:30px 0 10px;font-size:1.15rem;border-left:5px solid var(--muted);padding-left:10px}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  .note{background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;border-radius:10px;padding:14px 16px;font-size:.9rem;margin:14px 0}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.88rem}
+  .tblwrap{overflow-x:auto}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  td.wrap{white-space:normal;min-width:240px}
+  tr:last-child td{border-bottom:0}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-weight:700;font-size:.8rem;color:#fff}
+  .pill.g{background:var(--green)} .pill.y{background:var(--yellow);color:#3b2f00} .pill.r{background:var(--red)}
+  .btn{display:inline-block;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-size:.8rem;cursor:pointer;font-weight:600}
+  .btn.job{background:#0f172a;color:#fff;border-color:#0f172a}
+  .btn:hover{filter:brightness(.97)}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .rec h3{margin:0 0 6px;font-size:1rem}
+  .rec .meta{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+  .chart{display:flex;align-items:flex-end;gap:26px;height:180px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px}
+  .bar .fill{width:56px;background:var(--green);border-radius:6px 6px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#03260f;font-weight:700;padding-top:4px;font-size:.8rem}
+  .bar .lab{font-size:.75rem;color:var(--muted);text-align:center}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .cl h3{margin:0 0 8px;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;margin:0;color:#334155}
+  footer{color:var(--muted);font-size:.78rem;text-align:center;padding:26px}
+  .hidden{display:none}
+  @media (max-width:640px){ th,td{padding:8px} header h1{font-size:1.2rem} }
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-23</h1>
+  <div class="sub">Daily job scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · target 5.5–12 LPA</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">7</div><div class="l">New Jobs Found</div></div>
+    <div class="card"><div class="n green">2</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n yellow">0</div><div class="l">Review</div></div>
+    <div class="card"><div class="n red">5</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n red">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">84</div><div class="l">Avg Match (Qual.)</div></div>
+    <div class="card"><div class="n">~12 LPA</div><div class="l">Avg Salary Est.</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 2 QUALIFIED JOBS</button>
+
+  <div class="note">
+    <strong>⚠️ Discovery note — please read before applying.</strong>
+    Only <code>WebSearch</code> was available this run (no JSearch/RapidAPI key and no LinkedIn login).
+    WebSearch mostly returns aggregate category pages, and every individual posting that could be
+    fetched today was already <em>filled or removed</em> (all three Deloitte reqs verified closed).
+    The two qualified picks below were surfaced via WebSearch but their listing pages could not be
+    fetched (Naukri is JS-only, Instahyre returned 403), so their <strong>live status is unconfirmed</strong>.
+    Open each link first and confirm the role is still accepting applications before spending your 5 minutes.
+    To restore reliable daily discovery, re-enable the JSearch API (RapidAPI) key used on the 2026-08-05 run.
+  </div>
+
+  <h2 class="g">✅ Qualified Jobs</h2>
+  <div class="tblwrap">
+  <table>
+    <thead><tr>
+      <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th>
+      <th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="pill g">88</span></td>
+        <td>96</td>
+        <td>Eternal Ltd (Zomato)</td>
+        <td class="wrap">Software Engineer – Backend</td>
+        <td>Gurugram</td>
+        <td>10–16 LPA</td>
+        <td>backend</td>
+        <td>External (Naukri)</td>
+        <td>
+          <a class="btn job" href="https://www.naukri.com/job-listings-software-engineer-back-end-zomato-com-gurugram-0-to-2-years-270522502605" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn" onclick="copyCL('cl-eternal')">Copy Cover Letter</button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><span class="pill g">80</span></td>
+        <td>84</td>
+        <td>Park+ (Park Plus)</td>
+        <td class="wrap">Backend Developer</td>
+        <td>Gurgaon</td>
+        <td>8–14 LPA</td>
+        <td>backend</td>
+        <td>External (Instahyre)</td>
+        <td>
+          <a class="btn job" href="https://www.instahyre.com/job-318692-backend-developer-at-park-plus-gurgaon/" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn" onclick="copyCL('cl-parkplus')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 class="y">🟡 Review Jobs</h2>
+  <div class="note" style="background:#fefce8;border-color:#fde68a;color:#713f12">
+    No new review-tier jobs (score 50–64 or trust 40–59) surfaced today.
+    Still open as stretch candidates from the 2026-08-05 scan (re-verify before applying):
+    <strong>Innova ESI</strong> — Java Full Stack (match 79, asks 4–6 yrs);
+    <strong>Loop Subscriptions</strong> — Sr SDE Full Stack (match 72);
+    <strong>CARPL.ai</strong> — Implementation Engineer (match 67).
+  </div>
+
+  <h2 class="r">🔴 Skipped Jobs</h2>
+  <div class="tblwrap">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Deloitte</td><td>Analyst | Backend Developer – Java</td><td class="wrap">Closed — page verified 2026-08-23 shows "position has been filled". (Strong fit on paper: 0–3 yrs, Java/Spring Boot, Delhi — watch for the req to reopen.)</td></tr>
+      <tr><td>2</td><td>Deloitte</td><td>Analyst | Digital (Java Support)</td><td class="wrap">Closed — verified filled 2026-08-23. Was a Java support/maintenance role, less core dev.</td></tr>
+      <tr><td>3</td><td>Deloitte</td><td>Consultant | Backend Developer – Java</td><td class="wrap">Closed — verified filled 2026-08-23. Also Consultant grade (mentors a dev team) — above 1.5 yrs.</td></tr>
+      <tr><td>4</td><td>CG Infinity</td><td>Java Developer with Spring Boot (Noida)</td><td class="wrap">Experience — requires 5+ yrs Java + 2+ yrs team handling. Posting also removed 2026-06-10.</td></tr>
+      <tr><td>5</td><td>Stable Money</td><td>Software Engineer I (Backend)</td><td class="wrap">Location — Bengaluru (outside Delhi NCR, not stated remote); page returned 403 so remote-eligibility unconfirmed.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h3>1. Eternal Ltd (Zomato) — Software Engineer, Backend · Gurugram</h3>
+    <div class="meta">Match 88 · Trust 96 · 10–16 LPA (est) · backend variant</div>
+    This is the best match today. It's an explicit 0–2 year backend role at a publicly listed
+    product company whose stack — Java, microservices, Kafka, Redis, high-throughput REST APIs —
+    maps almost one-to-one onto Bhumi's Primathon and Paytm experience and her 30-API distributed
+    payment gateway project. Compensation comfortably clears the 5.5–12 LPA target, and the DSA
+    strength (250+ problems, 5-Star Gold Java) fits a product-company interview loop.
+  </div>
+  <div class="rec">
+    <h3>2. Park+ (Park Plus) — Backend Developer · Gurgaon</h3>
+    <div class="meta">Match 80 · Trust 84 · 8–14 LPA (est) · backend variant</div>
+    A funded Gurgaon fintech/auto startup hiring a 1–2 year backend developer — squarely in Bhumi's
+    band and location. Her Java + Spring Boot + Node.js/Express overlap covers a good part of the
+    polyglot stack; Go/Django/Ruby are reasonable on-the-job pickups given her strong fundamentals.
+    Startup ownership suits her end-to-end, automation-heavy track record.
+  </div>
+  <p style="color:var(--muted);font-size:.88rem">Only 2 jobs cleared the bar today, so this is a Top-2 rather than a Top-5. See the discovery note above for why the yield was low.</p>
+
+  <h2>📈 Weekly / Run Trend — qualified per scan</h2>
+  <div class="chart">
+    <div class="bar"><div class="fill" style="height:40%">1</div><div class="lab">2026-08-05</div></div>
+    <div class="bar"><div class="fill" style="height:80%">2</div><div class="lab">2026-08-23</div></div>
+  </div>
+  <p style="color:var(--muted);font-size:.85rem">Based on saved dashboards in this folder (2026-08-05, 2026-08-23). Cumulative: 24 jobs seen, 3 ready-to-apply, 15 skipped, 2 fraud blocked.</p>
+
+  <h2>✉️ Cover Letters</h2>
+  <div class="cl">
+    <h3>Eternal Ltd (Zomato) — Software Engineer, Backend
+      <button class="btn" onclick="copyCL('cl-eternal')">COPY</button></h3>
+    <pre id="cl-eternal">Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer, Backend role at Eternal (Zomato) in Gurugram, where high-throughput backend systems sit at the core of the product.
+
+In my current role at Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and during my Paytm internship I built microservices managing the QR-code lifecycle that powered real-time transaction notifications — directly relevant to the scale and reliability your platform demands. My day-to-day stack is Java, Spring Boot, REST APIs, Kafka, and Redis, backed by 250+ solved DSA problems and a 5-Star Gold Java rating on HackerRank.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your microservices from week one and ramp quickly on new services.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h3>Park+ (Park Plus) — Backend Developer
+      <button class="btn" onclick="copyCL('cl-parkplus')">COPY</button></h3>
+    <pre id="cl-parkplus">Dear Hiring Manager,
+
+I'd love to join Park+ as a Backend Developer in Gurgaon, contributing to the backend that powers your parking and fintech products.
+
+I bring 1.5 years building production backends: at Primathon I automated backend workflows that cut manual operational effort by 70% and wired AWS Timestream, S3, and Lambda into real-time data pipelines, and I architected a distributed payment gateway with 30 REST APIs across four Spring Boot microservices. Alongside Java and Spring Boot I work in Node.js and Express, so I can move comfortably across the polyglot backend stack your team uses.
+
+Available to join immediately on a 0-day notice, I'm ready to own services end-to-end and pick up Go or Django quickly as needed.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-08-23 · Verify each listing is live before applying.
+</footer>
+
+<script>
+  var urls = [
+    "https://www.naukri.com/job-listings-software-engineer-back-end-zomato-com-gurugram-0-to-2-years-270522502605",
+    "https://www.instahyre.com/job-318692-backend-developer-at-park-plus-gurgaon/"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.innerText : "";
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallback(text); });
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); flash(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var n = document.createElement("div");
+    n.textContent = "✓ Cover letter copied";
+    n.style.cssText = "position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:8px;font-size:.9rem;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.3)";
+    document.body.appendChild(n);
+    setTimeout(function(){ n.remove(); }, 1600);
+  }
+</script>
+</body>
+</html>

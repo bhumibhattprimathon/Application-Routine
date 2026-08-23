@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join Park+ as a Backend Developer in Gurgaon, contributing to the backend that powers your parking and fintech products.
+
+I bring 1.5 years building production backends: at Primathon I automated backend workflows that cut manual operational effort by 70% and wired AWS Timestream, S3, and Lambda into real-time data pipelines, and I architected a distributed payment gateway with 30 REST APIs across four Spring Boot microservices. Alongside Java and Spring Boot I work in Node.js and Express, so I can move comfortably across the polyglot backend stack your team uses.
+
+Available to join immediately on a 0-day notice, I'm ready to own services end-to-end and pick up Go or Django quickly as needed.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer, Backend role at Eternal (Zomato) in Gurugram, where high-throughput backend systems sit at the core of the product.
+
+In my current role at Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and during my Paytm internship I built microservices managing the QR-code lifecycle that powered real-time transaction notifications — directly relevant to the scale and reliability your platform demands. My day-to-day stack is Java, Spring Boot, REST APIs, Kafka, and Redis, backed by 250+ solved DSA problems and a 5-Star Gold Java rating on HackerRank.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your microservices from week one and ramp quickly on new services.
+
+Best regards,
+Bhumi Bhatt
