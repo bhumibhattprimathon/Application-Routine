@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-08-24</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#f1f5f9}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 22px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.freshpill{display:inline-block;margin-top:12px;background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.4);padding:6px 12px;border-radius:20px;font-size:12px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:-38px 0 8px}
+.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);border:1px solid var(--line)}
+.card .n{font-size:30px;font-weight:700;line-height:1}
+.card .l{color:var(--mut);font-size:12px;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)} .card.b .n{color:#2563eb}
+.metrics{display:flex;gap:20px;flex-wrap:wrap;margin:6px 2px 20px;color:var(--mut);font-size:13px}
+.metrics b{color:var(--ink)}
+.openall{display:block;width:100%;background:var(--green);color:#062611;border:none;border-radius:12px;padding:20px;font-size:19px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35);margin:6px 0 26px}
+.openall:hover{filter:brightness(1.05)}
+.openall:disabled{background:#cbd5e1;color:#64748b;cursor:not-allowed;box-shadow:none}
+h2{font-size:16px;margin:30px 0 10px;padding-left:10px;border-left:4px solid #94a3b8}
+h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.5px;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+.score{display:inline-block;min-width:34px;text-align:center;font-weight:700;padding:3px 8px;border-radius:7px;color:#fff}
+.s-hi{background:var(--green)} .s-mid{background:var(--yellow);color:#3a2c00}
+.vbadge{color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+.reason{color:var(--mut);font-size:11.5px;margin-top:4px;max-width:420px;line-height:1.45}
+.reason-cell{color:#475569;font-size:12px;max-width:440px;line-height:1.45}
+.btn{display:inline-block;border:none;border-radius:7px;padding:7px 11px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none}
+.btn-open{background:#2563eb;color:#fff} .btn-open.sm{padding:5px 9px}
+.btn-copy{background:#0f172a;color:#fff;margin-left:6px}
+.btn-copy:hover,.btn-open:hover{filter:brightness(1.1)}
+.nowrap{white-space:nowrap}
+.skiptag{background:#fee2e2;color:#b91c1c;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600}
+.muted{color:var(--mut)}
+.rec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.rec-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.rec-h a{color:var(--ink);text-decoration:none} .rec-h a:hover{text-decoration:underline}
+.rank{background:#0f172a;color:#fff;border-radius:6px;padding:2px 9px;font-size:12px}
+.pill{color:#062611;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-left:auto}
+.rec p{margin:8px 0 0;color:#475569;font-size:13px;line-height:1.5}
+.trend{display:flex;gap:26px;align-items:flex-end;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;height:230px}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;justify-content:flex-end}
+.bar{width:64px;background:linear-gradient(180deg,#4ade80,#22c55e);border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#062611;font-weight:800;padding-top:6px;min-height:30px}
+.bar-lbl{font-size:11px;text-align:center;color:#475569}
+.clbox{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden}
+.clbox-h{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#f8fafc;border-bottom:1px solid var(--line)}
+.clbox pre{margin:0;padding:14px;white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.55;color:#334155}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#713f12;line-height:1.5;margin:8px 0 4px}
+footer{text-align:center;color:var(--mut);font-size:12px;margin-top:30px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:11px 18px;border-radius:8px;font-size:13px;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1}
+</style></head>
+<body>
+<header>
+<h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-24</h1>
+<div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · immediate joiner</div>
+<div class="freshpill">✓ Live data — LinkedIn public jobs API · every posting below was published within the last 24 hours</div>
+</header>
+<div class="wrap">
+<div class="cards">
+<div class="card b"><div class="n">76</div><div class="l">Jobs Found (24h)</div></div>
+<div class="card g"><div class="n">2</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">9</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">65</div><div class="l">Skipped</div></div>
+<div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+</div>
+<div class="metrics">
+<span>Avg match (qualified): <b>87.5</b></span>
+<span>Avg salary (qualified): <b>7–12 LPA (est)</b></span>
+<span>Low-trust cautions: <b>3</b></span>
+<span>Cover letters generated: <b>2</b></span>
+</div>
+
+<button class="openall" onclick="openAll()" >OPEN ALL 2 QUALIFIED JOBS ▶</button>
+
+<div class="note"><b>Method &amp; honesty note.</b> All 76 jobs were pulled live from LinkedIn's public jobs API (24-hour window) across backend, full-stack, SDE, AI/ML and platform queries over Delhi/Gurugram/Noida + remote-India. Scores use the routine rubric (skills 40 / experience 25 / title 20 / salary 15) against Bhumi's resume; salaries are estimates (postings listed none). The honest reality of one day: most fresh NCR postings are senior/lead (27 skipped) or out-of-region (26 skipped), leaving <b>2 clean entry-level matches</b>. No outright scams today; Akrisso was flagged low-trust (registered Dec-2025) and moved to Review.</div>
+
+<h2 class="g">✅ Qualified — Ready to Apply (2)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td>
+<td><span class="score s-hi">90</span></td>
+<td>72</td>
+<td><b>HuntingCube</b></td>
+<td>SDE-1<div class="reason">Near-exact stack match: JD lists Java, Spring Boot, Python, React, SQL, Git, Docker — all core to Bhumi. SDE-1 (entry) in Gurugram. Employer is via HuntingCube (real recruiter, 4.4★ Glassdoor); end-client is a trading-tech firm, undisclosed.</div></td>
+<td>Gurugram, Haryana, India</td>
+<td>8–14 LPA (est)</td>
+<td><span class="vbadge" style="background:#2563eb">backend</span></td>
+<td class="nowrap"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/sde-1-at-huntingcube-4458143256" target="_blank" rel="noopener">Open Job ↗</a> <button class="btn btn-copy" onclick="copyCL('cl1')">Copy Cover Letter</button></td>
+</tr><tr>
+<td>2</td>
+<td><span class="score s-hi">85</span></td>
+<td>66</td>
+<td><b>Carbon Crunch (Backed by IIMB - NSRCEL)</b></td>
+<td>Founding Software Engineer<div class="reason">MERN + Python + APIs + AWS/Docker/Redis/PostgreSQL/MongoDB, 0–3 yrs, strong freshers welcome — matches Bhumi well. Real IIMB-NSRCEL incubated climate-tech. NOTE: posting says &#x27;6 Months&#x27; term — verify if contract vs full-time before applying.</div></td>
+<td>Noida, Uttar Pradesh, India</td>
+<td>6–10 LPA (est)</td>
+<td><span class="vbadge" style="background:#7c3aed">fullstack</span></td>
+<td class="nowrap"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/founding-software-engineer-at-carbon-crunch-backed-by-iimb-nsrcel-4456805207" target="_blank" rel="noopener">Open Job ↗</a> <button class="btn btn-copy" onclick="copyCL('cl2')">Copy Cover Letter</button></td>
+</tr></tbody></table></div>
+
+<h2>⭐ Top Recommendations</h2>
+<div class="rec">
+<div class="rec-h"><span class="rank">#1</span> <a href="https://in.linkedin.com/jobs/view/sde-1-at-huntingcube-4458143256" target="_blank" rel="noopener">SDE-1 — HuntingCube</a>
+<span class="pill" style="background:#22c55e">QUALIFIED · 90/72</span></div>
+<p>Today&#x27;s best match. The JD reads like Bhumi&#x27;s resume — Java, Spring Boot, Python, React, SQL, Git, Docker — for an entry SDE-1 in Gurugram. HuntingCube is a well-reviewed recruiter (4.4★). Only caveat: the end employer (a trading-tech desk) is undisclosed, so confirm the company at first contact.</p></div><div class="rec">
+<div class="rec-h"><span class="rank">#2</span> <a href="https://in.linkedin.com/jobs/view/founding-software-engineer-at-carbon-crunch-backed-by-iimb-nsrcel-4456805207" target="_blank" rel="noopener">Founding Software Engineer — Carbon Crunch (Backed by IIMB - NSRCEL)</a>
+<span class="pill" style="background:#22c55e">QUALIFIED · 85/66</span></div>
+<p>A genuine founding-engineer opportunity at a real IIMB-NSRCEL climate-tech startup. MERN + Python + AWS/Redis/Postgres/Mongo all match, and it welcomes strong freshers with high ownership. Verify the &#x27;6-month&#x27; term is full-time before applying.</p></div><div class="rec">
+<div class="rec-h"><span class="rank">#3</span> <a href="https://in.linkedin.com/jobs/view/full-stack-developer-%E2%80%93-ai-products-at-akrisso-4457890206" target="_blank" rel="noopener">Full Stack Developer – AI Products — akrisso</a>
+<span class="pill" style="background:#eab308">REVIEW · 78/52</span></div>
+<p>Strongest skills fit among the review tier (full-stack + AI, freshers welcome, Gurgaon). Held back only by company age — Akrisso Innovations was registered Dec-2025. Worth a look if you&#x27;re comfortable with an early-stage employer; do a quick due-diligence pass first.</p></div><div class="rec">
+<div class="rec-h"><span class="rank">#4</span> <a href="https://in.linkedin.com/jobs/view/%F0%9F%9A%80-hiring-golang-developer-startelelogic-at-startelelogic-4456803567" target="_blank" rel="noopener">🚀 Hiring: Golang Developer | startelelogic — startelelogic</a>
+<span class="pill" style="background:#eab308">REVIEW · 67/68</span></div>
+<p>Entry-level and immediately actionable: a WALK-IN interview on 29-Aug-2026 (11am–3pm, NX ONE, Greater Noida West). REST/microservices/Docker/DB all match; the gap is Golang as the primary language. If Bhumi is open to picking up Go, this is a fast path to an offer.</p></div><div class="rec">
+<div class="rec-h"><span class="rank">#5</span> <a href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-starzen-4445617605" target="_blank" rel="noopener">Full Stack Engineer — StarZen</a>
+<span class="pill" style="background:#eab308">REVIEW · 65/58</span></div>
+<p>A full-stack role in Gurgaon with a modern stack (React, Python, Mongo/MySQL). It asks 3–5 years and leans .NET/Vue/Elasticsearch, so it&#x27;s a stretch on both seniority and stack — apply only if targeting a reach role.</p></div>
+
+<h2 class="y">🟡 Review — Worth a Look (9)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Why review</th><th></th></tr></thead>
+<tbody><tr>
+<td>1</td>
+<td><span class="score s-mid">78</span></td>
+<td>52</td>
+<td><b>akrisso</b></td>
+<td>Full Stack Developer – AI Products</td>
+<td>Gurugram, Haryana, India</td>
+<td>5–8 LPA (est)</td>
+<td class="reason-cell">Strong skills fit (full-stack + AI products, freshers welcome) BUT company Akrisso Innovations was incorporated Dec-2025 (&lt;9 mo old), ₹1L paid-up capital, gmail contact — trust 52. Verify legitimacy before applying.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/full-stack-developer-%E2%80%93-ai-products-at-akrisso-4457890206" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>2</td>
+<td><span class="score s-mid">67</span></td>
+<td>68</td>
+<td><b>startelelogic</b></td>
+<td>🚀 Hiring: Golang Developer | startelelogic</td>
+<td>Noida, Uttar Pradesh, India</td>
+<td>4–6 LPA (est)</td>
+<td class="reason-cell">Entry-level (0–1 yr), REST/microservices/PostgreSQL/Mongo/Docker all match — but PRIMARY language is Golang, which Bhumi doesn&#x27;t have (Java/Node/Python). Real Noida IT/telecom firm. ACTIONABLE: walk-in interview 29-Aug-2026, 11am–3pm, NX ONE Greater Noida West.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/%F0%9F%9A%80-hiring-golang-developer-startelelogic-at-startelelogic-4456803567" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>3</td>
+<td><span class="score s-mid">65</span></td>
+<td>58</td>
+<td><b>StarZen</b></td>
+<td>Full Stack Engineer</td>
+<td>Gurugram, Haryana, India</td>
+<td>9–15 LPA (est)</td>
+<td class="reason-cell">Full-stack (Vue/React, .NET or Python, Mongo/MySQL, Elasticsearch) but asks 3–5 yrs (Bhumi 1.5) and leans .NET/Vue/Elasticsearch which she lacks. Stretch.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-starzen-4445617605" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>4</td>
+<td><span class="score s-mid">63</span></td>
+<td>52</td>
+<td><b>akrisso</b></td>
+<td>AI/ML (Python) Developer</td>
+<td>Gurugram, Haryana, India</td>
+<td>5–8 LPA (est)</td>
+<td class="reason-cell">Pure AI/ML (Python) depth role; Bhumi&#x27;s AI is applied/light (GenAI research paper, LLM alerts) not core ML. Same young-company trust concern (52).</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/ai-ml-python-developer-at-akrisso-4457873316" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>5</td>
+<td><span class="score s-mid">59</span></td>
+<td>70</td>
+<td><b>VAYUZ Technologies</b></td>
+<td>ROR FullStack</td>
+<td>Delhi, India</td>
+<td>10–16 LPA (est)</td>
+<td class="reason-cell">React/Docker/Git/REST match, but core is Ruby on Rails (Bhumi doesn&#x27;t know RoR) and &#x27;4+ yrs mandatory&#x27;. Established firm; skills gap makes it a low-probability stretch.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/ror-fullstack-at-vayuz-technologies-4455814115" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>6</td>
+<td><span class="score s-mid">59</span></td>
+<td>80</td>
+<td><b>Impetus</b></td>
+<td>GCP_GenAI_MLSE</td>
+<td>Gurgaon, Haryana, India</td>
+<td>9–16 LPA (est)</td>
+<td class="reason-cell">GenAI on GCP (Vertex AI, BigQuery, GKE, LLM, RAG). Bhumi has Python but is AWS-side and light on production GenAI. Large legit company (Impetus). Skills gap → review.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/gcp-genai-mlse-at-impetus-4436664354" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>7</td>
+<td><span class="score s-mid">53</span></td>
+<td>75</td>
+<td><b>Valiance Solutions</b></td>
+<td>Generative AI Engineer</td>
+<td>Noida, Uttar Pradesh, India</td>
+<td>10–18 LPA (est)</td>
+<td class="reason-cell">Production LLM/VLM + GPU inference optimization, 3–5 yrs. Beyond Bhumi&#x27;s current AI depth. Real analytics/AI company.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/generative-ai-engineer-at-valiance-solutions-4454523503" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>8</td>
+<td><span class="score s-mid">51</span></td>
+<td>90</td>
+<td><b>Brevo</b></td>
+<td>Platform Engineer - Orchestration (Paris/Noida)</td>
+<td>Noida, Uttar Pradesh, India</td>
+<td>15–28 LPA (est)</td>
+<td class="reason-cell">Excellent company (Brevo/ex-Sendinblue, B-Corp, €179M ARR) but &#x27;experienced Orchestration Platform Engineer&#x27; — infra/orchestration, not Bhumi&#x27;s backend-app profile.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/platform-engineer-orchestration-paris-noida-at-brevo-4455083218" target="_blank" rel="noopener">Open ↗</a></td>
+</tr><tr>
+<td>9</td>
+<td><span class="score s-mid">50</span></td>
+<td>70</td>
+<td><b>BayOne Solutions</b></td>
+<td>Agentic AI Engineer</td>
+<td>India</td>
+<td>12–20 LPA (est)</td>
+<td class="reason-cell">Wants hands-on production agentic-AI experience Bhumi doesn&#x27;t yet have. Remote. Real US/India tech-services firm.</td>
+<td><a class="btn btn-open sm" href="https://in.linkedin.com/jobs/view/agentic-ai-engineer-at-bayone-solutions-4456822622" target="_blank" rel="noopener">Open ↗</a></td>
+</tr></tbody></table></div>
+
+<h2 class="r">🔴 Skipped (65)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Reason</th><th>Detail</th></tr></thead>
+<tbody><tr>
+<td>1</td>
+<td>HuntingCube</td>
+<td>SDE-1</td>
+<td><span class="skiptag">Duplicate</span></td>
+<td class="reason-cell">Duplicate posting of the same HuntingCube SDE-1 role (second LinkedIn listing). Apply once via the primary link.</td>
+</tr><tr>
+<td>2</td>
+<td>Adroit Innovative Solutions Inc</td>
+<td>Senior Python AI</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Python AI) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>3</td>
+<td>Barco</td>
+<td>Lead Software Development Engineer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Lead Software Development Engineer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>4</td>
+<td>Cotality</td>
+<td>Senior Advanced Data Engineer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Advanced Data Engineer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>5</td>
+<td>EMB Global</td>
+<td>Lead AI Engineer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Lead AI Engineer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>6</td>
+<td>EnCharge AI</td>
+<td>Senior AI Scientist -Research Engineer, Applied AI ( at par with Director)</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior AI Scientist -Research Engineer, ) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>7</td>
+<td>Grabitts Softech Services Pvt.Ltd.</td>
+<td>Enterprise Architect &amp; Solutions Architect ( Immediate Joiner)</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Enterprise Architect &amp; Solutions Archite) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>8</td>
+<td>GreyOrange</td>
+<td>Senior Solution Implementation Specialist</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Solution Implementation Specialis) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>9</td>
+<td>Hitachi Digital</td>
+<td>Senior Oracle EBS HRMS Techno-Functional Lead</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Oracle EBS HRMS Techno-Functional) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>10</td>
+<td>Jabil</td>
+<td>Full Stack AI Lead Developer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Full Stack AI Lead Developer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>11</td>
+<td>Megaport</td>
+<td>Senior Network Operations Engineer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Network Operations Engineer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>12</td>
+<td>Mulya Technologies</td>
+<td>Senior AI Scientist -Research Engineer, Applied AI ( at par with Director)</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior AI Scientist -Research Engineer, ) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>13</td>
+<td>NTT DATA North America</td>
+<td>Systems Integration Senior Specialist Advisor</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Systems Integration Senior Specialist Ad) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>14</td>
+<td>Nagarro</td>
+<td>Principal Engineer, Java</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Principal Engineer, Java) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>15</td>
+<td>NeoXam</td>
+<td>Lead Engineer -AI &amp; Knowledge Systems - Noida</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Lead Engineer -AI &amp; Knowledge Systems - ) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>16</td>
+<td>NeuroDrift</td>
+<td>Senior Software Engineer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Software Engineer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>17</td>
+<td>OpenAI</td>
+<td>Applied AI Architect</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Applied AI Architect) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>18</td>
+<td>Oracle</td>
+<td>Senior Platform Software Engineer, Oracle Health</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Platform Software Engineer, Oracl) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>19</td>
+<td>Oracle</td>
+<td>Senior Platform Software Engineer (Date Engineering)</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Platform Software Engineer (Date ) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>20</td>
+<td>Oracle</td>
+<td>Senior Platform Software Engineer, Oracle Health</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Platform Software Engineer, Oracl) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>21</td>
+<td>Remote_WFH_INDIA</td>
+<td>Lead  Python Engineer | DevSecOps | Cloud Security | Remote/WFH</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Lead  Python Engineer | DevSecOps | Clou) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>22</td>
+<td>Remote_WFH_INDIA</td>
+<td>Senior/Lead Full Stack Engineer | C# | .NET | React.js | 6+ Years | Noida</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior/Lead Full Stack Engineer | C# | .) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>23</td>
+<td>SecNinjaz Technologies LLP</td>
+<td>Lead – Artificial Intelligence</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Lead – Artificial Intelligence) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>24</td>
+<td>Siemens EDA (Siemens Digital Industries Software)</td>
+<td>Lead Member Technical Staff</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Lead Member Technical Staff) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>25</td>
+<td>Siemens Energy</td>
+<td>Pricing &amp; Bid Management Consultant</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Pricing &amp; Bid Management Consultant) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>26</td>
+<td>Sumo Logic</td>
+<td>Senior Site Reliability Engineer I</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Site Reliability Engineer I) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>27</td>
+<td>TeamViewer</td>
+<td>Principal Software Engineer</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Principal Software Engineer) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>28</td>
+<td>TeamViewer</td>
+<td>Senior Software Engineer, C++</td>
+<td><span class="skiptag">Experience</span></td>
+<td class="reason-cell">Senior/Lead/Principal-level (Senior Software Engineer, C++) — requires 5+ yrs; Bhumi has 1.5.</td>
+</tr><tr>
+<td>29</td>
+<td>Axi</td>
+<td>Senior Backend Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>30</td>
+<td>BayOne Solutions</td>
+<td>Agentic AI Engineer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Chennai, Tamil Nadu, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>31</td>
+<td>Blue Yonder</td>
+<td>Software Engineer II - Python, Fast API, Django, Microservices, SQL, Azure, GIT</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>32</td>
+<td>Calitii</td>
+<td>Golang Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Greater Bengaluru Area) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>33</td>
+<td>Duruper</td>
+<td>Senior Back End Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>34</td>
+<td>Duruper</td>
+<td>Back End Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>35</td>
+<td>Duruper</td>
+<td>Full Stack Engineer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>36</td>
+<td>FedEx</td>
+<td>Full Stack Developer I</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Greater Hyderabad Area) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>37</td>
+<td>GEOGO Techsolutions</td>
+<td>Full Stack Developer (Node.js / React.js)</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bangalore Urban district, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>38</td>
+<td>HARMAN India</td>
+<td>Software Engineer -  Agentic AI</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>39</td>
+<td>Harjai Technologies</td>
+<td>API Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>40</td>
+<td>ISS STOXX</td>
+<td>Java Full Stack Engineer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Mumbai Metropolitan Region) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>41</td>
+<td>Infor</td>
+<td>Software Engineer, Senior</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Hyderabad, Telangana, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>42</td>
+<td>Infosys</td>
+<td>.Net Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru East, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>43</td>
+<td>Infosys</td>
+<td>AI Application Engineer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru East, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>44</td>
+<td>Infosys</td>
+<td>Consulting</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru East, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>45</td>
+<td>JMD Technologies Inc.</td>
+<td>Java full stack developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>46</td>
+<td>LEADSOURCE TECH</td>
+<td>Full Stack Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Vijayawada, Andhra Pradesh, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>47</td>
+<td>R Systems</td>
+<td>Fullstack Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Pune Division, Maharashtra, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>48</td>
+<td>Synechron</td>
+<td>Golang Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>49</td>
+<td>Talentgigs</td>
+<td>AI/ML Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Chennai, Tamil Nadu, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>50</td>
+<td>Tata Consultancy Services</td>
+<td>AWS+Java Full Stack</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Bengaluru, Karnataka, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>51</td>
+<td>Tata Consultancy Services</td>
+<td>Artificial Intelligence Engineer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Chennai, Tamil Nadu, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>52</td>
+<td>Veradigm®</td>
+<td>Software Engineer (Java)</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Pune Division, Maharashtra, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>53</td>
+<td>Virtusa</td>
+<td>Gen AI</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Chennai, Tamil Nadu, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>54</td>
+<td>Vivantify Technology Solutions India Pvt. Ltd.</td>
+<td>Python Backend Developer</td>
+<td><span class="skiptag">Location</span></td>
+<td class="reason-cell">Outside target region (Hyderabad, Telangana, India) — not Delhi NCR and not remote.</td>
+</tr><tr>
+<td>55</td>
+<td>Alignerr</td>
+<td>Data Scientist (Masters)</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Requires Masters + expert-level data science; hourly 10–40h/wk contract (AI-training gig), not a salaried SWE role. Off-profile.</td>
+</tr><tr>
+<td>56</td>
+<td>Alignerr</td>
+<td>AI / Emerging Tech Security Analyst</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (AI / Emerging Tech Security Analyst) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>57</td>
+<td>Alignerr</td>
+<td>Data Security &amp; DLP Analyst</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (Data Security &amp; DLP Analyst) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>58</td>
+<td>Conduent</td>
+<td>App Dev &amp; Support Engineer I</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Low relevance to Bhumi&#x27;s profile (App Dev &amp; Support Engineer I).</td>
+</tr><tr>
+<td>59</td>
+<td>Deutsche Bahn</td>
+<td>LTE Engineer (f/m/d)</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (LTE Engineer (f/m/d)) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>60</td>
+<td>Grain Analytics</td>
+<td>Product Information Specialist &amp; AI Data Analyst</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Product-information-management / AI data-analyst role — analytical, not software engineering. Doesn&#x27;t use Bhumi&#x27;s Java/Spring/backend stack.</td>
+</tr><tr>
+<td>61</td>
+<td>Guardex.ai</td>
+<td>Computer Vision &amp; AI Intern</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (Computer Vision &amp; AI Intern) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>62</td>
+<td>Hitachi Digital</td>
+<td>Salesforce Developer</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (Salesforce Developer) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>63</td>
+<td>Rockwell Automation</td>
+<td>Data Engineer</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (Data Engineer) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>64</td>
+<td>SourcingXPress</td>
+<td>Android Developer</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (Android Developer) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr><tr>
+<td>65</td>
+<td>TeamViewer</td>
+<td>Site Reliability Engineer</td>
+<td><span class="skiptag">Low match</span></td>
+<td class="reason-cell">Off-stack role (Site Reliability Engineer) — doesn&#x27;t match Bhumi&#x27;s Java/backend/full-stack profile.</td>
+</tr></tbody></table></div>
+
+<h2>📈 Qualified-per-run Trend</h2>
+<div class="trend"><div class="bar-wrap"><div class="bar" style="height:105px" title="1 qualified of 17 found"><span>1</span></div><div class="bar-lbl">08-05<br><span class="muted">17 found</span></div></div><div class="bar-wrap"><div class="bar" style="height:180px" title="2 qualified of 76 found"><span>2</span></div><div class="bar-lbl">08-24<br><span class="muted">76 found</span></div></div></div>
+
+<h2>✉️ Cover Letters</h2>
+<div class="clbox">
+<div class="clbox-h"><b>HuntingCube</b><button class="btn btn-copy" onclick="copyText('clsec_HuntingCube')">COPY</button></div>
+<pre id="clsec_HuntingCube">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1, Automation Engineering role supporting your trading-technology team. My 1.5 years at Primathon and Paytm have centered on exactly this stack — I design and ship Spring Boot microservices and REST APIs in Java, and I write Python automation that cut manual backend effort by 70%. I&#x27;ve built React front-ends and work daily with SQL, Git, and Docker, and my HackerRank 5-Star Gold in Java (250+ DSA problems solved) backs the fundamentals that automation-heavy trading systems demand.
+
+At Paytm I optimized microservices managing the QR-code lifecycle for real-time transaction notifications, improving service reliability by 67% — the kind of low-latency, high-reliability engineering your desk depends on. As a 0-day-notice immediate joiner, I can start contributing to your CI pipelines and data workflows right away.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox">
+<div class="clbox-h"><b>Carbon Crunch</b><button class="btn btn-copy" onclick="copyText('clsec_CarbonCrunch')">COPY</button></div>
+<pre id="clsec_CarbonCrunch">Dear Hiring Manager,
+
+Building India&#x27;s compliance-tech platform for sustainability as your Founding Software Engineer is exactly the ownership-heavy, zero-to-one work I&#x27;m looking for. At Primathon I engineer custom admin APIs and backend automation across 7 merchant systems, and I&#x27;ve integrated AWS Timestream, S3, and Lambda into production pipelines for real-time data ingestion — directly relevant to the data workflows and cloud architecture this role owns.
+
+My Distributed Payment Gateway project — 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) with AI-driven monitoring alerts — shows I can architect, build, and deploy end-to-end. I work fluently across Node.js/Express, React, and Python with MongoDB and Redis, so your MERN + Python + LLM/RAG stack maps directly onto what I ship today. With a 0-day notice period, I&#x27;m ready to take architecture-to-deployment ownership from week one.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-08-24 · 76 live postings evaluated · source: LinkedIn public jobs API</footer>
+</div>
+<div id="cl1" style="display:none">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1, Automation Engineering role supporting your trading-technology team. My 1.5 years at Primathon and Paytm have centered on exactly this stack — I design and ship Spring Boot microservices and REST APIs in Java, and I write Python automation that cut manual backend effort by 70%. I&#x27;ve built React front-ends and work daily with SQL, Git, and Docker, and my HackerRank 5-Star Gold in Java (250+ DSA problems solved) backs the fundamentals that automation-heavy trading systems demand.
+
+At Paytm I optimized microservices managing the QR-code lifecycle for real-time transaction notifications, improving service reliability by 67% — the kind of low-latency, high-reliability engineering your desk depends on. As a 0-day-notice immediate joiner, I can start contributing to your CI pipelines and data workflows right away.
+
+Best regards,
+Bhumi Bhatt
+</div>
+<div id="cl2" style="display:none">Dear Hiring Manager,
+
+Building India&#x27;s compliance-tech platform for sustainability as your Founding Software Engineer is exactly the ownership-heavy, zero-to-one work I&#x27;m looking for. At Primathon I engineer custom admin APIs and backend automation across 7 merchant systems, and I&#x27;ve integrated AWS Timestream, S3, and Lambda into production pipelines for real-time data ingestion — directly relevant to the data workflows and cloud architecture this role owns.
+
+My Distributed Payment Gateway project — 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) with AI-driven monitoring alerts — shows I can architect, build, and deploy end-to-end. I work fluently across Node.js/Express, React, and Python with MongoDB and Redis, so your MERN + Python + LLM/RAG stack maps directly onto what I ship today. With a 0-day notice period, I&#x27;m ready to take architecture-to-deployment ownership from week one.
+
+Best regards,
+Bhumi Bhatt
+</div>
+
+<div id="toast" class="toast"></div>
+<script>
+var QUALIFIED_URLS=["https://in.linkedin.com/jobs/view/sde-1-at-huntingcube-4458143256", "https://in.linkedin.com/jobs/view/founding-software-engineer-at-carbon-crunch-backed-by-iimb-nsrcel-4456805207"];
+function openAll(){ if(!QUALIFIED_URLS.length){toast('No qualified jobs today');return;} QUALIFIED_URLS.forEach(function(u){window.open(u,'_blank');}); toast('Opening '+QUALIFIED_URLS.length+' job'+(QUALIFIED_URLS.length>1?'s':'')+'…'); }
+function copyCL(id){ copyText(id); }
+function copyText(id){ var el=document.getElementById(id); var t=el.innerText||el.textContent;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('Copied to clipboard ✓');},function(){fallback(t);});}
+  else{fallback(t);} }
+function fallback(t){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');toast('Copied ✓');}catch(e){toast('Copy failed');} document.body.removeChild(ta); }
+var _tt; function toast(m){ var el=document.getElementById('toast'); el.textContent=m; el.classList.add('show'); clearTimeout(_tt); _tt=setTimeout(function(){el.classList.remove('show');},1900); }
+</script>
+</body></html>

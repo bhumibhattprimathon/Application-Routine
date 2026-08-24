@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+Building India's compliance-tech platform for sustainability as your Founding Software Engineer is exactly the ownership-heavy, zero-to-one work I'm looking for. At Primathon I engineer custom admin APIs and backend automation across 7 merchant systems, and I've integrated AWS Timestream, S3, and Lambda into production pipelines for real-time data ingestion — directly relevant to the data workflows and cloud architecture this role owns.
+
+My Distributed Payment Gateway project — 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) with AI-driven monitoring alerts — shows I can architect, build, and deploy end-to-end. I work fluently across Node.js/Express, React, and Python with MongoDB and Redis, so your MERN + Python + LLM/RAG stack maps directly onto what I ship today. With a 0-day notice period, I'm ready to take architecture-to-deployment ownership from week one.
+
+Best regards,
+Bhumi Bhatt

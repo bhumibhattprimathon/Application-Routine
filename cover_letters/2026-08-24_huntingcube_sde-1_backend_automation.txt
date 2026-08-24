@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the SDE-1, Automation Engineering role supporting your trading-technology team. My 1.5 years at Primathon and Paytm have centered on exactly this stack — I design and ship Spring Boot microservices and REST APIs in Java, and I write Python automation that cut manual backend effort by 70%. I've built React front-ends and work daily with SQL, Git, and Docker, and my HackerRank 5-Star Gold in Java (250+ DSA problems solved) backs the fundamentals that automation-heavy trading systems demand.
+
+At Paytm I optimized microservices managing the QR-code lifecycle for real-time transaction notifications, improving service reliability by 67% — the kind of low-latency, high-reliability engineering your desk depends on. As a 0-day-notice immediate joiner, I can start contributing to your CI pipelines and data workflows right away.
+
+Best regards,
+Bhumi Bhatt
