@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-08-25</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0b1220;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#93a4bd;font-size:14px}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700;line-height:1}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+  .banner{border-radius:12px;padding:18px 20px;margin:18px 0;border:1px solid}
+  .banner.alert{background:#fef2f2;border-color:#fecaca;color:#7f1d1d}
+  .banner h2{margin:0 0 8px;font-size:17px}
+  .banner code{background:rgba(0,0,0,.06);padding:1px 6px;border-radius:5px;font-size:13px}
+  .banner ul{margin:8px 0 0;padding-left:20px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0}
+  section h2{margin:0 0 4px;font-size:18px}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#fff}
+  .tag.g{background:var(--green)} .tag.y{background:var(--yellow);color:#3a2c00} .tag.r{background:var(--red)}
+  .note{color:var(--muted);font-size:13px;margin:2px 0 14px}
+  .btn{display:inline-block;border:0;border-radius:9px;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;color:#fff;background:#2563eb}
+  .btn:hover{filter:brightness(1.05)}
+  .btn.big{width:100%;padding:16px;font-size:16px;background:linear-gradient(90deg,#2563eb,#1d4ed8)}
+  .btn.ghost{background:#eef2ff;color:#1d4ed8}
+  .btn.sm{padding:6px 10px;font-size:12.5px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .yellow-head{border-left:4px solid var(--yellow);padding-left:12px}
+  .green-head{border-left:4px solid var(--green);padding-left:12px}
+  .trend{display:flex;align-items:flex-end;gap:22px;height:150px;padding:10px 4px;border-bottom:2px solid var(--line)}
+  .bar{width:56px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+  .bar .fill{width:100%;background:var(--green);border-radius:6px 6px 0 0;min-height:3px}
+  .bar .cap{font-size:12px;font-weight:700;margin-bottom:4px}
+  .bar .day{font-size:11px;color:var(--muted);margin-top:6px}
+  .cl{background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13.5px;margin:8px 0 0}
+  .muted{color:var(--muted)}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  @media(max-width:560px){.trend{gap:14px}.bar{width:44px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-25</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner · Target 5.5–12 LPA</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">New Jobs Found</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">0</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">7</div><div class="l">Carryover Leads</div></div>
+  </div>
+  <p class="note">Avg match score (new jobs): — · Avg salary estimate (new jobs): — · No new listings were discovered this run.</p>
+
+  <div class="banner alert">
+    <h2>⚠️ Discovery pipeline is OFFLINE — 0 new jobs today</h2>
+    <p>The morning scan could not pull fresh listings. The job-search API used for discovery is not reachable:</p>
+    <ul>
+      <li><b>JSearch on RapidAPI</b> (<code>jsearch.p.rapidapi.com</code>) returns <code>HTTP 404 — "Endpoint does not exist"</code> for every path (<code>/search</code>, <code>/search-filters</code>, <code>/v1/search</code>, <code>/</code>).</li>
+      <li>The RapidAPI key itself is <b>valid</b> — an unrelated host returns <code>403 "You are not subscribed"</code>, while JSearch returns 404 — so <b>JSearch appears delisted / unsubscribed on RapidAPI</b>.</li>
+      <li>The <b>WebSearch fallback</b> only returns aggregator <i>category</i> pages ("50+ backend jobs in Delhi…"), not individually verifiable postings dated &lt;24h with live apply links. The one concrete posting checked was Mumbai-based, 2+ yrs, and closed since Oct 2025.</li>
+    </ul>
+    <p style="margin-bottom:0"><b>Action required:</b> renew / re-subscribe a job-search API (JSearch or equivalent) on RapidAPI to restore the daily &lt;24h pipeline. No listings were fabricated. Prior leads are carried forward below for reference.</p>
+  </div>
+
+  <section>
+    <h2 class="green-head">Prior leads — carried forward from 2026-08-05</h2>
+    <p class="note">These are ~20 days old. LinkedIn / aggregator postings expire quickly, so <b>re-verify each is still open before applying.</b> TravClan (via Freshteam ATS) is the strongest and most likely still live.</p>
+    <div style="margin:6px 0 14px">
+      <button class="btn big" onclick="openAll()">OPEN ALL 7 PRIOR LEADS (re-verify)</button>
+    </div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Status</th><th></th></tr></thead>
+      <tbody id="leads"></tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="yellow-head">Weekly trend — qualified jobs per run</h2>
+    <p class="note">Runs recorded this week. Discovery outage today drove qualified count to 0.</p>
+    <div class="trend">
+      <div class="bar"><div class="cap">1</div><div class="fill" style="height:120px"></div><div class="day">Aug 05</div></div>
+      <div class="bar"><div class="cap">0</div><div class="fill" style="height:3px;background:var(--red)"></div><div class="day">Aug 25</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Top recommendation</h2>
+    <p class="muted" style="margin-top:4px">No <i>new</i> jobs qualified this run. From the carryover set, the single clean entry-level backend match remains:</p>
+    <p><b>SDE 1 (Backend Developer) — TravClan (New Delhi)</b> · match 89 / trust 82.
+    A direct fit for Bhumi's Java + Spring Boot + microservices + REST-API background and immediate-joiner availability, applied through a real ATS (Freshteam) rather than an aggregator. Re-verify the posting is still open, then apply with the backend resume variant and the cover letter below.</p>
+  </section>
+
+  <section>
+    <h2>Cover letter — TravClan (carried forward)</h2>
+    <div class="cl">
+      <button class="btn ghost sm" onclick="copyCL(this)">COPY</button>
+      <pre id="cl-travclan">Dear Hiring Manager,
+
+I'm excited to apply for the SDE 1 (Backend Developer) role at TravClan. Your team's focus on reliable, high-throughput backend services maps directly to my work building distributed, production-grade systems.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and I previously built and optimized microservices managing the QR-code lifecycle at Paytm — using Java, Spring Boot, REST APIs, and MySQL. My Distributed Payment Gateway project (30 REST APIs across four services) reflects the system-design rigor a backend SDE role needs, backed by a 5-Star Gold Java rating on HackerRank.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your APIs and services right away and ramp quickly on your stack.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+    <p class="muted" style="font-size:12.5px">No new cover letters were generated — none required, since no new jobs cleared the match ≥ 75 / trust ≥ 60 threshold this run.</p>
+  </section>
+
+  <footer>
+    Generated by the LinkedIn morning-scan routine · 2026-08-25 · degraded run (discovery pipeline offline).<br>
+    Notifications delivered via the routine push/email channel (ntfy.sh is blocked by egress policy).
+  </footer>
+</div>
+
+<script>
+  // Carryover leads from 2026-08-05 applications_log.json
+  var leads = [
+    {m:89,t:82,co:"TravClan",role:"SDE 1 (Backend Developer)",loc:"New Delhi",sal:"7–11 LPA",v:"backend",s:"was ready_to_apply",cls:"g",url:"https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-1-backend-developer"},
+    {m:79,t:65,co:"Innova ESI",role:"Java Full Stack Developer (Java, React, AWS, SQL)",loc:"Gurugram",sal:"12–18 LPA",v:"fullstack",s:"review · asks 4–6 yrs",cls:"y",url:"https://in.linkedin.com/jobs/view/java-full-stack-developer-4%2B-yrs-java-react-js-aws-sql-immediate-joiner-preferred-at-innova-esi-4448955175"},
+    {m:78,t:50,co:"Deep Logictech India",role:"Java Developer – Spring Boot/Hibernate",loc:"Delhi (JD: Dehradun)",sal:"5–8 LPA",v:"backend",s:"review · unverified co.",cls:"y",url:"https://www.talentsjobs.in/java-developer-spring-boot-hibernate-deep-logictech-india-pvt-ltd-coimbatore-0-to-0-years-21343"},
+    {m:72,t:78,co:"Loop Subscriptions",role:"Sr Software Development Engineer (Full Stack)",loc:"Gurugram",sal:"18–30 LPA",v:"fullstack",s:"review · senior stretch",cls:"y",url:"https://in.linkedin.com/jobs/view/sr-software-development-engineer-full-stack-at-loop-subscriptions-4448524114"},
+    {m:67,t:80,co:"CARPL.ai",role:"Implementation Engineer",loc:"New Delhi",sal:"8–14 LPA",v:"master",s:"review · solutions-eng",cls:"y",url:"https://in.linkedin.com/jobs/view/implementation-engineer-at-carpl-radiology-ai-platform-4447301941"},
+    {m:60,t:70,co:"EY (via aggregator)",role:"Application Engineer",loc:"New Delhi",sal:"6–12 LPA",v:"master",s:"review · verify on EY site",cls:"y",url:"https://www.kitjob.in/job/308201719/de-application-engineer-iv-vg-pi-tech0279-buffer-delhi"},
+    {m:55,t:55,co:"Lakshay India",role:"AI Agent Developer",loc:"Faridabad",sal:"5–9 LPA",v:"ai_ml",s:"review · needs Python/LLM",cls:"y",url:"https://apna.co/job/faridabad/ai-agent-developer-168960552"}
+  ];
+
+  var tb = document.getElementById('leads');
+  leads.forEach(function(j,i){
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td>'+(i+1)+'</td>'+
+      '<td><b>'+j.m+'</b></td>'+
+      '<td>'+j.t+'</td>'+
+      '<td>'+j.co+'</td>'+
+      '<td>'+j.role+'</td>'+
+      '<td>'+j.loc+'</td>'+
+      '<td>'+j.sal+'</td>'+
+      '<td><span class="tag '+j.cls+'">'+j.v+'</span></td>'+
+      '<td class="muted">'+j.s+'</td>'+
+      '<td><a class="btn sm" href="'+j.url+'" target="_blank" rel="noopener">Open</a></td>';
+    tb.appendChild(tr);
+  });
+
+  function openAll(){
+    if(!confirm('Open all '+leads.length+' prior leads in new tabs? These are ~20 days old — re-verify each is still open.')) return;
+    leads.forEach(function(j){ window.open(j.url,'_blank'); });
+  }
+
+  function copyCL(btn){
+    var txt = document.getElementById('cl-travclan').innerText;
+    navigator.clipboard.writeText(txt).then(function(){
+      var o = btn.innerText; btn.innerText='COPIED ✓';
+      setTimeout(function(){ btn.innerText=o; }, 1500);
+    });
+  }
+</script>
+</body>
+</html>

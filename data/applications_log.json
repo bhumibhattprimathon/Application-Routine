@@ -290,11 +290,27 @@
       "easy_apply": null
     }
   ],
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-08-25",
   "source": "JSearch API (RapidAPI), date_posted=today, country=in",
   "total_found": 17,
   "total_applied": 1,
   "total_review": 6,
   "total_skipped": 10,
-  "fraud_detected": 2
+  "fraud_detected": 2,
+  "run_history": [
+    {
+      "run_date": "2026-08-05",
+      "status": "completed",
+      "new_jobs_added": 17,
+      "qualified": 1,
+      "note": "JSearch API run; 17 jobs, 1 qualified (TravClan), 6 review, 10 skipped incl. 2 spam."
+    },
+    {
+      "run_date": "2026-08-25",
+      "status": "completed_degraded",
+      "new_jobs_added": 0,
+      "qualified": 0,
+      "note": "Discovery pipeline OFFLINE: jsearch.p.rapidapi.com returns 404 'Endpoint does not exist' (API valid but JSearch delisted/unsubscribed on RapidAPI). WebSearch fallback yielded only aggregator category pages; the one concrete posting verified was Mumbai/2+yrs/closed. No new jobs fabricated (Rule 2). Action: renew RapidAPI job-search subscription."
+    }
+  ]
 }
