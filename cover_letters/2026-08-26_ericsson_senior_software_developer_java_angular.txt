@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Developer (Java) role at Ericsson, contributing to customer solutions across the full software development lifecycle. My experience aligns closely with your stack: I've designed and shipped Java and Spring Boot microservices — including a distributed payment gateway with 30 REST APIs — and containerized and deployed them with Docker and CI/CD, with MySQL powering the data layer.
+
+At Primathon I integrated AWS services into real-time backend pipelines and automated workflows that cut manual effort by 70%, and I'm comfortable translating detailed technical designs into clean, well-tested components using JUnit and Mockito. I'd welcome the chance to grow within Ericsson's cloud-native, containerized environment across Kubernetes and microservices while delivering reliable backend code from day one.
+
+As an immediate joiner with a 0-day notice period, I'm ready to start contributing to your team right away.
+
+Best regards, Bhumi Bhatt

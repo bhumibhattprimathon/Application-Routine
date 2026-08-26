@@ -1,0 +1,203 @@
+<!doctype html><html lang="en" data-qualified="0"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-08-26</title><style>
+*{box-sizing:border-box}:root{--g:#22c55e;--y:#eab308;--r:#ef4444;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--bg:#f1f5f9}
+html,body{margin:0}body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:34px 0 30px}
+header .wrap{padding-bottom:0}
+h1{margin:0 0 4px;font-size:26px}.sub{color:#94a3b8;font-size:14px;margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+.card .n{font-size:30px;font-weight:800}.card .l{font-size:12px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+.card.g .n{color:#4ade80}.card.y .n{color:#fde047}.card.r .n{color:#f87171}
+.metrics{display:flex;gap:26px;margin-top:16px;color:#e2e8f0;font-size:14px;flex-wrap:wrap}.metrics b{color:#fff;font-size:18px}
+.banner{margin:26px 0 6px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:14px;padding:16px 18px;font-size:14.5px}
+.banner b{color:#7c2d12}
+.openall{display:block;width:100%;margin:16px 0 8px;padding:18px;border:0;border-radius:16px;background:linear-gradient(135deg,#eab308,#f59e0b);color:#1a1300;font-size:18px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(234,179,8,.35)}
+.openall:hover{filter:brightness(1.05)}
+h2{font-size:19px;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+h2 .dot{width:12px;height:12px;border-radius:50%}.dot.g{background:var(--g)}.dot.y{background:var(--y)}.dot.r{background:var(--r)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;background:#f8fafc;color:#475569;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;padding:11px 12px;border-bottom:1px solid var(--line)}
+td{padding:11px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+td.c{text-align:center}tr:last-child td{border-bottom:0}
+.score{display:inline-block;min-width:34px;padding:3px 8px;border-radius:8px;font-weight:800;color:#1a1300}
+.score.y{background:#fde68a}
+.trust{display:inline-block;min-width:30px;padding:3px 7px;border-radius:8px;background:#e0e7ff;color:#3730a3;font-weight:700}
+.pill{background:#e2e8f0;color:#334155;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600}
+.btn{display:inline-block;border:0;border-radius:9px;padding:7px 11px;font-size:12.5px;font-weight:700;cursor:pointer;text-decoration:none;margin:2px 4px 2px 0}
+.btn.open{background:#0f172a;color:#fff}.btn.copy{background:#e2e8f0;color:#0f172a}
+.act{white-space:nowrap;min-width:210px}
+.rzn td{background:#fffdf5;border-bottom:1px solid #f1f5f9;color:#4b5563;font-size:12.8px}
+.why{color:#a16207;font-weight:700}
+.tag{display:inline-block;padding:3px 9px;border-radius:20px;font-size:11.5px;font-weight:700}
+.t_experience_skip{background:#fee2e2;color:#b91c1c}.t_low_match_skip{background:#fef3c7;color:#92400e}
+.t_fraud_skip{background:#111;color:#fff}.t_salary_skip{background:#fde68a;color:#713f12}
+.mini{color:#2563eb;font-size:12px}
+.empty{padding:26px;text-align:center;color:var(--mut);font-size:14.5px}
+.recs{display:grid;gap:14px;grid-template-columns:1fr}
+.rec{background:#fff;border:1px solid var(--line);border-left:5px solid var(--y);border-radius:12px;padding:16px 18px}
+.rec.note{border-left-color:#94a3b8}
+.rec h4{margin:0 0 6px;font-size:15.5px}.rec p{margin:0;color:#475569;font-size:13.8px}
+.trend{display:flex;align-items:flex-end;gap:22px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 14px;min-height:180px}
+.tcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.bar{width:46px;background:linear-gradient(180deg,#93c5fd,#3b82f6);border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:800;font-size:13px;padding-top:4px}
+.bar.today{background:linear-gradient(180deg,#86efac,#22c55e)}
+.bar span{opacity:.95}.tlbl{margin-top:8px;font-size:12px;color:var(--mut)}
+.clbox{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.clhead{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#f8fafc;border-bottom:1px solid var(--line)}
+.clbox pre{margin:0;padding:16px;white-space:pre-wrap;font-family:inherit;font-size:13.5px;color:#334155}
+.foot{margin-top:34px;color:var(--mut);font-size:12.5px;text-align:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}table{font-size:12.5px}.act{min-width:0}}
+</style></head><body>
+<header><div class="wrap">
+<h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-26</h1>
+<div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · immediate joiner · target 5.5–12 LPA</div>
+<div class="cards">
+<div class="card"><div class="n">20</div><div class="l">Jobs Found (24h)</div></div>
+<div class="card g"><div class="n">0</div><div class="l">Clean Matches</div></div>
+<div class="card y"><div class="n">2</div><div class="l">Stretch / Review</div></div>
+<div class="card r"><div class="n">18</div><div class="l">Skipped</div></div>
+</div>
+<div class="metrics">
+<div>Fraud blocked: <b>0</b></div>
+<div>Avg score (stretch): <b>68</b></div>
+<div>Data source: <b>JSearch API · date_posted=today · country=in</b></div>
+<div>Search queries run: <b>22</b></div>
+</div>
+</div></header>
+<div class="wrap">
+<div class="banner"><b>No clean entry-level (0–2 yr) matches were posted in the last 24 hours.</b> Today's Delhi-NCR / remote feed was senior-heavy — Staff/Lead/Principal roles and off-stack (.NET, embedded, data-engineering) postings. The two roles below are genuine <b>stretch</b> opportunities: the technology matches Bhumi's resume well, but they ask for more years than she has. Tailored cover letters are ready for both if she wants to take a long shot.</div>
+
+<button class="openall" onclick="openAll()">OPEN 2 STRETCH ROLE(S) ↗</button>
+
+<h2><span class="dot g"></span>Clean Matches (ready to apply)</h2>
+<div class="panel"><div class="empty">No clean entry-level matches today. See the two stretch roles below — both have cover letters prepared.</div></div>
+
+<h2><span class="dot y"></span>Stretch / Review — strong tech fit, senior tenure</h2>
+<div class="panel"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td class="c">1</td><td class="c"><span class="score y">69</span></td>
+<td class="c"><span class="trust">92</span></td>
+<td><b>AgileEngine</b></td><td>Senior Backend Engineer (ID84744)</td>
+<td>Remote (India)</td><td>18-30 LPA (est)</td>
+<td><span class="pill">backend</span></td>
+<td>External (LinkedIn)</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/senior-backend-engineer-id84744-at-agileengine-4457490503" target="_blank" rel="noopener">Open Job ↗</a>
+<button class="btn copy" onclick="copyCL('cl_agile',this)">Copy Cover Letter</button></td></tr>
+<tr class="rzn"><td></td><td colspan="9"><span class="why">Why review:</span> Strong fit on her actual toolset — Java backend + Playwright/Selenium/JUnit test automation — at a top-rated remote firm (4.6 Glassdoor, Inc 5000). But it asks 4+ yrs backend AND 4+ yrs test automation; she has 1.5 yrs. A genuine long shot worth 5 minutes.</td></tr><tr>
+<td class="c">2</td><td class="c"><span class="score y">68</span></td>
+<td class="c"><span class="trust">93</span></td>
+<td><b>Ericsson</b></td><td>Senior Software Developer (Java / Angular)</td>
+<td>Noida</td><td>12-20 LPA (est)</td>
+<td><span class="pill">backend</span></td>
+<td>Company site</td>
+<td class="act"><a class="btn open" href="https://jobs.ericsson.com/careers/job/563121777006178" target="_blank" rel="noopener">Open Job ↗</a>
+<button class="btn copy" onclick="copyCL('cl_ericsson',this)">Copy Cover Letter</button></td></tr>
+<tr class="rzn"><td></td><td colspan="9"><span class="why">Why review:</span> Java, Docker, Kubernetes, Microservices and MySQL all match her resume at a tier-1 MNC. Requires 5+ yrs (she has 1.5) and Angular rather than her React — a stretch, but a strong-brand long shot.</td></tr></tbody></table></div>
+
+<h2><span class="dot r"></span>Skipped (18)</h2>
+<div class="panel"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Reason</th><th>Link</th><th>Detail</th></tr></thead>
+<tbody><tr><td class="c">1</td><td><b>Appsierra Group</b></td><td>Sr. Full Stack Web Developer</td>
+<td>Remote (India)</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://jobs.pitchnhire.com/appsierra.com/sr-full-stack-web-developer/019e2b70-e8cf-7a5f-b15d-7dfaf18008a2" target="_blank" rel="noopener">link ↗</a></td>
+<td>Skills match almost perfectly (React, NestJS/Node, Kafka, PostgreSQL, MongoDB, AWS, CI/CD) — but the JD requires 10+ yrs of experience. Far beyond entry level.</td></tr><tr><td class="c">2</td><td><b>Khoj Information Technology</b></td><td>Azure Integration &amp; Full-Stack Developer</td>
+<td>Remote (India)</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.indeed.com/viewjob?jk=4406bbd9172a48b9" target="_blank" rel="noopener">link ↗</a></td>
+<td>Core stack is C#/.NET/ASP.NET Core + Azure (Logic Apps, Functions, Service Bus). She&#x27;s Java/Node on AWS; only React/TypeScript overlaps. Off-stack.</td></tr><tr><td class="c">3</td><td><b>Agoda</b></td><td>Staff Software Engineer — Backend-Heavy Full Stack</td>
+<td>Gurugram</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/staff-software-engineer-backend-heavy-full-stack-gurugram-based-at-agoda-4458716619" target="_blank" rel="noopener">link ↗</a></td>
+<td>&#x27;Staff&#x27; level (typically 8+ yrs) at Booking Holdings. Tech fits but far too senior.</td></tr><tr><td class="c">4</td><td><b>New Media Holding</b></td><td>Java Team Lead</td>
+<td>Gurugram</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/java-team-lead-at-new-media-holding-4458598390" target="_blank" rel="noopener">link ↗</a></td>
+<td>Java/Spring/Kafka/Hibernate match her stack, but it&#x27;s a Team Lead role requiring proven leadership and senior experience.</td></tr><tr><td class="c">5</td><td><b>Synchrony</b></td><td>AVP, Web Engineer III — Apply &amp; Buy Digital Apps (L10)</td>
+<td>New Delhi</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/avp-web-engineer-iii-apply-and-buy-digital-apps-l10-at-synchrony-4454543225" target="_blank" rel="noopener">link ↗</a></td>
+<td>AVP / L10 — an Assistant Vice President band (8+ yrs). Senior leadership level.</td></tr><tr><td class="c">6</td><td><b>Microsoft</b></td><td>Principal Group Engineering Manager</td>
+<td>Noida</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/principal-group-engineering-manager-at-microsoft-4458740880" target="_blank" rel="noopener">link ↗</a></td>
+<td>Principal-level people-management role for the Office team. Very senior.</td></tr><tr><td class="c">7</td><td><b>Airtel Digital</b></td><td>Lead Machine Learning Engineer (7–11 yrs)</td>
+<td>Gurugram</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/lead-machine-learning-engineer-7-11-years-at-airtel-digital-4456568820" target="_blank" rel="noopener">link ↗</a></td>
+<td>Explicitly 7–11 yrs, Lead ML on a streaming recommendation stack. Too senior and ML-specialist.</td></tr><tr><td class="c">8</td><td><b>Hiresquad Resources</b></td><td>Chief Technology Officer (CTO) — AI SaaS</td>
+<td>Noida</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/chief-technology-officer-cto-%E2%80%93-ai-saas-transformation-at-hiresquad-resources-4456583503" target="_blank" rel="noopener">link ↗</a></td>
+<td>Executive CTO role posted via a staffing firm. Not remotely an entry-level fit.</td></tr><tr><td class="c">9</td><td><b>Crowe Capability Center</b></td><td>Lead Engineer (Manager), MS Power Platform</td>
+<td>Noida</td><td class="c"><span class="tag t_experience_skip">Experience</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/lead-engineer-manager-microsoft-power-platform-at-crowe-capability-center-%E2%80%93-india-4458791906" target="_blank" rel="noopener">link ↗</a></td>
+<td>Manager-level, Microsoft Power Platform (low-code). Senior and off her code-first backend stack.</td></tr><tr><td class="c">10</td><td><b>Iris Software</b></td><td>.Net Fullstack React — Consultant</td>
+<td>Noida</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/net-fullstack-react-consultant-at-iris-software-inc-4459006346" target="_blank" rel="noopener">link ↗</a></td>
+<td>Core is .NET/C#. She has no .NET; only React overlaps. Off-stack.</td></tr><tr><td class="c">11</td><td><b>Flight Centre Travel Group</b></td><td>Senior .Net Developer / SSE / Manager</td>
+<td>Noida</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/senior-dot-net-developer-senior-software-engineer-manager-at-flight-centre-travel-group-4458724768" target="_blank" rel="noopener">link ↗</a></td>
+<td>.NET stack and senior/manager level. Off-stack and too senior.</td></tr><tr><td class="c">12</td><td><b>Euler Motors</b></td><td>MTS 2 — Embedded Software (BMS)</td>
+<td>New Delhi</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/mts-2-embedded-software-bms-at-euler-motors-4458752083" target="_blank" rel="noopener">link ↗</a></td>
+<td>Embedded firmware/RTOS/CAN-FD, 4+ yrs. Entirely off her application-backend stack.</td></tr><tr><td class="c">13</td><td><b>Liqvid</b></td><td>Senior C++ / Qt Developer</td>
+<td>Noida</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/senior-c%2B%2B-qt-developer-at-liqvid-4456588621" target="_blank" rel="noopener">link ↗</a></td>
+<td>C++/Qt desktop development, 5–7 yrs. Off-stack and senior.</td></tr><tr><td class="c">14</td><td><b>Embee Software</b></td><td>End User L1 Support Engineer</td>
+<td>New Delhi</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/end-user-l1-support-engineer-at-embee-software-4457607401" target="_blank" rel="noopener">link ↗</a></td>
+<td>L1 end-user IT support, not a software-development role.</td></tr><tr><td class="c">15</td><td><b>Encodency</b></td><td>Mobile App Developer (Native)</td>
+<td>Ghaziabad</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://apna.co/job/ghaziabad/mobile-app-developer-896504272" target="_blank" rel="noopener">link ↗</a></td>
+<td>Native mobile (Objective-C/Swift/Kotlin), 5+ yrs, Mon–Sat WFO, bring-your-own-laptop. Off-stack with low-quality signals.</td></tr><tr><td class="c">16</td><td><b>PwC Acceleration Center</b></td><td>Data Engineer — Senior Associate</td>
+<td>Gurugram</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/assurance-data-analytics-data-engineer-senior-associate-at-pwc-acceleration-center-india-4392668477" target="_blank" rel="noopener">link ↗</a></td>
+<td>Data-engineering (Senior Associate) role — off her application/backend focus.</td></tr><tr><td class="c">17</td><td><b>Sodexo</b></td><td>Global M365 Data Engineer</td>
+<td>Gurugram</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/global-m365-data-engineer-at-sodexo-4456913945" target="_blank" rel="noopener">link ↗</a></td>
+<td>Microsoft 365 / Power Platform data role. Off her code-first backend stack.</td></tr><tr><td class="c">18</td><td><b>Lund University (SUDes)</b></td><td>Senior Lecturer — Distributed Large-scale Systems</td>
+<td>Rohtak / Lund (SE)</td><td class="c"><span class="tag t_low_match_skip">Skill / Role</span></td>
+<td><a class="mini" href="https://in.linkedin.com/jobs/view/senior-lecturer-in-distributed-large-scale-software-systems-pa2026-1757-at-sustainable-urban-design-sudes-programme-4458579748" target="_blank" rel="noopener">link ↗</a></td>
+<td>Academic professorship at Lund University. Unrelated to an industry engineering role.</td></tr></tbody></table></div>
+
+<h2>Top Recommendations</h2>
+<div class="recs"><div class="rec"><h4>AgileEngine — Senior Backend Engineer (Remote)</h4><p>This is the closest thing to a real match today. The role wants a backend engineer who also owns test automation — and Bhumi&#x27;s resume lists exactly that combination: Java microservices and 30 REST APIs on one side, Playwright, Selenium, JUnit and Mockito on the other. AgileEngine is a genuinely strong, fully-remote employer (4.6 on Glassdoor, Inc 5000, Fortune-500 clients). The only gap is tenure: it asks 4+ years and she has 1.5. Given the perfect toolset overlap and the remote flexibility, it&#x27;s the one worth spending five minutes on today — apply with the tailored cover letter and let the portfolio do the talking.</p></div><div class="rec"><h4>Ericsson — Senior Software Developer, Java (Noida)</h4><p>A tier-1 telecom-tech brand with a stack that reads like Bhumi&#x27;s resume: Java, Docker, Kubernetes, microservices and MySQL. The catch is 5+ years required (and Angular where she uses React). It&#x27;s a stretch, but a strong-name Noida role with a clean technical overlap is worth a long-shot application — the cover letter is ready and leans on her Spring Boot microservices and containerized CI/CD experience.</p></div><div class="rec note"><h4>Appsierra Group — Sr. Full Stack (Remote): skills matched, tenure didn't</h4><p>Worth calling out: this remote role matched Bhumi's stack almost perfectly — React, NestJS/Node, Kafka, PostgreSQL, MongoDB, AWS and CI/CD. It was skipped only because the JD requires 10+ years of experience. Keep the company on the radar for their junior/mid openings.</p></div></div>
+
+<h2>Weekly Trend — clean matches per run</h2>
+<div class="trend"><div class="tcol"><div class="bar" style="height:138px" title="1 qualified"><span>1</span></div><div class="tlbl">08-05</div></div><div class="tcol"><div class="bar today" style="height:18px" title="0 qualified"><span>0</span></div><div class="tlbl">today</div></div></div>
+
+<h2>Cover Letters</h2>
+<div class="clbox"><div class="clhead"><b>AgileEngine — Senior Backend Engineer</b><button class="btn copy" onclick="copyCL('cl_agile',this)">COPY</button></div>
+<pre id="cl_agile">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Senior Backend Engineer role at AgileEngine, where robust backend services and rigorous test automation sit at the center of the work. My background maps directly onto both: in my distributed payment gateway I built Java microservices exposing 30 REST APIs across Order, Payment, Merchant, and Vault services, and I pair backend work with hands-on test engineering using Playwright, Selenium, JUnit, and Mockito to keep large systems reliable.
+
+I work fluently across Java, Spring Boot, and Node.js, backed by MySQL, MongoDB, and Redis, and I&#x27;ve integrated AWS Lambda and S3 into real-time data pipelines while automating build and delivery with Git and CI/CD. Bringing both backend depth and a test-first mindset to a platform serving Fortune 500 brands is exactly the kind of challenge I want next.
+
+As an immediate joiner with a 0-day notice period, I can ramp up and start contributing to your team right away.
+
+Best regards, Bhumi Bhatt</pre></div><div class="clbox"><div class="clhead"><b>Ericsson — Senior Software Developer (Java)</b><button class="btn copy" onclick="copyCL('cl_ericsson',this)">COPY</button></div>
+<pre id="cl_ericsson">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Developer (Java) role at Ericsson, contributing to customer solutions across the full software development lifecycle. My experience aligns closely with your stack: I&#x27;ve designed and shipped Java and Spring Boot microservices — including a distributed payment gateway with 30 REST APIs — and containerized and deployed them with Docker and CI/CD, with MySQL powering the data layer.
+
+At Primathon I integrated AWS services into real-time backend pipelines and automated workflows that cut manual effort by 70%, and I&#x27;m comfortable translating detailed technical designs into clean, well-tested components using JUnit and Mockito. I&#x27;d welcome the chance to grow within Ericsson&#x27;s cloud-native, containerized environment across Kubernetes and microservices while delivering reliable backend code from day one.
+
+As an immediate joiner with a 0-day notice period, I&#x27;m ready to start contributing to your team right away.
+
+Best regards, Bhumi Bhatt</pre></div>
+
+<div class="foot">Generated by the LinkedIn Morning Scan routine · 2026-08-26 · jobs discovered via JSearch (date_posted=today, country=in); trust checks via Glassdoor/AmbitionBox. Verify posting details on the live listing before applying.</div>
+</div>
+<div class="toast" id="toast">Copied to clipboard ✓</div>
+<script>
+var urls=["https://in.linkedin.com/jobs/view/senior-backend-engineer-id84744-at-agileengine-4457490503", "https://jobs.ericsson.com/careers/job/563121777006178"];
+function openAll(){ if(!urls.length){toast('No stretch roles to open');return;} urls.forEach(function(u){window.open(u,'_blank');}); }
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1600);}
+function copyCL(id,btn){var el=document.getElementById(id);if(!el)return;var txt=el.innerText;
+ function done(){var o=btn.textContent;btn.textContent='Copied ✓';toast('Cover letter copied ✓');setTimeout(function(){btn.textContent=o;},1600);}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){fallback(txt);done();});}
+ else{fallback(txt);done();} }
+function fallback(txt){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+</script>
+</body></html>

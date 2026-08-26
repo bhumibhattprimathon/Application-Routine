@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Senior Backend Engineer role at AgileEngine, where robust backend services and rigorous test automation sit at the center of the work. My background maps directly onto both: in my distributed payment gateway I built Java microservices exposing 30 REST APIs across Order, Payment, Merchant, and Vault services, and I pair backend work with hands-on test engineering using Playwright, Selenium, JUnit, and Mockito to keep large systems reliable.
+
+I work fluently across Java, Spring Boot, and Node.js, backed by MySQL, MongoDB, and Redis, and I've integrated AWS Lambda and S3 into real-time data pipelines while automating build and delivery with Git and CI/CD. Bringing both backend depth and a test-first mindset to a platform serving Fortune 500 brands is exactly the kind of challenge I want next.
+
+As an immediate joiner with a 0-day notice period, I can ramp up and start contributing to your team right away.
+
+Best regards, Bhumi Bhatt
