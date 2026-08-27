@@ -1,15 +1,22 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-27",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "status": "completed_degraded",
+  "data_source": "WebSearch (indexed individual postings) + WebFetch verification",
+  "resume_source": "repo resumes/resume_master.pdf (read OK)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel (PushNotification)",
+  "feed_health": {
+    "rapidapi_jsearch": "DOWN — /search returns 404 'Endpoint does not exist'; alternative RapidAPI job APIs return 403 'not subscribed'. The RAPIDAPI_KEY is no longer subscribed to any jobs API.",
+    "websearch": "US-geolocated: LinkedIn guest-page fetches return US ('Delhi, NY') results; most India queries return aggregate category pages, not individual apply-ready postings.",
+    "impact": "Fresh <24h India job discovery was severely degraded. Only individually-indexed, verifiable postings were included; no jobs were fabricated to pad counts."
+  },
+  "jobs_found": 3,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 0,
+  "jobs_skipped": 2,
+  "fraud_detected": 0,
+  "avg_match_qualified": 88.0,
+  "top_pick": "Software Development Engineer (SDE I) at NextMantra AI, Gurugram (match 88, trust 65)",
+  "action_required": "Renew/replace the jobs data feed: re-subscribe the RapidAPI key to JSearch (or an equivalent LinkedIn/Indeed jobs API), or wire in a non-US-geolocated discovery source. Until then daily yield stays low.",
+  "notes": "Verified individual postings only. NextMantra AI SDE-I is a strong skill match (Java/Kafka/Redis/REST/microservices + React/AWS/Docker/CI-CD) with a mild experience stretch (JD 2-3 yrs vs 1.5). Careerflow AI role skipped (off-stack Python/LLM + 6+ months old); CG Infinity Java role skipped (removed + 5+ yrs/team-lead)."
 }

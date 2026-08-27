@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply — 2026-08-27</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .banner{background:#fef2f2;border:1px solid #fecaca;border-left:6px solid var(--red);border-radius:10px;padding:14px 16px;margin:18px 0;color:#7f1d1d}
+  .banner b{color:#991b1b}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card .n{font-size:1.9rem;font-weight:700}
+  .card .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .card.q .n{color:var(--green)} .card.s .n{color:var(--red)} .card.f .n{color:#b91c1c}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:0;border-radius:12px;padding:18px;font-size:1.15rem;font-weight:700;cursor:pointer;margin:8px 0 22px;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+  .openall:hover{filter:brightness(.95)}
+  .openall:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed}
+  h2{font-size:1.15rem;margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h2 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.9rem}
+  .scroll{overflow-x:auto}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:.75rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem}
+  .pill.g{background:#dcfce7;color:#166534}.pill.y{background:#fef9c3;color:#854d0e}.pill.r{background:#fee2e2;color:#991b1b}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-size:.82rem;cursor:pointer}
+  .btn.primary{background:#0f172a;color:#fff;border-color:#0f172a}
+  .btn:hover{filter:brightness(.97)}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h3{margin:0 0 4px;font-size:1rem}
+  .rec .meta{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+  .trend{display:flex;gap:18px;align-items:flex-end;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;min-height:170px}
+  .bar{display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 auto}
+  .bar .b{width:46px;background:var(--green);border-radius:6px 6px 0 0;transition:height .3s}
+  .bar .v{font-weight:700;font-size:.85rem}
+  .bar .d{font-size:.72rem;color:var(--muted)}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .cl h3{margin:0 0 8px;font-size:1rem}
+  .cl pre{white-space:pre-wrap;font-family:inherit;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px;margin:0 0 10px;font-size:.9rem}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:26px 20px}
+  .hidden{display:none}
+  .note{font-size:.85rem;color:var(--muted);margin:6px 0 0}
+  a{color:#2563eb}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-27</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · immediate joiner · target 5.5–12 LPA</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <b>⚠ Data feed degraded today.</b> The structured jobs feed (RapidAPI / JSearch) that powered the 2026-08-05 run is <b>no longer subscribed</b> (returns 403/404), and the WebSearch fallback is US-geolocated — most India queries return LinkedIn <em>category</em> pages, not individual apply-ready postings. Only individually-verified postings are shown below. <b>No jobs were fabricated to pad the numbers.</b> Action: re-subscribe the RapidAPI key to JSearch (or wire in an equivalent India-capable jobs API) to restore daily volume.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">3</div><div class="l">Jobs Found</div></div>
+    <div class="card q"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card s"><div class="n">2</div><div class="l">Skipped</div></div>
+    <div class="card f"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+    <div class="card"><div class="n">88</div><div class="l">Avg Match (Qual.)</div></div>
+    <div class="card"><div class="n">8–13</div><div class="l">Avg Salary Est (LPA)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB</button>
+
+  <h2><span class="dot" style="background:var(--green)"></span>Qualified Jobs</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr>
+      <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="pill g">88</span></td>
+        <td>65</td>
+        <td>NextMantra AI</td>
+        <td>Software Development Engineer (SDE I)</td>
+        <td>Gurugram</td>
+        <td>8–13 LPA (est)</td>
+        <td>backend</td>
+        <td>External</td>
+        <td>
+          <a class="btn primary" href="https://in.linkedin.com/jobs/view/software-development-engineer-sde-i-at-nextmantra-ai-4452215955" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn" onclick="copyCL('cl-nextmantra')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Mild stretch: JD asks 2–3 yrs (Bhumi has ~1.5) and the company is early-stage/unfunded — but skill overlap is unusually tight and the title is her exact target.</p>
+
+  <h2><span class="dot" style="background:var(--yellow)"></span>Review Jobs</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+    <tbody>
+      <tr><td colspan="6" style="color:var(--muted)">No review-tier jobs this run (feed degraded — see banner).</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="dot" style="background:var(--red)"></span>Skipped Jobs</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>Careerflow</td><td>AI Engineer – LLM / Agents (New Delhi)</td>
+        <td>Off-stack: Python / LangChain / AutoGen / CrewAI / vector DBs / prompt engineering — not her Java/JS backend core. Also posted 6+ months ago (likely closed).</td>
+      </tr>
+      <tr>
+        <td>2</td><td>CG Infinity</td><td>Java Developer with Spring Boot (Noida)</td>
+        <td>Requires 5+ yrs Java + 2+ yrs team-lead; posting was removed (Jun 10, 2026) and is no longer live.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Top Recommendation</h2>
+  <div class="rec">
+    <h3>1. Software Development Engineer (SDE I) — NextMantra AI (Gurugram)</h3>
+    <div class="meta">Match 88 · Trust 65 · Est 8–13 LPA · backend variant · <a href="https://in.linkedin.com/jobs/view/software-development-engineer-sde-i-at-nextmantra-ai-4452215955" target="_blank" rel="noopener">Open posting</a></div>
+    <p>This is the cleanest match surfaced today. The JD reads almost like Bhumi's resume: Java, Apache Kafka, Redis, PostgreSQL, REST APIs, microservices and distributed systems are all core to her Primathon and Paytm work, and every "good-to-have" (React, AWS, Docker, CI/CD) is on her resume too. "SDE I" is exactly her target title. The only caveats are honest ones — the JD asks 2–3 years (she has ~1.5) and NextMantra is an early-stage, unfunded AI-recruitment startup — so treat it as a strong-but-stretch application. Her Distributed Payment Gateway project (30 REST APIs across four Spring Boot microservices) is the perfect thing to lead with. Cover letter is ready below.</p>
+  </div>
+  <p class="note">Only one qualifying role today because the jobs feed is down (see banner) — not because the market is empty. Restoring the feed should bring daily volume back to the ~15–17 postings seen on 2026-08-05.</p>
+
+  <h2>Weekly Trend — Qualified per Run</h2>
+  <div class="trend">
+    <div class="bar"><div class="v">1</div><div class="b" style="height:40px"></div><div class="d">08-05</div></div>
+    <div class="bar"><div class="v">1</div><div class="b" style="height:40px"></div><div class="d">08-27</div></div>
+    <div style="align-self:center;color:var(--muted);font-size:.85rem;max-width:340px">
+      Two recorded runs. 08-05 qualified 1 of 17 found (full JSearch feed). 08-27 qualified 1 of 3 found (feed degraded). The gap between runs reflects the routine not firing 08-06 → 08-26, not zero-result days.
+    </div>
+  </div>
+
+  <h2>Cover Letters</h2>
+  <div class="cl">
+    <h3>NextMantra AI — SDE I</h3>
+    <pre id="cl-nextmantra">Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer (SDE I) role at NextMantra AI, where building a scalable AI-driven recruitment platform calls for exactly the backend depth I've spent the last 1.5 years developing.
+
+At Primathon I engineer production Java and Node.js microservices and REST APIs, and I've worked hands-on with the core stack in your JD: Apache Kafka for event streaming, Redis for caching, and MySQL/PostgreSQL for persistence, while integrating AWS (S3, Lambda) into real-time data pipelines. My Distributed Payment Gateway project — 30 REST APIs across four Spring Boot microservices — demonstrates I can design fault-tolerant distributed systems end to end, and I ship with Docker, Git, and CI/CD as part of my daily workflow.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your services right away, and I pick up new tools such as Kubernetes quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+    <button class="btn primary" onclick="copyCL('cl-nextmantra')">COPY</button>
+  </div>
+
+</div>
+
+<footer>
+  Generated 2026-08-27 · LinkedIn Morning Scan · verified individual postings only · deduped against 17 prior entries.
+</footer>
+
+<script>
+  var urls = [
+    "https://in.linkedin.com/jobs/view/software-development-engineer-sde-i-at-nextmantra-ai-4452215955"
+  ];
+  function openAll(){
+    if(!urls.length){ alert("No qualified jobs to open today."); return; }
+    urls.forEach(function(u){ window.open(u, "_blank"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallback(text); });
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{document.execCommand("copy");}catch(e){} document.body.removeChild(ta); flash();
+  }
+  function flash(){
+    var b=document.createElement("div");
+    b.textContent="Cover letter copied ✓";
+    b.style.cssText="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 16px;border-radius:8px;font-size:.9rem;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.25)";
+    document.body.appendChild(b); setTimeout(function(){ b.remove(); },1600);
+  }
+</script>
+</body>
+</html>

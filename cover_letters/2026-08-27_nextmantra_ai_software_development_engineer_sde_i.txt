@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer (SDE I) role at NextMantra AI, where building a scalable AI-driven recruitment platform calls for exactly the backend depth I've spent the last 1.5 years developing.
+
+At Primathon I engineer production Java and Node.js microservices and REST APIs, and I've worked hands-on with the core stack in your JD: Apache Kafka for event streaming, Redis for caching, and MySQL/PostgreSQL for persistence, while integrating AWS (S3, Lambda) into real-time data pipelines. My Distributed Payment Gateway project — 30 REST APIs across four Spring Boot microservices — demonstrates I can design fault-tolerant distributed systems end to end, and I ship with Docker, Git, and CI/CD as part of my daily workflow.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your services right away, and I pick up new tools such as Kubernetes quickly.
+
+Best regards,
+Bhumi Bhatt
