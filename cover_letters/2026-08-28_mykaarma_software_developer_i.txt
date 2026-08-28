@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join myKaarma as a Software Developer I and help build the cloud services that power dealership customer engagement.
+
+My 1.5 years at Primathon and Paytm center on exactly your stack: Java and Spring Boot microservices, REST APIs, MongoDB and Redis, all containerized with Docker and running on AWS (EC2, S3, Lambda; AWS Certified Developer - Associate). I have also integrated AI-driven alerting into a payment gateway and published a research paper on Generative AI, so your preferred LLM-API and ML work with OpenAI, Claude, and Gemini is a direction I am genuinely eager to grow into.
+
+With a 5-Star Java rating and 250+ DSA problems solved, I bring strong computer-science fundamentals to production code. As a 0-day-notice immediate joiner, I can start delivering scalable services from week one.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Java Developer role and was struck by how closely it maps to my day-to-day work in Java, Spring Boot, and high-throughput backend services.
+
+Over 1.5 years at Primathon and Paytm I have built and optimized Spring Boot microservices and REST APIs, worked with Kafka for event streaming, Redis for caching, and both MySQL and MongoDB for persistence, testing with JUnit and shipping through Git. My 5-Star Gold Java rating and 250+ solved DSA problems reflect the multithreading, data-structures, and design-pattern depth this role calls for.
+
+I recently architected a distributed payment gateway with 30 REST APIs across four services, so scalable, fault-tolerant design is where I am most comfortable. As an immediate joiner on 0-day notice, I am ready to contribute to your Agile team right away.
+
+Best regards,
+Bhumi Bhatt

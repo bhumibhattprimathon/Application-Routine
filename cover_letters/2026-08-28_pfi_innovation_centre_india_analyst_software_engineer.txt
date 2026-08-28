@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Analyst-Software Engineer role at PFI Innovation Centre India (Prudential Financial), where I can help build and scale the Group Insurance platform using the exact stack I work in every day.
+
+At Primathon I engineer Spring Boot microservices and custom admin REST APIs across seven merchant systems, and I have shipped React front-ends and Node.js/Express services end-to-end. I write JUnit and Mockito tests in a TDD-friendly workflow and deploy on AWS as an AWS Certified Developer - Associate, using Jenkins and Git for CI/CD - matching your React, Spring Boot, Node.js, REST/JSON, and AWS requirements directly.
+
+Having architected a distributed payment gateway with 30 REST APIs across four services, I bring a system-design mindset suited to insurance-grade reliability. As an immediate joiner on 0-day notice, I can start contributing to your technical roadmap right away and ramp quickly on the domain.
+
+Best regards,
+Bhumi Bhatt

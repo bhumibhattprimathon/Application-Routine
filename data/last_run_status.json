@@ -1,15 +1,24 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-28",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "LinkedIn guest job-search pages via WebFetch (real, current postings with direct apply links). JSearch /search endpoint returned an upstream 404 today; JSearch /estimated-salary (Glassdoor-backed) used for salary calibration.",
+  "resume_source": "resumes/resume_master.pdf (fetched from user's Google Drive into repo; matches committed copy)",
+  "ntfy": "disabled per prior user instruction; reported via routine push/email channel",
+  "jobs_found": 9,
+  "jobs_new_after_dedup": 8,
+  "jobs_duplicate": 1,
+  "jobs_qualified": 3,
+  "jobs_review": 3,
+  "jobs_skipped": 2,
+  "fraud_detected": 0,
+  "avg_match_qualified": 87.7,
+  "cover_letters_generated": 3,
+  "top_pick": "Analyst-Software Engineer @ PFI Innovation Centre India (Prudential Financial) — match 91, trust 92, entry-level, Gurugram",
+  "duplicates_skipped": ["TravClan SDE-1 Back End Developer (repost of 2026-08-05 entry)"],
+  "issues": [
+    "JSearch /search endpoint unavailable (HTTP 404 'Endpoint does not exist') — discovery fell back to LinkedIn guest search via WebFetch.",
+    "LinkedIn AI-engineer guest search returned mislocated (US) results — a known guest-search quirk; AI/ML coverage was limited this run."
+  ],
+  "notes": "3 clean qualified matches today (PFI/Prudential entry-level SWE, myKaarma SDE-I, Scoutit Java Dev). 3 review/stretch (Accenture 3yr, Aspect mid-senior, AmEx apprentice). 2 skipped (BigStep 5+yr, NikahForever mobile). All qualified roles posted within ~24h."
 }

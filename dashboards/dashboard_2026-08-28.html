@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply — 2026-08-28</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#15803d;
+    --yellow:#eab308; --yellow-d:#a16207;
+    --red:#ef4444; --red-d:#b91c1c;
+    --ink:#0f172a; --slate:#334155; --muted:#64748b;
+    --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+  .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+  .card .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .card .l{color:#cbd5e1;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+  .card.qual .n{color:var(--green)} .card.skip .n{color:#f87171} .card.rev .n{color:#fde047} .card.fraud .n{color:#fca5a5}
+  main{padding:24px 0 60px}
+  .stat-row{display:flex;flex-wrap:wrap;gap:16px;margin:6px 0 22px;color:var(--slate);font-size:.92rem}
+  .stat-row b{color:var(--ink)}
+  .openall{display:block;width:100%;border:0;cursor:pointer;background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;font-size:1.15rem;font-weight:700;padding:18px;border-radius:14px;margin:0 0 8px;box-shadow:0 6px 16px rgba(34,197,94,.3);transition:transform .08s}
+  .openall:hover{transform:translateY(-1px)}
+  .hint{color:var(--muted);font-size:.8rem;text-align:center;margin:0 0 26px}
+  h2{font-size:1.15rem;margin:30px 0 12px;padding-left:12px;border-left:5px solid var(--slate)}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)} h2.b{border-color:#6366f1}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:640px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .score{display:inline-block;min-width:34px;text-align:center;font-weight:700;border-radius:6px;padding:2px 6px;color:#fff}
+  .s-hi{background:var(--green-d)} .s-md{background:var(--yellow-d)} .s-lo{background:var(--red-d)}
+  .trust{font-weight:600}
+  .badge{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:20px;font-weight:600}
+  .b-ext{background:#e0e7ff;color:#3730a3}
+  .btn{display:inline-block;border:0;cursor:pointer;border-radius:7px;padding:6px 10px;font-size:.78rem;font-weight:600;text-decoration:none}
+  .btn-open{background:#1e293b;color:#fff}
+  .btn-copy{background:#e2e8f0;color:#0f172a;margin-top:4px}
+  .btn-copy.done{background:var(--green);color:#fff}
+  .reason{color:var(--slate);font-size:.85rem}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+  .rec h3{margin:0 0 4px;font-size:1rem}
+  .rec .meta{color:var(--muted);font-size:.8rem;margin-bottom:6px}
+  .rec p{margin:0;color:var(--slate);font-size:.9rem}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+  .cl h3{margin:0 0 8px;font-size:.98rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.88rem;color:var(--slate);margin:0;background:#f8fafc;padding:12px;border-radius:8px;border:1px solid var(--line)}
+  .trend{display:flex;align-items:flex-end;gap:24px;height:180px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;flex:0 0 70px}
+  .bar .fill{width:46px;background:linear-gradient(180deg,var(--green),var(--green-d));border-radius:6px 6px 0 0;min-height:6px;position:relative}
+  .bar .v{font-weight:700;font-size:.9rem}
+  .bar .d{color:var(--muted);font-size:.72rem;text-align:center}
+  .note{background:#fffbeb;border:1px solid #fde68a;color:#854d0e;border-radius:10px;padding:12px 14px;font-size:.85rem;margin:16px 0}
+  footer{color:var(--muted);font-size:.78rem;text-align:center;padding:24px}
+  a.plain{color:#4f46e5;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>💼 LINKEDIN SMART APPLY DASHBOARD — 2026-08-28</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner (0-day notice)</div>
+    <div class="cards">
+      <div class="card"><div class="n">9</div><div class="l">Jobs Found</div></div>
+      <div class="card qual"><div class="n">3</div><div class="l">Qualified</div></div>
+      <div class="card rev"><div class="n">3</div><div class="l">Review</div></div>
+      <div class="card skip"><div class="n">2</div><div class="l">Skipped</div></div>
+      <div class="card fraud"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="stat-row">
+    <div>Avg match (qualified): <b>87.7</b></div>
+    <div>Avg salary estimate (qualified): <b>≈ 7–11 LPA</b></div>
+    <div>New after dedup: <b>8</b></div>
+    <div>Duplicates skipped: <b>1</b> (TravClan SDE-1)</div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 3 QUALIFIED JOBS</button>
+  <p class="hint">Opens each qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page and click again.</p>
+
+  <div class="note">
+    <b>Data-source note:</b> The JSearch <code>/search</code> endpoint returned an upstream 404 today, so discovery used LinkedIn's guest job-search pages (real, current postings with direct apply links). JSearch <code>/estimated-salary</code> (Glassdoor-backed) was used to calibrate salary bands. All jobs below are real listings verified at scan time; most qualified roles were posted within the last 24 hours.
+  </div>
+
+  <!-- QUALIFIED -->
+  <h2 class="g">✅ Qualified — Ready to Apply</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score s-hi">91</span></td><td class="trust" style="color:var(--green-d)">92</td>
+          <td>PFI Innovation Centre India<br><small style="color:var(--muted)">(Prudential Financial)</small></td>
+          <td>Analyst-Software Engineer</td><td>Gurugram · 15h ago</td><td>8–12 LPA</td>
+          <td>fullstack</td><td><span class="badge b-ext">External</span></td>
+          <td>
+            <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/analyst-software-engineer-at-pfi-innovation-centre-india-4440891078" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn btn-copy" onclick="copyCL('pfi',this)">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score s-hi">87</span></td><td class="trust" style="color:var(--green-d)">85</td>
+          <td>myKaarma</td>
+          <td>Software Developer I</td><td>Noida · 7h ago</td><td>7–11 LPA</td>
+          <td>backend</td><td><span class="badge b-ext">External</span></td>
+          <td>
+            <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-developer-i-at-mykaarma-4458031223" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn btn-copy" onclick="copyCL('mykaarma',this)">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="score s-hi">85</span></td><td class="trust" style="color:var(--yellow-d)">62</td>
+          <td>Scoutit<br><small style="color:var(--muted)">(recruiter — employer masked)</small></td>
+          <td>Java Developer</td><td>Noida · 13h ago</td><td>6–10 LPA</td>
+          <td>backend</td><td><span class="badge b-ext">External</span></td>
+          <td>
+            <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-developer-at-scoutit-4458621228" target="_blank" rel="noopener">Open Job</a><br>
+            <button class="btn btn-copy" onclick="copyCL('scoutit',this)">Copy Cover Letter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- REVIEW -->
+  <h2 class="y">🟡 Review — Stretch / Verify</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th>Open</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score s-md">73</span></td><td class="trust">95</td>
+          <td>Accenture</td><td>Custom Software Engineer</td><td>Gurugram · 2d</td>
+          <td class="reason">Perfect stack fit (Spring Boot, Microservices, AWS, Docker, REST) but requires min 3 yrs — she has 1.5. Strong stretch at a top employer.</td>
+          <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/custom-software-engineer-at-accenture-in-india-4448338293" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score s-md">70</span></td><td class="trust">70</td>
+          <td>Aspect <small style="color:var(--muted)">(UK property-maint.)</small></td><td>Full Stack Engineer</td><td>Delhi · 14h</td>
+          <td class="reason">Strong React/Node/TypeScript/cloud + GenAI fit, but tagged Mid-Senior level and the India dev presence is lightly verified — confirm required experience first.</td>
+          <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-aspect-4459697579" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="score s-md">60</span></td><td class="trust">95</td>
+          <td>American Express</td><td>Apprentice — Enterprise Technology Services</td><td>Gurugram · 3d</td>
+          <td class="reason">Top employer, genuine entry-level — but an apprenticeship; pay may fall below the 5.5 LPA floor and may be fixed-term. Verify terms/eligibility.</td>
+          <td><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/apprentice-enterprise-technology-services-at-american-express-4457149576" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SKIPPED -->
+  <h2 class="r">🔴 Skipped</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>BigStep Technologies</td><td>Full Stack Engineer (Node/React/Medusa.js)</td><td class="reason">Experience: requires <b>5+ yrs</b> full-stack JS — she has 1.5. Niche Medusa.js e-commerce.</td></tr>
+        <tr><td>2</td><td>NikahForever</td><td>SDE-1 (Mobile Application)</td><td class="reason">Skill: mobile-app SDE-1 (Android/iOS/Flutter) — off her Java/web-backend + React stack.</td></tr>
+        <tr><td>3</td><td>TravClan</td><td>Back End Developer (SDE-1)</td><td class="reason">Duplicate: same company + role already processed &amp; applied on 2026-08-05 (repost).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOP RECOMMENDATIONS -->
+  <h2 class="b">⭐ Top 3 Recommendations</h2>
+  <div class="rec">
+    <h3>1. Analyst-Software Engineer — PFI Innovation Centre (Prudential Financial), Gurugram</h3>
+    <div class="meta">Match 91 · Trust 92 · Entry level · Posted 15h ago</div>
+    <p>The cleanest fit of the day. Prudential (a Fortune-500 insurer) lists <b>exactly</b> Bhumi's stack — Java, Spring Boot, Node.js, React, REST/JSON, AWS, Jenkins/GitHub, TDD — as an <b>entry-level</b> role, so there is no experience gap. A blue-chip name for the résumé, insurance-grade reliability work that suits her system-design background, and comp comfortably inside the 8–12 LPA target. Apply first.</p>
+  </div>
+  <div class="rec">
+    <h3>2. Software Developer I — myKaarma, Noida</h3>
+    <div class="meta">Match 87 · Trust 85 (Glassdoor 4.0) · 1–2 yrs · Posted 7h ago</div>
+    <p>A product SaaS with a strong Noida culture rating. Core requirements (Java, Spring, Microservices, MongoDB, Redis, Docker, AWS) are all on her résumé, and the <b>preferred</b> AI/ML + LLM-API work (OpenAI/Claude/Gemini) lines up with her Generative-AI research paper and AI-alerting project — a chance to grow toward AI while staying on her backend strength. Freshly posted; apply early.</p>
+  </div>
+  <div class="rec">
+    <h3>3. Java Developer — via Scoutit, Noida</h3>
+    <div class="meta">Match 85 · Trust 62 · Associate · Posted 13h ago</div>
+    <p>The tightest <b>skills</b> overlap of all — Java 8/21, Spring Boot, Kafka, Redis, MongoDB, JUnit, multithreading and heavy DSA (her 5-Star Java, 250+ problems). One caveat: Scoutit is a recruiter and the end employer is masked, so ask who the client is and research them before committing. Worth applying given how precisely the stack matches.</p>
+  </div>
+
+  <!-- WEEKLY TREND -->
+  <h2 class="b">📈 Trend — Qualified per Run</h2>
+  <div class="trend">
+    <div class="bar"><div class="v">1</div><div class="fill" style="height:40px"></div><div class="d">Aug 05</div></div>
+    <div class="bar"><div class="v">3</div><div class="fill" style="height:120px"></div><div class="d">Aug 28</div></div>
+  </div>
+  <p class="hint" style="text-align:left;margin-top:8px">Based on saved dashboards in <code>dashboards/</code>. Runs are intermittent, not daily; 2 recorded so far.</p>
+
+  <!-- COVER LETTERS -->
+  <h2 class="b">✉️ Cover Letters (3)</h2>
+  <div class="cl">
+    <h3><span>PFI Innovation Centre (Prudential) — Analyst-Software Engineer</span><button class="btn btn-copy" onclick="copyCL('pfi',this)">COPY</button></h3>
+    <pre id="cl-pfi">Dear Hiring Manager,
+
+I'm excited to apply for the Analyst-Software Engineer role at PFI Innovation Centre India (Prudential Financial), where I can help build and scale the Group Insurance platform using the exact stack I work in every day.
+
+At Primathon I engineer Spring Boot microservices and custom admin REST APIs across seven merchant systems, and I have shipped React front-ends and Node.js/Express services end-to-end. I write JUnit and Mockito tests in a TDD-friendly workflow and deploy on AWS as an AWS Certified Developer - Associate, using Jenkins and Git for CI/CD - matching your React, Spring Boot, Node.js, REST/JSON, and AWS requirements directly.
+
+Having architected a distributed payment gateway with 30 REST APIs across four services, I bring a system-design mindset suited to insurance-grade reliability. As an immediate joiner on 0-day notice, I can start contributing to your technical roadmap right away and ramp quickly on the domain.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h3><span>myKaarma — Software Developer I</span><button class="btn btn-copy" onclick="copyCL('mykaarma',this)">COPY</button></h3>
+    <pre id="cl-mykaarma">Dear Hiring Manager,
+
+I would love to join myKaarma as a Software Developer I and help build the cloud services that power dealership customer engagement.
+
+My 1.5 years at Primathon and Paytm center on exactly your stack: Java and Spring Boot microservices, REST APIs, MongoDB and Redis, all containerized with Docker and running on AWS (EC2, S3, Lambda; AWS Certified Developer - Associate). I have also integrated AI-driven alerting into a payment gateway and published a research paper on Generative AI, so your preferred LLM-API and ML work with OpenAI, Claude, and Gemini is a direction I am genuinely eager to grow into.
+
+With a 5-Star Java rating and 250+ DSA problems solved, I bring strong computer-science fundamentals to production code. As a 0-day-notice immediate joiner, I can start delivering scalable services from week one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h3><span>Scoutit — Java Developer</span><button class="btn btn-copy" onclick="copyCL('scoutit',this)">COPY</button></h3>
+    <pre id="cl-scoutit">Dear Hiring Manager,
+
+I'm applying for the Java Developer role and was struck by how closely it maps to my day-to-day work in Java, Spring Boot, and high-throughput backend services.
+
+Over 1.5 years at Primathon and Paytm I have built and optimized Spring Boot microservices and REST APIs, worked with Kafka for event streaming, Redis for caching, and both MySQL and MongoDB for persistence, testing with JUnit and shipping through Git. My 5-Star Gold Java rating and 250+ solved DSA problems reflect the multithreading, data-structures, and design-pattern depth this role calls for.
+
+I recently architected a distributed payment gateway with 30 REST APIs across four services, so scalable, fault-tolerant design is where I am most comfortable. As an immediate joiner on 0-day notice, I am ready to contribute to your Agile team right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</main>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-08-28 · 9 jobs found · 3 qualified · sources: LinkedIn guest search + JSearch estimated-salary
+</footer>
+
+<script>
+  var QUALIFIED_URLS = [
+    "https://in.linkedin.com/jobs/view/analyst-software-engineer-at-pfi-innovation-centre-india-4440891078",
+    "https://in.linkedin.com/jobs/view/software-developer-i-at-mykaarma-4458031223",
+    "https://in.linkedin.com/jobs/view/java-developer-at-scoutit-4458621228"
+  ];
+  function openAll(){ QUALIFIED_URLS.forEach(function(u){ window.open(u,"_blank","noopener"); }); }
+  function copyCL(id, btn){
+    var el = document.getElementById("cl-"+id);
+    if(!el) return;
+    var text = el.textContent;
+    var done = function(){ var o=btn.textContent; btn.textContent="✓ Copied"; btn.classList.add("done"); setTimeout(function(){ btn.textContent=o; btn.classList.remove("done"); },1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(text); done(); });
+    } else { fallback(text); done(); }
+  }
+  function fallback(text){
+    var ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>
