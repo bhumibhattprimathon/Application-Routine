@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Java Developer role at Scoutit, as it maps almost exactly to the backend work I do every day.
+
+Over 1.5 years across Primathon and Paytm, I have built and maintained Java and Spring Boot microservices exposing REST APIs, backed by MySQL and MongoDB, with Kafka for event streaming and Redis for caching — the exact stack in your description. I write JUnit and Mockito tests as a habit, work daily in Git and Maven-style pipelines, and have hands-on experience with reactive, asynchronous processing while managing the QR-code transaction lifecycle for multiple merchants at Paytm. My 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the strong OOP and data-structure fundamentals your team values.
+
+As an immediate joiner with a zero-day notice period, I can contribute from week one and ramp quickly on your codebase and standards. I would welcome the chance to bring my Spring Boot and distributed-systems experience to Scoutit.
+
+Best regards,
+Bhumi Bhatt

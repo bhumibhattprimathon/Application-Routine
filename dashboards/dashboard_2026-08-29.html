@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-08-29</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f8fafc;}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+.card .n{font-size:28px;font-weight:700} .card .l{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)}
+.openall{display:block;width:100%;padding:18px;font-size:18px;font-weight:700;color:#fff;background:var(--green);
+  border:none;border-radius:12px;cursor:pointer;margin:6px 0 22px;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+.openall:hover{filter:brightness(1.05)} .openall:disabled{background:#94a3b8;box-shadow:none;cursor:not-allowed}
+h2{font-size:16px;margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--ink)}
+h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f1f5f9;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.score{display:inline-block;min-width:30px;text-align:center;font-weight:700;color:#fff;border-radius:6px;padding:2px 6px}
+.s-green{background:var(--green)} .s-yellow{background:var(--yellow)} .s-red{background:var(--red)}
+.pill{background:#e0e7ff;color:#3730a3;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600}
+.actions{white-space:nowrap}
+.btn{display:inline-block;border:none;border-radius:7px;padding:6px 11px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;margin:1px}
+.btn-open{background:var(--ink);color:#fff} .btn-open.small{padding:5px 10px}
+.btn-copy{background:#eef2ff;color:#3730a3}
+.reason{color:#475569;font-size:12px;max-width:420px}
+.rec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.rec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.rec-loc{color:var(--muted);font-size:12px} .rec p{margin:6px 0 10px;color:#334155;font-size:13px;line-height:1.5}
+.trend{display:flex;gap:18px;align-items:flex-end;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;height:200px}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.bar{width:46px;background:linear-gradient(180deg,var(--green),#16a34a);border-radius:6px 6px 0 0;min-height:4px}
+.bar-val{font-weight:700;margin-top:6px} .bar-lbl{color:var(--muted);font-size:12px}
+.cover-box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
+.cover-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.cover-text{white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.55;color:#334155;margin:0;background:#f8fafc;padding:12px;border-radius:8px}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:26px}
+.note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px 14px;font-size:12px;margin:10px 0}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:8px;opacity:0;transition:.3s;font-size:13px}
+.toast.show{opacity:1}
+</style></head>
+<body data-qualified="2">
+<header><div class="wrap" style="padding:0">
+<h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-29</h1>
+<div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner · Source: LinkedIn (jobs posted &lt; 24h)</div>
+</div></header>
+<div class="wrap">
+
+<div class="cards">
+<div class="card"><div class="n">143</div><div class="l">Jobs Found</div></div>
+<div class="card g"><div class="n">2</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">12</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">4</div><div class="l">Skipped</div></div>
+<div class="card"><div class="n">86.5</div><div class="l">Avg Match (qual)</div></div>
+<div class="card"><div class="n">~8.0</div><div class="l">Avg Salary LPA (qual)</div></div>
+</div>
+
+<button class="openall" onclick="openAll()">OPEN ALL 2 QUALIFIED JOBS</button>
+<div class="note">Note: 143 postings were discovered across 18 role×location searches (all &lt; 24h old). After filtering to Delhi/NCR/Gurugram/Noida/Remote and removing senior/off-stack/duplicate roles, 18 were deep-evaluated against Bhumi's resume with full job descriptions. The market today skewed heavily senior, so the two qualified roles are the clean entry/associate backend matches; the 12 "review" roles are strong-but-stretch (experience or stack gaps) worth a look.</div>
+
+<h2 class="g">✅ Qualified Jobs — ready to apply</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score s-green">93</span></td>
+<td>62</td><td>Scoutit</td>
+<td>Java Developer</td><td>Noida, Uttar Pradesh, India</td>
+<td>5-8 LPA (est)</td><td><span class="pill">backend</span></td>
+<td>Easy Apply</td>
+<td class="actions">
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-developer-at-scoutit-4458931886" target="_blank" rel="noopener">Open Job</a>
+  <button class="btn btn-copy" onclick="copyCover(this)">Copy Cover Letter</button>
+  <div class="hidden-cover" hidden>Dear Hiring Manager,
+
+I am excited to apply for the Java Developer role at Scoutit, as it maps almost exactly to the backend work I do every day.
+
+Over 1.5 years across Primathon and Paytm, I have built and maintained Java and Spring Boot microservices exposing REST APIs, backed by MySQL and MongoDB, with Kafka for event streaming and Redis for caching — the exact stack in your description. I write JUnit and Mockito tests as a habit, work daily in Git and Maven-style pipelines, and have hands-on experience with reactive, asynchronous processing while managing the QR-code transaction lifecycle for multiple merchants at Paytm. My 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the strong OOP and data-structure fundamentals your team values.
+
+As an immediate joiner with a zero-day notice period, I can contribute from week one and ramp quickly on your codebase and standards. I would welcome the chance to bring my Spring Boot and distributed-systems experience to Scoutit.
+
+Best regards,
+Bhumi Bhatt
+</div>
+</td></tr><tr>
+<td>2</td><td><span class="score s-green">80</span></td>
+<td>92</td><td>NTT DATA, Inc.</td>
+<td>Back End Software Developer</td><td>Delhi, Delhi, India</td>
+<td>7-12 LPA (est)</td><td><span class="pill">backend</span></td>
+<td>Easy Apply</td>
+<td class="actions">
+  <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/back-end-software-developer-at-ntt-data-inc-4448408901" target="_blank" rel="noopener">Open Job</a>
+  <button class="btn btn-copy" onclick="copyCover(this)">Copy Cover Letter</button>
+  <div class="hidden-cover" hidden>Dear Hiring Manager,
+
+I am writing to express my strong interest in the Back End Software Developer position at NTT DATA, where building and debugging large-scale distributed systems in a microservices environment is central to the role.
+
+My experience is a direct fit. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and integrated AWS Timestream, S3, and Lambda into real-time data pipelines. At Paytm I developed and optimized microservices powering live transaction notifications, improving service reliability by 67%. This gives me practical grounding in the REST APIs, telemetry data, and cloud-based, service-oriented architecture your team works with daily, along with Docker and CI/CD for delivery. I also hold an AWS Certified Developer – Associate credential, which supports the cloud-native focus of this role.
+
+I am an immediate joiner able to start with a zero-day notice period, and I learn new domains and codebases quickly. I would be glad to bring my backend and automation experience to NTT DATA&#x27;s engineering team.
+
+Best regards,
+Bhumi Bhatt
+</div>
+</td></tr></tbody></table></div>
+
+<h2 class="y">⭐ Top Recommendations</h2>
+<div class="rec">
+<div class="rec-head"><span class="score s-green">93</span>
+<b>Scoutit</b> — Java Developer <span class="rec-loc">Noida, Uttar Pradesh, India</span></div>
+<p>The single best fit today. The JD reads like Bhumi&#x27;s resume — Java 8+/Spring Boot, REST, MySQL, Kafka, Redis, MongoDB, JUnit and Git — at Associate level, which matches her 1.5 years. Highest match score (93). Only caveat: confirm Scoutit is the direct employer, since the application routes to an external platform.</p>
+<a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/java-developer-at-scoutit-4458931886" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="score s-green">80</span>
+<b>NTT DATA, Inc.</b> — Back End Software Developer <span class="rec-loc">Delhi, Delhi, India</span></div>
+<p>A backend microservices + REST APIs role at a top-tier IT MNC (trust 92). Her Primathon API/automation and Paytm microservices work map cleanly onto the &#x27;design/develop in a micro-services environment working with APIs&#x27; mandate, and her AWS Developer Associate cert supports the cloud focus. Titled &#x27;Senior Associate&#x27; — a reasonable stretch.</p>
+<a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/back-end-software-developer-at-ntt-data-inc-4448408901" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="score s-yellow">72</span>
+<b>HYrEzy Tech Solutions</b> — Frontend Developer (React / Next.js) <span class="rec-loc">Noida, Uttar Pradesh, India</span></div>
+<p>Trust 58: HYrEzy is a recruiting firm (HyrEzy Talent Solutions) posting for an unnamed fintech client. Role is React/Next.js frontend (1–4 yrs, up to ₹15 LPA) — good exp fit but frontend-focused and client is masked. Verify the actual employer.</p>
+<a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/frontend-developer-react-next-js-at-hyrezy-tech-solutions-4458941532" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="score s-yellow">71</span>
+<b>ISS STOXX</b> — Software Engineer - UI/Java <span class="rec-loc">Gurgaon, Haryana, India</span></div>
+<p>Strong Java + React overlap at a reputable financial-data firm. Held back to &#x27;review&#x27; because it asks 3+ years and the JD&#x27;s real location is Mumbai (the Gurgaon card is misleading). A good stretch application if she is open to Mumbai.</p>
+<a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-engineer-ui-java-at-iss-stoxx-4460302355" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="score s-yellow">70</span>
+<b>GlobalLogic</b> — Software Engineer IRC301786 <span class="rec-loc">Gurgaon, Haryana, India</span></div>
+<p>Web-scraping / browser-automation role where her Selenium + Playwright experience genuinely applies, at a large, high-trust employer. Niche specialty rather than core backend, so it sits in &#x27;review&#x27;, but the tooling fit is real.</p>
+<a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-engineer-irc301786-at-globallogic-4449747829" target="_blank" rel="noopener">Open Job</a></div>
+
+<h2 class="y">🟡 Review Jobs — strong but stretch (verify before applying)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Reason for Review</th><th></th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score s-yellow">72</span></td>
+<td>58</td><td>HYrEzy Tech Solutions</td>
+<td>Frontend Developer (React / Next.js)</td><td>Noida, Uttar Pradesh, India</td>
+<td>8-15 LPA (stated up to 15)</td>
+<td class="reason">Trust 58: HYrEzy is a recruiting firm (HyrEzy Talent Solutions) posting for an unnamed fintech client. Role is React/Next.js frontend (1–4 yrs, up to ₹15 LPA) — good exp fit but frontend-focused and client is masked. Verify the actual employer.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/frontend-developer-react-next-js-at-hyrezy-tech-solutions-4458941532" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>2</td><td><span class="score s-yellow">71</span></td>
+<td>88</td><td>ISS STOXX</td>
+<td>Software Engineer - UI/Java</td><td>Gurgaon, Haryana, India</td>
+<td>10-16 LPA (est)</td>
+<td class="reason">Excellent Java+React fit and strong employer, but asks 3+ yrs Java (she has 1.5) and the JD&#x27;s real location is Mumbai (Goregaon) despite the Gurgaon card — outside her NCR preference. Stretch.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-engineer-ui-java-at-iss-stoxx-4460302355" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>3</td><td><span class="score s-yellow">70</span></td>
+<td>92</td><td>GlobalLogic</td>
+<td>Software Engineer IRC301786</td><td>Gurgaon, Haryana, India</td>
+<td>6-10 LPA (est)</td>
+<td class="reason">Web-scraping / browser-automation role (2+ yrs). Bhumi does have Selenium + Playwright and JS/HTML/CSS, so partial fit, but it&#x27;s a niche data-extraction specialty rather than core backend.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-engineer-irc301786-at-globallogic-4449747829" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>4</td><td><span class="score s-yellow">69</span></td>
+<td>62</td><td>Mitr labs</td>
+<td>Full Stack Engineer</td><td>Noida, Uttar Pradesh, India</td>
+<td>12-20 LPA (est)</td>
+<td class="reason">Funded AI-native SaaS with a live product (TenderMitr). Tagged &#x27;Entry level&#x27; on LinkedIn but the JD describes a &#x27;senior engineer, founding team&#x27; technical-owner role — beyond 1.5 yrs. Worth a stretch if open to a founding-team pace.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-mitr-labs-4459417793" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>5</td><td><span class="score s-yellow">68</span></td>
+<td>95</td><td>Mastercard</td>
+<td>AI Engineer</td><td>Gurugram, Haryana, India</td>
+<td>14-22 LPA (est)</td>
+<td class="reason">Top-tier employer and matches her AI interest, but the AI Engineer role on the Pricing team is Python/ML-analytics centric — not her Java/backend core; likely wants 2–4+ yrs.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/ai-engineer-at-mastercard-4448050321" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>6</td><td><span class="score s-yellow">66</span></td>
+<td>95</td><td>Accenture in India</td>
+<td>Custom Software Engineer</td><td>Gurugram, Haryana, India</td>
+<td>9-14 LPA (est)</td>
+<td class="reason">Skills match almost exactly (Spring Boot + AWS + microservices + REST) and Accenture is top-trust, but the posting states a hard &#x27;Minimum 5 Years&#x27; requirement — 3.5 yrs above her level.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/custom-software-engineer-at-accenture-in-india-4448337131" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>7</td><td><span class="score s-yellow">66</span></td>
+<td>60</td><td>Stonecurve Technologies</td>
+<td>Full Stack Developer</td><td>North Delhi, Delhi, India</td>
+<td>4-6 LPA (est)</td>
+<td class="reason">0–2 yrs / freshers welcome (good experience fit), but the role is frontend-leaning and the company is small with likely below-target pay. React/JS/HTML overlap only.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/full-stack-developer-at-stonecurve-technologies-private-limited-4458080472" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>8</td><td><span class="score s-yellow">64</span></td>
+<td>90</td><td>R1 RCM</td>
+<td>Software Engineer I</td><td>Noida, Uttar Pradesh, India</td>
+<td>7-11 LPA (est)</td>
+<td class="reason">Reputable healthcare-product employer, but the stack is .NET Core (primary backend) which Bhumi does not have, and it asks 2.6–5 yrs. React/REST/SQL overlap only.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-engineer-i-at-r1-rcm-4460311975" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>9</td><td><span class="score s-yellow">64</span></td>
+<td>60</td><td>Stonecurve Technologies</td>
+<td>Software Developer – C++</td><td>North Delhi, Delhi, India</td>
+<td>4-6 LPA (est)</td>
+<td class="reason">0–2 yrs / freshers welcome and C++ is on her resume, but it&#x27;s a pure C++ role off her Java/backend trajectory; small company, likely below-target salary.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-developer-%E2%80%93-c%2B%2B-at-stonecurve-technologies-private-limited-4458077503" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>10</td><td><span class="score s-yellow">63</span></td>
+<td>80</td><td>NK Securities Research</td>
+<td>Software Developer</td><td>Gurgaon, Haryana, India</td>
+<td>15-30 LPA (est)</td>
+<td class="reason">0–4 yrs range fits and pay is very high, but it&#x27;s a C/C++ high-frequency-trading systems role (Linux, low-latency, Python) — off her Java/Spring backend trajectory. C++ is on her resume but only academically.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/software-developer-at-nk-securities-research-4460351595" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>11</td><td><span class="score s-yellow">63</span></td>
+<td>92</td><td>GlobalLogic</td>
+<td>Full Stack Position IRC300444</td><td>Noida, Uttar Pradesh, India</td>
+<td>7-11 LPA (est)</td>
+<td class="reason">Strong employer but the primary stack is Angular + TypeScript + AEM (Adobe Experience Manager) + Hapi.js — she uses React, not Angular. Only JS/Java/Docker overlap.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/full-stack-position-irc300444-at-globallogic-4449384267" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>12</td><td><span class="score s-yellow">61</span></td>
+<td>95</td><td>Accenture in India</td>
+<td>Application Developer</td><td>Noida, Uttar Pradesh, India</td>
+<td>7-11 LPA (est)</td>
+<td class="reason">Top-trust employer, but the must-have is &#x27;Program Control Services&#x27; (a narrow Accenture-specific/legacy skill) and it asks 3+ yrs. Only generic Java/SQL overlap.</td>
+<td><a class="btn btn-open small" href="https://in.linkedin.com/jobs/view/application-developer-at-accenture-in-india-4448321478" target="_blank" rel="noopener">Open</a></td>
+</tr></tbody></table></div>
+
+<h2 class="r">🔴 Skipped Jobs</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr><td>1</td><td>Valiance Solutions</td><td>Generative AI Engineer</td>
+<td class="reason">Skill: Mid-Senior Generative-AI role (LLM/VLM benchmarking, RAG, agentic AI, GPU inference, Python ML) — requires production ML/LLM skills not on her resume.</td></tr><tr><td>2</td><td>PAI by Polestar Analytics</td><td>Data Science</td>
+<td class="reason">Skill: Data Science Developer, 3+ yrs, Python/PySpark + ML/statistics + MLOps — a data-science track off her Java/backend core.</td></tr><tr><td>3</td><td>CLOUDSUFI</td><td>Software Engineer</td>
+<td class="reason">Experience: L5/Senior AgentOps/MLOps role requiring 5–6+ yrs in DevOps/MLOps + GCP — far beyond 1.5 yrs and off-stack.</td></tr><tr><td>4</td><td>Fujitsu</td><td>Application Developer - Apache NiFi Middleware</td>
+<td class="reason">Experience/stack: Apache NiFi middleware specialist, 5+ yrs, US night shift (5:30 PM–2:30 AM IST) — off-stack and too senior.</td></tr></tbody></table></div>
+
+<h2>📈 Weekly Trend — qualified per run</h2>
+<div class="trend"><div class="bar-wrap"><div class="bar" style="height:60px" title="1 qualified"></div>
+<div class="bar-val">1</div><div class="bar-lbl">08-05</div></div><div class="bar-wrap"><div class="bar" style="height:120px" title="2 qualified"></div>
+<div class="bar-val">2</div><div class="bar-lbl">08-29</div></div></div>
+
+<h2>✉️ Cover Letters</h2>
+<div class="cover-box">
+<div class="cover-head"><b>Scoutit</b>
+<button class="btn btn-copy" onclick="copyCover(this)">COPY</button></div>
+<pre class="cover-text">Dear Hiring Manager,
+
+I am excited to apply for the Java Developer role at Scoutit, as it maps almost exactly to the backend work I do every day.
+
+Over 1.5 years across Primathon and Paytm, I have built and maintained Java and Spring Boot microservices exposing REST APIs, backed by MySQL and MongoDB, with Kafka for event streaming and Redis for caching — the exact stack in your description. I write JUnit and Mockito tests as a habit, work daily in Git and Maven-style pipelines, and have hands-on experience with reactive, asynchronous processing while managing the QR-code transaction lifecycle for multiple merchants at Paytm. My 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the strong OOP and data-structure fundamentals your team values.
+
+As an immediate joiner with a zero-day notice period, I can contribute from week one and ramp quickly on your codebase and standards. I would welcome the chance to bring my Spring Boot and distributed-systems experience to Scoutit.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+<div class="hidden-cover" hidden>Dear Hiring Manager,
+
+I am excited to apply for the Java Developer role at Scoutit, as it maps almost exactly to the backend work I do every day.
+
+Over 1.5 years across Primathon and Paytm, I have built and maintained Java and Spring Boot microservices exposing REST APIs, backed by MySQL and MongoDB, with Kafka for event streaming and Redis for caching — the exact stack in your description. I write JUnit and Mockito tests as a habit, work daily in Git and Maven-style pipelines, and have hands-on experience with reactive, asynchronous processing while managing the QR-code transaction lifecycle for multiple merchants at Paytm. My 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the strong OOP and data-structure fundamentals your team values.
+
+As an immediate joiner with a zero-day notice period, I can contribute from week one and ramp quickly on your codebase and standards. I would welcome the chance to bring my Spring Boot and distributed-systems experience to Scoutit.
+
+Best regards,
+Bhumi Bhatt
+</div></div><div class="cover-box">
+<div class="cover-head"><b>NTT DATA, Inc.</b>
+<button class="btn btn-copy" onclick="copyCover(this)">COPY</button></div>
+<pre class="cover-text">Dear Hiring Manager,
+
+I am writing to express my strong interest in the Back End Software Developer position at NTT DATA, where building and debugging large-scale distributed systems in a microservices environment is central to the role.
+
+My experience is a direct fit. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and integrated AWS Timestream, S3, and Lambda into real-time data pipelines. At Paytm I developed and optimized microservices powering live transaction notifications, improving service reliability by 67%. This gives me practical grounding in the REST APIs, telemetry data, and cloud-based, service-oriented architecture your team works with daily, along with Docker and CI/CD for delivery. I also hold an AWS Certified Developer – Associate credential, which supports the cloud-native focus of this role.
+
+I am an immediate joiner able to start with a zero-day notice period, and I learn new domains and codebases quickly. I would be glad to bring my backend and automation experience to NTT DATA&#x27;s engineering team.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+<div class="hidden-cover" hidden>Dear Hiring Manager,
+
+I am writing to express my strong interest in the Back End Software Developer position at NTT DATA, where building and debugging large-scale distributed systems in a microservices environment is central to the role.
+
+My experience is a direct fit. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and integrated AWS Timestream, S3, and Lambda into real-time data pipelines. At Paytm I developed and optimized microservices powering live transaction notifications, improving service reliability by 67%. This gives me practical grounding in the REST APIs, telemetry data, and cloud-based, service-oriented architecture your team works with daily, along with Docker and CI/CD for delivery. I also hold an AWS Certified Developer – Associate credential, which supports the cloud-native focus of this role.
+
+I am an immediate joiner able to start with a zero-day notice period, and I learn new domains and codebases quickly. I would be glad to bring my backend and automation experience to NTT DATA&#x27;s engineering team.
+
+Best regards,
+Bhumi Bhatt
+</div></div>
+
+</div>
+<footer>Generated 2026-08-29 · Data: LinkedIn public guest jobs API (last 24h) · Trust checks via web search · Scores computed against resume_master.pdf</footer>
+<div class="toast" id="toast">Copied to clipboard</div>
+<script>
+var urls = ["https://in.linkedin.com/jobs/view/java-developer-at-scoutit-4458931886", "https://in.linkedin.com/jobs/view/back-end-software-developer-at-ntt-data-inc-4448408901"];
+function openAll(){ if(!urls.length){return;} urls.forEach(function(u){ window.open(u,'_blank'); }); }
+function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1600); }
+function copyCover(btn){
+  var box = btn.closest('td') || btn.closest('.cover-box');
+  var el = box.querySelector('.hidden-cover');
+  var text = el ? el.textContent : '';
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){toast('Cover letter copied');},function(){fallback(text);});
+  } else { fallback(text); }
+}
+function fallback(text){
+  var ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy'); toast('Cover letter copied');}catch(e){toast('Copy failed');}
+  document.body.removeChild(ta);
+}
+</script>
+</body></html>

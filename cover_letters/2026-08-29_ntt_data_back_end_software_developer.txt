@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in the Back End Software Developer position at NTT DATA, where building and debugging large-scale distributed systems in a microservices environment is central to the role.
+
+My experience is a direct fit. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and integrated AWS Timestream, S3, and Lambda into real-time data pipelines. At Paytm I developed and optimized microservices powering live transaction notifications, improving service reliability by 67%. This gives me practical grounding in the REST APIs, telemetry data, and cloud-based, service-oriented architecture your team works with daily, along with Docker and CI/CD for delivery. I also hold an AWS Certified Developer – Associate credential, which supports the cloud-native focus of this role.
+
+I am an immediate joiner able to start with a zero-day notice period, and I learn new domains and codebases quickly. I would be glad to bring my backend and automation experience to NTT DATA's engineering team.
+
+Best regards,
+Bhumi Bhatt
