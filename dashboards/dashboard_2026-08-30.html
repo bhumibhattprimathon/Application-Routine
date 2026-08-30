@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-08-30</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#f1f5f9;}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px;}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px;}
+header .sub{color:#94a3b8;font-size:13px;}
+.wrap{max-width:1120px;margin:0 auto;padding:20px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+.card .num{font-size:30px;font-weight:700;}
+.card .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+.card.g .num{color:var(--green);} .card.y .num{color:var(--yellow);} .card.r .num{color:var(--red);}
+.openall{display:block;width:100%;padding:20px;margin:10px 0 4px;font-size:19px;font-weight:700;color:#fff;
+ background:var(--green);border:none;border-radius:14px;cursor:pointer;box-shadow:0 6px 18px rgba(34,197,94,.35);}
+.openall:hover{filter:brightness(1.05);}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px;}
+section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:18px 0;}
+section h2{margin:0 0 12px;font-size:16px;}
+.sec-g{border-top:4px solid var(--green);} .sec-y{border-top:4px solid var(--yellow);} .sec-r{border-top:4px solid var(--red);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+.table-scroll{overflow-x:auto;}
+.badge{display:inline-block;min-width:30px;text-align:center;padding:3px 8px;border-radius:20px;color:#fff;font-weight:700;font-size:12px;background:var(--green);}
+.badge.trust{background:#0ea5e9;} .badge.y{background:var(--yellow);}
+.variant{font-size:11px;background:#eef2ff;color:#3730a3;padding:2px 8px;border-radius:6px;}
+.posted{font-size:11px;color:var(--muted);margin-top:2px;}
+.actions{white-space:nowrap;}
+.btn{display:inline-block;font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);cursor:pointer;text-decoration:none;margin:2px 0;}
+.btn.open{background:var(--ink);color:#fff;border-color:var(--ink);}
+.btn.copy{background:#fff;color:var(--ink);} .btn.copy.sm{padding:3px 10px;margin-left:8px;}
+.btn.copy:hover{background:#f8fafc;}
+.hidden-cl{display:none;}
+.rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin-bottom:10px;background:#f8fefb;}
+.rec-h{font-weight:600;font-size:14px;margin-bottom:4px;} .rec-role{color:var(--muted);font-weight:500;}
+.rec-rank{color:var(--green);font-weight:800;} .rec p{margin:4px 0 0;font-size:13px;color:#334155;}
+.cl-box{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+.cl-head{background:#f8fafc;padding:8px 12px;font-size:13px;border-bottom:1px solid var(--line);}
+.cl-text{margin:0;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;white-space:pre-wrap;line-height:1.5;}
+.bar-row{display:flex;align-items:center;gap:10px;margin:8px 0;}
+.bar-label{width:96px;font-size:12px;color:var(--muted);}
+.bar{background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:6px 10px;border-radius:6px;min-width:28px;text-align:right;transition:width .4s;}
+.note{font-size:12px;color:var(--muted);}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px;}
+</style></head>
+<body>
+<header>
+ <div class="wrap">
+   <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-08-30</h1>
+   <div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · Immediate joiner · Target 5.5–12 LPA</div>
+ </div>
+</header>
+<div class="wrap">
+ <div class="cards">
+   <div class="card"><div class="num">17</div><div class="lbl">Jobs Evaluated</div></div>
+   <div class="card g"><div class="num">5</div><div class="lbl">Qualified</div></div>
+   <div class="card y"><div class="num">5</div><div class="lbl">Review</div></div>
+   <div class="card r"><div class="num">7</div><div class="lbl">Skipped</div></div>
+   <div class="card"><div class="num">0</div><div class="lbl">Fraud</div></div>
+   <div class="card"><div class="num">79.8</div><div class="lbl">Avg Match (Qualified)</div></div>
+   <div class="card"><div class="num">~7.9<span style="font-size:14px"> LPA</span></div><div class="lbl">Avg Salary Est</div></div>
+ </div>
+
+ <button class="openall" onclick="openAll()">🚀 OPEN ALL 5 QUALIFIED JOBS</button>
+ <div class="hint">Opens each qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page.</div>
+
+ <section class="sec-g">
+  <h2>✅ Qualified Jobs (ready to apply)</h2>
+  <div class="table-scroll">
+  <table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+  <tbody>
+<tr>
+ <td>1</td>
+ <td><span class="badge score">84</span></td>
+ <td><span class="badge trust">85</span></td>
+ <td>BigStep Technologies</td>
+ <td>Full Stack Engineer (Node.js + React.js + Medusa.js)<div class="posted">4 days ago</div></td>
+ <td>Gurugram</td>
+ <td>7-11 LPA (est)</td>
+ <td><span class="variant">fullstack</span></td>
+ <td>LinkedIn search</td>
+ <td class="actions">
+   <a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=BigStep%20Technologies%20Full%20Stack%20Engineer%20Node.js%20React.js&amp;location=Gurugram&amp;f_TPR=r604800" target="_blank" rel="noopener">Open Job</a>
+   <button class="btn copy" onclick="copyCL('cl1',this)">Copy Cover Letter</button>
+   <div id="cl1" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Full Stack Engineer (Node.js, React.js, Medusa.js) role at BigStep Technologies. In my current work at Primathon and earlier at Paytm, I&#x27;ve built and optimized Node.js/Express backends and React.js front-ends, shipping REST APIs that power real-time merchant transaction flows. I&#x27;ve engineered admin APIs and backend automation across seven merchant systems and optimized 30+ REST endpoints, so BigStep&#x27;s Node-based, product-focused stack — including a commerce framework like Medusa.js — maps closely to how I already work.
+
+My foundation in JavaScript (ES6+), MongoDB, and system design would let me contribute to scalable, well-structured full-stack features quickly. As an immediate joiner with a 0-day notice period, I can start contributing right away and pick up new frameworks fast, as I did moving across Java, Spring Boot, and Node in production.
+
+Best regards,
+Bhumi Bhatt</div>
+ </td>
+</tr>
+<tr>
+ <td>2</td>
+ <td><span class="badge score">82</span></td>
+ <td><span class="badge trust">90</span></td>
+ <td>Birlasoft</td>
+ <td>MERN Full Stack Developer<div class="posted">2 days ago</div></td>
+ <td>Noida</td>
+ <td>6-9 LPA (est)</td>
+ <td><span class="variant">fullstack</span></td>
+ <td>LinkedIn search</td>
+ <td class="actions">
+   <a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Birlasoft%20MERN%20Full%20Stack%20Developer&amp;location=Noida&amp;f_TPR=r604800" target="_blank" rel="noopener">Open Job</a>
+   <button class="btn copy" onclick="copyCL('cl2',this)">Copy Cover Letter</button>
+   <div id="cl2" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the MERN Full Stack Developer position at Birlasoft. My experience maps directly to the MERN stack: I&#x27;ve built React.js interfaces and Node.js/Express REST services backed by MongoDB and MySQL, including order and payment microservices deployed with Docker. At Primathon I engineered admin APIs and backend syncing automation across seven merchant systems, and at Paytm I optimized microservices handling real-time transaction notifications — so I&#x27;m comfortable owning features end to end across MongoDB, Express, React, and Node.
+
+My 5-star Java rating and 250+ solved DSA problems reflect the problem-solving depth I&#x27;d bring to Birlasoft&#x27;s engineering teams. As an immediate joiner available on a 0-day notice, I&#x27;m eager to contribute to production MERN applications from day one and grow within an established engineering organization.
+
+Best regards,
+Bhumi Bhatt</div>
+ </td>
+</tr>
+<tr>
+ <td>3</td>
+ <td><span class="badge score">80</span></td>
+ <td><span class="badge trust">90</span></td>
+ <td>EXL</td>
+ <td>Full Stack Web Developer (React / Node.js)<div class="posted">1 week ago</div></td>
+ <td>Gurugram</td>
+ <td>7-11 LPA (est)</td>
+ <td><span class="variant">fullstack</span></td>
+ <td>LinkedIn search</td>
+ <td class="actions">
+   <a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=EXL%20Full%20Stack%20Web%20Developer%20React%20Node.js&amp;location=Gurugram&amp;f_TPR=r604800" target="_blank" rel="noopener">Open Job</a>
+   <button class="btn copy" onclick="copyCL('cl3',this)">Copy Cover Letter</button>
+   <div id="cl3" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Full Stack Web Developer (React / Node.js) role at EXL. React.js and Node.js/Express are core to my daily work: I&#x27;ve delivered REST APIs and front-end features for payment and merchant systems at Primathon and Paytm, improving backend reliability by 67% through a cleaner microservice architecture. I pair that with strong fundamentals in JavaScript (ES6+), MySQL, MongoDB, and AWS (EC2, S3, Lambda), plus CI/CD with Git and Docker — the full toolkit for building and shipping web applications end to end.
+
+I&#x27;m drawn to EXL&#x27;s scale and the chance to work on data-driven products. As an immediate joiner with a 0-day notice period, I can ramp up quickly and start delivering React/Node features right away.
+
+Best regards,
+Bhumi Bhatt</div>
+ </td>
+</tr>
+<tr>
+ <td>4</td>
+ <td><span class="badge score">78</span></td>
+ <td><span class="badge trust">65</span></td>
+ <td>SuperHumanRace</td>
+ <td>Node.js Developer<div class="posted">1 week ago</div></td>
+ <td>Delhi</td>
+ <td>4-7 LPA (listed) ⚠ salary risk</td>
+ <td><span class="variant">backend</span></td>
+ <td>Internshala</td>
+ <td class="actions">
+   <a class="btn open" href="https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544" target="_blank" rel="noopener">Open Job</a>
+   <button class="btn copy" onclick="copyCL('cl4',this)">Copy Cover Letter</button>
+   <div id="cl4" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Node.js Developer role at SuperHumanRace. Building scalable Node.js and Express services is central to my experience — I&#x27;ve engineered REST APIs and backend automation across seven merchant systems at Primathon and reduced manual operational effort by 70% through automated data workflows. I also integrated AWS Timestream, S3, and Lambda for real-time data ingestion, which aligns well with the data-driven, impact-focused platform SuperHumanRace is building.
+
+My background in JavaScript (ES6+), MongoDB, MySQL, and system design means I can design clean, reliable backend services that scale with your ESG and sustainability data. I admire that your technology turns impact measurement into something actionable. As an immediate joiner on a 0-day notice, I&#x27;m ready to contribute to your backend from day one and learn quickly as your product grows.
+
+Best regards,
+Bhumi Bhatt</div>
+ </td>
+</tr>
+<tr>
+ <td>5</td>
+ <td><span class="badge score">75</span></td>
+ <td><span class="badge trust">95</span></td>
+ <td>Accenture</td>
+ <td>Custom Software Engineer<div class="posted">4 days ago</div></td>
+ <td>Gurugram</td>
+ <td>6.5-11 LPA (est)</td>
+ <td><span class="variant">master</span></td>
+ <td>LinkedIn search</td>
+ <td class="actions">
+   <a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Accenture%20Custom%20Software%20Engineer&amp;location=Gurugram&amp;f_TPR=r604800" target="_blank" rel="noopener">Open Job</a>
+   <button class="btn copy" onclick="copyCL('cl5',this)">Copy Cover Letter</button>
+   <div id="cl5" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m writing to express my interest in the Custom Software Engineer role at Accenture. With 1.5+ years building production backends in Java, Spring Boot, and Node.js, I&#x27;ve delivered microservices and REST APIs for payment and merchant platforms — including a distributed payment gateway with 30 REST APIs across four services, designed for scalability and fault tolerance. At Paytm I improved backend service reliability by 67%, and at Primathon I automated backend workflows that cut manual effort by 70%.
+
+My AWS Certified Developer credential and hands-on work with Docker, Jenkins, and CI/CD would let me adapt quickly across the varied client stacks Accenture engineers work on. As an immediate joiner with a 0-day notice period, I&#x27;m eager to bring strong engineering fundamentals and a fast learning curve to Accenture&#x27;s delivery teams.
+
+Best regards,
+Bhumi Bhatt</div>
+ </td>
+</tr></tbody></table></div>
+ </section>
+
+ <section class="sec-y">
+  <h2>🟡 Review Jobs (verify before applying)</h2>
+  <div class="table-scroll">
+  <table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+  <tbody>
+<tr>
+ <td>1</td>
+ <td><span class="badge score y">80</span></td>
+ <td><span class="badge trust y">52</span></td>
+ <td>Dofin Tech</td>
+ <td>Full Stack Engineer – AI/ML &amp; DevOps — Gurgaon</td>
+ <td>Strong fit (fullstack+DevOps, 1 yr, 5.6-7 LPA listed) but company is tiny/unverified — Tofler shows ~0 employees, no Glassdoor/AmbitionBox footprint. Verify legitimacy first. <a href="https://internshala.com/job/detail/full-stack-engineer--ai-ml-devops-job-in-gurgaon-at-dofin-tech-private-limited1787829221" target="_blank" rel="noopener">open ↗</a></td>
+</tr>
+<tr>
+ <td>2</td>
+ <td><span class="badge score y">66</span></td>
+ <td><span class="badge trust y">55</span></td>
+ <td>MindBridge</td>
+ <td>Associate Gen AI Engineer (Catalog Imaging) — Noida</td>
+ <td>Freshest posting (1 day) &amp; true entry-level (0-1 yr); aligns with Bhumi&#x27;s GenAI interest, but role centers on Python + computer-vision ML, not her Java/JS core. Company unverified. <a href="https://internshala.com/job/detail/fresher-associate-gen-ai-engineer-catalog-imaging-job-in-noida-at-mindbridge1787963424" target="_blank" rel="noopener">open ↗</a></td>
+</tr>
+<tr>
+ <td>3</td>
+ <td><span class="badge score y">68</span></td>
+ <td><span class="badge trust y">50</span></td>
+ <td>Nians</td>
+ <td>MERN Stack Developer — Gurugram</td>
+ <td>MERN skill fit is strong, but company unverified and no compensation listed. <a href="https://www.linkedin.com/jobs/search/?keywords=Nians%20MERN%20Stack%20Developer&amp;location=Gurugram&amp;f_TPR=r604800" target="_blank" rel="noopener">open ↗</a></td>
+</tr>
+<tr>
+ <td>4</td>
+ <td><span class="badge score y">66</span></td>
+ <td><span class="badge trust y">50</span></td>
+ <td>Aspect</td>
+ <td>Full Stack Engineer — Delhi</td>
+ <td>Fresh Delhi full-stack posting; unverified company, no comp/level details. <a href="https://www.linkedin.com/jobs/search/?keywords=Aspect%20Full%20Stack%20Engineer&amp;location=Delhi&amp;f_TPR=r604800" target="_blank" rel="noopener">open ↗</a></td>
+</tr>
+<tr>
+ <td>5</td>
+ <td><span class="badge score y">64</span></td>
+ <td><span class="badge trust y">50</span></td>
+ <td>Sembridge</td>
+ <td>Full Stack Engineer — Noida</td>
+ <td>Fresh Noida full-stack posting; unverified company, no comp listed. <a href="https://www.linkedin.com/jobs/search/?keywords=Sembridge%20Full%20Stack%20Engineer&amp;location=Noida&amp;f_TPR=r604800" target="_blank" rel="noopener">open ↗</a></td>
+</tr></tbody></table></div>
+ </section>
+
+ <section class="sec-r">
+  <h2>🔴 Skipped Jobs</h2>
+  <div class="table-scroll">
+  <table><thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+  <tbody>
+<tr><td>1</td><td>Warewe Consultancy</td><td>Full Stack Developer</td><td>Salary: 3.6-4.8 LPA — below 5.5 LPA floor</td></tr>
+<tr><td>2</td><td>BHARATIA</td><td>Full Stack Developer</td><td>Salary: 4-4.8 LPA — below floor; &gt;2 weeks old</td></tr>
+<tr><td>3</td><td>SuperHumanRace</td><td>Full Stack Developer</td><td>Salary: 3-6 LPA (midpoint &lt;5.5); their Node.js role is the qualified pick</td></tr>
+<tr><td>4</td><td>AppVersal</td><td>Golang Developer</td><td>Salary 2.5-3 LPA + off-stack (Go, not Java/JS)</td></tr>
+<tr><td>5</td><td>Gedu Services</td><td>Senior Backend Developer</td><td>Experience: requires 5 years</td></tr>
+<tr><td>6</td><td>Primathon</td><td>Fullstack Developer</td><td>Bhumi&#x27;s current employer — skipped</td></tr>
+<tr><td>7</td><td>Citi / GlobalLogic / TCS / Infosys / Comviva</td><td>Java Developer roles</td><td>Location: Pune / Chennai / Trivandrum — outside Delhi NCR &amp; remote target (off-location cluster)</td></tr>
+<tr><td>8</td><td>Various</td><td>Internships, QA/Testers, Lecturers, Flutter/Mobile, Support</td><td>Off-role / not full-time dev / non-matching — bulk-filtered (~20+ postings)</td></tr></tbody></table></div>
+ </section>
+
+ <section>
+  <h2>⭐ Top 5 Recommendations</h2>
+  
+<div class="rec">
+ <div class="rec-h"><span class="rec-rank">#1</span> BigStep Technologies — <span class="rec-role">Full Stack Engineer (Node.js + React.js + Medusa.js)</span>
+   <span class="badge score">84</span></div>
+ <p>An established (~20 yr) Gurugram product studio with excellent reviews (AmbitionBox 4.4/143, Glassdoor 4.5/221). The role is pure Node.js + React.js — Bhumi&#x27;s exact production stack — with Medusa.js being a Node-based commerce framework she can pick up fast. High trust + near-perfect skill overlap = today&#x27;s #1.</p>
+</div>
+<div class="rec">
+ <div class="rec-h"><span class="rec-rank">#2</span> Birlasoft — <span class="rec-role">MERN Full Stack Developer</span>
+   <span class="badge score">82</span></div>
+ <p>A large, publicly-listed IT services firm (high trust) hiring for MERN — MongoDB, Express, React, Node — which maps almost 1:1 to Bhumi&#x27;s resume. Posted just 2 days ago. Confirm the experience band on apply, but the skill fit is outstanding and the employer is rock-solid.</p>
+</div>
+<div class="rec">
+ <div class="rec-h"><span class="rec-rank">#3</span> EXL — <span class="rec-role">Full Stack Web Developer (React / Node.js)</span>
+   <span class="badge score">80</span></div>
+ <p>A big, well-known analytics/BPM company hiring a React/Node full-stack developer. Strong employer stability and a stack Bhumi uses daily, plus her AWS + CI/CD background fits their data-driven products. Slightly older (1 week) but very much worth applying.</p>
+</div>
+<div class="rec">
+ <div class="rec-h"><span class="rec-rank">#4</span> SuperHumanRace — <span class="rec-role">Node.js Developer</span>
+   <span class="badge score">78</span></div>
+ <p>A legitimate Delhi ESG/sustainability-tech startup (founded 2016, ~39 employees, 100+ clients) hiring a Node.js Developer — a clean backend fit for Bhumi&#x27;s Express/REST/AWS experience. Salary (4-7 LPA) sits at the low end of her range, so treat it as a salary-risk pick, but the mission and stack are a genuine match.</p>
+</div>
+<div class="rec">
+ <div class="rec-h"><span class="rec-rank">#5</span> Accenture — <span class="rec-role">Custom Software Engineer</span>
+   <span class="badge score">75</span></div>
+ <p>A global MNC (highest trust) hiring a Custom Software Engineer — a broad role that rewards strong fundamentals, which Bhumi has (Java/Spring Boot microservices, AWS Certified Developer, 5-star Java, 250+ DSA). The exact stack is generic, so verify on apply, but Accenture is an excellent brand for an early-career engineer.</p>
+</div>
+ </section>
+
+ <section>
+  <h2>📈 Weekly Trend — Qualified per Run</h2>
+  
+<div class="bar-row"><span class="bar-label">2026-08-05</span>
+ <div class="bar" style="width:20%">1</div></div>
+<div class="bar-row"><span class="bar-label">2026-08-30</span>
+ <div class="bar" style="width:100%">5</div></div>
+  <p class="note">Based on dashboards found in <code>dashboards/</code>. Only two run-days are on record so far (Aug 5 &amp; Aug 30); the trend will fill in as the routine runs daily.</p>
+ </section>
+
+ <section>
+  <h2>✉️ Cover Letters</h2>
+  
+<div class="cl-box">
+ <div class="cl-head"><strong>BigStep Technologies</strong> — Full Stack Engineer (Node.js + React.js + Medusa.js)
+   <button class="btn copy sm" onclick="copyCL('cl1',this)">COPY</button></div>
+ <pre class="cl-text">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Full Stack Engineer (Node.js, React.js, Medusa.js) role at BigStep Technologies. In my current work at Primathon and earlier at Paytm, I&#x27;ve built and optimized Node.js/Express backends and React.js front-ends, shipping REST APIs that power real-time merchant transaction flows. I&#x27;ve engineered admin APIs and backend automation across seven merchant systems and optimized 30+ REST endpoints, so BigStep&#x27;s Node-based, product-focused stack — including a commerce framework like Medusa.js — maps closely to how I already work.
+
+My foundation in JavaScript (ES6+), MongoDB, and system design would let me contribute to scalable, well-structured full-stack features quickly. As an immediate joiner with a 0-day notice period, I can start contributing right away and pick up new frameworks fast, as I did moving across Java, Spring Boot, and Node in production.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+ <div class="cl-head"><strong>Birlasoft</strong> — MERN Full Stack Developer
+   <button class="btn copy sm" onclick="copyCL('cl2',this)">COPY</button></div>
+ <pre class="cl-text">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the MERN Full Stack Developer position at Birlasoft. My experience maps directly to the MERN stack: I&#x27;ve built React.js interfaces and Node.js/Express REST services backed by MongoDB and MySQL, including order and payment microservices deployed with Docker. At Primathon I engineered admin APIs and backend syncing automation across seven merchant systems, and at Paytm I optimized microservices handling real-time transaction notifications — so I&#x27;m comfortable owning features end to end across MongoDB, Express, React, and Node.
+
+My 5-star Java rating and 250+ solved DSA problems reflect the problem-solving depth I&#x27;d bring to Birlasoft&#x27;s engineering teams. As an immediate joiner available on a 0-day notice, I&#x27;m eager to contribute to production MERN applications from day one and grow within an established engineering organization.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+ <div class="cl-head"><strong>EXL</strong> — Full Stack Web Developer (React / Node.js)
+   <button class="btn copy sm" onclick="copyCL('cl3',this)">COPY</button></div>
+ <pre class="cl-text">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Full Stack Web Developer (React / Node.js) role at EXL. React.js and Node.js/Express are core to my daily work: I&#x27;ve delivered REST APIs and front-end features for payment and merchant systems at Primathon and Paytm, improving backend reliability by 67% through a cleaner microservice architecture. I pair that with strong fundamentals in JavaScript (ES6+), MySQL, MongoDB, and AWS (EC2, S3, Lambda), plus CI/CD with Git and Docker — the full toolkit for building and shipping web applications end to end.
+
+I&#x27;m drawn to EXL&#x27;s scale and the chance to work on data-driven products. As an immediate joiner with a 0-day notice period, I can ramp up quickly and start delivering React/Node features right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+ <div class="cl-head"><strong>SuperHumanRace</strong> — Node.js Developer
+   <button class="btn copy sm" onclick="copyCL('cl4',this)">COPY</button></div>
+ <pre class="cl-text">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Node.js Developer role at SuperHumanRace. Building scalable Node.js and Express services is central to my experience — I&#x27;ve engineered REST APIs and backend automation across seven merchant systems at Primathon and reduced manual operational effort by 70% through automated data workflows. I also integrated AWS Timestream, S3, and Lambda for real-time data ingestion, which aligns well with the data-driven, impact-focused platform SuperHumanRace is building.
+
+My background in JavaScript (ES6+), MongoDB, MySQL, and system design means I can design clean, reliable backend services that scale with your ESG and sustainability data. I admire that your technology turns impact measurement into something actionable. As an immediate joiner on a 0-day notice, I&#x27;m ready to contribute to your backend from day one and learn quickly as your product grows.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cl-box">
+ <div class="cl-head"><strong>Accenture</strong> — Custom Software Engineer
+   <button class="btn copy sm" onclick="copyCL('cl5',this)">COPY</button></div>
+ <pre class="cl-text">Dear Hiring Manager,
+
+I&#x27;m writing to express my interest in the Custom Software Engineer role at Accenture. With 1.5+ years building production backends in Java, Spring Boot, and Node.js, I&#x27;ve delivered microservices and REST APIs for payment and merchant platforms — including a distributed payment gateway with 30 REST APIs across four services, designed for scalability and fault tolerance. At Paytm I improved backend service reliability by 67%, and at Primathon I automated backend workflows that cut manual effort by 70%.
+
+My AWS Certified Developer credential and hands-on work with Docker, Jenkins, and CI/CD would let me adapt quickly across the varied client stacks Accenture engineers work on. As an immediate joiner with a 0-day notice period, I&#x27;m eager to bring strong engineering fundamentals and a fast learning curve to Accenture&#x27;s delivery teams.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+ </section>
+</div>
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-08-30 · Data: Internshala job listings + LinkedIn job-search index (verified via web search). No listings fabricated.</footer>
+
+<script>
+var urls=["https://www.linkedin.com/jobs/search/?keywords=BigStep%20Technologies%20Full%20Stack%20Engineer%20Node.js%20React.js&location=Gurugram&f_TPR=r604800", "https://www.linkedin.com/jobs/search/?keywords=Birlasoft%20MERN%20Full%20Stack%20Developer&location=Noida&f_TPR=r604800", "https://www.linkedin.com/jobs/search/?keywords=EXL%20Full%20Stack%20Web%20Developer%20React%20Node.js&location=Gurugram&f_TPR=r604800", "https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544", "https://www.linkedin.com/jobs/search/?keywords=Accenture%20Custom%20Software%20Engineer&location=Gurugram&f_TPR=r604800"];
+function openAll(){urls.forEach(function(u){window.open(u,'_blank');});}
+function copyCL(id,btn){
+  var t=document.getElementById(id).textContent;
+  navigator.clipboard.writeText(t).then(function(){
+    var o=btn.textContent;btn.textContent='✓ Copied';setTimeout(function(){btn.textContent=o;},1500);
+  },function(){
+    var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');btn.textContent='✓ Copied';}catch(e){btn.textContent='Copy failed';}
+    document.body.removeChild(ta);setTimeout(function(){btn.textContent='Copy Cover Letter';},1500);
+  });
+}
+</script>
+</body></html>

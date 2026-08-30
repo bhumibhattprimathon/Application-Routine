@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the MERN Full Stack Developer position at Birlasoft. My experience maps directly to the MERN stack: I've built React.js interfaces and Node.js/Express REST services backed by MongoDB and MySQL, including order and payment microservices deployed with Docker. At Primathon I engineered admin APIs and backend syncing automation across seven merchant systems, and at Paytm I optimized microservices handling real-time transaction notifications — so I'm comfortable owning features end to end across MongoDB, Express, React, and Node.
+
+My 5-star Java rating and 250+ solved DSA problems reflect the problem-solving depth I'd bring to Birlasoft's engineering teams. As an immediate joiner available on a 0-day notice, I'm eager to contribute to production MERN applications from day one and grow within an established engineering organization.
+
+Best regards,
+Bhumi Bhatt

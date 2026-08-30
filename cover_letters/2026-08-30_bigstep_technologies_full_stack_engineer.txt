@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Engineer (Node.js, React.js, Medusa.js) role at BigStep Technologies. In my current work at Primathon and earlier at Paytm, I've built and optimized Node.js/Express backends and React.js front-ends, shipping REST APIs that power real-time merchant transaction flows. I've engineered admin APIs and backend automation across seven merchant systems and optimized 30+ REST endpoints, so BigStep's Node-based, product-focused stack — including a commerce framework like Medusa.js — maps closely to how I already work.
+
+My foundation in JavaScript (ES6+), MongoDB, and system design would let me contribute to scalable, well-structured full-stack features quickly. As an immediate joiner with a 0-day notice period, I can start contributing right away and pick up new frameworks fast, as I did moving across Java, Spring Boot, and Node in production.
+
+Best regards,
+Bhumi Bhatt

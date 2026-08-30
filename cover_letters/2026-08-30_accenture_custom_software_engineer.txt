@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to express my interest in the Custom Software Engineer role at Accenture. With 1.5+ years building production backends in Java, Spring Boot, and Node.js, I've delivered microservices and REST APIs for payment and merchant platforms — including a distributed payment gateway with 30 REST APIs across four services, designed for scalability and fault tolerance. At Paytm I improved backend service reliability by 67%, and at Primathon I automated backend workflows that cut manual effort by 70%.
+
+My AWS Certified Developer credential and hands-on work with Docker, Jenkins, and CI/CD would let me adapt quickly across the varied client stacks Accenture engineers work on. As an immediate joiner with a 0-day notice period, I'm eager to bring strong engineering fundamentals and a fast learning curve to Accenture's delivery teams.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Full Stack Web Developer (React / Node.js) role at EXL. React.js and Node.js/Express are core to my daily work: I've delivered REST APIs and front-end features for payment and merchant systems at Primathon and Paytm, improving backend reliability by 67% through a cleaner microservice architecture. I pair that with strong fundamentals in JavaScript (ES6+), MySQL, MongoDB, and AWS (EC2, S3, Lambda), plus CI/CD with Git and Docker — the full toolkit for building and shipping web applications end to end.
+
+I'm drawn to EXL's scale and the chance to work on data-driven products. As an immediate joiner with a 0-day notice period, I can ramp up quickly and start delivering React/Node features right away.
+
+Best regards,
+Bhumi Bhatt

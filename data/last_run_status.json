@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-08-30",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "WebFetch on India job boards (Internshala job listings) + LinkedIn job-search index, verified via WebSearch. JSearch /search endpoint is NOT on the current RapidAPI plan (404); WebSearch (US-only) returned only aggregator index pages, so specific fresh listings were pulled by fetching board pages directly.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt, backend/full-stack, 1.5 yr)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel (PushNotification)",
+  "jobs_evaluated": 17,
+  "jobs_qualified": 5,
+  "jobs_review": 5,
+  "jobs_skipped": 7,
+  "fraud_detected": 0,
+  "avg_match_qualified": 79.8,
+  "avg_salary_qualified_lpa": 7.9,
+  "top_pick": "BigStep Technologies — Full Stack Engineer (Node.js+React.js+Medusa.js), Gurugram, match 84, trust 85",
+  "notes": "~40+ postings surveyed; most were >1 week old, below the 5.5 LPA floor, off-location (Pune/Chennai/Trivandrum Java roles), internships, or off-role (QA/tester/lecturer/mobile). Freshest genuine dev postings (1-4 days): Birlasoft MERN (Noida), Accenture Custom SWE (Gurugram), BigStep FSE (Gurugram), MindBridge Gen AI (Noida). Strict 24h window yields ~nothing with current tools, so freshest-first within ~1 week used and posted-age shown per job. 5 cover letters generated (match>=75 & trust>=60)."
 }
