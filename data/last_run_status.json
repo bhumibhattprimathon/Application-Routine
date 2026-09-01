@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-01",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "LinkedIn public guest jobs API via WebFetch (f_TPR=r86400 = posted <24h), keywords across backend/full-stack/SWE/AI-ML/other, locations Delhi NCR / Gurugram / Noida / Remote-India; company trust verified via WebSearch + WebFetch",
+  "discovery_note": "WebSearch alone returned only aggregator category pages (stale), so — as in the prior run — discovery used a live source. JSearch (RapidAPI) /search endpoint now returns 404 (removed from the free plan; /job-details and /estimated-salary still work), so this run switched to LinkedIn's public guest jobs endpoint, which returns real, dated postings with direct apply links.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt - Java/Spring Boot/Node.js backend, 1.5 yrs)",
+  "ntfy": "attempted per Step 9 but egress-policy dependent; primary report delivered via routine push/email channel",
+  "jobs_found": 22,
+  "jobs_qualified": 3,
+  "jobs_review": 3,
+  "jobs_skipped": 16,
+  "fraud_detected": 0,
+  "avg_match_qualified": 87.7,
+  "top_pick": "AiSensy - Software Development Engineer I (match 93, trust 92)",
+  "notes": "3 clean qualifiers: AiSensy SDE-I (Gurugram, near-perfect MERN/backend fit), Scoutit Java Developer (Noida, via recruiter), InboxKit Full Stack (Gurugram, verified SaaS). CREDMAYA (Founding Product Engineer) scored a strong role-fit but has ZERO verifiable web presence for a fintech - flagged review-caution, not recommended until verified. No outright fraud/spam listings today. Most Delhi-NCR volume was senior/lead/architect (skipped on experience)."
 }

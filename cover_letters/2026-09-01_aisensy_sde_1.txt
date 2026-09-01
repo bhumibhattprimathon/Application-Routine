@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I role at AiSensy, where I can contribute to the backend services powering the WhatsApp Business platform trusted by 210,000+ businesses. In my current role at Primathon I build custom admin APIs and backend syncing automation across seven merchant systems, and during my Paytm internship I developed microservices managing the QR-code lifecycle that powered real-time transaction notifications. I work daily across the MERN stack with Node.js, Express, MongoDB, Redis, and REST APIs, and my 5-Star Gold Java rating on HackerRank (250+ DSA problems solved) reflects the OOP and data-structures depth your SDE-I role calls for.
+
+As an immediate joiner with a zero-day notice period, I can start contributing from day one and ramp quickly under your senior engineers' guidance while owning features end-to-end.
+
+Best regards,
+Bhumi Bhatt

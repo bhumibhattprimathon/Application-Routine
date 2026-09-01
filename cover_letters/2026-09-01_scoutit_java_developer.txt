@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'd love to be considered for the Java Developer position you're hiring for through Scoutit. My experience maps closely to your stack: at Primathon and across my Paytm and CodeAlpha internships I've designed and shipped Spring Boot microservices and REST APIs backed by MySQL and MongoDB, using Kafka for messaging and Redis for caching, with JUnit and Mockito for test coverage. I architected a distributed payment gateway of 30 REST APIs across four Java services — Order, Payment, Merchant, and Vault — applying system-design principles for scalability and fault tolerance.
+
+My 5-Star Gold Java certification and 250+ solved DSA problems back the multithreading and data-structures depth this role requires. I'm an immediate joiner available to start right away, and I pick up new frameworks and domains quickly.
+
+Best regards,
+Bhumi Bhatt

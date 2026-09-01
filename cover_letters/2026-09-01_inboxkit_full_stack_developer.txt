@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Full Stack Developer role at InboxKit and help ship features end-to-end for your 10,000+ customers on top of your email-infrastructure platform. I work across the full stack with the MERN stack, Node.js, Express, and React, and I've built and optimized 30+ REST API endpoints with automated build pipelines in production. My backend work at Primathon integrating AWS Lambda, S3, and Timestream into real-time data pipelines gave me a real feel for reliability and monitoring, and I use Playwright for browser automation and testing — one of your preferred tools.
+
+I care about how systems actually break and enjoy owning both the API and the interface. As a zero-notice immediate joiner with a portfolio of shipped projects, I can start contributing right away.
+
+Best regards,
+Bhumi Bhatt
