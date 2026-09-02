@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Junior MEAN Stack Developer position at DigitalXNode and contribute to your remote healthcare-technology projects. I work hands-on across the MEN stack - Node.js, Express.js and MongoDB - building and optimizing REST APIs, and I'm comfortable in JavaScript (ES6+) with production React.js experience that transfers readily to Angular.
+
+In my roles at Primathon and CodeAlpha I optimized 30+ REST endpoints, containerized services with Docker, and debugged and tuned backend performance, so I can jump into feature development and code reviews quickly.
+
+As a 0-notice immediate joiner who works well in remote, collaborative teams, I'm ready to learn from your senior developers and deliver from week one.
+
+Best regards,
+Bhumi Bhatt

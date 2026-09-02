@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join AiSensy as a Software Development Engineer I and help scale the web applications and backend services behind your WhatsApp engagement platform. My stack maps directly to your MERN requirements: I build with Node.js, Express.js, MongoDB and React.js, design REST APIs, and apply OOP and data-structures fundamentals daily (5-Star Gold Java, 250+ DSA problems solved).
+
+I've also worked with the tooling you list as preferred - Redis, Kafka message queues, microservices and CI/CD - while building production payment and QR-code-lifecycle services at Primathon and Paytm, where I raised backend reliability and performance by 67%.
+
+I'm an immediate joiner with 0 days notice, eager to learn engineering best practices alongside your team and ship reliable features from day one.
+
+Best regards,
+Bhumi Bhatt

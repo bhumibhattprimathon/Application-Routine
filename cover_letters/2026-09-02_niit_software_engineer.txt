@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer role at NIIT, where strong programming fundamentals and clean, maintainable code are exactly what I enjoy building. Over the past 1.5 years at Primathon and Paytm I've shipped production Java and Spring Boot microservices and REST APIs, and I back that with a 5-Star Gold rating in Java on HackerRank and 250+ solved data-structures-and-algorithms problems.
+
+At Paytm I improved backend service reliability and performance by 67% by re-architecting microservices, and at Primathon I cut manual operational effort by 70% through automated backend workflows. My toolkit spans Java, JavaScript, SQL, OOP and testing with JUnit and Mockito.
+
+As a 0-day-notice immediate joiner holding an AWS Certified Developer - Associate credential, I can start contributing to NIIT's engineering teams right away and pick up new frameworks quickly.
+
+Best regards,
+Bhumi Bhatt

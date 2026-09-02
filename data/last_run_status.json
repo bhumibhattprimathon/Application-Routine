@@ -1,15 +1,23 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-02",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
+  "data_source": "LinkedIn public jobs-guest API (live postings) + per-job WebFetch of each shortlisted job description",
+  "data_source_warning": "RapidAPI/JSearch subscription used by earlier runs has LAPSED (endpoint returns 'does not exist' / 'not subscribed' across JSearch and 3 alternate job APIs). Plain WebSearch only returns aggregator category pages, not live individual postings. Recommend re-subscribing to a jobs API to restore fuller automated coverage.",
+  "resume_source": "repo resumes/resume_master.pdf",
   "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_found": 36,
+  "jobs_qualified": 3,
+  "jobs_review": 12,
+  "jobs_skipped": 21,
+  "fraud_detected": 0,
+  "avg_match_qualified": 85.3,
+  "avg_salary_estimate_lpa": 7.2,
+  "top_pick": "Software Engineer @ NIIT (match 90, trust 88, entry 1yr, Java/DSA)",
+  "qualified": [
+    "NIIT - Software Engineer (90)",
+    "AiSensy - SDE I (86)",
+    "DigitalXNode - Jr. MEAN Stack Developer, remote (80, verify employer/salary)"
+  ],
+  "notes": "All 3 qualified roles are genuine entry/junior positions posted within the last week with live LinkedIn apply links; cover letters generated for each. 12 strong-but-stretch roles flagged for review (mostly 3-6 yr asks or Python/ML off-stack). No outright fraud/spam today."
 }
