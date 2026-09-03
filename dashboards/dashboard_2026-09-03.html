@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard - 2026-09-03</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f1f5f9;color:var(--ink);}
+  header{background:#0f172a;color:#fff;padding:28px 20px;}
+  header h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.3px;}
+  header .sub{color:#94a3b8;font-size:.9rem;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+  .card .n{font-size:2rem;font-weight:700;}
+  .card .l{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+  .c-green .n{color:var(--green);} .c-yellow .n{color:var(--yellow);} .c-red .n{color:var(--red);}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:none;border-radius:12px;
+    padding:20px;font-size:1.15rem;font-weight:700;cursor:pointer;margin:10px 0 6px;transition:.15s;}
+  .openall:hover{background:#16a34a;}
+  .hint{font-size:.8rem;color:var(--muted);text-align:center;margin-bottom:20px;}
+  section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0;}
+  section h2{margin:0 0 4px;font-size:1.1rem;}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle;}
+  .t-green{background:var(--green);} .t-yellow{background:var(--yellow);} .t-red{background:var(--red);}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.85rem;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+  .score{font-weight:700;}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#f8fafc;
+    color:var(--ink);text-decoration:none;font-size:.78rem;cursor:pointer;margin:2px 2px 0 0;}
+  .btn.primary{background:var(--green);color:#fff;border-color:var(--green);}
+  .btn:hover{filter:brightness(.96);}
+  .rec{border-left:4px solid var(--green);padding:10px 14px;margin:10px 0;background:#f0fdf4;border-radius:0 8px 8px 0;}
+  .rec h4{margin:0 0 4px;font-size:.95rem;}
+  .rec p{margin:0;font-size:.85rem;color:#334155;}
+  .cl-box{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:#fafafa;}
+  .cl-box h4{margin:0 0 8px;font-size:.9rem;}
+  .cl-box pre{white-space:pre-wrap;font-family:inherit;font-size:.82rem;color:#334155;margin:0 0 8px;line-height:1.5;}
+  .bars{display:flex;align-items:flex-end;gap:14px;height:150px;margin-top:14px;padding-top:10px;}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .bar{width:70%;background:var(--green);border-radius:6px 6px 0 0;min-height:3px;}
+  .bar-lbl{font-size:.7rem;color:var(--muted);margin-top:6px;text-align:center;}
+  .bar-val{font-size:.75rem;font-weight:700;margin-bottom:4px;}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:.83rem;color:#78350f;margin:14px 0;}
+  .hidden{display:none;}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;padding:24px;}
+  @media(max-width:640px){table{font-size:.78rem;}th:nth-child(6),td:nth-child(6){display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+    <h1>LINKEDIN SMART APPLY DASHBOARD &mdash; 2026-09-03</h1>
+    <div class="sub">Bhumi Bhatt &middot; Backend / Full-Stack Engineer &middot; Delhi NCR &middot; Immediate joiner</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">10</div><div class="l">Postings Found</div></div>
+    <div class="card c-green"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="card c-yellow"><div class="n">1</div><div class="l">Review</div></div>
+    <div class="card c-red"><div class="n">6</div><div class="l">Skipped (Expired)</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="n">80</div><div class="l">Avg Match Score</div></div>
+    <div class="card"><div class="n">~7 LPA</div><div class="l">Avg Salary Est.</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 3 QUALIFIED JOBS</button>
+  <div class="hint">Opens each qualified LinkedIn posting in a new tab. If your browser blocks pop-ups, allow them for this page and click again.</div>
+
+  <div class="note">
+    <strong>Data-source note:</strong> The preferred discovery source (JSearch API / RapidAPI, used on 2026-08-05) returned
+    <strong>HTTP 404</strong> today &mdash; the RapidAPI subscription appears to have lapsed. Discovery fell back to web search,
+    where most individual LinkedIn postings surfaced were already <em>expired</em> or served US listings. The 4 roles below were
+    each opened and confirmed <strong>live &amp; India-based</strong> before scoring. Treat this as a curated shortlist, not an
+    exhaustive sweep. <em>Action for Bhumi: renew/verify the RapidAPI JSearch subscription to restore full daily discovery.</em>
+  </div>
+
+  <!-- QUALIFIED -->
+  <section>
+    <h2><span class="tag t-green">QUALIFIED</span> Ready to Apply</h2>
+    <table>
+      <thead><tr>
+        <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th>
+        <th>Salary Est.</th><th>Resume</th><th>Easy Apply</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td class="score" style="color:var(--green)">88</td><td>68</td>
+          <td>NextMantra AI</td><td>Software Development Engineer (SDE I)</td><td>Gurugram / Remote</td>
+          <td>7&ndash;9 LPA</td><td>backend</td><td>No</td>
+          <td>
+            <a class="btn primary" href="https://in.linkedin.com/jobs/view/software-development-engineer-sde-i-at-nextmantra-ai-4452215955" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl1')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td><td class="score" style="color:var(--green)">77</td><td>85</td>
+          <td>Alt Digital Technologies</td><td>Spring Boot Developer</td><td>Noida</td>
+          <td>6&ndash;9 LPA</td><td>backend</td><td>Yes</td>
+          <td>
+            <a class="btn primary" href="https://in.linkedin.com/jobs/view/spring-boot-developer-at-alt-digital-technologies-4433484346" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl2')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td><td class="score" style="color:var(--green)">74</td><td>63</td>
+          <td>Aivoa.ai</td><td>Full Stack Developer &ndash; AI Apps (Python + React) | Fresher</td><td>India / Remote</td>
+          <td>5&ndash;6 LPA <span style="color:var(--yellow);font-weight:700">&#9888; risk</span></td><td>fullstack</td><td>No</td>
+          <td>
+            <a class="btn primary" href="https://in.linkedin.com/jobs/view/full-stack-developer-%E2%80%93-ai-applications-python-%2B-react-fresher-fresher-at-aivoa-ai-4399970299" target="_blank" rel="noopener">Open Job</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- REVIEW -->
+  <section>
+    <h2><span class="tag t-yellow">REVIEW</span> Verify Before Applying</h2>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td class="score" style="color:var(--yellow)">84</td><td>80</td>
+          <td>Miamin Systems</td><td>Associate Software Engineer</td>
+          <td>High skill &amp; trust, but the job description reads <strong>Bengaluru on-site</strong> (outside Delhi NCR); listing location is ambiguous. Verify location before applying. <a href="https://in.linkedin.com/jobs/view/associate-software-engineer-at-miamin-systems-4452230685" target="_blank" rel="noopener">Open Job</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SKIPPED -->
+  <section>
+    <h2><span class="tag t-red">SKIPPED</span> Not Actionable</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>KedarX AI</td><td>Backend Engineer (Python/FastAPI)</td><td>Expired: LinkedIn returned "expired job" redirect &mdash; no longer accepting applications.</td></tr>
+        <tr><td>2</td><td>LTIMindtree</td><td>Java Backend (Bawana, Delhi)</td><td>Expired: posting removed / expired_jd_redirect.</td></tr>
+        <tr><td>3</td><td>Tiffexx</td><td>Full Stack Developer (Noida)</td><td>Expired: posting removed / expired_jd_redirect.</td></tr>
+        <tr><td>4</td><td>PInterview</td><td>Associate Software Engineer (Delhi)</td><td>Expired: posting removed / expired_jd_redirect.</td></tr>
+        <tr><td>5</td><td>DigiCroz</td><td>React / Node.js Developer</td><td>Expired: posting removed / expired_jd_redirect.</td></tr>
+        <tr><td>6</td><td>ZENNER India</td><td>Associate Software Engineer</td><td>Expired: posting removed / expired_jd_redirect.</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:10px;">No fraudulent companies detected today. All 4 evaluated employers have verifiable LinkedIn pages, websites, and/or Glassdoor presence (trust &ge; 63).</p>
+  </section>
+
+  <!-- TOP RECOMMENDATIONS -->
+  <section>
+    <h2>Top Recommendations</h2>
+    <div class="rec">
+      <h4>1. NextMantra AI &mdash; SDE I (Score 88)</h4>
+      <p>The single best match. The stack &mdash; Java/Python, Kafka, Redis, microservices, REST APIs, distributed systems &mdash; maps almost one-to-one onto Bhumi's resume (her Distributed Payment Gateway uses exactly Kafka + Redis + 30 REST APIs across services). Remote-friendly out of Gurugram. Only gap: it asks for 2&ndash;3 yrs vs her 1.5; her 5-Star Java + system-design depth closes most of that. Apply today &mdash; only 33 applicants.</p>
+    </div>
+    <div class="rec">
+      <h4>2. Alt Digital Technologies &mdash; Spring Boot Developer (Score 77)</h4>
+      <p>Highest-trust employer on the list (Glassdoor 4.9/5, established since 2015, Noida). Pure Java/Spring Boot/microservices/REST/SQL role &mdash; her daily work at Primathon. Easy Apply enabled, so it's a 1-click application. It lists 3+ yrs, so frame the cover letter around delivered impact (70% effort reduction, 30-API gateway) to offset the experience gap.</p>
+    </div>
+    <div class="rec">
+      <h4>3. Aivoa.ai &mdash; Full Stack AI (Fresher) (Score 74)</h4>
+      <p>The only role explicitly open to freshers &mdash; perfect experience fit and low competition ("first 25 applicants"). Python/FastAPI + React + SQL; leans on her React/JS/SQL and AI research background. Salary risk (fresher-band, likely 5&ndash;6 LPA), so treat as a strong backup rather than a top target. Good founder-facing startup exposure.</p>
+    </div>
+    <div class="rec" style="border-left-color:var(--yellow);background:#fefce8;">
+      <h4>4. Miamin Systems &mdash; Associate Software Engineer (Score 84, under review)</h4>
+      <p>Skill and trust are excellent, but the JD reads Bengaluru on-site, which falls outside the Delhi NCR / remote preference. Worth a 60-second location check &mdash; if a Gurugram or remote option exists, promote it straight to the apply list.</p>
+    </div>
+  </section>
+
+  <!-- WEEKLY TREND -->
+  <section>
+    <h2>Weekly Trend &mdash; Qualified per Day</h2>
+    <div class="bars">
+      <div class="bar-col"><div class="bar-val">&mdash;</div><div class="bar" style="height:3px;background:#cbd5e1"></div><div class="bar-lbl">Mon<br>8/28</div></div>
+      <div class="bar-col"><div class="bar-val">&mdash;</div><div class="bar" style="height:3px;background:#cbd5e1"></div><div class="bar-lbl">Tue<br>8/29</div></div>
+      <div class="bar-col"><div class="bar-val">&mdash;</div><div class="bar" style="height:3px;background:#cbd5e1"></div><div class="bar-lbl">Wed<br>8/30</div></div>
+      <div class="bar-col"><div class="bar-val">&mdash;</div><div class="bar" style="height:3px;background:#cbd5e1"></div><div class="bar-lbl">Thu<br>8/31</div></div>
+      <div class="bar-col"><div class="bar-val">&mdash;</div><div class="bar" style="height:3px;background:#cbd5e1"></div><div class="bar-lbl">Fri<br>9/01</div></div>
+      <div class="bar-col"><div class="bar-val">&mdash;</div><div class="bar" style="height:3px;background:#cbd5e1"></div><div class="bar-lbl">Tue<br>9/02</div></div>
+      <div class="bar-col"><div class="bar-val">3</div><div class="bar" style="height:120px"></div><div class="bar-lbl">Wed<br>9/03</div></div>
+    </div>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:10px;">No runs earlier this week; the prior tracked run was 2026-08-05 (1 qualified: TravClan SDE-1). Trend populates as daily runs resume.</p>
+  </section>
+
+  <!-- COVER LETTERS -->
+  <section>
+    <h2>Cover Letters</h2>
+    <div class="cl-box">
+      <h4>NextMantra AI &mdash; SDE I <button class="btn" onclick="copyCL('cl1')">COPY</button></h4>
+      <pre id="cl1">Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I role at NextMantra AI, where building scalable distributed systems is central to the work.
+
+At Primathon, I engineer Java and Spring Boot microservices and backend automation across seven merchant systems, and my Distributed Payment Gateway project delivers 30 REST APIs across four services using Kafka and Redis &mdash; the exact stack (Java, Kafka, Redis, microservices, REST APIs) this role calls for. Earlier, at Paytm, I optimized QR-lifecycle microservices and improved backend service reliability by 67%.
+
+As a 5-Star HackerRank Java engineer with a strong grounding in system design and SQL/PostgreSQL, I'm confident I can contribute to NextMantra AI's talent-intelligence platform quickly and reliably.
+
+I'm an immediate joiner, eager to pick up Kubernetes on the job and ship production-ready backend services from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+    <div class="cl-box">
+      <h4>Alt Digital Technologies &mdash; Spring Boot Developer <button class="btn" onclick="copyCL('cl2')">COPY</button></h4>
+      <pre id="cl2">Dear Hiring Manager,
+
+I'm writing to express my strong interest in the Spring Boot Developer position at Alt Digital Technologies in Noida.
+
+I build backend services with Java and Spring Boot daily at Primathon, where I designed custom admin APIs and automated backend workflows that cut manual operational effort by 70%. My Distributed Payment Gateway project shipped 30 REST APIs across Order, Payment, Merchant, and Vault microservices, applying system-design principles for scalability and fault tolerance &mdash; directly matching your need for RESTful services, microservices architecture, and relational databases (MySQL), managed with Git and Gradle.
+
+Backed by an AWS Certified Developer credential and 250+ solved DSA problems, I bring both hands-on delivery and strong fundamentals.
+
+As an immediate joiner and quick learner, I'm ready to contribute to Alt Digital's Digital Customer Experience platform right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+  </section>
+
+</div>
+
+<footer>Generated 2026-09-03 &middot; LinkedIn Smart Apply Routine &middot; 3 qualified / 10 found / 0 fraud</footer>
+
+<script>
+  var urls = [
+    "https://in.linkedin.com/jobs/view/software-development-engineer-sde-i-at-nextmantra-ai-4452215955",
+    "https://in.linkedin.com/jobs/view/spring-boot-developer-at-alt-digital-technologies-4433484346",
+    "https://in.linkedin.com/jobs/view/full-stack-developer-%E2%80%93-ai-applications-python-%2B-react-fresher-fresher-at-aivoa-ai-4399970299"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el.innerText || el.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(id); }, function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(id){
+    var box = document.getElementById(id);
+    var prev = box.style.background; box.style.background = "#dcfce7";
+    setTimeout(function(){ box.style.background = prev; }, 400);
+  }
+</script>
+</body>
+</html>

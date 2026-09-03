@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I role at NextMantra AI, where building scalable distributed systems is central to the work.
+
+At Primathon, I engineer Java and Spring Boot microservices and backend automation across seven merchant systems, and my Distributed Payment Gateway project delivers 30 REST APIs across four services using Kafka and Redis — the exact stack (Java, Kafka, Redis, microservices, REST APIs) this role calls for. Earlier, at Paytm, I optimized QR-lifecycle microservices and improved backend service reliability by 67%.
+
+As a 5-Star HackerRank Java engineer with a strong grounding in system design and SQL/PostgreSQL, I'm confident I can contribute to NextMantra AI's talent-intelligence platform quickly and reliably.
+
+I'm an immediate joiner, eager to pick up Kubernetes on the job and ship production-ready backend services from day one.
+
+Best regards,
+Bhumi Bhatt

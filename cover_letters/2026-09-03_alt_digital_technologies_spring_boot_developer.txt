@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm writing to express my strong interest in the Spring Boot Developer position at Alt Digital Technologies in Noida.
+
+I build backend services with Java and Spring Boot daily at Primathon, where I designed custom admin APIs and automated backend workflows that cut manual operational effort by 70%. My Distributed Payment Gateway project shipped 30 REST APIs across Order, Payment, Merchant, and Vault microservices, applying system-design principles for scalability and fault tolerance — directly matching your need for RESTful services, microservices architecture, and relational databases (MySQL), managed with Git and Gradle.
+
+Backed by an AWS Certified Developer credential and 250+ solved DSA problems, I bring both hands-on delivery and strong fundamentals.
+
+As an immediate joiner and quick learner, I'm ready to contribute to Alt Digital's Digital Customer Experience platform right away.
+
+Best regards,
+Bhumi Bhatt

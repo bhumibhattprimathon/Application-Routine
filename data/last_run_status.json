@@ -1,15 +1,22 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-03",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "completed_degraded",
+  "data_source": "WebSearch + individual live LinkedIn verification. PREFERRED source JSearch API (RapidAPI) returned HTTP 404 (endpoint/subscription lapsed) and could not be used.",
+  "resume_source": "repo resumes/resume_master.pdf (also mirrored from provided Google Drive link; identical 59457-byte file)",
+  "ntfy": "sent HTTP 200 to https://ntfy.sh/bhumi-linkedin-jobs-2026 AND reported via routine push/email channel. Note: prior run marked ntfy 'disabled per user instruction' — confirm preferred channel.",
+  "jobs_found": 10,
+  "jobs_qualified": 3,
+  "jobs_review": 1,
+  "jobs_skipped": 6,
+  "fraud_detected": 0,
+  "avg_match_qualified": 79.7,
+  "top_pick": "NextMantra AI — Software Development Engineer (SDE I) — match 88, trust 68, Gurugram/Remote",
+  "qualified": [
+    "NextMantra AI — SDE I — 88",
+    "Alt Digital Technologies — Spring Boot Developer — 77",
+    "Aivoa.ai — Full Stack AI (Fresher) — 74 (salary risk)"
+  ],
+  "action_required": "Renew/verify the RapidAPI JSearch subscription so daily discovery returns fresh <24h live postings again. Web search alone surfaces mostly expired links.",
+  "notes": "6 of 10 discovered LinkedIn postings were already expired (301 expired_jd_redirect). All 4 evaluated employers verified legitimate (trust >= 63); 0 fraud. Cover letters generated for the 2 roles with match >= 75 (NextMantra AI, Alt Digital)."
 }
