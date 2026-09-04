@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-09-04</title>
+<style>
+  :root { --green:#22c55e; --yellow:#eab308; --red:#ef4444; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:#f8fafc; }
+  header { background:#0f172a; color:#fff; padding:28px 20px; }
+  header h1 { margin:0 0 6px; font-size:22px; letter-spacing:.3px; }
+  header p { margin:0; color:#94a3b8; font-size:14px; }
+  .wrap { max-width:920px; margin:0 auto; padding:20px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:18px 0; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center; }
+  .card .n { font-size:28px; font-weight:700; }
+  .card .l { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-top:4px; }
+  .banner { background:#fff7ed; border:1px solid #fed7aa; border-left:6px solid var(--yellow); border-radius:12px; padding:18px 20px; margin:18px 0; }
+  .banner h2 { margin:0 0 8px; font-size:18px; color:#b45309; }
+  .banner p { margin:6px 0; font-size:14px; line-height:1.55; }
+  .panel { background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin:16px 0; }
+  .panel h3 { margin:0 0 10px; font-size:16px; }
+  code { background:#f1f5f9; padding:2px 6px; border-radius:5px; font-size:13px; }
+  ul { margin:8px 0; padding-left:20px; } li { margin:6px 0; font-size:14px; line-height:1.5; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.4px; }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600; }
+  .pill.exp { background:#fee2e2; color:#b91c1c; }
+  .pill.stale { background:#fef9c3; color:#854d0e; }
+  .cta { background:#0f172a; color:#fff; border:none; border-radius:10px; padding:14px 22px; font-size:15px; font-weight:600; cursor:pointer; }
+  .cta:hover { background:#1e293b; }
+  a { color:#2563eb; } .foot { color:var(--muted); font-size:12px; margin:24px 0 8px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-04</h1>
+  <p>Morning scan for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote</p>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Jobs Found</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">0</div><div class="l">Review</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">0</div><div class="l">Skipped</div></div>
+  </div>
+
+  <div class="banner">
+    <h2>⚠️ Discovery blocked today — job data source is down (no fresh jobs sourced)</h2>
+    <p><strong>What happened:</strong> The routine's reliable job feed — the <strong>JSearch API on RapidAPI</strong>, the same source that powered the working 2026-08-05 run — is <strong>no longer subscribed on the current RapidAPI key</strong>. Its <code>/search</code> endpoint now returns <code>HTTP 404 "Endpoint '/search' does not exist"</code> and never reaches the JSearch backend. Four other job APIs were probed and all return <code>403 "You are not subscribed to this API."</code></p>
+    <p><strong>Why I didn't fall back to plain web search:</strong> I tried. Web search only returns LinkedIn <em>index</em> pages (e.g. "961 Full Stack jobs in Gurugram"), not individual dated postings. Every concrete <code>linkedin.com/jobs/view</code> link it surfaced, I opened and verified — and each was <strong>expired or stale</strong> (see table). Presenting those as "qualified" would have sent you to dead links, so per the routine's own rule I did <strong>not</strong> fabricate listings.</p>
+  </div>
+
+  <div class="panel">
+    <h3>✅ Action needed from you (one thing)</h3>
+    <ul>
+      <li><strong>Re-subscribe the RapidAPI key to JSearch</strong> → <a href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch" target="_blank" rel="noopener">rapidapi.com/…/jsearch</a> (the free/basic tier is enough for ~10 daily queries). The key itself is present in the environment — only the subscription lapsed.</li>
+      <li>Once re-subscribed, either re-run the routine manually or just let tomorrow's 8 AM IST fire pick it up — discovery will resume automatically.</li>
+      <li>Optional: if you'd rather not depend on RapidAPI, tell me and I'll switch the routine to a free public jobs API or the LinkedIn guest feed.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h3>🔎 What I verified today (evidence the fallback links are dead)</h3>
+    <table>
+      <thead><tr><th>Posting (web-search fallback)</th><th>Checked result</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>ICF — Java Backend Developer (Delhi)</td><td>301 → <code>?trk=expired_jd_redirect</code></td><td><span class="pill exp">Expired</span></td></tr>
+        <tr><td>LTIMindtree — Java Backend (Bawana, Delhi)</td><td>301 → <code>?trk=expired_jd_redirect</code></td><td><span class="pill exp">Expired</span></td></tr>
+        <tr><td>LTIMindtree — Java React Developer (Noida)</td><td>301 → <code>?trk=expired_jd_redirect</code></td><td><span class="pill exp">Expired</span></td></tr>
+        <tr><td>Trysol Global — Java Backend (Spring Boot)</td><td>Active, but <strong>Hyderabad</strong>, posted <strong>4 weeks ago</strong></td><td><span class="pill stale">Stale / off-location</span></td></tr>
+      </tbody>
+    </table>
+    <p class="foot">Web search also name-dropped snippets like "Software Engineer 2, Noida (1 day ago)" and "Backend Developer, Auro.edu, Delhi (₹15–20 LPA)" — but with <strong>no direct apply URL</strong> to verify, so they are not listed as real leads.</p>
+  </div>
+
+  <div class="panel">
+    <h3>📅 Weekly trend</h3>
+    <p style="font-size:14px; color:var(--muted); margin:0 0 10px;">Qualified jobs per scan (from saved dashboards / logs):</p>
+    <div style="display:flex; gap:24px; align-items:flex-end; height:120px; padding:8px 4px;">
+      <div style="text-align:center;">
+        <div style="width:46px; height:80px; background:var(--green); border-radius:6px 6px 0 0;"></div>
+        <div style="font-size:12px; margin-top:6px;">Aug 05<br><strong>1</strong></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:46px; height:2px; background:var(--red); border-radius:6px 6px 0 0;"></div>
+        <div style="font-size:12px; margin-top:6px;">Sep 04<br><strong>0 ⚠️</strong></div>
+      </div>
+    </div>
+    <p class="foot">Note: no scans ran between Aug 05 and Sep 04 in this repo's history.</p>
+  </div>
+
+  <div style="text-align:center; margin:22px 0;">
+    <button class="cta" onclick="alert('No qualified jobs today — discovery is blocked. Re-subscribe the RapidAPI key to JSearch, then re-run.');">OPEN ALL 0 QUALIFIED JOBS</button>
+  </div>
+
+  <p class="foot">Resume read OK (Bhumi Bhatt — Java · Spring Boot · Microservices · Node.js · React · AWS · 1.5 yrs). Application log left unchanged — no phantom entries added. Environment is ephemeral; state persists only via this git repo.</p>
+</div>
+</body>
+</html>
