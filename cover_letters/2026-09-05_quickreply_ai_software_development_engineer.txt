@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Software Development Engineer role on QuickReply.ai's Solutioning & Integration team, where connecting a WhatsApp automation platform to Shopify, CRMs, ERPs, and payment gateways is exactly the kind of engineering I do best.
+
+At Primathon I engineered custom admin APIs and built backend syncing automation across 7 merchant systems, streamlining data flow and cutting manual operational effort by 70% — the same integration-and-automation work this role centres on. During my Paytm internship I developed microservices around the QR-code lifecycle powering real-time merchant transaction notifications, and my Distributed Payment Gateway project delivered 30 REST APIs across Order, Payment, Merchant, and Vault services. I work fluently in Java, Spring Boot, Node.js, and REST API design, backed by MySQL and MongoDB.
+
+As a 0-notice immediate joiner, I can start contributing to your integration workflows right away, and I pick up new customer systems and tooling quickly.
+
+Best regards,
+Bhumi Bhatt

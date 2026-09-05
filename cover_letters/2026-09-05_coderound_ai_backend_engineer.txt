@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Backend Engineer (Node.js) role advertised through CodeRound AI, drawn by the chance to build scalable services and reliable APIs for a fast-growing startup with real ownership.
+
+My backend work maps directly to what you need: I build services with Node.js and Express and design REST APIs, having shipped 30 production endpoints across four microservices in my Distributed Payment Gateway project and optimised 30+ REST endpoints during my time at CodeAlpha. I work comfortably with MySQL and MongoDB to build efficient, reliable data systems, and at Primathon I debug production issues and improve service reliability daily while writing clean, tested code. My 5-Star Gold rating in Java on HackerRank (250+ DSA problems) reflects the fundamentals I bring to complex backend challenges.
+
+With a 0-day notice period I am available immediately, and I thrive in ownership-heavy environments where I can take features end-to-end and keep learning.
+
+Best regards,
+Bhumi Bhatt
