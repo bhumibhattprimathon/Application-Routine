@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Java Developer (Spring Boot) role at Comviva, where my backend experience maps directly to your telecom and eCommerce platform work.
+
+At Primathon and during my Paytm internship, I designed and shipped production microservices in Java and Spring Boot, building admin and QR-lifecycle REST APIs that powered real-time transaction notifications and improved service reliability by 67%. I work daily with Spring MVC, SQL and MongoDB, and containerize services with Docker on CI/CD pipelines — the exact core-Java, microservices and REST-optimization stack your role calls for. My certified Distributed Payment Gateway project (30 REST APIs across four services) reflects the scalable, fault-tolerant design you value.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away and ramp quickly on Apache Camel and your telecom domain.
+
+Best regards,
+Bhumi Bhatt

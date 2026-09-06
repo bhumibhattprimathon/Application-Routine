@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Software Development Engineer role at QuickReply.ai, where connecting your platform to customer systems through APIs is exactly the kind of integration and backend problem-solving I enjoy.
+
+My work centers on APIs and integrations: at Primathon I built custom admin APIs and backend syncing automation across seven merchant systems, and at Paytm I developed microservices driving real-time transaction notifications. I am fluent with Node.js, JavaScript, REST APIs, JSON, HTTP methods and authentication, and I use Postman daily for API testing and debugging — the practical toolkit your role runs on. I also have SQL experience and a habit of translating messy business workflows into clean, reliable technical solutions.
+
+As a 0-day-notice immediate joiner, I can quickly start building the integrations that link QuickReply with your customers' systems.
+
+Best regards,
+Bhumi Bhatt

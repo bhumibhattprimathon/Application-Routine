@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am interested in the Full Stack Developer role at Cypherock and the chance to help ship world-first products that make self-custody of digital assets simpler and safer.
+
+I build end to end with the tools your team uses: React.js on the frontend and Node.js with Express on the backend, backed by MongoDB, plus REST API design and JavaScript ES6+. At Primathon and Paytm I shipped production microservices and backend automation, and my certified Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant and Vault services — gave me hands-on experience with the fault-tolerant, security-minded architecture that key-management products demand. I am comfortable in a distributed, documentation-first remote team.
+
+As an immediate joiner available on a 0-day notice, I can start contributing to your product engineering right away.
+
+Best regards,
+Bhumi Bhatt

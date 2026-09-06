@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Software Developer I position at myKaarma, where building reliable, scalable cloud services for automotive dealerships closely matches the backend work I do today.
+
+In my 1.5 years at Primathon and Paytm, I have built Java and Spring Boot microservices, custom admin APIs, and backend automation across seven merchant systems, cutting manual effort by 70%. I am comfortable across your stack — Java, Spring, Microservices, Docker, MySQL, MongoDB and Redis — and I have integrated AI-driven alerting into a payment system, so your emphasis on LLMs and model integration is a direction I am already moving toward. My 5-Star Java rating and 250+ solved DSA problems reflect the CS fundamentals your team prizes.
+
+As a 0-day-notice immediate joiner, I can quickly own components and contribute across your diverse technology stack.
+
+Best regards,
+Bhumi Bhatt

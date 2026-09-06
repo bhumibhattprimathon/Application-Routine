@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-06</title>
+<style>
+  :root{
+    --green:#22c55e; --green-bg:#f0fdf4; --green-bd:#bbf7d0;
+    --yellow:#eab308; --yellow-bg:#fefce8; --yellow-bd:#fef08a;
+    --red:#ef4444; --red-bg:#fef2f2; --red-bd:#fecaca;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f8fafc;color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:13px}
+  .wrap{max-width:1200px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .n{font-size:30px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)}
+  .metrics{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:8px}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:14px}
+  .metric b{font-size:18px}
+  .openall{display:block;width:100%;margin:14px 0 26px;padding:20px;font-size:19px;font-weight:700;color:#fff;
+    background:linear-gradient(135deg,#16a34a,#22c55e);border:none;border-radius:14px;cursor:pointer;
+    box-shadow:0 4px 14px rgba(34,197,94,.35);transition:transform .08s}
+  .openall:hover{transform:translateY(-1px)} .openall:active{transform:translateY(0)}
+  h2{margin:30px 0 12px;font-size:18px;display:flex;align-items:center;gap:8px}
+  .pill{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px}
+  .pill.g{background:var(--green-bg);color:#15803d;border:1px solid var(--green-bd)}
+  .pill.y{background:var(--yellow-bg);color:#a16207;border:1px solid var(--yellow-bd)}
+  .pill.r{background:var(--red-bg);color:#b91c1c;border:1px solid var(--red-bd)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{background:#f1f5f9;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .sec-g th{background:var(--green-bg)} .sec-y th{background:var(--yellow-bg)} .sec-r th{background:var(--red-bg)}
+  .score{font-weight:700;padding:2px 8px;border-radius:6px;color:#fff;display:inline-block;min-width:30px;text-align:center}
+  .s-hi{background:#16a34a} .s-mid{background:#65a30d} .s-low{background:#eab308}
+  .trust{font-weight:600}
+  .btn{display:inline-block;padding:6px 11px;border-radius:7px;font-size:12.5px;font-weight:600;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;white-space:nowrap}
+  .btn.open{background:#0f172a;color:#fff;border-color:#0f172a}
+  .btn.copy{background:#eef2ff;color:#3730a3;border-color:#c7d2fe}
+  .btn+.btn{margin-left:6px}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+  .rec h3{margin:0 0 6px;font-size:15px}
+  .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .rec p{margin:0;font-size:13.5px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+  .cl .head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .cl .head strong{font-size:14px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;margin:0;color:#1e293b}
+  .bars{display:flex;align-items:flex-end;gap:26px;height:170px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;flex:0 0 auto}
+  .bar .fill{width:56px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:6px 6px 0 0;position:relative}
+  .bar .val{position:absolute;top:-20px;left:0;right:0;text-align:center;font-weight:700;font-size:13px}
+  .bar .lab{margin-top:8px;font-size:12px;color:var(--muted)}
+  .note{background:#fffbeb;border:1px solid var(--yellow-bd);border-radius:10px;padding:12px 16px;font-size:13px;color:#854d0e;margin:14px 0}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  a.jobtitle{color:#1d4ed8;text-decoration:none}
+  a.jobtitle:hover{text-decoration:underline}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:99}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-09-06</h1>
+  <div class="sub">Morning scan for Bhumi Bhatt · Backend / Full-Stack / SDE · Delhi NCR · Gurugram · Noida · Remote · Immediate joiner</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">24</div><div class="l">Jobs Evaluated</div></div>
+    <div class="card g"><div class="n">6</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">6</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">12</div><div class="l">Skipped</div></div>
+    <div class="card r"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">Avg match (qualified): <b>86.2</b></div>
+    <div class="metric">Avg salary est: <b>~7–14 LPA</b></div>
+    <div class="metric">Top pick: <b>Comviva — Java Developer (Spring Boot)</b> · 94</div>
+    <div class="metric">Cover letters ready: <b>5</b></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 6 QUALIFIED JOBS</button>
+
+  <div class="note">
+    <b>Freshness note (honest):</b> Live-postings surfaced via web search + direct page fetches (LinkedIn, Cutshort). Only <b>QuickReply.ai</b> is confirmed “posted 1 day ago”; myKaarma ~1 week, Comviva ~2 weeks; others show as currently open but LinkedIn/aggregators do not expose a reliable 24-hour timestamp. No jobs were fabricated — every link was fetched and confirmed open at scan time. Salary values marked “(listed)” are from the posting; “(est)” are estimated per the routine's rubric.
+  </div>
+
+  <!-- QUALIFIED -->
+  <h2><span class="pill g">QUALIFIED</span> Ready to apply</h2>
+  <div class="tablewrap">
+    <table class="sec-g">
+      <thead><tr>
+        <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score s-hi">94</span></td><td class="trust">90</td>
+          <td>Comviva</td>
+          <td><a class="jobtitle" href="https://in.linkedin.com/jobs/view/java-developer-springboot-at-comviva-4455709167" target="_blank">Java Developer (Spring Boot)</a></td>
+          <td>Gurugram</td><td>6–9 LPA (est)</td><td>backend</td><td>LinkedIn</td>
+          <td>
+            <a class="btn open" href="https://in.linkedin.com/jobs/view/java-developer-springboot-at-comviva-4455709167" target="_blank">Open</a>
+            <button class="btn copy" onclick="copyCL('cl-comviva')">Cover letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score s-hi">92</span></td><td class="trust">85</td>
+          <td>myKaarma</td>
+          <td><a class="jobtitle" href="https://in.linkedin.com/jobs/view/software-developer-i-at-mykaarma-4458031223" target="_blank">Software Developer I</a></td>
+          <td>Noida</td><td>9–14 LPA (est)</td><td>fullstack</td><td>LinkedIn</td>
+          <td>
+            <a class="btn open" href="https://in.linkedin.com/jobs/view/software-developer-i-at-mykaarma-4458031223" target="_blank">Open</a>
+            <button class="btn copy" onclick="copyCL('cl-mykaarma')">Cover letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="score s-hi">92</span></td><td class="trust">78</td>
+          <td>iDreamCareer</td>
+          <td><a class="jobtitle" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank">Fullstack Developer (MERN)</a></td>
+          <td>Delhi NCR</td><td>7–15 LPA (listed)</td><td>fullstack</td><td>External (Cutshort)</td>
+          <td>
+            <a class="btn open" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank">Open</a>
+            <button class="btn copy" onclick="copyCL('cl-idream')">Cover letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td><td><span class="score s-hi">85</span></td><td class="trust">85</td>
+          <td>QuickReply.ai</td>
+          <td><a class="jobtitle" href="https://in.linkedin.com/jobs/view/software-development-engineer-at-quickreply-ai-4461149984" target="_blank">Software Development Engineer</a> <span class="pill g" style="font-size:10px">1d ago</span></td>
+          <td>Gurugram</td><td>6–10 LPA (est)</td><td>backend</td><td>LinkedIn</td>
+          <td>
+            <a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-at-quickreply-ai-4461149984" target="_blank">Open</a>
+            <button class="btn copy" onclick="copyCL('cl-quickreply')">Cover letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td><td><span class="score s-hi">84</span></td><td class="trust">70</td>
+          <td>Cypherock</td>
+          <td><a class="jobtitle" href="https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6" target="_blank">Full Stack Developer</a> <span class="pill y" style="font-size:10px">crypto domain</span></td>
+          <td>Remote / Delhi NCR</td><td>6–24 LPA (listed)</td><td>fullstack</td><td>External (Cutshort)</td>
+          <td>
+            <a class="btn open" href="https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6" target="_blank">Open</a>
+            <button class="btn copy" onclick="copyCL('cl-cypherock')">Cover letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td><td><span class="score s-mid">70</span></td><td class="trust">90</td>
+          <td>TestMu AI (LambdaTest)</td>
+          <td><a class="jobtitle" href="https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41" target="_blank">Backend Developer</a> <span class="pill y" style="font-size:10px">Go/Python gap</span></td>
+          <td>Noida</td><td>10–25 LPA (listed)</td><td>backend</td><td>External (Cutshort)</td>
+          <td>
+            <a class="btn open" href="https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41" target="_blank">Open</a>
+            <span style="font-size:12px;color:var(--muted)">no CL (score &lt;75)</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- REVIEW -->
+  <h2><span class="pill y">REVIEW</span> Worth a look — verify first</h2>
+  <div class="tablewrap">
+    <table class="sec-y">
+      <thead><tr><th>#</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for review</th><th>Open</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>88</td><td>United Airlines India KC</td><td>Developer II</td><td>Gurugram</td><td>Strong global GCC employer; role level & stack (likely Java) not verified — confirm seniority.</td><td><a class="btn open" href="https://in.linkedin.com/jobs/view/developer-ii-at-united-airlines-india-knowledge-center-4427060030" target="_blank">Open</a></td></tr>
+        <tr><td>2</td><td>88</td><td>NatWest Group</td><td>Java Developer, BFSI Domain</td><td>Gurugram</td><td>Reputable bank + Java fit, but experience level not confirmed in snippet — verify it isn't senior.</td><td><a class="btn open" href="https://in.linkedin.com/jobs/view/java-developer-bfsi-domain-at-natwest-group-4463127589" target="_blank">Open</a></td></tr>
+        <tr><td>3</td><td>85</td><td>Rohde &amp; Schwarz</td><td>Software Development Engineer (RAMON 1)</td><td>New Delhi</td><td>Reputable German MNC; specific stack/level unverified — check the JD before applying.</td><td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-ramon-1-at-rohde-schwarz-4376725052" target="_blank">Open</a></td></tr>
+        <tr><td>4</td><td>80</td><td>NIIT</td><td>Software Engineer</td><td>Gurgaon</td><td>Established company; JD and required experience not verified — confirm entry-level fit.</td><td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-at-niit-4461770107" target="_blank">Open</a></td></tr>
+        <tr><td>5</td><td>50</td><td>Zentrix nexus</td><td>Java Developer (0–2 yrs)</td><td>Delhi NCR (multi-city)</td><td>Entry Java fit, but lightly-verified staffing-style bulk posting across 10+ cities — confirm the real employer.</td><td><a class="btn open" href="https://cutshort.io/job/Java-Developer-Chennai-Bengaluru-Bangalore-Mumbai-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Pune-Hyderabad-Zentrix-nexus-ErbJchjq" target="_blank">Open</a></td></tr>
+        <tr><td>6</td><td>72</td><td>Lithion Power</td><td>Fullstack Developer</td><td>Delhi NCR</td><td>Funded EV-energy startup, good MERN fit, but 2–6 yr ask — a slight stretch at 1.5 yrs.</td><td><a class="btn open" href="https://cutshort.io/job/Fullstack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Lithion-Power-ZKkJ5HOD" target="_blank">Open</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SKIPPED -->
+  <h2><span class="pill r">SKIPPED</span> Filtered out</h2>
+  <div class="tablewrap">
+    <table class="sec-r">
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Lalitech</td><td>Full Stack Engineer</td><td>Salary: listed ₹3.5–4.5 LPA — below 5.5 LPA target minimum (skills fit well otherwise).</td></tr>
+        <tr><td>2</td><td>EPAM Systems</td><td>Senior Software Engineer — Java</td><td>Experience: Senior, ~5+ yrs.</td></tr>
+        <tr><td>3</td><td>EPAM Systems</td><td>Lead Software Engineer — Java</td><td>Experience: Lead, ~8+ yrs.</td></tr>
+        <tr><td>4</td><td>Tata Consultancy Services</td><td>Senior Java Engineer</td><td>Experience: Senior, 5+ yrs.</td></tr>
+        <tr><td>5</td><td>Iris Software</td><td>Java API AWS — Lead</td><td>Experience: Lead role.</td></tr>
+        <tr><td>6</td><td>Wissen Technology</td><td>Senior Java Developer</td><td>Experience: 6–10 yrs.</td></tr>
+        <tr><td>7</td><td>NeoGenCode Technologies</td><td>Senior Java Developer</td><td>Experience: 5–12 yrs.</td></tr>
+        <tr><td>8</td><td>Dizvik Technologies</td><td>Senior Backend Developer (Node.js)</td><td>Experience: 3–10 yrs (senior).</td></tr>
+        <tr><td>9</td><td>Hunarstreet Technologies</td><td>Microsoft .NET Full Stack Developer</td><td>Skill: .NET / C# — off Bhumi's Java/JS stack.</td></tr>
+        <tr><td>10</td><td>NeoGenCode Technologies</td><td>ASP.NET Developer</td><td>Skill: ASP.NET — off-stack.</td></tr>
+        <tr><td>11</td><td>Livekeeping Technologies</td><td>Golang Developer</td><td>Skill: Go primary — off core stack.</td></tr>
+        <tr><td>12</td><td>Bharat Headhunters (Wipro)</td><td>C++ Developer with Kubernetes</td><td>Skill: C++ — off-stack.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOP 5 -->
+  <h2>⭐ Top 5 Recommendations</h2>
+
+  <div class="rec">
+    <h3>1. Comviva — Java Developer (Spring Boot) · Score 94 · Trust 90</h3>
+    <div class="meta">Gurugram · LinkedIn · 6–9 LPA (est) · Resume: backend</div>
+    <p>The cleanest match of the day. Comviva (a Tech Mahindra company) is a large, credible telecom-software firm, and the JD is a near-mirror of Bhumi's core stack: Core Java + OOP, Spring Boot, microservices, REST API optimization, Spring MVC/JDBC, and SQL/MongoDB — with Docker/CI-CD/AWS as bonuses she already has. It's tagged “Entry level,” so experience fits perfectly, and her certified Distributed Payment Gateway project (30 REST APIs) is strong evidence. Apply first.</p>
+  </div>
+  <div class="rec">
+    <h3>2. myKaarma — Software Developer I · Score 92 · Trust 85</h3>
+    <div class="meta">Noida · LinkedIn · 9–14 LPA (est) · Resume: fullstack</div>
+    <p>A US-headquartered automotive-SaaS product company hiring at the “I” (entry) level for 1–2 yrs — exactly Bhumi's band. The stack spans Java, Spring, Microservices, Docker, MySQL/MongoDB/Redis and React, all on her resume, plus an AI/ML angle (LLMs, embeddings) that aligns with her GenAI research paper and AI-alert project. Product-company pay likely tops her range. 200+ applicants already — move quickly.</p>
+  </div>
+  <div class="rec">
+    <h3>3. iDreamCareer — Fullstack Developer (MERN) · Score 92 · Trust 78</h3>
+    <div class="meta">Delhi NCR · Cutshort · 7–15 LPA (listed) · Resume: fullstack</div>
+    <p>An established EdTech with a listed 7–15 LPA band (comfortably in range) and a MERN JD that matches Bhumi's Node.js/Express/React/MongoDB/REST experience directly. It explicitly favors skills over credentials with an assignment-first process — ideal for someone who can demonstrate real projects. The 1–8 yr window welcomes her 1.5 yrs.</p>
+  </div>
+  <div class="rec">
+    <h3>4. QuickReply.ai — Software Development Engineer · Score 85 · Trust 85</h3>
+    <div class="meta">Gurugram · LinkedIn · 6–10 LPA (est) · Resume: backend · Posted 1 day ago</div>
+    <p>The freshest listing here (1 day old) and a funded e-commerce/WhatsApp-automation startup. The role is integration-and-API centric — APIs, webhooks, JSON, HTTP, Node.js/JavaScript, debugging — which lines up with Bhumi's merchant-API and QR-lifecycle work at Primathon and Paytm. Note: it's more solutions/integration engineering than pure backend, and in-office with alternate Saturdays.</p>
+  </div>
+  <div class="rec">
+    <h3>5. Cypherock — Full Stack Developer · Score 84 · Trust 70</h3>
+    <div class="meta">Remote / Delhi NCR · Cutshort · 6–24 LPA (listed) · Resume: fullstack</div>
+    <p>A legitimate, funded crypto-hardware-wallet startup (not a scam — trust reduced only for the crypto domain per the rubric). Strong React + Node.js + MongoDB + REST fit and a wide listed band. Fair-warning flags: it's a blockchain/self-custody domain (decide if that interests you), React is mandatory, and Python/Electron are pluses she'd ramp on. Great upside if the domain appeals.</p>
+  </div>
+
+  <!-- WEEKLY TREND -->
+  <h2>📊 Trend — Qualified per scan</h2>
+  <div class="bars">
+    <div class="bar"><div class="fill" style="height:12%"><span class="val">1</span></div><div class="lab">2026-08-05</div></div>
+    <div class="bar"><div class="fill" style="height:72%"><span class="val">6</span></div><div class="lab">2026-09-06</div></div>
+  </div>
+  <p style="font-size:12px;color:var(--muted)">Only two scans on record (runs are roughly monthly, not daily). Today's 6 qualified vs. 1 last scan reflects a broader multi-source pass across LinkedIn + Cutshort.</p>
+
+  <!-- COVER LETTERS -->
+  <h2>✉️ Cover Letters (5)</h2>
+
+  <div class="cl">
+    <div class="head"><strong>Comviva — Java Developer (Spring Boot)</strong><button class="btn copy" onclick="copyCL('cl-comviva')">COPY</button></div>
+    <pre id="cl-comviva">Dear Hiring Manager,
+
+I am writing to apply for the Java Developer (Spring Boot) role at Comviva, where my backend experience maps directly to your telecom and eCommerce platform work.
+
+At Primathon and during my Paytm internship, I designed and shipped production microservices in Java and Spring Boot, building admin and QR-lifecycle REST APIs that powered real-time transaction notifications and improved service reliability by 67%. I work daily with Spring MVC, SQL and MongoDB, and containerize services with Docker on CI/CD pipelines — the exact core-Java, microservices and REST-optimization stack your role calls for. My certified Distributed Payment Gateway project (30 REST APIs across four services) reflects the scalable, fault-tolerant design you value.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away and ramp quickly on Apache Camel and your telecom domain.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="head"><strong>myKaarma — Software Developer I</strong><button class="btn copy" onclick="copyCL('cl-mykaarma')">COPY</button></div>
+    <pre id="cl-mykaarma">Dear Hiring Manager,
+
+I am excited to apply for the Software Developer I position at myKaarma, where building reliable, scalable cloud services for automotive dealerships closely matches the backend work I do today.
+
+In my 1.5 years at Primathon and Paytm, I have built Java and Spring Boot microservices, custom admin APIs, and backend automation across seven merchant systems, cutting manual effort by 70%. I am comfortable across your stack — Java, Spring, Microservices, Docker, MySQL, MongoDB and Redis — and I have integrated AI-driven alerting into a payment system, so your emphasis on LLMs and model integration is a direction I am already moving toward. My 5-Star Java rating and 250+ solved DSA problems reflect the CS fundamentals your team prizes.
+
+As a 0-day-notice immediate joiner, I can quickly own components and contribute across your diverse technology stack.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="head"><strong>iDreamCareer — Fullstack Developer (MERN)</strong><button class="btn copy" onclick="copyCL('cl-idream')">COPY</button></div>
+    <pre id="cl-idream">Dear Hiring Manager,
+
+I would like to apply for the Fullstack Developer (MERN) role at iDreamCareer and contribute to the technology that guides students through career decisions.
+
+I build across the full stack in my current work: React.js on the frontend and Node.js, Express.js and REST APIs on the backend, backed by MongoDB and MySQL. At Primathon I engineered backend syncing automation and analytics workflows, and at CodeAlpha I optimized 30+ REST endpoints with automated Git-Actions pipelines — so writing clean full-stack code, designing RESTful APIs and improving application performance are part of my daily practice. I am equally happy researching an unfamiliar area and shipping, which fits your skills-over-credentials, assignment-first approach.
+
+As an immediate joiner available on a 0-day notice, I am ready to take your assignment and start delivering from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="head"><strong>QuickReply.ai — Software Development Engineer</strong><button class="btn copy" onclick="copyCL('cl-quickreply')">COPY</button></div>
+    <pre id="cl-quickreply">Dear Hiring Manager,
+
+I am applying for the Software Development Engineer role at QuickReply.ai, where connecting your platform to customer systems through APIs is exactly the kind of integration and backend problem-solving I enjoy.
+
+My work centers on APIs and integrations: at Primathon I built custom admin APIs and backend syncing automation across seven merchant systems, and at Paytm I developed microservices driving real-time transaction notifications. I am fluent with Node.js, JavaScript, REST APIs, JSON, HTTP methods and authentication, and I use Postman daily for API testing and debugging — the practical toolkit your role runs on. I also have SQL experience and a habit of translating messy business workflows into clean, reliable technical solutions.
+
+As a 0-day-notice immediate joiner, I can quickly start building the integrations that link QuickReply with your customers' systems.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="head"><strong>Cypherock — Full Stack Developer</strong><button class="btn copy" onclick="copyCL('cl-cypherock')">COPY</button></div>
+    <pre id="cl-cypherock">Dear Hiring Manager,
+
+I am interested in the Full Stack Developer role at Cypherock and the chance to help ship world-first products that make self-custody of digital assets simpler and safer.
+
+I build end to end with the tools your team uses: React.js on the frontend and Node.js with Express on the backend, backed by MongoDB, plus REST API design and JavaScript ES6+. At Primathon and Paytm I shipped production microservices and backend automation, and my certified Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant and Vault services — gave me hands-on experience with the fault-tolerant, security-minded architecture that key-management products demand. I am comfortable in a distributed, documentation-first remote team.
+
+As an immediate joiner available on a 0-day notice, I can start contributing to your product engineering right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">Copied to clipboard ✓</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-09-06 · Sources: LinkedIn Jobs, Cutshort · All links verified open at scan time.
+</footer>
+
+<script>
+  var urls = [
+    "https://in.linkedin.com/jobs/view/java-developer-springboot-at-comviva-4455709167",
+    "https://in.linkedin.com/jobs/view/software-developer-i-at-mykaarma-4458031223",
+    "https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq",
+    "https://in.linkedin.com/jobs/view/software-development-engineer-at-quickreply-ai-4461149984",
+    "https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6",
+    "https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function showToast(msg){ var t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(function(){t.classList.remove("show");},1400); }
+  function copyCL(id){
+    var el=document.getElementById(id); if(!el) return;
+    var text=el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){showToast("Cover letter copied ✓");}, function(){fallbackCopy(text);});
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); showToast("Cover letter copied ✓"); }catch(e){ showToast("Copy failed — select manually"); }
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>

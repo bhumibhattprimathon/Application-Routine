@@ -1,15 +1,18 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-06",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
+  "data_source": "WebSearch discovery + direct page fetches (LinkedIn Jobs, Cutshort); all links verified open at scan time",
+  "resume_source": "resumes/resume_master.pdf (read successfully)",
+  "notify_channel": "routine push/email (ntfy.sh blocked by egress policy in this environment, per prior run)",
+  "jobs_evaluated": 24,
+  "jobs_qualified": 6,
   "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_skipped": 12,
+  "fraud_detected": 0,
+  "avg_match_qualified": 86.2,
+  "top_pick": "Comviva — Java Developer (Spring Boot), Gurugram (score 94, trust 90)",
+  "cover_letters_generated": 5,
+  "freshness_caveat": "Only QuickReply.ai confirmed 'posted 1 day ago'; myKaarma ~1 week, Comviva ~2 weeks; other postings confirmed currently open but LinkedIn/aggregators don't expose a reliable 24h timestamp. No listings fabricated.",
+  "notes": "6 solid entry/junior matches to Bhumi's Java/Spring/Node/React backend profile. Top picks: Comviva (Java/Spring, entry level), myKaarma (Software Dev I, 1-2 yrs), iDreamCareer (MERN, listed 7-15 LPA), QuickReply.ai (SDE, 1 day old). Cypherock qualified but crypto domain flagged. Lalitech skipped on listed 3.5-4.5 LPA (below target). 6 review items are reputable employers whose level/stack couldn't be verified from snippets. No course-ad/scam spam encountered this run."
 }
