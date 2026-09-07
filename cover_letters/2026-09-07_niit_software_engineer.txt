@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in the Software Engineer role at NIIT in Gurgaon.
+
+Your emphasis on solid programming fundamentals, data structures, and clean, reusable code maps directly to my background: I hold a 5-Star Gold rating in Java on HackerRank with 250+ DSA problems solved, and I currently build and maintain scalable backend services in Java and Spring Boot at Primathon. I have shipped production REST APIs across seven merchant systems and reduced manual operational effort by 70% through automated backend workflows, so I am comfortable writing efficient code, participating in code reviews, and owning testing and deployment.
+
+As an immediate joiner with a 9.3 CGPA in Computer Science, I can contribute from day one and ramp quickly on NIIT's stack and best practices.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer position at Fi Ellements in Noida, particularly given its focus on payment gateway integration and microservices.
+
+This is exactly where my experience sits: I architected a production-ready distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, and I work daily with Node.js and Express alongside MongoDB and MySQL. I have also integrated AWS Lambda, S3, and Timestream into real-time backend pipelines and applied REST and design-pattern best practices with CI/CD at Primathon and Paytm, where I improved microservice reliability by 67%.
+
+As an immediate joiner who has already delivered payment and merchant systems end to end, I can add value to your team from week one.
+
+Best regards,
+Bhumi Bhatt

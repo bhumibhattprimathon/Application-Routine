@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-07",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
+  "data_source": "WebSearch + WebFetch across LinkedIn & Cutshort live listings (Delhi NCR), 2026-09-07; 100+ listings scanned, 14 evaluated in depth",
+  "resume_source": "resumes/resume_master.pdf (Bhumi Bhatt, Backend/Full-Stack, 1.5 yrs)",
   "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
+  "jobs_found": 14,
+  "jobs_qualified": 4,
   "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_skipped": 4,
+  "fraud_detected": 0,
+  "avg_match_qualified": 86.0,
+  "avg_salary_qualified_lpa": 7.0,
+  "top_pick": "Software Engineer @ NIIT (Gurgaon) — match 88, trust 92",
+  "notes": "WebSearch returns category pages, not individual postings, so listing pages were fetched to extract concrete live jobs (mirrors the note in the prior run). 4 clean entry-level NCR matches: NIIT SE, Fi Ellements Node.js (payment-gateway fit), Thales Java, Nians MERN. Fi Ellements salary in range but Glassdoor 2.5/5. No outright fraud/course-spam in this batch; DigitalXNode & Softcrayons flagged low-trust."
 }

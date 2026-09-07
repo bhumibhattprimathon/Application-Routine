@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am keen to apply for the MERN Stack Developer role at Nians in Gurugram, especially its blend of full-stack development and AI/LLM integration.
+
+I work across the MERN stack in production, building React front-ends against Node.js and Express services with MongoDB, and I deploy on AWS using EC2, S3, and Lambda with Git and CI/CD workflows. On the AI side, I integrated AI-driven daily alerts into my distributed payment gateway project to surface transaction insights automatically, and my research paper on Generative AI in personalized systems reflects genuine depth with LLM concepts and APIs like OpenAI and Claude.
+
+With 1.5 years of experience that fits your associate level precisely, and as an immediate joiner, I can start contributing to your web applications and AI features quickly.
+
+Best regards,
+Bhumi Bhatt

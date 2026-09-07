@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would like to apply for the Java Developer role at Thales in Noida.
+
+With 1.5+ years designing backend services in Java and Spring Boot, I bring hands-on experience building, compiling, and continuously integrating production code within Agile Scrum teams. At Primathon I engineered admin APIs and backend automation across seven merchant systems, and during my Paytm internship I developed and optimized microservices managing the QR-code transaction lifecycle. My work consistently applies secure coding and system-design principles, backed by a 5-Star Java rating and 250+ DSA problems solved.
+
+Thales's focus on secure, well-tested software in a defense-grade environment strongly appeals to me. As an immediate joiner and quick learner, I am ready to contribute to your engineering team right away.
+
+Best regards,
+Bhumi Bhatt

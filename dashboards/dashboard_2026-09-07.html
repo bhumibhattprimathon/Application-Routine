@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply — 2026-09-07</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--dark:#0f172a;--slate:#1e293b;--line:#e2e8f0;--muted:#64748b;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#0f172a;background:#f1f5f9;}
+  header{background:var(--dark);color:#fff;padding:28px 20px;}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.5px;}
+  header .sub{color:#94a3b8;font-size:14px;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0;}
+  .card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:5px solid var(--slate);}
+  .card .n{font-size:28px;font-weight:700;}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+  .card.green{border-left-color:var(--green);} .card.yellow{border-left-color:var(--yellow);}
+  .card.red{border-left-color:var(--red);} .card.blue{border-left-color:#3b82f6;}
+  .openall{display:block;width:100%;padding:20px;margin:8px 0 24px;border:0;border-radius:12px;background:var(--green);color:#fff;font-size:19px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35);}
+  .openall:hover{background:#16a34a;}
+  h2{margin:28px 0 10px;font-size:17px;padding-left:10px;border-left:5px solid var(--slate);}
+  h2.green{border-color:var(--green);} h2.yellow{border-color:var(--yellow);} h2.red{border-color:var(--red);}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:13.5px;}
+  th,td{padding:10px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+  tr:last-child td{border-bottom:0;}
+  .badge{display:inline-block;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px;color:#fff;}
+  .b-green{background:var(--green);} .b-yellow{background:var(--yellow);} .b-red{background:var(--red);} .b-gray{background:#94a3b8;}
+  .btn{display:inline-block;padding:6px 11px;border-radius:7px;border:0;cursor:pointer;font-size:12px;font-weight:600;text-decoration:none;margin:2px 2px 2px 0;}
+  .btn-open{background:#3b82f6;color:#fff;} .btn-copy{background:#e2e8f0;color:#0f172a;}
+  .btn-copy:hover{background:#cbd5e1;} .btn-open:hover{background:#2563eb;}
+  .tableScroll{overflow-x:auto;}
+  .rec{background:#fff;border-radius:10px;padding:14px 16px;margin:10px 0;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:5px solid var(--green);}
+  .rec h3{margin:0 0 4px;font-size:15px;} .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px;}
+  .rec p{margin:0;font-size:13.5px;line-height:1.5;}
+  .cl{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0;}
+  .cl h3{margin:0 0 8px;font-size:14px;}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.5;margin:8px 0 0;color:#334155;}
+  .trend{display:flex;align-items:flex-end;gap:24px;background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);height:180px;}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:0 0 70px;height:100%;}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;font-size:13px;padding-top:4px;}
+  .bar .lab{margin-top:8px;font-size:12px;color:var(--muted);text-align:center;}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px;}
+  .note{font-size:12px;color:var(--muted);background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;margin:10px 0;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding:0;">
+    <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-09-07</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner · Target 5.5–12 LPA</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card blue"><div class="n">14</div><div class="l">Jobs Evaluated</div></div>
+    <div class="card green"><div class="n">4</div><div class="l">Qualified</div></div>
+    <div class="card yellow"><div class="n">6</div><div class="l">Review</div></div>
+    <div class="card red"><div class="n">4</div><div class="l">Skipped</div></div>
+    <div class="card red"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card blue"><div class="n">86</div><div class="l">Avg Match (Qualified)</div></div>
+    <div class="card blue"><div class="n">~7 LPA</div><div class="l">Avg Salary Est</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 4 QUALIFIED JOBS</button>
+  <div class="note">Tip: your browser may ask to allow pop-ups the first time — click “Allow” so all four tabs open.</div>
+
+  <!-- QUALIFIED -->
+  <h2 class="green">✅ Qualified Jobs — ready to apply</h2>
+  <div class="tableScroll">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="badge b-green">88</span></td><td>92</td><td>NIIT</td>
+        <td>Software Engineer</td><td>Gurgaon</td><td>5.5–7 LPA</td><td>backend</td><td>LinkedIn</td>
+        <td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/software-engineer-at-niit-4461770107">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL('cl-niit')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="badge b-green">88</span></td><td>72</td><td>Fi Ellements</td>
+        <td>Node.js Developer</td><td>Noida</td><td>4–10 LPA</td><td>backend</td><td>Cutshort</td>
+        <td><a class="btn btn-open" target="_blank" href="https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL('cl-fi')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="badge b-green">84</span></td><td>95</td><td>Thales</td>
+        <td>Java Developer</td><td>Noida</td><td>7–10 LPA</td><td>backend</td><td>LinkedIn</td>
+        <td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/java-developer-at-thales-4424199035">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL('cl-thales')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>4</td><td><span class="badge b-green">84</span></td><td>62</td><td>Nians</td>
+        <td>MERN Stack Developer</td><td>Gurugram</td><td>5–8 LPA</td><td>fullstack</td><td>LinkedIn</td>
+        <td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/mern-stack-developer-at-nians-4457459810">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL('cl-nians')">Copy Cover Letter</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- REVIEW -->
+  <h2 class="yellow">🟡 Review Jobs — worth a look, some caveats</h2>
+  <div class="tableScroll">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="badge b-yellow">76</span></td><td>58</td><td>Sembridge</td><td>Full Stack Engineer</td><td>Noida</td><td>Strong React/Node fit + Easy Apply, but small unverified firm — confirm level & pay.</td><td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-sembridge-4457975115">Open</a></td></tr>
+      <tr><td>2</td><td><span class="badge b-yellow">74</span></td><td>62</td><td>NeoGenCode</td><td>Full Stack Engineer</td><td>Delhi/Ggn/Noida</td><td>Good Node/React/AWS/Redis fit, but ₹2–5 LPA is below the 5.5 LPA minimum — salary risk.</td><td><a class="btn btn-open" target="_blank" href="https://cutshort.io/job/Full-Stack-Engineer-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-NeoGenCode-Technologies-Pvt-Ltd-agBGj6rn">Open</a></td></tr>
+      <tr><td>3</td><td><span class="badge b-yellow">70</span></td><td>60</td><td>Aspect</td><td>Full Stack Engineer</td><td>Delhi</td><td>React/TS/Node/Postgres fit + Easy Apply, but Mid-Senior level — a stretch for 1.5 yrs.</td><td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-aspect-4459697579">Open</a></td></tr>
+      <tr><td>4</td><td><span class="badge b-yellow">62</span></td><td>68</td><td>ClixLogix</td><td>Associate Software Developer</td><td>Noida</td><td>MERN base overlaps, but role centers on Zoho/Deluge/PHP (off her stack); ~1 month old.</td><td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/associate-software-developer-at-clixlogix-4441131237">Open</a></td></tr>
+      <tr><td>5</td><td><span class="badge b-yellow">60</span></td><td>65</td><td>PrimaFelicitas</td><td>MEAN Stack Developer</td><td>Noida</td><td>Angular-centric (she is React), ₹2–5 LPA below target, in-office only.</td><td><a class="btn btn-open" target="_blank" href="https://cutshort.io/job/MEAN-Stack-Developer-Noida-PrimaFelicitas-mOdtFgzQ">Open</a></td></tr>
+      <tr><td>6</td><td><span class="badge b-yellow">52</span></td><td>50</td><td>DigitalXNode</td><td>Fresher – Software Engineer</td><td>Gurugram</td><td>Generic "fresher" role mass-posted across cities by same poster — verify legitimacy & pay.</td><td><a class="btn btn-open" target="_blank" href="https://in.linkedin.com/jobs/view/fresher-%238211-software-engineer-gurugram-at-digitalxnode-4432350778">Open</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- SKIPPED -->
+  <h2 class="red">🔴 Skipped Jobs</h2>
+  <div class="tableScroll">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Birlasoft</td><td>MERN Full Stack Developer</td><td><span class="badge b-gray">Experience</span> Requires 8–12 yrs, lead/architect role.</td></tr>
+      <tr><td>2</td><td>DDReg Pharma</td><td>Sr. SDE – Full Stack (MERN)</td><td><span class="badge b-gray">Experience</span> 4+ yrs, Senior SDE + mentoring; posting ~2 months old.</td></tr>
+      <tr><td>3</td><td>Softcrayons IT Education</td><td>Java Full Stack Developer</td><td><span class="badge b-gray">Low match</span> Training institute; reads as trainer/instructor intake, not product dev.</td></tr>
+      <tr><td>4</td><td>Primathon</td><td>Fullstack Developer</td><td><span class="badge b-gray">Excluded</span> Bhumi's current employer.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TOP 5 -->
+  <h2 class="green">⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h3>1. Software Engineer — NIIT (Gurgaon) · Match 88 / Trust 92</h3>
+    <div class="meta">Entry level · ~1 yr · Java/Python/JS + DSA</div>
+    <p>The single cleanest match today. The JD asks for exactly what Bhumi over-indexes on: strong programming fundamentals, data structures & algorithms, and clean, testable code. Her 5-Star Gold Java (250+ DSA problems) and daily Spring Boot backend work at Primathon make her a top-quartile applicant, and NIIT is a large, decades-old, high-trust employer. Apply first.</p>
+  </div>
+  <div class="rec">
+    <h3>2. Node.js Developer — Fi Ellements (Noida) · Match 88 / Trust 72</h3>
+    <div class="meta">1–2 yrs · Node.js, MongoDB, MySQL, AWS Lambda, Payment Gateway Integration</div>
+    <p>Almost a resume-to-JD mirror. The role's headline requirement — payment gateway integration on Node.js with microservices and REST — is literally Bhumi's flagship project (a distributed payment gateway with 30 REST APIs) plus her Paytm QR-transaction work. Salary (₹4–10 LPA) sits in range. One caveat: Glassdoor rates the firm 2.5/5, so weigh culture — but the skill fit is the strongest in the batch.</p>
+  </div>
+  <div class="rec">
+    <h3>3. Java Developer — Thales (Noida) · Match 84 / Trust 95</h3>
+    <div class="meta">~2 yrs · Java, Agile/Scrum, secure coding, CI</div>
+    <p>A global defense/aerospace MNC — the highest-trust name on the list. Core Java + Spring, Agile delivery, and CI all line up with her experience. The JD leans toward a Master's graduate (she holds a B.Tech with 9.3 CGPA), so it's a slight stretch on paper, but her production backend record and DSA strength make it well worth an application for the brand, pay, and stability.</p>
+  </div>
+  <div class="rec">
+    <h3>4. MERN Stack Developer — Nians (Gurugram) · Match 84 / Trust 62</h3>
+    <div class="meta">1–1.5 yrs (associate) · React/Node/MongoDB + AI/LLM integration</div>
+    <p>The experience band (1–1.5 yrs) fits Bhumi precisely, and the role uniquely blends full-stack MERN with LLM integration (OpenAI/Claude/Gemini) — matching both her stack and her GenAI research background. Smaller firm, so verify the company before applying, but a genuinely well-aligned associate-level opening.</p>
+  </div>
+  <div class="rec" style="border-left-color:var(--yellow);">
+    <h3>5. Full Stack Engineer — Sembridge (Noida) · Match 76 / Trust 58 · (Review)</h3>
+    <div class="meta">Associate · React/TypeScript + Node.js/Python · Easy Apply</div>
+    <p>A low-friction Easy Apply with a solid React + Node full-stack fit and AI/RAG exposure. It's in the review tier only because the company is small and unverified and the level/salary aren't stated — a quick 2-minute application worth sending while confirming details.</p>
+  </div>
+
+  <!-- WEEKLY TREND -->
+  <h2>📈 Weekly Trend — qualified per run</h2>
+  <div class="trend">
+    <div class="bar"><div class="fill" style="height:20%;">1</div><div class="lab">Aug 05</div></div>
+    <div class="bar"><div class="fill" style="height:80%;">4</div><div class="lab">Sep 07</div></div>
+  </div>
+  <div class="note">Only two dated runs exist so far (Aug 05 and today). The chart will fill in as more daily dashboards accumulate in <code>dashboards/</code>.</div>
+
+  <!-- COVER LETTERS -->
+  <h2 class="green">✉️ Cover Letters</h2>
+
+  <div class="cl">
+    <h3>NIIT — Software Engineer <button class="btn btn-copy" onclick="copyCL('cl-niit')">COPY</button></h3>
+    <pre id="cl-niit">Dear Hiring Manager,
+
+I am writing to express my strong interest in the Software Engineer role at NIIT in Gurgaon.
+
+Your emphasis on solid programming fundamentals, data structures, and clean, reusable code maps directly to my background: I hold a 5-Star Gold rating in Java on HackerRank with 250+ DSA problems solved, and I currently build and maintain scalable backend services in Java and Spring Boot at Primathon. I have shipped production REST APIs across seven merchant systems and reduced manual operational effort by 70% through automated backend workflows, so I am comfortable writing efficient code, participating in code reviews, and owning testing and deployment.
+
+As an immediate joiner with a 9.3 CGPA in Computer Science, I can contribute from day one and ramp quickly on NIIT's stack and best practices.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Fi Ellements — Node.js Developer <button class="btn btn-copy" onclick="copyCL('cl-fi')">COPY</button></h3>
+    <pre id="cl-fi">Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer position at Fi Ellements in Noida, particularly given its focus on payment gateway integration and microservices.
+
+This is exactly where my experience sits: I architected a production-ready distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, and I work daily with Node.js and Express alongside MongoDB and MySQL. I have also integrated AWS Lambda, S3, and Timestream into real-time backend pipelines and applied REST and design-pattern best practices with CI/CD at Primathon and Paytm, where I improved microservice reliability by 67%.
+
+As an immediate joiner who has already delivered payment and merchant systems end to end, I can add value to your team from week one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Thales — Java Developer <button class="btn btn-copy" onclick="copyCL('cl-thales')">COPY</button></h3>
+    <pre id="cl-thales">Dear Hiring Manager,
+
+I would like to apply for the Java Developer role at Thales in Noida.
+
+With 1.5+ years designing backend services in Java and Spring Boot, I bring hands-on experience building, compiling, and continuously integrating production code within Agile Scrum teams. At Primathon I engineered admin APIs and backend automation across seven merchant systems, and during my Paytm internship I developed and optimized microservices managing the QR-code transaction lifecycle. My work consistently applies secure coding and system-design principles, backed by a 5-Star Java rating and 250+ DSA problems solved.
+
+Thales's focus on secure, well-tested software in a defense-grade environment strongly appeals to me. As an immediate joiner and quick learner, I am ready to contribute to your engineering team right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Nians — MERN Stack Developer <button class="btn btn-copy" onclick="copyCL('cl-nians')">COPY</button></h3>
+    <pre id="cl-nians">Dear Hiring Manager,
+
+I am keen to apply for the MERN Stack Developer role at Nians in Gurugram, especially its blend of full-stack development and AI/LLM integration.
+
+I work across the MERN stack in production, building React front-ends against Node.js and Express services with MongoDB, and I deploy on AWS using EC2, S3, and Lambda with Git and CI/CD workflows. On the AI side, I integrated AI-driven daily alerts into my distributed payment gateway project to surface transaction insights automatically, and my research paper on Generative AI in personalized systems reflects genuine depth with LLM concepts and APIs like OpenAI and Claude.
+
+With 1.5 years of experience that fits your associate level precisely, and as an immediate joiner, I can start contributing to your web applications and AI features quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <footer>
+    Generated 2026-09-07 · Sources: LinkedIn &amp; Cutshort live listings scanned via web search.<br>
+    Salary figures without "(listed)" are estimates. Verify smaller/unrated companies before applying. All jobs de-duplicated against applications_log.json.
+  </footer>
+</div>
+
+<script>
+  var urls = [
+    "https://in.linkedin.com/jobs/view/software-engineer-at-niit-4461770107",
+    "https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso",
+    "https://in.linkedin.com/jobs/view/java-developer-at-thales-4424199035",
+    "https://in.linkedin.com/jobs/view/mern-stack-developer-at-nians-4457459810"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el.innerText || el.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallback(text); });
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); flash(); }catch(e){} document.body.removeChild(ta);
+  }
+  function flash(){
+    var d=document.createElement("div");
+    d.textContent="✓ Cover letter copied";
+    d.style.cssText="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#22c55e;color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.2);";
+    document.body.appendChild(d); setTimeout(function(){ d.remove(); },1600);
+  }
+</script>
+</body>
+</html>
