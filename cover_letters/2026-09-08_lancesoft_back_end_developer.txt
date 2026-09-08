@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Back End Developer role at LanceSoft, where the stack maps almost exactly to how I work every day.
+
+At Primathon I build and maintain Spring Boot microservices and custom admin APIs across seven merchant systems, and my Distributed Payment Gateway project ships 30 REST APIs across four Java/Spring services. I am equally comfortable across your data layer — MySQL and MongoDB in production, plus SQL query work certified through Harvard CS50 — and I follow Agile delivery with JUnit/Mockito test coverage.
+
+As an immediate joiner (0-day notice) with a 5-star Java rating on HackerRank and 250+ DSA problems solved, I can contribute to your microservices from week one while ramping quickly on your domain.
+
+Best regards,
+Bhumi Bhatt

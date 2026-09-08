@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Backend Java Developer role in Delhi/Noida — Java, Spring Boot and microservices are the core of my day-to-day work.
+
+At Primathon I engineer Spring Boot admin APIs and backend automation across seven merchant systems, and my certified Distributed Payment Gateway delivers 30 REST APIs across four microservices with system-design principles for scalability and fault tolerance. In finance-adjacent work at Paytm, I optimized QR-lifecycle microservices, improving service reliability by 67%. I pair this with MySQL, Redis and Kafka experience.
+
+Though early in my career, I bring a 5-star Java rating (250+ DSA problems) and 0-day notice. I would welcome the chance to grow into this backend role and contribute immediately.
+
+Best regards,
+Bhumi Bhatt

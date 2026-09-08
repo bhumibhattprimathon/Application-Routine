@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the remote MERN Stack Developer position at WebAppMate, and the fully-remote setup suits my immediate availability well.
+
+My core stack is React.js, Node.js, Express.js and MongoDB, which I use to build and integrate REST APIs end to end. At Primathon I deliver backend automation and admin APIs across seven merchant systems, and at CodeAlpha I built order and payment microservices with REST APIs, containerized in Docker for production deployment. I test rigorously with Postman, JUnit and Playwright.
+
+With a 9.3 CGPA, a 5-star Java rating, and 0-day notice, I am a quick learner ready to contribute to your web applications from day one.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Full Stack (MERN) Developer and help scale a platform that guides students at India-wide reach.
+
+My full-stack foundation is built on JavaScript (ES6+), React.js, Node.js and Express.js, backed by MongoDB — the exact MERN core this role centers on. Alongside the frontend, I bring genuine backend depth: at Paytm I optimized QR-lifecycle microservices for real-time notifications, and at Primathon I automate backend workflows that cut manual effort by 70%. I design REST APIs end to end and test with JUnit, Mockito and Postman.
+
+With 1.5+ years of shipping production services, a 9.3 CGPA in Computer Science, and 0-day notice, I am ready to contribute immediately and grow fast on your team.
+
+Best regards,
+Bhumi Bhatt

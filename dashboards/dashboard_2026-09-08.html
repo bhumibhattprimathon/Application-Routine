@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-09-08</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f1f5f9;color:#0f172a}
+header{background:#0f172a;color:#fff;padding:28px 24px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header p{margin:0;color:#94a3b8;font-size:14px}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 16px 60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #64748b}
+.card .n{font-size:28px;font-weight:700}
+.card .l{font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:.5px}
+.card.g{border-color:#22c55e} .card.r{border-color:#ef4444} .card.y{border-color:#eab308} .card.b{border-color:#3b82f6}
+.openall{display:block;width:100%;background:#22c55e;color:#fff;border:none;border-radius:12px;padding:20px;font-size:19px;font-weight:700;cursor:pointer;margin:8px 0 24px;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+.openall:hover{background:#16a34a}
+h2{margin:30px 0 12px;font-size:18px;padding-left:10px;border-left:5px solid #94a3b8}
+h2.g{border-color:#22c55e} h2.y{border-color:#eab308} h2.r{border-color:#ef4444}
+.tblwrap{overflow-x:auto;background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:640px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #eef2f7;vertical-align:top}
+th{background:#f8fafc;color:#475569;font-size:11px;text-transform:uppercase;letter-spacing:.4px;position:sticky;top:0}
+.score{font-weight:700;color:#16a34a}
+.tag{background:#e0e7ff;color:#3730a3;border-radius:6px;padding:2px 8px;font-size:11px}
+.openbtn{background:#0f172a;color:#fff;text-decoration:none;padding:6px 12px;border-radius:7px;font-size:12px;white-space:nowrap}
+.openbtn:hover{background:#334155}
+.copybtn{background:#3b82f6;color:#fff;border:none;padding:6px 10px;border-radius:7px;font-size:12px;cursor:pointer}
+.copybtn:hover{background:#2563eb}
+.hid{display:none}
+.reason{color:#475569;max-width:520px}
+.muted{color:#94a3b8}
+.rec{background:#fff;border-radius:12px;padding:14px 18px;margin:10px 0;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #22c55e}
+.rec h4{margin:0 0 6px;font-size:15px}
+.rec p{margin:0;color:#334155;font-size:14px;line-height:1.5}
+.pill{background:#22c55e;color:#fff;border-radius:20px;padding:2px 10px;font-size:12px;margin-left:6px}
+.chart{display:flex;gap:14px;align-items:flex-end;background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);height:230px}
+.barcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1}
+.bar{width:70%;max-width:56px;background:linear-gradient(#22c55e,#16a34a);border-radius:6px 6px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;font-size:12px;padding-top:4px}
+.barlbl{margin-top:8px;font-size:11px;color:#64748b}
+.clbox{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.clhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;font-size:14px}
+.cltext{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#1e293b;background:#f8fafc;border-radius:8px;padding:12px;margin:0;line-height:1.5}
+.note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px 14px;font-size:13px;margin:14px 0}
+footer{color:#94a3b8;font-size:12px;text-align:center;padding:20px}
+@media(max-width:640px){header h1{font-size:18px} .card .n{font-size:22px}}
+</style></head>
+<body>
+<header>
+<h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-08</h1>
+<p>Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR, Gurugram, Noida, Remote · Immediate joiner (0-day notice)</p>
+</header>
+<div class="wrap">
+<div class="cards">
+<div class="card b"><div class="n">30</div><div class="l">Jobs Found</div></div>
+<div class="card g"><div class="n">6</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">7</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">17</div><div class="l">Skipped</div></div>
+<div class="card r"><div class="n">1</div><div class="l">Fraud Blocked</div></div>
+<div class="card b"><div class="n">81.7</div><div class="l">Avg Match Score</div></div>
+<div class="card g"><div class="n">10.9</div><div class="l">Avg Salary Est (LPA)</div></div>
+</div>
+
+<button class="openall" onclick="openAll()">OPEN ALL 6 QUALIFIED JOBS ↗</button>
+
+<h2 class="g">✅ Qualified Jobs — ready to apply</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Job</th><th>Cover Letter</th></tr></thead>
+<tbody><tr>
+<td>1</td><td class="score">90</td><td>75</td>
+<td>LanceSoft</td><td>Back End Developer</td><td>Remote (India)</td>
+<td>6-8 LPA (est)</td><td><span class="tag">backend</span></td>
+<td>External (Internshala)</td>
+<td><a class="openbtn" href="https://internshala.com/job/detail/fresher-remote-back-end-developer-job-at-lancesoft-middle-east1788741083" target="_blank" rel="noopener">Open Job</a></td>
+<td><button class="copybtn" onclick="copyRow(this)">Copy CL</button><div class="hid">Dear Hiring Manager,
+
+I am excited to apply for the Back End Developer role at LanceSoft, where the stack maps almost exactly to how I work every day.
+
+At Primathon I build and maintain Spring Boot microservices and custom admin APIs across seven merchant systems, and my Distributed Payment Gateway project ships 30 REST APIs across four Java/Spring services. I am equally comfortable across your data layer — MySQL and MongoDB in production, plus SQL query work certified through Harvard CS50 — and I follow Agile delivery with JUnit/Mockito test coverage.
+
+As an immediate joiner (0-day notice) with a 5-star Java rating on HackerRank and 250+ DSA problems solved, I can contribute to your microservices from week one while ramping quickly on your domain.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+<td>2</td><td class="score">85</td><td>70</td>
+<td>iDreamCareer</td><td>Fullstack Developer - MERN Stack</td><td>Delhi/Gurugram/Noida</td>
+<td>7-15 LPA</td><td><span class="tag">fullstack</span></td>
+<td>External (Cutshort)</td>
+<td><a class="openbtn" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open Job</a></td>
+<td><button class="copybtn" onclick="copyRow(this)">Copy CL</button><div class="hid">Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Full Stack (MERN) Developer and help scale a platform that guides students at India-wide reach.
+
+My full-stack foundation is built on JavaScript (ES6+), React.js, Node.js and Express.js, backed by MongoDB — the exact MERN core this role centers on. Alongside the frontend, I bring genuine backend depth: at Paytm I optimized QR-lifecycle microservices for real-time notifications, and at Primathon I automate backend workflows that cut manual effort by 70%. I design REST APIs end to end and test with JUnit, Mockito and Postman.
+
+With 1.5+ years of shipping production services, a 9.3 CGPA in Computer Science, and 0-day notice, I am ready to contribute immediately and grow fast on your team.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+<td>3</td><td class="score">85</td><td>78</td>
+<td>Basic Home Loan</td><td>MERN Stack Developer</td><td>Delhi NCR</td>
+<td>13-17 LPA</td><td><span class="tag">fullstack</span></td>
+<td>External (Cutshort)</td>
+<td><a class="openbtn" href="https://cutshort.io/job/MERN-Stack-Developer-NCR-Delhi-Gurgaon-Noida-Basic-Home-Loan-6nurfKf5" target="_blank" rel="noopener">Open Job</a></td>
+<td><button class="copybtn" onclick="copyRow(this)">Copy CL</button><div class="hid">Dear Hiring Manager,
+
+I am keen to apply for the MERN Stack Developer role at Basic Home Loan — building fintech products is exactly where my payments background fits.
+
+I work daily in Node.js, Express.js, React.js and MongoDB, and I have shipped distributed payment infrastructure: a gateway of 30 REST APIs across Order, Payment, Merchant and Vault services, plus QR-code transaction microservices at Paytm that powered real-time notifications. I understand the reliability and data-integrity demands of financial systems, and I round out the stack with Redis, Kafka and AWS (EC2, S3, Lambda).
+
+As an immediate joiner with a 5-star Java rating and a strong system-design foundation, I can add value to your engineering team from day one.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+<td>4</td><td class="score">81</td><td>60</td>
+<td>ProtectPay</td><td>Fullstack Developer - MEAN/MERN Stack</td><td>Delhi NCR</td>
+<td>7-10 LPA</td><td><span class="tag">fullstack</span></td>
+<td>External (Cutshort)</td>
+<td><a class="openbtn" href="https://cutshort.io/job/Fullstack-Developer-MEAN-MERN-Stack-NCR-Delhi-Gurgaon-Noida-ProtectPay-2fTXJI14" target="_blank" rel="noopener">Open Job</a></td>
+<td><button class="copybtn" onclick="copyRow(this)">Copy CL</button><div class="hid">Dear Hiring Manager,
+
+I am excited to apply for the Full Stack (MEAN/MERN) Developer role at ProtectPay, where secure payment engineering aligns closely with my experience.
+
+I build across the JavaScript stack — Node.js, Express.js and React.js on top of MongoDB and SQL — and I have shipped real payment systems: a distributed gateway of 30 REST APIs and QR-code transaction microservices at Paytm handling real-time notifications. I care about performance and reliability, having improved backend response times through optimized REST endpoints and automated CI/CD pipelines with Docker and Git Actions.
+
+As an immediate joiner with 1.5+ years of production experience and a strong DSA/system-design foundation, I can start contributing to your full-stack team right away.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+<td>5</td><td class="score">76</td><td>60</td>
+<td>WebAppMate (Fly on IT)</td><td>MERN Stack Developer (Permanent WFH)</td><td>Remote</td>
+<td>5-8 LPA</td><td><span class="tag">fullstack</span></td>
+<td>External (Cutshort)</td>
+<td><a class="openbtn" href="https://cutshort.io/job/MERN-Stack-Developer-Permanent-WFH-NCR-Delhi-Gurgaon-Noida-WebAppMate-Fly-on-IT-India-Pvt-Ltd-lOTTmtyb" target="_blank" rel="noopener">Open Job</a></td>
+<td><button class="copybtn" onclick="copyRow(this)">Copy CL</button><div class="hid">Dear Hiring Manager,
+
+I am applying for the remote MERN Stack Developer position at WebAppMate, and the fully-remote setup suits my immediate availability well.
+
+My core stack is React.js, Node.js, Express.js and MongoDB, which I use to build and integrate REST APIs end to end. At Primathon I deliver backend automation and admin APIs across seven merchant systems, and at CodeAlpha I built order and payment microservices with REST APIs, containerized in Docker for production deployment. I test rigorously with Postman, JUnit and Playwright.
+
+With a 9.3 CGPA, a 5-star Java rating, and 0-day notice, I am a quick learner ready to contribute to your web applications from day one.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+<td>6</td><td class="score">73</td><td>90</td>
+<td>TestMu AI (LambdaTest)</td><td>Backend Developer</td><td>Noida</td>
+<td>10-25 LPA</td><td><span class="tag">backend</span></td>
+<td>External (Cutshort)</td>
+<td><a class="openbtn" href="https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41" target="_blank" rel="noopener">Open Job</a></td>
+<td><span class="muted">—</span></td></tr></tbody></table></div>
+
+<h2 class="y">🟡 Review — worth a look / stretch</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Link</th><th>Why review</th></tr></thead>
+<tbody><tr><td>1</td><td>83</td><td>62</td>
+<td>NAM Info (finance client)</td><td>Backend Java Developer</td><td><a href="https://cutshort.io/job/Backend-Java-Developer-Delhi-Noida-NAM-Info-Pvt-Ltd-th7NU7Rp" target="_blank" rel="noopener">open</a></td>
+<td class="reason">Perfect Java/Spring Boot/Microservices/REST fit, but asks 3-6 yrs (she has 1.5). Strong stretch - cover letter ready.</td></tr><tr><td>2</td><td>80</td><td>55</td>
+<td>Influence</td><td>MERN Stack Developer</td><td><a href="https://cutshort.io/job/MERN-Stack-Developer-NCR-Delhi-Gurgaon-Noida-Influence-8QWCll9s" target="_blank" rel="noopener">open</a></td>
+<td class="reason">Strong Node/React/MongoDB/REST fit (2-4 yrs), but company generic/lightly verified - confirm legitimacy.</td></tr><tr><td>3</td><td>73</td><td>70</td>
+<td>Genetico Research &amp; Diagnostics</td><td>Software Developer</td><td><a href="https://cutshort.io/job/Software-Developer-Noida-Genetico-Research-and-Diagnostics-Pvt-Ltd-4lZTno2O" target="_blank" rel="noopener">open</a></td>
+<td class="reason">Java/Spring Boot/Hibernate fit and good pay, but requires 3-5 yrs.</td></tr><tr><td>4</td><td>73</td><td>68</td>
+<td>Deqode</td><td>Java Developer</td><td><a href="https://cutshort.io/job/Java-Developer-Bengaluru-Bangalore-Mumbai-Pune-Hyderabad-Gurugram-Noida-Deqode-b3GH9xmQ" target="_blank" rel="noopener">open</a></td>
+<td class="reason">Real dev firm, Java/Microservices fit, but 3-5 yrs + Kotlin emphasis.</td></tr><tr><td>5</td><td>70</td><td>55</td>
+<td>AdSynergiX</td><td>Senior Full-Stack (Backend-Leaning)</td><td><a href="https://internshala.com/job/detail/fresher-senior-full-stack-backend-leaning-job-in-haryana-at-adsynergix1788507439" target="_blank" rel="noopener">open</a></td>
+<td class="reason">Excellent Java/Spring/Node/Redis/AWS stack match, but titled &#x27;Senior&#x27; on a fresher board - verify real level before applying.</td></tr><tr><td>6</td><td>62</td><td>65</td>
+<td>Livekeeping Technologies</td><td>Golang Developer</td><td><a href="https://cutshort.io/job/Golang-Developer-Noida-Sector-135-Livekeeping-Technologies-gBlnYqRE" target="_blank" rel="noopener">open</a></td>
+<td class="reason">REST/Microservices overlap and decent pay, but Golang-primary (off her Java/JS core).</td></tr><tr><td>7</td><td>58</td><td>60</td>
+<td>Sustainable Capital Research Foundation</td><td>Web Developer</td><td><a href="https://internshala.com/job/detail/fresher-web-developer-job-in-noida-at-sustainable-capital-research-foundation1788654659" target="_blank" rel="noopener">open</a></td>
+<td class="reason">Fresher-friendly backend web/Git role, but thin JD and non-profit - partial fit, confirm scope/pay.</td></tr></tbody></table></div>
+
+<h2 class="r">🔴 Skipped</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr><td>1</td><td>Zentrix nexus</td><td>Java Developer</td><td class="reason">FRAUD RISK: identical posting spammed across 10+ cities, generic company name, &#x27;freshers via probation training then full-time&#x27; pattern - classic training-scheme flag. Trust 38.</td></tr><tr><td>2</td><td>Lalitech</td><td>Full Stack Engineer</td><td class="reason">Salary: 3.5-4.5 LPA - below 5 LPA floor (below her current 4 LPA). Great JS/React/Node fit otherwise.</td></tr><tr><td>3</td><td>Botern</td><td>Backend Engineer (Node.js)</td><td class="reason">Salary/type: part-time, 30-40k/month. Node/PostgreSQL/Docker fit but part-time and sub-5 LPA.</td></tr><tr><td>4</td><td>Healthligence</td><td>Full Stack Developer</td><td class="reason">Salary: 2-3.5 LPA - well below floor.</td></tr><tr><td>5</td><td>Sun Sea International</td><td>AI-Assisted Full-Stack Developer</td><td class="reason">Salary: 2-3 LPA - below floor.</td></tr><tr><td>6</td><td>Infoskaters Technologies</td><td>Full Stack Developer (FSD)</td><td class="reason">Salary/type: 3.6 LPA part-time - below floor.</td></tr><tr><td>7</td><td>Kantag Solutions</td><td>Web Developer</td><td class="reason">Skill: PHP/.NET-centric, off her Java/JS stack; also sub-range pay.</td></tr><tr><td>8</td><td>TestMu AI (LambdaTest)</td><td>Platform Engineer</td><td class="reason">Skill: DevOps/observability/cloud-infra role, not application development.</td></tr><tr><td>9</td><td>Timble Technologies</td><td>DevOps Engineer</td><td class="reason">Skill: Ansible/Terraform/Jenkins DevOps focus, off core; sub-range pay.</td></tr><tr><td>10</td><td>Hunarstreet Technologies</td><td>Microsoft .NET Full Stack Developer</td><td class="reason">Skill: .NET/C#/ASP.NET stack - resume is Java/JS, no .NET.</td></tr><tr><td>11</td><td>Transact Bridge</td><td>Sr. Node.js Developer</td><td class="reason">Experience: Senior, 4-7 yrs.</td></tr><tr><td>12</td><td>J&amp;F</td><td>Senior Backend Engineer (Product)</td><td class="reason">Experience: Senior, 4-10 yrs.</td></tr><tr><td>13</td><td>Staffnix (FinTech client)</td><td>Senior Backend Developer (Python, GenAI)</td><td class="reason">Experience/skill: Senior 3-6 yrs, Python/Django/GenAI - off stack and level.</td></tr><tr><td>14</td><td>Sentiaflow</td><td>Agent Application Engineer (Agentic AI)</td><td class="reason">Experience/skill: 3-8 yrs, Python/LangGraph/RAG - off stack and level.</td></tr><tr><td>15</td><td>Wissen Technology</td><td>Senior Java Developer</td><td class="reason">Experience: Senior, 6-10 yrs (derivatives domain).</td></tr><tr><td>16</td><td>NeoGenCode Technologies</td><td>Senior Java Developer</td><td class="reason">Experience: Senior, 5-12 yrs.</td></tr><tr><td>17</td><td>Bharat Headhunters (Wipro)</td><td>C++ Developer with Kubernetes</td><td class="reason">Experience/skill: 4-9 yrs, C++/Kubernetes systems - off stack and level.</td></tr></tbody></table></div>
+
+<h2 class="g">⭐ Top 5 Recommendations</h2>
+<div class="rec"><h4>LanceSoft — Back End Developer <span class="pill">90</span></h4><p>Best-aligned role today. A backend Java + Spring Boot + Microservices position with MySQL/MongoDB and Agile — a near-exact mirror of Bhumi&#x27;s Primathon and payment-gateway work, and it&#x27;s fresher/entry level with a remote setup that suits her 0-day notice.</p></div><div class="rec"><h4>iDreamCareer — Fullstack Developer - MERN Stack <span class="pill">85</span></h4><p>Real, funded ed-tech with a genuine 1-8 yr range that welcomes her level. Full MERN stack fit (React/Node/Express/MongoDB) plus solid pay (7-15 LPA) in Delhi/Gurugram/Noida — one of the cleanest &#x27;apply now&#x27; matches.</p></div><div class="rec"><h4>Basic Home Loan — MERN Stack Developer <span class="pill">85</span></h4><p>Funded fintech, and the 1-4 yr band squarely includes her 1.5 yrs. MERN + Node stack matches her JS/React/Node/MongoDB skills, and her Paytm QR-payments and distributed-gateway background is directly relevant to a lending product. Salary (13-17 LPA) is at the top of her target.</p></div><div class="rec"><h4>ProtectPay — Fullstack Developer - MEAN/MERN Stack <span class="pill">81</span></h4><p>Payments-domain full-stack (MEAN/MERN) role — her QR-payments and gateway experience is a strong story here. 7-10 LPA in NCR; 2-6 yr band is a mild stretch from 1.5 but very reachable.</p></div><div class="rec"><h4>WebAppMate (Fly on IT) — MERN Stack Developer (Permanent WFH) <span class="pill">76</span></h4><p>Permanent work-from-home MERN role at 5-8 LPA. Clean React/Node fit and remote-first, ideal for an immediate joiner; the only caveat is a 2-5 yr ask she sits just under.</p></div>
+
+<h2 class="b">📈 Weekly Trend — qualified jobs per run</h2>
+<div class="chart"><div class="barcol"><div class="bar" style="height:46px" title="1 qualified"><span>1</span></div><div class="barlbl">08-05</div></div><div class="barcol"><div class="bar" style="height:180px" title="6 qualified"><span>6</span></div><div class="barlbl">09-08 (today)</div></div></div>
+
+<h2 class="b">✉️ Cover Letters (ready to copy)</h2>
+<div class="note">6 personalized cover letters generated. Each is tailored to the specific company and role — copy, paste, and apply.</div>
+<div class="clbox"><div class="clhead"><strong>LanceSoft</strong> — Back End Developer <button class="copybtn" onclick="copyText('cl0')">COPY</button></div><pre id="cl0" class="cltext">Dear Hiring Manager,
+
+I am excited to apply for the Back End Developer role at LanceSoft, where the stack maps almost exactly to how I work every day.
+
+At Primathon I build and maintain Spring Boot microservices and custom admin APIs across seven merchant systems, and my Distributed Payment Gateway project ships 30 REST APIs across four Java/Spring services. I am equally comfortable across your data layer — MySQL and MongoDB in production, plus SQL query work certified through Harvard CS50 — and I follow Agile delivery with JUnit/Mockito test coverage.
+
+As an immediate joiner (0-day notice) with a 5-star Java rating on HackerRank and 250+ DSA problems solved, I can contribute to your microservices from week one while ramping quickly on your domain.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>iDreamCareer</strong> — Fullstack Developer - MERN Stack <button class="copybtn" onclick="copyText('cl1')">COPY</button></div><pre id="cl1" class="cltext">Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Full Stack (MERN) Developer and help scale a platform that guides students at India-wide reach.
+
+My full-stack foundation is built on JavaScript (ES6+), React.js, Node.js and Express.js, backed by MongoDB — the exact MERN core this role centers on. Alongside the frontend, I bring genuine backend depth: at Paytm I optimized QR-lifecycle microservices for real-time notifications, and at Primathon I automate backend workflows that cut manual effort by 70%. I design REST APIs end to end and test with JUnit, Mockito and Postman.
+
+With 1.5+ years of shipping production services, a 9.3 CGPA in Computer Science, and 0-day notice, I am ready to contribute immediately and grow fast on your team.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>Basic Home Loan</strong> — MERN Stack Developer <button class="copybtn" onclick="copyText('cl2')">COPY</button></div><pre id="cl2" class="cltext">Dear Hiring Manager,
+
+I am keen to apply for the MERN Stack Developer role at Basic Home Loan — building fintech products is exactly where my payments background fits.
+
+I work daily in Node.js, Express.js, React.js and MongoDB, and I have shipped distributed payment infrastructure: a gateway of 30 REST APIs across Order, Payment, Merchant and Vault services, plus QR-code transaction microservices at Paytm that powered real-time notifications. I understand the reliability and data-integrity demands of financial systems, and I round out the stack with Redis, Kafka and AWS (EC2, S3, Lambda).
+
+As an immediate joiner with a 5-star Java rating and a strong system-design foundation, I can add value to your engineering team from day one.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>ProtectPay</strong> — Fullstack Developer - MEAN/MERN Stack <button class="copybtn" onclick="copyText('cl3')">COPY</button></div><pre id="cl3" class="cltext">Dear Hiring Manager,
+
+I am excited to apply for the Full Stack (MEAN/MERN) Developer role at ProtectPay, where secure payment engineering aligns closely with my experience.
+
+I build across the JavaScript stack — Node.js, Express.js and React.js on top of MongoDB and SQL — and I have shipped real payment systems: a distributed gateway of 30 REST APIs and QR-code transaction microservices at Paytm handling real-time notifications. I care about performance and reliability, having improved backend response times through optimized REST endpoints and automated CI/CD pipelines with Docker and Git Actions.
+
+As an immediate joiner with 1.5+ years of production experience and a strong DSA/system-design foundation, I can start contributing to your full-stack team right away.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>WebAppMate (Fly on IT)</strong> — MERN Stack Developer (Permanent WFH) <button class="copybtn" onclick="copyText('cl4')">COPY</button></div><pre id="cl4" class="cltext">Dear Hiring Manager,
+
+I am applying for the remote MERN Stack Developer position at WebAppMate, and the fully-remote setup suits my immediate availability well.
+
+My core stack is React.js, Node.js, Express.js and MongoDB, which I use to build and integrate REST APIs end to end. At Primathon I deliver backend automation and admin APIs across seven merchant systems, and at CodeAlpha I built order and payment microservices with REST APIs, containerized in Docker for production deployment. I test rigorously with Postman, JUnit and Playwright.
+
+With a 9.3 CGPA, a 5-star Java rating, and 0-day notice, I am a quick learner ready to contribute to your web applications from day one.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>NAM Info (finance client)</strong> — Backend Java Developer <button class="copybtn" onclick="copyText('cl5')">COPY</button></div><pre id="cl5" class="cltext">Dear Hiring Manager,
+
+I am writing to apply for the Backend Java Developer role in Delhi/Noida — Java, Spring Boot and microservices are the core of my day-to-day work.
+
+At Primathon I engineer Spring Boot admin APIs and backend automation across seven merchant systems, and my certified Distributed Payment Gateway delivers 30 REST APIs across four microservices with system-design principles for scalability and fault tolerance. In finance-adjacent work at Paytm, I optimized QR-lifecycle microservices, improving service reliability by 67%. I pair this with MySQL, Redis and Kafka experience.
+
+Though early in my career, I bring a 5-star Java rating (250+ DSA problems) and 0-day notice. I would welcome the chance to grow into this backend role and contribute immediately.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+
+</div>
+<footer>Generated 2026-09-08 · Data: live Cutshort &amp; Internshala listings · Not financial/employment advice — verify each posting before applying.</footer>
+<script>
+var urls=["https://internshala.com/job/detail/fresher-remote-back-end-developer-job-at-lancesoft-middle-east1788741083","https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq","https://cutshort.io/job/MERN-Stack-Developer-NCR-Delhi-Gurgaon-Noida-Basic-Home-Loan-6nurfKf5","https://cutshort.io/job/Fullstack-Developer-MEAN-MERN-Stack-NCR-Delhi-Gurgaon-Noida-ProtectPay-2fTXJI14","https://cutshort.io/job/MERN-Stack-Developer-Permanent-WFH-NCR-Delhi-Gurgaon-Noida-WebAppMate-Fly-on-IT-India-Pvt-Ltd-lOTTmtyb","https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41"];
+function openAll(){ if(!urls.length){alert('No qualified jobs today.');return;} urls.forEach(function(u){window.open(u,'_blank');}); }
+function copyText(id){ var el=document.getElementById(id); var t=el.innerText||el.textContent; navigator.clipboard.writeText(t).then(function(){flash();},function(){fallback(t);}); }
+function copyRow(btn){ var t=btn.parentNode.querySelector('.hid').innerText; navigator.clipboard.writeText(t).then(function(){flash();},function(){fallback(t);}); }
+function flash(){ var d=document.createElement('div'); d.textContent='Copied ✓'; d.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:8px;z-index:9999;font-size:14px'; document.body.appendChild(d); setTimeout(function(){d.remove();},1400); }
+function fallback(t){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');flash();}catch(e){alert('Copy failed');} ta.remove(); }
+</script>
+</body></html>

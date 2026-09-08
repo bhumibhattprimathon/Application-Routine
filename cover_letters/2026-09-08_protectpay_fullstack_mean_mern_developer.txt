@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Full Stack (MEAN/MERN) Developer role at ProtectPay, where secure payment engineering aligns closely with my experience.
+
+I build across the JavaScript stack — Node.js, Express.js and React.js on top of MongoDB and SQL — and I have shipped real payment systems: a distributed gateway of 30 REST APIs and QR-code transaction microservices at Paytm handling real-time notifications. I care about performance and reliability, having improved backend response times through optimized REST endpoints and automated CI/CD pipelines with Docker and Git Actions.
+
+As an immediate joiner with 1.5+ years of production experience and a strong DSA/system-design foundation, I can start contributing to your full-stack team right away.
+
+Best regards,
+Bhumi Bhatt
