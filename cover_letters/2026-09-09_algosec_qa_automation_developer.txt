@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the QA Automation Developer role at AlgoSec, where test automation directly safeguards a security platform relied on by 2,300+ enterprises.
+
+Quality engineering runs through my experience. I've built automated test coverage with JUnit and Mockito, driven UI and end-to-end automation with Selenium and Playwright, and validated REST APIs with Postman across microservice projects. At CodeAlpha I optimized 30+ REST API endpoints and automated build pipelines with Git Actions, improving delivery consistency — the kind of automation discipline your QA team depends on. My Java foundation is strong (HackerRank 5-Star, 250+ DSA problems), so I can both write robust automation frameworks and reason about the systems under test.
+
+I understand this role expects a few years of experience; I bring 1.5+ years of production engineering with a genuine automation and testing focus, and I learn tooling quickly.
+
+As an immediate joiner with a 0-day notice period, I can begin contributing to your automation suite right away.
+
+Best regards,
+Bhumi Bhatt

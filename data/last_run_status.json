@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-09",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "JSearch API (RapidAPI) /search-v2, date_posted=today, country=in; 20 queries across backend/fullstack/SDE/AI-ML/platform",
+  "resume_source": "repo resumes/resume_master.pdf",
+  "notification": "ntfy attempted; primary report via routine push/email channel",
+  "jobs_found": 111,
+  "jobs_qualified": 3,
+  "jobs_review": 15,
+  "jobs_skipped": 93,
+  "fraud_detected": 0,
+  "cover_letters_generated": 6,
+  "avg_match_qualified": 85.7,
+  "top_pick": "People Prime Worldwide — JAVA FULLSTACK (Reactjs",
+  "notes": "20-query JSearch scan; 3 clean entry-level matches (2x AiSensy SDE, People Prime Java Fullstack). Location filter removed 25 non-NCR; robust experience parsing moved NatWest/United/AlgoSec to skip/review after full-JD reads. All discovered postings <=2 days old."
 }

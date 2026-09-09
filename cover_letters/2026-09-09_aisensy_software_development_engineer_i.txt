@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I role at AiSensy, where backend systems move 800+ crore WhatsApp messages a year for brands like Adani and PhysicsWallah.
+
+At Paytm I built and optimized Node.js microservices managing the QR-code lifecycle for multiple merchants, powering real-time transaction notifications at scale — directly relevant to your high-throughput messaging platform. I work daily in JavaScript (ES6+), Express.js, and REST APIs, and have shipped MongoDB- and MySQL-backed services, so I can contribute to AiSensy's fullstack stack from day one. My HackerRank 5-Star Java rating and 250+ solved DSA problems reflect the fundamentals your SDE I bar expects.
+
+As an immediate joiner with a 0-day notice period, I can start contributing right away, and I learn new systems fast — I picked up AWS Timestream, S3, and Lambda pipelines within weeks at Primathon.
+
+I'd welcome the chance to help AiSensy scale its engagement platform.
+
+Best regards,
+Bhumi Bhatt

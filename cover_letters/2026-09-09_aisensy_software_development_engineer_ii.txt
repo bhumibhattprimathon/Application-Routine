@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Software Development Engineer II position at AiSensy, a growth-stage platform where reliability under heavy message volume is everything.
+
+My background is a close fit for building resilient, high-scale services. I architected a distributed payment gateway with 30 REST APIs across four microservices (Order, Payment, Merchant, Vault), applying system-design principles for fault tolerance — the same thinking a platform handling 800+ crore messages demands. I use Kafka and Redis for event-driven, low-latency processing, Spring Boot and Node.js/Express for service layers, and MySQL and MongoDB for storage. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion.
+
+I recognize this role leans senior; I bring 1.5+ years of production microservice experience plus a strong system-design and DSA foundation (5-Star Java, 250+ problems), and I ramp quickly.
+
+With a 0-day notice period, I'm available to join immediately and contribute to AiSensy's engineering roadmap.
+
+Best regards,
+Bhumi Bhatt

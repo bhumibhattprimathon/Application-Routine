@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm applying for the Java Fullstack (ReactJS) position at People Prime Worldwide, and the required stack maps almost one-to-one onto my daily work.
+
+Your role asks for Java 8+, Spring Boot, JUnit, ReactJS, JavaScript, Kafka, RESTful APIs, microservice architecture, and MySQL — all technologies I've shipped in production. I've built Spring Boot microservices exposing REST APIs, used Kafka for event streaming and JUnit/Mockito for test coverage, developed React.js front-ends, and modelled data in MySQL. My distributed payment gateway project (30 REST APIs across four services) demonstrates the Object-Oriented, microservice-based design your team values, and I've worked in Agile/SCRUM teams at Primathon and Paytm.
+
+As an immediate joiner available on a 0-day notice, I can slot into your project delivery timeline without delay, and my 5-Star Java rating on HackerRank reflects the core-language depth this role needs.
+
+I'd be glad to bring this end-to-end Java + React experience to your client engagement.
+
+Best regards,
+Bhumi Bhatt

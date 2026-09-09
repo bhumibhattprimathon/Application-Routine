@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm applying for the Frontend Engineer role advertised via Weekday, building AI-native interfaces for enterprise supply-chain and decision-support applications.
+
+I bring hands-on front-end experience with React.js and modern JavaScript (ES6+), backed by HTML5, CSS3, and Bootstrap, and — importantly for data-dense surfaces like grids, canvases, and visualizations — a backend engineer's grasp of the APIs and data models behind them. Having architected REST-API microservices for a distributed payment gateway, I understand how complex, evolving datasets flow into a UI, which helps me build interfaces that stay performant as data grows.
+
+I recognize this posting spans SDE II to Staff and expects deeper front-end tenure; I'm applying as a fast-growing engineer (1.5+ years, 5-Star Java, 250+ DSA problems) eager to specialize in sophisticated product surfaces, and I'd welcome being considered at the level that fits.
+
+As an immediate joiner on a 0-day notice, I can start contributing quickly.
+
+Best regards,
+Bhumi Bhatt

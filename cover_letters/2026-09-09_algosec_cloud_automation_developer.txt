@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm applying for the Cloud Automation Developer role at AlgoSec, a cybersecurity leader trusted by 2,300+ global organizations to automate security policy across multi-cloud environments.
+
+Automation is where I've delivered measurable impact: at Primathon I built automated backend workflows that cut manual operational effort by 70%, and I integrated AWS services (EC2, S3, Lambda, Timestream) into production pipelines. I write automation in Java, drive CI/CD with Jenkins and Git Actions, and use Selenium and Postman to validate systems end to end — a toolkit that maps directly to building automation for cloud and enterprise workflows in an agile team.
+
+I bring 1.5+ years of hands-on backend and automation engineering plus a strong DSA foundation (5-Star Java, 250+ problems). While the posting suggests a few years' experience, my automation-first track record and quick ramp-up let me add value early.
+
+With a 0-day notice period, I'm ready to join immediately.
+
+Best regards,
+Bhumi Bhatt

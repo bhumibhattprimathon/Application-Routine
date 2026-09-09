@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-09-09</title>
+<meta data-qualified="3" data-found="111">
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--bg:#f1f5f9;--card:#fff;--line:#e2e8f0;--muted:#64748b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1{margin:0 0 4px;font-size:24px;letter-spacing:.3px}
+.sub{color:#94a3b8;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px}
+.card .n{font-size:30px;font-weight:800;line-height:1}
+.card .l{font-size:12px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.6px;margin-top:6px}
+.card.g .n{color:#4ade80} .card.y .n{color:#facc15} .card.r .n{color:#f87171}
+main{padding:22px 0 60px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+h2{margin:0 0 12px;font-size:18px;display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+.dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+.openall{display:block;width:100%;padding:18px;font-size:19px;font-weight:800;color:#04310f;
+  background:linear-gradient(135deg,#4ade80,#22c55e);border:none;border-radius:14px;cursor:pointer;
+  box-shadow:0 6px 18px rgba(34,197,94,.35);transition:transform .08s}
+.openall:hover{transform:translateY(-1px)} .openall:active{transform:translateY(1px)}
+.openall.dis{background:#cbd5e1;color:#475569;box-shadow:none;cursor:not-allowed}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+.tblwrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);position:sticky;top:0}
+tr:hover td{background:#fafcff}
+.pill{display:inline-block;min-width:30px;text-align:center;padding:3px 8px;border-radius:20px;font-weight:800;color:#fff;font-size:12.5px}
+.pill.green{background:var(--green)} .pill.yellow{background:var(--yellow);color:#3b2f02} .pill.trust{background:#334155}
+.btn{display:inline-block;padding:6px 11px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;border:none;margin:2px 3px 2px 0}
+.btn.open{background:#1e293b;color:#fff} .btn.cp{background:#e0e7ff;color:#3730a3}
+.acts{white-space:nowrap}
+.vn{font-size:11px;color:var(--muted);font-weight:400;margin-top:2px;max-width:230px}
+.muted{color:var(--muted)} .hidden{display:none}
+.rec{border-left:4px solid var(--green);background:#f8fafc;border-radius:8px;padding:12px 14px;margin:10px 0}
+.rec-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:15px}
+.rank{background:#0f172a;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.rec p{margin:8px 0;color:#334155;font-size:13.5px}
+.trend{display:flex;gap:14px;align-items:flex-end;padding:10px 4px 0;overflow-x:auto}
+.tbar{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:52px}
+.tbar .bar{width:34px;background:linear-gradient(180deg,#4ade80,#16a34a);border-radius:6px 6px 0 0}
+.tbar .bv{font-weight:800;font-size:13px} .tbar .td{font-size:11px;color:var(--muted)}
+.clbox{border:1px solid var(--line);border-radius:10px;margin:12px 0;overflow:hidden}
+.clh{background:#f8fafc;padding:9px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13.5px}
+.clbox pre{margin:0;padding:14px;white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:#fff;color:#1e293b}
+.note{font-size:12.5px;color:var(--muted);background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px 12px;margin-top:10px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none}
+#toast.show{opacity:1}
+@media(max-width:560px){.card .n{font-size:24px} h1{font-size:20px}}
+</style></head>
+<body>
+<header><div class="wrap">
+<h1>🔎 LinkedIn Smart Apply Dashboard — 2026-09-09</h1>
+<div class="sub">Morning scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · entry–junior</div>
+<div class="cards">
+<div class="card"><div class="n">111</div><div class="l">Jobs Found</div></div>
+<div class="card g"><div class="n">3</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">15</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">93</div><div class="l">Skipped</div></div>
+<div class="card r"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+<div class="card"><div class="n">86</div><div class="l">Avg Match (qual)</div></div>
+<div class="card"><div class="n">9.0</div><div class="l">Avg Salary LPA (est)</div></div>
+</div></div></header>
+<main class="wrap">
+
+<section>
+<button class="openall" id="openAllBtn" onclick="openAll()">🚀 OPEN ALL 3 QUALIFIED JOBS</button>
+<div class="hint">Opens each qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page and click again.</div>
+</section>
+
+<section>
+<h2><span class="dot g"></span>Qualified — Ready to Apply (3)</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply Via</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="pill green">91</span></td><td>100</td>
+<td><b>AiSensy</b><div class="vn">Verified: funded WhatsApp BSP startup, 173 emp, Meta Partner of the Year (Crunchbase/Tracxn).</div></td>
+<td>Software Development Engineer I</td><td>Gurugram</td>
+<td>7-11 LPA (est)</td><td>fullstack</td><td>LinkedIn</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-i-at-aisensy-4462216262?trk=bingjobs" target="_blank" rel="noopener">Open Job</a><button class="btn cp" onclick="copyCL('cl1q')">Copy Cover Letter</button><div id="cl1q" class="hidden">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Development Engineer I role at AiSensy, where backend systems move 800+ crore WhatsApp messages a year for brands like Adani and PhysicsWallah.
+
+At Paytm I built and optimized Node.js microservices managing the QR-code lifecycle for multiple merchants, powering real-time transaction notifications at scale — directly relevant to your high-throughput messaging platform. I work daily in JavaScript (ES6+), Express.js, and REST APIs, and have shipped MongoDB- and MySQL-backed services, so I can contribute to AiSensy&#x27;s fullstack stack from day one. My HackerRank 5-Star Java rating and 250+ solved DSA problems reflect the fundamentals your SDE I bar expects.
+
+As an immediate joiner with a 0-day notice period, I can start contributing right away, and I learn new systems fast — I picked up AWS Timestream, S3, and Lambda pipelines within weeks at Primathon.
+
+I&#x27;d welcome the chance to help AiSensy scale its engagement platform.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr><tr>
+<td>2</td><td><span class="pill green">84</span></td><td>100</td>
+<td><b>AiSensy</b><div class="vn">Verified: funded WhatsApp BSP startup, 173 emp, Meta Partner of the Year (Crunchbase/Tracxn).</div></td>
+<td>Software Development Engineer II</td><td>Gurugram</td>
+<td>8-12 LPA (est)</td><td>fullstack</td><td>LinkedIn</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-aisensy-4462203863?trk=bingjobs" target="_blank" rel="noopener">Open Job</a><button class="btn cp" onclick="copyCL('cl2q')">Copy Cover Letter</button><div id="cl2q" class="hidden">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Software Development Engineer II position at AiSensy, a growth-stage platform where reliability under heavy message volume is everything.
+
+My background is a close fit for building resilient, high-scale services. I architected a distributed payment gateway with 30 REST APIs across four microservices (Order, Payment, Merchant, Vault), applying system-design principles for fault tolerance — the same thinking a platform handling 800+ crore messages demands. I use Kafka and Redis for event-driven, low-latency processing, Spring Boot and Node.js/Express for service layers, and MySQL and MongoDB for storage. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion.
+
+I recognize this role leans senior; I bring 1.5+ years of production microservice experience plus a strong system-design and DSA foundation (5-Star Java, 250+ problems), and I ramp quickly.
+
+With a 0-day notice period, I&#x27;m available to join immediately and contribute to AiSensy&#x27;s engineering roadmap.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr><tr>
+<td>3</td><td><span class="pill green">82</span></td><td>85</td>
+<td><b>People Prime Worldwide</b><div class="vn">Verified: real staffing/consulting firm, Glassdoor 4.6 (556 reviews); note: contract/staff-aug intermediary.</div></td>
+<td>JAVA FULLSTACK (Reactjs</td><td>Noida</td>
+<td>6-10 LPA (est)</td><td>fullstack</td><td>LinkedIn</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/java-fullstack-reactjs-at-people-prime-worldwide-4464381101?trk=bingjobs" target="_blank" rel="noopener">Open Job</a><button class="btn cp" onclick="copyCL('cl3q')">Copy Cover Letter</button><div id="cl3q" class="hidden">Dear Hiring Manager,
+
+I&#x27;m applying for the Java Fullstack (ReactJS) position at People Prime Worldwide, and the required stack maps almost one-to-one onto my daily work.
+
+Your role asks for Java 8+, Spring Boot, JUnit, ReactJS, JavaScript, Kafka, RESTful APIs, microservice architecture, and MySQL — all technologies I&#x27;ve shipped in production. I&#x27;ve built Spring Boot microservices exposing REST APIs, used Kafka for event streaming and JUnit/Mockito for test coverage, developed React.js front-ends, and modelled data in MySQL. My distributed payment gateway project (30 REST APIs across four services) demonstrates the Object-Oriented, microservice-based design your team values, and I&#x27;ve worked in Agile/SCRUM teams at Primathon and Paytm.
+
+As an immediate joiner available on a 0-day notice, I can slot into your project delivery timeline without delay, and my 5-Star Java rating on HackerRank reflects the core-language depth this role needs.
+
+I&#x27;d be glad to bring this end-to-end Java + React experience to your client engagement.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr></tbody>
+</table></div>
+</section>
+
+<section>
+<h2>⭐ Top 5 Recommendations</h2>
+<div class="rec">
+<div class="rec-h"><span class="rank">1</span> <b>Software Development Engineer I</b> — AiSensy
+<span class="pill green">91</span>
+<span class="pill trust">trust 100</span></div>
+<p>The cleanest fit today. A funded WhatsApp-API SaaS (Meta Partner of the Year) hiring at exactly the 1–2 yr level, on Bhumi&#x27;s Node.js / Express / JavaScript / MongoDB / microservices stack — the same real-time messaging problem she solved on Paytm&#x27;s QR microservices.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-i-at-aisensy-4462216262?trk=bingjobs" target="_blank" rel="noopener">Open job posting</a></div><div class="rec">
+<div class="rec-h"><span class="rank">2</span> <b>Software Development Engineer II</b> — AiSensy
+<span class="pill green">84</span>
+<span class="pill trust">trust 100</span></div>
+<p>The cleanest fit today. A funded WhatsApp-API SaaS (Meta Partner of the Year) hiring at exactly the 1–2 yr level, on Bhumi&#x27;s Node.js / Express / JavaScript / MongoDB / microservices stack — the same real-time messaging problem she solved on Paytm&#x27;s QR microservices.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-aisensy-4462203863?trk=bingjobs" target="_blank" rel="noopener">Open job posting</a></div><div class="rec">
+<div class="rec-h"><span class="rank">3</span> <b>JAVA FULLSTACK (Reactjs</b> — People Prime Worldwide
+<span class="pill green">82</span>
+<span class="pill trust">trust 85</span></div>
+<p>Near one-to-one stack match: Java 8, Spring Boot, ReactJS, Kafka, RESTful APIs, microservices, MySQL — every item is on Bhumi&#x27;s resume. Verified staffing firm (Glassdoor 4.6); note it&#x27;s a contract/staff-aug placement.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/java-fullstack-reactjs-at-people-prime-worldwide-4464381101?trk=bingjobs" target="_blank" rel="noopener">Open job posting</a></div><div class="rec">
+<div class="rec-h"><span class="rank">4</span> <b>Frontend Engineer (SDE II To Staff)</b> — Weekday AI (YC W21)
+<span class="pill yellow">88</span>
+<span class="pill trust">trust 80</span></div>
+<p>High-ceiling role (₹34–85 LPA) on React/JS interfaces for data-dense enterprise apps. Senior-leaning (SDE II–Staff), but her React + backend-API background is a genuine foundation; apply at the level that fits.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/frontend-engineer-sde-ii-to-staff-at-weekday-ai-yc-w21-4464346607?trk=bingjobs" target="_blank" rel="noopener">Open job posting</a></div><div class="rec">
+<div class="rec-h"><span class="rank">5</span> <b>Cloud Automation Developer, India</b> — AlgoSec
+<span class="pill yellow">84</span>
+<span class="pill trust">trust 95</span></div>
+<p>Automation is Bhumi&#x27;s proven strength (70% manual-effort reduction at Primathon, AWS pipelines, Jenkins/Git CI-CD). A profitable cybersecurity firm (2,300+ customers); posting leans 3 yrs, so a motivated stretch.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/cloud-automation-developer-india-at-algosec-4464616252?trk=bingjobs" target="_blank" rel="noopener">Open job posting</a></div>
+</section>
+
+<section>
+<h2><span class="dot y"></span>Review — Worth a Look (15)</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Why Review</th><th></th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="pill yellow">88</span></td><td>80</td>
+<td><b>Weekday AI (YC W21)</b></td><td>Frontend Engineer (SDE II To Staff)</td><td>DL</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/frontend-engineer-sde-ii-to-staff-at-weekday-ai-yc-w21-4464346607?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>2</td><td><span class="pill yellow">84</span></td><td>95</td>
+<td><b>AlgoSec</b></td><td>Cloud Automation Developer, India</td><td>New Delhi</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/cloud-automation-developer-india-at-algosec-4464616252?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>3</td><td><span class="pill yellow">84</span></td><td>95</td>
+<td><b>AlgoSec</b></td><td>QA Automation Developer, India</td><td>New Delhi</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/qa-automation-developer-india-at-algosec-4464625173?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>4</td><td><span class="pill yellow">78</span></td><td>85</td>
+<td><b>SYMB Technologies</b></td><td>Drupal Developer</td><td>Noida</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/drupal-developer-at-symb-technologies-4461893864?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>5</td><td><span class="pill yellow">76</span></td><td>65</td>
+<td><b>Linkupgroup</b></td><td>Fullstack Developer Intern (Noida)</td><td>Noida</td>
+<td>Partial fit — needs fastapi, python</td>
+<td class="acts"><a class="btn open" href="https://in.jobrapido.com/jobpreview/7058912854887366656?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>6</td><td><span class="pill yellow">72</span></td><td>75</td>
+<td><b>Alignerr</b></td><td>Software Engineer (AI Training)</td><td>Gurugram</td>
+<td>Partial fit — needs go, golang</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-ai-training-at-alignerr-4464435106?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>7</td><td><span class="pill yellow">66</span></td><td>95</td>
+<td><b>Turing</b></td><td>Remote Software Engineer (Go)</td><td>Remote</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://www.adzuna.in/details/5874291291?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>8</td><td><span class="pill yellow">64</span></td><td>85</td>
+<td><b>Drishti IAS</b></td><td>Ai Engineer</td><td>DL</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/ai-engineer-at-drishti-ias-4464613457?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>9</td><td><span class="pill yellow">64</span></td><td>75</td>
+<td><b>hiringplug™</b></td><td>Artificial Intelligence Engineer</td><td>DL</td>
+<td>Partial fit — needs langchain, llm</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/artificial-intelligence-engineer-at-hiringplug%E2%84%A2-4464395312?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>10</td><td><span class="pill yellow">63</span></td><td>75</td>
+<td><b>Aeronive labs</b></td><td>𝗦𝗗𝗘 𝗜𝗻𝘁𝗲𝗿𝗻</td><td>DL</td>
+<td>Partial fit — needs go, golang</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/%F0%9D%97%A6%F0%9D%97%97%F0%9D%97%98-%F0%9D%97%9C%F0%9D%97%BB%F0%9D%98%81%F0%9D%97%B2%F0%9D%97%BF%F0%9D%97%BB-at-aeronive-labs-4462928744?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>11</td><td><span class="pill yellow">61</span></td><td>95</td>
+<td><b>Turing</b></td><td>Remote C# Developer</td><td>Remote</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://www.adzuna.in/details/5874291289?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>12</td><td><span class="pill yellow">58</span></td><td>85</td>
+<td><b>NIIT</b></td><td>SOFTWARE ENGINEER-II</td><td>Gurugram</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-ii-at-niit-4464348468?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>13</td><td><span class="pill yellow">54</span></td><td>75</td>
+<td><b>GROWTH PANDIT</b></td><td>Web Developer</td><td>DL</td>
+<td>Moderate match (54)</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/web-developer-at-growth-pandit-4462212103?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>14</td><td><span class="pill yellow">54</span></td><td>75</td>
+<td><b>Yotta Data Services Private Limited</b></td><td>Cloud Engineer</td><td>DL</td>
+<td>Moderate match (54)</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/cloud-engineer-at-yotta-data-services-private-limited-4464337408?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr><tr>
+<td>15</td><td><span class="pill yellow">50</span></td><td>95</td>
+<td><b>Accenture in India</b></td><td>Cloud Platform Engineer</td><td>Gurugram</td>
+<td>Stretch: needs 3+ yrs (exp) vs 1.5 yrs</td>
+<td class="acts"><a class="btn open" href="https://in.linkedin.com/jobs/view/cloud-platform-engineer-at-accenture-in-india-4464603984?trk=bingjobs" target="_blank" rel="noopener">Open</a></td>
+</tr></tbody>
+</table></div>
+</section>
+
+<section>
+<h2><span class="dot r"></span>Skipped (93)</h2>
+<div class="tblwrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr><td>1</td><td>Happiest Minds Technologies</td><td>SENIOR SOFTWARE ENGINEER - Javascript</td><td>Experience: requires 4-8 yrs (Bhumi has ~1.5 yrs)</td></tr><tr><td>2</td><td>NatWest Group</td><td>Software Engineer</td><td>Experience: requires 4+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>3</td><td>NatWest Group</td><td>Wow Software Engineer</td><td>Experience: requires 4+ yrs (min) (Bhumi has ~1.5 yrs)</td></tr><tr><td>4</td><td>AgileEngine</td><td>Senior Salesforce Marketing Cloud Developer ID87211</td><td>Experience: requires 4+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>5</td><td>Alight Solutions</td><td>IND IT Software Engineer I</td><td>Experience: requires 6+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>6</td><td>Baazi Games</td><td>Lead Backend Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>7</td><td>Miratech</td><td>Senior Full Stack Developer(React&amp;Java)</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>8</td><td>Shrestha Edutech Private Limited</td><td>Senior Full Stack Developer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>9</td><td>GlobalLogic</td><td>Senior Java Developer (Scala &amp; Agentic AI) IRC296189</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>10</td><td>Recro</td><td>Full Stack Engineer (Java + Angular)</td><td>Experience: requires 7+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>11</td><td>United Airlines India Knowledge Center</td><td>Developer II</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>12</td><td>KAKE</td><td>Senior Android Video Player Engineer - Remote</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>13</td><td>SimCorp</td><td>Lead Full Stack Software Engineer (Angular , C#,.NET)</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>14</td><td>Top Gen AI Jobs</td><td>Associate – Gen AI Full Stack Engineer</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>15</td><td>WSP in India</td><td>Junior Software Developer - Python</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>16</td><td>Cisco</td><td>Solutions Development Architect</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>17</td><td>AIMLEAP</td><td>AI &amp; Web Scraping-Python And Javascript (Remote)</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>18</td><td>TEKsystems</td><td>Senior Data Engineer</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>19</td><td>Stryker</td><td>Senior Software Engineer - Full Stack Developer</td><td>Experience: requires 8+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>20</td><td>DigitalXNode</td><td>Senior Snowflake Data Engineer  Remote  Jobs In India</td><td>Experience: requires 9+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>21</td><td>Iris Software Inc.</td><td>Python AWS - Senior Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>22</td><td>Iris Software Inc.</td><td>Python AWS/Cache - Senior Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>23</td><td>TechJobsData</td><td>Python AWS - Senior Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>24</td><td>TechJobsData</td><td>Python AWS/Cache - Senior Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>25</td><td>Best Nanotech Pvt Ltd</td><td>Semiconductor Knowledge Graph &amp; LLM Engineer</td><td>Experience: requires 15+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>26</td><td>TechJobsData</td><td>Senior Python Developer</td><td>Experience: requires 5-7 yrs (Bhumi has ~1.5 yrs)</td></tr><tr><td>27</td><td>NeoXam</td><td>Senior Software Engineer - AI &amp; Knowledge System - Noida</td><td>Experience: requires 5-8 yrs (Bhumi has ~1.5 yrs)</td></tr><tr><td>28</td><td>Sourcebae</td><td>MDM Developer</td><td>Experience: requires 7-12 yrs (Bhumi has ~1.5 yrs)</td></tr><tr><td>29</td><td>SITA</td><td>Senior Cloud Infrastructure Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>30</td><td>Accenture in India</td><td>Custom Software Engineer</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>31</td><td>SimCorp</td><td>Senior Software Engineer</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>32</td><td>Horizon Industries International Limited</td><td>AI Developer</td><td>Experience: requires 8+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>33</td><td>KAKE</td><td>Senior Data Engineer (Analyst/Scientist) - Remote</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>34</td><td>Biz-Tech Analytics</td><td>Software Development - Typescript (Freelance)</td><td>Experience: requires 7+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>35</td><td>Webologix Ltd/ INC</td><td>Servicenow Developer</td><td>Experience: requires senior (implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>36</td><td>MongoDB</td><td>Lead, Engineering</td><td>Experience: requires 8+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>37</td><td>Recognized</td><td>\&quot;Sr Engineer-Sales &amp; Marketing\&quot; (New Delhi)</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>38</td><td>Blump Tech Private Limited</td><td>Senior SDR / Business Development Manager</td><td>Experience: requires senior (5+ implied) (Bhumi has ~1.5 yrs)</td></tr><tr><td>39</td><td>Mercor</td><td>Legal Diligence Specialist - Fully Remote  Upto $120/Hr</td><td>Experience: requires 5+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>40</td><td>EnCharge AI</td><td>Senior AI Scientist -Research Engineer, Applied AI ( At Par With Director)</td><td>Experience: requires 20+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>41</td><td>Mulya Technologies</td><td>Senior AI Scientist -Research Engineer, Applied AI ( At Par With Director)</td><td>Experience: requires 20+ yrs (exp) (Bhumi has ~1.5 yrs)</td></tr><tr><td>42</td><td>Infosys</td><td>Java Full Stack Developer With React And Nodejs</td><td>Location: Hyderabad — outside Delhi NCR / not remote</td></tr><tr><td>43</td><td>Urban Ground GmbH</td><td>Backend Engineer- AI, Automation &amp; Product Engineering</td><td>Location: GA — outside Delhi NCR / not remote</td></tr><tr><td>44</td><td>Important Group</td><td>New Hiring For Java Developer(Fresher&#x27;s) (Indore)</td><td>Location: Igatpuri — outside Delhi NCR / not remote</td></tr><tr><td>45</td><td>（株）東京天竜</td><td>Z2_Backend Developer (JAVA Spring Boot Microservices</td><td>Location: Bangalore Urban district — outside Delhi NCR / not remote</td></tr><tr><td>46</td><td>TekWissen India</td><td>Java Full Stack Developer</td><td>Location: Hyderabad — outside Delhi NCR / not remote</td></tr><tr><td>47</td><td>HuntingCube</td><td>MERN Stack Developer (Front End)</td><td>Location: Bengaluru East — outside Delhi NCR / not remote</td></tr><tr><td>48</td><td>Infosys</td><td>Java Full Stack Developer</td><td>Location: Hyderabad — outside Delhi NCR / not remote</td></tr><tr><td>49</td><td>Wellness360</td><td>Full Stack Java Developer</td><td>Location: Hyderabad — outside Delhi NCR / not remote</td></tr><tr><td>50</td><td>People Prime Worldwide</td><td>Java Fullstack Developer</td><td>Location: Hyderabad — outside Delhi NCR / not remote</td></tr><tr><td>51</td><td>Zoop</td><td>Software Development Engineer - I  Backend  Go</td><td>Location: Pune — outside Delhi NCR / not remote</td></tr><tr><td>52</td><td>WellVantage (IIT-K incubated)</td><td>React Native Mobile Engineer (+ Node Backend) (Ajit)</td><td>Location: Samdari — outside Delhi NCR / not remote</td></tr><tr><td>53</td><td>Riseflake.com</td><td>Python Developer</td><td>Location: Indore — outside Delhi NCR / not remote</td></tr><tr><td>54</td><td>Tata Consultancy Services</td><td>GCP  Java Spring Boot Developer </td><td>Location: Bengaluru — outside Delhi NCR / not remote</td></tr><tr><td>55</td><td>Latinum HR Solutions</td><td>Backend Engineer</td><td>Location: Bengaluru — outside Delhi NCR / not remote</td></tr><tr><td>56</td><td>CGI</td><td>Python Backend Developer- AI/ML Backend Developer (API, Agentic AI &amp; RAG) (4-7 Years)</td><td>Location: Bengaluru — outside Delhi NCR / not remote</td></tr><tr><td>57</td><td>METRO Global Solution Center IN</td><td>Backend Engineer</td><td>Location: Pimpri Chinchwad — outside Delhi NCR / not remote</td></tr><tr><td>58</td><td>Sibros</td><td>Engineering Manager (Backend Engineering)</td><td>Location: Bengaluru — outside Delhi NCR / not remote</td></tr><tr><td>59</td><td>Acura Solution</td><td>Machine Learning Engineer (Chennai)</td><td>Location: Chennai — outside Delhi NCR / not remote</td></tr><tr><td>60</td><td>Watlow</td><td>Full Stack Development Engineer 2 - India</td><td>Location: Bengaluru North — outside Delhi NCR / not remote</td></tr><tr><td>61</td><td>Nameless</td><td>ICT Engineer (Gurugram)</td><td>Location: UP — outside Delhi NCR / not remote</td></tr><tr><td>62</td><td>Bounteous</td><td>SRE SIT Engineer (Gurugram)</td><td>Location: UP — outside Delhi NCR / not remote</td></tr><tr><td>63</td><td>IMPRONICS DIGITECH PRIVATE</td><td>VELOS Implementation Engineer (Gurugram)</td><td>Location: UP — outside Delhi NCR / not remote</td></tr><tr><td>64</td><td>Accenture in India</td><td>Application Developer</td><td>Location: Hyderabad — outside Delhi NCR / not remote</td></tr><tr><td>65</td><td>Zensar Technologies</td><td>Sr Python Dev + AWS+AI</td><td>Location: TG — outside Delhi NCR / not remote</td></tr><tr><td>66</td><td>Weekday AI (YC W21)</td><td>Python Developer</td><td>Location: Bengaluru — outside Delhi NCR / not remote</td></tr><tr><td>67</td><td>Milacron</td><td>Engineer - Field Service(Delhi-NCR)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>68</td><td>Alignerr</td><td>Hindi Audio Transcriptionist (AI Training)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>69</td><td>Mercor</td><td>Chemistry Expert - Fully Remote  Upto $77/Hr</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>70</td><td>Mercor</td><td>Materials Scientist - Fully Remote  Upto $70/Hr</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>71</td><td>The Ai Training Company</td><td>UX/UI Designer  $140/Hr  Remote</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>72</td><td>The Ai Training Company</td><td>UX/UI Designer  $80/Hr  Remote</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>73</td><td>MEH GCC</td><td>Power BI Developer – Finance Background  Remote Contract</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>74</td><td>Green Planet Technologies</td><td>Sales Engineering Internship (New Delhi)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>75</td><td>Solistra</td><td>Legal Engineers</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>76</td><td>Milopure AI</td><td>Electrical Engineering Intern — Milopure AI</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>77</td><td>Fronius India</td><td>Trainee Sales Engineer</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>78</td><td>the learning company</td><td>Learning Consultant</td><td>Low match: score 48, weak stack overlap</td></tr><tr><td>79</td><td>Iris Software Inc.</td><td>Python AWS - Lead</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>80</td><td>VIHU</td><td>Business Development Executive Jobs In Phonepe - New Delhi, India</td><td>Low match: score 44, weak stack overlap</td></tr><tr><td>81</td><td>ProgBid</td><td>Business Development Intern</td><td>Low match: score 44, weak stack overlap</td></tr><tr><td>82</td><td>Cult and Clay</td><td>AI Content Creation &amp; Digital Storytelling Intern (3‑Month, Remote/Unpaid)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>83</td><td>Navan</td><td>Business Travel Consultant II (Mumbai - Remote)</td><td>Low match: score 42, weak stack overlap</td></tr><tr><td>84</td><td>SD Campus</td><td>IT Administrator – Hardware &amp; Network (Immediate Joiner)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>85</td><td>TELUS Digital AI Data Solutions</td><td>Remote Media Search Analyst (English Speakers)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>86</td><td>AlgoSec</td><td>Technical Support Engineer, India</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>87</td><td>Cisco</td><td>Leader, Solutions Engineer</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>88</td><td>Sabre Corporation</td><td>Service Delivery Engineer II</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>89</td><td>CRH</td><td>Sales Engineer (North Region)- Leviat</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>90</td><td>Recognized</td><td>Freelance Job For Freshers &amp; Students - (Haryana) (Noida)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>91</td><td>Important Group</td><td>Biology Researcher - Fully Remote (Mumbai)</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>92</td><td>Sigma AI</td><td>Hindi, Tamil And English Linguistic Projects (Remote)  Sigma AI</td><td>Low match: non-software / adjacent-domain role</td></tr><tr><td>93</td><td>AccioJob - Hiring Drives</td><td>Software Engineer</td><td>Salary: 4-5 LPA (stated) below 5.5 LPA target</td></tr></tbody>
+</table></div>
+</section>
+
+<section>
+<h2>📈 Qualified-per-run Trend</h2>
+<div class="trend"><div class="tbar"><div class="bar" style="height:46px" title="1 qualified"></div><span class="bv">1</span><span class="td">08-05</span></div><div class="tbar"><div class="bar" style="height:126px" title="3 qualified"></div><span class="bv">3</span><span class="td">09-09</span></div></div>
+<div class="note">Runs are on-demand (not daily), so bars show qualified counts per scan date. Today: 3 qualified of 111 found.</div>
+</section>
+
+<section>
+<h2>✉️ Cover Letters (6)</h2>
+<div class="clbox">
+<div class="clh"><b>AlgoSec</b> — Cloud Automation Developer, India
+<button class="btn cp" onclick="copyCL('cls1')">COPY</button></div>
+<pre id="cls1">Dear Hiring Manager,
+
+I&#x27;m applying for the Cloud Automation Developer role at AlgoSec, a cybersecurity leader trusted by 2,300+ global organizations to automate security policy across multi-cloud environments.
+
+Automation is where I&#x27;ve delivered measurable impact: at Primathon I built automated backend workflows that cut manual operational effort by 70%, and I integrated AWS services (EC2, S3, Lambda, Timestream) into production pipelines. I write automation in Java, drive CI/CD with Jenkins and Git Actions, and use Selenium and Postman to validate systems end to end — a toolkit that maps directly to building automation for cloud and enterprise workflows in an agile team.
+
+I bring 1.5+ years of hands-on backend and automation engineering plus a strong DSA foundation (5-Star Java, 250+ problems). While the posting suggests a few years&#x27; experience, my automation-first track record and quick ramp-up let me add value early.
+
+With a 0-day notice period, I&#x27;m ready to join immediately.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox">
+<div class="clh"><b>AlgoSec</b> — QA Automation Developer, India
+<button class="btn cp" onclick="copyCL('cls2')">COPY</button></div>
+<pre id="cls2">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the QA Automation Developer role at AlgoSec, where test automation directly safeguards a security platform relied on by 2,300+ enterprises.
+
+Quality engineering runs through my experience. I&#x27;ve built automated test coverage with JUnit and Mockito, driven UI and end-to-end automation with Selenium and Playwright, and validated REST APIs with Postman across microservice projects. At CodeAlpha I optimized 30+ REST API endpoints and automated build pipelines with Git Actions, improving delivery consistency — the kind of automation discipline your QA team depends on. My Java foundation is strong (HackerRank 5-Star, 250+ DSA problems), so I can both write robust automation frameworks and reason about the systems under test.
+
+I understand this role expects a few years of experience; I bring 1.5+ years of production engineering with a genuine automation and testing focus, and I learn tooling quickly.
+
+As an immediate joiner with a 0-day notice period, I can begin contributing to your automation suite right away.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox">
+<div class="clh"><b>People Prime Worldwide</b> — JAVA FULLSTACK (Reactjs
+<button class="btn cp" onclick="copyCL('cls3')">COPY</button></div>
+<pre id="cls3">Dear Hiring Manager,
+
+I&#x27;m applying for the Java Fullstack (ReactJS) position at People Prime Worldwide, and the required stack maps almost one-to-one onto my daily work.
+
+Your role asks for Java 8+, Spring Boot, JUnit, ReactJS, JavaScript, Kafka, RESTful APIs, microservice architecture, and MySQL — all technologies I&#x27;ve shipped in production. I&#x27;ve built Spring Boot microservices exposing REST APIs, used Kafka for event streaming and JUnit/Mockito for test coverage, developed React.js front-ends, and modelled data in MySQL. My distributed payment gateway project (30 REST APIs across four services) demonstrates the Object-Oriented, microservice-based design your team values, and I&#x27;ve worked in Agile/SCRUM teams at Primathon and Paytm.
+
+As an immediate joiner available on a 0-day notice, I can slot into your project delivery timeline without delay, and my 5-Star Java rating on HackerRank reflects the core-language depth this role needs.
+
+I&#x27;d be glad to bring this end-to-end Java + React experience to your client engagement.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox">
+<div class="clh"><b>AiSensy</b> — Software Development Engineer I
+<button class="btn cp" onclick="copyCL('cls4')">COPY</button></div>
+<pre id="cls4">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Development Engineer I role at AiSensy, where backend systems move 800+ crore WhatsApp messages a year for brands like Adani and PhysicsWallah.
+
+At Paytm I built and optimized Node.js microservices managing the QR-code lifecycle for multiple merchants, powering real-time transaction notifications at scale — directly relevant to your high-throughput messaging platform. I work daily in JavaScript (ES6+), Express.js, and REST APIs, and have shipped MongoDB- and MySQL-backed services, so I can contribute to AiSensy&#x27;s fullstack stack from day one. My HackerRank 5-Star Java rating and 250+ solved DSA problems reflect the fundamentals your SDE I bar expects.
+
+As an immediate joiner with a 0-day notice period, I can start contributing right away, and I learn new systems fast — I picked up AWS Timestream, S3, and Lambda pipelines within weeks at Primathon.
+
+I&#x27;d welcome the chance to help AiSensy scale its engagement platform.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox">
+<div class="clh"><b>AiSensy</b> — Software Development Engineer II
+<button class="btn cp" onclick="copyCL('cls5')">COPY</button></div>
+<pre id="cls5">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Software Development Engineer II position at AiSensy, a growth-stage platform where reliability under heavy message volume is everything.
+
+My background is a close fit for building resilient, high-scale services. I architected a distributed payment gateway with 30 REST APIs across four microservices (Order, Payment, Merchant, Vault), applying system-design principles for fault tolerance — the same thinking a platform handling 800+ crore messages demands. I use Kafka and Redis for event-driven, low-latency processing, Spring Boot and Node.js/Express for service layers, and MySQL and MongoDB for storage. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion.
+
+I recognize this role leans senior; I bring 1.5+ years of production microservice experience plus a strong system-design and DSA foundation (5-Star Java, 250+ problems), and I ramp quickly.
+
+With a 0-day notice period, I&#x27;m available to join immediately and contribute to AiSensy&#x27;s engineering roadmap.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox">
+<div class="clh"><b>Weekday AI (YC W21)</b> — Frontend Engineer (SDE II To Staff)
+<button class="btn cp" onclick="copyCL('cls6')">COPY</button></div>
+<pre id="cls6">Dear Hiring Manager,
+
+I&#x27;m applying for the Frontend Engineer role advertised via Weekday, building AI-native interfaces for enterprise supply-chain and decision-support applications.
+
+I bring hands-on front-end experience with React.js and modern JavaScript (ES6+), backed by HTML5, CSS3, and Bootstrap, and — importantly for data-dense surfaces like grids, canvases, and visualizations — a backend engineer&#x27;s grasp of the APIs and data models behind them. Having architected REST-API microservices for a distributed payment gateway, I understand how complex, evolving datasets flow into a UI, which helps me build interfaces that stay performant as data grows.
+
+I recognize this posting spans SDE II to Staff and expects deeper front-end tenure; I&#x27;m applying as a fast-growing engineer (1.5+ years, 5-Star Java, 250+ DSA problems) eager to specialize in sophisticated product surfaces, and I&#x27;d welcome being considered at the level that fits.
+
+As an immediate joiner on a 0-day notice, I can start contributing quickly.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+</section>
+
+<div class="note" style="margin:16px 0">Data source: JSearch (Google-for-Jobs aggregation), date_posted=today, country=IN — 111 unique postings across 20 backend / full-stack / SDE / AI-ML / platform queries. Trust scores are heuristic (logo, publisher, JD depth, company recognition) with web verification on qualified &amp; top-review companies; confirm each employer on its own careers page before applying.</div>
+</main>
+<footer>Generated 2026-09-09 · LinkedIn Smart Apply routine · 111 jobs evaluated</footer>
+<div id="toast">Copied to clipboard ✓</div>
+<script>
+var QUALIFIED_URLS=["https://in.linkedin.com/jobs/view/software-development-engineer-i-at-aisensy-4462216262?trk=bingjobs", "https://in.linkedin.com/jobs/view/software-development-engineer-ii-at-aisensy-4462203863?trk=bingjobs", "https://in.linkedin.com/jobs/view/java-fullstack-reactjs-at-people-prime-worldwide-4464381101?trk=bingjobs"];
+function openAll(){
+  if(!QUALIFIED_URLS.length){toast('No qualified jobs to open');return;}
+  var blocked=0;
+  QUALIFIED_URLS.forEach(function(u){ var w=window.open(u,'_blank','noopener'); if(!w) blocked++; });
+  toast(blocked? ('Pop-ups blocked — allow pop-ups and retry ('+blocked+')') : ('Opened '+QUALIFIED_URLS.length+' job'+(QUALIFIED_URLS.length!=1?'s':'')));
+}
+function copyCL(id){
+  var el=document.getElementById(id); if(!el) return;
+  var txt=el.innerText||el.textContent;
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){toast('Cover letter copied ✓');},function(){fallback(txt);}); }
+  else fallback(txt);
+}
+function fallback(txt){ var t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select();
+  try{document.execCommand('copy');toast('Cover letter copied ✓');}catch(e){toast('Copy failed — select manually');} document.body.removeChild(t); }
+var _tt;
+function toast(m){ var el=document.getElementById('toast'); el.textContent=m; el.classList.add('show'); clearTimeout(_tt); _tt=setTimeout(function(){el.classList.remove('show');},2600); }
+</script>
+</body></html>
