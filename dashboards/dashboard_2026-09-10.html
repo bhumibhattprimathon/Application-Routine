@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard - 2026-09-10</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#f1f5f9}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card .n{font-size:30px;font-weight:800}
+.card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-top:4px}
+.card.qual .n{color:var(--green)} .card.skip .n{color:var(--red)} .card.fraud .n{color:#b91c1c}
+.openall{width:100%;padding:20px;font-size:18px;font-weight:800;color:#fff;background:var(--green);border:none;border-radius:14px;cursor:pointer;box-shadow:0 6px 18px rgba(34,197,94,.35);margin:6px 0 22px}
+.openall:hover{filter:brightness(1.05)}
+h2{font-size:16px;margin:26px 0 10px;padding-left:10px;border-left:5px solid var(--ink)}
+h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;min-width:34px;text-align:center;padding:3px 8px;border-radius:20px;color:#fff;font-weight:700}
+.badge.green{background:var(--green)} .badge.yellow{background:var(--yellow)}
+.variant{background:#e0e7ff;color:#3730a3;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600}
+.btn{display:inline-block;padding:6px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;border:none;cursor:pointer;margin:2px 2px 0 0}
+.btn.open{background:var(--ink);color:#fff} .btn.copy{background:#e2e8f0;color:var(--ink)}
+.btn.copy:hover{background:#cbd5e1}
+.reason{color:#475569;font-size:12.5px}
+.rec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+.rec h3{margin:0 0 6px;font-size:14px} .rec p{margin:0;font-size:13px;color:#475569;line-height:1.5}
+.trend{display:flex;gap:18px;align-items:flex-end;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;min-height:220px}
+.bar-wrap{text-align:center}
+.bar{width:60px;background:linear-gradient(180deg,var(--green),#16a34a);border-radius:8px 8px 0 0;color:#fff;font-weight:700;display:flex;align-items:flex-start;justify-content:center;padding-top:6px}
+.bar-lbl{font-size:11px;color:var(--muted);margin-top:6px}
+.clbox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:12px}
+.clhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.clbox pre{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#334155;margin:0;line-height:1.55}
+.note{font-size:12px;color:var(--muted);margin:10px 2px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:8px;opacity:0;transition:.3s;pointer-events:none;font-size:13px}
+#toast.show{opacity:1}
+</style></head>
+<body>
+<header><div class="wrap" style="padding:0">
+<h1>LINKEDIN SMART APPLY DASHBOARD - 2026-09-10</h1>
+<div class="sub">Bhumi Bhatt - Backend / Full-Stack - Delhi NCR &amp; Remote - immediate joiner - target 5.5-12 LPA</div>
+</div></header>
+<div class="wrap">
+<div class="cards">
+<div class="card"><div class="n">12</div><div class="l">Jobs Found</div></div>
+<div class="card qual"><div class="n">3</div><div class="l">Qualified</div></div>
+<div class="card skip"><div class="n">6</div><div class="l">Skipped</div></div>
+<div class="card fraud"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+<div class="card"><div class="n">89.3</div><div class="l">Avg Match (Qual.)</div></div>
+<div class="card"><div class="n">~7.8</div><div class="l">Avg Salary Est LPA</div></div>
+</div>
+
+<button class="openall" onclick="openAll()">OPEN ALL 3 QUALIFIED JOBS</button>
+
+<h2 class="g">Qualified Jobs</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="badge green">91</span></td><td>72</td>
+<td><strong>fi ellements</strong></td><td>Node Js Developer</td><td>Noida</td>
+<td>6-9 LPA</td><td><span class="variant">backend</span></td><td>External (Cutshort)</td>
+<td><a class="btn open" href="https://cutshort.io/job/Node-Js-developer-Noida-fi-ellements-fUnaznso" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('fi ellements')">Copy Cover Letter</button></td>
+</tr><tr>
+<td>2</td><td><span class="badge green">90</span></td><td>85</td>
+<td><strong>iDreamCareer</strong></td><td>Fullstack Developer - MERN</td><td>Delhi / Gurugram / Noida</td>
+<td>8-12 LPA</td><td><span class="variant">fullstack</span></td><td>External (Cutshort)</td>
+<td><a class="btn open" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('iDreamCareer')">Copy Cover Letter</button></td>
+</tr><tr>
+<td>3</td><td><span class="badge green">87</span></td><td>70</td>
+<td><strong>UpCodo Digital</strong></td><td>MERN Full Stack (React - Node.js)</td><td>Noida</td>
+<td>5-7 LPA (risk)</td><td><span class="variant">fullstack</span></td><td>External (Cutshort)</td>
+<td><a class="btn open" href="https://cutshort.io/job/MERN-Full-Stack-React-Node-js-Noida-UpCodo-Digital-J48P8Jof" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('UpCodo Digital')">Copy Cover Letter</button></td>
+</tr></tbody></table></div>
+
+<h2 class="y">Review Jobs (score 50-64 or trust 40-59)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+<tbody><tr><td>1</td><td><span class="badge yellow">84</span></td><td>50</td>
+<td><strong>NINE DIMENSION INC</strong></td><td>Full Stack Developer</td><td class="reason">Strong MERN skill fit, but company unverified (no Glassdoor/AmbitionBox footprint) and pay 4-6 LPA straddles the floor. Verify legitimacy + salary. <a href="https://cutshort.io/job/Full-Stack-Developer-Delhi-NINE-DIMENSION-INC-U8xCBhLb" target="_blank" rel="noopener">link</a></td></tr><tr><td>2</td><td><span class="badge yellow">70</span></td><td>40</td>
+<td><strong>Zentrix nexus</strong></td><td>Java Developer</td><td class="reason">&#x27;Train-then-place&#x27; model (6-mo training + 3-mo internship), mixed reviews / salary-in-installments reports. Title says Java but JD is MERN. Confirm NO upfront fee before engaging. <a href="https://cutshort.io/job/Java-Developer-Chennai-Bengaluru-Bangalore-Mumbai-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Pune-Hyderabad-Zentrix-nexus-ErbJchjq" target="_blank" rel="noopener">link</a></td></tr><tr><td>3</td><td><span class="badge yellow">64</span></td><td>90</td>
+<td><strong>TestMu AI (LambdaTest)</strong></td><td>Backend Developer</td><td class="reason">Excellent funded company (LambdaTest) and strong pay (10-25 LPA), but core stack is Go + Python which Bhumi lacks. Backend fundamentals transfer - a stretch worth a look. <a href="https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41" target="_blank" rel="noopener">link</a></td></tr></tbody></table></div>
+
+<h2 class="r">Skipped Jobs</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr><td>1</td><td><strong>NeoGenCode Technologies</strong></td><td>Full Stack Engineer</td><td class="reason">Salary: 2-5 LPA, below 5.5 LPA target (skills fit well).</td></tr><tr><td>2</td><td><strong>Lalitech</strong></td><td>Full Stack Engineer</td><td class="reason">Salary: 3.5-4.5 LPA, below the 5 LPA floor.</td></tr><tr><td>3</td><td><strong>PrimaFelicitas</strong></td><td>MEAN Stack Developer</td><td class="reason">Salary: 2-5 LPA, below target; MEAN uses Angular (Bhumi is React).</td></tr><tr><td>4</td><td><strong>Livekeeping Technologies</strong></td><td>Golang Developer</td><td class="reason">Skill: primary language Go/Golang - off Bhumi&#x27;s stack (Java/JS/Node).</td></tr><tr><td>5</td><td><strong>Timble Technologies</strong></td><td>DevOps Engineer</td><td class="reason">Role: DevOps/infra, not software dev; pay 2-5 LPA below target.</td></tr><tr><td>6</td><td><strong>Nexaxis Technology Solutions</strong></td><td>Automation Tester</td><td class="reason">Role: QA/Automation testing (contract, ~5+ yrs), off Bhumi&#x27;s dev track.</td></tr></tbody></table></div>
+
+<h2>Top 5 Recommendations</h2>
+<div class="rec"><h3>1. fi ellements - Node Js Developer</h3><p>Bhumi&#x27;s single best match today (91/100). The JD explicitly accepts Node.js OR Java Spring Boot and centers on REST APIs, MySQL, MongoDB, AWS Lambda, microservices and payment-gateway integration - which maps almost 1:1 onto her Primathon/Paytm backend work and her Distributed Payment Gateway project (30 REST APIs, Order/Payment/Merchant/Vault). Legit firm (est. 2016, Sector-62 Noida, 11-50 staff), pay 6-9 LPA is comfortably in range. Apply first.</p></div><div class="rec"><h3>2. iDreamCareer - Fullstack MERN</h3><p>Highest-trust pick (85/100): a well-funded EdTech (256 employees, 20M+ students, Glassdoor 4.0). Clean MERN fit - React, Node/Express, MongoDB, REST - and the 7-15 LPA band is the strongest pay in today&#x27;s qualified set. The 1-8 yr range accepts her 1.5 yrs. Reputable brand that looks good on a resume.</p></div><div class="rec"><h3>3. UpCodo Digital - MERN Full Stack</h3><p>Solid MERN match (87/100) at a genuinely well-reviewed studio (est. 2019, 30+ Clutch reviews at 5.0). Only caveat is the 3-7 LPA posted band - confirm the offer lands &gt;=5.5 LPA. Good place to broaden client-facing full-stack experience.</p></div><div class="rec"><h3>4. TestMu AI / LambdaTest - Backend Developer (stretch)</h3><p>Not a clean skills match (Go + Python vs her Java/JS), so it sits in Review - but LambdaTest is a unicorn with 10-25 LPA pay and elite backend fundamentals. If Bhumi is open to picking up Go, a strong DSA background (5-star Java, 250+ problems) makes this an ambitious but not unreasonable stretch.</p></div><div class="rec"><h3>5. NINE DIMENSION INC - Full Stack (verify)</h3><p>Skill-wise an 84 (React/Node/Mongo/Express, Delhi), but the company has no verifiable Glassdoor/AmbitionBox footprint and the 4-6 LPA band is borderline. Worth a 5-minute due-diligence check; if it looks real and the salary clears 5.5, promote it to Apply.</p></div>
+
+<h2>Weekly Trend - Qualified per Run</h2>
+<div class="trend"><div class="bar-wrap"><div class="bar" style="height:61px" title="1 qualified">1</div><div class="bar-lbl">2026-08-05</div></div><div class="bar-wrap"><div class="bar" style="height:168px" title="3 qualified">3</div><div class="bar-lbl">2026-09-10</div></div></div>
+<div class="note">History is sparse (last run was 2026-08-05). Bars show qualified jobs per completed run.</div>
+
+<h2>Cover Letters</h2>
+<div class="clbox"><div class="clhead"><strong>fi ellements</strong> - Node Js Developer
+<button class="btn copy" onclick="copyCL('fi ellements')">COPY</button></div>
+<pre>Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Node Js Developer role at fi ellements, where building scalable backend services and payment-gateway integrations is exactly the work I enjoy most. At Primathon and Paytm I have shipped production microservices in Node.js and Java Spring Boot, exposing REST APIs backed by MySQL and MongoDB, and I wired AWS Lambda pipelines for real-time, async data handling. I also architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, giving me hands-on depth in the exact payment-integration and microservice patterns your role calls for.
+
+As an immediate joiner with 1.5+ years of backend experience and a 5-star Java rating on HackerRank (250+ DSA problems solved), I can contribute to your team from day one and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>iDreamCareer</strong> - Fullstack Developer - MERN
+<button class="btn copy" onclick="copyCL('iDreamCareer')">COPY</button></div>
+<pre>Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Full Stack (MERN) Developer and help scale a platform that already guides 20 million+ students. My background maps directly to your stack: I build React.js front-ends and Node.js/Express.js services, model data in MongoDB, and design REST APIs — the same end-to-end flow your product depends on.
+
+At Primathon I engineered admin APIs and backend automation across seven merchant systems, cutting manual operational effort by 70%, and at Paytm I optimized microservices powering real-time transaction notifications. With a 9.3 CGPA, an AWS Certified Developer - Associate credential, and 250+ DSA problems solved, I bring both strong fundamentals and real shipping experience.
+
+As an immediate joiner, I&#x27;m eager to contribute to iDreamCareer&#x27;s mission and grow with the team.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><strong>UpCodo Digital</strong> - MERN Full Stack (React - Node.js)
+<button class="btn copy" onclick="copyCL('UpCodo Digital')">COPY</button></div>
+<pre>Dear Hiring Manager,
+
+I&#x27;m keen to join UpCodo Digital as a MERN Full Stack Developer and help craft the high-performance web products your clients across the US, UK, and Europe rely on. I work across the full MERN stack — building responsive React.js interfaces, developing Node.js and Express.js APIs, and managing MongoDB data models — with a focus on clean, maintainable code.
+
+At Primathon I automated backend workflows across seven merchant systems and integrated AWS services for real-time data ingestion, while my internship at Paytm sharpened my ability to optimize microservices for reliability and speed. My distributed payment-gateway project, with 30 REST APIs across four services, reflects the system-design discipline I&#x27;d bring to your team.
+
+As an immediate joiner and quick learner, I&#x27;m ready to deliver value from week one.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+
+<div class="note">Data source: Cutshort + Internshala live listings (WebFetch), 2026-09-10. Only postings with a verifiable direct apply link are included - no fabricated listings. LinkedIn's own pages geo-resolve to the US from this environment and JSearch/RapidAPI returned 404 this run, so aggregator links are used.</div>
+</div>
+
+<div id="cl-fi ellements" style="display:none">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Node Js Developer role at fi ellements, where building scalable backend services and payment-gateway integrations is exactly the work I enjoy most. At Primathon and Paytm I have shipped production microservices in Node.js and Java Spring Boot, exposing REST APIs backed by MySQL and MongoDB, and I wired AWS Lambda pipelines for real-time, async data handling. I also architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, giving me hands-on depth in the exact payment-integration and microservice patterns your role calls for.
+
+As an immediate joiner with 1.5+ years of backend experience and a 5-star Java rating on HackerRank (250+ DSA problems solved), I can contribute to your team from day one and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt
+</div>
+<div id="cl-iDreamCareer" style="display:none">Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Full Stack (MERN) Developer and help scale a platform that already guides 20 million+ students. My background maps directly to your stack: I build React.js front-ends and Node.js/Express.js services, model data in MongoDB, and design REST APIs — the same end-to-end flow your product depends on.
+
+At Primathon I engineered admin APIs and backend automation across seven merchant systems, cutting manual operational effort by 70%, and at Paytm I optimized microservices powering real-time transaction notifications. With a 9.3 CGPA, an AWS Certified Developer - Associate credential, and 250+ DSA problems solved, I bring both strong fundamentals and real shipping experience.
+
+As an immediate joiner, I&#x27;m eager to contribute to iDreamCareer&#x27;s mission and grow with the team.
+
+Best regards,
+Bhumi Bhatt
+</div>
+<div id="cl-UpCodo Digital" style="display:none">Dear Hiring Manager,
+
+I&#x27;m keen to join UpCodo Digital as a MERN Full Stack Developer and help craft the high-performance web products your clients across the US, UK, and Europe rely on. I work across the full MERN stack — building responsive React.js interfaces, developing Node.js and Express.js APIs, and managing MongoDB data models — with a focus on clean, maintainable code.
+
+At Primathon I automated backend workflows across seven merchant systems and integrated AWS services for real-time data ingestion, while my internship at Paytm sharpened my ability to optimize microservices for reliability and speed. My distributed payment-gateway project, with 30 REST APIs across four services, reflects the system-design discipline I&#x27;d bring to your team.
+
+As an immediate joiner and quick learner, I&#x27;m ready to deliver value from week one.
+
+Best regards,
+Bhumi Bhatt
+</div>
+
+<div id="toast">Copied to clipboard</div>
+<footer>Generated by LinkedIn Morning Scan routine - 2026-09-10</footer>
+<script>
+var urls = ["https://cutshort.io/job/Node-Js-developer-Noida-fi-ellements-fUnaznso", "https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq", "https://cutshort.io/job/MERN-Full-Stack-React-Node-js-Noida-UpCodo-Digital-J48P8Jof"];
+function openAll(){ urls.forEach(function(u){ window.open(u,'_blank'); }); }
+function showToast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.className='show'; setTimeout(function(){t.className='';},1600); }
+function copyCL(company){
+  var el=document.getElementById('cl-'+company);
+  var text = el ? el.innerText : '';
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){showToast('Cover letter copied: '+company);},function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  var ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy'); showToast('Cover letter copied');}catch(e){showToast('Copy failed - select manually');}
+  document.body.removeChild(ta);
+}
+</script>
+</body></html>

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Full Stack (MERN) Developer and help scale a platform that already guides 20 million+ students. My background maps directly to your stack: I build React.js front-ends and Node.js/Express.js services, model data in MongoDB, and design REST APIs — the same end-to-end flow your product depends on.
+
+At Primathon I engineered admin APIs and backend automation across seven merchant systems, cutting manual operational effort by 70%, and at Paytm I optimized microservices powering real-time transaction notifications. With a 9.3 CGPA, an AWS Certified Developer - Associate credential, and 250+ DSA problems solved, I bring both strong fundamentals and real shipping experience.
+
+As an immediate joiner, I'm eager to contribute to iDreamCareer's mission and grow with the team.
+
+Best regards,
+Bhumi Bhatt

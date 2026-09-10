@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Node Js Developer role at fi ellements, where building scalable backend services and payment-gateway integrations is exactly the work I enjoy most. At Primathon and Paytm I have shipped production microservices in Node.js and Java Spring Boot, exposing REST APIs backed by MySQL and MongoDB, and I wired AWS Lambda pipelines for real-time, async data handling. I also architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, giving me hands-on depth in the exact payment-integration and microservice patterns your role calls for.
+
+As an immediate joiner with 1.5+ years of backend experience and a 5-star Java rating on HackerRank (250+ DSA problems solved), I can contribute to your team from day one and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm keen to join UpCodo Digital as a MERN Full Stack Developer and help craft the high-performance web products your clients across the US, UK, and Europe rely on. I work across the full MERN stack — building responsive React.js interfaces, developing Node.js and Express.js APIs, and managing MongoDB data models — with a focus on clean, maintainable code.
+
+At Primathon I automated backend workflows across seven merchant systems and integrated AWS services for real-time data ingestion, while my internship at Paytm sharpened my ability to optimize microservices for reliability and speed. My distributed payment-gateway project, with 30 REST APIs across four services, reflects the system-design discipline I'd bring to your team.
+
+As an immediate joiner and quick learner, I'm ready to deliver value from week one.
+
+Best regards,
+Bhumi Bhatt
