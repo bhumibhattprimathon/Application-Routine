@@ -1,15 +1,34 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-11",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "blocked_degraded",
+  "summary": "Discovery source unavailable. Zero fresh jobs could be verified; no listings fabricated. Dashboard generated with an honest degraded-run report plus manual fallback search links.",
+  "data_sources_attempted": {
+    "jsearch_rapidapi": {
+      "status": "search_endpoint_unavailable",
+      "detail": "RAPIDAPI_KEY is valid and still subscribed to JSearch (/job-details and /estimated-salary return normal API errors), but /search and /search-filters now return HTTP 404 'Endpoint does not exist'. The search capability appears to have been dropped from the current JSearch plan/subscription. This was the reliable source that produced the 2026-08-05 run.",
+      "endpoints_probed": {
+        "/search": "404 does not exist",
+        "/search-filters": "404 does not exist",
+        "/job-details": "400 valid (missing job_id)",
+        "/estimated-salary": "400 valid (missing job_title)",
+        "/company-job-salary": "400 valid (missing job title)"
+      },
+      "other_hosts_checked": "active-jobs-db, linkedin-job-search-api, indeed12, jobs-api14 all return 403 'not subscribed' — key is JSearch-only."
+    },
+    "websearch": {
+      "status": "insufficient",
+      "detail": "US-region WebSearch returns only aggregate listing/landing pages (LinkedIn/Naukri/Indeed result-count pages) and generic summaries, not individual last-24h postings with working apply links. Specific postings surfaced were aggregate pages or already expired (one LinkedIn job returned HTTP 404 on fetch).",
+      "batches_run": "All 5 role batches sampled (backend, full-stack, software engineering, AI/ML, other engineering) — 12 queries."
+    }
+  },
+  "ntfy": "disabled per user instruction; reported via routine push/email channel",
+  "jobs_found": 0,
+  "jobs_qualified": 0,
+  "jobs_review": 0,
+  "jobs_skipped": 0,
+  "fraud_detected": 0,
+  "applications_log_modified": false,
+  "action_required": "Re-subscribe/upgrade the JSearch API on RapidAPI to a plan that includes the /search endpoint. RAPIDAPI_KEY is already configured in the environment; once /search responds again the daily scan resumes full discovery automatically.",
+  "notes": "applications_log.json left intact so tomorrow's deduplication is preserved. Fallback: dashboard includes real LinkedIn/Naukri/Instahyre/Internshala search links pre-filtered to Past-24h + entry level for manual browsing."
 }

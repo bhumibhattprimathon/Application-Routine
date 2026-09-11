@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-11</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700;line-height:1}
+  .card .l{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.6px;margin-top:8px}
+  .banner{border-radius:12px;padding:18px 20px;margin:18px 0;border:1px solid}
+  .banner.warn{background:#fffbeb;border-color:#fde68a}
+  .banner h2{margin:0 0 8px;font-size:17px}
+  .banner p{margin:6px 0;font-size:14px;line-height:1.55}
+  .banner code{background:#1e293b;color:#e2e8f0;padding:2px 6px;border-radius:5px;font-size:12.5px}
+  .btn-open{display:block;width:100%;background:var(--green);color:#fff;border:none;border-radius:12px;
+    padding:18px;font-size:18px;font-weight:700;cursor:not-allowed;opacity:.55;margin:18px 0}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+  section h2{margin:0 0 4px;font-size:16px}
+  section .hint{color:var(--muted);font-size:13px;margin:0 0 14px}
+  .tag{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:middle}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+  .empty{color:var(--muted);font-style:italic;padding:14px 8px}
+  .links{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .links a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;
+    color:var(--ink);background:#f8fafc;font-size:14px}
+  .links a:hover{border-color:#94a3b8}
+  .links a small{display:block;color:var(--muted);margin-top:3px;font-size:12px}
+  .bars{display:flex;align-items:flex-end;gap:18px;height:150px;padding:10px 4px;border-bottom:2px solid var(--line)}
+  .bar{flex:1;max-width:70px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .fill{width:100%;background:var(--green);border-radius:6px 6px 0 0;min-height:3px}
+  .bar .v{font-weight:700;margin-bottom:6px;font-size:13px}
+  .bar .d{color:var(--muted);font-size:11px;margin-top:8px;text-align:center}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  @media (max-width:520px){.cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-11</h1>
+  <div class="sub">Daily morning scan for Bhumi Bhatt &middot; Backend / Full-Stack / SWE / AI-ML &middot; Delhi NCR &middot; Remote</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Jobs Verified</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">0</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">0</div><div class="l">Fraud Detected</div></div>
+    <div class="card"><div class="n">&mdash;</div><div class="l">Avg Match Score</div></div>
+    <div class="card"><div class="n">&mdash;</div><div class="l">Avg Salary Est.</div></div>
+  </div>
+
+  <div class="banner warn">
+    <h2>⚠️ Discovery blocked today — no fresh jobs could be verified</h2>
+    <p><strong>What happened:</strong> Both job-discovery sources failed to return fresh, individual, last-24h LinkedIn postings this morning, so <strong>zero jobs were qualified</strong>. Per the routine's rules, listings are never fabricated — so today's tables are empty rather than filled with unverifiable jobs.</p>
+    <p><strong>1. JSearch API (the reliable source used on the 2026-08-05 run) is down for this key.</strong> The RapidAPI key is still valid — <code>/job-details</code> and <code>/estimated-salary</code> respond — but the <code>/search</code> endpoint now returns <code>404 "Endpoint '/search' does not exist"</code>. Search appears to have been dropped from the current JSearch plan/subscription.</p>
+    <p><strong>2. WebSearch (fallback) is US-region and only returns aggregate listing pages</strong> (LinkedIn/Naukri/Indeed search results counts), not individual postings with working apply links posted in the last 24 hours. Every specific posting it surfaced was either an aggregate page or already expired (e.g. one LinkedIn posting returned HTTP 404 when fetched).</p>
+    <p><strong>✅ Fix (2 minutes):</strong> Re-subscribe/upgrade the <strong>JSearch API on RapidAPI</strong> to a plan that includes the <code>/search</code> endpoint (the key <code>RAPIDAPI_KEY</code> is already wired into this environment). Once <code>/search</code> responds again, tomorrow's scan resumes automatically with full discovery, scoring, cover letters, and qualified jobs.</p>
+  </div>
+
+  <button class="btn-open" disabled title="No qualified jobs today">OPEN ALL 0 QUALIFIED JOBS</button>
+
+  <section>
+    <h2><span class="tag" style="background:var(--green)"></span>Qualified Jobs</h2>
+    <p class="hint">Score &ge; 65 and trust &ge; 60, sorted by score. Each row would carry an [Open Job] and [Copy Cover Letter] control.</p>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Easy Apply?</th></tr></thead>
+      <tbody><tr><td colspan="9" class="empty">No qualified jobs — discovery source unavailable (see banner above).</td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="tag" style="background:var(--yellow)"></span>Review Jobs</h2>
+    <p class="hint">Score 50&ndash;64 or trust 40&ndash;59.</p>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+      <tbody><tr><td colspan="6" class="empty">None to review today.</td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="tag" style="background:var(--red)"></span>Skipped Jobs</h2>
+    <p class="hint">Fraud / salary / experience / low-match filters.</p>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody><tr><td colspan="4" class="empty">Nothing evaluated — no candidate postings were retrieved.</td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>🔎 Manual fallback — live search links (real, ready to browse)</h2>
+    <p class="hint">Discovery is down, but Bhumi's morning isn't wasted. These are genuine LinkedIn / job-board search pages for her target roles, pre-filtered to <strong>Past 24 hours</strong> + <strong>Entry/Associate level</strong> where supported (<code>f_TPR=r86400</code>, <code>f_E=1,2</code>). Open, skim, and apply directly.</p>
+    <ul class="links">
+      <li><a href="https://in.linkedin.com/jobs/java-backend-developer-jobs-new-delhi-dl?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">Java Backend Developer — New Delhi <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/back-end-developer-jobs-new-delhi?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">Backend Developer — New Delhi <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/spring-boot-jobs-gurugram?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">Spring Boot — Gurugram <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/full-stack-developer-jobs-gurugram?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">Full Stack Developer — Gurugram <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/mern-stack-developer-react.js-node.js-jobs?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">MERN / React / Node <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/sde-software-development-engineer-jobs-gurugram?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">SDE — Gurugram <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/entry-level-software-developer-jobs-noida?f_TPR=r86400" target="_blank" rel="noopener">Entry-Level Software Developer — Noida <small>LinkedIn · last 24h</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/remote-node-js-jobs?f_TPR=r86400&f_E=1%2C2" target="_blank" rel="noopener">Node.js — Remote (India) <small>LinkedIn · last 24h · entry/associate</small></a></li>
+      <li><a href="https://in.linkedin.com/jobs/machine-learning-entry-level-jobs?f_TPR=r86400" target="_blank" rel="noopener">Machine Learning — Entry Level <small>LinkedIn · last 24h</small></a></li>
+      <li><a href="https://www.naukri.com/backend-developer-jobs-in-delhi-ncr" target="_blank" rel="noopener">Backend Developer — Delhi NCR <small>Naukri · set Freshness ≤ 1 day, Exp 0–2</small></a></li>
+      <li><a href="https://www.instahyre.com/software-engineering-jobs-in-delhi-ncr/" target="_blank" rel="noopener">Software Engineering — Delhi NCR <small>Instahyre · curated startups/MNCs</small></a></li>
+      <li><a href="https://internshala.com/jobs/backend-development-jobs-in-delhi/" target="_blank" rel="noopener">Backend Development — Delhi <small>Internshala · fresher-friendly</small></a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>⭐ Top 5 Recommendations</h2>
+    <p class="hint">Requires qualified jobs — none today. When discovery is restored, the five best matches for Bhumi's Java / Spring Boot / Node.js / microservices profile appear here with a short "why it fits" note each.</p>
+    <p class="empty" style="padding:0">Nothing to recommend today.</p>
+  </section>
+
+  <section>
+    <h2>📊 Weekly Trend — qualified jobs per run</h2>
+    <p class="hint">From dashboards in this repo. (Runs are sparse; the routine last completed fully on 2026-08-05.)</p>
+    <div class="bars">
+      <div class="bar"><div class="v">1</div><div class="fill" style="height:80%"></div><div class="d">08-05<br>completed</div></div>
+      <div class="bar"><div class="v">0</div><div class="fill" style="height:3%;background:var(--red)"></div><div class="d">09-11<br>blocked</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>✉️ Cover Letters</h2>
+    <p class="hint">Generated for jobs with match &ge; 75 and trust &ge; 60.</p>
+    <p class="empty" style="padding:0">No cover letters generated today — no qualifying jobs.</p>
+  </section>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Morning Scan routine · 2026-09-11 · degraded run (discovery source unavailable).<br>
+  Data sources attempted: JSearch API (/search 404 — plan issue) · WebSearch (aggregate results only). No listings were fabricated.
+</footer>
+</body>
+</html>
