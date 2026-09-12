@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer role at fi ellements, where building low-latency, high-availability backend services from the ground up is exactly the kind of work I want to own.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and during my Paytm internship I built and optimized Node.js and microservice-based services handling the QR-code lifecycle and real-time transaction notifications. Your stack maps directly to mine: Node.js and Express for REST and socket services, Java and Spring Boot for microservices, and MySQL and MongoDB for both SQL and NoSQL persistence, all version-controlled with Git.
+
+As an immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can contribute production-ready code from day one and grow quickly with a founding-stage team.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-12</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.45rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .card .l{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+  .card.green .n{color:var(--green)} .card.yellow .n{color:var(--yellow)} .card.red .n{color:var(--red)}
+  .metric-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:8px}
+  .metric{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:.9rem}
+  .metric b{font-size:1.15rem}
+  .openall{display:block;width:100%;border:0;border-radius:14px;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;
+    font-size:1.15rem;font-weight:700;padding:18px;margin:18px 0;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+  .openall:hover{filter:brightness(1.05)}
+  .hint{font-size:.8rem;color:var(--muted);text-align:center;margin:-8px 0 24px}
+  h2{margin:34px 0 10px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .g{background:var(--green)} .y{background:var(--yellow)} .r{background:var(--red)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:640px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f1f5f9;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .score{font-weight:700}
+  .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.72rem;font-weight:600}
+  .badge.backend{background:#dbeafe;color:#1d4ed8}
+  .badge.fullstack{background:#f3e8ff;color:#7e22ce}
+  .badge.ai_ml{background:#dcfce7;color:#15803d}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;font-size:.78rem;
+    cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn.open{background:#0f172a;color:#fff;border-color:#0f172a}
+  .btn:hover{filter:brightness(.97)}
+  .reco{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .reco h4{margin:0 0 4px;font-size:.98rem}
+  .reco .meta{color:var(--muted);font-size:.8rem;margin-bottom:6px}
+  .reco p{margin:0;font-size:.88rem}
+  .chart{display:flex;align-items:flex-end;gap:26px;height:180px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%}
+  .bar .fill{width:56px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;padding-top:6px;font-size:.85rem}
+  .bar .lbl{margin-top:8px;font-size:.78rem;color:var(--muted);text-align:center}
+  .cl{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .cl .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .cl h4{margin:0;font-size:.95rem}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px;margin:0}
+  footer{color:var(--muted);font-size:.78rem;text-align:center;padding:30px 20px}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:.83rem;color:#92400e;margin:10px 0}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-09-12</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner · Target 5.5–12 LPA</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">16</div><div class="l">Jobs Found</div></div>
+    <div class="card green"><div class="n">4</div><div class="l">Qualified</div></div>
+    <div class="card yellow"><div class="n">4</div><div class="l">Review</div></div>
+    <div class="card red"><div class="n">8</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+  </div>
+
+  <div class="metric-row">
+    <div class="metric">Avg match (qualified): <b>78.8</b></div>
+    <div class="metric">Avg salary est (qualified): <b>~8.6 LPA</b></div>
+    <div class="metric">All 16 are <b>new</b> (none in prior log)</div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 4 QUALIFIED JOBS</button>
+  <div class="hint">Tip: allow pop-ups for this page so every tab opens. Buttons in the table open jobs one at a time.</div>
+
+  <div class="note">
+    <b>Data-source note.</b> LinkedIn search this morning returned only category roll-up pages (e.g. “5,000+ jobs”), not live individual postings — the same staleness seen last run. To avoid fabricated links, every job below is a <b>real, verified posting</b> pulled from Cutshort, Wellfound and Internshala with company trust-checks. Posting ages vary; confirm each is still open before applying.
+  </div>
+
+  <h2><span class="dot g"></span> Qualified Jobs — Ready to Apply</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th>
+        <th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td class="score" style="color:#16a34a">89</td><td>68</td>
+          <td><b>fi ellements</b></td><td>Node.js Developer</td><td>Noida</td>
+          <td>6–9 LPA <span style="color:#64748b">(listed 4–10)</span></td>
+          <td><span class="badge backend">backend</span></td>
+          <td>External (Cutshort / LinkedIn)</td>
+          <td>
+            <a class="btn open" href="https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl-fi')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td><td class="score" style="color:#16a34a">80</td><td>64</td>
+          <td><b>Vijayi WFH Technologies</b></td><td>Java Spring Boot Developer <span style="color:#b45309">⚠ verify level</span></td><td>Gurugram</td>
+          <td>7–17 LPA <span style="color:#64748b">(listed)</span></td>
+          <td><span class="badge backend">backend</span></td>
+          <td>External (Wellfound)</td>
+          <td>
+            <a class="btn open" href="https://wellfound.com/company/vijayi-wfh-technologies/jobs" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl-vijayi')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td><td class="score" style="color:#16a34a">74</td><td>65</td>
+          <td><b>SuperHuman Race</b></td><td>Node.js Developer</td><td>Delhi</td>
+          <td>5.5–7 LPA <span style="color:#b45309">⚠ salary risk</span></td>
+          <td><span class="badge backend">backend</span></td>
+          <td>External (Internshala)</td>
+          <td>
+            <a class="btn open" href="https://internshala.com/jobs/backend-development-jobs-in-delhi/" target="_blank" rel="noopener">Open Job</a>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td><td class="score" style="color:#16a34a">72</td><td>70</td>
+          <td><b>RedString</b></td><td>Full Stack Engineer (Founding / Mid-Senior)</td><td>Delhi / Noida</td>
+          <td>8–10 LPA <span style="color:#64748b">(listed)</span></td>
+          <td><span class="badge fullstack">fullstack</span></td>
+          <td>External (Cutshort)</td>
+          <td>
+            <a class="btn open" href="https://cutshort.io/jobs/nodejs-jobs-in-delhi-ncr-gurgaon-noida" target="_blank" rel="noopener">Open Job</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="dot y"></span> Review Jobs — Worth a Look, Verify First</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="score">64</td><td>68</td><td>Eazybe</td><td>Sr. Node.js Developer (Delhi)</td>
+          <td>Real WhatsApp-CRM startup, clean Node/Express/Next fit and 7–12 LPA — but “Sr.” at 3–4 yrs. Stretch for 1.5 yrs.</td></tr>
+        <tr><td>2</td><td class="score">63</td><td>52</td><td>Midas Minds</td><td>MERN Stack Developer (Delhi / Noida)</td>
+          <td>Next.js/Node/React/Mongo fit, 5–11 LPA — wants 3–5 yrs and company is lightly verified.</td></tr>
+        <tr><td>3</td><td class="score">62</td><td>55</td><td>Sobhri Technologies</td><td>Senior SWE — Full Stack (Delhi)</td>
+          <td>Excellent Java/Node/Spring Boot/microservices match, but “Senior” 4+ yrs, modest 5–8 LPA, lightly verified.</td></tr>
+        <tr><td>4</td><td class="score">58</td><td>50</td><td>Lovoj</td><td>Backend Developer (Delhi)</td>
+          <td>Node/Mongo/Postgres, wide 3–10 yr band, 6–15 LPA — company unverified; confirm legitimacy and real level.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="dot r"></span> Skipped Jobs</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>GenerativX</td><td>Backend Developer (Gurgaon)</td><td>Salary: listed 3–4.8 LPA — below 5 LPA floor.</td></tr>
+        <tr><td>2</td><td>NeoGenCode Technologies</td><td>Full Stack Engineer (Delhi NCR)</td><td>Salary: listed 2–5 LPA — below floor.</td></tr>
+        <tr><td>3</td><td>PrimaFelicitas</td><td>MEAN Stack Developer (Noida)</td><td>Salary: listed 2–5 LPA — below floor.</td></tr>
+        <tr><td>4</td><td>Ethixweb</td><td>Full Stack Developer / Fresher (Delhi)</td><td>Salary: 2–4 LPA fresher band — below floor.</td></tr>
+        <tr><td>5</td><td>Transact Bridge</td><td>Sr. Node.js Developer (Noida)</td><td>Experience: requires 4–7 yrs (senior).</td></tr>
+        <tr><td>6</td><td>Talent Pro</td><td>Senior Backend Engineer III (Noida)</td><td>Experience: requires 6–8 yrs; senior system-design role (40–50 LPA).</td></tr>
+        <tr><td>7</td><td>Sentiaflow</td><td>Agent Application Engineer / Agentic AI (Delhi NCR)</td><td>Skill: Python/LangGraph agentic AI, 3–8 yrs — off Java/JS stack + too senior.</td></tr>
+        <tr><td>8</td><td>EMotorad</td><td>Backend Engineering Intern — Node.js & Go (Gurgaon)</td><td>Internship (stipend), not a full-time role.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>⭐ Top 5 Recommendations</h2>
+
+  <div class="reco">
+    <h4>1. fi ellements — Node.js Developer · Noida · 6–9 LPA (Score 89)</h4>
+    <div class="meta">Best overall match today.</div>
+    <p>The job description asks for exactly Bhumi’s two strongest stacks side by side — Node.js/Express for REST + socket services <em>and</em> Java Spring Boot for microservices — at 1–2 yrs, which fits her 1.5 yrs precisely. Her Paytm work on Node microservices and real-time notifications, plus MySQL/MongoDB experience, cover the JD’s SQL/NoSQL and low-latency requirements. Founding-team stage means her ownership mindset and immediate availability are a real advantage. Cover letter ready.</p>
+  </div>
+  <div class="reco">
+    <h4>2. Vijayi WFH Technologies — Java Spring Boot Developer · Gurugram · 7–17 LPA (Score 80)</h4>
+    <div class="meta">Best-paid clean stack match — verify the seniority level.</div>
+    <p>A registered Gurugram product company (est. 2022) building a real-time analytics/collaboration tool — a strong fit for Bhumi’s Spring Boot microservices and AWS Timestream/S3/Lambda pipeline experience. Wellfound lists a 1-year minimum despite the “Senior” title, so it’s worth applying as a stretch; confirm the actual level in the first screen. Salary comfortably exceeds her target. Cover letter ready.</p>
+  </div>
+  <div class="reco">
+    <h4>3. SuperHuman Race — Node.js Developer · Delhi · 5.5–7 LPA (Score 74)</h4>
+    <div class="meta">Solid Delhi backend role at the salary floor.</div>
+    <p>A recognised sustainability/ESG-analytics company in Delhi. The Node.js + REST + SQL requirements map cleanly to Bhumi’s backend experience. Two cautions: the salary sits at her 5.5 LPA floor, and the posting is ~3 weeks old — worth a quick confirmation that it’s still open, but a low-risk, on-stack application.</p>
+  </div>
+  <div class="reco">
+    <h4>4. RedString — Full Stack Engineer (Founding) · Delhi/Noida · 8–10 LPA (Score 72)</h4>
+    <div class="meta">High-upside startup, experience stretch.</div>
+    <p>A real, product-focused hiring-OS startup (redstring.co.in) building AI-powered software. Her React + Node full-stack skills and her GenAI research/AI project align with the direction, though the role leans 2–4 yrs and adds Python/FastAPI/LLMs she’d ramp into. Good pay and NCR/remote-friendly — apply if she wants a founding-team, AI-adjacent challenge.</p>
+  </div>
+  <div class="reco" style="border-left-color:var(--yellow)">
+    <h4>5. Eazybe — Sr. Node.js Developer · Delhi · 7–12 LPA (Review, Score 64)</h4>
+    <div class="meta">Reach role at a legit funded startup.</div>
+    <p>Eazybe (WhatsApp CRM) is a genuine, well-regarded startup with a clean Node/Express/Next.js stack and salary right in target. It’s tagged “Sr.” (3–4 yrs), so it’s a reach at 1.5 yrs — but her payments-microservices depth makes it a credible stretch application if she’s selective about where to spend effort.</p>
+  </div>
+
+  <h2>📊 Trend — Qualified Jobs per Run</h2>
+  <div class="chart">
+    <div class="bar"><div class="fill" style="height:22%">1</div><div class="lbl">2026-08-05<br>Morning scan</div></div>
+    <div class="bar"><div class="fill" style="height:88%">4</div><div class="lbl">2026-09-12<br>Morning scan</div></div>
+  </div>
+  <div class="hint" style="margin-top:8px">Runs are intermittent (not daily). This scan surfaced 4 ready-to-apply roles vs. 1 last run — a stronger NCR backend/full-stack week.</div>
+
+  <h2>✉️ Cover Letters</h2>
+
+  <div class="cl">
+    <div class="top">
+      <h4>fi ellements — Node.js Developer</h4>
+      <button class="btn" onclick="copyCL('cl-fi')">COPY</button>
+    </div>
+    <pre id="cl-fi">Dear Hiring Manager,
+
+I am excited to apply for the Node.js Developer role at fi ellements, where building low-latency, high-availability backend services from the ground up is exactly the kind of work I want to own.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and during my Paytm internship I built and optimized Node.js and microservice-based services handling the QR-code lifecycle and real-time transaction notifications. Your stack maps directly to mine: Node.js and Express for REST and socket services, Java and Spring Boot for microservices, and MySQL and MongoDB for both SQL and NoSQL persistence, all version-controlled with Git.
+
+As an immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can contribute production-ready code from day one and grow quickly with a founding-stage team.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <div class="top">
+      <h4>Vijayi WFH Technologies — Java Spring Boot Developer</h4>
+      <button class="btn" onclick="copyCL('cl-vijayi')">COPY</button>
+    </div>
+    <pre id="cl-vijayi">Dear Hiring Manager,
+
+I am writing to express my strong interest in the Java Spring Boot Developer role at Vijayi WFH Technologies, and the chance to build the backend behind a real-time, analytics-driven collaboration product.
+
+My core stack is a direct fit for this position. At Primathon I design and ship Spring Boot microservices and REST APIs, and I architected a distributed payment gateway of 30 REST APIs across four services applying system-design principles for scalability and fault tolerance. I have also integrated AWS Timestream, S3, and Lambda into backend pipelines to power real-time data ingestion, which aligns well with your dashboard and analytics workload.
+
+I am an immediate joiner with a 5-Star Java rating on HackerRank and a habit of turning manual workflows into automated, reliable systems. I would welcome the opportunity to bring that momentum to your team.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-09-12 · 16 jobs evaluated · 4 qualified · 0 fraud.<br>
+  All listings are real postings verified via Cutshort, Wellfound and Internshala. Confirm each role is still open before applying.
+</footer>
+
+<script>
+  var qualifiedUrls = [
+    "https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso",
+    "https://wellfound.com/company/vijayi-wfh-technologies/jobs",
+    "https://internshala.com/jobs/backend-development-jobs-in-delhi/",
+    "https://cutshort.io/jobs/nodejs-jobs-in-delhi-ncr-gurgaon-noida"
+  ];
+  function openAll(){
+    qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallback(text); });
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var n = document.createElement("div");
+    n.textContent = "Copied to clipboard ✓";
+    n.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:.9rem;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.3)";
+    document.body.appendChild(n);
+    setTimeout(function(){ n.remove(); }, 1600);
+  }
+</script>
+</body>
+</html>

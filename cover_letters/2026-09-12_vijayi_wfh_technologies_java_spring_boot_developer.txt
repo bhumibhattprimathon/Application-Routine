@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in the Java Spring Boot Developer role at Vijayi WFH Technologies, and the chance to build the backend behind a real-time, analytics-driven collaboration product.
+
+My core stack is a direct fit for this position. At Primathon I design and ship Spring Boot microservices and REST APIs, and I architected a distributed payment gateway of 30 REST APIs across four services applying system-design principles for scalability and fault tolerance. I have also integrated AWS Timestream, S3, and Lambda into backend pipelines to power real-time data ingestion, which aligns well with your dashboard and analytics workload.
+
+I am an immediate joiner with a 5-Star Java rating on HackerRank and a habit of turning manual workflows into automated, reliable systems. I would welcome the opportunity to bring that momentum to your team.
+
+Best regards,
+Bhumi Bhatt
