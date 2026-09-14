@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to be considered for the MERN Full Stack (React / Node.js) position at UpCodo Digital, where I could contribute to the scalable, high-performance web applications your Noida team is known for delivering.
+
+My experience maps closely to the MERN stack: I build React.js front-ends backed by Node.js and Express REST APIs, with MongoDB and MySQL on the data layer. In my Distributed Payment Gateway project I architected 30 REST APIs across four services applying real system-design principles for scalability and fault tolerance, and at CodeAlpha I optimised 30+ REST endpoints and automated build pipelines with Git Actions. My JavaScript (ES6+) and backend fundamentals let me move confidently across the full stack rather than a single layer.
+
+I'm a fast learner comfortable owning features from database to UI, and as an immediate joiner available on a 0-day notice period I can start adding value to client projects from day one.
+
+Best regards,
+Bhumi Bhatt

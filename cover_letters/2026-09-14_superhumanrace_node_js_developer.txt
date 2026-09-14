@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Node.js Developer role at SuperHumanRace, where building a climate-data and ESG platform used by over a million people is exactly the kind of high-impact backend work I want to do.
+
+At Primathon and Paytm I have shipped production Node.js and Java microservices end to end: designing REST APIs with Express, modelling data in MySQL and MongoDB, and containerising services with Docker for reliable deployment. On the QR-code lifecycle service at Paytm I improved backend reliability and performance by 67% through a cleaner microservice architecture, and at Primathon I automated backend syncing across seven merchant systems while integrating AWS (Lambda, S3, Timestream) for real-time data ingestion — directly relevant to your analytics-heavy platform.
+
+I can pick up TypeScript and NestJS quickly given my strong JavaScript (ES6+) and Spring Boot foundations, and as an immediate joiner with a 0-day notice period I can start contributing to your engineering team right away.
+
+Best regards,
+Bhumi Bhatt
