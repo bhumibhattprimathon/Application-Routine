@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm writing to express my strong interest in the MEAN/MERN Stack Developer role at Restroworks, powering restaurant operations for 20,000+ locations worldwide.
+
+The MERN stack is my home ground. I build backend services and REST APIs with Node.js and Express.js, design and query MongoDB data models, and develop responsive interfaces in React.js. My backend work centers on scalable microservices — including a payment gateway of 30 REST APIs across four services and QR-lifecycle microservices at Paytm that improved reliability by 67% — so I'm comfortable owning features end to end, from user-facing UI to robust, high-performance APIs.
+
+I'm equally at ease with the operational side: Docker containerization, CI/CD pipelines, and performance tuning across the stack.
+
+As an immediate joiner, I can plug into your engineering sprints right away, and I'm eager to help enterprise brands like Subway and Taco Bell run more smoothly on your platform.
+
+Best regards,
+Bhumi Bhatt

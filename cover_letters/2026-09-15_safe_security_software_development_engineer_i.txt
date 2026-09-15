@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I role at Safe Security, where AI meets cybersecurity at Fortune 500 scale.
+
+My 1.5 years of backend engineering map directly to what your Core team needs: I build scalable microservices and REST APIs in Java and Spring Boot, and I bring a strong systems foundation (5-Star Gold in Java on HackerRank, 250+ DSA problems solved) that lets me reason about performance and edge cases in production code. At Primathon I engineered admin APIs and backend automation across seven merchant systems and cut manual operational effort by 70%, and I've integrated AWS (Lambda, S3, Timestream) into real-time data pipelines — experience that translates well to a signal-heavy risk platform.
+
+I thrive on extreme ownership: I like seeing a gap and owning the fix end to end, exactly the standard Safe describes.
+
+As an immediate joiner with zero notice period, I can start contributing to your sprints right away and ramp quickly on your stack.
+
+Best regards,
+Bhumi Bhatt

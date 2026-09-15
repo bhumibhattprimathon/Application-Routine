@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'd love to join BillCut as a Full Stack Engineer and help build the technology that shifts high-interest debt into affordable EMI plans.
+
+Fintech payment systems are exactly where I've spent my career. I architected a distributed payment gateway with 30 REST APIs across four services — Order, Payment, Merchant, and Vault — applying system-design principles for scalability and fault tolerance. At Paytm I built and optimized microservices managing the QR-code lifecycle and real-time transaction notifications, and at Primathon I ship production backend services daily. On the front end I work with React.js, and I integrate third-party financial APIs and MySQL/MongoDB data layers — the full loop BillCut's debt-management platform depends on.
+
+I care about the reliability and security that money movement demands, and I move fast without cutting corners.
+
+With a 0-day notice period, I'm ready to start immediately and contribute to your product from week one.
+
+Best regards,
+Bhumi Bhatt

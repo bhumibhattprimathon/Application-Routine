@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Java Developer role at Wyzard.ai and help build the backend behind your signal-to-revenue GTM platform.
+
+Your stack is a precise match for mine. I design scalable backend systems in Java and Spring Boot, model data in MongoDB alongside SQL databases, and apply system-design principles for fault tolerance — the exact toolkit your role calls for. I've shipped a distributed payment gateway of 30 REST APIs and built merchant-facing microservices at Paytm and Primathon, and I genuinely enjoy a high-velocity, MVP-first environment where rapid iteration and lean development are the norm.
+
+I'm also aligned with your AI-driven approach: my payment-gateway project integrated AI-based daily alerts for transaction insights, and my degree research covered generative-AI applications.
+
+With a 0-day notice period, I can join immediately and start prototyping fast alongside your core engineering team.
+
+Best regards,
+Bhumi Bhatt
