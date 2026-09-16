@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-09-16</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f1f5f9;color:var(--ink);}
+  header{background:#0f172a;color:#fff;padding:28px 20px;}
+  header h1{margin:0 0 6px;font-size:20px;letter-spacing:.3px}
+  header p{margin:0;color:#cbd5e1;font-size:14px}
+  .wrap{max-width:900px;margin:0 auto;padding:20px 16px 48px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+  @media(max-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+  .card{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .card .n{font-size:26px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .banner{background:#fff7ed;border:1px solid #fed7aa;border-left:6px solid var(--yellow);border-radius:10px;padding:18px 18px;margin:8px 0 20px}
+  .banner h2{margin:0 0 8px;font-size:16px;color:#b45309}
+  .banner p{margin:6px 0;font-size:14px;line-height:1.55}
+  code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:13px}
+  .box{background:#fff;border-radius:12px;padding:18px;margin:16px 0;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .box h3{margin:0 0 10px;font-size:15px}
+  ul{margin:6px 0 0;padding-left:20px}
+  li{margin:6px 0;font-size:14px;line-height:1.5}
+  .ok{color:var(--green);font-weight:600}
+  .muted{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-16</h1>
+  <p>Morning scan for Bhumi Bhatt · status: <strong>BLOCKED (no data source)</strong></p>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Jobs Found</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud</div></div>
+  </div>
+
+  <div class="banner">
+    <h2>⚠️ Run blocked — job discovery data source is down</h2>
+    <p>Today's scan could not fetch real, individual job postings, so <strong>no jobs were qualified and none were fabricated</strong>.</p>
+    <p><strong>What broke:</strong> the JSearch <code>/search</code> endpoint on RapidAPI (the feed prior runs used) now returns <code>404 "Endpoint /search does not exist"</code> — the search capability has dropped off the active plan. The key itself is still valid (JSearch <code>/job-details</code> and <code>/estimated-salary</code> return 200), and every other job API probed (Active-Jobs-DB, jobs-api14, LinkedIn-Job-Search-API, indeed12) returns <code>403 "not subscribed"</code>.</p>
+    <p><strong>Why not WebSearch:</strong> WebSearch works but only returns aggregate category pages (Naukri, Wellfound, Foundit, Internshala, LinkedIn role hubs) — not individual postings with stable apply URLs and dates. Prior runs already found those links go stale, so relying on them would mean guessing, which the routine forbids.</p>
+  </div>
+
+  <div class="box">
+    <h3>To fix (any one restores the daily scan)</h3>
+    <ul>
+      <li>Re-subscribe / renew <strong>JSearch</strong> on RapidAPI so <code>jsearch.p.rapidapi.com/search</code> is included again (cheapest path — everything else is already wired for it).</li>
+      <li>Or subscribe to an alternate on the same key — e.g. <strong>Active-Jobs-DB</strong> or <strong>LinkedIn-Job-Search-API</strong> — and share the host name.</li>
+      <li>Or point the routine at another job feed you prefer.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>Everything else is ready <span class="ok">✔</span></h3>
+    <ul>
+      <li>Resume read OK from <code>resumes/resume_master.pdf</code> (Java · Spring Boot · Microservices · Node.js · React · AWS).</li>
+      <li>Application history loaded: 17 prior entries (all 2026-08-05, &gt;30 days old — no dedup conflicts).</li>
+      <li>Scoring, fraud-detection, salary-estimation, cover-letter and log-writing logic all intact — they just need live jobs to run on.</li>
+    </ul>
+    <p class="muted">The moment a working discovery feed is restored, the next scheduled run will produce a full dashboard again.</p>
+  </div>
+
+</div>
+</body>
+</html>
