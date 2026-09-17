@@ -1,15 +1,24 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-17",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "degraded",
+  "blocker": "Live job-discovery feed unavailable: JSearch /search endpoint returns HTTP 404 'Endpoint does not exist' on the current RapidAPI plan (subscription alive \u2014 /estimated-salary and /job-details return 200). All other job-search APIs on the key return 403 'not subscribed'. Plain WebSearch returns only LinkedIn category/aggregator pages, not individual dated postings.",
+  "data_source": "JSearch /estimated-salary (real Glassdoor benchmarks) + WebSearch market context. NO individual postings pulled.",
+  "resume_source": "resumes/resume_master.pdf (read OK)",
+  "history_read": "data/applications_log.json (17 prior entries) \u2014 read OK",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel (PushNotification)",
+  "jobs_found": 0,
+  "jobs_qualified": 0,
+  "jobs_review": 0,
+  "jobs_skipped": 0,
+  "fraud_detected": 0,
+  "fabricated": false,
+  "salary_benchmarks_pulled": 7,
+  "curated_search_links": 7,
+  "action_required": "Restore JSearch /search access (renew/upgrade RapidAPI JSearch plan or re-enable the search endpoint), or subscribe the key to an alternative jobs API (Active-Jobs-DB / LinkedIn-Job-Search-API) and update the routine. Full auto-scoring resumes once the feed is live.",
+  "artifacts": {
+    "dashboard": "dashboards/dashboard_2026-09-17.html",
+    "cover_letters_generated": 0
+  },
+  "notes": "No new jobs appended to applications_log.json to avoid fabricated/duplicate entries. Top carry-forward action from last live scan: TravClan SDE-1 (Backend), match 89."
 }

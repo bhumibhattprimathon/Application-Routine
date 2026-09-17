@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-17</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#cbd5e1;font-size:14px}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .banner{margin:18px 0;padding:16px 18px;border-radius:12px;border-left:6px solid var(--yellow);background:#fef9c3;color:#713f12}
+  .banner strong{display:block;margin-bottom:4px;font-size:15px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  .sec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#f1f5f9;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .btn{display:inline-block;padding:8px 14px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn-open{background:var(--blue);color:#fff}
+  .btn-big{display:block;width:100%;padding:18px;font-size:17px;background:var(--green);color:#fff;border-radius:12px;margin:8px 0 4px;text-align:center}
+  .btn-big:hover{filter:brightness(1.05)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill-g{background:#dcfce7;color:#166534}.pill-y{background:#fef9c3;color:#854d0e}.pill-r{background:#fee2e2;color:#991b1b}.pill-b{background:#dbeafe;color:#1e40af}
+  .muted{color:var(--muted);font-size:13px}
+  .rec{border-left:4px solid var(--green);padding:10px 14px;margin:10px 0;background:#f0fdf4;border-radius:0 8px 8px 0}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:6px 0}
+  .bar-row .lab{width:96px;font-size:13px;color:var(--muted)}
+  .bar{height:22px;border-radius:5px;background:var(--green);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:12px;font-weight:600;min-width:26px}
+  a{color:var(--blue)}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}.wrap{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-17</h1>
+  <div class="sub">Morning scan for Bhumi Bhatt · Backend / Full-Stack / SDE / AI-ML · Delhi NCR · Immediate joiner</div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <strong>⚠️ Live job feed unavailable this cycle — 0 new postings pulled (no jobs were fabricated).</strong>
+    The discovery data source (JSearch <code>/search</code> on RapidAPI) returned
+    <em>“Endpoint '/search' does not exist”</em> for every query today. Other JSearch endpoints
+    (<code>/estimated-salary</code>, <code>/job-details</code>) still return 200 OK, so the subscription is alive but
+    the <b>search endpoint is not included in the current plan</b>. All other job APIs on the key return
+    <em>403 “not subscribed.”</em> Plain WebSearch only returns LinkedIn category/aggregator pages, not individual
+    dated postings that can be deduplicated, fraud-checked, or scored. To keep the data honest, this dashboard reports
+    <b>real market context + salary benchmarks</b> and curated last-24h search entry points instead of invented listings.
+    <br><b>Action needed:</b> restore JSearch <code>/search</code> access (renew/upgrade the RapidAPI JSearch plan, or re-enable the search endpoint) to resume automated per-job scoring tomorrow.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n" style="color:var(--muted)">0</div><div class="l">Jobs Found (feed down)</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">0</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">0</div><div class="l">Fraud Detected</div></div>
+    <div class="card"><div class="n" style="color:var(--blue)">6</div><div class="l">Live Salary Benchmarks</div></div>
+    <div class="card"><div class="n" style="color:var(--blue)">7</div><div class="l">Curated Search Links</div></div>
+  </div>
+
+  <h2>▶ One-Click: Open Today's Curated Last-24h LinkedIn Searches</h2>
+  <div class="sec">
+    <p class="muted">Since no individual postings could be auto-scored, these are pre-filtered LinkedIn searches
+    (past-24h <code>f_TPR=r86400</code>, entry-level where applicable) tuned to Bhumi's resume. Click to open all in new tabs, then apply manually.</p>
+    <button class="btn-big" onclick="openAll()">OPEN ALL 7 CURATED SEARCHES ↗</button>
+    <p class="muted" id="popupnote"></p>
+    <table>
+      <thead><tr><th>#</th><th>Focus</th><th>Query (past 24h)</th><th>Open</th></tr></thead>
+      <tbody id="searchTable"></tbody>
+    </table>
+  </div>
+
+  <h2>💰 Live Salary Benchmarks — Bhumi's Target Roles (real data)</h2>
+  <div class="sec">
+    <p class="muted">Source: JSearch <code>/estimated-salary</code> (Glassdoor aggregate), pulled 2026-09-17, confidence <b>VERY_HIGH</b>.
+    Bhumi's target band: <b>5.5–12 LPA</b>. Green = squarely in band for entry level; yellow = watch the low end.</p>
+    <table>
+      <thead><tr><th>Role</th><th>Location</th><th>Range (LPA)</th><th>Median</th><th>Samples</th><th>vs Target</th></tr></thead>
+      <tbody id="salTable"></tbody>
+    </table>
+  </div>
+
+  <h2>📊 Live Market Volume (LinkedIn, from search index)</h2>
+  <div class="sec">
+    <p class="muted">Aggregate role counts and “new since yesterday” signals surfaced by today's searches — a read on how active each track is.</p>
+    <table>
+      <thead><tr><th>Track</th><th>Open roles</th><th>New</th><th>Browse</th></tr></thead>
+      <tbody id="mktTable"></tbody>
+    </table>
+  </div>
+
+  <h2>⭐ Carry-Forward: Best Lead From Last Successful Scan (2026-08-05)</h2>
+  <div class="sec">
+    <div class="rec">
+      <b>TravClan — SDE 1 (Backend Developer)</b> · New Delhi · Match 89 / Trust 82 · est. 7–11 LPA · resume: <b>backend</b><br>
+      <span class="muted">The single clean entry-level backend match from the last live scan. If Bhumi hasn't applied yet, this is still the top action.
+      A cover letter is on file: <code>cover_letters/2026-08-05_travclan_sde_1__backend_developer.txt</code>.</span><br>
+      <a class="btn btn-open" style="margin-top:8px" href="https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-1-backend-developer" target="_blank" rel="noopener">Open TravClan role ↗</a>
+    </div>
+    <p class="muted">Six “review/stretch” leads from that scan (Innova ESI, Loop Subscriptions, CARPL.ai, EY, etc.) remain in
+    <code>data/applications_log.json</code>. They were 3–6 yr roles — worth a stretch application but not fresh matches.</p>
+  </div>
+
+  <h2>📈 Weekly Trend — Qualified Jobs / Scan</h2>
+  <div class="sec" id="trend"></div>
+
+  <h2>🔧 Why This Happened & How To Fix It</h2>
+  <div class="sec">
+    <ul class="muted" style="margin:0;padding-left:18px;line-height:1.8">
+      <li><b>What worked:</b> resume read ✓, application history read ✓ (17 prior entries), dedup logic ready, JSearch salary + job-details endpoints ✓.</li>
+      <li><b>What failed:</b> JSearch <code>/search</code> (and <code>/search-filters</code>) → HTTP 404 “Endpoint does not exist” on the current RapidAPI plan. This is the endpoint that returns live, dated, individual postings.</li>
+      <li><b>Why no WebSearch fallback listings:</b> WebSearch returns LinkedIn <em>category</em> pages (“557 Backend Developer jobs…”), not per-job URLs with company + description + post-date — so they can't be deduped, fraud-scored, or salary-matched without inventing details. Rule #2 (“never fabricate job listings”) takes priority.</li>
+      <li><b>Fix:</b> renew/upgrade the RapidAPI <b>JSearch</b> subscription so <code>/search</code> is included again — or subscribe the key to an alternative (Active-Jobs-DB, LinkedIn-Job-Search-API) and update the routine. Once restored, tomorrow's scan resumes full auto-scoring + cover letters.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>Generated 2026-09-17 · Honest degraded run — no fabricated listings · Salary data: JSearch/Glassdoor (VERY_HIGH confidence)</footer>
+
+<script>
+  // Curated last-24h LinkedIn searches (real, working entry points tuned to resume)
+  const searches = [
+    {focus:"Backend / Java Spring Boot", q:"Backend Developer", url:"https://www.linkedin.com/jobs/search/?keywords=Backend%20Developer%20Java%20Spring%20Boot&location=Delhi%20NCR&f_TPR=r86400&f_E=2%2C3"},
+    {focus:"Java Developer (Spring Boot)", q:"Java Developer", url:"https://www.linkedin.com/jobs/search/?keywords=Java%20Developer%20Spring%20Boot&location=Gurugram&f_TPR=r86400&f_E=2%2C3"},
+    {focus:"Full Stack / MERN", q:"Full Stack Developer", url:"https://www.linkedin.com/jobs/search/?keywords=Full%20Stack%20Developer%20React%20Node&location=Delhi%20NCR&f_TPR=r86400&f_E=2%2C3"},
+    {focus:"Software Engineer / SDE-1", q:"Software Engineer", url:"https://www.linkedin.com/jobs/search/?keywords=Software%20Engineer%20SDE&location=Noida&f_TPR=r86400&f_E=2%2C3"},
+    {focus:"Node.js Backend", q:"Node.js Developer", url:"https://www.linkedin.com/jobs/search/?keywords=Node.js%20Backend%20Developer&location=Delhi%20NCR&f_TPR=r86400&f_E=2%2C3"},
+    {focus:"AI / ML / GenAI (junior)", q:"AI Engineer", url:"https://www.linkedin.com/jobs/search/?keywords=AI%20Engineer%20Python%20LLM&location=Delhi%20NCR&f_TPR=r86400&f_E=2%2C3"},
+    {focus:"Remote (India)", q:"Backend / Full Stack Remote", url:"https://www.linkedin.com/jobs/search/?keywords=Backend%20Full%20Stack%20Developer&location=India&f_TPR=r86400&f_WT=2&f_E=2%2C3"}
+  ];
+  const urls = searches.map(s=>s.url);
+  function openAll(){
+    let blocked=false;
+    urls.forEach(u=>{ const w=window.open(u,'_blank'); if(!w) blocked=true; });
+    document.getElementById('popupnote').textContent = blocked
+      ? "⚠️ Your browser blocked some pop-ups — allow pop-ups for this page, or open the rows individually below."
+      : "✓ Opened "+urls.length+" searches in new tabs.";
+  }
+  const st=document.getElementById('searchTable');
+  searches.forEach((s,i)=>{ st.insertAdjacentHTML('beforeend',
+    `<tr><td>${i+1}</td><td>${s.focus}</td><td>${s.q}</td><td><a class="btn btn-open" href="${s.url}" target="_blank" rel="noopener">Open ↗</a></td></tr>`);});
+
+  // Real salary benchmarks (JSearch /estimated-salary, 2026-09-17)
+  const sal=[
+    {r:"Backend Developer",loc:"Delhi",min:5.5,max:12.0,med:8.0,n:196,g:true},
+    {r:"Full Stack Developer",loc:"Delhi",min:4.3,max:10.2,med:6.7,n:444,g:false},
+    {r:"Software Engineer",loc:"Gurgaon",min:6.5,max:20.0,med:11.0,n:16396,g:true},
+    {r:"Java Developer (Sr band)",loc:"Noida",min:5.5,max:16.3,med:9.9,n:232,g:true},
+    {r:"AI Engineer",loc:"Delhi",min:8.7,max:19.5,med:12.0,n:51,g:true},
+    {r:"React Developer",loc:"Gurgaon",min:3.6,max:9.8,med:6.8,n:56,g:false},
+    {r:"Node.js Developer",loc:"Delhi",min:3.0,max:6.0,med:4.2,n:15,g:false}
+  ];
+  const stab=document.getElementById('salTable');
+  sal.forEach(s=>{ const pill=s.g?'<span class="pill pill-g">In band</span>':'<span class="pill pill-y">Watch low end</span>';
+    stab.insertAdjacentHTML('beforeend',
+    `<tr><td><b>${s.r}</b></td><td>${s.loc}</td><td>${s.min.toFixed(1)}–${s.max.toFixed(1)}</td><td>${s.med.toFixed(1)}</td><td>${s.n.toLocaleString()}</td><td>${pill}</td></tr>`);});
+
+  // Market volume (from today's search index)
+  const mkt=[
+    {t:"Backend Developer — Delhi",roles:"557",n:"11",url:"https://in.linkedin.com/jobs/backend-developer-jobs-delhi"},
+    {t:"Entry-Level Software Dev — New Delhi",roles:"310",n:"19",url:"https://in.linkedin.com/jobs/entry-level-software-developer-jobs-new-delhi"},
+    {t:"Back End Developer — New Delhi",roles:"64",n:"16",url:"https://in.linkedin.com/jobs/back-end-developer-jobs-new-delhi"},
+    {t:"Spring Boot — Gurugram",roles:"373",n:"—",url:"https://in.linkedin.com/jobs/spring-boot-jobs-gurugram"},
+    {t:"Full Stack Developer — Delhi",roles:"53,000+",n:"4,070",url:"https://in.linkedin.com/jobs/full-stack-developer-jobs-delhi"},
+    {t:"MERN Stack — Noida",roles:"161",n:"3",url:"https://in.linkedin.com/jobs/mern-stack-jobs-noida"},
+    {t:"Entry-Level Software Dev — Noida",roles:"11,000+",n:"—",url:"https://in.linkedin.com/jobs/entry-level-software-developer-jobs-noida"}
+  ];
+  const mtab=document.getElementById('mktTable');
+  mkt.forEach(m=>{ mtab.insertAdjacentHTML('beforeend',
+    `<tr><td>${m.t}</td><td>${m.roles}</td><td><span class="pill pill-b">${m.n} new</span></td><td><a href="${m.url}" target="_blank" rel="noopener">Browse ↗</a></td></tr>`);});
+
+  // Weekly trend (qualified per scan)
+  const trend=[{d:"2026-08-05",q:1,note:"live scan"},{d:"2026-09-17",q:0,note:"feed down"}];
+  const maxq=Math.max(1,...trend.map(t=>t.q));
+  const td=document.getElementById('trend');
+  trend.forEach(t=>{ const w=Math.round((t.q/maxq)*100); td.insertAdjacentHTML('beforeend',
+    `<div class="bar-row"><div class="lab">${t.d}</div><div class="bar" style="width:${Math.max(w,8)}%;background:${t.q>0?'var(--green)':'var(--muted)'}">${t.q}</div><div class="muted">${t.note}</div></div>`);});
+  td.insertAdjacentHTML('beforeend','<p class="muted" style="margin-top:8px">Only two scans on record. Trend resumes once the live feed is restored.</p>');
+</script>
+</body>
+</html>
