@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Backend Java Developer role at NAM Info, where your focus on scalable, service-oriented backend systems maps directly to my experience.
+
+Over the past 1.5 years I have built production backend systems in Java and Spring Boot — including a distributed payment gateway of 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) applying core system-design principles for scalability and fault tolerance. At Primathon I engineered custom admin APIs and backend syncing automation across 7 merchant systems, and during my Paytm internship I developed and optimized microservices managing the QR-code lifecycle, improving service reliability by 67%. This lines up closely with your requirement for Java, Spring Boot, Microservices, and MVC-based REST services.
+
+I am an immediate joiner (0-day notice) who ships end-to-end and picks up new codebases quickly, and I would welcome the chance to contribute to your backend team from day one.
+
+Best regards,
+Bhumi Bhatt

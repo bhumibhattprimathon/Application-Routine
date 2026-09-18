@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-18</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.3px}
+  header p{margin:0;color:#cbd5e1;font-size:.95rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .n{font-size:2rem;font-weight:700}
+  .card .l{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .banner{border-radius:12px;padding:16px 18px;margin:18px 0;font-size:.95rem}
+  .banner.warn{background:#fef9c3;border:1px solid #fde047;color:#713f12}
+  .banner.info{background:#e0f2fe;border:1px solid #7dd3fc;color:#0c4a6e}
+  .openall{display:block;width:100%;padding:18px;border:none;border-radius:12px;background:var(--green);color:#052e16;font-size:1.15rem;font-weight:700;cursor:pointer;margin:10px 0 4px}
+  .openall:disabled{background:#cbd5e1;color:#475569;cursor:not-allowed}
+  .hint{color:var(--muted);font-size:.82rem;text-align:center;margin-bottom:8px}
+  h2{margin:26px 0 10px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.9rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f1f5f9;font-size:.75rem;text-transform:uppercase;letter-spacing:.4px;color:#475569}
+  tr:last-child td{border-bottom:none}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-size:.8rem;cursor:pointer}
+  .btn.p{background:#0f172a;color:#fff;border-color:#0f172a}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .rec h3{margin:0 0 6px;font-size:1rem}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.9rem;margin:10px 0 0;color:#1e293b}
+  .trend{display:flex;align-items:flex-end;gap:24px;height:160px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;flex:0 0 auto}
+  .bar .b{width:54px;background:var(--green);border-radius:6px 6px 0 0;min-height:4px}
+  .bar .cap{font-size:.78rem;color:var(--muted);margin-top:6px;text-align:center}
+  .bar .v{font-size:.85rem;font-weight:700;margin-bottom:4px}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:26px 20px}
+  a{color:#2563eb}
+  .muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-18</h1>
+  <p>Daily discovery, fraud screen, and resume-match scoring for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR</p>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">5</div><div class="l">Jobs Evaluated</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">1</div><div class="l">Review</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">4</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="n">77</div><div class="l">Best Match Score</div></div>
+    <div class="card"><div class="n">5–9 LPA</div><div class="l">Best-Fit Salary Est.</div></div>
+  </div>
+
+  <div class="banner warn">
+    <strong>⚠️ Data pipeline degraded today — read this first.</strong><br>
+    The real-time "posted in the last 24h" job source (JSearch API via RapidAPI) that powered the 2026-08-05 run is
+    <strong>no longer subscribed</strong> (returns 404), and the other job APIs on the current RapidAPI key return
+    "not subscribed" (403). Plain <em>WebSearch</em> only returns aggregator category pages (LinkedIn/Naukri/Glassdoor
+    search landing pages), not individual fresh postings with working apply links. To keep this run honest I fell back to
+    directly fetchable boards (cutshort.io) — but there the freshest posting is 16 Sep (2+ days old), none within 24h,
+    and only one September posting is entry-level. <strong>No listings were fabricated.</strong><br><br>
+    <strong>Action for Bhumi:</strong> re-subscribe the RapidAPI key to <em>JSearch</em> (or add an Adzuna / Jooble / SerpApi key)
+    to restore true 24-hour discovery, and the pipeline returns to full strength tomorrow.
+  </div>
+
+  <button class="openall" id="openAllBtn" onclick="openAll()" disabled>NO QUALIFIED JOBS TO OPEN TODAY</button>
+  <div class="hint">The "Open All" button activates on days with qualified jobs. Today: 0 qualified.</div>
+
+  <!-- QUALIFIED -->
+  <h2><span class="dot g"></span>Qualified Jobs (score ≥ 65, trust ≥ 60)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th></tr></thead>
+    <tbody>
+      <tr><td colspan="9" class="muted" style="text-align:center;padding:18px">
+        No jobs cleared the qualify bar today. The single strong skills+salary match (NAM Info, below) is held in
+        <strong>Review</strong> because it requires 3–6 years (Bhumi has 1.5) and the posting is ~7 weeks old.
+      </td></tr>
+    </tbody>
+  </table>
+
+  <!-- REVIEW -->
+  <h2><span class="dot y"></span>Review Jobs (borderline — verify before applying)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Apply</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>77</td><td>62</td><td>NAM Info</td>
+        <td>Backend Java Developer<br><span class="muted">Delhi / Noida · 3–6 yrs · ₹5–9 LPA</span></td>
+        <td>Excellent skills fit (Java, Spring Boot, Microservices, REST/MVC) and salary in range — but asks
+            <strong>3–6 yrs</strong> (she has 1.5), listed via a staffing firm (client hidden), and posting is
+            ~7 weeks old. A stretch application; cover letter is ready below.</td>
+        <td><a class="btn p" href="https://cutshort.io/job/Backend-Java-Developer-Delhi-Noida-NAM-Info-Pvt-Ltd-th7NU7Rp" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SKIPPED -->
+  <h2><span class="dot r"></span>Skipped Jobs</h2>
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>Skillinabox</td><td>Software Engineer (Noida, 0–1 yr)</td>
+        <td><strong>Salary:</strong> ₹10–15k/month stipend (~1.5 LPA) — far below the 5 LPA floor; effectively a fresher trainee role.
+            Company is legit (edtech, Glassdoor 4.3/5, funded), but pay disqualifies.</td>
+      </tr>
+      <tr>
+        <td>2</td><td>ReferCircle (client hidden)</td><td>Backend Developer (Delhi, 5–10 yr)</td>
+        <td><strong>Experience:</strong> requires 5–10 yrs; posted via a staffing agency with the actual employer undisclosed.</td>
+      </tr>
+      <tr>
+        <td>3</td><td>Bean HR Consulting</td><td>Dot Net Architect (Gurugram/Noida, 12–18 yr)</td>
+        <td><strong>Experience + Skill:</strong> 12–18 yr architect role on a .NET/Angular/Azure stack — off Bhumi's Java/JS stack.</td>
+      </tr>
+      <tr>
+        <td>4</td><td>Gravity Engineering Services</td><td>Cloud &amp; ITO Practice Lead (Delhi NCR, 15–18 yr)</td>
+        <td><strong>Experience:</strong> 15–18 yr DevOps/MLOps leadership role — far beyond entry level and off-stack.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TOP RECOMMENDATIONS -->
+  <h2>Top Recommendations</h2>
+  <div class="rec">
+    <h3>1. NAM Info — Backend Java Developer <span class="muted">(Review / stretch · match 77)</span></h3>
+    <p>This is the only listing this cycle whose <strong>skills and salary both fit</strong>: it wants Java, Spring Boot,
+    Microservices and MVC-based REST services at ₹5–9 LPA, which sits right in Bhumi's target band and matches her
+    payment-gateway and merchant-API work almost one-to-one. The gap is seniority — it asks 3–6 years against her 1.5 —
+    and it's routed through a staffing firm on a ~7-week-old post, so treat it as a stretch application. A tailored cover
+    letter is prepared below; worth a 5-minute apply if she's open to stretch roles.</p>
+  </div>
+  <div class="rec" style="border-left-color:var(--muted)">
+    <h3>Why there is no #2–#5 today</h3>
+    <p>With the 24-hour API source offline, the fetchable boards surfaced ~62 real postings but they were dominated by
+    senior roles (5–18 yrs), off-stack tech (.NET, PHP, Go, ServiceNow), or stale dates (2020–2025). The only genuinely
+    entry-level September posting (Skillinabox) pays a training stipend. Rather than pad this list with roles that don't
+    fit Bhumi's entry-level Java/JS backend profile, the run reports honestly: <strong>one stretch option, zero clean
+    qualifiers.</strong> Restoring the JSearch subscription should bring back a full slate.</p>
+  </div>
+
+  <!-- WEEKLY TREND -->
+  <h2>Trend — Qualified per Run</h2>
+  <div class="trend">
+    <div class="bar"><div class="v">1</div><div class="b" style="height:70%"></div><div class="cap">2026-08-05<br>(JSearch live)</div></div>
+    <div class="bar"><div class="v">0</div><div class="b" style="height:4%;background:var(--muted)"></div><div class="cap">2026-09-18<br>(API offline)</div></div>
+  </div>
+  <p class="muted" style="font-size:.82rem">Only two dashboards exist so far; the dip on 2026-09-18 reflects the degraded data source, not a market change.</p>
+
+  <!-- COVER LETTERS -->
+  <h2>Cover Letters</h2>
+  <div class="cl">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <strong>NAM Info — Backend Java Developer</strong>
+      <button class="btn p" onclick="copyCL(this)">COPY</button>
+    </div>
+    <pre id="cl-naminfo">Dear Hiring Manager,
+
+I am writing to apply for the Backend Java Developer role at NAM Info, where your focus on scalable, service-oriented backend systems maps directly to my experience.
+
+Over the past 1.5 years I have built production backend systems in Java and Spring Boot — including a distributed payment gateway of 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) applying core system-design principles for scalability and fault tolerance. At Primathon I engineered custom admin APIs and backend syncing automation across 7 merchant systems, and during my Paytm internship I developed and optimized microservices managing the QR-code lifecycle, improving service reliability by 67%. This lines up closely with your requirement for Java, Spring Boot, Microservices, and MVC-based REST services.
+
+I am an immediate joiner (0-day notice) who ships end-to-end and picks up new codebases quickly, and I would welcome the chance to contribute to your backend team from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Morning Scan routine · 2026-09-18 · Data source degraded (JSearch API unsubscribed);
+  fallback = cutshort.io direct fetch + WebSearch. No listings fabricated.
+</footer>
+
+<script>
+  // Qualified job URLs — empty today (0 qualified). openAll stays disabled.
+  var urls = [];
+  function openAll(){
+    if(!urls.length){ alert("No qualified jobs to open today."); return; }
+    urls.forEach(function(u){ window.open(u, "_blank"); });
+  }
+  (function(){
+    var b = document.getElementById("openAllBtn");
+    if(urls.length){
+      b.disabled = false;
+      b.textContent = "OPEN ALL " + urls.length + " QUALIFIED JOBS";
+    }
+  })();
+  function copyCL(btn){
+    var pre = btn.closest(".cl").querySelector("pre");
+    var text = pre.innerText;
+    function done(){ var t=btn.textContent; btn.textContent="COPIED ✓"; setTimeout(function(){btn.textContent=t;},1500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text); done(); });
+    } else { fallback(text); done(); }
+    function fallback(str){
+      var ta=document.createElement("textarea"); ta.value=str; document.body.appendChild(ta);
+      ta.select(); try{document.execCommand("copy");}catch(e){} document.body.removeChild(ta);
+    }
+  }
+</script>
+</body>
+</html>
