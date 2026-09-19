@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Full Stack Developer role at Cypherock and contribute to the tooling around your self-custody hardware wallet.
+
+I work full-stack in production: Node.js and Express.js on the backend with React.js on the front end, connected through REST APIs, and I am comfortable across MySQL and MongoDB. My background in distributed payment systems - including a gateway with a dedicated Vault service and system-design focus on fault tolerance and security - has trained me to think carefully about correctness and safety, which matters in a security-first web3 product. I ship with Git and CI/CD and write tests using JUnit and Playwright.
+
+As an immediate joiner with a strong systems foundation, I can start quickly and I am eager to go deeper into the web3 and blockchain side of the stack.
+
+Best regards,
+Bhumi Bhatt

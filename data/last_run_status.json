@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-19",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
+  "data_source": "WebSearch discovery + WebFetch extraction of Cutshort & Internshala listings (JSearch /search endpoint deprovisioned this run; /estimated-salary still available). Resume fetched from provided Google Drive link and verified against repo copy (identical, 59457 bytes).",
+  "resume_source": "resumes/resume_master.pdf (Google Drive -> repo, byte-identical)",
   "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_found": 24,
+  "jobs_qualified": 5,
+  "jobs_review": 3,
+  "jobs_skipped": 16,
+  "fraud_detected": 0,
+  "duplicates_vs_history": 0,
+  "avg_match_qualified": 83.8,
+  "cover_letters_generated": 5,
+  "notes": "5 clean entry-level matches today (Classplus SDE1 backend is the standout). Fraud/trust check run on all shortlisted companies; none scored below 40 (Zentrix nexus lowest at 42 -> review). Sources (Cutshort/Internshala) pre-vet listings."
 }

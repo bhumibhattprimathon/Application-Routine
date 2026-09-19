@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Fullstack MERN Developer and contribute to a platform that has already guided millions of students.
+
+I work across the MERN stack in production: Node.js and Express.js services backed by MongoDB, with React.js on the front end and REST APIs tying them together. At CodeAlpha I built order and payment microservices with REST APIs, and in my Distributed Payment Gateway project I designed 30 REST APIs across four services, so I am comfortable owning both the data layer and the client-facing endpoints. My JavaScript (ES6+) and React experience means I can move fluidly between backend logic and UI without a handoff.
+
+Being an immediate joiner, I can ramp up on iDreamCareer's product from day one and I enjoy learning a new domain quickly.
+
+Best regards,
+Bhumi Bhatt

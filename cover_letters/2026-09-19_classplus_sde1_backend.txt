@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the SDE1 - Backend role at Classplus, where I can help scale the backend that powers thousands of coaching businesses.
+
+In my current role at Primathon I build and maintain production Node.js and Java backends, and I have shipped microservices backed by MySQL and MongoDB with Redis caching to keep response times low. At Paytm I worked on QR-code lifecycle microservices handling real-time transaction notifications, so I understand the reliability and latency demands of a high-traffic product. My work is version-controlled end to end with Git and CI/CD, and I have solved 250+ DSA problems (5-Star Gold Java on HackerRank), which keeps my fundamentals sharp for backend design.
+
+As an immediate joiner with zero notice period, I can start contributing to Classplus's roadmap right away, and I pick up new systems and codebases quickly.
+
+Best regards,
+Bhumi Bhatt

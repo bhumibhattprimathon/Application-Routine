@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am keen to apply for the Node.js Developer position at SuperHumanRace and help strengthen the backend behind your ESG-analytics platform.
+
+The requirements read like my day-to-day: I build Node.js and Express.js services in JavaScript (ES6+), persist data in both MySQL and MongoDB, and expose everything through well-documented REST APIs, all containerized with Docker and shipped through Git-based CI/CD. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines for real-time data ingestion - directly relevant to a data-heavy sustainability product - and I reduced manual operational effort by 70% through backend automation.
+
+As an immediate joiner I can begin adding value straight away, and I am a fast learner who is comfortable owning features end to end.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Node Js Developer role at fi ellements, where I can put my backend and cloud experience to work.
+
+My core stack matches yours closely: I build Node.js services exposing REST APIs, persist data in MongoDB and MySQL, and use AWS - including Lambda, S3 and Timestream - to run event-driven, serverless workloads. At Primathon I engineered admin APIs and backend syncing automation across seven merchant systems, and I have optimized 30+ REST endpoints for faster, more consistent delivery. That mix of API design, database work and AWS integration is exactly what a lean product team needs.
+
+I am an immediate joiner and can contribute from week one, and I adapt quickly to new codebases and product requirements.
+
+Best regards,
+Bhumi Bhatt

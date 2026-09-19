@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply - 2026-09-19</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f1f5f9;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card .n{font-size:30px;font-weight:800}
+.card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.card.green .n{color:var(--green)} .card.red .n{color:var(--red)} .card.yellow .n{color:var(--yellow)}
+.openall{display:block;width:100%;padding:18px;font-size:18px;font-weight:800;color:#fff;background:var(--green);border:none;border-radius:12px;cursor:pointer;margin:6px 0 8px;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+.openall:hover{filter:brightness(1.05)}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-bottom:22px}
+section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+h2{margin:0 0 14px;font-size:17px;display:flex;align-items:center;gap:8px}
+.tag{width:12px;height:12px;border-radius:3px;display:inline-block}
+.t-green{background:var(--green)} .t-yellow{background:var(--yellow)} .t-red{background:var(--red)}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.score{font-weight:800;padding:2px 9px;border-radius:20px;color:#fff;font-size:12px}
+.s-green{background:var(--green)} .s-yellow{background:var(--yellow);color:#3b2f00}
+.pill{background:#eef2ff;color:#4338ca;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600}
+.btn{display:inline-block;border:none;border-radius:7px;padding:6px 11px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn-open{background:#0f172a;color:#fff} .btn-open:hover{background:#1e293b}
+.btn-copy{background:#e0f2fe;color:#0369a1;margin-left:4px} .btn-copy:hover{background:#bae6fd}
+.muted{color:var(--muted)}
+.rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px;margin-bottom:12px;background:#fbfefc}
+.rec-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.rec-num{background:var(--green);color:#fff;font-weight:800;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.rec-meta{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
+.rec p{margin:8px 0}
+.chart{display:flex;gap:14px;align-items:flex-end;height:220px;padding:10px 4px;overflow-x:auto}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 auto}
+.bar{width:46px;background:#94a3b8;border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:800;font-size:13px;padding-top:6px}
+.bar-today{background:var(--green)}
+.bar-label{font-size:11px;color:var(--muted)}
+.cl-box{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden}
+.cl-box-head{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;padding:10px 12px;border-bottom:1px solid var(--line)}
+.cl-box pre{margin:0;padding:14px;white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:13px;color:#78350f;margin-bottom:8px}
+</style></head>
+<body data-qualified="5">
+<header>
+<h1>LINKEDIN SMART APPLY DASHBOARD - 2026-09-19</h1>
+<div class="sub">Bhumi Bhatt &middot; Backend / Full-Stack &middot; Delhi NCR &middot; Immediate joiner &middot; Avg match 83.8 &middot; target 5.5-12 LPA</div>
+</header>
+<div class="wrap">
+
+<div class="cards">
+<div class="card"><div class="n">24</div><div class="l">Jobs Found</div></div>
+<div class="card green"><div class="n">5</div><div class="l">Qualified</div></div>
+<div class="card yellow"><div class="n">3</div><div class="l">Review</div></div>
+<div class="card red"><div class="n">16</div><div class="l">Skipped</div></div>
+<div class="card red"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+<div class="card"><div class="n">83.8</div><div class="l">Avg Match Score</div></div>
+</div>
+
+<button class="openall" onclick="openAll()">OPEN ALL 5 QUALIFIED JOBS</button>
+<div class="hint">Opens every qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page and click again.</div>
+
+<section>
+<h2><span class="tag t-green"></span>Qualified Jobs - ready to apply</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score s-green">88</span></td><td>90</td>
+<td><strong>Classplus</strong></td><td>SDE1 - Backend</td><td>Noida</td>
+<td>10-15 LPA (est)</td><td><span class="pill">backend</span></td>
+<td>External (Internshala)</td>
+<td><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-sde1-backend-job-in-noida-at-classplus1789453870" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl-classplus-sde1-backend-2026-09',this)">Copy Cover Letter</button><div class="cl-text" id="cl-classplus-sde1-backend-2026-09" style="display:none">Dear Hiring Manager,
+
+I am excited to apply for the SDE1 - Backend role at Classplus, where I can help scale the backend that powers thousands of coaching businesses.
+
+In my current role at Primathon I build and maintain production Node.js and Java backends, and I have shipped microservices backed by MySQL and MongoDB with Redis caching to keep response times low. At Paytm I worked on QR-code lifecycle microservices handling real-time transaction notifications, so I understand the reliability and latency demands of a high-traffic product. My work is version-controlled end to end with Git and CI/CD, and I have solved 250+ DSA problems (5-Star Gold Java on HackerRank), which keeps my fundamentals sharp for backend design.
+
+As an immediate joiner with zero notice period, I can start contributing to Classplus&#x27;s roadmap right away, and I pick up new systems and codebases quickly.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr><tr>
+<td>2</td><td><span class="score s-green">85</span></td><td>80</td>
+<td><strong>iDreamCareer</strong></td><td>Fullstack Developer - MERN</td><td>Delhi / Gurugram / Noida</td>
+<td>7-15 LPA (est)</td><td><span class="pill">fullstack</span></td>
+<td>External (Cutshort)</td>
+<td><a class="btn btn-open" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl-idreamcareer-mern-2026-09',this)">Copy Cover Letter</button><div class="cl-text" id="cl-idreamcareer-mern-2026-09" style="display:none">Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Fullstack MERN Developer and contribute to a platform that has already guided millions of students.
+
+I work across the MERN stack in production: Node.js and Express.js services backed by MongoDB, with React.js on the front end and REST APIs tying them together. At CodeAlpha I built order and payment microservices with REST APIs, and in my Distributed Payment Gateway project I designed 30 REST APIs across four services, so I am comfortable owning both the data layer and the client-facing endpoints. My JavaScript (ES6+) and React experience means I can move fluidly between backend logic and UI without a handoff.
+
+Being an immediate joiner, I can ramp up on iDreamCareer&#x27;s product from day one and I enjoy learning a new domain quickly.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr><tr>
+<td>3</td><td><span class="score s-green">84</span></td><td>74</td>
+<td><strong>SuperHuman Race</strong></td><td>Node.js Developer</td><td>Delhi</td>
+<td>4-7 LPA (listed) - Salary Risk</td><td><span class="pill">backend</span></td>
+<td>External (Internshala)</td>
+<td><a class="btn btn-open" href="https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl-superhumanrace-nodejs-2026-09',this)">Copy Cover Letter</button><div class="cl-text" id="cl-superhumanrace-nodejs-2026-09" style="display:none">Dear Hiring Manager,
+
+I am keen to apply for the Node.js Developer position at SuperHumanRace and help strengthen the backend behind your ESG-analytics platform.
+
+The requirements read like my day-to-day: I build Node.js and Express.js services in JavaScript (ES6+), persist data in both MySQL and MongoDB, and expose everything through well-documented REST APIs, all containerized with Docker and shipped through Git-based CI/CD. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines for real-time data ingestion - directly relevant to a data-heavy sustainability product - and I reduced manual operational effort by 70% through backend automation.
+
+As an immediate joiner I can begin adding value straight away, and I am a fast learner who is comfortable owning features end to end.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr><tr>
+<td>4</td><td><span class="score s-green">82</span></td><td>70</td>
+<td><strong>Cypherock</strong></td><td>Full Stack Developer</td><td>Delhi / Gurugram / Noida (Remote-friendly)</td>
+<td>8-15 LPA (est)</td><td><span class="pill">fullstack</span></td>
+<td>External (Cutshort)</td>
+<td><a class="btn btn-open" href="https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl-cypherock-fullstack-2026-09',this)">Copy Cover Letter</button><div class="cl-text" id="cl-cypherock-fullstack-2026-09" style="display:none">Dear Hiring Manager,
+
+I am excited to apply for the Full Stack Developer role at Cypherock and contribute to the tooling around your self-custody hardware wallet.
+
+I work full-stack in production: Node.js and Express.js on the backend with React.js on the front end, connected through REST APIs, and I am comfortable across MySQL and MongoDB. My background in distributed payment systems - including a gateway with a dedicated Vault service and system-design focus on fault tolerance and security - has trained me to think carefully about correctness and safety, which matters in a security-first web3 product. I ship with Git and CI/CD and write tests using JUnit and Playwright.
+
+As an immediate joiner with a strong systems foundation, I can start quickly and I am eager to go deeper into the web3 and blockchain side of the stack.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr><tr>
+<td>5</td><td><span class="score s-green">80</span></td><td>60</td>
+<td><strong>fi ellements</strong></td><td>Node Js Developer</td><td>Noida</td>
+<td>5-9 LPA (est)</td><td><span class="pill">backend</span></td>
+<td>External (Cutshort)</td>
+<td><a class="btn btn-open" href="https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso" target="_blank" rel="noopener">Open Job</a> <button class="btn btn-copy" onclick="copyCL('cl-fiellements-nodejs-2026-09',this)">Copy Cover Letter</button><div class="cl-text" id="cl-fiellements-nodejs-2026-09" style="display:none">Dear Hiring Manager,
+
+I am writing to apply for the Node Js Developer role at fi ellements, where I can put my backend and cloud experience to work.
+
+My core stack matches yours closely: I build Node.js services exposing REST APIs, persist data in MongoDB and MySQL, and use AWS - including Lambda, S3 and Timestream - to run event-driven, serverless workloads. At Primathon I engineered admin APIs and backend syncing automation across seven merchant systems, and I have optimized 30+ REST endpoints for faster, more consistent delivery. That mix of API design, database work and AWS integration is exactly what a lean product team needs.
+
+I am an immediate joiner and can contribute from week one, and I adapt quickly to new codebases and product requirements.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr></tbody></table></div>
+</section>
+
+<section>
+<h2>Top 5 Recommendations</h2>
+<div class="rec">
+<div class="rec-head"><span class="rec-num">1</span><div><strong>SDE1 - Backend</strong> - Classplus
+<span class="rec-meta">Match 88 | Trust 90 | 10-15 LPA (est) | Noida</span></div></div>
+<p>A near-perfect entry-level backend match at a Series-D, Tiger Global / Sequoia-backed edtech ($171M raised). The stack (Node.js, MySQL, MongoDB, caching, Git) maps directly onto Bhumi&#x27;s production experience, and the SDE1 title fits her 1.5 yrs exactly. High trust, strong salary band.</p>
+<a class="btn btn-open" href="https://internshala.com/job/detail/fresher-sde1-backend-job-in-noida-at-classplus1789453870" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="rec-num">2</span><div><strong>Fullstack Developer - MERN</strong> - iDreamCareer
+<span class="rec-meta">Match 85 | Trust 80 | 7-15 LPA (est) | Delhi / Gurugram / Noida</span></div></div>
+<p>Funded edtech (est. 2012, 6700+ schools) with a clean MERN full-stack role whose 1-8 yr band comfortably includes Bhumi. Her Node.js/Express/MongoDB/React and REST-API work line up with the core requirement, and the 7-15 LPA band clears her target with room to grow.</p>
+<a class="btn btn-open" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="rec-num">3</span><div><strong>Node.js Developer</strong> - SuperHuman Race
+<span class="rec-meta">Match 84 | Trust 74 | 4-7 LPA (listed) - Salary Risk | Delhi</span></div></div>
+<p>An almost one-to-one skill match: Node.js, Express, MySQL, MongoDB, REST, Git and Docker are all on Bhumi&#x27;s resume. SuperHumanRace is an established (2016) ESG-analytics SaaS with a live product and real team. Only caveat is the 4-7 LPA band, which sits at the low end of her range - flagged as Salary Risk.</p>
+<a class="btn btn-open" href="https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="rec-num">4</span><div><strong>Full Stack Developer</strong> - Cypherock
+<span class="rec-meta">Match 82 | Trust 70 | 8-15 LPA (est) | Delhi / Gurugram / Noida (Remote-friendly)</span></div></div>
+<p>VC-backed web3 security startup (Consensys Mesh, Sandeep Nailwal among backers; est. 2019) building a shipped hardware wallet. The 1-3 yr Node.js/React role fits Bhumi&#x27;s level and pays 6-24 LPA. Note: it is a crypto-adjacent product - legitimate and well-funded, but worth confirming she is comfortable in the web3 space.</p>
+<a class="btn btn-open" href="https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-head"><span class="rec-num">5</span><div><strong>Node Js Developer</strong> - fi ellements
+<span class="rec-meta">Match 80 | Trust 60 | 5-9 LPA (est) | Noida</span></div></div>
+<p>A 1-2 yr Node.js role matching Bhumi&#x27;s backend core (Node, MongoDB, MySQL, AWS Lambda, REST). fi ellements is a small (~31-person) Noida IT services firm (est. 2016) - real but lightly reviewed, so trust sits at the 60 threshold. Salary band (4-10 LPA) spans her target.</p>
+<a class="btn btn-open" href="https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso" target="_blank" rel="noopener">Open Job</a></div>
+</section>
+
+<section>
+<h2><span class="tag t-yellow"></span>Review Jobs - worth a look, verify first</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th>Apply</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score s-yellow">72</span></td><td>75</td>
+<td><strong>Namekart</strong></td><td>Software Development (AI Systems) - 6mo Internship + PPO</td><td>Noida / NCR (Hybrid)</td>
+<td>Excellent skill fit (Java, Node.js, Python, React, FastAPI, Docker, REST) and a reputable firm (3.7 Glassdoor, 90 reviews), but it is a 6-month INTERNSHIP - a step back from Bhumi&#x27;s current full-time role. Worth it only for the 10 LPA PPO path.</td>
+<td><a class="btn btn-open" href="https://internshala.com/internship/detail/software-development-internship-in-multiple-locations-at-namekart1789361996" target="_blank" rel="noopener">Open Job</a></td>
+</tr><tr>
+<td>2</td><td><span class="score s-yellow">67</span></td><td>50</td>
+<td><strong>Synthlane Technologies</strong></td><td>Agentic AI Engineer (Fresher)</td><td>Gurgaon</td>
+<td>GenAI/LangChain/RAG role open to freshers with a decent 4-8 LPA band and Python overlap, but it leans on LLM-orchestration skills Bhumi has only touched (research paper + AI alerts). Small, lightly-verifiable startup (trust ~50). A learning stretch, not a core fit.</td>
+<td><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-agentic-ai-engineer-job-in-gurgaon-at-synthlane-technologies-private-limited1787225907" target="_blank" rel="noopener">Open Job</a></td>
+</tr><tr>
+<td>3</td><td><span class="score s-yellow">78</span></td><td>42</td>
+<td><strong>Zentrix nexus</strong></td><td>Java Developer</td><td>Delhi / Gurugram / Noida (+8 cities)</td>
+<td>Skills fit well (Java + MERN, 0-2 yrs, 4-7 LPA) BUT &#x27;Zentrix nexus&#x27; could not be verified as a distinct company and the posting spans 11 cities - a classic staffing/mass-post pattern. Trust 42. Verify the employer before applying.</td>
+<td><a class="btn btn-open" href="https://cutshort.io/job/Java-Developer-Chennai-Bengaluru-Bangalore-Mumbai-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Pune-Hyderabad-Zentrix-nexus-ErbJchjq" target="_blank" rel="noopener">Open Job</a></td>
+</tr></tbody></table></div>
+</section>
+
+<section>
+<h2><span class="tag t-red"></span>Skipped Jobs</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr><td>1</td><td><strong>Lalitech</strong></td><td>Full Stack Engineer (0-2 yr)</td><td>Salary: 3.5-4.5 LPA (below 5 LPA floor) despite good JS/React/Node skill fit</td></tr><tr><td>2</td><td><strong>NeoGenCode Technologies</strong></td><td>Full Stack Engineer (1-3 yr)</td><td>Salary: 2-5 LPA + staffing/consultancy (repeated mass postings)</td></tr><tr><td>3</td><td><strong>PrimaFelicitas</strong></td><td>MEAN Stack Developer (1-3 yr)</td><td>Salary: 2-5 LPA (below target)</td></tr><tr><td>4</td><td><strong>Ethixweb</strong></td><td>Full Stack Developer (Fresher)</td><td>Salary: 2-4 LPA (below 5 LPA floor)</td></tr><tr><td>5</td><td><strong>Stirring Minds</strong></td><td>AI Software Engineer (Fresher)</td><td>Salary: 2.4-3 LPA (below floor) + AI-only stack</td></tr><tr><td>6</td><td><strong>Krutrim Insights</strong></td><td>AI Engineer (Fresher)</td><td>Salary: 3-5.4 LPA (below/at floor) + narrow Python/ML stack</td></tr><tr><td>7</td><td><strong>Sun Sea International</strong></td><td>AI-Assisted Full-Stack Developer</td><td>Salary: 2-3 LPA (below floor)</td></tr><tr><td>8</td><td><strong>SAHOTA Info</strong></td><td>C# Backend Development (Intern)</td><td>Salary: 5k/mo stipend + .NET/C# (not Bhumi&#x27;s stack)</td></tr><tr><td>9</td><td><strong>ALLSTARSIT</strong></td><td>Back End Engineer (Fresher)</td><td>Stack mismatch: PHP/TypeScript/MySQL, not Java/Node backend</td></tr><tr><td>10</td><td><strong>Daksh Tyagi</strong></td><td>PHP Developer (Fresher)</td><td>Stack mismatch: PHP/Laravel/CodeIgniter</td></tr><tr><td>11</td><td><strong>AppVersal</strong></td><td>Golang Developer (1 yr)</td><td>Stack mismatch: Go (not on Bhumi&#x27;s resume)</td></tr><tr><td>12</td><td><strong>Proso.ai</strong></td><td>SAP Commerce (Hybris) Backend Developer</td><td>Niche SAP Hybris specialization despite Java/Spring base</td></tr><tr><td>13</td><td><strong>NAM Info</strong></td><td>Backend Java Developer</td><td>Experience: requires 3-6 yrs (Bhumi has 1.5)</td></tr><tr><td>14</td><td><strong>Wissen Technology</strong></td><td>Senior Java Developer</td><td>Experience: requires 6-10 yrs</td></tr><tr><td>15</td><td><strong>Transact Bridge</strong></td><td>Sr. Node.js Developer</td><td>Experience: requires 4-7 yrs</td></tr><tr><td>16</td><td><strong>ZettaMine Labs</strong></td><td>Backend Developer</td><td>Experience: requires 5+ yrs</td></tr></tbody></table></div>
+</section>
+
+<section>
+<h2>Weekly Trend - qualified jobs per run</h2>
+<div class="chart"><div class="bar-wrap"><div class="bar" style="height:62px" title="2026-08-05: 1 qualified"><span>1</span></div><div class="bar-label">08-05</div></div><div class="bar-wrap"><div class="bar bar-today" style="height:190px" title="2026-09-19: 5 qualified"><span>5</span></div><div class="bar-label">09-19</div></div></div>
+</section>
+
+<section>
+<h2>Cover Letters - ready to paste</h2>
+<div class="cl-box">
+<div class="cl-box-head"><strong>Classplus - SDE1 - Backend</strong>
+<button class="btn btn-copy" onclick="copyText('clbox-classplus-sde1-backend-2026-09',this)">COPY</button></div>
+<pre id="clbox-classplus-sde1-backend-2026-09">Dear Hiring Manager,
+
+I am excited to apply for the SDE1 - Backend role at Classplus, where I can help scale the backend that powers thousands of coaching businesses.
+
+In my current role at Primathon I build and maintain production Node.js and Java backends, and I have shipped microservices backed by MySQL and MongoDB with Redis caching to keep response times low. At Paytm I worked on QR-code lifecycle microservices handling real-time transaction notifications, so I understand the reliability and latency demands of a high-traffic product. My work is version-controlled end to end with Git and CI/CD, and I have solved 250+ DSA problems (5-Star Gold Java on HackerRank), which keeps my fundamentals sharp for backend design.
+
+As an immediate joiner with zero notice period, I can start contributing to Classplus&#x27;s roadmap right away, and I pick up new systems and codebases quickly.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="cl-box">
+<div class="cl-box-head"><strong>iDreamCareer - Fullstack Developer - MERN</strong>
+<button class="btn btn-copy" onclick="copyText('clbox-idreamcareer-mern-2026-09',this)">COPY</button></div>
+<pre id="clbox-idreamcareer-mern-2026-09">Dear Hiring Manager,
+
+I would love to join iDreamCareer as a Fullstack MERN Developer and contribute to a platform that has already guided millions of students.
+
+I work across the MERN stack in production: Node.js and Express.js services backed by MongoDB, with React.js on the front end and REST APIs tying them together. At CodeAlpha I built order and payment microservices with REST APIs, and in my Distributed Payment Gateway project I designed 30 REST APIs across four services, so I am comfortable owning both the data layer and the client-facing endpoints. My JavaScript (ES6+) and React experience means I can move fluidly between backend logic and UI without a handoff.
+
+Being an immediate joiner, I can ramp up on iDreamCareer&#x27;s product from day one and I enjoy learning a new domain quickly.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="cl-box">
+<div class="cl-box-head"><strong>SuperHuman Race - Node.js Developer</strong>
+<button class="btn btn-copy" onclick="copyText('clbox-superhumanrace-nodejs-2026-09',this)">COPY</button></div>
+<pre id="clbox-superhumanrace-nodejs-2026-09">Dear Hiring Manager,
+
+I am keen to apply for the Node.js Developer position at SuperHumanRace and help strengthen the backend behind your ESG-analytics platform.
+
+The requirements read like my day-to-day: I build Node.js and Express.js services in JavaScript (ES6+), persist data in both MySQL and MongoDB, and expose everything through well-documented REST APIs, all containerized with Docker and shipped through Git-based CI/CD. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines for real-time data ingestion - directly relevant to a data-heavy sustainability product - and I reduced manual operational effort by 70% through backend automation.
+
+As an immediate joiner I can begin adding value straight away, and I am a fast learner who is comfortable owning features end to end.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="cl-box">
+<div class="cl-box-head"><strong>Cypherock - Full Stack Developer</strong>
+<button class="btn btn-copy" onclick="copyText('clbox-cypherock-fullstack-2026-09',this)">COPY</button></div>
+<pre id="clbox-cypherock-fullstack-2026-09">Dear Hiring Manager,
+
+I am excited to apply for the Full Stack Developer role at Cypherock and contribute to the tooling around your self-custody hardware wallet.
+
+I work full-stack in production: Node.js and Express.js on the backend with React.js on the front end, connected through REST APIs, and I am comfortable across MySQL and MongoDB. My background in distributed payment systems - including a gateway with a dedicated Vault service and system-design focus on fault tolerance and security - has trained me to think carefully about correctness and safety, which matters in a security-first web3 product. I ship with Git and CI/CD and write tests using JUnit and Playwright.
+
+As an immediate joiner with a strong systems foundation, I can start quickly and I am eager to go deeper into the web3 and blockchain side of the stack.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="cl-box">
+<div class="cl-box-head"><strong>fi ellements - Node Js Developer</strong>
+<button class="btn btn-copy" onclick="copyText('clbox-fiellements-nodejs-2026-09',this)">COPY</button></div>
+<pre id="clbox-fiellements-nodejs-2026-09">Dear Hiring Manager,
+
+I am writing to apply for the Node Js Developer role at fi ellements, where I can put my backend and cloud experience to work.
+
+My core stack matches yours closely: I build Node.js services exposing REST APIs, persist data in MongoDB and MySQL, and use AWS - including Lambda, S3 and Timestream - to run event-driven, serverless workloads. At Primathon I engineered admin APIs and backend syncing automation across seven merchant systems, and I have optimized 30+ REST endpoints for faster, more consistent delivery. That mix of API design, database work and AWS integration is exactly what a lean product team needs.
+
+I am an immediate joiner and can contribute from week one, and I adapt quickly to new codebases and product requirements.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+</section>
+
+<footer>Generated 2026-09-19 &middot; Data: WebSearch + Cutshort/Internshala extraction &middot; All postings verified present at source at generation time. Salary figures are estimates; confirm on the posting.</footer>
+</div>
+
+<script>
+var QUALIFIED_URLS = ["https://internshala.com/job/detail/fresher-sde1-backend-job-in-noida-at-classplus1789453870", "https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq", "https://internshala.com/job/detail/nodejs-developer-job-in-delhi-at-superhuman-race-private-limited1787230544", "https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6", "https://cutshort.io/job/Node-Js-Developer-Noida-fi-ellements-fUnaznso"];
+function openAll(){ QUALIFIED_URLS.forEach(function(u){ if(u) window.open(u,'_blank'); }); }
+function copyText(id,btn){
+  var el=document.getElementById(id); if(!el) return;
+  var t=el.innerText||el.textContent;
+  navigator.clipboard.writeText(t).then(function(){flash(btn);},function(){fallback(t,btn);});
+}
+function copyCL(id,btn){ copyText(id,btn); }
+function flash(btn){ var o=btn.innerText; btn.innerText='Copied!'; setTimeout(function(){btn.innerText=o;},1400); }
+function fallback(t,btn){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');flash(btn);}catch(e){} document.body.removeChild(ta); }
+</script>
+</body></html>
