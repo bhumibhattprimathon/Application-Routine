@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Backend Developer role at Zupee, where reliable, low-latency backend systems power real-money gameplay at scale. In my current role at Primathon I build production Java and Spring Boot microservices and event-driven pipelines using Kafka and Redis, and during my Paytm internship I developed QR-lifecycle microservices handling real-time transaction notifications for multiple merchants. My Distributed Payment Gateway project — 30 REST APIs across four services designed for fault tolerance — maps directly to the scalable, high-concurrency backend Zupee's platform demands. As a 0-day-notice immediate joiner with 5-Star Java on HackerRank and an AWS Certified Developer – Associate credential, I can contribute to your services from day one.
+
+Best regards,
+Bhumi Bhatt

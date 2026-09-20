@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Fullstack Developer (MERN) role at iDreamCareer and contribute to a platform guiding 20 million+ students. I build with the exact stack you need — MongoDB, Express, React.js and Node.js — and bring hands-on backend depth from Primathon, where I engineered admin APIs and backend syncing automation that reduced manual effort by 70%. Having designed 30+ REST endpoints and worked with both MySQL and MongoDB, I can deliver clean, scalable full-stack features that hold up under real user load. As an immediate joiner with strong DSA fundamentals — 250+ problems solved and 5-Star Java on HackerRank — I will ramp fast and add value quickly to your mission-driven team.
+
+Best regards,
+Bhumi Bhatt

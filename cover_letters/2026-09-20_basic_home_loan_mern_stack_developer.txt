@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd love to join Basic Home Loan as a MERN Stack Developer and help build the technology that simplifies home loans for India's underserved borrowers. I work across the full JavaScript stack — React.js on the front end and Node.js with Express and MongoDB on the back end — and have shipped production REST APIs and backend syncing automation across seven merchant systems at Primathon. My experience improving microservice reliability at Paytm and integrating AWS services such as S3 and Lambda into live data pipelines means I can own features end to end on your fintech platform. Available to join immediately with a zero-day notice period, I'm eager to bring quick, dependable delivery to your engineering team.
+
+Best regards,
+Bhumi Bhatt
