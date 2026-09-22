@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Software Engineer - Backend Developer role at Optum India, where building reliable, secure services at healthcare scale is exactly the kind of work I want to do.
+
+Over the past 1.5 years I have designed and shipped backend services in Java and Spring Boot - at Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and at Paytm I built microservices managing the QR-code lifecycle that powered real-time transaction notifications, improving service reliability by 67%. I write clean, tested code (JUnit, Mockito) and have integrated AWS Lambda, S3 and Timestream into production pipelines, which maps directly to your automation-first, API-focused delivery model.
+
+As an immediate joiner with a strong DSA foundation (5-Star Gold in Java, 250+ problems solved) and an AWS Developer Associate certification, I can contribute to your backend team from day one and grow quickly with your system architecture.
+
+Thank you for considering my application. I would welcome the chance to discuss how my backend experience fits Optum's mission.
+
+Best regards,
+Bhumi Bhatt

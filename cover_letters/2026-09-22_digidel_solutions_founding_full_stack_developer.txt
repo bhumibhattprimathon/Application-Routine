@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Founding Full Stack Developer role at Digidel Solutions. The idea of turning bold ideas into launch-ready MVPs in two weeks is exactly the fast, ownership-heavy environment where I do my best work.
+
+This role's stack is one I build in every day: React.js for interfaces, and Node.js with Express.js for backend services and REST APIs. My distributed payment-gateway project - 30 REST APIs across Order, Payment, Merchant and Vault services - is proof I can take a product from idea to deployment end to end, and at Primathon I ship backend automation and admin APIs that cut manual effort by 70%. I'm comfortable owning both the screen the user clicks and the API and data behind it, and I'm quick to adopt modern tools like Next.js and AI-assisted workflows.
+
+As a zero-notice immediate joiner with a strong engineering foundation (5-Star Gold in Java, AWS Developer Associate), I can plug into your founding team and start shipping right away.
+
+Thank you for your consideration - I'd love to help build Digidel's core products.
+
+Best regards,
+Bhumi Bhatt

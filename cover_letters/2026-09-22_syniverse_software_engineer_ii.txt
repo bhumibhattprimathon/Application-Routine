@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Software Engineer II position at Syniverse. The chance to build the messaging and connectivity infrastructure that keeps 900+ carriers and the world's leading brands online is genuinely compelling to me.
+
+As a backend-focused engineer with 1.5 years of experience, I spend my days designing, developing and debugging production software - the core of this developing-level role. At Paytm I built and optimized microservices around the QR-code lifecycle for real-time transaction messaging, and at Primathon I engineer admin APIs and event-processing workflows in Java and Spring Boot, integrating Kafka and Redis for reliable, high-throughput data flow. My distributed payment-gateway project applied system-design principles for fault tolerance across four services, and I test rigorously with JUnit and Mockito.
+
+My 5-Star Gold Java rating and 250+ solved DSA problems mean I can troubleshoot and analyze complex systems quickly, and as an immediate joiner I'm ready to contribute to Syniverse's products right away.
+
+Thank you for considering my application; I'd welcome a conversation about the role.
+
+Best regards,
+Bhumi Bhatt
