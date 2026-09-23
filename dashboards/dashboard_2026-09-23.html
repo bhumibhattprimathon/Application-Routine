@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LinkedIn Smart Apply — 2026-09-23</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .wrap{max-width:1040px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .banner{border-radius:12px;padding:18px 20px;margin:16px 0;border:1px solid}
+  .banner.alert{background:#fef2f2;border-color:#fecaca}
+  .banner h2{margin:0 0 8px;font-size:18px;color:#b91c1c}
+  .banner.info{background:#fffbeb;border-color:#fde68a}
+  .banner.info h2{color:#92400e}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+  section h2{margin:0 0 12px;font-size:17px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;color:#fff}
+  .pill.g{background:var(--green)} .pill.y{background:var(--yellow)} .pill.r{background:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .btn{display:inline-block;border:0;border-radius:8px;padding:10px 16px;font-weight:600;cursor:pointer;font-size:14px;text-decoration:none}
+  .btn.primary{background:#2563eb;color:#fff}
+  .btn.ghost{background:#eef2ff;color:#3730a3}
+  code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:12px}
+  ol.fix{margin:6px 0 0;padding-left:20px} ol.fix li{margin:6px 0}
+  .bars{display:flex;align-items:flex-end;gap:20px;height:120px;padding:10px 4px}
+  .bar{width:60px;background:var(--green);border-radius:6px 6px 0 0;display:flex;align-items:flex-end;justify-content:center;color:#fff;font-weight:700;font-size:13px;padding-bottom:4px}
+  .bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .bar-lbl{font-size:11px;color:var(--muted)}
+  .muted{color:var(--muted);font-size:13px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-23</h1>
+  <div class="sub">Daily job discovery for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Qualified (verified)</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Jobs found (live)</div></div>
+    <div class="card"><div class="n">4</div><div class="l">Web-search leads (stale/low-fit)</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud blocked</div></div>
+    <div class="card"><div class="n">—</div><div class="l">Avg match score</div></div>
+  </div>
+
+  <div class="banner alert">
+    <h2>⚠️ Discovery data source is down — no live jobs gathered today</h2>
+    <p style="margin:0 0 8px">
+      The job-discovery pipeline relies on the <strong>JSearch API (RapidAPI)</strong> to pull LinkedIn/ATS
+      postings from the last 24&nbsp;hours. Today the API's <code>/search</code> endpoint returns
+      <strong>HTTP&nbsp;404 — "Endpoint '/search' does not exist"</strong> through the RapidAPI gateway, while
+      <code>/job-details</code> and <code>/estimated-salary</code> still respond. This means the RapidAPI
+      subscription no longer includes the <em>search</em> endpoint (plan changed, lapsed, or quota/endpoint
+      access revoked). No other job-search API on the key is subscribed
+      (linkedin-job-search-api, active-jobs-db, indeed12, linkedin-data-api all return <code>403 "not subscribed"</code>).
+    </p>
+    <p style="margin:0">
+      Web-search was used as a fallback but — as noted in the previous run — it only returns aggregate
+      category pages and stale/expired individual postings (verified: the top individual hits today were a
+      role <em>removed in June&nbsp;2026</em> and listings from <em>mid-2025</em>). To avoid recommending dead
+      links, <strong>no jobs were auto-qualified or appended to the application log today.</strong>
+    </p>
+  </div>
+
+  <div class="banner info">
+    <h2>🔧 How to restore daily results</h2>
+    <ol class="fix">
+      <li>Open RapidAPI → <strong>JSearch</strong> (jsearch.p.rapidapi.com) and confirm the subscription is active
+          and includes the <code>/search</code> endpoint (the Basic/free tier normally does — a downgraded or
+          expired plan is the likely cause).</li>
+      <li>If the plan is fine, rotate/replace <code>RAPIDAPI_KEY</code> in this environment — the current key
+          reaches the gateway but <code>/search</code> is not authorized for it.</li>
+      <li>Alternatively, subscribe the key to a backup job API (e.g. <em>Active Jobs DB</em> or
+          <em>LinkedIn Job Search API</em>) and I'll add it as a fallback source.</li>
+      <li>Once fixed, re-run the morning scan — full discovery, scoring, cover letters, and the "Open All"
+          apply button will return automatically.</li>
+    </ol>
+  </div>
+
+  <section>
+    <h2>Browse manually while the API is down</h2>
+    <p class="muted">These open <strong>real, live LinkedIn search pages</strong> (not individual postings) filtered to Bhumi's targets, so she can scan today's newest listings by hand.</p>
+    <p>
+      <button class="btn primary" onclick="openAll()">OPEN 4 MANUAL JOB SEARCHES</button>
+    </p>
+    <script>
+      var manualSearches = [
+        "https://in.linkedin.com/jobs/backend-developer-jobs-new-delhi",
+        "https://in.linkedin.com/jobs/entry-level-software-developer-jobs-delhi-cantonment",
+        "https://in.linkedin.com/jobs/spring-boot-jobs-gurugram",
+        "https://in.linkedin.com/jobs/node-js-jobs-noida"
+      ];
+      function openAll(){ manualSearches.forEach(function(u){ window.open(u, "_blank"); }); }
+    </script>
+    <ul class="muted">
+      <li><a href="https://in.linkedin.com/jobs/backend-developer-jobs-new-delhi" target="_blank">Backend Developer — New Delhi</a></li>
+      <li><a href="https://in.linkedin.com/jobs/entry-level-software-developer-jobs-delhi-cantonment" target="_blank">Entry-level Software Developer — Delhi NCR</a></li>
+      <li><a href="https://in.linkedin.com/jobs/spring-boot-jobs-gurugram" target="_blank">Spring Boot — Gurugram</a></li>
+      <li><a href="https://in.linkedin.com/jobs/node-js-jobs-noida" target="_blank">Node.js — Noida</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Web-search fallback leads <span class="pill y">VERIFY — NOT RECOMMENDED</span></h2>
+    <p class="muted">Surfaced from web search but <strong>not</strong> auto-qualified: each is stale, an internship/below-salary, or low-trust. Listed only for transparency — confirm the posting is still live before spending time.</p>
+    <table>
+      <thead><tr><th>Company</th><th>Role</th><th>Location</th><th>Exp</th><th>Est. Pay</th><th>Why not recommended</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Skillinabox</td><td>Software Engineer Intern</td><td>Noida</td><td>0–1 yr</td><td>₹10–15k/mo stipend</td>
+          <td>Internship, not a full-time role; pay far below 5.5 LPA target. (Posted 12 Sep 2026)</td>
+        </tr>
+        <tr>
+          <td>Lalitech</td><td>Full Stack Engineer</td><td>Remote / Noida</td><td>0–2 yr</td><td>3.5–4.5 LPA</td>
+          <td>Below salary floor and the posting is from <strong>Jul 2025</strong> — almost certainly closed.</td>
+        </tr>
+        <tr>
+          <td>Zentrix Nexus</td><td>Java Developer (freshers)</td><td>Multi-city incl. Delhi/Gurugram/Noida</td><td>0–2 yr</td><td>4–7 LPA</td>
+          <td>Generic mass multi-city "probation-to-employment" posting (low-trust pattern); dated <strong>May 2025</strong>.</td>
+        </tr>
+        <tr>
+          <td>Natlov Technologies</td><td>Full Stack Python Developer</td><td>Remote</td><td>1–2 yr</td><td>3.6–4.8 LPA</td>
+          <td>Below salary floor and Python-centric (off Bhumi's Java/JS core). Unverified freshness.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Weekly trend — qualified jobs per run</h2>
+    <div class="bars">
+      <div class="bar-wrap"><div class="bar" style="height:70px">1</div><div class="bar-lbl">Aug&nbsp;05</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:8px;background:#cbd5e1">0</div><div class="bar-lbl">Sep&nbsp;23</div></div>
+    </div>
+    <p class="muted">Runs between these dates did not complete a discovery pass. Today's 0 reflects the API outage above, not an empty market — the manual searches above still list hundreds of open roles.</p>
+  </section>
+
+  <footer>
+    Generated by the LinkedIn Smart Apply routine · 2026-09-23 · Status: <strong>degraded (data-source outage)</strong>.
+    No cover letters generated and application log left unchanged (no verified new jobs).
+  </footer>
+
+</div>
+</body>
+</html>
