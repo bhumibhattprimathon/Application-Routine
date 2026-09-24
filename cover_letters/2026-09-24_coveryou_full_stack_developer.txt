@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join CoverYou as a Full Stack Developer, helping build the web applications, internal portals, and AI-powered tools that make insurance simpler for healthcare professionals.
+
+I work across the full stack with React.js on the front end and Node.js, Express, and Spring Boot on the back end, backed by REST API design and both SQL (MySQL) and NoSQL (MongoDB) databases. Your emphasis on AI/LLM integration matches my background well: I built AI-driven daily alerts into my Distributed Payment Gateway project and authored a research paper on Generative AI applications in personalized systems, so I am comfortable wiring OpenAI, Claude, or Gemini into real product workflows.
+
+Being an immediate joiner with a 0-day notice period, I can start rapid prototyping alongside your business and operations teams right away and iterate fast.
+
+Best regards,
+Bhumi Bhatt

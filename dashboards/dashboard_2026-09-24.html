@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-09-24</title>
+<meta name="description" content="Daily curated LinkedIn job apply dashboard for Bhumi Bhatt">
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--bg:#f1f5f9;--card:#fff;--line:#e2e8f0;--muted:#64748b;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+.mcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+.mcard .n{font-size:1.9rem;font-weight:700}
+.mcard .l{font-size:.78rem;color:#cbd5e1;text-transform:uppercase;letter-spacing:.5px}
+.mcard.green .n{color:var(--green)} .mcard.red .n{color:var(--red)} .mcard.yellow .n{color:var(--yellow)}
+main{padding:24px 0 60px}
+.openall{display:block;width:100%;margin:8px 0 26px;padding:20px;font-size:1.15rem;font-weight:700;color:#04310f;background:var(--green);border:none;border-radius:14px;cursor:pointer;box-shadow:0 6px 16px rgba(34,197,94,.35)}
+.openall:hover{filter:brightness(1.05)}
+.openall:active{transform:translateY(1px)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
+.sec-head{padding:14px 18px;font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+.sec-head .cnt{margin-left:auto;font-size:.8rem;color:var(--muted);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.rank{color:var(--muted);font-weight:700}
+.co{font-weight:700}
+.score{display:inline-block;min-width:34px;text-align:center;padding:3px 8px;border-radius:8px;font-weight:700;color:#fff}
+.s-hi{background:var(--green)} .s-mid{background:var(--yellow);color:#3b2f00} .s-lo{background:#94a3b8}
+.trust{display:inline-block;min-width:30px;text-align:center;padding:3px 7px;border-radius:8px;background:#e2e8f0;font-weight:700;font-size:.82rem}
+.variant{font-size:.72rem;padding:2px 8px;border-radius:20px;font-weight:700;text-transform:uppercase}
+.v-backend{background:#dbeafe;color:#1e40af} .v-fullstack{background:#ede9fe;color:#6d28d9} .v-ai_ml{background:#fce7f3;color:#be185d} .v-master{background:#e2e8f0;color:#334155}
+.actions{white-space:nowrap;display:flex;gap:6px;flex-wrap:wrap}
+.btn{border:none;border-radius:8px;padding:7px 12px;font-size:.8rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-open{background:#0f172a;color:#fff}
+.btn-copy{background:#e2e8f0;color:#0f172a}
+.btn-copy:hover{background:#cbd5e1}
+.hidden-cl{display:none}
+.reason{color:#334155;font-size:.86rem;max-width:640px}
+.loc{color:var(--muted);font-weight:500}
+.inline-link{color:#2563eb;font-size:.8rem;white-space:nowrap}
+.skipbadge{font-size:.68rem;padding:2px 7px;border-radius:6px;font-weight:700;text-transform:uppercase;margin-right:4px}
+.sb-fraud_skip{background:#fee2e2;color:#991b1b} .sb-salary_skip{background:#fef3c7;color:#92400e}
+.sb-experience_skip{background:#e0e7ff;color:#3730a3} .sb-low_match_skip{background:#f1f5f9;color:#475569}
+.recs{padding:6px 18px 18px}
+.rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin-top:12px;background:#f8fafc}
+.rec-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.rec-num{background:var(--green);color:#04310f;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem}
+.rec-title{font-weight:700} .rec-score{margin-left:auto;background:#0f172a;color:#fff;padding:2px 10px;border-radius:8px;font-weight:700;font-size:.82rem}
+.rec p{margin:2px 0 0;font-size:.88rem;color:#334155}
+.trend{display:flex;align-items:flex-end;gap:26px;padding:24px 18px;height:210px}
+.bar-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.bar{width:52px;background:linear-gradient(180deg,#34d399,#22c55e);border-radius:8px 8px 0 0;position:relative;display:flex;align-items:flex-start;justify-content:center}
+.bar-val{position:absolute;top:-22px;font-weight:700;color:#0f172a}
+.bar-lbl{margin-top:8px;font-size:.78rem;color:var(--muted)}
+.clcard{border:1px solid var(--line);border-radius:12px;margin:14px 18px;overflow:hidden}
+.clcard-head{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#f8fafc;border-bottom:1px solid var(--line)}
+.clcard-head h3{margin:0;font-size:.92rem}
+.clcard-head .btn{margin-left:auto}
+.clcard pre{margin:0;padding:14px;white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.84rem;color:#1e293b}
+.muted{color:var(--muted)}
+.note{font-size:.82rem;color:var(--muted);padding:0 18px 16px}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:12px 22px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none;font-weight:600;z-index:99}
+.toast.show{opacity:1}
+@media(max-width:720px){table,thead,tbody,th,td,tr{display:block}thead{display:none}
+td{border:none;padding:5px 14px}tr{border-bottom:1px solid var(--line);padding:8px 0}
+td::before{content:attr(data-l);font-size:.68rem;text-transform:uppercase;color:var(--muted);display:block;font-weight:700}
+.actions{padding:8px 14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-24</h1>
+<div class="sub">Curated for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · immediate joiner · target ₹5.5–12 LPA</div>
+<div class="cards" data-qualified="3">
+<div class="mcard"><div class="n">34</div><div class="l">Jobs Found</div></div>
+<div class="mcard green"><div class="n">3</div><div class="l">Qualified</div></div>
+<div class="mcard yellow"><div class="n">5</div><div class="l">Review</div></div>
+<div class="mcard red"><div class="n">26</div><div class="l">Skipped</div></div>
+<div class="mcard"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+<div class="mcard"><div class="n">85</div><div class="l">Avg Match (Q)</div></div>
+<div class="mcard"><div class="n">~7.5</div><div class="l">Avg Salary Est (LPA)</div></div>
+</div>
+</div></header>
+
+<main><div class="wrap">
+<button class="openall" onclick="openAll()">🚀 OPEN ALL 3 QUALIFIED JOBS</button>
+
+<section>
+<div class="sec-head"><span class="dot g"></span>Qualified — Ready to Apply<span class="cnt">3 jobs · sorted by score</span></div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td class="rank">1</td>
+<td><span class="score s-hi">92</span></td>
+<td><span class="trust">64</span></td>
+<td class="co">Mentorsmoon Systems</td>
+<td>Java Backend AI Developer – Fintech</td>
+<td>Noida</td>
+<td>6–10 LPA (est)</td>
+<td><span class="variant v-backend">backend</span></td>
+<td>External</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/java-backend-ai-developer-fintech-at-mentorsmoon-4469457854" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl_mentorsmoon')">Copy Cover Letter</button><div id="cl_mentorsmoon" class="hidden-cl">Dear Hiring Manager,
+
+I am excited to apply for the Java Backend AI Developer (Fintech) role at Mentorsmoon Systems, as building secure, scalable financial backends is exactly the work I do today.
+
+At Primathon I engineer Spring Boot admin APIs and backend automation across seven merchant systems, and I architected a Distributed Payment Gateway of 30 REST APIs spanning Order, Payment, Merchant, and Vault services. My stack maps directly to your requirements: Java, Spring Boot, microservices, MySQL/MongoDB, Apache Kafka, Redis, and AWS (EC2, S3, Lambda), reinforced by a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved. Having built QR-code payment microservices at Paytm, I understand transaction processing and reliability in fintech.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your event-driven payment systems from day one and adapt quickly to your AI-assisted development workflows.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr><tr>
+<td class="rank">2</td>
+<td><span class="score s-hi">86</span></td>
+<td><span class="trust">80</span></td>
+<td class="co">CoverYou</td>
+<td>Full Stack Developer (Gurgaon/Delhi)</td>
+<td>Gurgaon / Delhi</td>
+<td>5–8 LPA (est)</td>
+<td><span class="variant v-fullstack">fullstack</span></td>
+<td>External</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/full-stack-developer-in-gurgaon-delhi-at-coveryou-4471148762" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl_coveryou')">Copy Cover Letter</button><div id="cl_coveryou" class="hidden-cl">Dear Hiring Manager,
+
+I would love to join CoverYou as a Full Stack Developer, helping build the web applications, internal portals, and AI-powered tools that make insurance simpler for healthcare professionals.
+
+I work across the full stack with React.js on the front end and Node.js, Express, and Spring Boot on the back end, backed by REST API design and both SQL (MySQL) and NoSQL (MongoDB) databases. Your emphasis on AI/LLM integration matches my background well: I built AI-driven daily alerts into my Distributed Payment Gateway project and authored a research paper on Generative AI applications in personalized systems, so I am comfortable wiring OpenAI, Claude, or Gemini into real product workflows.
+
+Being an immediate joiner with a 0-day notice period, I can start rapid prototyping alongside your business and operations teams right away and iterate fast.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr><tr>
+<td class="rank">3</td>
+<td><span class="score s-hi">77</span></td>
+<td><span class="trust">80</span></td>
+<td class="co">Real Time Data Services</td>
+<td>Software Developer (Node.js)</td>
+<td>Gurugram</td>
+<td>6–10 LPA (est)</td>
+<td><span class="variant v-backend">backend</span></td>
+<td>Standard</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-developer-at-real-time-data-services-4467849147" target="_blank" rel="noopener">Open Job</a><button class="btn btn-copy" onclick="copyCL('cl_rtds')">Copy Cover Letter</button><div id="cl_rtds" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the Software Developer role at Real Time Data Services, where strong Node.js engineering drives your production applications.
+
+My experience fits your stack closely: I build backend services in Node.js and Express with REST API design, and I have shipped order and payment microservices backed by MySQL and MongoDB, containerized with Docker and deployed through Git Actions CI/CD. I also apply caching and messaging with Redis and Kafka, and I secure APIs using JWT-based authentication, all grounded in a strong data structures and algorithms foundation (5-Star Gold Java on HackerRank). At Primathon I integrated AWS S3 and Lambda into backend pipelines for real-time data ingestion, mirroring your cloud-deployment needs.
+
+As an immediate joiner with a 0-day notice period, I am ready to contribute to your API design, database optimization, and production debugging from the outset.
+
+Best regards,
+Bhumi Bhatt</div></td>
+</tr></tbody></table></div>
+</section>
+
+<section>
+<div class="sec-head"><span class="dot y"></span>Review — Worth a Look / Stretch<span class="cnt">5 jobs</span></div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+<tbody><tr>
+<td class="rank">1</td>
+<td><span class="score s-mid">74</span></td>
+<td><span class="trust">68</span></td>
+<td class="co">Credit91</td>
+<td>Full Stack Developer <span class="loc">· Gurugram</span></td>
+<td class="reason">Excellent React/Node/AWS/Docker skill fit and a real fintech (credit91.com, instant-loan platform) — but it prefers 3+ yrs and pays a senior band (₹15–18 LPA), so Bhumi (1.5 yrs) is under-levelled. Worth a stretch application, not a confident match. <a class="inline-link" href="https://in.linkedin.com/jobs/view/full-stack-developer-at-credit91-4469351281" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">2</td>
+<td><span class="score s-mid">62</span></td>
+<td><span class="trust">85</span></td>
+<td class="co">Atlys</td>
+<td>Backend Engineer <span class="loc">· Delhi</span></td>
+<td class="reason">Top-tier, well-funded travel/visa product startup with strong infra overlap (PostgreSQL, Redis, Kafka, AWS, Docker/K8s). But the role is Python-first (FastAPI/Django/Flask) and Bhumi&#x27;s core is Java/Node — Python is the essential language she lacks. 2–5 yrs. <a class="inline-link" href="https://in.linkedin.com/jobs/view/backend-engineer-at-atlys-4469336614" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">3</td>
+<td><span class="score s-mid">68</span></td>
+<td><span class="trust">60</span></td>
+<td class="co">HuntingCube (Dynasoft)</td>
+<td>Backend Developer <span class="loc">· Gurgaon</span></td>
+<td class="reason">Java + Spring Boot fit is strong, but the role requires 4–6 yrs (she has 1.5) and also needs Python. Recruiter-posted (Dynasoft Applied Systems). Skills align, seniority does not. <a class="inline-link" href="https://in.linkedin.com/jobs/view/backend-developer-at-huntingcube-4470983730" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">4</td>
+<td><span class="score s-mid">60</span></td>
+<td><span class="trust">90</span></td>
+<td class="co">Deloitte</td>
+<td>Software Engineer II (Tax Transformation) <span class="loc">· Gurugram</span></td>
+<td class="reason">High-trust firm and &#x27;Engineer II&#x27; can suit 2–4 yrs, but the JD is domain-specific (tax transformation). Verify exact stack and level before investing time. <a class="inline-link" href="https://in.linkedin.com/jobs/view/software-engineer-ii-tax-transformation-office-hyderabad-gurugram-at-deloitte-4452432100" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">5</td>
+<td><span class="score s-mid">58</span></td>
+<td><span class="trust">90</span></td>
+<td class="co">PwC India</td>
+<td>Associate – Full Stack (Business Transformation) <span class="loc">· New Delhi</span></td>
+<td class="reason">High-trust firm, Delhi-based, and &#x27;Associate&#x27; often maps to early-career. Advisory/consulting full-stack — confirm the tech stack and years required on PwC&#x27;s careers site. <a class="inline-link" href="https://in.linkedin.com/jobs/view/in-associate-full-stack-business-transformation-apptech-advisory-delhi-at-pwc-india-4470993467" target="_blank" rel="noopener">open ↗</a></td>
+</tr></tbody></table></div>
+</section>
+
+<section>
+<div class="sec-head"><span class="dot r"></span>Skipped<span class="cnt">26 jobs</span></div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr>
+<td class="rank">1</td>
+<td class="co">MyHelpr</td>
+<td>Back End Developer</td>
+<td><span class="skipbadge sb-salary_skip">Salary</span> Salary ₹25–30k/mo (~3–3.6 LPA) — below the 5 LPA floor; also PHP/Laravel, off Bhumi&#x27;s Java/JS stack. <a class="inline-link" href="https://in.linkedin.com/jobs/view/back-end-developer-4469438334" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">2</td>
+<td class="co">Accenture</td>
+<td>Custom Software Engineer</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> Requires minimum 5 years (Spring Boot + AWS). Too senior for 1.5 yrs. <a class="inline-link" href="https://in.linkedin.com/jobs/view/custom-software-engineer-at-accenture-in-india-4448337131" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">3</td>
+<td class="co">ixigo</td>
+<td>Senior Software Engineer – Backend</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-software-engineer-backend-at-ixigo-4470914286" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">4</td>
+<td class="co">ixigo</td>
+<td>Senior Software Engineer – Web</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-software-engineer-web-at-ixigo-4470913500" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">5</td>
+<td class="co">Payoneer</td>
+<td>Senior Backend Engineer</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-backend-engineer-at-payoneer-4434985621" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">6</td>
+<td class="co">MongoDB</td>
+<td>Senior Software Engineer, AI Builder Experience</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-software-engineer-ai-builder-experience-abx-at-mongodb-4452436908" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">7</td>
+<td class="co">MongoDB</td>
+<td>Software Engineer 3</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> Level 3 typically 5+ yrs — too senior. <a class="inline-link" href="https://in.linkedin.com/jobs/view/software-engineer-3-at-mongodb-4462188252" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">8</td>
+<td class="co">DISCO</td>
+<td>Staff Software Engineer</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Staff&#x27; — far beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/staff-software-engineer-at-disco-4320469700" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">9</td>
+<td class="co">Nagarro</td>
+<td>Associate Principal Engineer (Java Full Stack, AI)</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> Principal-track senior role. <a class="inline-link" href="https://in.linkedin.com/jobs/view/associate-principal-engineer-java-full-stack-engineer-ai-at-nagarro-4469497429" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">10</td>
+<td class="co">PwC India</td>
+<td>Senior Associate – Java</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior Associate&#x27; — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/in-senior-associate-java-utility-transformation-advisory-gurgaon-at-pwc-india-4291063784" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">11</td>
+<td class="co">Iris Software</td>
+<td>Java – Senior Engineer</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/java-senior-engineer-at-iris-software-inc-4470979986" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">12</td>
+<td class="co">Gravitee</td>
+<td>Senior Software Engineer</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-software-engineer-at-gravitee-4469333185" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">13</td>
+<td class="co">NeerInfo Solutions</td>
+<td>Full Stack (Python/Node/React) 7+ Yrs</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> Requires 7+ yrs. <a class="inline-link" href="https://in.linkedin.com/jobs/view/full-stack-development-python-node-js-react-cloud-7%2B-yrs-gurugram-at-neerinfo-solutions-4470922014" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">14</td>
+<td class="co">BigStep Technologies</td>
+<td>Senior Software Engineer (Ruby on Rails + React)</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> Ruby on Rails off-stack, and &#x27;Senior&#x27;. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-software-engineer-ruby-on-rails%2B-react-js-at-bigstep-technologies-4468981954" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">15</td>
+<td class="co">Policybazaar.com</td>
+<td>Full Stack Dot Net Developer</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> .NET/C# stack — Bhumi is Java/JS, no .NET. <a class="inline-link" href="https://in.linkedin.com/jobs/view/full-stack-dot-net-developer-at-policybazaar-com-4468979921" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">16</td>
+<td class="co">Policybazaar.com</td>
+<td>Dotnet Developer</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> .NET/C# stack — off Bhumi&#x27;s stack. <a class="inline-link" href="https://in.linkedin.com/jobs/view/dotnet-developer-at-policybazaar-com-4468987234" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">17</td>
+<td class="co">Siemens Energy</td>
+<td>Full Stack Developer – Python</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> Python-primary full-stack — off her Java/JS core. <a class="inline-link" href="https://in.linkedin.com/jobs/view/full-stack-developer-python-at-siemens-energy-4432980562" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">18</td>
+<td class="co">PeopleGene</td>
+<td>AI Engineer (3–5 years)</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> AI/Python role, 3–5 yrs — off-stack and above level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/ai-engineer-startup-3-5-years-at-peoplegene-4469450258" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">19</td>
+<td class="co">Publicis Sapient</td>
+<td>AI/ML Engineer</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> ML/Python-centric — off Bhumi&#x27;s backend stack. <a class="inline-link" href="https://in.linkedin.com/jobs/view/ai-ml-engineer-at-publicis-sapient-4469465463" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">20</td>
+<td class="co">Optum India</td>
+<td>AI/ML Engineer</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> ML/Python-centric — off-stack. <a class="inline-link" href="https://in.linkedin.com/jobs/view/ai-ml-engineer-at-optum-india-4471129559" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">21</td>
+<td class="co">NextMantra AI</td>
+<td>Generative AI Engineer (RAG)</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> GenAI/Python/RAG specialist — off her core stack. <a class="inline-link" href="https://in.linkedin.com/jobs/view/generative-ai-engineer-rag-at-nextmantra-ai-4469450068" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">22</td>
+<td class="co">Accenture</td>
+<td>AI/ML Engineer</td>
+<td><span class="skipbadge sb-low_match_skip">Low match</span> ML/Python-centric — off-stack. <a class="inline-link" href="https://in.linkedin.com/jobs/view/ai-ml-engineer-at-accenture-in-india-4448354611" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">23</td>
+<td class="co">HuntingCube</td>
+<td>Senior Applied AI Engineer (Computer Vision)</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> Senior + computer-vision — off-stack and above level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/senior-applied-ai-engineer-computer-vision-at-huntingcube-4470979944" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">24</td>
+<td class="co">Orange Business</td>
+<td>Sr. Software Engineer</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> &#x27;Senior&#x27; role — beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/sr-software-engineer-at-orange-business-4466850486" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">25</td>
+<td class="co">Axtria</td>
+<td>Manager</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> People-management role — far beyond entry level. <a class="inline-link" href="https://in.linkedin.com/jobs/view/manager-at-axtria-ingenious-insights-4439693411" target="_blank" rel="noopener">open ↗</a></td>
+</tr><tr>
+<td class="rank">26</td>
+<td class="co">Anaplan</td>
+<td>Engineer III</td>
+<td><span class="skipbadge sb-experience_skip">Experience</span> Level III typically 4+ yrs — too senior. <a class="inline-link" href="https://in.linkedin.com/jobs/view/engineer-iii-at-anaplan-4462165599" target="_blank" rel="noopener">open ↗</a></td>
+</tr></tbody></table></div>
+</section>
+
+<section>
+<div class="sec-head">⭐ Top 5 Recommendations</div>
+<div class="recs"><div class="rec">
+<div class="rec-head"><span class="rec-num">1</span><span class="rec-title">Java Backend AI Developer – Fintech — Mentorsmoon Systems</span><span class="rec-score">92</span></div>
+<p>Near-perfect stack overlap: Java 8+, Spring Boot, microservices, MySQL/MongoDB, Kafka, Redis, AWS (EC2/S3/Lambda) and DSA strength — all on Bhumi&#x27;s resume. The fintech + payments focus lines up directly with her Distributed Payment Gateway project and Paytm QR-payment microservices. Experience band 1–6 yrs comfortably includes her 1.5 yrs. Only caveat: Mentorsmoon is a small IT consultancy (verify the end client).</p></div><div class="rec">
+<div class="rec-head"><span class="rec-num">2</span><span class="rec-title">Full Stack Developer (Gurgaon/Delhi) — CoverYou</span><span class="rec-score">86</span></div>
+<p>Entry-level full-stack role at an IRDAI-licensed insurance broker (verified, ~56 employees, est. 2020). React + Node + REST + SQL/NoSQL match Bhumi&#x27;s stack, and the AI/LLM-integration requirement (OpenAI/Claude/Gemini) aligns with her GenAI research paper and AI-alert project work. Explicitly entry level and Delhi/Gurgaon-based — a genuinely realistic apply.</p></div><div class="rec">
+<div class="rec-head"><span class="rec-num">3</span><span class="rec-title">Software Developer (Node.js) — Real Time Data Services</span><span class="rec-score">77</span></div>
+<p>Established Gurugram cloud/IT company (Ace Cloud Hosting group). Node.js/Express + REST/GraphQL + PostgreSQL/MySQL/MongoDB + Redis + Docker + AWS + JWT/OAuth is a strong match for Bhumi&#x27;s Node/Express and CI/CD background. Asks 2–5 yrs vs her 1.5 — a mild stretch, but her production microservice experience makes it credible.</p></div><div class="rec">
+<div class="rec-head"><span class="rec-num">4</span><span class="rec-title">Full Stack Developer — Credit91</span><span class="rec-score">74</span></div>
+<p>Excellent React/Node/AWS/Docker skill fit and a real fintech (credit91.com, instant-loan platform) — but it prefers 3+ yrs and pays a senior band (₹15–18 LPA), so Bhumi (1.5 yrs) is under-levelled. Worth a stretch application, not a confident match.</p></div><div class="rec">
+<div class="rec-head"><span class="rec-num">5</span><span class="rec-title">Backend Engineer — Atlys</span><span class="rec-score">62</span></div>
+<p>Top-tier, well-funded travel/visa product startup with strong infra overlap (PostgreSQL, Redis, Kafka, AWS, Docker/K8s). But the role is Python-first (FastAPI/Django/Flask) and Bhumi&#x27;s core is Java/Node — Python is the essential language she lacks. 2–5 yrs.</p></div></div>
+</section>
+
+<section>
+<div class="sec-head">📈 Trend — Qualified per Run</div>
+<div class="trend"><div class="bar-col"><div class="bar" style="height:54px"><span class="bar-val">1</span></div><div class="bar-lbl">08-05</div></div><div class="bar-col"><div class="bar" style="height:148px"><span class="bar-val">3</span></div><div class="bar-lbl">09-24</div></div></div>
+<div class="note">Qualified jobs per scan. (Runs are not daily — chart shows available run dates.)</div>
+</section>
+
+<section>
+<div class="sec-head">✉️ Cover Letters</div>
+<div class="clcard">
+<div class="clcard-head"><h3>Mentorsmoon Systems — Java Backend AI Developer (Fintech)</h3><button class="btn btn-copy" onclick="copyText('clbox_mentorsmoon')">COPY</button></div>
+<pre id="clbox_mentorsmoon">Dear Hiring Manager,
+
+I am excited to apply for the Java Backend AI Developer (Fintech) role at Mentorsmoon Systems, as building secure, scalable financial backends is exactly the work I do today.
+
+At Primathon I engineer Spring Boot admin APIs and backend automation across seven merchant systems, and I architected a Distributed Payment Gateway of 30 REST APIs spanning Order, Payment, Merchant, and Vault services. My stack maps directly to your requirements: Java, Spring Boot, microservices, MySQL/MongoDB, Apache Kafka, Redis, and AWS (EC2, S3, Lambda), reinforced by a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved. Having built QR-code payment microservices at Paytm, I understand transaction processing and reliability in fintech.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your event-driven payment systems from day one and adapt quickly to your AI-assisted development workflows.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clcard-head"><h3>CoverYou — Full Stack Developer</h3><button class="btn btn-copy" onclick="copyText('clbox_coveryou')">COPY</button></div>
+<pre id="clbox_coveryou">Dear Hiring Manager,
+
+I would love to join CoverYou as a Full Stack Developer, helping build the web applications, internal portals, and AI-powered tools that make insurance simpler for healthcare professionals.
+
+I work across the full stack with React.js on the front end and Node.js, Express, and Spring Boot on the back end, backed by REST API design and both SQL (MySQL) and NoSQL (MongoDB) databases. Your emphasis on AI/LLM integration matches my background well: I built AI-driven daily alerts into my Distributed Payment Gateway project and authored a research paper on Generative AI applications in personalized systems, so I am comfortable wiring OpenAI, Claude, or Gemini into real product workflows.
+
+Being an immediate joiner with a 0-day notice period, I can start rapid prototyping alongside your business and operations teams right away and iterate fast.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clcard-head"><h3>Real Time Data Services — Software Developer</h3><button class="btn btn-copy" onclick="copyText('clbox_rtds')">COPY</button></div>
+<pre id="clbox_rtds">Dear Hiring Manager,
+
+I am writing to apply for the Software Developer role at Real Time Data Services, where strong Node.js engineering drives your production applications.
+
+My experience fits your stack closely: I build backend services in Node.js and Express with REST API design, and I have shipped order and payment microservices backed by MySQL and MongoDB, containerized with Docker and deployed through Git Actions CI/CD. I also apply caching and messaging with Redis and Kafka, and I secure APIs using JWT-based authentication, all grounded in a strong data structures and algorithms foundation (5-Star Gold Java on HackerRank). At Primathon I integrated AWS S3 and Lambda into backend pipelines for real-time data ingestion, mirroring your cloud-deployment needs.
+
+As an immediate joiner with a 0-day notice period, I am ready to contribute to your API design, database optimization, and production debugging from the outset.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+<div class="note">Each letter is tailored to the specific role. Click COPY, then paste into the application.</div>
+</section>
+</div></main>
+
+<footer>Generated 2026-09-24 · Source: LinkedIn public guest jobs feed (past 24h) + company verification · Data not fabricated.</footer>
+<div id="toast" class="toast">Copied to clipboard ✓</div>
+
+<script>
+var QUALIFIED_URLS=["https://in.linkedin.com/jobs/view/java-backend-ai-developer-fintech-at-mentorsmoon-4469457854", "https://in.linkedin.com/jobs/view/full-stack-developer-in-gurgaon-delhi-at-coveryou-4471148762", "https://in.linkedin.com/jobs/view/software-developer-at-real-time-data-services-4467849147"];
+function openAll(){
+  if(!QUALIFIED_URLS.length){toast('No qualified jobs today');return;}
+  QUALIFIED_URLS.forEach(function(u){window.open(u,'_blank','noopener');});
+}
+function toast(m){var t=document.getElementById('toast');t.textContent=m||'Copied to clipboard ✓';t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1600);}
+function doCopy(text){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast();},function(){fallback(text);});}
+  else{fallback(text);}
+}
+function fallback(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast();}catch(e){}document.body.removeChild(ta);}
+function copyCL(id){var el=document.getElementById(id);if(el)doCopy(el.textContent);}
+function copyText(id){var el=document.getElementById(id);if(el)doCopy(el.textContent);}
+</script>
+</body>
+</html>

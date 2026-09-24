@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Java Backend AI Developer (Fintech) role at Mentorsmoon Systems, as building secure, scalable financial backends is exactly the work I do today.
+
+At Primathon I engineer Spring Boot admin APIs and backend automation across seven merchant systems, and I architected a Distributed Payment Gateway of 30 REST APIs spanning Order, Payment, Merchant, and Vault services. My stack maps directly to your requirements: Java, Spring Boot, microservices, MySQL/MongoDB, Apache Kafka, Redis, and AWS (EC2, S3, Lambda), reinforced by a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved. Having built QR-code payment microservices at Paytm, I understand transaction processing and reliability in fintech.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your event-driven payment systems from day one and adapt quickly to your AI-assisted development workflows.
+
+Best regards,
+Bhumi Bhatt

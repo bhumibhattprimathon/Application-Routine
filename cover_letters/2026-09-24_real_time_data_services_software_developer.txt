@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Software Developer role at Real Time Data Services, where strong Node.js engineering drives your production applications.
+
+My experience fits your stack closely: I build backend services in Node.js and Express with REST API design, and I have shipped order and payment microservices backed by MySQL and MongoDB, containerized with Docker and deployed through Git Actions CI/CD. I also apply caching and messaging with Redis and Kafka, and I secure APIs using JWT-based authentication, all grounded in a strong data structures and algorithms foundation (5-Star Gold Java on HackerRank). At Primathon I integrated AWS S3 and Lambda into backend pipelines for real-time data ingestion, mirroring your cloud-deployment needs.
+
+As an immediate joiner with a 0-day notice period, I am ready to contribute to your API design, database optimization, and production debugging from the outset.
+
+Best regards,
+Bhumi Bhatt
