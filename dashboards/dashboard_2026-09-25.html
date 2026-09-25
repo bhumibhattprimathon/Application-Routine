@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-25</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;}
+  header{background:#0b1220;color:#fff;padding:28px 20px;}
+  .wrap{max-width:1100px;margin:0 auto;}
+  header h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.3px;}
+  header p{margin:0;color:#94a3b8;font-size:.9rem;}
+  main{max-width:1100px;margin:0 auto;padding:20px;}
+  .banner{border-radius:12px;padding:14px 16px;margin:18px 0;font-size:.92rem;border:1px solid;}
+  .banner.warn{background:#fef9c3;border-color:#f59e0b;color:#78350f;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+  .card .n{font-size:2rem;font-weight:700;}
+  .card .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+  .card.q .n{color:var(--green);} .card.s .n{color:var(--red);} .card.f .n{color:var(--red);} .card.r .n{color:var(--yellow);}
+  .subcards{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 8px;}
+  .subcards .card{flex:1;min-width:180px;}
+  .openall{display:block;width:100%;margin:8px 0 26px;padding:18px;font-size:1.1rem;font-weight:700;color:#fff;background:var(--green);border:none;border-radius:12px;cursor:pointer;transition:.15s;}
+  .openall:hover{filter:brightness(1.05);} .openall:active{transform:scale(.995);}
+  h2{margin:30px 0 10px;font-size:1.15rem;padding-left:10px;border-left:5px solid var(--muted);}
+  h2.green{border-color:var(--green);} h2.yellow{border-color:var(--yellow);} h2.red{border-color:var(--red);} h2.blue{border-color:var(--blue);}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.88rem;}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+  tr:last-child td{border-bottom:none;}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:600;}
+  .pill.g{background:#dcfce7;color:#166534;} .pill.y{background:#fef9c3;color:#854d0e;} .pill.r{background:#fee2e2;color:#991b1b;}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;font-size:.78rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;margin:2px 2px 0 0;}
+  .btn.open{background:var(--blue);color:#fff;} .btn.copy{background:#e2e8f0;color:var(--ink);}
+  .tablewrap{overflow-x:auto;}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0;}
+  .rec h3{margin:0 0 4px;font-size:1rem;} .rec .meta{color:var(--muted);font-size:.8rem;margin-bottom:6px;} .rec p{margin:0;font-size:.9rem;}
+  .trend{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .bar-row .lbl{width:110px;font-size:.82rem;color:var(--muted);}
+  .bar{height:26px;background:var(--green);border-radius:6px;min-width:26px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:.78rem;font-weight:700;}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;}
+  .cl h3{margin:0 0 8px;font-size:.98rem;}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.88rem;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px;margin:0 0 10px;}
+  footer{max-width:1100px;margin:0 auto;padding:20px;color:var(--muted);font-size:.8rem;}
+  .note{font-size:.82rem;color:var(--muted);margin:6px 0 0;}
+  @media(max-width:640px){header h1{font-size:1.2rem;} .card .n{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-25</h1>
+    <p>Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · Immediate joiner</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="banner warn">
+    <strong>⚠️ Discovery source degraded today.</strong> The JSearch (RapidAPI) API that powered the reliable Aug&nbsp;5 run is
+    <strong>down</strong> — its <code>/search</code> endpoint returns <em>404 "endpoint does not exist"</em>. The fallback (WebSearch)
+    mostly returns job-board <em>category</em> pages, not fresh dated individual postings, and the few verifiable individual listings today were
+    either <em>filled</em> (Deloitte) or <em>blocked</em> (Naukri 403). So today's shortlist is <strong>thin and best-effort</strong>.
+    <br><strong>Action for Bhumi:</strong> renew / replace the job-search API subscription (RapidAPI JSearch, or an equivalent) to restore full daily discovery.
+    No jobs were fabricated — only listings actually found and, where possible, verified are shown.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">4</div><div class="l">Jobs Evaluated</div></div>
+    <div class="card q"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card r"><div class="n">1</div><div class="l">Review</div></div>
+    <div class="card s"><div class="n">2</div><div class="l">Skipped</div></div>
+    <div class="card f"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+  <div class="subcards">
+    <div class="card"><div class="n">85</div><div class="l">Avg Match (Qualified)</div></div>
+    <div class="card"><div class="n">7–11 LPA</div><div class="l">Avg Salary Est (Qualified)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB ↗</button>
+
+  <h2 class="green">✅ Qualified Jobs</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="pill g">85</span></td>
+        <td>66</td>
+        <td>Soul AI</td>
+        <td>Java Backend Developer (Spring Boot)<br><span class="note">⚠️ Verify listing is live (Naukri fetch blocked); JD asks 2–4 yrs (she has 1.5); company HQ Hyderabad though listing says Delhi/NCR.</span></td>
+        <td>Delhi / NCR</td>
+        <td>7–11 LPA</td>
+        <td>backend</td>
+        <td>External (Naukri)</td>
+        <td>
+          <a class="btn open" href="https://www.naukri.com/job-listings-java-backend-developer-spring-boot-soul-ai-delhi-ncr-2-to-4-years-170725923036" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn copy" onclick="copyCL('cl-soulai')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="cl-soulai" style="display:none">Dear Hiring Manager,
+
+I'm writing to apply for the Java Backend Developer (Spring Boot) role at Soul AI in Delhi/NCR — building scalable backend services is exactly the work I do best.
+
+Over the past 1.5+ years I've shipped production Java and Spring Boot microservices, including a distributed payment gateway with 30 REST APIs across four services (Order, Payment, Merchant, Vault) designed for scalability and fault tolerance. At Primathon I engineer custom admin APIs and backend syncing automation across 7 merchant systems, and during my Paytm internship I built QR-code lifecycle microservices powering real-time transaction notifications. My day-to-day stack — Java, Spring Boot, REST APIs, MySQL, Kafka, Redis, and AWS — maps directly to backend engineering at an AI-focused product company.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend systems right away and ramp quickly on new domains.
+
+Best regards,
+Bhumi Bhatt</div>
+
+  <h2 class="yellow">🟡 Review Jobs (verify before applying)</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Open</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="pill y">58</span></td>
+        <td>80</td>
+        <td>Peakflo</td>
+        <td>ML Engineer Intern (Paid, Remote)</td>
+        <td>Legit YC-backed fintech ($4.6M, SOC 2 Type II). Aligns with her AI research &amp; AI-integrated projects and needs backend dev, but core ask is Python/ML/NLP/LLM fine-tuning (not on resume) and it's an intern/conversion role at ₹4.8–6 LPA (bottom edge of range).</td>
+        <td><a class="btn open" href="https://www.ycombinator.com/companies/peakflo/jobs/I4Ehwpd-machine-learning-ml-engineer-intern-paid-india-remote" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 class="red">🔴 Skipped Jobs</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>Incedo</td><td>Cloud Engineer Trainee (Fresher)</td>
+        <td><strong>Salary/Fit:</strong> est 3.5–5.5 LPA (below 5.5 target midpoint); trainee-level AWS/Azure cloud focus, not her core Java/backend stack; posting is ~6 weeks old (14 Aug 2026) from a third-party blog.</td>
+      </tr>
+      <tr>
+        <td>2</td><td>Deloitte</td><td>Analyst | Backend Developer - Java</td>
+        <td><strong>Closed:</strong> page shows "Sorry, this position has been filled." Would have been a strong 0–3 yr backend-Java fit — watch Deloitte careers for a repost.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 class="blue">⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h3>1. Soul AI — Java Backend Developer (Spring Boot)</h3>
+    <div class="meta">Delhi/NCR · Match 85 · Trust 66 · 7–11 LPA · External (Naukri)</div>
+    <p>The single best on-profile match today. The stack is a near one-to-one with Bhumi's resume — Java, Spring Boot, REST APIs, microservices, SQL — the exact tools behind her distributed payment gateway (30 REST APIs) and her Primathon/Paytm work. Soul AI is a real enterprise-AI firm (IIT-IIM founders, Glassdoor 3.6/5). One caveat: the JD asks 2–4 yrs (she has 1.5) and the live posting couldn't be re-verified (Naukri blocked), so confirm it's open before applying. Cover letter is ready.</p>
+  </div>
+  <div class="rec" style="border-left-color:var(--yellow)">
+    <h3>2. Peakflo — ML Engineer Intern (Paid, Remote)</h3>
+    <div class="meta">Remote India · Match 58 · Trust 80 · 4.8–6 LPA</div>
+    <p>A high-trust, remote option that plays to Bhumi's AI side — her research paper on Generative AI and AI-integrated payment project. It needs backend development plus Python/ML/LLM work; the ML/NLP depth isn't yet on her resume, and it's an intern-to-full-time conversion at the bottom of her salary band. Worth it if she wants to pivot toward AI engineering; otherwise a stretch on pay and stack.</p>
+  </div>
+  <p class="note">Only 2 leads cleared quality thresholds today because the automated discovery source is down (see banner). Expect a fuller Top 5 once the job-search API is restored.</p>
+
+  <h2>📊 Weekly / Run Trend — Qualified per run</h2>
+  <div class="trend">
+    <div class="bar-row"><div class="lbl">2026-08-05</div><div class="bar" style="width:120px">1</div></div>
+    <div class="bar-row"><div class="lbl">2026-09-25</div><div class="bar" style="width:120px">1</div></div>
+    <p class="note">Based on dashboards found in <code>~/linkedin-jobs/dashboards/</code>. This routine last ran on 2026-08-05; no runs in between were recorded, so the trend has two data points. Daily runs will fill this out once discovery is restored.</p>
+  </div>
+
+  <h2>✉️ Cover Letters</h2>
+  <div class="cl">
+    <h3>Soul AI — Java Backend Developer (Spring Boot)</h3>
+    <pre id="cl-soulai-view">Dear Hiring Manager,
+
+I'm writing to apply for the Java Backend Developer (Spring Boot) role at Soul AI in Delhi/NCR — building scalable backend services is exactly the work I do best.
+
+Over the past 1.5+ years I've shipped production Java and Spring Boot microservices, including a distributed payment gateway with 30 REST APIs across four services (Order, Payment, Merchant, Vault) designed for scalability and fault tolerance. At Primathon I engineer custom admin APIs and backend syncing automation across 7 merchant systems, and during my Paytm internship I built QR-code lifecycle microservices powering real-time transaction notifications. My day-to-day stack — Java, Spring Boot, REST APIs, MySQL, Kafka, Redis, and AWS — maps directly to backend engineering at an AI-focused product company.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend systems right away and ramp quickly on new domains.
+
+Best regards,
+Bhumi Bhatt</pre>
+    <button class="btn copy" onclick="copyCL('cl-soulai-view')">COPY</button>
+  </div>
+
+</main>
+
+<footer>
+  Generated by the LinkedIn Morning Scan routine on 2026-09-25. Data: WebSearch fallback (JSearch/RapidAPI endpoint down).
+  No job listings were fabricated. Verify each posting is live before applying.
+</footer>
+
+<script>
+  var qualifiedUrls = [
+    "https://www.naukri.com/job-listings-java-backend-developer-spring-boot-soul-ai-delhi-ncr-2-to-4-years-170725923036"
+  ];
+  function openAll(){
+    if(!qualifiedUrls.length){ alert("No qualified jobs to open today."); return; }
+    qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el){ return; }
+    var text = el.innerText || el.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); flash(); }catch(e){} document.body.removeChild(ta);
+  }
+  function flash(){
+    var d=document.createElement("div");
+    d.textContent="Cover letter copied ✓";
+    d.style.cssText="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#22c55e;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.2)";
+    document.body.appendChild(d); setTimeout(function(){ d.remove(); },1600);
+  }
+</script>
+</body>
+</html>

@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-09-25",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "status": "completed_degraded",
+  "data_source": "WebSearch fallback. JSearch/RapidAPI /search endpoint is DOWN (HTTP 404 'endpoint does not exist'); RAPIDAPI_KEY is subscribed to JSearch but the endpoint is no longer provisioned. Other job hosts (linkedin-jobs-search, active-jobs-db) return 403 'not subscribed'.",
+  "resume_source": "repo resumes/resume_master.pdf (persisted; ~/linkedin-jobs symlinked to repo)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel (PushNotification)",
+  "jobs_evaluated": 4,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 1,
+  "jobs_skipped": 2,
+  "fraud_detected": 0,
+  "avg_match_qualified": 85.0,
+  "top_pick": "Soul AI — Java Backend Developer (Spring Boot), Delhi/NCR (match 85) — verify listing is live before applying",
+  "notes": "Discovery degraded: JSearch (the source behind the good 2026-08-05 run) is dead, and WebSearch returns mostly job-board category pages rather than fresh dated individual postings. Verifiable individual listings today were filled (Deloitte) or blocked (Naukri 403). Only real, found listings were included — none fabricated. ACTION NEEDED: renew/replace the job-search API subscription to restore full daily discovery.",
+  "action_required": "Renew or replace the RapidAPI JSearch subscription (or equivalent job-search API) so daily discovery returns fresh 24h postings with direct apply links."
 }

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Java Backend Developer (Spring Boot) role at Soul AI in Delhi/NCR — building scalable backend services is exactly the work I do best.
+
+Over the past 1.5+ years I've shipped production Java and Spring Boot microservices, including a distributed payment gateway with 30 REST APIs across four services (Order, Payment, Merchant, Vault) designed for scalability and fault tolerance. At Primathon I engineer custom admin APIs and backend syncing automation across 7 merchant systems, and during my Paytm internship I built QR-code lifecycle microservices powering real-time transaction notifications. My day-to-day stack — Java, Spring Boot, REST APIs, MySQL, Kafka, Redis, and AWS — maps directly to backend engineering at an AI-focused product company.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend systems right away and ramp quickly on new domains.
+
+Best regards,
+Bhumi Bhatt
