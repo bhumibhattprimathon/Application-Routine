@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Development Engineer role at Clearwater Analytics' Noida center, excited to contribute to your SaaS investment-accounting platform.
+
+I bring strong computer-science fundamentals — object-oriented design and 250+ data-structures-and-algorithms problems solved (5-Star Gold in Java, HackerRank) — plus hands-on experience shipping scalable Java Spring Boot microservices and REST APIs at Primathon and Paytm. Having architected a distributed payment gateway with 30 REST APIs across four services, I'm comfortable designing reliable, high-performance backend systems in a fast-moving SaaS environment.
+
+As an immediate joiner (0-day notice) who thrives on continuous learning and client-focused delivery, I would add value to your engineering team right away.
+
+Best regards,
+Bhumi Bhatt

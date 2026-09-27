@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I'd love to join XenonStack Moments as a Software Engineer I building production-grade backend systems for your AI platforms.
+
+My core strengths are exactly what you're hiring for: strong Java fundamentals, solid SQL and database design, and Git-driven development, backed by 250+ DSA problems solved and 5-Star Gold in Java on HackerRank. At Primathon I ship Spring Boot REST APIs and backend automation across seven merchant systems, and I've deployed services on AWS with Docker — matching every item on your good-to-have list.
+
+I'm genuinely drawn to the AI-platform focus, having authored a research paper on Generative AI applications, and I learn fast alongside senior engineers.
+
+Available on a 0-day notice, I'm ready to write clean, scalable backend code from day one.
+
+Best regards,
+Bhumi Bhatt

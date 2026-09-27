@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Full Stack (IRC300668) role at GlobalLogic, where my backend-first, full-stack skill set maps directly onto your stack.
+
+At Primathon and Paytm I built and optimized Java Spring Boot microservices and REST APIs, and I've worked with Apache Kafka for event streaming and AWS (S3, Lambda) for real-time data pipelines — the exact backbone this role calls for. On the frontend I build React.js interfaces, and I run Git-based CI/CD workflows daily, so I can own features end-to-end across your microservices and React/Redux UI.
+
+As a 0-day-notice immediate joiner with 250+ DSA problems solved (5-Star Gold in Java, HackerRank), I ramp quickly and can contribute to production systems from week one.
+
+Best regards,
+Bhumi Bhatt

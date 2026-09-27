@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+The Full Stack Engineer role at Storm Finance is a strong fit for my backend-heavy, full-stack profile, and I'm energized by your agentic-AI approach to automating the finance function.
+
+I've built distributed payment systems using Java, Spring Boot, and REST APIs, and I develop React.js frontends with JavaScript, HTML5, and CSS3, backed by MySQL and Git workflows with JUnit/Mockito testing — the same stack your platform runs on. My work across seven merchant integrations and a 30-API payment gateway taught me the security and reliability that audit-sensitive financial operations demand.
+
+As a 0-day-notice immediate joiner, I'm ready to take direct ownership of product features and grow with a fast-moving fintech.
+
+Best regards,
+Bhumi Bhatt
