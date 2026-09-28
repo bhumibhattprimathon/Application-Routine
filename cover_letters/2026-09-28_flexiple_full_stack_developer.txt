@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the remote Full Stack Developer role at Flexiple, where owning features end-to-end is the norm.
+
+I've shipped full-stack work across the React, Node.js, JavaScript, and Java stack you use: I architected a distributed payment gateway with 30 REST APIs across four Spring Boot services, and built React front ends backed by Node/Express and MongoDB. I care about clean, tested code — I write JUnit and Mockito tests and automate CI/CD — and I'm comfortable owning a feature from schema to UI.
+
+As an immediate joiner (0-day notice) who already works remotely-friendly hours, I can take on a feature slice from week one and would happily deepen my Python along the way.
+
+Best regards,
+Bhumi Bhatt

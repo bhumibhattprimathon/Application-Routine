@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join Alight Solutions as a Full Stack Developer 2 on your production support team, where reliability and cloud fluency matter most.
+
+My strength is keeping backend services healthy in production: at Paytm I improved microservice reliability and performance by 67% on the QR-code transaction platform, and at Primathon I run AWS-based pipelines using Lambda, S3, and Timestream for real-time event handling. I build REST APIs with Node.js and Express, work with SQL and Docker daily, and my React background makes ramping onto your Angular front end straightforward.
+
+I'm based in Delhi NCR, close to your Noida office, and as a 0-day-notice immediate joiner I can step into on-call support and feature work without delay.
+
+Best regards,
+Bhumi Bhatt

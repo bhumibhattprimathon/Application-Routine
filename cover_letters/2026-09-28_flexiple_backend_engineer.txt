@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the remote Backend Engineer role at Flexiple, which fits my core strength squarely.
+
+Backend systems are what I do: I designed a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault services using Java and Spring Boot, applying system-design principles for fault tolerance. I use Kafka and Redis for event-driven flows, model data in MySQL and MongoDB, and have a 5-star Java rating on HackerRank with 250+ DSA problems solved. My Node.js and Express experience means I can move across your backend stack comfortably.
+
+With a 0-day notice period I'm ready to start immediately and contribute to your services right away.
+
+Best regards,
+Bhumi Bhatt

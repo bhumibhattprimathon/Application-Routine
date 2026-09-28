@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Engineer (DevOps / Full Stack) role at Digital Roundabout, where a remote, infrastructure-minded engineer is exactly the kind of work I've been doing.
+
+At Primathon I containerized backend services with Docker and cut manual operational effort by 70% by automating analytics and meta-event workflows, and at CodeAlpha I built and automated CI/CD pipelines with Git Actions across 30+ REST endpoints. I work daily with AWS (EC2, S3, Lambda), Jenkins, and Linux-based deployments, so your Docker, CI/CD, Terraform, and shell-scripting stack maps directly onto my experience, and I'm keen to pick up the Kubernetes and Python pieces quickly.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your production tooling right away and grow fast in a remote team.
+
+Best regards,
+Bhumi Bhatt

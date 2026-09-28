@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Backend Engineer role at Nat Habit — I admire how you're scaling an Ayurveda-first D2C brand and would like to help build the systems behind it.
+
+My backend foundation is strong: I built microservices and 30+ REST APIs with Spring Boot at scale, integrated AWS Lambda, S3, and Timestream for real-time data ingestion at Primathon, and work daily with Docker, SQL, and Git. While my production code has been in Java, my OOP depth and DSA background (5-star Java, 250+ problems) let me pick up Python and Django quickly, and I'm genuinely eager to do so for this role.
+
+As an immediate joiner based in Delhi NCR with a 0-day notice, I can start contributing to your backend from day one.
+
+Best regards,
+Bhumi Bhatt

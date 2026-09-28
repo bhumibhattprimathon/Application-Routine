@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply</title>
+<meta name="description" content="Daily LinkedIn job scan, scoring and cover letters for Bhumi Bhatt.">
+<style>
+:root{--bg:#0b1020;--panel:#fff;--ink:#1a1f2e;--mut:#6b7280;--g:#22c55e;--y:#eab308;--r:#ef4444;--line:#e5e7eb;--accent:#2563eb;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f3f4f6;color:var(--ink);}
+header{background:linear-gradient(135deg,#0b1020,#1e293b);color:#fff;padding:28px 20px;}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#9fb3d1;font-size:13px}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card .num{font-size:26px;font-weight:700}
+.card .lbl{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.card.g .num{color:var(--g)} .card.y .num{color:var(--y)} .card.r .num{color:var(--r)}
+.actionbar{margin:14px 0}
+.bigbtn{background:var(--g);color:#fff;border:0;border-radius:12px;padding:16px 22px;font-size:17px;font-weight:700;cursor:pointer;width:100%;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+.bigbtn:disabled{background:#9ca3af;box-shadow:none;cursor:not-allowed}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+section h2{margin:0 0 12px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.g{background:var(--g)}.dot.y{background:var(--y)}.dot.r{background:var(--r)}.dot.b{background:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.4px}
+tr:hover td{background:#fafafa}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:7px 12px;font-size:12px;text-decoration:none;cursor:pointer}
+.btn.sm{padding:5px 9px;font-size:11px;margin:1px}
+.btn.ghost{background:#eef2ff;color:var(--accent)}
+.hidden{display:none}
+.muted{color:var(--mut);font-size:13px}
+.pill{display:inline-block;color:#fff;border-radius:20px;padding:2px 10px;font-size:13px;margin-left:6px}
+.pill.g{background:var(--g)}.pill.y{background:var(--y)}
+.rec{border-left:4px solid var(--accent);padding:6px 0 6px 14px;margin:12px 0}
+.rec h3{margin:0 0 4px;font-size:15px}
+.rec .why{font-size:12.5px;color:#374151}
+.tag{display:inline-block;background:#fee2e2;color:#b91c1c;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:600;margin-right:4px}
+.clbox{border:1px solid var(--line);border-radius:10px;margin:10px 0;overflow:hidden}
+.clhead{background:#f8fafc;padding:8px 12px;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.clbox pre{margin:0;padding:12px;white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5}
+.trend{display:flex;gap:14px;align-items:flex-end;height:170px;padding-top:10px}
+.bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px}
+.bar .fill{width:34px;background:linear-gradient(180deg,#34d399,#22c55e);border-radius:6px 6px 0 0}
+.bar span{font-weight:700;font-size:13px} .bar small{color:var(--mut);font-size:11px}
+.note{font-size:12px;color:var(--mut);margin-top:8px;line-height:1.5}
+@media(prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){--panel:#141a2b;--ink:#e5e9f0;--mut:#94a3b8;--line:#26304a;}
+ :root:not([data-theme="light"]) body{background:#0b1020}
+ :root:not([data-theme="light"]) tr:hover td{background:#1a2136}
+ :root:not([data-theme="light"]) .clhead{background:#0f1526}
+ :root:not([data-theme="light"]) .btn.ghost{background:#1e2740}
+ :root:not([data-theme="light"]) .rec .why{color:#c7d2e5}
+}
+</style></head>
+<body data-qualified="4">
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-28</h1>
+  <div class="sub">Backend / Full-Stack / SWE / AI-ML · Delhi NCR &amp; Remote · posted in the last 24h · for Bhumi Bhatt</div>
+</header>
+<div class="wrap">
+  <div class="cards">
+    <div class="card"><div class="num">387</div><div class="lbl">Jobs Found</div></div>
+    <div class="card g"><div class="num">4</div><div class="lbl">Qualified</div></div>
+    <div class="card y"><div class="num">8</div><div class="lbl">Review</div></div>
+    <div class="card r"><div class="num">16</div><div class="lbl">Skipped</div></div>
+    <div class="card r"><div class="num">7</div><div class="lbl">Fraud Detected</div></div>
+    <div class="card"><div class="num">86.0</div><div class="lbl">Avg Match (qual.)</div></div>
+    <div class="card"><div class="num">9.2 LPA</div><div class="lbl">Avg Salary Est.</div></div>
+  </div>
+
+  <div class="actionbar">
+    <button class="bigbtn" id="openAllBtn" onclick="openAll()" >
+      OPEN ALL 4 QUALIFIED JOBS
+    </button>
+    <div class="note">Tip: allow pop-ups for this page so every qualified posting opens in its own tab.</div>
+  </div>
+
+  <section>
+    <h2><span class="dot b"></span>Top Recommendations</h2>
+    <div class="rec"><h3>1. Software Engineer - Dev Ops / Full Stack developer — Digital Roundabout Pte Ltd
+      <span class="pill g">92</span></h3>
+      <p>Remote India DevOps/full-stack: Docker, CI/CD, Terraform, Linux, shell (matches her Docker/Jenkins/CI-CD/AWS/Git experience). 2-3 yrs, K8s/Python nice-to-have.</p>
+      <p class="why"><b>Why:</b> strong skill overlap (100%: Docker, Git); experience is a mild stretch; trust 62 (Registered Singapore company with website and directory presence, but no employee reviews found.). <b>Est. salary:</b> ₹7-12 LPA. <b>Resume:</b> master.
+      <a href="https://in.linkedin.com/jobs/view/software-engineer-dev-ops-full-stack-developer-at-digital-roundabout-pte-ltd-4471094367" target="_blank" rel="noopener">Open posting →</a></p></div><div class="rec"><h3>2. Full stack Developer 2 for Ongoing production Support Team — Alight Solutions
+      <span class="pill g">87</span></h3>
+      <p>Develop and deploy scalable cloud full-stack apps with Angular, Node.js, AWS serverless/containers, CI/CD, IaC for production support.</p>
+      <p class="why"><b>Why:</b> strong skill overlap (100%: Node.js, AWS, Docker, REST API, SQL); experience is a stretch (asks unstated); trust 82 (Large legit public firm, extensive reviews; Angular focus not in candidate stack though). <b>Est. salary:</b> 9–14 LPA (est). <b>Resume:</b> fullstack.
+      <a href="https://in.linkedin.com/jobs/view/full-stack-developer-2-for-ongoing-production-support-team-at-alight-solutions-4423143384" target="_blank" rel="noopener">Open posting →</a></p></div><div class="rec"><h3>3. Full Stack Developer — Flexiple
+      <span class="pill g">83</span></h3>
+      <p>Remote pan-India full-stack role, 2-6 yrs; React/Vue/Angular front end, Node/Python/Java back end, own features end-to-end.</p>
+      <p class="why"><b>Why:</b> strong skill overlap (83%: React, Node.js, JavaScript, Java, Python); experience is a stretch (asks 2-4); trust 80 (Established Indian talent marketplace with website, reviews and clear real presence.). <b>Est. salary:</b> 6–11 LPA (est). <b>Resume:</b> fullstack.
+      <a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-flexiple-4472466740" target="_blank" rel="noopener">Open posting →</a></p></div><div class="rec"><h3>4. Backend Engineer — Flexiple
+      <span class="pill g">82</span></h3>
+      <p>Founding India-team backend engineer for VC-backed SaaS via Flexiple; build services/APIs, DB optimization, on-call.</p>
+      <p class="why"><b>Why:</b> strong skill overlap (80%: Java, Python, Node.js, SQL, REST API); experience is a stretch (asks 2-4); trust 80 (Legit established company, real website, strong Glassdoor presence and reviews). <b>Est. salary:</b> 6–11 LPA (est). <b>Resume:</b> fullstack.
+      <a href="https://in.linkedin.com/jobs/view/backend-engineer-at-flexiple-4472432739" target="_blank" rel="noopener">Open posting →</a></p></div><div class="rec"><h3>5. Full Stack Engineer (AI-Native Development) — Kynodex
+      <span class="pill y">85</span></h3>
+      <p>Mid-level full-stack engineer building production web apps (React/Next.js + Node.js/Go) using AI coding assistants.</p>
+      <p class="why"><b>Why:</b> strong skill overlap (100%: React, Node.js, JavaScript, SQL, Redis); experience is a stretch (asks 3-5); trust 57 (Real website and detailed legitimate JD, but very thin presence and no reviews; unverified small startup.). <b>Est. salary:</b> 8–12 LPA (est). <b>Resume:</b> ai_ml.
+      <a href="https://in.linkedin.com/jobs/view/full-stack-engineer-ai-native-development-at-kynodex-4471308353" target="_blank" rel="noopener">Open posting →</a></p></div>
+  </section>
+
+  <section>
+    <h2><span class="dot g"></span>Qualified Jobs (match ≥ 65 &amp; trust ≥ 60)</h2>
+    <table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th>
+      <th>Location</th><th>Salary Est.</th><th>Resume</th><th>Mode</th><th>Actions</th></tr></thead><tbody><tr>
+          <td>1</td><td><b>92</b></td><td>62</td>
+          <td>Digital Roundabout Pte Ltd</td><td>Software Engineer - Dev Ops / Full Stack developer</td><td>India</td>
+          <td>₹7-12 LPA</td><td>master</td>
+          <td>remote</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/software-engineer-dev-ops-full-stack-developer-at-digital-roundabout-pte-ltd-4471094367" target="_blank" rel="noopener">Open</a> <button class="btn sm" onclick="copyCL('cl_4')">Copy cover letter</button><div id="cl_4" class="hidden">Dear Hiring Manager,
+
+I&#x27;m applying for the Software Engineer (DevOps / Full Stack) role at Digital Roundabout, where a remote, infrastructure-minded engineer is exactly the kind of work I&#x27;ve been doing.
+
+At Primathon I containerized backend services with Docker and cut manual operational effort by 70% by automating analytics and meta-event workflows, and at CodeAlpha I built and automated CI/CD pipelines with Git Actions across 30+ REST endpoints. I work daily with AWS (EC2, S3, Lambda), Jenkins, and Linux-based deployments, so your Docker, CI/CD, Terraform, and shell-scripting stack maps directly onto my experience, and I&#x27;m keen to pick up the Kubernetes and Python pieces quickly.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your production tooling right away and grow fast in a remote team.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+          <td>2</td><td><b>87</b></td><td>82</td>
+          <td>Alight Solutions</td><td>Full stack Developer 2 for Ongoing production Support Team</td><td>Noida, Uttar Pradesh, India</td>
+          <td>9–14 LPA (est)</td><td>fullstack</td>
+          <td>unstated</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/full-stack-developer-2-for-ongoing-production-support-team-at-alight-solutions-4423143384" target="_blank" rel="noopener">Open</a> <button class="btn sm" onclick="copyCL('cl_9')">Copy cover letter</button><div id="cl_9" class="hidden">Dear Hiring Manager,
+
+I&#x27;d love to join Alight Solutions as a Full Stack Developer 2 on your production support team, where reliability and cloud fluency matter most.
+
+My strength is keeping backend services healthy in production: at Paytm I improved microservice reliability and performance by 67% on the QR-code transaction platform, and at Primathon I run AWS-based pipelines using Lambda, S3, and Timestream for real-time event handling. I build REST APIs with Node.js and Express, work with SQL and Docker daily, and my React background makes ramping onto your Angular front end straightforward.
+
+I&#x27;m based in Delhi NCR, close to your Noida office, and as a 0-day-notice immediate joiner I can step into on-call support and feature work without delay.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+          <td>3</td><td><b>83</b></td><td>80</td>
+          <td>Flexiple</td><td>Full Stack Developer</td><td>India</td>
+          <td>6–11 LPA (est)</td><td>fullstack</td>
+          <td>remote</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/full-stack-developer-at-flexiple-4472466740" target="_blank" rel="noopener">Open</a> <button class="btn sm" onclick="copyCL('cl_12')">Copy cover letter</button><div id="cl_12" class="hidden">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the remote Full Stack Developer role at Flexiple, where owning features end-to-end is the norm.
+
+I&#x27;ve shipped full-stack work across the React, Node.js, JavaScript, and Java stack you use: I architected a distributed payment gateway with 30 REST APIs across four Spring Boot services, and built React front ends backed by Node/Express and MongoDB. I care about clean, tested code — I write JUnit and Mockito tests and automate CI/CD — and I&#x27;m comfortable owning a feature from schema to UI.
+
+As an immediate joiner (0-day notice) who already works remotely-friendly hours, I can take on a feature slice from week one and would happily deepen my Python along the way.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+          <td>4</td><td><b>82</b></td><td>80</td>
+          <td>Flexiple</td><td>Backend Engineer</td><td>India</td>
+          <td>6–11 LPA (est)</td><td>fullstack</td>
+          <td>remote</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/backend-engineer-at-flexiple-4472432739" target="_blank" rel="noopener">Open</a> <button class="btn sm" onclick="copyCL('cl_7')">Copy cover letter</button><div id="cl_7" class="hidden">Dear Hiring Manager,
+
+I&#x27;m applying for the remote Backend Engineer role at Flexiple, which fits my core strength squarely.
+
+Backend systems are what I do: I designed a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault services using Java and Spring Boot, applying system-design principles for fault tolerance. I use Kafka and Redis for event-driven flows, model data in MySQL and MongoDB, and have a 5-star Java rating on HackerRank with 250+ DSA problems solved. My Node.js and Express experience means I can move across your backend stack comfortably.
+
+With a 0-day notice period I&#x27;m ready to start immediately and contribute to your services right away.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2><span class="dot y"></span>Review Jobs (match 50–64 or trust 40–59)</h2>
+    <table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th>
+      <th>Location</th><th>Reason for review</th><th></th></tr></thead><tbody><tr><td>1</td><td>85</td><td>57</td>
+          <td>Kynodex</td><td>Full Stack Engineer (AI-Native Development)</td><td>Noida, Uttar Pradesh, India</td>
+          <td>match 85/trust 57: trust needs verification — flags: thin online footprint, no employee reviews; asks 3-5 yrs / mid</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/full-stack-engineer-ai-native-development-at-kynodex-4471308353" target="_blank" rel="noopener">Open</a></td></tr><tr><td>2</td><td>82</td><td>78</td>
+          <td>Nat Habit</td><td>Backend Engineer</td><td>Gurugram, Haryana, India</td>
+          <td>Python/Django is the core stack (she is Java/Spring — peripheral tools overlap only); onsite Gurgaon, 6-day work week. Legit funded company (trust 78) but weak stack fit — stretch.</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/backend-engineer-at-nat-habit-4472418711" target="_blank" rel="noopener">Open</a></td></tr><tr><td>3</td><td>81</td><td>40</td>
+          <td>TaskVerse</td><td>JavaScript Developer</td><td>India</td>
+          <td>match 81/trust 40: trust needs verification — flags: generic title masks client role (Birlasoft); negative taskverse.com reviews / payment complaints; multiple unrelated generic postings under one name; asks 3-5 yrs / associate</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/javascript-developer-at-taskverse-4472477406" target="_blank" rel="noopener">Open</a></td></tr><tr><td>4</td><td>70</td><td>48</td>
+          <td>Alignerr</td><td>Machine Learning Engineer</td><td>Delhi, Delhi, India</td>
+          <td>match 70/trust 48: trust needs verification — flags: Gig/contract data-labeling, not a traditional SWE role; Numerous reviews report deactivation before payment, unpaid work, and no available work</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/machine-learning-engineer-at-alignerr-4472467749" target="_blank" rel="noopener">Open</a></td></tr><tr><td>5</td><td>66</td><td>42</td>
+          <td>TaskVerse</td><td>Integration Engineer</td><td>India</td>
+          <td>match 66/trust 42: trust needs verification — flags: generic title hides niche SAP EDI role; third-party client posting via poorly-reviewed brand; multiple unrelated generic postings under one name</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/integration-engineer-at-taskverse-4472465733" target="_blank" rel="noopener">Open</a></td></tr><tr><td>6</td><td>60</td><td>72</td>
+          <td>Zorba AI</td><td>Databricks Platform Engineer</td><td>Gurugram, Haryana, India</td>
+          <td>match 60/trust 72: borderline experience/skill fit — Real consulting firm with strong reviews and salary listed; high-volume similar Databricks postings noted.; asks 3-5 yrs / mid</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/databricks-platform-engineer-at-zorba-ai-4471086910" target="_blank" rel="noopener">Open</a></td></tr><tr><td>7</td><td>60</td><td>48</td>
+          <td>Gala Solutions</td><td>Machine Learning Engineer</td><td>India</td>
+          <td>match 60/trust 48: borderline experience/skill fit — flags: thin/unverifiable online presence; no dedicated company website confirmed; reviews ambiguous with unrelated GALA entities; asks 2-4 yrs / mid</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/machine-learning-engineer-at-gala-solutions-4470814342" target="_blank" rel="noopener">Open</a></td></tr><tr><td>8</td><td>52</td><td>58</td>
+          <td>Scoutit</td><td>AI Engineer</td><td>Noida, Uttar Pradesh, India</td>
+          <td>match 52/trust 58: borderline experience/skill fit — Small but real startup with positive early reviews; limited public info to fully verify; asks unstated yrs / mid</td>
+          <td><a class="btn sm" href="https://in.linkedin.com/jobs/view/ai-engineer-at-scoutit-4471077905" target="_blank" rel="noopener">Open</a></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2><span class="dot r"></span>Skipped Jobs</h2>
+    <table><thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th><th></th></tr></thead><tbody><tr><td>1</td><td>Zetheta Algorithms Private Limited</td><td>Full Stack Engineer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 38): unpaid internship; self-paced 15-day to 6-month virtual internship (certificate-mill pattern); workforce almost entirely interns; reviews cite no compensation and no LOR</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-zetheta-algorithms-private-limited-4471081651" target="_blank" rel="noopener">Open</a></td></tr><tr><td>2</td><td>Xentic AI</td><td>Software Engineer (MERN)</td>
+          <td><span class="tag">EXPERIENCE</span> Requires 5+ yrs (senior); stack note: Architect scalable MERN apps, lead design reviews, mentor engineers; requires Ty</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/software-engineer-mern-at-xentic-ai-4471085648" target="_blank" rel="noopener">Open</a></td></tr><tr><td>3</td><td>TaskVerse</td><td>Java Developer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 32): payment complaints across review sites; mass generic identical postings; JD references different company (Awign); industry mislabeled (broadcast media on healthcare Java role)</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/java-developer-at-taskverse-4472464785" target="_blank" rel="noopener">Open</a></td></tr><tr><td>4</td><td>TaskVerse</td><td>Software Engineer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 38): generic &#x27;Software Engineer&#x27; title hides niche senior Cisco IVR role; seniority mismatch (tagged Associate vs 5+yr mentoring role); negative taskverse.com reviews; multiple unrelated postings under one name</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/software-engineer-at-taskverse-4472464786" target="_blank" rel="noopener">Open</a></td></tr><tr><td>5</td><td>Graystone Capital</td><td>Back End Developer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 33): finance/&#x27;capital&#x27; brand mass-hiring entry developers; identical postings across many Indian cities (Delhi/Mumbai/Chennai/Pune/Vadodara/Coimbatore/Hyderabad); no verifiable Glassdoor/AmbitionBox employee reviews; entry-level bulk hiring for vague &#x27;internal&#x27; systems</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/back-end-developer-at-graystone-capital-4470588841" target="_blank" rel="noopener">Open</a></td></tr><tr><td>6</td><td>Aspire, Jordan</td><td>Backend Software Engineer — Billing &amp; Account Management (BAM)</td>
+          <td><span class="tag">EXPERIENCE</span> Requires 5+ yrs (senior); stack note: Senior backend engineer building distributed financial billing systems in Java/S</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/backend-software-engineer-%E2%80%94-billing-account-management-bam-at-aspire-jordan-4470590969" target="_blank" rel="noopener">Open</a></td></tr><tr><td>7</td><td>Celebal Technologies</td><td>GenAI Full Stack Engineer / Fullstack AI Engineer</td>
+          <td><span class="tag">EXPERIENCE</span> Requires 5+ yrs (senior); stack note: Build end-to-end GenAI apps: Python/FastAPI backend, Next.js/React frontend, AWS</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/genai-full-stack-engineer-fullstack-ai-engineer-at-celebal-technologies-4471090161" target="_blank" rel="noopener">Open</a></td></tr><tr><td>8</td><td>TaskVerse</td><td>Application Engineer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 33): mass generic identical postings; payment complaints across review sites; US-location JD (Council Bluffs, IA) reposted under India listing</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/application-engineer-at-taskverse-4472478447" target="_blank" rel="noopener">Open</a></td></tr><tr><td>9</td><td>BrightEdge</td><td>Software Engineer</td>
+          <td><span class="tag">EXPERIENCE</span> Requires 5+ yrs (senior); stack note: Backend AI engineer building scalable APIs and data pipelines in Python using AI</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/software-engineer-at-brightedge-4471301228" target="_blank" rel="noopener">Open</a></td></tr><tr><td>10</td><td>TaskVerse</td><td>Python Developer</td>
+          <td><span class="tag">EXPERIENCE</span> Requires 5+ yrs (senior); stack note: Design and maintain scalable Python backend microservices and REST APIs with Fas</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/python-developer-at-taskverse-4472467682" target="_blank" rel="noopener">Open</a></td></tr><tr><td>11</td><td>Digile</td><td>Azure Fullstack Developer- Hyderabad Only</td>
+          <td><span class="tag">LOCATION</span> Onsite outside NCR (India/onsite)</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/azure-fullstack-developer-hyderabad-only-at-digile-4406425125" target="_blank" rel="noopener">Open</a></td></tr><tr><td>12</td><td>GC Technologies Pvt Ltd</td><td>AI Engineer + ML ops</td>
+          <td><span class="tag">LOCATION</span> Onsite outside NCR (India/onsite)</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/ai-engineer-%2B-ml-ops-at-gc-technologies-pvt-ltd-4472471687" target="_blank" rel="noopener">Open</a></td></tr><tr><td>13</td><td>Flexiple</td><td>Machine Learning Engineer</td>
+          <td><span class="tag">LOW MATCH</span> Match 40 &lt; 50 (skill fit 0%, exp 2-4)</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/machine-learning-engineer-at-flexiple-4472451911" target="_blank" rel="noopener">Open</a></td></tr><tr><td>14</td><td>TaskVerse</td><td>AI Engineer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 38): brand matches gig/microtask platform with unpaid-work complaints and negative reviews; enterprise 5-7yr JD mismatches the low-skill gig-platform brand (possible name reuse/repost)</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/ai-engineer-at-taskverse-4472477413" target="_blank" rel="noopener">Open</a></td></tr><tr><td>15</td><td>Softcrayons IT Education</td><td>Applied AI/ML Engineer</td>
+          <td><span class="tag">FRAUD</span> Fraud/low-trust (trust 38): pay (₹25-35k/month) grossly mismatched with 4-6 yrs + Master&#x27;s requirement; training institute; reviews allege fraud commitments to students, no placements, salary delays</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/applied-ai-ml-engineer-at-softcrayons-it-education-4472473255" target="_blank" rel="noopener">Open</a></td></tr><tr><td>16</td><td>Tower Research Capital</td><td>Python Developer</td>
+          <td><span class="tag">LOW MATCH</span> Match 34 &lt; 50 (skill fit 0%, exp 3-5)</td>
+          <td><a class="btn sm ghost" href="https://in.linkedin.com/jobs/view/python-developer-at-tower-research-capital-4387271287" target="_blank" rel="noopener">Open</a></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2><span class="dot b"></span>Weekly Trend — Qualified per Run</h2>
+    <div class="trend"><div class="bar"><div class="fill" style="height:2px" title="0 qualified"></div><span>0</span><small>08-05</small></div><div class="bar"><div class="fill" style="height:122px" title="4 qualified"></div><span>4</span><small>09-28</small></div></div>
+    <div class="note">Bars show qualified-job count per dashboard on file. Runs are not daily; gaps are days with no scan.</div>
+  </section>
+
+  <section>
+    <h2><span class="dot g"></span>Cover Letters</h2>
+    <div class="clbox"><div class="clhead"><b>Digital Roundabout Pte Ltd</b> — Software Engineer - Dev Ops / Full Stack developer
+          <button class="btn sm" onclick="copyText('clx_4')">Copy</button></div>
+          <pre id="clx_4">Dear Hiring Manager,
+
+I&#x27;m applying for the Software Engineer (DevOps / Full Stack) role at Digital Roundabout, where a remote, infrastructure-minded engineer is exactly the kind of work I&#x27;ve been doing.
+
+At Primathon I containerized backend services with Docker and cut manual operational effort by 70% by automating analytics and meta-event workflows, and at CodeAlpha I built and automated CI/CD pipelines with Git Actions across 30+ REST endpoints. I work daily with AWS (EC2, S3, Lambda), Jenkins, and Linux-based deployments, so your Docker, CI/CD, Terraform, and shell-scripting stack maps directly onto my experience, and I&#x27;m keen to pick up the Kubernetes and Python pieces quickly.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your production tooling right away and grow fast in a remote team.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><b>Alight Solutions</b> — Full stack Developer 2 for Ongoing production Support Team
+          <button class="btn sm" onclick="copyText('clx_9')">Copy</button></div>
+          <pre id="clx_9">Dear Hiring Manager,
+
+I&#x27;d love to join Alight Solutions as a Full Stack Developer 2 on your production support team, where reliability and cloud fluency matter most.
+
+My strength is keeping backend services healthy in production: at Paytm I improved microservice reliability and performance by 67% on the QR-code transaction platform, and at Primathon I run AWS-based pipelines using Lambda, S3, and Timestream for real-time event handling. I build REST APIs with Node.js and Express, work with SQL and Docker daily, and my React background makes ramping onto your Angular front end straightforward.
+
+I&#x27;m based in Delhi NCR, close to your Noida office, and as a 0-day-notice immediate joiner I can step into on-call support and feature work without delay.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><b>Flexiple</b> — Full Stack Developer
+          <button class="btn sm" onclick="copyText('clx_12')">Copy</button></div>
+          <pre id="clx_12">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the remote Full Stack Developer role at Flexiple, where owning features end-to-end is the norm.
+
+I&#x27;ve shipped full-stack work across the React, Node.js, JavaScript, and Java stack you use: I architected a distributed payment gateway with 30 REST APIs across four Spring Boot services, and built React front ends backed by Node/Express and MongoDB. I care about clean, tested code — I write JUnit and Mockito tests and automate CI/CD — and I&#x27;m comfortable owning a feature from schema to UI.
+
+As an immediate joiner (0-day notice) who already works remotely-friendly hours, I can take on a feature slice from week one and would happily deepen my Python along the way.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><b>Flexiple</b> — Backend Engineer
+          <button class="btn sm" onclick="copyText('clx_7')">Copy</button></div>
+          <pre id="clx_7">Dear Hiring Manager,
+
+I&#x27;m applying for the remote Backend Engineer role at Flexiple, which fits my core strength squarely.
+
+Backend systems are what I do: I designed a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault services using Java and Spring Boot, applying system-design principles for fault tolerance. I use Kafka and Redis for event-driven flows, model data in MySQL and MongoDB, and have a 5-star Java rating on HackerRank with 250+ DSA problems solved. My Node.js and Express experience means I can move across your backend stack comfortably.
+
+With a 0-day notice period I&#x27;m ready to start immediately and contribute to your services right away.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clhead"><b>Nat Habit</b> — Backend Engineer
+          <button class="btn sm" onclick="copyText('clx_6')">Copy</button></div>
+          <pre id="clx_6">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Backend Engineer role at Nat Habit — I admire how you&#x27;re scaling an Ayurveda-first D2C brand and would like to help build the systems behind it.
+
+My backend foundation is strong: I built microservices and 30+ REST APIs with Spring Boot at scale, integrated AWS Lambda, S3, and Timestream for real-time data ingestion at Primathon, and work daily with Docker, SQL, and Git. While my production code has been in Java, my OOP depth and DSA background (5-star Java, 250+ problems) let me pick up Python and Django quickly, and I&#x27;m genuinely eager to do so for this role.
+
+As an immediate joiner based in Delhi NCR with a 0-day notice, I can start contributing to your backend from day one.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+  </section>
+
+  <section>
+    <h2><span class="dot b"></span>Run Notes</h2>
+    <div class="note">
+      Discovery via LinkedIn guest job-search API (f_TPR=r86400, last 24h), entry/associate levels, across 25 role queries × NCR + remote.
+      387 unique postings found, 25 duplicates of prior runs, 334 filtered out (senior/off-stack/non-dev/outside NCR) leaving 28 for deep evaluation.
+      Each evaluated job had its JD fetched and its company checked for legitimacy (website/reviews/scam signals).
+      Notifications delivered via the Claude routine push/email channel (ntfy disabled per your instruction).
+    </div>
+  </section>
+</div>
+<script>
+var QUAL_URLS = ["https://in.linkedin.com/jobs/view/software-engineer-dev-ops-full-stack-developer-at-digital-roundabout-pte-ltd-4471094367", "https://in.linkedin.com/jobs/view/full-stack-developer-2-for-ongoing-production-support-team-at-alight-solutions-4423143384", "https://in.linkedin.com/jobs/view/full-stack-developer-at-flexiple-4472466740", "https://in.linkedin.com/jobs/view/backend-engineer-at-flexiple-4472432739"];
+function openAll(){
+  if(!QUAL_URLS.length){alert('No qualified jobs to open today.');return;}
+  QUAL_URLS.forEach(function(u){ window.open(u,'_blank','noopener'); });
+}
+function copyText(id){
+  var el=document.getElementById(id); if(!el)return;
+  var t=el.innerText||el.textContent;
+  navigator.clipboard.writeText(t).then(function(){flash(event);},function(){fallback(t);});
+}
+function copyCL(id){ copyText(id); }
+function fallback(t){ var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta); }
+function flash(e){ try{var b=e.target;var o=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=o;},1200);}catch(x){} }
+</script>
+</body></html>
