@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Associate Software Engineer (Java) role at SymphonyAI, where I can contribute to enterprise-grade AI products from day one.
+
+Over the past 1.5 years I have designed and shipped production Java and Spring Boot microservices — including a distributed payment gateway with 30 REST APIs across four services — and built event-driven pipelines using Kafka and AWS Lambda. My HackerRank 5-Star Gold in Java and 250+ solved data-structures problems reflect the engineering fundamentals this role demands.
+
+As an immediate joiner holding an AWS Certified Developer – Associate credential, I can ramp up quickly and start delivering value to your team right away.
+
+Best regards,
+Bhumi Bhatt

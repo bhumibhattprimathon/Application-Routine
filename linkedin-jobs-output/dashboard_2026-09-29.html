@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-09-29</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header p{margin:0;color:#94a3b8;font-size:13px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .c-green .n{color:var(--green)} .c-yellow .n{color:var(--yellow)} .c-red .n{color:var(--red)}
+  .metrics{display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:14px}
+  .metrics b{font-size:18px}
+  .applybtn{display:block;width:100%;border:none;border-radius:14px;background:linear-gradient(135deg,#16a34a,#22c55e);
+    color:#fff;font-size:20px;font-weight:700;padding:20px;margin:22px 0;cursor:pointer;box-shadow:0 6px 20px rgba(34,197,94,.35)}
+  .applybtn:hover{filter:brightness(1.05)}
+  h2{margin:28px 0 10px;font-size:18px;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .sec-green{border-top:4px solid var(--green)} .sec-yellow{border-top:4px solid var(--yellow)} .sec-red{border-top:4px solid var(--red)}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px;color:#fff}
+  .b-green{background:var(--green)} .b-yellow{background:var(--yellow)} .b-red{background:var(--red)} .b-slate{background:#475569}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;text-decoration:none;color:var(--ink);display:inline-block;margin:2px 0}
+  .btn.open{background:#0f172a;color:#fff;border-color:#0f172a}
+  .btn.copy:hover{background:#f1f5f9}
+  .rec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h3{margin:0 0 6px;font-size:15px}
+  .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .rec p{margin:0;font-size:13.5px;line-height:1.5}
+  .trend{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+  .bars{display:flex;align-items:flex-end;gap:14px;height:160px;padding-top:10px}
+  .bar-col{display:flex;flex-direction:column;align-items:center;flex:1}
+  .bar{width:70%;background:var(--green);border-radius:6px 6px 0 0;min-height:4px;transition:height .3s}
+  .bar-lbl{font-size:11px;color:var(--muted);margin-top:6px}
+  .bar-val{font-size:12px;font-weight:700;margin-bottom:4px}
+  .cl-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+  .cl-box h3{margin:0 0 8px;font-size:14px}
+  .cl-box pre{white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.55;margin:0 0 10px;color:#1e293b}
+  .hidden{display:none}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  .note{font-size:11.5px;color:var(--muted);font-style:italic}
+  @media (max-width:640px){table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-09-29</h1>
+  <p>Prepared for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · Target 5.5–12 LPA · Immediate joiner</p>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">6</div><div class="l">Jobs Found</div></div>
+    <div class="card c-green"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="card c-yellow"><div class="n">2</div><div class="l">Review</div></div>
+    <div class="card c-red"><div class="n">1</div><div class="l">Fraud / Skipped</div></div>
+  </div>
+
+  <div class="metrics">
+    <div>Avg. match score (scored jobs): <b>75.6</b></div>
+    <div>Avg. salary estimate: <b>~7.1 LPA</b></div>
+    <div>New vs duplicate: <b>6 new / 0 duplicate</b></div>
+  </div>
+
+  <button class="applybtn" onclick="openAll()">🚀 OPEN ALL 3 QUALIFIED JOBS</button>
+
+  <!-- QUALIFIED -->
+  <h2><span class="dot b-green"></span> Qualified Jobs — Ready to Apply</h2>
+  <table class="sec-green">
+    <thead><tr>
+      <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th>
+      <th>Salary Est.</th><th>Resume</th><th>Easy Apply?</th><th>Actions</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="badge b-green">92</span></td><td>95</td>
+        <td>SymphonyAI</td><td>Associate Software Engineer (Java)</td><td>Remote (India)</td>
+        <td>7–11 LPA</td><td>backend</td><td>No</td>
+        <td>
+          <a class="btn open" href="https://in.linkedin.com/jobs/view/associate-software-engineer-java-%E2%80%93-remote-at-symphonyai-4438570856" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn copy" onclick="copyCL('cl-symphonyai')">Copy Cover Letter</button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="badge b-green">86</span></td><td>95</td>
+        <td>LTIMindtree</td><td>Java Backend</td><td>Bawana, Delhi</td>
+        <td>5–8 LPA</td><td>backend</td><td>No</td>
+        <td>
+          <a class="btn open" href="https://in.linkedin.com/jobs/view/java-backend-at-ltimindtree-4437016445" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn copy" onclick="copyCL('cl-ltimindtree')">Copy Cover Letter</button>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="badge b-yellow">72</span></td><td>82</td>
+        <td>Advantal Technologies Ltd</td><td>Java Developer</td><td>Gurugram (WFO)</td>
+        <td>6–9 LPA</td><td>backend</td><td>No</td>
+        <td>
+          <a class="btn open" href="https://www.linkedin.com/posts/subhasmitamisra_hiring-javadeveloper-j2ee-activity-7460246486325555200-LyLd" target="_blank" rel="noopener">Open Job</a>
+          <span class="note">No cover letter (score &lt;75)</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">Note on Advantal: role asks 3–4 yrs (Bhumi has 1.5) but skill fit is strong and they want an immediate joiner. Glassdoor reviews flag salary-delay concerns — confirm pay terms before accepting an offer.</p>
+
+  <!-- REVIEW -->
+  <h2><span class="dot b-yellow"></span> Review Jobs — Manual Judgment</h2>
+  <table class="sec-yellow">
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="badge b-yellow">58</span></td><td>70</td>
+        <td>India Health Link</td><td>Backend Developer — Python/Django</td>
+        <td>Core stack Python/Django not on resume; only transferable backend/REST/SQL/MongoDB skills. Real healthtech company (6.4k followers).</td>
+        <td><a class="btn open" href="https://in.linkedin.com/jobs/view/backend-developer-%E2%80%93-python-django-at-india-health-link-4319852373" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="badge b-yellow">70</span></td><td>45</td>
+        <td>Unnamed employer (recruiter post)</td><td>Java Developer</td>
+        <td>Skills fit (Java, Gurugram, full-time) but posted by an individual recruiter — hiring company not named, employer cannot be verified.</td>
+        <td><a class="btn open" href="https://www.linkedin.com/posts/shalini-rai-63585a211_hiring-java-developer-location-gurugram-activity-7454052441924325376-0Exd" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SKIPPED -->
+  <h2><span class="dot b-red"></span> Skipped Jobs</h2>
+  <table class="sec-red">
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>skillzenloop</td><td>MERN Stack Developer Intern (Entry Level)</td>
+        <td><b>Fraud: trust 38.</b> Recently-registered domain, AI-generated site content, disputed legitimacy (ScamAdviser trust 15.6/100), community "is it real or fake" reports. Also an internship, not a salaried role.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TOP 5 -->
+  <h2>⭐ Top Recommendations</h2>
+
+  <div class="rec">
+    <h3>1. SymphonyAI — Associate Software Engineer (Java), Remote — Score 92</h3>
+    <div class="meta">Trust 95 · 7–11 LPA · Backend résumé</div>
+    <p>The single best fit today. The role is explicitly <em>associate/entry level</em> and centred on Java — exactly Bhumi's strongest language (5-Star HackerRank Gold, 250+ DSA problems). SymphonyAI is an established enterprise-AI company, so it also plays to her GenAI research background. Remote removes any location friction, and an entry-level product-company salary should sit comfortably inside the 5.5–12 LPA target. Apply first.</p>
+  </div>
+
+  <div class="rec">
+    <h3>2. LTIMindtree — Java Backend, Delhi — Score 86</h3>
+    <div class="meta">Trust 95 · 5–8 LPA · Backend résumé</div>
+    <p>A large, unquestionably legitimate L&amp;T-group MNC (~90k employees) hiring for exactly Bhumi's stack: Java, Spring Boot, microservices, REST. Her Paytm/Primathon experience with Kafka, Redis, MySQL, Docker and CI/CD maps cleanly onto enterprise delivery. Strong brand for a CV, in Delhi, and a realistic salary band. A high-probability, low-risk application.</p>
+  </div>
+
+  <div class="rec">
+    <h3>3. Advantal Technologies — Java Developer, Gurugram — Score 72</h3>
+    <div class="meta">Trust 82 · 6–9 LPA · Backend résumé</div>
+    <p>Skill match is strong (Java/J2EE, Spring Boot, REST, SQL/NoSQL) and they specifically want an <em>immediate joiner</em> — Bhumi's zero notice period is an advantage. The catch: the post asks for 3–4 years and she has 1.5, so position it as a stretch application. Glassdoor reviews mention delayed salaries, so verify compensation terms before committing.</p>
+  </div>
+
+  <div class="rec">
+    <h3>Worth a look: India Health Link — Backend Developer — Score 58 (review)</h3>
+    <div class="meta">Trust 70 · 5–7 LPA</div>
+    <p>A real Delhi-NCR healthtech company. The headline stack is Python/Django, which isn't on Bhumi's résumé, but her core backend fundamentals (REST, SQL, MongoDB, Git) transfer. Only worth applying if she's open to picking up Python — hence "review," not auto-qualified.</p>
+  </div>
+
+  <p class="note">Only 3 jobs cleared the qualification bar today, so the "Top 5" is capped at the 3 qualified roles plus one review pick — no listings were fabricated to fill the slots.</p>
+
+  <!-- WEEKLY TREND -->
+  <h2>📊 Weekly Trend — Qualified per Day</h2>
+  <div class="trend">
+    <div class="bars">
+      <div class="bar-col"><div class="bar-val">—</div><div class="bar" style="height:4px;background:#cbd5e1"></div><div class="bar-lbl">Mon 22</div></div>
+      <div class="bar-col"><div class="bar-val">—</div><div class="bar" style="height:4px;background:#cbd5e1"></div><div class="bar-lbl">Tue 23</div></div>
+      <div class="bar-col"><div class="bar-val">—</div><div class="bar" style="height:4px;background:#cbd5e1"></div><div class="bar-lbl">Wed 24</div></div>
+      <div class="bar-col"><div class="bar-val">—</div><div class="bar" style="height:4px;background:#cbd5e1"></div><div class="bar-lbl">Thu 25</div></div>
+      <div class="bar-col"><div class="bar-val">—</div><div class="bar" style="height:4px;background:#cbd5e1"></div><div class="bar-lbl">Fri 26</div></div>
+      <div class="bar-col"><div class="bar-val">—</div><div class="bar" style="height:4px;background:#cbd5e1"></div><div class="bar-lbl">Sat 27</div></div>
+      <div class="bar-col"><div class="bar-val">3</div><div class="bar" style="height:120px"></div><div class="bar-lbl">Mon 29 (today)</div></div>
+    </div>
+    <p class="note">First run — only today's data is available. This chart will fill in as future dashboards are generated in ~/linkedin-jobs/dashboards/.</p>
+  </div>
+
+  <!-- COVER LETTERS -->
+  <h2>✉️ Cover Letters</h2>
+
+  <div class="cl-box">
+    <h3>SymphonyAI — Associate Software Engineer (Java)</h3>
+    <pre id="cl-symphonyai-text">Dear Hiring Manager,
+
+I am excited to apply for the Associate Software Engineer (Java) role at SymphonyAI, where I can contribute to enterprise-grade AI products from day one.
+
+Over the past 1.5 years I have designed and shipped production Java and Spring Boot microservices — including a distributed payment gateway with 30 REST APIs across four services — and built event-driven pipelines using Kafka and AWS Lambda. My HackerRank 5-Star Gold in Java and 250+ solved data-structures problems reflect the engineering fundamentals this role demands.
+
+As an immediate joiner holding an AWS Certified Developer – Associate credential, I can ramp up quickly and start delivering value to your team right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+    <button class="btn copy" onclick="copyCL('cl-symphonyai')">COPY</button>
+    <div id="cl-symphonyai" class="hidden">Dear Hiring Manager,
+
+I am excited to apply for the Associate Software Engineer (Java) role at SymphonyAI, where I can contribute to enterprise-grade AI products from day one.
+
+Over the past 1.5 years I have designed and shipped production Java and Spring Boot microservices — including a distributed payment gateway with 30 REST APIs across four services — and built event-driven pipelines using Kafka and AWS Lambda. My HackerRank 5-Star Gold in Java and 250+ solved data-structures problems reflect the engineering fundamentals this role demands.
+
+As an immediate joiner holding an AWS Certified Developer – Associate credential, I can ramp up quickly and start delivering value to your team right away.
+
+Best regards,
+Bhumi Bhatt</div>
+  </div>
+
+  <div class="cl-box">
+    <h3>LTIMindtree — Java Backend</h3>
+    <pre id="cl-ltimindtree-text">Dear Hiring Manager,
+
+I would welcome the opportunity to join LTIMindtree as a Java Backend Developer and help deliver reliable, scalable services for your global clients.
+
+My experience maps directly to this stack: at Primathon and Paytm I engineered Spring Boot microservices and REST APIs, improved backend reliability by up to 67%, and worked with MySQL, Redis, and Kafka in production. I containerized services with Docker and automated CI/CD pipelines using Jenkins and Git Actions, giving me the delivery discipline that enterprise projects require.
+
+Available to join immediately, I am eager to grow within a team of LTIMindtree's scale and contribute meaningful backend work from the outset.
+
+Best regards,
+Bhumi Bhatt</pre>
+    <button class="btn copy" onclick="copyCL('cl-ltimindtree')">COPY</button>
+    <div id="cl-ltimindtree" class="hidden">Dear Hiring Manager,
+
+I would welcome the opportunity to join LTIMindtree as a Java Backend Developer and help deliver reliable, scalable services for your global clients.
+
+My experience maps directly to this stack: at Primathon and Paytm I engineered Spring Boot microservices and REST APIs, improved backend reliability by up to 67%, and worked with MySQL, Redis, and Kafka in production. I containerized services with Docker and automated CI/CD pipelines using Jenkins and Git Actions, giving me the delivery discipline that enterprise projects require.
+
+Available to join immediately, I am eager to grow within a team of LTIMindtree's scale and contribute meaningful backend work from the outset.
+
+Best regards,
+Bhumi Bhatt</div>
+  </div>
+
+</div>
+
+<footer>Generated 2026-09-29 · LinkedIn Smart Apply · Jobs sourced live via web search — none fabricated. Verify each posting is still open before applying.</footer>
+
+<script>
+  var qualifiedUrls = [
+    "https://in.linkedin.com/jobs/view/associate-software-engineer-java-%E2%80%93-remote-at-symphonyai-4438570856",
+    "https://in.linkedin.com/jobs/view/java-backend-at-ltimindtree-4437016445",
+    "https://www.linkedin.com/posts/subhasmitamisra_hiring-javadeveloper-j2ee-activity-7460246486325555200-LyLd"
+  ];
+  function openAll(){ qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.textContent : "";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var d = document.createElement("div");
+    d.textContent = "Cover letter copied ✓";
+    d.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:999";
+    document.body.appendChild(d);
+    setTimeout(function(){ d.remove(); }, 1600);
+  }
+</script>
+</body>
+</html>

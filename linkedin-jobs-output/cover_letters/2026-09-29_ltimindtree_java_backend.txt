@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would welcome the opportunity to join LTIMindtree as a Java Backend Developer and help deliver reliable, scalable services for your global clients.
+
+My experience maps directly to this stack: at Primathon and Paytm I engineered Spring Boot microservices and REST APIs, improved backend reliability by up to 67%, and worked with MySQL, Redis, and Kafka in production. I containerized services with Docker and automated CI/CD pipelines using Jenkins and Git Actions, giving me the delivery discipline that enterprise projects require.
+
+Available to join immediately, I am eager to grow within a team of LTIMindtree's scale and contribute meaningful backend work from the outset.
+
+Best regards,
+Bhumi Bhatt
