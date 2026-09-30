@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Computer Scientist (Full Stack) role on Adobe's Firefly Enterprise team, building the InDesign APIs and server platform that operate at enterprise scale.
+
+My work centres on durable, well-documented REST APIs and horizontally scalable services: my Distributed Payment Gateway exposes 30 REST APIs across four microservices designed for fault tolerance, and at Primathon I built AWS-backed pipelines (Timestream, S3, Lambda) for real-time, bursty workloads. I work across the stack with Java, Spring Boot, and React and test with JUnit and Mockito.
+
+The role is pitched senior; I'd bring strong system-design fundamentals, an immediate 0-day start, and a fast learning curve backed by a 5-Star Java rating.
+
+Best regards,
+Bhumi Bhatt

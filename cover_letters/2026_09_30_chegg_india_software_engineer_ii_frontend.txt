@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Engineer II role at Chegg Skills, motivated by software that helps learners move from studying to earning — an outcome I care about.
+
+On the frontend I build interfaces in React.js with JavaScript (ES6+), HTML5, and CSS3, and I back them with Node.js/Express REST APIs, so I can own features end-to-end rather than just the UI. At Primathon and CodeAlpha I've shipped production web features and optimised 30+ API endpoints for responsiveness.
+
+I'm earlier in my career than the posting targets, but I learn fast (5-Star Java, 250+ DSA problems) and, as a 0-day-notice immediate joiner, I'd contribute to your remote team's frontend and full-stack work right away.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Software Engineer (Full Stack Java) role at Qualys. A role spanning React on the front end and Java/Spring Boot on the back — with Kafka and Redis in the mix — maps almost exactly to my experience.
+
+I build Spring Boot services and REST APIs backed by relational databases, and my payment-gateway project used event-driven patterns with Kafka and Redis caching across four microservices. On the frontend I work in React.js, and I test with JUnit and Mockito. My research paper on Generative AI and hands-on interest in LLM tooling align with the role's AI/ML exposure.
+
+As an immediate joiner with 0-day notice and a 5-Star Java rating, I can contribute to secure, high-quality code from the start.
+
+Best regards,
+Bhumi Bhatt

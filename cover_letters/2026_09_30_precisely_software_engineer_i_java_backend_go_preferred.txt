@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Software Engineer I (Java Backend) role at Precisely, where building reliable data-integrity services at scale is exactly the kind of backend work I want to go deeper on.
+
+My 1.5 years have been Java-backend first: at Primathon I engineer admin APIs and syncing automation across seven merchant systems, and my Distributed Payment Gateway project spans 30 REST APIs across four microservices with fault-tolerance and system-design decisions baked in. I'm comfortable with SQL data models, containerised delivery with Docker, and AWS (S3, Lambda), and I'm keen to pick up Go where Precisely uses it.
+
+As a 0-day-notice immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can contribute to production code quickly and learn your stack fast.
+
+Best regards,
+Bhumi Bhatt

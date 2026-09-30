@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+The Backend Engineer role at Atlys is compelling — I've built payment and travel-adjacent backends before (a legacy SABRE travel migration to Java/Spring), so powering visa processing for travellers worldwide resonates with me.
+
+My core is Java and Node.js services with REST APIs, microservice design, and AWS deployment: at Paytm I owned real-time transaction microservices, and my payment-gateway project connects Order, Payment, Merchant, and Vault services with fault tolerance. Atlys's services are Python-first; while Python isn't my primary language yet, my service-design, API, and integration experience transfers directly and I ramp on new languages fast.
+
+As an immediate joiner with 0-day notice, I'd commit fully to learning your stack and owning backend features quickly.
+
+Best regards,
+Bhumi Bhatt

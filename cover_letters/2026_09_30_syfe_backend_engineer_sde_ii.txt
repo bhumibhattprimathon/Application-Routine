@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Backend Engineer role at Syfe. Building and owning the services behind a wealth platform trusted with over US$10 billion is the kind of high-stakes backend ownership I'm working toward.
+
+I build Java and Spring Boot microservices with REST APIs and relational data models — at Paytm I owned QR-code-lifecycle services for real-time transactions, and my Distributed Payment Gateway project spans Order, Payment, Merchant, and Vault services with system-design principles for scalability. AWS and Kafka-based event handling are part of my toolkit.
+
+I know this is pitched at SDE II; I'd bring strong fundamentals, fast execution, and — with 0-day notice — immediate availability to grow into the role.
+
+Best regards,
+Bhumi Bhatt

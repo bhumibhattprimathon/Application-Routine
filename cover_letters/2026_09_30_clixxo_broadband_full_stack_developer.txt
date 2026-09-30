@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Full Stack Developer role at Clixxo Broadband. Building and maintaining enterprise web applications end-to-end across React and Node.js is precisely the full-stack work I enjoy most.
+
+I work across the stack: React.js on the frontend and Node.js/Express with REST APIs on the backend, backed by MySQL and MongoDB. At CodeAlpha I built order and payment microservices with REST APIs and MySQL, containerised with Docker, and optimised 30+ endpoints; at Primathon I ship backend automation and admin tooling used across seven merchant systems. Reusable components and clean authentication flows are things I've built rather than just read about.
+
+With a 0-day notice period I can start immediately, and my system-design foundation means I'll be productive on your existing enterprise applications quickly.
+
+Best regards,
+Bhumi Bhatt

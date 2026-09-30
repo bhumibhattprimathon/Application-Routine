@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+The Full Stack Engineer role at AndPayments is a strong pull for me — I've spent my career close to payments, and building UPI, gateway, and merchant infrastructure that moves real money in real time is work I'd be proud to own.
+
+My stack lines up well: React on the frontend, Node.js/Express on the backend, MongoDB for data, and Docker, AWS, and CI/CD for delivery, with Kafka experience for event streaming. At Paytm I built QR-code-lifecycle microservices for real-time transaction notifications, and my Distributed Payment Gateway project implemented 30 REST APIs across Order, Payment, Merchant, and Vault services.
+
+With a 0-day notice period I can join immediately and start shipping fast in your fintech environment.
+
+Best regards,
+Bhumi Bhatt

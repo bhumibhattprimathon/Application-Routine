@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+The Software Engineer opening at Optum India reads almost line-for-line off my resume — Java, Spring Boot, and microservices — so I'm applying with real enthusiasm to help improve health outcomes through solid backend engineering.
+
+I build Spring Boot microservices and REST APIs day to day: at Paytm I worked on QR-code-lifecycle services powering real-time transaction notifications, improving service reliability by 67%, and at Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines for real-time ingestion. Designing tables, procedures, and triggers and debugging production issues is familiar territory from my payment-gateway work.
+
+I'm an immediate joiner (0-day notice) with an AWS Developer Associate certification and a 5-Star Java rating, ready to contribute to Optum's microservice codebase from week one.
+
+Best regards,
+Bhumi Bhatt

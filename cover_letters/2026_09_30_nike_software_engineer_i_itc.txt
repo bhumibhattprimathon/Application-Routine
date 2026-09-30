@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Engineer I, ITC role on Nike's Data, Analytics and Intelligence team — building scalable, secure platforms for data-driven decisions is a mission I'd love to contribute to.
+
+I bring a Java-backend foundation with REST APIs, SQL data modelling, and AWS (EC2, S3, Lambda) from production work: at Primathon I integrated AWS Timestream, S3, and Lambda into real-time ingestion pipelines, and at Paytm I improved microservice reliability by 67%. My strong problem-solving base — a 5-Star Java rating and 250+ DSA problems — matches the analytical mindset your team values.
+
+I'm an immediate joiner (0-day notice) eager to learn in Nike's collaborative engineering culture and contribute quickly.
+
+Best regards,
+Bhumi Bhatt

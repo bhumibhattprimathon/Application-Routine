@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+The Java Software Engineer - Connectors (Remote) role at Jitterbit appeals to me because building the integration layer of an iPaaS platform is exactly the kind of API-heavy backend work I do best.
+
+I design and maintain Java services and REST APIs and think in terms of connectors and data flow — at Primathon I built backend syncing automation across seven merchant systems, and my payment-gateway project integrated four services through 30 REST APIs with fault tolerance in mind. I'm comfortable with SQL, AWS, and containerised delivery via Docker.
+
+While the role leans senior, I ramp quickly (5-Star Java, 250+ DSA problems) and, with a 0-day notice period, can commit fully to a remote team from day one.
+
+Best regards,
+Bhumi Bhatt

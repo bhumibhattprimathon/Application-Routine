@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Full Stack Engineer role on the iDeploy team at Lepton Software, contributing to enterprise-scale telecom platforms.
+
+My backend strength fits well: I build Node.js services and REST APIs and design microservices, with MongoDB and MySQL for data modelling — at Primathon I engineer backend syncing and admin APIs across seven merchant systems, and my payment-gateway project spans four microservices with 30 REST APIs. While my frontend work has been in React rather than Angular, the component-driven model carries over and I'm quick to adopt Angular 19+.
+
+As a 0-day-notice immediate joiner with a system-design foundation, I'd contribute to your workflow-automation and integration platforms with minimal ramp-up.
+
+Best regards,
+Bhumi Bhatt

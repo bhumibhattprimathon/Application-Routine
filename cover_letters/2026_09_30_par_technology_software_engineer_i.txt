@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer I role at PAR Technology and to help power restaurant technology used across 110+ countries.
+
+Although my production experience is in Java and JavaScript rather than Ruby on Rails, the fundamentals transfer directly: I design REST APIs, model relational data in SQL/MySQL, and version everything through Git-based CI/CD. My Distributed Payment Gateway project (30 REST APIs, four services) and my API and automation work at Primathon show I can own features end-to-end, and I ramp on new backend frameworks quickly — I hold a 5-Star Java rating and have solved 250+ DSA problems.
+
+As an immediate joiner with 0-day notice and a genuine appetite to learn Rails, I'd bring strong engineering fundamentals and momentum to your team.
+
+Best regards,
+Bhumi Bhatt

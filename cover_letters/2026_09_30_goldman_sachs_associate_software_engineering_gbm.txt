@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Associate, Software Engineering role in Global Banking & Markets at Goldman Sachs, drawn to the scale and latency demands of electronic trading platforms.
+
+My background is backend engineering in Java with Spring Boot, REST APIs, and SQL, plus microservice design for performance and fault tolerance — my Distributed Payment Gateway handles 30 REST APIs across four services, and at Paytm I improved backend reliability by 67% through optimised microservice architecture. A 5-Star Java rating and 250+ solved DSA problems reflect the algorithmic rigour trading systems demand.
+
+I'm an immediate joiner (0-day notice) ready to bring strong fundamentals and a fast learning curve to your engineering team.
+
+Best regards,
+Bhumi Bhatt

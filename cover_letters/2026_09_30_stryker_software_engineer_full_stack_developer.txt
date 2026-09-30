@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Engineer - Full Stack Developer position at Stryker, drawn to building secure, high-availability applications for medical technology.
+
+On the backend I build scalable RESTful services with Node.js and Express and design microservices — at CodeAlpha I shipped order and payment microservices with REST APIs and Docker, and my payment-gateway project applied system-design principles for fault tolerance across four services. I write unit and integration tests with JUnit and Mockito and work comfortably in Agile sprints with code reviews. AWS (EC2, S3, Lambda) and CI/CD with Jenkins round out my delivery workflow.
+
+I'm an immediate joiner (0-day notice) who takes code quality and security seriously, and I'd welcome the chance to grow within Stryker's global engineering teams.
+
+Best regards,
+Bhumi Bhatt
