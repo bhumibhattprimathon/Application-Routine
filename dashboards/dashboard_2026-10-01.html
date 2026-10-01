@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-01</title>
+<style>
+  :root{
+    --bg:#f1f5f9; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --border:#e2e8f0; --head:#0b1220;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--head);color:#fff;padding:28px 20px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header h1{margin:0 0 4px;font-size:1.35rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .banner{background:#7f1d1d;color:#fff;border-radius:10px;padding:14px 16px;margin-top:18px;font-weight:600;display:flex;gap:10px;align-items:flex-start}
+  .banner .dot{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:#fca5a5;margin-top:6px}
+  main{padding:24px 0 60px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 22px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:1.9rem;font-weight:700}
+  .card .l{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:0 0 18px}
+  .panel h2{margin:0 0 10px;font-size:1.05rem}
+  .panel h2 .tag{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px;vertical-align:middle;margin-left:8px}
+  .tag.red{background:#fee2e2;color:#991b1b}
+  .tag.blue{background:#dbeafe;color:#1e40af}
+  code{background:#0b1220;color:#e2e8f0;padding:2px 6px;border-radius:5px;font-size:.82rem}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:6px 0}
+  .fix{border-left:4px solid var(--blue);background:#eff6ff;padding:14px 16px;border-radius:0 10px 10px 0}
+  .fix ol{margin:8px 0;padding-left:20px}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border)}
+  th{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px}
+  .dead{color:var(--red);font-weight:600}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:120px;padding:10px 4px 0}
+  .bar{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+  .bar .col{width:100%;max-width:54px;border-radius:6px 6px 0 0;background:var(--green)}
+  .bar.empty .col{background:#cbd5e1}
+  .bar .lab{font-size:.72rem;color:var(--muted);text-align:center}
+  .muted{color:var(--muted)}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:10px 0 40px}
+  a{color:var(--blue)}
+  @media(max-width:620px){.cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-01</h1>
+    <div class="sub">Daily scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Remote</div>
+    <div class="banner"><span class="dot"></span><span>DEGRADED RUN — no jobs today. The live job-data feed (JSearch API) is down, so the scan could not discover real, current postings. No listings were fabricated. Action needed to restore daily scans (see below).</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Jobs Found</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">0</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Why there are no jobs today <span class="tag red">Data source down</span></h2>
+    <p>The routine's reliable live feed — the <strong>JSearch API (RapidAPI)</strong>, which replaced raw web search after web search was found to return stale/expired links — is not responding:</p>
+    <ul>
+      <li><code>GET https://jsearch.p.rapidapi.com/search</code> → <strong>HTTP 404</strong> <code>{"message":"Endpoint '/search' does not exist"}</code></li>
+      <li>The API key is <strong>still subscribed</strong> to JSearch: unrelated job APIs return <code>403 "You are not subscribed"</code>, while JSearch returns <code>404 "endpoint does not exist"</code> — so the JSearch endpoint itself is broken/deprecated upstream, not an auth problem.</li>
+    </ul>
+    <p class="muted">The resume was read successfully and the full scoring pipeline is intact — the only missing piece is a trustworthy real-time job source.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Fallback checked — and rejected <span class="tag blue">Diligence</span></h2>
+    <p>Web search was tried as a fallback and gives the same result as the run discarded on 2026-08-05: only aggregator/category landing pages, not verifiable individual postings. Two candidate direct postings were followed to their source and both were dead:</p>
+    <table>
+      <thead><tr><th>Candidate</th><th>Checked at source</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Dcoder — Full Stack (Node.js), Bengaluru</td><td>jobs.techstars.com</td><td class="dead">CLOSED · posted 6+ months ago</td></tr>
+        <tr><td>Gokwik — SDE-I, Gurugram</td><td>gokwik.keka.com (official)</td><td class="dead">REMOVED · "job posting is not available anymore"</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:12px">Presenting listings like these as "qualified, apply now" would waste your time on dead links — so none were included. No fabricated jobs, no fabricated cover letters.</p>
+  </div>
+
+  <div class="panel">
+    <h2>What to do to restore daily scans</h2>
+    <div class="fix">
+      <strong>Pick one — then the next scheduled run works unchanged:</strong>
+      <ol>
+        <li><strong>Renew / re-subscribe JSearch</strong> on RapidAPI (or confirm its current endpoint/host if it changed), <em>or</em></li>
+        <li><strong>Subscribe the same RapidAPI key to an alternative live jobs API</strong> — e.g. <code>active-jobs-db</code>, <code>linkedin-job-search-api</code>, or <code>indeed12</code> (all currently return <code>403 "not subscribed"</code>).</li>
+      </ol>
+      Once a feed is live, no code or routine changes are needed.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Weekly trend — qualified jobs per day</h2>
+    <div class="trend">
+      <div class="bar"><div class="col" style="height:40px" title="1 qualified"></div><div class="lab">Aug 5<br>1</div></div>
+      <div class="bar empty"><div class="col" style="height:4px"></div><div class="lab muted">no run</div></div>
+      <div class="bar empty"><div class="col" style="height:4px"></div><div class="lab muted">no run</div></div>
+      <div class="bar empty"><div class="col" style="height:4px"></div><div class="lab muted">no run</div></div>
+      <div class="bar empty"><div class="col" style="height:4px"></div><div class="lab" style="color:var(--red)">Oct 1<br>0 · API down</div></div>
+    </div>
+    <p class="muted" style="margin-top:10px">Last successful scan: <strong>2026-08-05</strong> — 17 found, 1 qualified (TravClan SDE-1), 6 review, 10 skipped, 2 fraud blocked. See <a href="dashboard_2026-08-05.html">dashboard_2026-08-05.html</a>.</p>
+  </div>
+
+</main>
+
+<footer class="wrap">Generated by the LinkedIn Morning Scan routine · 2026-10-01 · no listings fabricated</footer>
+</body>
+</html>
