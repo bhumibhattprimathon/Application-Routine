@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'd love to join Cypherock as a Full Stack Developer and help build the software around India's first self-custody hardware wallet. My background pairs backend depth with full-stack delivery: I architected a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault services, applying system-design principles for fault tolerance, which is directly relevant to the security- and reliability-critical systems Cypherock builds. I work daily with Node.js, Express.js, JavaScript (ES6+), React.js, and MongoDB, and my payments experience at Paytm gave me a strong instinct for safeguarding transaction flows.
+
+I'm an immediate joiner, comfortable owning features end-to-end and ramping fast in a focused startup. I'd be glad to contribute to Cypherock's mission of making digital-asset self-custody genuinely safe and usable.
+
+Best regards,
+Bhumi Bhatt

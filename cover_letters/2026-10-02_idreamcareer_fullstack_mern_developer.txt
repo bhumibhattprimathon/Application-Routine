@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to express my interest in the Fullstack MERN Developer position at iDreamCareer. I build across the stack: on the backend I design REST APIs and microservices with Node.js, Express.js, and MongoDB, and on the frontend I work with React.js, having shipped production features end-to-end in my current role at Primathon and across internships at Paytm and CodeAlpha. My experience optimizing 30+ REST API endpoints and containerizing services with Docker means I can own features from database to UI and keep them reliable in production.
+
+I'm drawn to iDreamCareer's mission of guiding students toward the right careers, and I'd bring both the MERN toolkit and genuine backend depth your team needs. Available to join immediately with no notice period, I'm ready to contribute from week one and grow with a product that reaches learners at scale.
+
+Best regards,
+Bhumi Bhatt

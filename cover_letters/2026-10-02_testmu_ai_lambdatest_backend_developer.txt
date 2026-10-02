@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Backend Developer role at TestMu AI (formerly LambdaTest), where I'd help build the backend of a large-scale cloud quality-engineering platform. In my current role at Primathon I engineer admin APIs and backend syncing automation across seven merchant systems, and during my Paytm internship I developed and optimized microservices managing the QR-code lifecycle for real-time transaction notifications, improving service reliability by 67%. My working stack of Java, Spring Boot, Node.js, REST APIs, MySQL, and AWS (EC2, S3, Lambda) maps directly to the scalable backend work this role involves, and my 5-Star Java rating with 250+ DSA problems solved reflects the system-level rigor your platform demands.
+
+As an immediate joiner with a zero-day notice period, I can start contributing to your services right away and ramp quickly on new systems. I would welcome the chance to help scale TestMu AI's backend.
+
+Best regards,
+Bhumi Bhatt
