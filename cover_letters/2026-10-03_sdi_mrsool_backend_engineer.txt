@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer role at Mrsool (SDI), where microservices and cloud infrastructure drive a high-scale delivery platform.
+
+I design distributed, fault-tolerant backends: my payment gateway project runs 30 REST APIs across four Spring Boot microservices, and at Paytm I optimized QR-code lifecycle microservices powering real-time transaction notifications, lifting reliability by 67%. I use Kafka for event streaming, Redis for caching, and AWS (EC2, S3, Lambda) with Docker for scalable deployment — a toolkit that fits a high-throughput delivery system well.
+
+With hands-on microservices experience and strong system-design fundamentals, I can help Mrsool scale its backend reliably. As an immediate joiner, I am ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt

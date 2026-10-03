@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Java Developer position at Capgemini Engineering, where strong engineering practices support enterprise-scale client systems.
+
+My Java and Spring Boot foundation is solid and production-tested: I architected a distributed payment gateway with 30 REST APIs across four microservices, and at Primathon I build admin APIs and automated backend workflows integrating AWS Timestream, S3, and Lambda. I migrated a legacy mainframe travel solution to a modern Java/Spring stack using XML and FreeMarker, so I am comfortable modernizing and maintaining enterprise codebases.
+
+With 1.5+ years of backend delivery, an AWS Developer Associate certification, and a 5-Star Java rating, I can contribute to Capgemini's engineering teams quickly. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt

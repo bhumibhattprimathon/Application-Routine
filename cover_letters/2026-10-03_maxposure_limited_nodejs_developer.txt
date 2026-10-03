@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Node.js Developer role at Maxposure Limited, where scalable backend services support your content and media platforms.
+
+Node.js and Express.js are part of my core backend toolkit, alongside Java and Spring Boot. At CodeAlpha I built order and payment microservices with REST APIs and MySQL and optimized 30+ endpoints for faster response times, and at Primathon I engineer backend syncing automation across seven merchant systems. I work comfortably with MongoDB, Redis, and AWS (S3, Lambda) for real-time, event-driven workloads.
+
+With 1.5+ years building production REST APIs and a strong DSA foundation, I can contribute to Maxposure's Node.js services immediately. I am available to join on a 0-day notice.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en" data-qualified-count="13">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#16a34a; --yellow:#eab308; --red:#ef4444;
+    --bg:#f1f5f9; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --head:#0b1220; --line:#e2e8f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--head);color:#fff;padding:28px 20px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+  .sub{color:#94a3b8;font-size:.95rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+  .card{background:#111a2e;border:1px solid #1e293b;border-radius:12px;padding:14px 16px}
+  .card .n{font-size:1.7rem;font-weight:700}
+  .card .l{color:#94a3b8;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px}
+  .card.q .n{color:var(--green)} .card.r .n{color:var(--yellow)}
+  .card.s .n{color:var(--red)} .card.f .n{color:#fb7185}
+  main{max-width:1180px;margin:0 auto;padding:24px 16px 60px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;margin-bottom:22px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  h2{margin:0 0 14px;font-size:1.2rem;display:flex;align-items:center;gap:10px}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.rd{background:var(--red)}
+  .openall{display:block;width:100%;background:linear-gradient(135deg,var(--green),var(--green-d));
+    color:#fff;border:none;border-radius:14px;padding:22px;font-size:1.25rem;font-weight:700;
+    cursor:pointer;box-shadow:0 6px 20px rgba(34,197,94,.35);transition:transform .08s}
+  .openall:hover{transform:translateY(-2px)} .openall:active{transform:translateY(0)}
+  .openall small{display:block;font-weight:400;font-size:.85rem;opacity:.9;margin-top:4px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  th,td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:.78rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .num{color:var(--muted);width:28px}
+  .company{font-weight:600}
+  .score{display:inline-block;min-width:34px;text-align:center;padding:3px 8px;border-radius:8px;font-weight:700;color:#fff}
+  .score-high{background:var(--green)} .score-mid{background:var(--yellow);color:#422006}
+  .trust{display:inline-block;min-width:30px;text-align:center;padding:3px 7px;border-radius:8px;
+    background:#e0f2fe;color:#075985;font-weight:600}
+  .variant{font-size:.76rem;padding:2px 8px;border-radius:20px;font-weight:600}
+  .v-backend{background:#dbeafe;color:#1e40af} .v-fullstack{background:#ede9fe;color:#6d28d9}
+  .v-ai_ml{background:#fce7f3;color:#be185d} .v-master{background:#f1f5f9;color:#334155}
+  .risk{color:var(--red);font-size:.75rem;font-weight:600;white-space:nowrap}
+  .actions{white-space:nowrap}
+  .btn{display:inline-block;border:none;border-radius:8px;padding:7px 12px;font-size:.82rem;
+    font-weight:600;cursor:pointer;text-decoration:none;margin:2px 2px}
+  .btn-open{background:#0a66c2;color:#fff} .btn-open:hover{background:#084e96}
+  .btn-copy{background:#e2e8f0;color:#0f172a} .btn-copy:hover{background:#cbd5e1}
+  .hidden-cl{display:none}
+  .muted{color:var(--muted);font-size:.8rem}
+  .rowlink a{color:#0a66c2;font-size:.82rem;text-decoration:none}
+  section.qsec{border-top:4px solid var(--green)}
+  section.rsec{border-top:4px solid var(--yellow)}
+  section.ssec{border-top:4px solid var(--red)}
+  .rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;
+    padding:14px 16px;margin-bottom:12px;background:#f8fffb}
+  .rec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px}
+  .rec-rank{background:var(--green);color:#fff;font-weight:700;border-radius:6px;padding:2px 9px}
+  .rec-title{font-weight:700;font-size:1.03rem}
+  .rec-score{color:var(--muted);font-size:.83rem;margin-left:auto}
+  .rec p{margin:6px 0 10px;color:#334155;font-size:.92rem}
+  .chart{display:flex;align-items:flex-end;gap:18px;height:200px;padding:10px 4px 0;
+    border-bottom:2px solid var(--line)}
+  .bar-col{flex:1;max-width:90px;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+  .bar{width:46px;background:linear-gradient(180deg,var(--green),var(--green-d));border-radius:7px 7px 0 0;min-height:6px}
+  .bar-val{font-weight:700;margin-bottom:4px} .bar-lbl{margin-top:8px;font-size:.78rem;color:var(--muted)}
+  .cl-box{border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden}
+  .cl-box-head{background:#f8fafc;padding:10px 14px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:10px;font-size:.92rem}
+  .cl-box-head .btn{margin-left:auto}
+  .cl-body{margin:0;padding:14px;white-space:pre-wrap;font-family:inherit;font-size:.9rem;color:#334155}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+    background:#0f172a;color:#fff;padding:12px 22px;border-radius:30px;font-weight:600;
+    opacity:0;transition:all .3s;z-index:99}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  .note{font-size:.82rem;color:var(--muted);margin-top:10px}
+  @media(max-width:760px){
+    table,thead,tbody,th,td,tr{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;padding:6px}
+    td{border:none;padding:6px 10px}
+    td::before{content:attr(data-l);font-weight:600;color:var(--muted);display:inline-block;min-width:92px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — SATURDAY, 03 OCTOBER 2026</h1>
+    <div class="sub">Prepared for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · Immediate joiner</div>
+    <div class="cards">
+      <div class="card"><div class="n">25</div><div class="l">Jobs Found</div></div>
+      <div class="card q"><div class="n">13</div><div class="l">Qualified</div></div>
+      <div class="card r"><div class="n">7</div><div class="l">To Review</div></div>
+      <div class="card s"><div class="n">5</div><div class="l">Skipped</div></div>
+      <div class="card f"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+      <div class="card"><div class="n">80.5</div><div class="l">Avg Match</div></div>
+      <div class="card"><div class="n">8.5<span style="font-size:.9rem"> LPA</span></div><div class="l">Avg Salary Est.</div></div>
+    </div>
+  </div>
+</header>
+<main>
+  <section>
+    <button class="openall" onclick="openAll()">🚀 OPEN ALL 13 QUALIFIED JOBS
+      <small>Opens every qualified posting in a new tab · allow pop-ups when prompted</small></button>
+    <div class="note">Tip: if your browser blocks multiple tabs, click the pop-up icon in the address bar and allow pop-ups for this page, then click again.</div>
+  </section>
+
+  <section class="qsec">
+    <h2><span class="dot g"></span> Qualified Jobs — Ready to Apply (13)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th>
+        <th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody><tr>
+      <td class="num">1</td>
+      <td><span class="score score-high">90</span></td>
+      <td><span class="trust">85</span></td>
+      <td class="company">TravClan</td>
+      <td>SDE 1 - Backend Developer</td>
+      <td>Delhi</td>
+      <td>8-14 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>↗ External</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-i" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-travclan-26693')">Copy Cover Letter</button><div id="cl-travclan-26693" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the SDE 1 - Backend Developer role at TravClan, where my backend engineering work maps directly to building reliable, high-volume travel systems.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and I previously architected a distributed payment gateway with 30 REST APIs across four microservices using Java, Spring Boot, and sound system-design principles. My experience with Node.js, MySQL, MongoDB, and Git-based CI/CD pipelines lets me ship production-ready endpoints that stay performant under load.
+
+As an immediate joiner with a 5-Star Java rating on HackerRank and 250+ DSA problems solved, I can contribute to TravClan&#x27;s backend from day one and ramp quickly on your stack.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">2</td>
+      <td><span class="score score-high">87</span></td>
+      <td><span class="trust">88</span></td>
+      <td class="company">Syfe</td>
+      <td>SDE I - Backend</td>
+      <td>Gurgaon</td>
+      <td>10-15 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Syfe+SDE+Backend&amp;location=Gurgaon%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-syfe-86300')">Copy Cover Letter</button><div id="cl-syfe-86300" class="hidden-cl">Dear Hiring Manager,
+
+I would like to apply for the SDE I - Backend position at Syfe, where engineering rigor around financial data is central to the product.
+
+My background is a strong fit: I built a distributed payment gateway (Order, Payment, Merchant, and Vault services) with 30 REST APIs in Java and Spring Boot, applying system-design principles for scalability and fault tolerance. At Paytm I developed and optimized microservices managing the QR-code lifecycle that powered real-time transaction notifications, improving service reliability by 67%. I work comfortably with MySQL, Redis, Kafka, and AWS (EC2, S3, Lambda).
+
+Having shipped payment and transaction systems already, I understand the correctness and reliability standards fintech demands. As a 0-day-notice immediate joiner, I can start contributing to Syfe&#x27;s backend right away.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">3</td>
+      <td><span class="score score-high">85</span></td>
+      <td><span class="trust">88</span></td>
+      <td class="company">Tripjack</td>
+      <td>SDE 1 - Backend (Java)</td>
+      <td>Delhi</td>
+      <td>7-11 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Tripjack+SDE+Backend+Java&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-tripjack-27056')">Copy Cover Letter</button><div id="cl-tripjack-27056" class="hidden-cl">Dear Hiring Manager,
+
+I am excited to apply for the SDE 1 - Backend (Java) role at Tripjack, a leader in B2B travel technology.
+
+Java and Spring Boot are the core of my work: at Primathon I build custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and I architected a production-ready payment gateway spanning 30 REST APIs across four Spring Boot microservices. I am hands-on with CI/CD pipelines using Git Actions and Jenkins, and I containerize services with Docker for scalable deployment, so I can slot into your deployment and Azure workflows quickly.
+
+With 1.5+ years shipping backend services and a 5-Star Gold Java certification, I am ready to contribute to Tripjack&#x27;s high-throughput systems. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">4</td>
+      <td><span class="score score-high">82</span></td>
+      <td><span class="trust">78</span></td>
+      <td class="company">MetaDesign Solutions</td>
+      <td>Java Developer (Spring Boot)</td>
+      <td>Gurgaon</td>
+      <td>4-7 LPA <span class="risk">⚠ salary risk</span></td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=MetaDesign+Solutions+Java+Spring+Boot&amp;location=Gurgaon%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-metadesign-solutions-33070')">Copy Cover Letter</button><div id="cl-metadesign-solutions-33070" class="hidden-cl">Dear Hiring Manager,
+
+I am applying for the Java Developer (Spring Boot) position at MetaDesign Solutions, a role that aligns precisely with my backend specialization.
+
+I design and ship microservices and REST APIs in Java and Spring Boot daily — most notably a distributed payment gateway with 30 REST APIs across four services, built with fault tolerance and scalability in mind. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and I test rigorously with JUnit and Mockito. My MySQL and MongoDB experience rounds out full backend ownership from schema to endpoint.
+
+As an immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can deliver clean, production-ready Spring Boot services for your clients from the outset.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">5</td>
+      <td><span class="score score-high">82</span></td>
+      <td><span class="trust">72</span></td>
+      <td class="company">WiseDo Technology</td>
+      <td>Full Stack Developer</td>
+      <td>Noida</td>
+      <td>6.5-11.5 LPA</td>
+      <td><span class="variant v-fullstack">Full Stack</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=WiseDo+Technology+Full+Stack+Developer&amp;location=Noida%2C+Uttar+Pradesh%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-wisedo-technology-36800')">Copy Cover Letter</button><div id="cl-wisedo-technology-36800" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at WiseDo Technology, where building responsive interfaces over real-time AI pipelines is an exciting challenge.
+
+I work across the stack: React.js, HTML5, and CSS3 on the frontend, backed by Node.js, Express.js, and Spring Boot services. At Primathon I built backend automation across seven merchant systems and integrated AWS Lambda and Timestream for real-time event handling — experience that transfers well to edge-AI data flows. My project work includes a distributed payment gateway with 30 REST APIs and AI-driven monitoring alerts.
+
+I enjoy owning features end to end, from the database to the UI. As a 0-notice immediate joiner, I can contribute to WiseDo&#x27;s full-stack product quickly and grow with the team.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">6</td>
+      <td><span class="score score-high">81</span></td>
+      <td><span class="trust">80</span></td>
+      <td class="company">Veersa Technologies</td>
+      <td>Java Developer</td>
+      <td>Noida</td>
+      <td>7-12 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Veersa+Technologies+Java+Developer&amp;location=Noida%2C+Uttar+Pradesh%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-veersa-technologies-47614')">Copy Cover Letter</button><div id="cl-veersa-technologies-47614" class="hidden-cl">Dear Hiring Manager,
+
+I am applying for the Java Developer position at Veersa Technologies, where scalable backend engineering supports critical healthcare-tech systems.
+
+Java and Spring Boot microservices are my core strength. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, and at Primathon I build admin APIs and automated workflows that improved reliability and reduced manual effort by 70%. I am fluent with MySQL, MongoDB, Kafka, and Redis, and I ship with Docker, Jenkins, and Git-based CI/CD.
+
+With 1.5+ years of production backend experience and strong DSA fundamentals (5-Star Java, 250+ problems), I can quickly contribute to Veersa&#x27;s platform. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">7</td>
+      <td><span class="score score-high">81</span></td>
+      <td><span class="trust">82</span></td>
+      <td class="company">Mrsool (SDI)</td>
+      <td>Backend Engineer</td>
+      <td>Gurugram</td>
+      <td>10-16 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>↗ External</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Mrsool+Backend+Engineer&amp;location=Gurugram%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-mrsool-%28sdi%29-33583')">Copy Cover Letter</button><div id="cl-mrsool-%28sdi%29-33583" class="hidden-cl">Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer role at Mrsool (SDI), where microservices and cloud infrastructure drive a high-scale delivery platform.
+
+I design distributed, fault-tolerant backends: my payment gateway project runs 30 REST APIs across four Spring Boot microservices, and at Paytm I optimized QR-code lifecycle microservices powering real-time transaction notifications, lifting reliability by 67%. I use Kafka for event streaming, Redis for caching, and AWS (EC2, S3, Lambda) with Docker for scalable deployment — a toolkit that fits a high-throughput delivery system well.
+
+With hands-on microservices experience and strong system-design fundamentals, I can help Mrsool scale its backend reliably. As an immediate joiner, I am ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">8</td>
+      <td><span class="score score-high">81</span></td>
+      <td><span class="trust">78</span></td>
+      <td class="company">CG Infinity</td>
+      <td>Java Developer with Spring Boot</td>
+      <td>Noida</td>
+      <td>6-9 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=CG+Infinity+Java+Spring+Boot&amp;location=Noida%2C+Uttar+Pradesh%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-cg-infinity-53127')">Copy Cover Letter</button><div id="cl-cg-infinity-53127" class="hidden-cl">Dear Hiring Manager,
+
+I am applying for the Java Developer with Spring Boot role at CG Infinity, which matches my backend and microservices expertise closely.
+
+I build RESTful APIs and microservices in Java and Spring Boot every day: a distributed payment gateway with 30 REST APIs across four services, plus admin APIs and backend automation at Primathon that reduced manual effort by 70%. I apply system-design principles for scalability and fault tolerance, and I validate my work with JUnit, Mockito, and Postman before shipping through Git-based CI/CD.
+
+My 5-Star Gold Java certification and 250+ solved DSA problems reflect the fundamentals this role needs. As an immediate joiner, I can deliver reliable Spring Boot services for CG Infinity&#x27;s clients from day one.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">9</td>
+      <td><span class="score score-high">81</span></td>
+      <td><span class="trust">80</span></td>
+      <td class="company">Maxposure Limited</td>
+      <td>Node.js Developer</td>
+      <td>Delhi (Delhi Cantonment)</td>
+      <td>5-8 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Maxposure+Node.js+Developer&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-maxposure-limited-29955')">Copy Cover Letter</button><div id="cl-maxposure-limited-29955" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the Node.js Developer role at Maxposure Limited, where scalable backend services support your content and media platforms.
+
+Node.js and Express.js are part of my core backend toolkit, alongside Java and Spring Boot. At CodeAlpha I built order and payment microservices with REST APIs and MySQL and optimized 30+ endpoints for faster response times, and at Primathon I engineer backend syncing automation across seven merchant systems. I work comfortably with MongoDB, Redis, and AWS (S3, Lambda) for real-time, event-driven workloads.
+
+With 1.5+ years building production REST APIs and a strong DSA foundation, I can contribute to Maxposure&#x27;s Node.js services immediately. I am available to join on a 0-day notice.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">10</td>
+      <td><span class="score score-high">80</span></td>
+      <td><span class="trust">95</span></td>
+      <td class="company">Capgemini Engineering</td>
+      <td>Java Developer</td>
+      <td>Gurugram</td>
+      <td>6-9 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Capgemini+Engineering+Java+Developer&amp;location=Gurugram%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-capgemini-engineering-73037')">Copy Cover Letter</button><div id="cl-capgemini-engineering-73037" class="hidden-cl">Dear Hiring Manager,
+
+I am applying for the Java Developer position at Capgemini Engineering, where strong engineering practices support enterprise-scale client systems.
+
+My Java and Spring Boot foundation is solid and production-tested: I architected a distributed payment gateway with 30 REST APIs across four microservices, and at Primathon I build admin APIs and automated backend workflows integrating AWS Timestream, S3, and Lambda. I migrated a legacy mainframe travel solution to a modern Java/Spring stack using XML and FreeMarker, so I am comfortable modernizing and maintaining enterprise codebases.
+
+With 1.5+ years of backend delivery, an AWS Developer Associate certification, and a 5-Star Java rating, I can contribute to Capgemini&#x27;s engineering teams quickly. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">11</td>
+      <td><span class="score score-high">76</span></td>
+      <td><span class="trust">70</span></td>
+      <td class="company">Askme Technologies</td>
+      <td>Full Stack Developer (Angular + React + Node)</td>
+      <td>Noida</td>
+      <td>4-6 LPA <span class="risk">⚠ salary risk</span></td>
+      <td><span class="variant v-fullstack">Full Stack</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Askme+Technologies+Full+Stack+Developer&amp;location=Noida%2C+Uttar+Pradesh%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <button class="btn btn-copy" onclick="copyCL('cl-askme-technologies-49888')">Copy Cover Letter</button><div id="cl-askme-technologies-49888" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at Askme Technologies, and I note your preference for an immediate joiner — I can start on a 0-day notice.
+
+I build across the stack with React.js on the frontend and Node.js, Express.js, and Spring Boot on the backend, backed by MySQL and MongoDB. At CodeAlpha I built order and payment microservices with REST APIs and optimized 30+ endpoints, and at Primathon I deliver end-to-end backend automation across seven merchant systems. While my primary frameworks are React and Node, I ramp quickly on new tools and can pick up Angular fast given my JavaScript (ES6+) depth.
+
+With 1.5+ years shipping production features and strong fundamentals, I am ready to contribute to Askme&#x27;s full-stack projects right away.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td>
+    </tr><tr>
+      <td class="num">12</td>
+      <td><span class="score score-high">74</span></td>
+      <td><span class="trust">65</span></td>
+      <td class="company">DTP LABS</td>
+      <td>Python &amp; AI Backend Engineer</td>
+      <td>Delhi (Vasant Kunj)</td>
+      <td>4.8-6 LPA <span class="risk">⚠ salary risk</span></td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=DTP+LABS+Python+AI+Backend+Engineer&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <span class="muted">— no letter (match &lt;75)</span>
+      </td>
+    </tr><tr>
+      <td class="num">13</td>
+      <td><span class="score score-high">67</span></td>
+      <td><span class="trust">80</span></td>
+      <td class="company">Zippee</td>
+      <td>Backend Developer (Python)</td>
+      <td>Gurgaon</td>
+      <td>9-10 LPA</td>
+      <td><span class="variant v-backend">Backend</span></td>
+      <td>✅ Easy Apply</td>
+      <td class="actions">
+        <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Zippee+Backend+Developer+Python&amp;location=Gurgaon%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job</a>
+        <span class="muted">— no letter (match &lt;75)</span>
+      </td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>⭐ Top 5 Recommendations</h2>
+    <div class="rec">
+      <div class="rec-head"><span class="rec-rank">#1</span>
+        <span class="rec-title">SDE 1 - Backend Developer — TravClan</span>
+        <span class="rec-score">Match 90 · Trust 85 · 8-14 LPA</span></div>
+      <p>Exact title match (SDE 1 Backend) at an entry/junior level with a strong salary band. TravClan&#x27;s travel-tech backend runs on exactly the Node.js + Java REST-API work Bhumi ships daily, and her distributed payment gateway project is directly relevant.</p>
+      <a class="btn btn-open" href="https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-i" target="_blank" rel="noopener">Open Job ↗</a>
+    </div><div class="rec">
+      <div class="rec-head"><span class="rec-rank">#2</span>
+        <span class="rec-title">SDE I - Backend — Syfe</span>
+        <span class="rec-score">Match 87 · Trust 88 · 10-15 LPA</span></div>
+      <p>Fintech backend role where Bhumi&#x27;s hands-on payment-systems experience (payment gateway, Paytm QR-lifecycle microservices) is a direct, rare fit. High salary band and SDE I level suit her 1.5 years.</p>
+      <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Syfe+SDE+Backend&amp;location=Gurgaon%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job ↗</a>
+    </div><div class="rec">
+      <div class="rec-head"><span class="rec-rank">#3</span>
+        <span class="rec-title">SDE 1 - Backend (Java) — Tripjack</span>
+        <span class="rec-score">Match 85 · Trust 88 · 7-11 LPA</span></div>
+      <p>Java is Bhumi&#x27;s strongest language (5-Star Gold). B2B travel giant, SDE 1 level, Delhi location, and CI/CD requirements all line up with her Spring Boot + Git Actions experience.</p>
+      <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=Tripjack+SDE+Backend+Java&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job ↗</a>
+    </div><div class="rec">
+      <div class="rec-head"><span class="rec-rank">#4</span>
+        <span class="rec-title">Java Developer (Spring Boot) — MetaDesign Solutions</span>
+        <span class="rec-score">Match 82 · Trust 78 · 4-7 LPA</span></div>
+      <p>Textbook Java + Spring Boot microservices role matching her core stack. Salary band dips below the 5.5 LPA floor at the low end (flagged), but the top end is in range and the skill fit is excellent.</p>
+      <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=MetaDesign+Solutions+Java+Spring+Boot&amp;location=Gurgaon%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job ↗</a>
+    </div><div class="rec">
+      <div class="rec-head"><span class="rec-rank">#5</span>
+        <span class="rec-title">Full Stack Developer — WiseDo Technology</span>
+        <span class="rec-score">Match 82 · Trust 72 · 6.5-11.5 LPA</span></div>
+      <p>VC-backed edge-AI company; 1-year experience bar fits perfectly. Her React + Node + AWS real-time pipeline work transfers well, and the salary band comfortably clears target.</p>
+      <a class="btn btn-open" href="https://www.linkedin.com/jobs/search/?keywords=WiseDo+Technology+Full+Stack+Developer&amp;location=Noida%2C+Uttar+Pradesh%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open Job ↗</a>
+    </div>
+  </section>
+
+  <section class="rsec">
+    <h2><span class="dot y"></span> Review Jobs — Worth a Look (7)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+      <tbody><tr>
+      <td class="num">1</td>
+      <td><span class="score score-mid">83</span></td>
+      <td><span class="trust">55</span></td>
+      <td class="company">Jumbo</td>
+      <td>Back End Developer</td>
+      <td>Strong role/skill fit and posted within 24h, but company identity could not be verified (trust 55) — confirm it is a legitimate employer before applying.
+          <div class="rowlink"><a href="https://www.linkedin.com/jobs/search/?keywords=Jumbo+Back+End+Developer&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr><tr>
+      <td class="num">2</td>
+      <td><span class="score score-mid">63</span></td>
+      <td><span class="trust">90</span></td>
+      <td class="company">To The NEW</td>
+      <td>Python Backend Developer</td>
+      <td>High-trust employer and great comp, but role is Python-primary and the salary band signals a more senior (3-5 yr) hire.
+          <div class="rowlink"><a href="https://www.linkedin.com/jobs/search/?keywords=To+The+NEW+Python+Backend+Developer&amp;location=Noida%2C+Uttar+Pradesh%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr><tr>
+      <td class="num">3</td>
+      <td><span class="score score-mid">63</span></td>
+      <td><span class="trust">50</span></td>
+      <td class="company">Sayzo</td>
+      <td>Software Engineer - Frontend</td>
+      <td>Frontend-only role, which is off her backend-first target, and the early-stage company could not be strongly verified.
+          <div class="rowlink"><a href="https://jobfound.org/job/sayzo-is-hiring-for-software-engineer-frontend-ghitorni-new-delhi-india-2-october-2026" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr><tr>
+      <td class="num">4</td>
+      <td><span class="score score-mid">61</span></td>
+      <td><span class="trust">90</span></td>
+      <td class="company">Krutrim Insights</td>
+      <td>AI Engineer</td>
+      <td>Unicorn (Ola Krutrim) with no-experience bar, but ML/Python depth is a skill gap and salary tops out just under target.
+          <div class="rowlink"><a href="https://www.linkedin.com/jobs/search/?keywords=Krutrim+AI+Engineer&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr><tr>
+      <td class="num">5</td>
+      <td><span class="score score-mid">61</span></td>
+      <td><span class="trust">68</span></td>
+      <td class="company">Qurilo Technologies</td>
+      <td>React Native Developer</td>
+      <td>React Native / mobile focus sits outside her backend-first target; she has React.js but not native mobile experience.
+          <div class="rowlink"><a href="https://www.linkedin.com/jobs/search/?keywords=Qurilo+React+Native+Developer&amp;location=Delhi%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr><tr>
+      <td class="num">6</td>
+      <td><span class="score score-mid">57</span></td>
+      <td><span class="trust">58</span></td>
+      <td class="company">BrainStation</td>
+      <td>Senior Java Developer / MERN</td>
+      <td>Listed as &#x27;Senior&#x27;, implying 4+ years, and the hiring entity is ambiguous. Worth a look only if the MERN variant is open to a 1.5-yr candidate.
+          <div class="rowlink"><a href="https://www.linkedin.com/jobs/search/?keywords=BrainStation+Java+Developer&amp;location=Gurgaon%2C+Haryana%2C+India&amp;f_TPR=r86400" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr><tr>
+      <td class="num">7</td>
+      <td><span class="score score-mid">57</span></td>
+      <td><span class="trust">50</span></td>
+      <td class="company">Zoffer</td>
+      <td>Founding Engineer (path to CTO)</td>
+      <td>Founding-engineer roles usually want 3-5+ yr and heavy equity exposure; very early-stage company with a thin verifiable footprint. High-risk/high-reward.
+          <div class="rowlink"><a href="https://jobfound.org/job/zoffer-is-hiring-for-founding-engineer-delhi-ncr-hybrid-india-2-october-2026" target="_blank" rel="noopener">Open ↗</a></div></td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="ssec">
+    <h2><span class="dot rd"></span> Skipped Jobs (5)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody><tr>
+      <td class="num">1</td>
+      <td class="company">Green Apple Solutions</td>
+      <td>Associate Software Engineer</td>
+      <td>Salary: Est ₹3-5 LPA — tops out below the 5.5 LPA target floor.</td>
+    </tr><tr>
+      <td class="num">2</td>
+      <td class="company">Integreta</td>
+      <td>Software Development Engineer (SDE)</td>
+      <td>Salary: ₹20,000/month (~2.4 LPA) — far below the 5.5 LPA target and below her current pay.</td>
+    </tr><tr>
+      <td class="num">3</td>
+      <td class="company">CodeFire Technologies</td>
+      <td>Junior Gen AI Engineer</td>
+      <td>Salary: Est ₹2.4-3.5 LPA — well below target; also a Python/LLM skill gap vs her backend core.</td>
+    </tr><tr>
+      <td class="num">4</td>
+      <td class="company">Transact Bridge</td>
+      <td>Sr. Node.js Developer</td>
+      <td>Experience: Requires 4-7 years — too senior for a 1.5-year candidate.</td>
+    </tr><tr>
+      <td class="num">5</td>
+      <td class="company">Fusionpact</td>
+      <td>Full-Stack Developer Intern (Python &amp; React)</td>
+      <td>Role type: Internship, not a full-time position — Bhumi already has 1.5 yr of full-time experience.</td>
+    </tr></tbody>
+    </table>
+    <div class="note">Fraud screening ran a reputation check on every new company. 0 companies scored below the fraud threshold today — all postings came from verifiable, legitimate employers.</div>
+  </section>
+
+  <section>
+    <h2>📈 Weekly Trend — Qualified Jobs per Day</h2>
+    <div class="chart"><div class="bar-col">
+       <div class="bar-val">13</div>
+       <div class="bar" style="height:100%"></div>
+       <div class="bar-lbl">Sat 03/10</div></div></div>
+    <div class="note">First tracked run is today. The bar chart grows as more daily dashboards accumulate in ~/linkedin-jobs/dashboards/.</div>
+  </section>
+
+  <section>
+    <h2>✉️ Cover Letters (11)</h2>
+    <div class="cl-box">
+      <div class="cl-box-head"><strong>TravClan</strong> — SDE 1 - Backend Developer
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am writing to apply for the SDE 1 - Backend Developer role at TravClan, where my backend engineering work maps directly to building reliable, high-volume travel systems.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and I previously architected a distributed payment gateway with 30 REST APIs across four microservices using Java, Spring Boot, and sound system-design principles. My experience with Node.js, MySQL, MongoDB, and Git-based CI/CD pipelines lets me ship production-ready endpoints that stay performant under load.
+
+As an immediate joiner with a 5-Star Java rating on HackerRank and 250+ DSA problems solved, I can contribute to TravClan's backend from day one and ramp quickly on your stack.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am writing to apply for the SDE 1 - Backend Developer role at TravClan, where my backend engineering work maps directly to building reliable, high-volume travel systems.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and I previously architected a distributed payment gateway with 30 REST APIs across four microservices using Java, Spring Boot, and sound system-design principles. My experience with Node.js, MySQL, MongoDB, and Git-based CI/CD pipelines lets me ship production-ready endpoints that stay performant under load.
+
+As an immediate joiner with a 5-Star Java rating on HackerRank and 250+ DSA problems solved, I can contribute to TravClan&#x27;s backend from day one and ramp quickly on your stack.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Syfe</strong> — SDE I - Backend
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I would like to apply for the SDE I - Backend position at Syfe, where engineering rigor around financial data is central to the product.
+
+My background is a strong fit: I built a distributed payment gateway (Order, Payment, Merchant, and Vault services) with 30 REST APIs in Java and Spring Boot, applying system-design principles for scalability and fault tolerance. At Paytm I developed and optimized microservices managing the QR-code lifecycle that powered real-time transaction notifications, improving service reliability by 67%. I work comfortably with MySQL, Redis, Kafka, and AWS (EC2, S3, Lambda).
+
+Having shipped payment and transaction systems already, I understand the correctness and reliability standards fintech demands. As a 0-day-notice immediate joiner, I can start contributing to Syfe's backend right away.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I would like to apply for the SDE I - Backend position at Syfe, where engineering rigor around financial data is central to the product.
+
+My background is a strong fit: I built a distributed payment gateway (Order, Payment, Merchant, and Vault services) with 30 REST APIs in Java and Spring Boot, applying system-design principles for scalability and fault tolerance. At Paytm I developed and optimized microservices managing the QR-code lifecycle that powered real-time transaction notifications, improving service reliability by 67%. I work comfortably with MySQL, Redis, Kafka, and AWS (EC2, S3, Lambda).
+
+Having shipped payment and transaction systems already, I understand the correctness and reliability standards fintech demands. As a 0-day-notice immediate joiner, I can start contributing to Syfe&#x27;s backend right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Tripjack</strong> — SDE 1 - Backend (Java)
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am excited to apply for the SDE 1 - Backend (Java) role at Tripjack, a leader in B2B travel technology.
+
+Java and Spring Boot are the core of my work: at Primathon I build custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and I architected a production-ready payment gateway spanning 30 REST APIs across four Spring Boot microservices. I am hands-on with CI/CD pipelines using Git Actions and Jenkins, and I containerize services with Docker for scalable deployment, so I can slot into your deployment and Azure workflows quickly.
+
+With 1.5+ years shipping backend services and a 5-Star Gold Java certification, I am ready to contribute to Tripjack's high-throughput systems. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am excited to apply for the SDE 1 - Backend (Java) role at Tripjack, a leader in B2B travel technology.
+
+Java and Spring Boot are the core of my work: at Primathon I build custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and I architected a production-ready payment gateway spanning 30 REST APIs across four Spring Boot microservices. I am hands-on with CI/CD pipelines using Git Actions and Jenkins, and I containerize services with Docker for scalable deployment, so I can slot into your deployment and Azure workflows quickly.
+
+With 1.5+ years shipping backend services and a 5-Star Gold Java certification, I am ready to contribute to Tripjack&#x27;s high-throughput systems. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>MetaDesign Solutions</strong> — Java Developer (Spring Boot)
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am applying for the Java Developer (Spring Boot) position at MetaDesign Solutions, a role that aligns precisely with my backend specialization.
+
+I design and ship microservices and REST APIs in Java and Spring Boot daily — most notably a distributed payment gateway with 30 REST APIs across four services, built with fault tolerance and scalability in mind. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and I test rigorously with JUnit and Mockito. My MySQL and MongoDB experience rounds out full backend ownership from schema to endpoint.
+
+As an immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can deliver clean, production-ready Spring Boot services for your clients from the outset.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am applying for the Java Developer (Spring Boot) position at MetaDesign Solutions, a role that aligns precisely with my backend specialization.
+
+I design and ship microservices and REST APIs in Java and Spring Boot daily — most notably a distributed payment gateway with 30 REST APIs across four services, built with fault tolerance and scalability in mind. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and I test rigorously with JUnit and Mockito. My MySQL and MongoDB experience rounds out full backend ownership from schema to endpoint.
+
+As an immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can deliver clean, production-ready Spring Boot services for your clients from the outset.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>WiseDo Technology</strong> — Full Stack Developer
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at WiseDo Technology, where building responsive interfaces over real-time AI pipelines is an exciting challenge.
+
+I work across the stack: React.js, HTML5, and CSS3 on the frontend, backed by Node.js, Express.js, and Spring Boot services. At Primathon I built backend automation across seven merchant systems and integrated AWS Lambda and Timestream for real-time event handling — experience that transfers well to edge-AI data flows. My project work includes a distributed payment gateway with 30 REST APIs and AI-driven monitoring alerts.
+
+I enjoy owning features end to end, from the database to the UI. As a 0-notice immediate joiner, I can contribute to WiseDo's full-stack product quickly and grow with the team.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at WiseDo Technology, where building responsive interfaces over real-time AI pipelines is an exciting challenge.
+
+I work across the stack: React.js, HTML5, and CSS3 on the frontend, backed by Node.js, Express.js, and Spring Boot services. At Primathon I built backend automation across seven merchant systems and integrated AWS Lambda and Timestream for real-time event handling — experience that transfers well to edge-AI data flows. My project work includes a distributed payment gateway with 30 REST APIs and AI-driven monitoring alerts.
+
+I enjoy owning features end to end, from the database to the UI. As a 0-notice immediate joiner, I can contribute to WiseDo&#x27;s full-stack product quickly and grow with the team.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Veersa Technologies</strong> — Java Developer
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am applying for the Java Developer position at Veersa Technologies, where scalable backend engineering supports critical healthcare-tech systems.
+
+Java and Spring Boot microservices are my core strength. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, and at Primathon I build admin APIs and automated workflows that improved reliability and reduced manual effort by 70%. I am fluent with MySQL, MongoDB, Kafka, and Redis, and I ship with Docker, Jenkins, and Git-based CI/CD.
+
+With 1.5+ years of production backend experience and strong DSA fundamentals (5-Star Java, 250+ problems), I can quickly contribute to Veersa's platform. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am applying for the Java Developer position at Veersa Technologies, where scalable backend engineering supports critical healthcare-tech systems.
+
+Java and Spring Boot microservices are my core strength. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, and at Primathon I build admin APIs and automated workflows that improved reliability and reduced manual effort by 70%. I am fluent with MySQL, MongoDB, Kafka, and Redis, and I ship with Docker, Jenkins, and Git-based CI/CD.
+
+With 1.5+ years of production backend experience and strong DSA fundamentals (5-Star Java, 250+ problems), I can quickly contribute to Veersa&#x27;s platform. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Mrsool (SDI)</strong> — Backend Engineer
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer role at Mrsool (SDI), where microservices and cloud infrastructure drive a high-scale delivery platform.
+
+I design distributed, fault-tolerant backends: my payment gateway project runs 30 REST APIs across four Spring Boot microservices, and at Paytm I optimized QR-code lifecycle microservices powering real-time transaction notifications, lifting reliability by 67%. I use Kafka for event streaming, Redis for caching, and AWS (EC2, S3, Lambda) with Docker for scalable deployment — a toolkit that fits a high-throughput delivery system well.
+
+With hands-on microservices experience and strong system-design fundamentals, I can help Mrsool scale its backend reliably. As an immediate joiner, I am ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am excited to apply for the Backend Engineer role at Mrsool (SDI), where microservices and cloud infrastructure drive a high-scale delivery platform.
+
+I design distributed, fault-tolerant backends: my payment gateway project runs 30 REST APIs across four Spring Boot microservices, and at Paytm I optimized QR-code lifecycle microservices powering real-time transaction notifications, lifting reliability by 67%. I use Kafka for event streaming, Redis for caching, and AWS (EC2, S3, Lambda) with Docker for scalable deployment — a toolkit that fits a high-throughput delivery system well.
+
+With hands-on microservices experience and strong system-design fundamentals, I can help Mrsool scale its backend reliably. As an immediate joiner, I am ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>CG Infinity</strong> — Java Developer with Spring Boot
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am applying for the Java Developer with Spring Boot role at CG Infinity, which matches my backend and microservices expertise closely.
+
+I build RESTful APIs and microservices in Java and Spring Boot every day: a distributed payment gateway with 30 REST APIs across four services, plus admin APIs and backend automation at Primathon that reduced manual effort by 70%. I apply system-design principles for scalability and fault tolerance, and I validate my work with JUnit, Mockito, and Postman before shipping through Git-based CI/CD.
+
+My 5-Star Gold Java certification and 250+ solved DSA problems reflect the fundamentals this role needs. As an immediate joiner, I can deliver reliable Spring Boot services for CG Infinity's clients from day one.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am applying for the Java Developer with Spring Boot role at CG Infinity, which matches my backend and microservices expertise closely.
+
+I build RESTful APIs and microservices in Java and Spring Boot every day: a distributed payment gateway with 30 REST APIs across four services, plus admin APIs and backend automation at Primathon that reduced manual effort by 70%. I apply system-design principles for scalability and fault tolerance, and I validate my work with JUnit, Mockito, and Postman before shipping through Git-based CI/CD.
+
+My 5-Star Gold Java certification and 250+ solved DSA problems reflect the fundamentals this role needs. As an immediate joiner, I can deliver reliable Spring Boot services for CG Infinity&#x27;s clients from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Maxposure Limited</strong> — Node.js Developer
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am writing to apply for the Node.js Developer role at Maxposure Limited, where scalable backend services support your content and media platforms.
+
+Node.js and Express.js are part of my core backend toolkit, alongside Java and Spring Boot. At CodeAlpha I built order and payment microservices with REST APIs and MySQL and optimized 30+ endpoints for faster response times, and at Primathon I engineer backend syncing automation across seven merchant systems. I work comfortably with MongoDB, Redis, and AWS (S3, Lambda) for real-time, event-driven workloads.
+
+With 1.5+ years building production REST APIs and a strong DSA foundation, I can contribute to Maxposure's Node.js services immediately. I am available to join on a 0-day notice.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am writing to apply for the Node.js Developer role at Maxposure Limited, where scalable backend services support your content and media platforms.
+
+Node.js and Express.js are part of my core backend toolkit, alongside Java and Spring Boot. At CodeAlpha I built order and payment microservices with REST APIs and MySQL and optimized 30+ endpoints for faster response times, and at Primathon I engineer backend syncing automation across seven merchant systems. I work comfortably with MongoDB, Redis, and AWS (S3, Lambda) for real-time, event-driven workloads.
+
+With 1.5+ years building production REST APIs and a strong DSA foundation, I can contribute to Maxposure&#x27;s Node.js services immediately. I am available to join on a 0-day notice.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Capgemini Engineering</strong> — Java Developer
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am applying for the Java Developer position at Capgemini Engineering, where strong engineering practices support enterprise-scale client systems.
+
+My Java and Spring Boot foundation is solid and production-tested: I architected a distributed payment gateway with 30 REST APIs across four microservices, and at Primathon I build admin APIs and automated backend workflows integrating AWS Timestream, S3, and Lambda. I migrated a legacy mainframe travel solution to a modern Java/Spring stack using XML and FreeMarker, so I am comfortable modernizing and maintaining enterprise codebases.
+
+With 1.5+ years of backend delivery, an AWS Developer Associate certification, and a 5-Star Java rating, I can contribute to Capgemini's engineering teams quickly. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am applying for the Java Developer position at Capgemini Engineering, where strong engineering practices support enterprise-scale client systems.
+
+My Java and Spring Boot foundation is solid and production-tested: I architected a distributed payment gateway with 30 REST APIs across four microservices, and at Primathon I build admin APIs and automated backend workflows integrating AWS Timestream, S3, and Lambda. I migrated a legacy mainframe travel solution to a modern Java/Spring stack using XML and FreeMarker, so I am comfortable modernizing and maintaining enterprise codebases.
+
+With 1.5+ years of backend delivery, an AWS Developer Associate certification, and a 5-Star Java rating, I can contribute to Capgemini&#x27;s engineering teams quickly. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div><div class="cl-box">
+      <div class="cl-box-head"><strong>Askme Technologies</strong> — Full Stack Developer (Angular + React + Node)
+        <button class="btn btn-copy" onclick="copyText(this, `Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at Askme Technologies, and I note your preference for an immediate joiner — I can start on a 0-day notice.
+
+I build across the stack with React.js on the frontend and Node.js, Express.js, and Spring Boot on the backend, backed by MySQL and MongoDB. At CodeAlpha I built order and payment microservices with REST APIs and optimized 30+ endpoints, and at Primathon I deliver end-to-end backend automation across seven merchant systems. While my primary frameworks are React and Node, I ramp quickly on new tools and can pick up Angular fast given my JavaScript (ES6+) depth.
+
+With 1.5+ years shipping production features and strong fundamentals, I am ready to contribute to Askme's full-stack projects right away.
+
+Best regards,
+Bhumi Bhatt`)">COPY</button></div>
+      <pre class="cl-body">Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at Askme Technologies, and I note your preference for an immediate joiner — I can start on a 0-day notice.
+
+I build across the stack with React.js on the frontend and Node.js, Express.js, and Spring Boot on the backend, backed by MySQL and MongoDB. At CodeAlpha I built order and payment microservices with REST APIs and optimized 30+ endpoints, and at Primathon I deliver end-to-end backend automation across seven merchant systems. While my primary frameworks are React and Node, I ramp quickly on new tools and can pick up Angular fast given my JavaScript (ES6+) depth.
+
+With 1.5+ years shipping production features and strong fundamentals, I am ready to contribute to Askme&#x27;s full-stack projects right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast">Copied!</div>
+<script>
+  var urls = ["https://travclan.freshteam.com/jobs/ar_enLDPPDzB/sde-i", "https://www.linkedin.com/jobs/search/?keywords=Syfe+SDE+Backend&location=Gurgaon%2C+Haryana%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Tripjack+SDE+Backend+Java&location=Delhi%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=MetaDesign+Solutions+Java+Spring+Boot&location=Gurgaon%2C+Haryana%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=WiseDo+Technology+Full+Stack+Developer&location=Noida%2C+Uttar+Pradesh%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Veersa+Technologies+Java+Developer&location=Noida%2C+Uttar+Pradesh%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Mrsool+Backend+Engineer&location=Gurugram%2C+Haryana%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=CG+Infinity+Java+Spring+Boot&location=Noida%2C+Uttar+Pradesh%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Maxposure+Node.js+Developer&location=Delhi%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Capgemini+Engineering+Java+Developer&location=Gurugram%2C+Haryana%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Askme+Technologies+Full+Stack+Developer&location=Noida%2C+Uttar+Pradesh%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=DTP+LABS+Python+AI+Backend+Engineer&location=Delhi%2C+India&f_TPR=r86400", "https://www.linkedin.com/jobs/search/?keywords=Zippee+Backend+Developer+Python&location=Gurgaon%2C+Haryana%2C+India&f_TPR=r86400"];
+  function openAll(){
+    if(!urls.length){toast('No qualified jobs');return;}
+    var blocked=0;
+    urls.forEach(function(u){ var w=window.open(u,'_blank'); if(!w) blocked++; });
+    toast(blocked? ('Allow pop-ups, then retry ('+blocked+' blocked)') : ('Opened '+urls.length+' jobs'));
+  }
+  function copyCL(id){
+    var el=document.getElementById(id);
+    if(!el){toast('Not found');return;}
+    copyText(null, el.textContent);
+  }
+  function copyText(btn, text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){toast('Cover letter copied!');},
+        function(){fallback(text);});
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var t=document.createElement('textarea'); t.value=text; document.body.appendChild(t);
+    t.select(); try{document.execCommand('copy');toast('Cover letter copied!');}catch(e){toast('Copy failed');}
+    document.body.removeChild(t);
+  }
+  var _tt;
+  function toast(msg){
+    var el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+    clearTimeout(_tt); _tt=setTimeout(function(){el.classList.remove('show');},2200);
+  }
+</script>
+</body>
+</html>

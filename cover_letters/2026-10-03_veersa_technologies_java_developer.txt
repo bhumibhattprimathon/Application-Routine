@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Java Developer position at Veersa Technologies, where scalable backend engineering supports critical healthcare-tech systems.
+
+Java and Spring Boot microservices are my core strength. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, and at Primathon I build admin APIs and automated workflows that improved reliability and reduced manual effort by 70%. I am fluent with MySQL, MongoDB, Kafka, and Redis, and I ship with Docker, Jenkins, and Git-based CI/CD.
+
+With 1.5+ years of production backend experience and strong DSA fundamentals (5-Star Java, 250+ problems), I can quickly contribute to Veersa's platform. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt

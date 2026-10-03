@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the SDE 1 - Backend (Java) role at Tripjack, a leader in B2B travel technology.
+
+Java and Spring Boot are the core of my work: at Primathon I build custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and I architected a production-ready payment gateway spanning 30 REST APIs across four Spring Boot microservices. I am hands-on with CI/CD pipelines using Git Actions and Jenkins, and I containerize services with Docker for scalable deployment, so I can slot into your deployment and Azure workflows quickly.
+
+With 1.5+ years shipping backend services and a 5-Star Gold Java certification, I am ready to contribute to Tripjack's high-throughput systems. I am available to join immediately.
+
+Best regards,
+Bhumi Bhatt

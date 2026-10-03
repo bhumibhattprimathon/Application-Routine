@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Java Developer with Spring Boot role at CG Infinity, which matches my backend and microservices expertise closely.
+
+I build RESTful APIs and microservices in Java and Spring Boot every day: a distributed payment gateway with 30 REST APIs across four services, plus admin APIs and backend automation at Primathon that reduced manual effort by 70%. I apply system-design principles for scalability and fault tolerance, and I validate my work with JUnit, Mockito, and Postman before shipping through Git-based CI/CD.
+
+My 5-Star Gold Java certification and 250+ solved DSA problems reflect the fundamentals this role needs. As an immediate joiner, I can deliver reliable Spring Boot services for CG Infinity's clients from day one.
+
+Best regards,
+Bhumi Bhatt

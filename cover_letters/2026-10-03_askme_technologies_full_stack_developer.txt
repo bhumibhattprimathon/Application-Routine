@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at Askme Technologies, and I note your preference for an immediate joiner — I can start on a 0-day notice.
+
+I build across the stack with React.js on the frontend and Node.js, Express.js, and Spring Boot on the backend, backed by MySQL and MongoDB. At CodeAlpha I built order and payment microservices with REST APIs and optimized 30+ endpoints, and at Primathon I deliver end-to-end backend automation across seven merchant systems. While my primary frameworks are React and Node, I ramp quickly on new tools and can pick up Angular fast given my JavaScript (ES6+) depth.
+
+With 1.5+ years shipping production features and strong fundamentals, I am ready to contribute to Askme's full-stack projects right away.
+
+Best regards,
+Bhumi Bhatt

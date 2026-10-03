@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Full Stack Developer role at WiseDo Technology, where building responsive interfaces over real-time AI pipelines is an exciting challenge.
+
+I work across the stack: React.js, HTML5, and CSS3 on the frontend, backed by Node.js, Express.js, and Spring Boot services. At Primathon I built backend automation across seven merchant systems and integrated AWS Lambda and Timestream for real-time event handling — experience that transfers well to edge-AI data flows. My project work includes a distributed payment gateway with 30 REST APIs and AI-driven monitoring alerts.
+
+I enjoy owning features end to end, from the database to the UI. As a 0-notice immediate joiner, I can contribute to WiseDo's full-stack product quickly and grow with the team.
+
+Best regards,
+Bhumi Bhatt

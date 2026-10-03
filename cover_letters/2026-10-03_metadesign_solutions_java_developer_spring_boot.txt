@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Java Developer (Spring Boot) position at MetaDesign Solutions, a role that aligns precisely with my backend specialization.
+
+I design and ship microservices and REST APIs in Java and Spring Boot daily — most notably a distributed payment gateway with 30 REST APIs across four services, built with fault tolerance and scalability in mind. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and I test rigorously with JUnit and Mockito. My MySQL and MongoDB experience rounds out full backend ownership from schema to endpoint.
+
+As an immediate joiner with a 5-Star Java rating and 250+ DSA problems solved, I can deliver clean, production-ready Spring Boot services for your clients from the outset.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would like to apply for the SDE I - Backend position at Syfe, where engineering rigor around financial data is central to the product.
+
+My background is a strong fit: I built a distributed payment gateway (Order, Payment, Merchant, and Vault services) with 30 REST APIs in Java and Spring Boot, applying system-design principles for scalability and fault tolerance. At Paytm I developed and optimized microservices managing the QR-code lifecycle that powered real-time transaction notifications, improving service reliability by 67%. I work comfortably with MySQL, Redis, Kafka, and AWS (EC2, S3, Lambda).
+
+Having shipped payment and transaction systems already, I understand the correctness and reliability standards fintech demands. As a 0-day-notice immediate joiner, I can start contributing to Syfe's backend right away.
+
+Best regards,
+Bhumi Bhatt
