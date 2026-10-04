@@ -1,15 +1,16 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-04",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "status": "completed_degraded",
+  "data_source": "WebSearch (US-geolocated) + WebFetch of India job boards: Internshala, Cutshort, Wellfound. LinkedIn geo-redirects to US (returns New York jobs); RapidAPI/JSearch key no longer subscribed (HTTP 404/403); Foundit/Instahyre/Naukri returned 403.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt, backend/full-stack, 1.5 yrs)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel",
+  "jobs_found": 20,
   "jobs_qualified": 1,
   "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_skipped": 13,
+  "fraud_detected": 0,
+  "new_this_run": 20,
+  "avg_match_qualified": 85.0,
+  "notes": "Discovery degraded: LinkedIn is geo-broken from this container and the paid job API is unsubscribed, so results came from India job boards and strict <24h freshness could not be guaranteed (freshest dev role = 1 day; most 3 days-1 week). Only 1 clean qualified match (CoverYou Full Stack). TestMu AI/LambdaTest is a strong backend match but the listing is ~5 months old - verify open. Action item for Bhumi: re-subscribe the RapidAPI JSearch key (or similar) to restore reliable last-24h LinkedIn discovery."
 }

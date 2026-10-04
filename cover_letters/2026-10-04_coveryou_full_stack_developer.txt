@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Developer role at CoverYou, where building web applications with REST APIs and AI/LLM integration maps directly to the work I do every day.
+
+Over 1.5 years at Primathon and Paytm, I've designed REST APIs and backend services in Java, Spring Boot, and Node.js/Express, managed data across MySQL and MongoDB, and shipped React.js front-ends. At Primathon I built custom admin APIs and backend syncing automation across seven merchant systems; my Distributed Payment Gateway project spans 30 REST APIs across four services and already integrates AI-driven alerts for transaction insights — the same AI/LLM product work your role describes.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to CoverYou's health-insurance platform right away and ramp quickly on your stack.
+
+Best regards,
+Bhumi Bhatt

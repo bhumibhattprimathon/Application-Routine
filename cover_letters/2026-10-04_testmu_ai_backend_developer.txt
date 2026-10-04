@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join TestMu AI (LambdaTest) as a Backend Developer, building the services that power your agentic AI quality-engineering platform.
+
+My 1.5 years span production backend work in Java, Spring Boot, and Node.js: at Paytm I developed microservices managing the QR-code transaction lifecycle for multiple merchants, and at Primathon I built admin and syncing APIs across seven merchant systems. I've worked with Kafka, Redis, MySQL, and MongoDB, and deployed on AWS (EC2, S3, Lambda) with Docker and CI/CD — a strong base for the high-throughput backend services your platform runs. My HackerRank 5-Star Java rating and 250+ solved DSA problems reflect the system-design depth this role needs.
+
+I'm an immediate joiner, Noida-ready, and eager to contribute from day one.
+
+Best regards,
+Bhumi Bhatt
