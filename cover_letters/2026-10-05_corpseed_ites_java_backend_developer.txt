@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm applying for the Java Backend Developer (Spring Boot & Microservices) position at Corpseed ITES. Backend microservices are my core: I built order and payment microservices with REST APIs and MySQL at CodeAlpha, developed QR-lifecycle microservices at Paytm, and now engineer backend automation across seven merchant systems at Primathon. Spring Boot, REST APIs, MySQL/MongoDB, and Redis are part of my daily toolkit.
+
+I deliver production-ready, well-tested code (JUnit, Mockito, Postman) and enjoy turning manual processes into reliable automated workflows. As a 0-day-notice immediate joiner, I can ramp up on your backend systems quickly and start contributing from week one.
+
+Best regards,
+Bhumi Bhatt

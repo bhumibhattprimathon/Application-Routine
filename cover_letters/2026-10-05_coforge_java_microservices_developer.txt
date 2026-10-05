@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Java Microservices Developer (Spring Boot) position at Coforge. I architected a production-ready distributed payment gateway with 30 REST APIs across four microservices (Order, Payment, Merchant, Vault), applying system-design principles for scalability and fault tolerance — exactly the kind of distributed Java/Spring Boot work this role centers on. At Primathon and Paytm I've shipped microservices in production, integrating Kafka, Redis, and AWS (S3, Lambda, Timestream) for real-time event handling.
+
+My foundation in Java, Spring Boot, REST APIs, and SQL, plus an AWS Developer – Associate certification, lets me contribute quickly to Coforge's enterprise delivery. As an immediate joiner, I'm ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt

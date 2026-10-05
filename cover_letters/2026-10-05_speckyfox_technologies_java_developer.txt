@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm interested in the Java Developer (Spring Boot) role at SpeckyFox Technologies. I've spent the last 1.5+ years shipping backend services in Java and Spring Boot — building admin APIs and meta-event processing at Primathon, microservices at Paytm, and Dockerized REST services at CodeAlpha. I'm comfortable across the stack SpeckyFox works in: Spring Boot, REST APIs, MySQL, MongoDB, and Git/CI-CD.
+
+With a 9.3 CGPA, an AWS Developer – Associate certification, and 250+ DSA problems solved, I bring both engineering discipline and speed. I'm an immediate joiner who learns new codebases fast and would be glad to contribute to SpeckyFox's client projects right away.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Spring Boot Developer role at Bounteous. Building scalable, well-architected backend services is what I do: my distributed payment gateway project spans 30 REST APIs across four Spring Boot microservices with fault-tolerance baked in, and in production at Primathon and Paytm I've integrated Kafka, Redis, and AWS into real-time backend pipelines. Java, Spring Boot, REST APIs, and SQL are my strongest skills.
+
+I value clean, tested, maintainable code (JUnit, Mockito) and enjoy collaborating on client-facing digital products. As an immediate joiner, I'm ready to bring energy and quick ramp-up to Bounteous's engineering teams.
+
+Best regards,
+Bhumi Bhatt

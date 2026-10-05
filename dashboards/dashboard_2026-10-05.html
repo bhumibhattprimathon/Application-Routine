@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Apply 2026-10-05</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--bg:#f1f5f9;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+.card .n{font-size:30px;font-weight:800;line-height:1}
+.card .l{font-size:12px;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.card.q .n{color:var(--green)} .card.r .n{color:var(--yellow)} .card.s .n{color:var(--red)} .card.f .n{color:#b91c1c}
+.banner{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:12px 14px;font-size:13px;margin:14px 0}
+.openall{display:block;width:100%;border:0;border-radius:14px;padding:20px;font-size:19px;font-weight:800;color:#063a1e;
+background:linear-gradient(135deg,#4ade80,#22c55e);cursor:pointer;box-shadow:0 6px 16px rgba(34,197,94,.35);margin:10px 0 4px}
+.openall:active{transform:translateY(1px)}
+.hint{font-size:12px;color:var(--mut);text-align:center;margin-bottom:18px}
+h2{font-size:16px;margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--ink)}
+h2.green{border-color:var(--green)} h2.yellow{border-color:var(--yellow)} h2.red{border-color:var(--red)}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+th{text-align:left;background:#f8fafc;color:var(--mut);font-weight:600;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+.note-row td.note{color:var(--mut);font-size:12px;padding-top:0;padding-bottom:12px}
+.score{display:inline-block;min-width:34px;text-align:center;font-weight:800;border-radius:7px;padding:3px 6px;color:#fff}
+.s-high{background:var(--green)} .s-mid{background:var(--yellow);color:#422006}
+.chip{font-size:11px;padding:3px 8px;border-radius:999px;background:#eef2ff;color:#3730a3;text-transform:capitalize}
+.v-backend{background:#dbeafe;color:#1e40af} .v-fullstack{background:#dcfce7;color:#166534} .v-ai_ml{background:#fae8ff;color:#86198f}
+.btn{display:inline-block;border:0;border-radius:8px;padding:7px 11px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.open{background:var(--ink);color:#fff} .btn.open.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.copy{background:#eef2ff;color:#3730a3} .btn.small{padding:6px 10px}
+.risk{color:#b45309;font-size:11px;font-weight:700}
+.s-fraud{color:#b91c1c;font-weight:700} .s-skip{color:#9a3412}
+.muted{color:var(--mut)} .small{font-size:11px}
+.trend{display:flex;gap:18px;align-items:flex-end;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;overflow-x:auto}
+.tcol{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:70px}
+.tbarwrap{height:180px;display:flex;align-items:flex-end}
+.tbar{width:42px;background:linear-gradient(180deg,#4ade80,#16a34a);border-radius:6px 6px 0 0}
+.tnum{font-weight:800;color:#166534} .tdate{font-size:11px;color:var(--mut)}
+.rec{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:10px}
+.recnum{flex:0 0 34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rectitle{font-size:15px;margin-bottom:4px} .recmeta{color:var(--mut);font-weight:500;font-size:12px}
+.rec p{margin:6px 0 10px;font-size:13px;color:#334155}
+.clgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.clcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.clhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.clbody{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px;margin:0;max-height:260px;overflow:auto}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:30px 20px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;transition:.25s;pointer-events:none}
+#toast.show{opacity:1}
+</style></head>
+<body>
+<header><div class="wrap" style="padding:0">
+<h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-10-05</h1>
+<div class="sub">For Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · immediate joiner</div>
+</div></header>
+<div class="wrap">
+
+<div class="cards">
+<div class="card"><div class="n">19</div><div class="l">Jobs Found</div></div>
+<div class="card q"><div class="n">8</div><div class="l">Qualified</div></div>
+<div class="card r"><div class="n">5</div><div class="l">Review</div></div>
+<div class="card s"><div class="n">6</div><div class="l">Skipped</div></div>
+<div class="card f"><div class="n">2</div><div class="l">Fraud Blocked</div></div>
+<div class="card"><div class="n">79.1</div><div class="l">Avg Match</div></div>
+<div class="card"><div class="n">7.4<span style="font-size:14px"> LPA</span></div><div class="l">Avg Salary (qual.)</div></div>
+</div>
+
+<div class="banner">
+<strong>About today's links &amp; data:</strong> The live job feed (JSearch API) returned a 404 for its
+<code>/search</code> endpoint today, so these roles were discovered via web search of LinkedIn/Glassdoor plus
+per-company fraud research. Each <em>Open Job</em> button is a <strong>pre-filtered LinkedIn search</strong>
+(role + company + Delhi&nbsp;NCR + entry/associate + recent) — not a single fixed posting — so it always lands on
+that employer's <em>current</em> matching openings. Click through to confirm the live posting and its exact
+experience band before applying.
+</div>
+
+<button class="openall" onclick="openAll()">🚀 OPEN ALL 8 QUALIFIED JOBS</button>
+<div class="hint">Opens 8 LinkedIn searches in new tabs. If your browser blocks pop-ups, allow them for this page, or use the individual “Open Job” buttons below.</div>
+
+<h2 class="green">✅ Qualified — ready to apply</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply via</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score s-high">85</span></td><td>98</td>
+<td><strong>Airtel (Bharti Airtel)</strong></td><td>SDE-1 (Software Development Engineer)</td>
+<td>Gurugram</td><td>10-16 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn / careers.airtel.com</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Airtel%20SDE-1%20Software%20Development%20Engineer&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('airtel-sde1-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Top-tier product company; SDE-1 is a true entry/junior track. Strong Java/backend + DSA fit. Verify the specific req is SDE-1 (not SDE-2).</td></tr>
+<tr>
+<td>2</td><td><span class="score s-high">82</span></td><td>95</td>
+<td><strong>Coforge</strong></td><td>Java Microservices Developer (Spring Boot)</td>
+<td>Delhi NCR</td><td>6-10 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Coforge%20Java%20Microservices%20Spring%20Boot%20Developer&amp;location=Delhi%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('coforge-java-micro-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Near-exact stack match (Java, Spring Boot, Microservices, REST). Publicly listed IT firm. Confirm experience band — some Coforge Java roles want 2-3 yrs.</td></tr>
+<tr>
+<td>3</td><td><span class="score s-high">82</span></td><td>78</td>
+<td><strong>MetaDesign Solutions</strong></td><td>Java Developer (Spring Boot)</td>
+<td>Gurgaon</td><td>5-8 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=MetaDesign%20Solutions%20Java%20Developer%20Spring%20Boot&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('metadesign-java-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Established Gurgaon software company; Spring Boot/REST fit is excellent for 1.5 yrs exp.</td></tr>
+<tr>
+<td>4</td><td><span class="score s-high">80</span></td><td>70</td>
+<td><strong>Corpseed ITES</strong></td><td>Java Backend Developer (Spring Boot &amp; Microservices) <span class="risk">⚠ salary</span></td>
+<td>Noida</td><td>4.5-6.5 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Corpseed%20Java%20Backend%20Developer%20Spring%20Boot&amp;location=Noida%2C%20Uttar%20Pradesh%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('corpseed-java-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Backend stack fits well. Caveat: Corpseed is primarily a compliance/consulting firm (not a product/tech company) and has some customer complaints; salary may sit near the low end.</td></tr>
+<tr>
+<td>5</td><td><span class="score s-high">80</span></td><td>76</td>
+<td><strong>SpeckyFox Technologies</strong></td><td>Java Developer (Spring Boot)</td>
+<td>Noida</td><td>5-7 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=SpeckyFox%20Technologies%20Java%20Developer%20Spring%20Boot&amp;location=Noida%2C%20Uttar%20Pradesh%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('speckyfox-java-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Software services firm (est. 2018). Good Spring Boot/REST/MySQL fit. Watch for reported long hours.</td></tr>
+<tr>
+<td>6</td><td><span class="score s-high">78</span></td><td>85</td>
+<td><strong>Bounteous x Accolite</strong></td><td>Java Spring Boot Developer</td>
+<td>Gurgaon</td><td>7-12 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Bounteous%20Java%20Spring%20Boot%20Developer&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('bounteous-java-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Large global digital-engineering firm; good salary band. Note Glassdoor comp satisfaction has dipped (2.7/5).</td></tr>
+<tr>
+<td>7</td><td><span class="score s-high">78</span></td><td>80</td>
+<td><strong>CodeFire Technologies</strong></td><td>Java / Backend Developer (also Junior GenAI roles)</td>
+<td>Noida</td><td>5-7 LPA (est)</td>
+<td><span class="chip v-backend">backend</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=CodeFire%20Technologies%20Java%20Backend%20Developer&amp;location=Noida%2C%20Uttar%20Pradesh%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <button class="btn copy" onclick="copyCover('codefire-java-2026-10-05')">Copy Cover Letter</button></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">Established (2010) Noida software firm, 14+ yrs. Also lists a Junior GenAI role that fits Bhumi&#x27;s AI exposure.</td></tr>
+<tr>
+<td>8</td><td><span class="score s-high">68</span></td><td>72</td>
+<td><strong>Eminenture</strong></td><td>Full Stack Developer (MERN) <span class="risk">⚠ salary</span></td>
+<td>Delhi (Pitampura)</td><td>4-6 LPA (est)</td>
+<td><span class="chip v-fullstack">fullstack</span></td><td>LinkedIn</td>
+<td><a class="btn open" href="https://www.linkedin.com/jobs/search/?keywords=Eminenture%20Full%20Stack%20Developer%20MERN&amp;location=Delhi%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open Job</a> <span class="muted">—</span></td>
+</tr>
+<tr class="note-row"><td></td><td colspan="9" class="note">MERN fit (React/Node/Mongo). Caveat: Eminenture is more BPO/data-services than product; compensation reported low.</td></tr></tbody></table></div>
+
+<h2 class="yellow">🟡 Review — promising but verify</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason to review</th><th></th></tr></thead>
+<tbody><tr><td>1</td><td><span class="score s-mid">62</span></td><td>100</td>
+<td><strong>Microsoft</strong></td><td>Software Engineer</td><td>Noida</td>
+<td>World-class employer and salary, but highly competitive and the listing&#x27;s level isn&#x27;t verified for 1.5 yrs. Worth a stretch application.</td>
+<td><a class="btn open ghost" href="https://www.linkedin.com/jobs/search/?keywords=Microsoft%20Software%20Engineer&amp;location=Noida%2C%20Uttar%20Pradesh%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open</a></td></tr>
+<tr><td>2</td><td><span class="score s-mid">62</span></td><td>55</td>
+<td><strong>MantraCare</strong></td><td>Full Stack Developer (MERN)</td><td>West Delhi</td>
+<td>MERN fit, but limited independent legitimacy signal (sparse reviews). Verify company footprint before applying.</td>
+<td><a class="btn open ghost" href="https://www.linkedin.com/jobs/search/?keywords=MantraCare%20Full%20Stack%20Developer%20MERN&amp;location=Delhi%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open</a></td></tr>
+<tr><td>3</td><td><span class="score s-mid">60</span></td><td>100</td>
+<td><strong>Google</strong></td><td>Software Engineer (Google Nest)</td><td>Gurugram</td>
+<td>Dream-tier role; competitive and level unverified. Stretch application only.</td>
+<td><a class="btn open ghost" href="https://www.linkedin.com/jobs/search/?keywords=Google%20Software%20Engineer&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open</a></td></tr>
+<tr><td>4</td><td><span class="score s-mid">58</span></td><td>50</td>
+<td><strong>Vijayi WFH Technologies</strong></td><td>Java Spring Boot Developer (titled &#x27;Senior&#x27;, ~1 yr)</td><td>Gurgaon / WFH</td>
+<td>Listed as &#x27;Senior&#x27; but asks only ~1 yr — title/level is ambiguous. Small, lightly-reviewed company; verify legitimacy and actual seniority.</td>
+<td><a class="btn open ghost" href="https://www.linkedin.com/jobs/search/?keywords=Vijayi%20Java%20Spring%20Boot%20Developer&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open</a></td></tr>
+<tr><td>5</td><td><span class="score s-mid">55</span></td><td>80</td>
+<td><strong>ParallelDots</strong></td><td>Machine Learning Engineer (Fresher)</td><td>Remote (India)</td>
+<td>Genuine fresher ML role, but Bhumi&#x27;s resume lists Java/C++/JS (no Python or ML frameworks), so the ML skill match is weak; salary at/below floor.</td>
+<td><a class="btn open ghost" href="https://www.linkedin.com/jobs/search/?keywords=ParallelDots%20Machine%20Learning%20Engineer&amp;location=India&amp;f_TPR=r604800&amp;f_E=1%2C2" target="_blank" rel="noopener">Open</a></td></tr></tbody></table></div>
+
+<h2 class="red">⛔ Skipped</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Skip reason</th></tr></thead>
+<tbody><tr><td>1</td><td><strong>Green Apple Solutions</strong></td><td>Associate Software Engineer</td>
+<td>Delhi</td><td><span class="s-skip">Salary: listed ₹3-5 LPA, below Bhumi&#x27;s ₹5.5 LPA floor.</span></td></tr>
+<tr><td>2</td><td><strong>Transact Bridge</strong></td><td>Sr. Node.js Developer</td>
+<td>Remote / NCR</td><td><span class="s-skip">Experience: requires 4-7 years (Bhumi has 1.5).</span></td></tr>
+<tr><td>3</td><td><strong>J&amp;F</strong></td><td>Senior Backend Engineer</td>
+<td>Remote / NCR</td><td><span class="s-skip">Experience: requires 4-10 years.</span></td></tr>
+<tr><td>4</td><td><strong>Meetri Infotech</strong></td><td>Lead Full Stack Engineer (MERN + Python)</td>
+<td>Noida</td><td><span class="s-skip">Experience: Lead role, senior-level (Bhumi is entry/junior).</span></td></tr>
+<tr><td>5</td><td><strong>Serigor Inc</strong></td><td>AI-Python Developer</td>
+<td>Delhi (Janakpuri)</td><td><span class="s-fraud">Fraud/high-risk (trust 35): multiple Glassdoor reviews allege &#x27;boiler room&#x27;/scam operation, fake Glassdoor reviews, and fake LinkedIn profiles; suspiciously inflated 4.5 rating.</span></td></tr>
+<tr><td>6</td><td><strong>RecruitBots AI</strong></td><td>GenAI Developer</td>
+<td>Remote (India)</td><td><span class="s-fraud">Fraud/high-risk (trust 38): Scam-Detector trust 45.9/100 for recruitbots.ai, flagged Doubtful/Medium-Risk with phishing/spam signals; thin company footprint.</span></td></tr></tbody></table></div>
+
+<h2>⭐ Top 5 recommendations</h2>
+<div class="rec"><div class="recnum">1</div><div>
+<div class="rectitle"><strong>Airtel (Bharti Airtel)</strong> — SDE-1 (Software Development Engineer) <span class="recmeta">(Gurugram · match 85 · trust 98 · 10-16 LPA (est))</span></div>
+<p>The single best fit today. Airtel&#x27;s SDE-1 track is built for engineers at Bhumi&#x27;s stage, the Java/backend + DSA profile matches exactly, and a product company at this scale clears her salary target with room to spare. Apply with the tailored cover letter.</p>
+<a class="btn open small" href="https://www.linkedin.com/jobs/search/?keywords=Airtel%20SDE-1%20Software%20Development%20Engineer&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open on LinkedIn</a></div></div><div class="rec"><div class="recnum">2</div><div>
+<div class="rectitle"><strong>Coforge</strong> — Java Microservices Developer (Spring Boot) <span class="recmeta">(Delhi NCR · match 82 · trust 95 · 6-10 LPA (est))</span></div>
+<p>Her resume could have been written for this role — distributed payment gateway with 30 REST APIs across Spring Boot microservices maps 1:1 to &#x27;Java Microservices Developer&#x27;. Coforge is a listed, rock-solid employer. Only check the required experience band before applying.</p>
+<a class="btn open small" href="https://www.linkedin.com/jobs/search/?keywords=Coforge%20Java%20Microservices%20Spring%20Boot%20Developer&amp;location=Delhi%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open on LinkedIn</a></div></div><div class="rec"><div class="recnum">3</div><div>
+<div class="rectitle"><strong>Bounteous x Accolite</strong> — Java Spring Boot Developer <span class="recmeta">(Gurgaon · match 78 · trust 85 · 7-12 LPA (est))</span></div>
+<p>A large global digital-engineering firm with the healthiest salary band in today&#x27;s list (7-12 LPA) and a clean Java/Spring Boot match. High trust; just note compensation satisfaction has slipped on Glassdoor, so negotiate.</p>
+<a class="btn open small" href="https://www.linkedin.com/jobs/search/?keywords=Bounteous%20Java%20Spring%20Boot%20Developer&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open on LinkedIn</a></div></div><div class="rec"><div class="recnum">4</div><div>
+<div class="rectitle"><strong>MetaDesign Solutions</strong> — Java Developer (Spring Boot) <span class="recmeta">(Gurgaon · match 82 · trust 78 · 5-8 LPA (est))</span></div>
+<p>An established Gurgaon software house where the Spring Boot/REST/MySQL stack and 1.5-yr experience line up neatly. Solid Glassdoor standing and an in-range salary make this a realistic, high-probability application.</p>
+<a class="btn open small" href="https://www.linkedin.com/jobs/search/?keywords=MetaDesign%20Solutions%20Java%20Developer%20Spring%20Boot&amp;location=Gurugram%2C%20Haryana%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open on LinkedIn</a></div></div><div class="rec"><div class="recnum">5</div><div>
+<div class="rectitle"><strong>CodeFire Technologies</strong> — Java / Backend Developer (also Junior GenAI roles) <span class="recmeta">(Noida · match 78 · trust 80 · 5-7 LPA (est))</span></div>
+<p>14-year-old Noida software firm with strong Glassdoor numbers (3.9, 84% CEO approval). Backend Java fit plus a Junior GenAI opening that rewards Bhumi&#x27;s AI-alerts project and GenAI research paper — two angles into one trusted company.</p>
+<a class="btn open small" href="https://www.linkedin.com/jobs/search/?keywords=CodeFire%20Technologies%20Java%20Backend%20Developer&amp;location=Noida%2C%20Uttar%20Pradesh%2C%20India&amp;f_TPR=r604800&amp;f_E=2%2C3" target="_blank" rel="noopener">Open on LinkedIn</a></div></div>
+
+<h2>📈 Qualified jobs per run</h2>
+<div class="trend"><div class="tcol"><div class="tbarwrap"><div class="tbar" style="height:40px" title="1 qualified of 17 found"></div></div><div class="tnum">1</div><div class="tdate">2026-08-05</div></div><div class="tcol"><div class="tbarwrap"><div class="tbar" style="height:180px" title="8 qualified of 19 found"></div></div><div class="tnum">8</div><div class="tdate">2026-10-05</div></div></div>
+<div class="hint" style="text-align:left">Each bar = jobs marked “ready to apply” on that run date (from applications_log.json). More run dates will fill in as the routine runs daily.</div>
+
+<h2>✉️ Cover letters (7)</h2>
+<div class="clgrid"><div class="clcard">
+<div class="clhead"><div><strong>Airtel (Bharti Airtel)</strong> — SDE-1 (Software Development Engineer)<div class="muted small">2026-10-05_airtel_bharti_airtel_sde1.txt</div></div>
+<button class="btn copy" onclick="copyCover('airtel-sde1-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1 role at Airtel, where backend reliability directly shapes the experience of hundreds of millions of users. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and at Paytm I built microservices powering the QR-code lifecycle for real-time transaction notifications — improving service reliability and performance by 67%. My core stack (Java, Spring Boot, microservices, REST APIs, MySQL) maps directly to high-throughput backend engineering, and my 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the problem-solving depth an SDE-1 needs.
+
+I&#x27;m an immediate joiner (0-day notice) who ships production-ready code and learns fast. I&#x27;d welcome the chance to contribute to Airtel&#x27;s engineering teams from day one.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clhead"><div><strong>Coforge</strong> — Java Microservices Developer (Spring Boot)<div class="muted small">2026-10-05_coforge_java_microservices_developer.txt</div></div>
+<button class="btn copy" onclick="copyCover('coforge-java-micro-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Java Microservices Developer (Spring Boot) position at Coforge. I architected a production-ready distributed payment gateway with 30 REST APIs across four microservices (Order, Payment, Merchant, Vault), applying system-design principles for scalability and fault tolerance — exactly the kind of distributed Java/Spring Boot work this role centers on. At Primathon and Paytm I&#x27;ve shipped microservices in production, integrating Kafka, Redis, and AWS (S3, Lambda, Timestream) for real-time event handling.
+
+My foundation in Java, Spring Boot, REST APIs, and SQL, plus an AWS Developer – Associate certification, lets me contribute quickly to Coforge&#x27;s enterprise delivery. As an immediate joiner, I&#x27;m ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clhead"><div><strong>MetaDesign Solutions</strong> — Java Developer (Spring Boot)<div class="muted small">2026-10-05_metadesign_solutions_java_developer.txt</div></div>
+<button class="btn copy" onclick="copyCover('metadesign-java-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Java Developer (Spring Boot) role at MetaDesign Solutions. My day-to-day work is backend Java: at Primathon I build admin APIs and automated backend workflows that cut manual operational effort by 70%, and earlier I optimized 30+ REST API endpoints and containerized order/payment microservices with Docker at CodeAlpha. Spring Boot, REST APIs, MySQL, and Git-based CI/CD are the tools I use to ship reliable services.
+
+I pair this with strong fundamentals — 5-Star Gold Java on HackerRank and 250+ DSA problems solved — so I can own features end to end. I&#x27;m an immediate joiner and a quick learner eager to add value to your engineering team.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clhead"><div><strong>Corpseed ITES</strong> — Java Backend Developer (Spring Boot &amp; Microservices)<div class="muted small">2026-10-05_corpseed_ites_java_backend_developer.txt</div></div>
+<button class="btn copy" onclick="copyCover('corpseed-java-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;m applying for the Java Backend Developer (Spring Boot &amp; Microservices) position at Corpseed ITES. Backend microservices are my core: I built order and payment microservices with REST APIs and MySQL at CodeAlpha, developed QR-lifecycle microservices at Paytm, and now engineer backend automation across seven merchant systems at Primathon. Spring Boot, REST APIs, MySQL/MongoDB, and Redis are part of my daily toolkit.
+
+I deliver production-ready, well-tested code (JUnit, Mockito, Postman) and enjoy turning manual processes into reliable automated workflows. As a 0-day-notice immediate joiner, I can ramp up on your backend systems quickly and start contributing from week one.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clhead"><div><strong>SpeckyFox Technologies</strong> — Java Developer (Spring Boot)<div class="muted small">2026-10-05_speckyfox_technologies_java_developer.txt</div></div>
+<button class="btn copy" onclick="copyCover('speckyfox-java-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;m interested in the Java Developer (Spring Boot) role at SpeckyFox Technologies. I&#x27;ve spent the last 1.5+ years shipping backend services in Java and Spring Boot — building admin APIs and meta-event processing at Primathon, microservices at Paytm, and Dockerized REST services at CodeAlpha. I&#x27;m comfortable across the stack SpeckyFox works in: Spring Boot, REST APIs, MySQL, MongoDB, and Git/CI-CD.
+
+With a 9.3 CGPA, an AWS Developer – Associate certification, and 250+ DSA problems solved, I bring both engineering discipline and speed. I&#x27;m an immediate joiner who learns new codebases fast and would be glad to contribute to SpeckyFox&#x27;s client projects right away.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clhead"><div><strong>Bounteous x Accolite</strong> — Java Spring Boot Developer<div class="muted small">2026-10-05_bounteous_x_accolite_java_spring_boot_developer.txt</div></div>
+<button class="btn copy" onclick="copyCover('bounteous-java-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Java Spring Boot Developer role at Bounteous. Building scalable, well-architected backend services is what I do: my distributed payment gateway project spans 30 REST APIs across four Spring Boot microservices with fault-tolerance baked in, and in production at Primathon and Paytm I&#x27;ve integrated Kafka, Redis, and AWS into real-time backend pipelines. Java, Spring Boot, REST APIs, and SQL are my strongest skills.
+
+I value clean, tested, maintainable code (JUnit, Mockito) and enjoy collaborating on client-facing digital products. As an immediate joiner, I&#x27;m ready to bring energy and quick ramp-up to Bounteous&#x27;s engineering teams.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+<div class="clhead"><div><strong>CodeFire Technologies</strong> — Java / Backend Developer (also Junior GenAI roles)<div class="muted small">2026-10-05_codefire_technologies_java__backend_developer.txt</div></div>
+<button class="btn copy" onclick="copyCover('codefire-java-2026-10-05')">Copy</button></div>
+<pre class="clbody">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Java / Backend Developer opening at CodeFire Technologies. Across Primathon, Paytm, and CodeAlpha I&#x27;ve built and optimized backend microservices in Java and Spring Boot — REST APIs, MySQL/MongoDB, Docker, and CI/CD pipelines — improving reliability and response times along the way. I also bring hands-on AI exposure: my payment-gateway project integrates AI-driven daily alerts for transaction insights, and my research paper covered generative-AI applications, so I can contribute to your GenAI work too.
+
+I&#x27;m an immediate joiner with strong DSA fundamentals (5-Star Gold Java, 250+ problems) and an AWS Developer – Associate certification. I&#x27;d love to help CodeFire ship robust backend and AI-enabled features.
+
+Best regards,
+Bhumi Bhatt</pre></div></div>
+
+</div>
+<footer>Generated 2026-10-05 · 2 fraud companies blocked (Serigor Inc, RecruitBots AI) · scores are heuristic estimates — verify each live posting before applying.</footer>
+<div id="toast">Copied to clipboard ✓</div>
+<div id="cl-airtel-sde1-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE-1 role at Airtel, where backend reliability directly shapes the experience of hundreds of millions of users. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and at Paytm I built microservices powering the QR-code lifecycle for real-time transaction notifications — improving service reliability and performance by 67%. My core stack (Java, Spring Boot, microservices, REST APIs, MySQL) maps directly to high-throughput backend engineering, and my 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the problem-solving depth an SDE-1 needs.
+
+I&#x27;m an immediate joiner (0-day notice) who ships production-ready code and learns fast. I&#x27;d welcome the chance to contribute to Airtel&#x27;s engineering teams from day one.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl-coforge-java-micro-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Java Microservices Developer (Spring Boot) position at Coforge. I architected a production-ready distributed payment gateway with 30 REST APIs across four microservices (Order, Payment, Merchant, Vault), applying system-design principles for scalability and fault tolerance — exactly the kind of distributed Java/Spring Boot work this role centers on. At Primathon and Paytm I&#x27;ve shipped microservices in production, integrating Kafka, Redis, and AWS (S3, Lambda, Timestream) for real-time event handling.
+
+My foundation in Java, Spring Boot, REST APIs, and SQL, plus an AWS Developer – Associate certification, lets me contribute quickly to Coforge&#x27;s enterprise delivery. As an immediate joiner, I&#x27;m ready to start contributing right away.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl-metadesign-java-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Java Developer (Spring Boot) role at MetaDesign Solutions. My day-to-day work is backend Java: at Primathon I build admin APIs and automated backend workflows that cut manual operational effort by 70%, and earlier I optimized 30+ REST API endpoints and containerized order/payment microservices with Docker at CodeAlpha. Spring Boot, REST APIs, MySQL, and Git-based CI/CD are the tools I use to ship reliable services.
+
+I pair this with strong fundamentals — 5-Star Gold Java on HackerRank and 250+ DSA problems solved — so I can own features end to end. I&#x27;m an immediate joiner and a quick learner eager to add value to your engineering team.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl-corpseed-java-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;m applying for the Java Backend Developer (Spring Boot &amp; Microservices) position at Corpseed ITES. Backend microservices are my core: I built order and payment microservices with REST APIs and MySQL at CodeAlpha, developed QR-lifecycle microservices at Paytm, and now engineer backend automation across seven merchant systems at Primathon. Spring Boot, REST APIs, MySQL/MongoDB, and Redis are part of my daily toolkit.
+
+I deliver production-ready, well-tested code (JUnit, Mockito, Postman) and enjoy turning manual processes into reliable automated workflows. As a 0-day-notice immediate joiner, I can ramp up on your backend systems quickly and start contributing from week one.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl-speckyfox-java-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;m interested in the Java Developer (Spring Boot) role at SpeckyFox Technologies. I&#x27;ve spent the last 1.5+ years shipping backend services in Java and Spring Boot — building admin APIs and meta-event processing at Primathon, microservices at Paytm, and Dockerized REST services at CodeAlpha. I&#x27;m comfortable across the stack SpeckyFox works in: Spring Boot, REST APIs, MySQL, MongoDB, and Git/CI-CD.
+
+With a 9.3 CGPA, an AWS Developer – Associate certification, and 250+ DSA problems solved, I bring both engineering discipline and speed. I&#x27;m an immediate joiner who learns new codebases fast and would be glad to contribute to SpeckyFox&#x27;s client projects right away.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl-bounteous-java-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Java Spring Boot Developer role at Bounteous. Building scalable, well-architected backend services is what I do: my distributed payment gateway project spans 30 REST APIs across four Spring Boot microservices with fault-tolerance baked in, and in production at Primathon and Paytm I&#x27;ve integrated Kafka, Redis, and AWS into real-time backend pipelines. Java, Spring Boot, REST APIs, and SQL are my strongest skills.
+
+I value clean, tested, maintainable code (JUnit, Mockito) and enjoy collaborating on client-facing digital products. As an immediate joiner, I&#x27;m ready to bring energy and quick ramp-up to Bounteous&#x27;s engineering teams.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl-codefire-java-2026-10-05" style="display:none">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Java / Backend Developer opening at CodeFire Technologies. Across Primathon, Paytm, and CodeAlpha I&#x27;ve built and optimized backend microservices in Java and Spring Boot — REST APIs, MySQL/MongoDB, Docker, and CI/CD pipelines — improving reliability and response times along the way. I also bring hands-on AI exposure: my payment-gateway project integrates AI-driven daily alerts for transaction insights, and my research paper covered generative-AI applications, so I can contribute to your GenAI work too.
+
+I&#x27;m an immediate joiner with strong DSA fundamentals (5-Star Gold Java, 250+ problems) and an AWS Developer – Associate certification. I&#x27;d love to help CodeFire ship robust backend and AI-enabled features.
+
+Best regards,
+Bhumi Bhatt</div>
+<script>
+var QUALIFIED_URLS = ["https://www.linkedin.com/jobs/search/?keywords=Airtel%20SDE-1%20Software%20Development%20Engineer&location=Gurugram%2C%20Haryana%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=Coforge%20Java%20Microservices%20Spring%20Boot%20Developer&location=Delhi%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=MetaDesign%20Solutions%20Java%20Developer%20Spring%20Boot&location=Gurugram%2C%20Haryana%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=Corpseed%20Java%20Backend%20Developer%20Spring%20Boot&location=Noida%2C%20Uttar%20Pradesh%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=SpeckyFox%20Technologies%20Java%20Developer%20Spring%20Boot&location=Noida%2C%20Uttar%20Pradesh%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=Bounteous%20Java%20Spring%20Boot%20Developer&location=Gurugram%2C%20Haryana%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=CodeFire%20Technologies%20Java%20Backend%20Developer&location=Noida%2C%20Uttar%20Pradesh%2C%20India&f_TPR=r604800&f_E=2%2C3", "https://www.linkedin.com/jobs/search/?keywords=Eminenture%20Full%20Stack%20Developer%20MERN&location=Delhi%2C%20India&f_TPR=r604800&f_E=2%2C3"];
+function openAll(){
+  if(!QUALIFIED_URLS.length){return;}
+  QUALIFIED_URLS.forEach(function(u,i){ setTimeout(function(){ window.open(u,'_blank','noopener'); }, i*350); });
+}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1600);}
+function copyCover(id){
+  var el=document.getElementById('cl-'+id); if(!el){return;}
+  var txt=el.textContent;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){toast('Cover letter copied ✓');},function(){fallback(txt);});
+  } else { fallback(txt); }
+}
+function fallback(txt){
+  var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.focus();ta.select();
+  try{document.execCommand('copy');toast('Cover letter copied ✓');}catch(e){toast('Press Ctrl/Cmd+C to copy');}
+  document.body.removeChild(ta);
+}
+</script>
+</body></html>

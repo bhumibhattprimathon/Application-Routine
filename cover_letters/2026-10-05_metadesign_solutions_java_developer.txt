@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Java Developer (Spring Boot) role at MetaDesign Solutions. My day-to-day work is backend Java: at Primathon I build admin APIs and automated backend workflows that cut manual operational effort by 70%, and earlier I optimized 30+ REST API endpoints and containerized order/payment microservices with Docker at CodeAlpha. Spring Boot, REST APIs, MySQL, and Git-based CI/CD are the tools I use to ship reliable services.
+
+I pair this with strong fundamentals — 5-Star Gold Java on HackerRank and 250+ DSA problems solved — so I can own features end to end. I'm an immediate joiner and a quick learner eager to add value to your engineering team.
+
+Best regards,
+Bhumi Bhatt

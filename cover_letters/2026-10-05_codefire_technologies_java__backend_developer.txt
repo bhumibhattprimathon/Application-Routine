@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Java / Backend Developer opening at CodeFire Technologies. Across Primathon, Paytm, and CodeAlpha I've built and optimized backend microservices in Java and Spring Boot — REST APIs, MySQL/MongoDB, Docker, and CI/CD pipelines — improving reliability and response times along the way. I also bring hands-on AI exposure: my payment-gateway project integrates AI-driven daily alerts for transaction insights, and my research paper covered generative-AI applications, so I can contribute to your GenAI work too.
+
+I'm an immediate joiner with strong DSA fundamentals (5-Star Gold Java, 250+ problems) and an AWS Developer – Associate certification. I'd love to help CodeFire ship robust backend and AI-enabled features.
+
+Best regards,
+Bhumi Bhatt

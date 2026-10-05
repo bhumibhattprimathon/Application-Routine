@@ -1,15 +1,16 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-05",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
+  "data_source": "WebSearch discovery + web fraud research. JSearch /search endpoint returned 404 (RapidAPI plan no longer exposes it); /estimated-salary and /job-details still work. Links are LinkedIn filtered-search deep-links, not individual permalinks.",
+  "resume_source": "downloaded from Google Drive link in prompt to resumes/resume_master.pdf",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel",
+  "jobs_found": 19,
+  "jobs_qualified": 8,
+  "jobs_review": 5,
+  "jobs_skipped": 6,
   "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "avg_match_qualified": 79.1,
+  "avg_salary_qualified_lpa": 7.4,
+  "notes": "Fresh container: re-fetched resume from Drive. JSearch /search down, so used WebSearch to surface real hiring companies + Glassdoor/AmbitionBox fraud checks. 8 qualified backend/full-stack matches, 2 fraud companies blocked (Serigor Inc, RecruitBots AI). Links are filtered LinkedIn searches — Bhumi should click through to confirm the live posting and its experience band."
 }

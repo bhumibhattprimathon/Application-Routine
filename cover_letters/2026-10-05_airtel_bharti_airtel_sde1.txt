@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the SDE-1 role at Airtel, where backend reliability directly shapes the experience of hundreds of millions of users. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and at Paytm I built microservices powering the QR-code lifecycle for real-time transaction notifications — improving service reliability and performance by 67%. My core stack (Java, Spring Boot, microservices, REST APIs, MySQL) maps directly to high-throughput backend engineering, and my 5-Star Gold Java rating on HackerRank (250+ DSA problems) reflects the problem-solving depth an SDE-1 needs.
+
+I'm an immediate joiner (0-day notice) who ships production-ready code and learns fast. I'd welcome the chance to contribute to Airtel's engineering teams from day one.
+
+Best regards,
+Bhumi Bhatt
