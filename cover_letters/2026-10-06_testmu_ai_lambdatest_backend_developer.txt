@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer role at TestMu AI (LambdaTest) in Noida, where building reliable, high-scale testing infrastructure maps directly to the backend work I do every day.
+
+Over the past 1.5 years I have designed and shipped production microservices and REST APIs in Java and Spring Boot — including admin and syncing APIs across seven merchant systems at Primathon and the QR-code lifecycle microservices I optimized at Paytm, improving service reliability by 67%. I am comfortable across the stack LambdaTest runs on: Node.js/Express, MySQL and MongoDB, Redis and Kafka for event handling, and AWS (EC2, S3, Lambda) with Docker and CI/CD pipelines. My distributed payment gateway project (30 REST APIs across four services) reflects the system-design and fault-tolerance thinking a platform of your scale demands.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away and ramp quickly on new services.
+
+Best regards,
+Bhumi Bhatt

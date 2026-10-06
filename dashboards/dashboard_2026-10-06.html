@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-06</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#f1f5f9;}
+  header{background:var(--ink);color:#fff;padding:28px 20px;}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px;}
+  header .sub{color:#94a3b8;font-size:14px;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+  .card .n{font-size:30px;font-weight:700;}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+  .card.q .n{color:var(--green);}.card.r .n{color:var(--yellow);}.card.s .n{color:var(--red);}
+  .banner{background:#fffbeb;border:1px solid #fde68a;border-left:5px solid var(--yellow);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:14px;line-height:1.5;}
+  .banner b{color:#92400e;}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:0;border-radius:12px;padding:18px;font-size:18px;font-weight:700;cursor:pointer;margin:18px 0;}
+  .openall:hover{filter:brightness(.95);}
+  .openall:disabled{background:#cbd5e1;cursor:not-allowed;}
+  h2{margin:30px 0 10px;font-size:18px;border-bottom:2px solid var(--line);padding-bottom:6px;}
+  h2.green{color:var(--green);} h2.yellow{color:#b45309;} h2.red{color:var(--red);}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px;}
+  th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+  tr:last-child td{border-bottom:0;}
+  .score{font-weight:700;border-radius:20px;padding:2px 9px;color:#fff;display:inline-block;font-size:12px;}
+  .sg{background:var(--green);}.sy{background:var(--yellow);}.sr{background:var(--red);}
+  .btn{display:inline-block;padding:6px 10px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-size:12px;cursor:pointer;margin:2px 2px 0 0;}
+  .btn.p{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .rec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0;font-size:14px;line-height:1.55;}
+  .rec h3{margin:0 0 4px;font-size:15px;}
+  .trend{display:flex;align-items:flex-end;gap:24px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;height:180px;}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:0 0 70px;height:100%;}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0;}
+  .bar .cap{font-size:12px;color:var(--muted);margin-top:6px;text-align:center;}
+  .bar .val{font-size:13px;font-weight:700;margin-bottom:4px;}
+  .cl{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin:12px 0;}
+  .cl h3{margin:0 0 8px;font-size:15px;}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.55;margin:0 0 10px;color:#1e293b;}
+  .muted{color:var(--muted);font-size:12px;}
+  .flag{color:#b45309;font-weight:600;}
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:40px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-06</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner · Target 5.5–12 LPA</div>
+</header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">7</div><div class="l">Jobs Found</div></div>
+    <div class="card q"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card r"><div class="n">3</div><div class="l">Review</div></div>
+    <div class="card s"><div class="n">3</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud</div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="n">88</div><div class="l">Avg Match (Qualified)</div></div>
+    <div class="card"><div class="n">10–25</div><div class="l">Salary Est. LPA (Qualified)</div></div>
+  </div>
+
+  <div class="banner">
+    <b>⚠ Data-source notice — action needed.</b> The <b>JSearch (RapidAPI) subscription that powers the daily fresh-posting feed has lapsed</b>
+    (the API now returns "not subscribed"). Today's scan fell back to WebSearch + the Cutshort job board, which return
+    <b>currently-listed openings with their real post dates — NOT jobs guaranteed to be posted in the last 24 hours.</b>
+    Most matches found were months old. <b>Renew the JSearch subscription on RapidAPI to restore same-day LinkedIn postings.</b>
+    Every posting below shows its actual listed date; verify a role is still live before applying.
+  </div>
+
+  <button id="openAllBtn" class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB</button>
+
+  <h2 class="green">✅ Qualified — Apply (verify live first)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Listed</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="score sg">88</span></td><td>90</td>
+        <td>TestMu AI (LambdaTest)</td><td>Backend Developer</td><td>Noida</td>
+        <td>10–25 LPA</td><td>backend</td><td class="flag">Apr 2026 ⚠</td>
+        <td>External (Cutshort)</td>
+        <td>
+          <a class="btn p" href="https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn" onclick="copyCL('cl-lambdatest')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="cl-lambdatest" style="display:none">Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer role at TestMu AI (LambdaTest) in Noida, where building reliable, high-scale testing infrastructure maps directly to the backend work I do every day.
+
+Over the past 1.5 years I have designed and shipped production microservices and REST APIs in Java and Spring Boot — including admin and syncing APIs across seven merchant systems at Primathon and the QR-code lifecycle microservices I optimized at Paytm, improving service reliability by 67%. I am comfortable across the stack LambdaTest runs on: Node.js/Express, MySQL and MongoDB, Redis and Kafka for event handling, and AWS (EC2, S3, Lambda) with Docker and CI/CD pipelines. My distributed payment gateway project (30 REST APIs across four services) reflects the system-design and fault-tolerance thinking a platform of your scale demands.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away and ramp quickly on new services.
+
+Best regards,
+Bhumi Bhatt</div>
+
+  <h2 class="yellow">🟡 Review — Promising but verify</h2>
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Listed</th><th>Reason for Review</th><th>Open</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="score sy">74</span></td><td>66</td>
+        <td>Cypherock</td><td>Full Stack Developer</td><td class="flag">Feb 2022 ⚠</td>
+        <td>Legit YC/Consensys-backed hardware-wallet startup (Delhi, audited, open-sourced); 1–3 yrs React/Node fit. But small team (15–22), crypto domain, and a very old listing — likely closed.</td>
+        <td><a class="btn" href="https://cutshort.io/job/Full-Stack-Developer-Delhi-Gurugram-Noida-Ghaziabad-Cypherock-0jxginG6" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="score sy">70</span></td><td>48</td>
+        <td>Zentrix nexus</td><td>Java Developer (0–2 yrs)</td><td class="flag">May 2025 ⚠</td>
+        <td>Perfect experience fit, but LOW TRUST: thin footprint, generic name, no own reviews, Cutshort-only. Salary (4–7 LPA) straddles the floor. Verify the employer.</td>
+        <td><a class="btn" href="https://cutshort.io/job/Java-Developer-Chennai-Bengaluru-Bangalore-Mumbai-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Pune-Hyderabad-Zentrix-nexus-ErbJchjq" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="score sy">62</span></td><td>60</td>
+        <td>iDreamCareer</td><td>Fullstack Developer — MERN</td><td class="flag">Jan 2022 ⚠</td>
+        <td>MERN fit and 1–8 yrs range includes Bhumi; EdTech org. Listing is very old — almost certainly filled; shown for completeness.</td>
+        <td><a class="btn" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="red">🔴 Skipped</h2>
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Lalitech</td><td>Full Stack Engineer (0–2 yrs)</td><td>Salary: 3.5–4.5 LPA — below the 5.5 LPA floor and under her current 4 LPA.</td></tr>
+      <tr><td>2</td><td>NAM Info Pvt Ltd</td><td>Backend Java Developer</td><td>Experience: requires 3–6 yrs; beyond 1.5.</td></tr>
+      <tr><td>3</td><td>Deqode</td><td>Java + Angular Developer</td><td>Experience: requires 5–12 yrs; too senior.</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">Also seen but not logged individually: a large volume of 5–15 yr senior Java/.NET/ServiceNow/Golang/PHP roles on the same board (experience_skip), and WebSearch leads below the salary floor (Giri Consultancy ₹25–40k/mo, Sun Sea ₹2–3L, CodeFire ₹2.4–3.5L).</p>
+
+  <h2>⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h3>1. TestMu AI (LambdaTest) — Backend Developer (Noida)</h3>
+    The single strongest real match today. LambdaTest is an established, well-funded SaaS unicorn (201–500 employees, ~$107M raised, 4.1★ on Glassdoor across 514 reviews), so trust is high. The role wants backend/REST engineering at 1–3 yrs — squarely Bhumi's 1.5 yrs of Java/Spring Boot + Node microservices work, and the 10–25 LPA band is well inside target. Caveat: the listing dates to Apr 2026, so confirm it is still open (or apply via the LambdaTest careers page directly) before counting on it.
+  </div>
+  <div class="rec" style="border-left-color:var(--yellow)">
+    <h3>2. Cypherock — Full Stack Developer (Delhi NCR / Remote)</h3>
+    A genuine venture-backed product company (hardware wallets; Consensys/Gnosis investors, audited, open-sourced) seeking a 1–3 yr full-stack dev at 6–24 LPA. Bhumi's React + Node + backend profile fits well. Weighted to "review" because the team is small, the domain is crypto, and the listing is from 2022 — treat as a company to approach directly rather than a live posting.
+  </div>
+  <div class="rec" style="border-left-color:var(--yellow)">
+    <h3>3. Zentrix nexus — Java Developer (0–2 yrs)</h3>
+    The only posting whose experience bar (0–2 yrs) matches exactly, and it is Java — Bhumi's core. Held at "review" purely on trust: the company has almost no verifiable public footprint. Worth a 5-minute due-diligence check (registered entity, real office, Glassdoor) before applying; salary (4–7 LPA) only partly clears the floor.
+  </div>
+  <div class="rec" style="border-left-color:var(--muted)">
+    <h3>Meta-recommendation: restore the data pipeline</h3>
+    The highest-leverage action today is non-job: renew the JSearch (RapidAPI) subscription. With it back, the morning scan returns genuinely same-day Delhi-NCR postings at the entry level, which is what actually lets Bhumi apply within minutes of a job going live.
+  </div>
+
+  <h2>📈 Weekly / Run Trend — Qualified per run</h2>
+  <div class="trend">
+    <div class="bar"><div class="val">1</div><div class="fill" style="height:60%"></div><div class="cap">2026-08-05<br>JSearch</div></div>
+    <div class="bar"><div class="val">1</div><div class="fill" style="height:60%"></div><div class="cap">2026-10-06<br>WebSearch*</div></div>
+  </div>
+  <p class="muted">* 2026-10-06 ran on a degraded fallback source (JSearch lapsed). Only two prior dashboards exist, so the trend is sparse.</p>
+
+  <h2>✉ Cover Letters</h2>
+  <div class="cl">
+    <h3>TestMu AI (LambdaTest) — Backend Developer</h3>
+    <pre>Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer role at TestMu AI (LambdaTest) in Noida, where building reliable, high-scale testing infrastructure maps directly to the backend work I do every day.
+
+Over the past 1.5 years I have designed and shipped production microservices and REST APIs in Java and Spring Boot — including admin and syncing APIs across seven merchant systems at Primathon and the QR-code lifecycle microservices I optimized at Paytm, improving service reliability by 67%. I am comfortable across the stack LambdaTest runs on: Node.js/Express, MySQL and MongoDB, Redis and Kafka for event handling, and AWS (EC2, S3, Lambda) with Docker and CI/CD pipelines. My distributed payment gateway project (30 REST APIs across four services) reflects the system-design and fault-tolerance thinking a platform of your scale demands.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your backend team right away and ramp quickly on new services.
+
+Best regards,
+Bhumi Bhatt</pre>
+    <button class="btn p" onclick="copyCL('cl-lambdatest')">COPY</button>
+  </div>
+
+  <footer>Generated 2026-10-06 · Source: WebSearch + Cutshort (fallback) · JSearch feed offline · Not financial/career advice — verify every posting independently.</footer>
+</div>
+
+<script>
+  var qualifiedUrls = [
+    "https://cutshort.io/job/Backend-Developer-Noida-TestMu-AI-Formely-LambdaTest--qZwFyw41"
+  ];
+  function openAll(){
+    if(!qualifiedUrls.length){ alert("No qualified jobs to open today."); return; }
+    qualifiedUrls.forEach(function(u){ window.open(u, "_blank", "noopener"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el){ return; }
+    var text = el.innerText || el.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash("Cover letter copied ✓"); })
+        .catch(function(){ legacyCopy(text); });
+    } else { legacyCopy(text); }
+  }
+  function legacyCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash("Cover letter copied ✓"); }
+    catch(e){ alert("Copy failed — select the text manually."); }
+    document.body.removeChild(ta);
+  }
+  function flash(msg){
+    var b = document.getElementById("openAllBtn"); if(!b) return;
+    var old = b.textContent; b.textContent = msg;
+    setTimeout(function(){ b.textContent = old; }, 1400);
+  }
+</script>
+</body>
+</html>

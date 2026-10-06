@@ -1,15 +1,16 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-06",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "status": "completed_degraded",
+  "data_source": "WebSearch + Cutshort board scrape (FALLBACK). Primary JSearch (RapidAPI) subscription LAPSED — /search returns 404 'not subscribed'.",
+  "resume_source": "repo resumes/resume_master.pdf (symlinked at ~/linkedin-jobs)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel",
+  "jobs_found": 7,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 3,
+  "jobs_skipped": 3,
+  "fraud_detected": 0,
+  "avg_match_qualified": 88.0,
+  "blocker": "JSearch/RapidAPI subscription expired — cannot fetch jobs posted in last 24h. Renew at rapidapi.com (jsearch) to restore the daily fresh-posting feed.",
+  "notes": "WebSearch returns only aggregator/category pages; Cutshort board gave real postings but nearly all were months old or senior (5-15 yrs). No fabricated 'posted today' jobs. Top real lead: TestMu AI (LambdaTest) Backend Developer (listed Apr 2026 — verify live). Full-stack leads (Cypherock, Zentrix nexus, iDreamCareer) marked review; Lalitech skipped on salary."
 }
