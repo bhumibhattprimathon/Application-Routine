@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Backend Software Engineer role at Paytm — a platform I know first-hand from building QR-code lifecycle microservices during my Software Engineer internship here. In my current role at Primathon I design Java and Spring Boot microservices and REST APIs, and I architected a distributed payment gateway of 30 REST APIs across Order, Payment, Merchant, and Vault services, directly relevant to Paytm's high-throughput payment systems. I've improved microservice reliability by 67% and integrated Kafka, Redis, and AWS (S3, Lambda, Timestream) into production pipelines.
+
+As an immediate joiner with a 5-Star Gold Java rating and 250+ DSA problems solved, I can contribute to your backend teams from day one.
+
+Best regards,
+Bhumi Bhatt

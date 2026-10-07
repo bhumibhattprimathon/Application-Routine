@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to express my interest in the Backend Engineer role on Air India's Gurugram technology team. My experience maps closely to your stack: at Primathon I build Java and Spring Boot microservices with scalable RESTful APIs, and during my Paytm internship I developed microservices powering real-time transaction notifications, improving service reliability by 67%. I've shipped production systems backed by MySQL, MongoDB, Kafka, and Redis, with CI/CD on Docker and Jenkins.
+
+My distributed payment gateway project — 30 REST APIs across four fault-tolerant services — reflects the system-design rigor Air India's platforms demand. Available to join immediately, I'm eager to bring reliable, high-performance backend engineering to your digital transformation.
+
+Best regards,
+Bhumi Bhatt
