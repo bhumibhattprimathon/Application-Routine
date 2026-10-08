@@ -1,0 +1,13 @@
+[DRAFT — verify the role is still open and dated recently on jointaro.com / the employer site before sending. Sourced via WebSearch on 2026-10-08; posting freshness unconfirmed.]
+
+Dear Hiring Manager,
+
+I'm writing to apply for the Back End Developer (Spring Boot, Microservices) role at Talent Worx, where my day-to-day work maps directly onto what the position asks for.
+
+At Primathon I build and operate backend services in Java and Spring Boot, including custom admin APIs and syncing automation across seven merchant systems, and I previously shipped microservices at Paytm managing the QR-code lifecycle for real-time transaction notifications. My Distributed Payment Gateway project put 30 REST APIs across four Spring Boot microservices into a fault-tolerant design, so REST API design, service decomposition, and reliability under load are familiar territory, not theory.
+
+I'm an immediate joiner (0-day notice) who ramps quickly and takes ownership of backend reliability from the first week.
+
+Best regards,
+Bhumi Bhatt
+bhumibhatt.work@gmail.com | +91 88823 79221

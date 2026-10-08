@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-10-08</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
+    --head:#0f172a; --head2:#1e293b; --border:#e5e7eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+  header{background:linear-gradient(135deg,var(--head),var(--head2));color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.35rem;letter-spacing:.3px}
+  header p{margin:2px 0;color:#cbd5e1;font-size:.9rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  main{max-width:1100px;margin:0 auto;padding:18px 16px 60px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .card .l{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+  .banner{border-radius:12px;padding:16px 18px;margin:16px 0;border:1px solid}
+  .banner.warn{background:#fffbeb;border-color:#fcd34d;color:#78350f}
+  .banner.warn b{color:#92400e}
+  .banner.warn code{background:#fef3c7;padding:1px 5px;border-radius:4px;font-size:.85em}
+  h2{margin:26px 0 10px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+  .section{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .section.g{border-top:4px solid var(--green)}
+  .section.y{border-top:4px solid var(--yellow)}
+  .section.r{border-top:4px solid var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:#f9fafb;color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.72rem;letter-spacing:.4px}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:600}
+  .pill.g{background:#dcfce7;color:#166534}
+  .pill.y{background:#fef9c3;color:#854d0e}
+  .pill.r{background:#fee2e2;color:#991b1b}
+  .btn{display:inline-block;border:none;border-radius:8px;padding:7px 12px;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn.open{background:#1d4ed8;color:#fff}
+  .btn.copy{background:#e5e7eb;color:#111827;margin-left:6px}
+  .btn.open:hover{background:#1e40af}
+  .bigbtn{display:block;width:100%;background:var(--yellow);color:#422006;border:none;border-radius:12px;padding:16px;font-size:1.05rem;font-weight:800;cursor:pointer;margin:12px 0 4px;letter-spacing:.3px}
+  .bigbtn:hover{filter:brightness(.97)}
+  .note{color:var(--muted);font-size:.8rem;margin:6px 2px 0}
+  .rec{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin:10px 0}
+  .rec h4{margin:0 0 4px;font-size:.98rem}
+  .rec .meta{color:var(--muted);font-size:.8rem;margin-bottom:6px}
+  .cl{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:12px 0}
+  .cl h4{margin:0 0 8px;font-size:.95rem;display:flex;justify-content:space-between;align-items:center}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;color:#374151;margin:0}
+  .trend{display:flex;align-items:flex-end;gap:14px;height:150px;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+  .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .fill{width:100%;max-width:46px;background:var(--green);border-radius:6px 6px 0 0;min-height:3px;transition:height .3s}
+  .bar .cap{font-size:.72rem;color:var(--muted);margin-top:6px;text-align:center}
+  .bar .val{font-size:.8rem;font-weight:700;margin-bottom:4px}
+  a.src{color:#1d4ed8;text-decoration:none;font-size:.82rem}
+  a.src:hover{text-decoration:underline}
+  footer{color:var(--muted);font-size:.78rem;text-align:center;padding:24px 16px}
+  @media(max-width:640px){
+    table,thead,tbody,th,td,tr{display:block}
+    thead{display:none}
+    td{border:none;padding:4px 12px}
+    tr{border-bottom:1px solid var(--border);padding:10px 0}
+    td::before{content:attr(data-l);display:block;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-08</h1>
+    <p>Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner (0-day notice)</p>
+    <p>Target: 5.5–12 LPA · Entry level (0–2 yrs) · Run type: morning scan</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="cards">
+    <div class="card"><div class="n">7</div><div class="l">Leads surfaced</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified (verified open)</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">6</div><div class="l">Review / verify-first</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">1</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud blocked</div></div>
+    <div class="card"><div class="n">~65</div><div class="l">Avg match (review tier)</div></div>
+  </div>
+
+  <div class="banner warn">
+    <b>⚠️ Discovery ran degraded today — no job could be confirmed as freshly-posted AND currently open, so the Qualified list is empty on purpose.</b>
+    <p style="margin:8px 0 0">Two data-source problems, both outside the resume/scoring logic:</p>
+    <ul style="margin:6px 0 0">
+      <li>The live job feed that powered earlier runs — JSearch <code>/search</code> on the RapidAPI key — now returns <code>404 "Endpoint does not exist"</code>. The key still works for <code>/job-details</code> and <code>/estimated-salary</code>, so the <b>JSearch plan/subscription needs renewing or upgrading</b> to restore bulk job search. (Salary bands below were still pulled live from JSearch <code>/estimated-salary</code>.)</li>
+      <li>WebSearch is US-region and returns mostly aggregators and salary blogs for India roles; it cannot confirm a posting was made in the last 24 h. The one lead I could verify directly (Air India — Engineer, Backend, Gurugram) was <b>already filled/closed</b>.</li>
+    </ul>
+    <p style="margin:8px 0 0">The six leads below are <b>real companies and roles</b> found via WebSearch, kept in the <b>Review tier</b> because their posting date and open/closed status are unverified. <b>Verify each is still open before applying.</b> To restore automatic qualified picks, renew the JSearch (or another LinkedIn/jobs) RapidAPI subscription.</p>
+  </div>
+
+  <h2><span class="dot g"></span>Qualified Jobs — ready to apply</h2>
+  <div class="section g">
+    <table>
+      <tbody>
+        <tr><td style="color:var(--muted)">No job cleared the qualified bar today. A job qualifies only when it is both a strong resume match <em>and</em> confirmed currently open — today's sources could not confirm the second. See the Review tier below for real leads to verify manually, and the banner for how to restore automatic qualified picks.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="bigbtn" onclick="openAll()">OPEN ALL 6 VERIFY-FIRST LEADS ↗</button>
+  <div class="note">Opens all six review-tier source links in new tabs (allow pop-ups). Each still needs a date/open-status check before you apply.</div>
+
+  <h2><span class="dot y"></span>Review Jobs — verify date &amp; open status, then apply</h2>
+  <div class="section y">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Variant</th><th>Open</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-l="#">1</td><td data-l="Match"><span class="pill y">72</span></td><td data-l="Trust">60</td>
+          <td data-l="Company">Talent Worx</td><td data-l="Role">Back End Developer (Spring Boot, Microservices)</td>
+          <td data-l="Location">Not stated — verify</td><td data-l="Salary">6–11 LPA (est)</td><td data-l="Variant">backend</td>
+          <td data-l="Open"><a class="btn open" target="_blank" rel="noopener" href="https://www.jointaro.com/jobs/talent-worx/back-end-developer-spring-boot-microservice">Open ↗</a><button class="btn copy" onclick="copyCL('cl-talentworx')">Copy letter</button></td>
+        </tr>
+        <tr>
+          <td data-l="#">2</td><td data-l="Match"><span class="pill y">70</span></td><td data-l="Trust">58</td>
+          <td data-l="Company">Vigilant Technology</td><td data-l="Role">Java Backend Developer (title tag "AVP"; "Freshers can apply, 0–10 yrs")</td>
+          <td data-l="Location">Gurugram / Bangalore / Mumbai / Pune</td><td data-l="Salary">8–12 LPA (est, Java Gurugram band)</td><td data-l="Variant">backend</td>
+          <td data-l="Open"><a class="btn open" target="_blank" rel="noopener" href="https://www.foundit.in/job/java-backend-developer-avp-vigilant-technology-pvt-ltd-gurugram-58538443">Open ↗</a><button class="btn copy" onclick="copyCL('cl-vigilant')">Copy letter</button></td>
+        </tr>
+        <tr>
+          <td data-l="#">3</td><td data-l="Match"><span class="pill y">68</span></td><td data-l="Trust">85</td>
+          <td data-l="Company">S&amp;P Global</td><td data-l="Role">Associate, Software Development / Engineering (Java, 1–5 yrs)</td>
+          <td data-l="Location">Noida</td><td data-l="Salary">8–14 LPA (est)</td><td data-l="Variant">backend</td>
+          <td data-l="Open"><a class="btn open" target="_blank" rel="noopener" href="https://spglobal.com/careers">Verify on S&amp;P careers ↗</a></td>
+        </tr>
+        <tr>
+          <td data-l="#">4</td><td data-l="Match"><span class="pill y">64</span></td><td data-l="Trust">62</td>
+          <td data-l="Company">The Agency Way</td><td data-l="Role">Full Stack Developer (MERN)</td>
+          <td data-l="Location">Gurugram (on-site)</td><td data-l="Salary">5–9 LPA (est)</td><td data-l="Variant">fullstack</td>
+          <td data-l="Open"><a class="btn open" target="_blank" rel="noopener" href="https://career.io/job/full-stack-developer-mern-gurugram-the-agency-way-40791b966ca3da144cbf0361bc9bfdb3">Open ↗</a></td>
+        </tr>
+        <tr>
+          <td data-l="#">5</td><td data-l="Match"><span class="pill y">58</span></td><td data-l="Trust">60</td>
+          <td data-l="Company">Oneture Technologies</td><td data-l="Role">Backend Engineer (remote)</td>
+          <td data-l="Location">Delhi / Remote</td><td data-l="Salary">5–6 LPA (listed — salary risk, near floor)</td><td data-l="Variant">backend</td>
+          <td data-l="Open"><a class="btn open" target="_blank" rel="noopener" href="https://wellfound.com/role/l/backend-engineer/india">Find on Wellfound ↗</a></td>
+        </tr>
+        <tr>
+          <td data-l="#">6</td><td data-l="Match"><span class="pill y">52</span></td><td data-l="Trust">58</td>
+          <td data-l="Company">Cloudastra Technologies</td><td data-l="Role">Backend Developer (Python / Django, 2–3 yrs)</td>
+          <td data-l="Location">Noida (Sector 63)</td><td data-l="Salary">5–8 LPA (est)</td><td data-l="Variant">master</td>
+          <td data-l="Open"><a class="btn open" target="_blank" rel="noopener" href="https://career.io/job/back-end-developer-noida-cloudastra-technologies-e9f5e63550a73fe0285c986d5e628ac0">Open ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="dot r"></span>Skipped Jobs</h2>
+  <div class="section r">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th></tr></thead>
+      <tbody>
+        <tr><td data-l="#">1</td><td data-l="Company">Air India</td><td data-l="Role">Engineer — Backend (Gurugram)</td><td data-l="Reason">Closed: page says "this position has been filled" (verified via direct fetch).</td></tr>
+        <tr><td data-l="#">2</td><td data-l="Company">Nile Technologies</td><td data-l="Role">Trainee Java Developer (Noida)</td><td data-l="Reason">Salary: ₹4 LPA listed — below the 5.0 LPA floor. Good fresher skill fit otherwise; apply only if open to base pay.</td></tr>
+        <tr><td data-l="#">3</td><td data-l="Company">Speqto Technologies</td><td data-l="Role">Java Developer (1–2 yrs, Gurugram)</td><td data-l="Reason">Stale: listing dated 07 Jun 2021 — almost certainly closed.</td></tr>
+        <tr><td data-l="#">4</td><td data-l="Company">Neogencode</td><td data-l="Role">Full Stack Developer (MERN, Noida)</td><td data-l="Reason">Stale: "posted 497 days ago".</td></tr>
+        <tr><td data-l="#">5</td><td data-l="Company">CogniTensor</td><td data-l="Role">Lead Python Developer (Noida)</td><td data-l="Reason">Experience + stack: "Lead", 6 yrs, Python-centric — beyond level and off her Java/JS core.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>⭐ Top recommendations</h2>
+  <div class="rec">
+    <h4>1. Talent Worx — Back End Developer (Spring Boot, Microservices)</h4>
+    <div class="meta">Match ~72 · backend variant · verify open first</div>
+    The cleanest stack overlap found today: Spring Boot + microservices is exactly Bhumi's core (Primathon admin APIs, Paytm QR microservices, a 30-API Spring Boot payment gateway project). The gap is purely informational — the listing doesn't state experience or location, so confirm both. A draft cover letter is ready below.
+  </div>
+  <div class="rec">
+    <h4>2. Vigilant Technology — Java Backend Developer</h4>
+    <div class="meta">Match ~70 · backend variant · confirm seniority</div>
+    Lists her exact stack (Spring Boot, Spring MVC, Spring Data JPA, REST, microservices) and says "Freshers can apply (0–10 yrs)". The "AVP" title tag is the catch — it may be a senior req mis-tagged, so confirm the level before investing. Draft letter ready.
+  </div>
+  <div class="rec">
+    <h4>3. S&amp;P Global — Associate, Software Development / Engineering (Noida)</h4>
+    <div class="meta">Match ~68 · backend/master variant · highest-trust employer</div>
+    A reputable, stable employer building high-performance Java applications, with a 1–5 yr band that fits her 1.5 yrs at the lower end. Worth verifying directly on the S&amp;P Global careers site rather than the aggregator that surfaced it.
+  </div>
+  <div class="rec">
+    <h4>4. The Agency Way — Full Stack Developer (MERN, Gurugram)</h4>
+    <div class="meta">Match ~64 · fullstack variant</div>
+    MERN maps onto her React + Node.js + MongoDB experience. Smaller agency (verify legitimacy), on-site Gurugram, and it was the most recently-posted full-stack lead (~5 days before capture), so it's more likely than most to still be live.
+  </div>
+  <div class="rec">
+    <h4>5. Oneture Technologies — Backend Engineer (Delhi / Remote)</h4>
+    <div class="meta">Match ~58 · backend variant · salary near floor</div>
+    A remote backend role in the Delhi area at ₹5–6 LPA — at the bottom of target, but remote + immediate-join friendly. Treat as a backup; prioritise the higher-paying backend leads first.
+  </div>
+
+  <h2>📈 Weekly trend — qualified per run</h2>
+  <div class="trend">
+    <div class="bar"><div class="val">1</div><div class="fill" style="height:33%"></div><div class="cap">Aug 05<br>(prev run)</div></div>
+    <div class="bar"><div class="val">0</div><div class="fill" style="height:3%"></div><div class="cap">Oct 06</div></div>
+    <div class="bar"><div class="val">0</div><div class="fill" style="height:3%"></div><div class="cap">Oct 07</div></div>
+    <div class="bar"><div class="val" style="color:var(--yellow)">0*</div><div class="fill" style="height:3%;background:var(--yellow)"></div><div class="cap">Oct 08<br>today</div></div>
+  </div>
+  <div class="note">Only two scan runs exist in history (2026-08-05 and today). Oct 06–07 had no scheduled run recorded. *Today surfaced 6 review-tier leads but 0 verified-open qualified picks — see banner.</div>
+
+  <h2>✉️ Cover letters (drafts)</h2>
+  <div class="cl">
+    <h4>Talent Worx — Back End Developer <button class="btn copy" onclick="copyCL('cl-talentworx')">COPY</button></h4>
+    <pre id="cl-talentworx">Dear Hiring Manager,
+
+I'm writing to apply for the Back End Developer (Spring Boot, Microservices) role at Talent Worx, where my day-to-day work maps directly onto what the position asks for.
+
+At Primathon I build and operate backend services in Java and Spring Boot, including custom admin APIs and syncing automation across seven merchant systems, and I previously shipped microservices at Paytm managing the QR-code lifecycle for real-time transaction notifications. My Distributed Payment Gateway project put 30 REST APIs across four Spring Boot microservices into a fault-tolerant design, so REST API design, service decomposition, and reliability under load are familiar territory, not theory.
+
+I'm an immediate joiner (0-day notice) who ramps quickly and takes ownership of backend reliability from the first week.
+
+Best regards,
+Bhumi Bhatt
+bhumibhatt.work@gmail.com | +91 88823 79221</pre>
+  </div>
+  <div class="cl">
+    <h4>Vigilant Technology — Java Backend Developer <button class="btn copy" onclick="copyCL('cl-vigilant')">COPY</button></h4>
+    <pre id="cl-vigilant">Dear Hiring Manager,
+
+I'd like to be considered for the Java Backend Developer position at Vigilant Technology, as the listed stack — Spring Boot, Spring MVC, Spring Data JPA, REST APIs, and microservices — is exactly the stack I work in.
+
+I'm a backend engineer with 1.5+ years building production services in Java and Spring Boot: at Primathon I engineered admin APIs and automated backend workflows that cut manual operational effort by 70%, and at CodeAlpha I built order and payment microservices with REST APIs and MySQL, containerized with Docker. I hold a 5-star Java rating on HackerRank (250+ DSA problems) and a Spring Boot advanced certification, which keeps my fundamentals in data structures and service design sharp.
+
+As a 0-day-notice immediate joiner, I can start contributing to your backend team right away and pick up new patterns fast.
+
+Best regards,
+Bhumi Bhatt
+bhumibhatt.work@gmail.com | +91 88823 79221</pre>
+  </div>
+
+</main>
+
+<footer>
+  Generated 2026-10-08 · Links are leads from a US-region web search, not confirmed-open postings — verify each before applying.<br>
+  Restore automatic qualified picks by renewing the JSearch (or another jobs) RapidAPI subscription.
+</footer>
+
+<script>
+  // Review-tier leads with a direct source link. Qualified list was empty today,
+  // so "Open all" opens the verify-first leads instead.
+  var urls = [
+    "https://www.jointaro.com/jobs/talent-worx/back-end-developer-spring-boot-microservice",
+    "https://www.foundit.in/job/java-backend-developer-avp-vigilant-technology-pvt-ltd-gurugram-58538443",
+    "https://spglobal.com/careers",
+    "https://career.io/job/full-stack-developer-mern-gurugram-the-agency-way-40791b966ca3da144cbf0361bc9bfdb3",
+    "https://wellfound.com/role/l/backend-engineer/india",
+    "https://career.io/job/back-end-developer-noida-cloudastra-technologies-e9f5e63550a73fe0285c986d5e628ac0"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank", "noopener"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText || el.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(event); },
+        function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var t = document.createElement("textarea");
+    t.value = text; document.body.appendChild(t); t.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(t);
+  }
+  function flash(ev){
+    try{
+      var b = ev && ev.target; if(!b) return;
+      var old = b.textContent; b.textContent = "Copied ✓";
+      setTimeout(function(){ b.textContent = old; }, 1400);
+    }catch(e){}
+  }
+</script>
+</body>
+</html>

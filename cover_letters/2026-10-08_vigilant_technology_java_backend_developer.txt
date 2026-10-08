@@ -1,0 +1,13 @@
+[DRAFT — the foundit listing carries an "AVP" title tag but states "Freshers Can Apply (0-10 yrs)". Confirm the actual seniority, location, and that the role is still open before sending. Sourced via WebSearch on 2026-10-08; posting freshness unconfirmed.]
+
+Dear Hiring Manager,
+
+I'd like to be considered for the Java Backend Developer position at Vigilant Technology, as the listed stack — Spring Boot, Spring MVC, Spring Data JPA, REST APIs, and microservices — is exactly the stack I work in.
+
+I'm a backend engineer with 1.5+ years building production services in Java and Spring Boot: at Primathon I engineered admin APIs and automated backend workflows that cut manual operational effort by 70%, and at CodeAlpha I built order and payment microservices with REST APIs and MySQL, containerized with Docker. I hold a 5-star Java rating on HackerRank (250+ DSA problems) and a Spring Boot advanced certification, which keeps my fundamentals in data structures and service design sharp.
+
+As a 0-day-notice immediate joiner, I can start contributing to your backend team right away and pick up new patterns fast.
+
+Best regards,
+Bhumi Bhatt
+bhumibhatt.work@gmail.com | +91 88823 79221
