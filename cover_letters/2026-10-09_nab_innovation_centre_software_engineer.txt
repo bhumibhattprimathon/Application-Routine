@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Software Engineer role at NAB Innovation Centre India, eager to bring banking-grade backend engineering to a global innovation team.
+
+My background centers on Java, Spring Boot, and microservices: at Paytm I developed microservices for merchant transaction notifications, and at Primathon I automated backend workflows that cut manual operational effort by 70% while integrating AWS Timestream, S3, and Lambda for real-time data ingestion. A 9.3/10 CGPA in Computer Science and an AWS Certified Developer – Associate credential reflect solid fundamentals in system design and cloud.
+
+Available to join immediately, I'm excited to grow within NAB's engineering culture and contribute reliable, scalable backend services quickly.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd be glad to join Air India as a Backend Engineer, contributing to the systems behind one of India's most recognizable enterprises.
+
+I work across the Spring stack — Spring Boot, Spring MVC, Spring Data JPA, and Hibernate — building REST APIs and microservices in Java. At Paytm I optimized microservices handling the merchant QR-code lifecycle, and at Primathon I engineered admin APIs and backend syncing across seven merchant systems to improve reliability. My distributed payment gateway project applied system-design principles for scalability and fault tolerance across 30 REST APIs.
+
+As an immediate joiner with strong DSA fundamentals (5-Star Gold Java, 250+ problems solved), I can quickly contribute to Air India's backend engineering teams.
+
+Best regards,
+Bhumi Bhatt

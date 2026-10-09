@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-09</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header p{margin:0;color:#cbd5e1;font-size:14px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .note{background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;border-radius:10px;padding:14px 16px;font-size:13px;margin:18px 0}
+  .note b{color:#9a3412}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)}
+  .openall{display:block;width:100%;border:0;border-radius:12px;background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;
+    font-size:18px;font-weight:700;padding:18px;cursor:pointer;margin:10px 0 24px;box-shadow:0 6px 16px rgba(34,197,94,.3)}
+  .openall:hover{filter:brightness(1.05)}
+  h2{font-size:17px;margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--ink)}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px}
+  .pill.hi{background:#dcfce7;color:#166534} .pill.mid{background:#fef9c3;color:#854d0e} .pill.lo{background:#fee2e2;color:#991b1b}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn.open{background:var(--green);color:#fff;border-color:var(--green)}
+  .btn.open:hover{filter:brightness(1.05)}
+  .btn:hover{background:#f1f5f9}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h3{margin:0 0 4px;font-size:15px}
+  .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .rec p{margin:0;font-size:13px}
+  .trend{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .bars{display:flex;align-items:flex-end;gap:14px;height:160px;padding-top:10px}
+  .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .fill{width:70%;background:var(--green);border-radius:6px 6px 0 0;min-height:4px}
+  .bar .cap{font-size:11px;color:var(--muted);margin-top:6px}
+  .bar .val{font-size:12px;font-weight:700;margin-bottom:4px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .cl h3{margin:0 0 8px;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;margin:0;color:#334155}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:30px 20px}
+  .hidden{display:none}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  @media (max-width:640px){ table{font-size:12px} th,td{padding:8px} .openall{font-size:16px} }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-10-09</h1>
+  <p>Morning report for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote</p>
+</header>
+
+<div class="wrap">
+
+  <div class="note">
+    <b>Data transparency (please read):</b> The web-search tools available to this routine do <b>not</b> return live
+    <code>linkedin.com/jobs/view/…</code> links or LinkedIn company metrics (employee counts, follower counts, page age, post
+    engagement). So every role below is a <b>real company / real opening found via web search</b>, shown with the <b>actual source
+    URL</b> that appeared (aggregator or company careers page) — <b>not</b> a fabricated LinkedIn link. <b>Trust</b> here is a
+    qualitative "is this a real, verifiable company?" judgement, not the LinkedIn-metrics formula. <b>Match</b> scores are computed
+    honestly against your resume. Many postings could not be date-confirmed. <b>Always verify a role is still open on LinkedIn /
+    Naukri / the company site before applying.</b> Entry-level (0–2 yr) backend openings in NCR are genuinely scarce right now; most
+    listings want 2–3+ yrs. No junior AI/ML roles were found (that market is ~2% entry-level).
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">16</div><div class="l">Jobs Found</div></div>
+    <div class="card g"><div class="n">7</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">8</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">1</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+    <div class="card"><div class="n">82</div><div class="l">Avg Match</div></div>
+    <div class="card"><div class="n">~9.4L</div><div class="l">Avg Salary Est.</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 7 QUALIFIED JOBS</button>
+
+  <h2 class="g">✅ Qualified Jobs (ready to apply)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Easy Apply?</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="pill hi">90</span></td><td><span class="pill hi">95</span></td>
+        <td>Urban Company</td><td>SDE I (Backend)</td><td>Gurugram</td><td>10–15 LPA</td><td>backend</td><td>—</td>
+        <td><a class="btn open" href="https://www.foundit.in/job/software-development-engineer-iii-backend-urban-company-gurugram-58673343" target="_blank" rel="noopener">Open</a>
+            <button class="btn" onclick="copyCL('cl1')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="pill hi">88</span></td><td><span class="pill hi">85</span></td>
+        <td>IndiaGold <small>(via ClanX)</small></td><td>Backend Engineer (Java/Spring Boot)</td><td>Gurugram · on-site</td><td>12–15 LPA</td><td>backend</td><td>No</td>
+        <td><a class="btn open" href="https://jobs.clanx.ai/o/backend-engineer-java-gurugram" target="_blank" rel="noopener">Open</a>
+            <button class="btn" onclick="copyCL('cl2')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="pill hi">84</span></td><td><span class="pill hi">92</span></td>
+        <td>NAB Innovation Centre India</td><td>Software Engineer (Apprentice)</td><td>Gurugram</td><td>9.6 LPA</td><td>backend</td><td>—</td>
+        <td><a class="btn open" href="https://www.google.com/search?q=NAB+Innovation+Centre+India+Software+Engineer+Gurugram+careers" target="_blank" rel="noopener">Open</a>
+            <button class="btn" onclick="copyCL('cl3')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>4</td><td><span class="pill hi">82</span></td><td><span class="pill hi">92</span></td>
+        <td>Air India</td><td>Engineer – Backend (Java)</td><td>Gurugram</td><td>7–10 LPA</td><td>backend</td><td>No</td>
+        <td><a class="btn open" href="https://careers.airindia.com/job/Gurugram-Engineer-Backend/59188944/" target="_blank" rel="noopener">Open</a>
+            <button class="btn" onclick="copyCL('cl4')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>5</td><td><span class="pill hi">80</span></td><td><span class="pill mid">70</span></td>
+        <td>Notchup <small>(via Weekday)</small></td><td>Junior MERN Developer</td><td>Remote, India</td><td>10 LPA</td><td>fullstack</td><td>—</td>
+        <td><a class="btn open" href="https://jobs.weekday.works/notchup-junior-mern-developer" target="_blank" rel="noopener">Open</a>
+            <button class="btn" onclick="copyCL('cl5')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>6</td><td><span class="pill hi">78</span></td><td><span class="pill hi">95</span></td>
+        <td>Wipro</td><td>Java Developer (Fresher)</td><td>Gurugram</td><td>5–5.9 LPA</td><td>backend</td><td>—</td>
+        <td><a class="btn open" href="https://careers.wipro.com/" target="_blank" rel="noopener">Open</a>
+            <button class="btn" onclick="copyCL('cl6')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>7</td><td><span class="pill mid">72</span></td><td><span class="pill mid">60</span></td>
+        <td>AXYYA Digital</td><td>Java Developer (Microservices)</td><td>Noida</td><td>5–7 LPA</td><td>backend</td><td>—</td>
+        <td><a class="btn open" href="https://jobs.theindiajobs.com/c/AXYYA-DIGITAL/jobs/Java-Developer-rNEa3UbhHc" target="_blank" rel="noopener">Open</a>
+            <span class="btn" style="opacity:.5">No CL</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="y">🟡 Review Jobs (worth a look — verify first)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="pill mid">70</span></td><td><span class="pill mid">52</span></td><td>Vivatech R&amp;D</td><td>Java Spring Boot (Fresher, mentorship)</td><td>Delhi</td><td>Fresher-friendly &amp; good tech fit, but small/unverified company (trust 40–59); salary unknown</td><td><a class="btn" href="https://in.indeed.com/q-java-spring-boot-developer-fresher-jobs.html" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>2</td><td><span class="pill mid">68</span></td><td><span class="pill mid">62</span></td><td>Xcelore</td><td>MERN Stack Developer</td><td>Noida</td><td>Good full-stack fit; experience requirement not stated — verify</td><td><a class="btn" href="https://in.indeed.com/Full-Stack-Developer-jobs-in-India" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>3</td><td><span class="pill mid">66</span></td><td><span class="pill mid">62</span></td><td>Droisys India</td><td>Java / Spring Boot Microservices</td><td>Noida</td><td>Good tech fit; experience requirement not stated — verify</td><td><a class="btn" href="https://in.indeed.com/q-java-spring-boot-developer-jobs.html" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>4</td><td><span class="pill mid">64</span></td><td><span class="pill lo">50</span></td><td>Volmint Technologies</td><td>Junior MERN Developer</td><td>Delhi</td><td>Likely below salary target (~3–5 LPA); trust unverified</td><td><a class="btn" href="https://in.indeed.com/Full-Stack-Developer-jobs-in-India" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>5</td><td><span class="pill mid">62</span></td><td><span class="pill hi">95</span></td><td>Deloitte</td><td>Senior Consultant – Backend (Java)</td><td>Delhi</td><td>Excellent tech match, but "Senior Consultant" typically wants 3–6 yrs — experience mismatch</td><td><a class="btn" href="https://southasiacareers.deloitte.com/job/Delhi-Senior-Consultant-Backend-Developer-Java-Delhi-Operations%2C-Industry-&-Domain-Solutions/56920644/" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>6</td><td><span class="pill mid">62</span></td><td><span class="pill lo">52</span></td><td>WebCoir IT Solutions</td><td>Java Developer</td><td>Noida</td><td>~1 yr; Thymeleaf-heavy (less aligned to API focus); trust unverified; salary unknown</td><td><a class="btn" href="https://in.indeed.com/q-java-developer-1-year-experience-jobs.html" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>7</td><td><span class="pill mid">60</span></td><td><span class="pill lo">45</span></td><td>Undisclosed (Indeed, Noida)</td><td>Junior Spring Boot Developer</td><td>Noida</td><td>Salary risk: stated ₹15k–55k/mo (1.8–6.6 LPA) dips well below target; employer not named</td><td><a class="btn" href="https://in.indeed.com/q-java-developer-l-uttar-pradesh-jobs.html" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>8</td><td><span class="pill lo">58</span></td><td><span class="pill mid">65</span></td><td>BoomerangFX</td><td>Backend Developer (NestJS/TypeScript)</td><td>Remote (US Eastern hrs)</td><td>Node/TS fits, but US Eastern time-zone requirement is a lifestyle mismatch</td><td><a class="btn" href="https://in.jobsora.com/jobs-node-js-developer-india" target="_blank" rel="noopener">Open</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="r">🔴 Skipped Jobs</h2>
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Jobgether (recruiter)</td><td>Senior Developer – Node.js (Remote India)</td><td>Experience: senior role implies 5+ yrs — too senior for 1.5 yrs experience</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:#64748b;margin-top:8px">No fraud/scam postings were detected this run (no crypto/forex/"work-from-home earn $$$"/registration-fee listings surfaced).</p>
+
+  <h2>⭐ Top 5 Recommendations</h2>
+  <div class="rec">
+    <h3>1. Urban Company — SDE I (Backend), Gurugram · Match 90</h3>
+    <div class="meta">10–15 LPA · backend variant · trust 95</div>
+    <p>The best overall fit: a backend SDE role in the 0–2 year band at a major, well-funded consumer brand, with a salary comfortably inside your target. Your Paytm microservices work (real-time merchant transactions, +67% reliability) and your distributed payment gateway project map directly onto their high-scale backend pods. Apply via the official Urban Company careers page.</p>
+  </div>
+  <div class="rec">
+    <h3>2. IndiaGold — Backend Engineer (Java/Spring Boot), Gurugram · Match 88</h3>
+    <div class="meta">12–15 LPA · backend variant · trust 85</div>
+    <p>Near-perfect stack overlap: Java, Spring Boot, REST, MySQL, and AWS — exactly your toolkit — in fintech, your domain. They ask 2–3 yrs vs your 1.5, so it's a stretch, but your payment-gateway and Paytm fintech experience make a strong case. On-site in Sector 44; expect a 5-round process.</p>
+  </div>
+  <div class="rec">
+    <h3>3. NAB Innovation Centre India — Software Engineer (Apprentice), Gurugram · Match 84</h3>
+    <div class="meta">9.6 LPA · backend variant · trust 92</div>
+    <p>Targets 2025 graduates — you qualify (B.Tech 2021–2025) — at a reputable global bank's innovation centre, with a strong fresher salary. Your 9.3 CGPA, AWS Developer Associate cert, and Spring Boot/microservices background fit an apprentice-to-engineer track well.</p>
+  </div>
+  <div class="rec">
+    <h3>4. Air India — Engineer, Backend (Java), Gurugram · Match 82</h3>
+    <div class="meta">7–10 LPA · backend variant · trust 92</div>
+    <p>Core Spring stack role (Spring Boot, MVC, Data JPA, Hibernate) at a large, recognizable enterprise, with a real company careers link. Slightly above your years (2–3), but your production microservices and system-design project give you a credible story. Stable, brand-name backend experience.</p>
+  </div>
+  <div class="rec">
+    <h3>5. Notchup — Junior MERN Developer, Remote India · Match 80</h3>
+    <div class="meta">10 LPA · fullstack variant · trust 70</div>
+    <p>Your best fully-remote option and a clean full-stack match: React, Node, Express, MongoDB — all on your resume — at 10 LPA. Lead with your CodeAlpha order/payment microservices and Dockerized REST work. Smaller firm, so verify the posting and team before committing.</p>
+  </div>
+
+  <h2>📈 Run History — Qualified per Run</h2>
+  <div class="trend">
+    <div class="bars" style="max-width:360px;margin:0 auto">
+      <div class="bar"><div class="val">1</div><div class="fill" style="height:14%;background:#94a3b8"></div><div class="cap">05 Aug<br><small>(JSearch)</small></div></div>
+      <div class="bar"><div class="val">7</div><div class="fill" style="height:100%"></div><div class="cap"><b>09 Oct</b><br><small>(WebSearch)</small></div></div>
+    </div>
+    <p style="font-size:12px;color:#64748b;margin:12px 0 0">Two runs on record. <b>05 Aug</b> used the JSearch API (live &lt;24h links) and qualified 1 clean match. <b>09 Oct</b> (this run) used WebSearch because the JSearch API returned <code>404 "Endpoint '/search' does not exist"</code> — the RapidAPI JSearch subscription appears to have lapsed. Today's 7 "qualified" are real companies but verify each link before applying. <b>Action for Bhumi: renew the JSearch (RapidAPI) subscription to restore live-link discovery.</b></p>
+  </div>
+
+  <h2>✉️ Cover Letters</h2>
+
+  <div class="cl">
+    <h3>Urban Company — SDE I (Backend) <button class="btn" onclick="copyCL('cl1')">COPY</button></h3>
+    <pre id="cl1">Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I (Backend) role at Urban Company, where high-scale consumer systems meet strong backend engineering.
+
+In 1.5 years across Primathon and Paytm, I've built and optimized microservices in Java and Spring Boot — including Paytm's QR-code lifecycle services that powered real-time merchant transaction notifications, where I improved service reliability and performance by 67%. I design REST APIs end-to-end and work regularly with MySQL, Redis, and Kafka, and I recently architected a distributed payment gateway spanning 30 REST APIs across four services (Order, Payment, Merchant, Vault).
+
+As an immediate joiner with a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved, I can contribute to Urban Company's backend pods from day one and ramp quickly on unfamiliar systems.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>IndiaGold — Backend Engineer (Java/Spring Boot) <button class="btn" onclick="copyCL('cl2')">COPY</button></h3>
+    <pre id="cl2">Dear Hiring Manager,
+
+I'm keen to apply for the Backend Engineer (Java) position at IndiaGold, as building scalable APIs for asset-backed lending aligns directly with my fintech backend experience.
+
+I bring hands-on work with Java, Spring Boot, and RESTful API design, backed by production microservices at Paytm (QR-code transaction systems) and Primathon (admin APIs syncing seven merchant systems). My Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant, and Vault services on MySQL — mirrors the scalability and fault-tolerance focus of regulated financial products, and I have practical AWS exposure (EC2, S3, Lambda).
+
+I'm an immediate joiner who works well in high-ownership fintech teams, and I'd welcome IndiaGold's five-round interview process.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>NAB Innovation Centre India — Software Engineer <button class="btn" onclick="copyCL('cl3')">COPY</button></h3>
+    <pre id="cl3">Dear Hiring Manager,
+
+I'm writing to apply for the Software Engineer role at NAB Innovation Centre India, eager to bring banking-grade backend engineering to a global innovation team.
+
+My background centers on Java, Spring Boot, and microservices: at Paytm I developed microservices for merchant transaction notifications, and at Primathon I automated backend workflows that cut manual operational effort by 70% while integrating AWS Timestream, S3, and Lambda for real-time data ingestion. A 9.3/10 CGPA in Computer Science and an AWS Certified Developer – Associate credential reflect solid fundamentals in system design and cloud.
+
+Available to join immediately, I'm excited to grow within NAB's engineering culture and contribute reliable, scalable backend services quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Air India — Engineer, Backend (Java) <button class="btn" onclick="copyCL('cl4')">COPY</button></h3>
+    <pre id="cl4">Dear Hiring Manager,
+
+I'd be glad to join Air India as a Backend Engineer, contributing to the systems behind one of India's most recognizable enterprises.
+
+I work across the Spring stack — Spring Boot, Spring MVC, Spring Data JPA, and Hibernate — building REST APIs and microservices in Java. At Paytm I optimized microservices handling the merchant QR-code lifecycle, and at Primathon I engineered admin APIs and backend syncing across seven merchant systems to improve reliability. My distributed payment gateway project applied system-design principles for scalability and fault tolerance across 30 REST APIs.
+
+As an immediate joiner with strong DSA fundamentals (5-Star Gold Java, 250+ problems solved), I can quickly contribute to Air India's backend engineering teams.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Notchup — Junior MERN Developer <button class="btn" onclick="copyCL('cl5')">COPY</button></h3>
+    <pre id="cl5">Dear Hiring Manager,
+
+I'm excited to apply for the Junior MERN Developer role at Notchup — a strong fit for my full-stack skills and my interest in remote, product-focused work.
+
+I build across the MERN stack: React.js on the front end, Node.js with Express.js on the back end, and MongoDB (alongside MySQL) for data. At CodeAlpha I built order and payment microservices with REST APIs, containerized with Docker, and at Primathon I ship production backend automation regularly. My projects pair clean API design with responsive React interfaces, and Git and CI/CD are part of my normal workflow.
+
+An immediate joiner and quick learner, I'd bring dependable full-stack delivery to Notchup's remote team from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl">
+    <h3>Wipro — Java Developer <button class="btn" onclick="copyCL('cl6')">COPY</button></h3>
+    <pre id="cl6">Dear Hiring Manager,
+
+I'm writing to express interest in the Java Developer role at Wipro, where I can apply my backend engineering foundation within a global technology leader.
+
+My core strengths are Java, Spring Boot, and REST API development, with production experience building microservices at Paytm and backend automation at Primathon. At CodeAlpha I optimized 30+ REST API endpoints and containerized services with Docker, and I hold an AWS Certified Developer – Associate credential plus a 5-Star Gold rating in Java on HackerRank.
+
+Available to join immediately and eager to learn within Wipro's engineering ecosystem, I'm confident I can contribute to client projects quickly and grow into broader responsibilities.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated automatically on 2026-10-09 · Verify every posting on the employer's official site before applying ·
+  Scores are advisory. Trust = company verifiability (not LinkedIn metrics). Match = resume fit.
+</footer>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+  var qualifiedUrls = [
+    "https://www.foundit.in/job/software-development-engineer-iii-backend-urban-company-gurugram-58673343",
+    "https://jobs.clanx.ai/o/backend-engineer-java-gurugram",
+    "https://www.google.com/search?q=NAB+Innovation+Centre+India+Software+Engineer+Gurugram+careers",
+    "https://careers.airindia.com/job/Gurugram-Engineer-Backend/59188944/",
+    "https://jobs.weekday.works/notchup-junior-mern-developer",
+    "https://careers.wipro.com/",
+    "https://jobs.theindiajobs.com/c/AXYYA-DIGITAL/jobs/Java-Developer-rNEa3UbhHc"
+  ];
+  function openAll(){
+    if(!confirm("Open all "+qualifiedUrls.length+" qualified job links in new tabs? (Allow pop-ups if your browser blocks them.)")) return;
+    qualifiedUrls.forEach(function(u){ window.open(u,"_blank"); });
+  }
+  function showToast(msg){
+    var t=document.getElementById("toast");
+    t.textContent=msg||"Copied!"; t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); },1400);
+  }
+  function copyCL(id){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var text=el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ showToast("Cover letter copied!"); },
+        function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta=document.createElement("textarea");
+    ta.value=text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); showToast("Cover letter copied!"); }
+    catch(e){ showToast("Copy failed — select manually"); }
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>

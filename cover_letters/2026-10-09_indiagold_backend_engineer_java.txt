@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Backend Engineer (Java) position at IndiaGold, as building scalable APIs for asset-backed lending aligns directly with my fintech backend experience.
+
+I bring hands-on work with Java, Spring Boot, and RESTful API design, backed by production microservices at Paytm (QR-code transaction systems) and Primathon (admin APIs syncing seven merchant systems). My Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant, and Vault services on MySQL — mirrors the scalability and fault-tolerance focus of regulated financial products, and I have practical AWS exposure (EC2, S3, Lambda).
+
+I'm an immediate joiner who works well in high-ownership fintech teams, and I'd welcome IndiaGold's five-round interview process.
+
+Best regards,
+Bhumi Bhatt

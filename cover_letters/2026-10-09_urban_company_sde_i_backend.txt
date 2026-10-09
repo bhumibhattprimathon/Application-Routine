@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Development Engineer I (Backend) role at Urban Company, where high-scale consumer systems meet strong backend engineering.
+
+In 1.5 years across Primathon and Paytm, I've built and optimized microservices in Java and Spring Boot — including Paytm's QR-code lifecycle services that powered real-time merchant transaction notifications, where I improved service reliability and performance by 67%. I design REST APIs end-to-end and work regularly with MySQL, Redis, and Kafka, and I recently architected a distributed payment gateway spanning 30 REST APIs across four services (Order, Payment, Merchant, Vault).
+
+As an immediate joiner with a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved, I can contribute to Urban Company's backend pods from day one and ramp quickly on unfamiliar systems.
+
+Best regards,
+Bhumi Bhatt

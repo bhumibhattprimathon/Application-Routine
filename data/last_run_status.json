@@ -1,15 +1,24 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-09",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "completed_degraded",
+  "data_source": "WebSearch fallback. INTENDED source JSearch API (RapidAPI) was UNAVAILABLE: GET https://jsearch.p.rapidapi.com/search returned HTTP 404 {\"message\":\"Endpoint '/search' does not exist\"}. The RAPIDAPI_KEY authenticates but the JSearch subscription appears to have lapsed since 2026-08-05.",
+  "resume_source": "repo resumes/resume_master.pdf (also re-fetched from the Google Drive link in the prompt; identical bytes).",
+  "ntfy": "A notification WAS sent to https://ntfy.sh/bhumi-linkedin-jobs-2026 before the repo's prior status (which says ntfy is disabled per user instruction) was read. Going forward: ntfy disabled per that instruction; report via routine push/email channel.",
+  "jobs_found": 16,
+  "jobs_qualified": 7,
+  "jobs_review": 8,
+  "jobs_skipped": 1,
+  "fraud_detected": 0,
+  "avg_match_qualified": 82.0,
+  "avg_salary_estimate_lpa": 9.4,
+  "top_pick": "Urban Company - SDE I (Backend), Gurugram (match 90)",
+  "limitations": [
+    "WebSearch does not return live linkedin.com/jobs/view URLs or LinkedIn company metrics (employee count, followers, page age, engagement).",
+    "'trust_score' this run is a qualitative verifiability judgement (real/known company?), NOT the LinkedIn-metrics formula in the prompt.",
+    "Many postings could not be date-confirmed; several source links are aggregators. Verify each before applying.",
+    "No junior AI/ML openings found (NCR entry-level AI market is ~2%)."
+  ],
+  "action_required": "Renew the JSearch (RapidAPI) subscription to restore live <24h LinkedIn link discovery for future runs.",
+  "notes": "Deliverables for this run: dashboards/dashboard_2026-10-09.html, 6 cover letters (cover_letters/2026-10-09_*.txt), 16 new entries appended to data/applications_log.json (cumulative 33)."
 }

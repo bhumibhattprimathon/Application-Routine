@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to express interest in the Java Developer role at Wipro, where I can apply my backend engineering foundation within a global technology leader.
+
+My core strengths are Java, Spring Boot, and REST API development, with production experience building microservices at Paytm and backend automation at Primathon. At CodeAlpha I optimized 30+ REST API endpoints and containerized services with Docker, and I hold an AWS Certified Developer – Associate credential plus a 5-Star Gold rating in Java on HackerRank.
+
+Available to join immediately and eager to learn within Wipro's engineering ecosystem, I'm confident I can contribute to client projects quickly and grow into broader responsibilities.
+
+Best regards,
+Bhumi Bhatt

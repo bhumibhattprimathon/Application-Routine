@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Junior MERN Developer role at Notchup — a strong fit for my full-stack skills and my interest in remote, product-focused work.
+
+I build across the MERN stack: React.js on the front end, Node.js with Express.js on the back end, and MongoDB (alongside MySQL) for data. At CodeAlpha I built order and payment microservices with REST APIs, containerized with Docker, and at Primathon I ship production backend automation regularly. My projects pair clean API design with responsive React interfaces, and Git and CI/CD are part of my normal workflow.
+
+An immediate joiner and quick learner, I'd bring dependable full-stack delivery to Notchup's remote team from day one.
+
+Best regards,
+Bhumi Bhatt
