@@ -1,15 +1,15 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-10",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "completed_degraded",
+  "data_source": "DEGRADED: JSearch (RapidAPI) /search and /v1/search both return 'Endpoint does not exist'; key not subscribed to any alternative jobs API. Fallback WebSearch (US-only) returned no verifiable Delhi-NCR listings posted <24h (individual URLs 404/403/redirected/stale/too-senior).",
+  "resume_source": "repo resumes/resume_master.pdf (present, read OK)",
+  "ntfy": "reachable this run (HTTP 200); notified via ntfy + routine push/email channel",
+  "jobs_found_verified_fresh": 0,
+  "jobs_qualified": 0,
+  "jobs_review_leads": 1,
+  "fraud_detected": 0,
+  "action_required": "Re-subscribe/fix JSearch on RapidAPI, OR subscribe RAPIDAPI_KEY to an alternative jobs API (e.g. Active Jobs DB / LinkedIn Job Search API) and provide host+endpoint. Full automation resumes once a feed responds.",
+  "deliverable": "dashboards/dashboard_2026-10-10.html provides 12 one-click live filtered (past-24h, entry-level) LinkedIn+Naukri searches so the user can still apply manually in minutes.",
+  "notes": "No job listings fabricated. Only 1 real lead (NAZZTEC Java/Spring Boot, Delhi) resolved cleanly and is logged as 'review' pending manual verification."
 }

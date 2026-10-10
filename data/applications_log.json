@@ -288,13 +288,30 @@
       "cover_letter_generated": false,
       "skip_reason": "Experience: Senior, 4\u20136 yrs, GenAI/ML \u2014 too senior and off-stack.",
       "easy_apply": null
+    },
+    {
+      "job_id": "nazztec-java-springboot",
+      "url": "https://jobs.weekday.works/java-spring-boot-developer-at-nazztec-wkdy515w9h",
+      "company": "NAZZTEC",
+      "title": "Java Spring Boot Developer",
+      "location": "Delhi",
+      "date_found": "2026-10-10",
+      "posted": "unknown (no date on listing)",
+      "status": "review",
+      "match_score": null,
+      "trust_score": null,
+      "salary_estimate": null,
+      "resume_variant": "backend",
+      "cover_letter_generated": false,
+      "skip_reason": "Core Java/Spring Boot fit, but listing shows no posting date and no experience band; earlier snippet suggested 3+ yrs. Verify level and that it is still open before applying.",
+      "easy_apply": "External (company site)"
     }
   ],
-  "last_updated": "2026-08-05",
-  "source": "JSearch API (RapidAPI), date_posted=today, country=in",
+  "last_updated": "2026-10-10",
+  "source": "2026-10-10 degraded run: JSearch API endpoint unavailable; WebSearch surfaced no verifiable <24h listings. 1 lead logged for manual verification.",
   "total_found": 17,
   "total_applied": 1,
-  "total_review": 6,
+  "total_review": 7,
   "total_skipped": 10,
   "fraud_detected": 2
 }

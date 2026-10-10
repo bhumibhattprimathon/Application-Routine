@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-10</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--ink);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#cbd5e1;font-size:14px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .banner{border-radius:12px;padding:16px 18px;margin:18px 0;font-size:14px}
+  .banner.warn{background:#fef9c3;border:1px solid #fde047;color:#713f12}
+  .banner.warn b{color:#854d0e}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)} .card.b .n{color:var(--blue)}
+  h2{font-size:17px;margin:30px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h2 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+  .btn-xl{display:block;width:100%;background:var(--green);color:#fff;border:none;border-radius:14px;
+    padding:20px;font-size:19px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.3);margin:8px 0 4px}
+  .btn-xl:hover{filter:brightness(1.05)}
+  .hint{font-size:12px;color:var(--muted);text-align:center;margin-bottom:8px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  a.joblink{display:inline-block;background:var(--blue);color:#fff;padding:5px 10px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:600}
+  a.joblink:hover{filter:brightness(1.08)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700}
+  .pill.y{background:#fef9c3;color:#854d0e} .pill.r{background:#fee2e2;color:#991b1b} .pill.g{background:#dcfce7;color:#166534}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:8px}
+  .lane{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .lane h3{margin:0 0 8px;font-size:14px}
+  .lane a{display:block;padding:7px 10px;margin:5px 0;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600}
+  .lane a.li{background:#e0ecff;color:#1d4ed8} .lane a.nk{background:#e7f7ed;color:#15803d}
+  .lane a:hover{filter:brightness(.97)}
+  .trend{display:flex;align-items:flex-end;gap:26px;height:160px;padding:14px 10px 0;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%}
+  .bar .fill{width:46px;border-radius:7px 7px 0 0;background:var(--green);display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;font-size:13px;padding-top:4px}
+  .bar .lab{font-size:11px;color:var(--muted);margin-top:8px;text-align:center}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;padding:14px 16px;font-size:13px;margin-top:10px}
+  code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:12px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:30px 20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-10</h1>
+  <div class="sub">Daily job discovery &amp; screening for Bhumi Bhatt · Backend / Full-Stack / SDE / AI-ML · Delhi NCR · Gurugram · Noida · Remote</div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner warn">
+    <b>⚠️ Automated discovery ran in degraded mode today.</b> The jobs data API this routine depends on
+    (JSearch via RapidAPI) is no longer responding — its search endpoint now returns
+    <code>"Endpoint '/search' does not exist"</code>, and the key is not subscribed to any alternative jobs API.
+    Plain web search (US-only) returned no <i>verifiable</i> Delhi-NCR listings posted in the last 24 hours —
+    the individual listing URLs it surfaced were expired (404/403), redirected to portal homepages, weeks-to-months old, or too senior.
+    <b>No fresh, confirmed-live jobs could be auto-qualified today.</b>
+    So that your morning isn't wasted, this dashboard gives you <b>one-click live filtered searches</b>
+    (past-24h, entry-level) on LinkedIn &amp; Naukri — these open the real, current results directly.
+    See “Restore full automation” at the bottom to fix the pipeline.
+  </div>
+
+  <div class="cards">
+    <div class="card b"><div class="n">0</div><div class="l">Verified-fresh jobs auto-found</div></div>
+    <div class="card g"><div class="n">0</div><div class="l">Auto-qualified</div></div>
+    <div class="card y"><div class="n">1</div><div class="l">Leads to verify</div></div>
+    <div class="card r"><div class="n">API&nbsp;down</div><div class="l">Discovery pipeline</div></div>
+    <div class="card b"><div class="n">12</div><div class="l">Live searches queued</div></div>
+  </div>
+
+  <!-- ============ OPEN ALL LIVE SEARCHES ============ -->
+  <h2>▶ One-click apply launcher</h2>
+  <button class="btn-xl" onclick="openAll()">OPEN ALL 12 LIVE JOB SEARCHES (past 24h · entry level)</button>
+  <div class="hint">Opens 12 pre-filtered LinkedIn &amp; Naukri searches in new tabs. If your browser blocks pop-ups, allow them for this page, or use the individual links below.</div>
+
+  <!-- ============ LEADS TO VERIFY ============ -->
+  <h2><span class="dot" style="background:var(--yellow)"></span>Leads to verify <span style="font-weight:400;font-size:13px;color:var(--muted)">(surfaced, but not confirmed fresh/open — check before applying)</span></h2>
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Why “verify”</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>NAZZTEC</td>
+        <td>Java Spring Boot Developer</td>
+        <td>Delhi</td>
+        <td><span class="pill y">review</span> Strong stack fit (Java + Spring Boot = Bhumi’s core). But the listing shows <b>no posting date and no experience band</b> on the page, and an earlier snippet suggested <b>3+ yrs</b>. Confirm the level and that it’s still open before applying.</td>
+        <td><a class="joblink" href="https://jobs.weekday.works/java-spring-boot-developer-at-nazztec-wkdy515w9h" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============ LIVE SEARCH GRID ============ -->
+  <h2><span class="dot" style="background:var(--blue)"></span>Live filtered searches (click any)</h2>
+  <div class="hint" style="text-align:left">All LinkedIn links are filtered to <b>past 24 hours</b> + <b>entry/associate level</b>, newest first. Naukri links are filtered to <b>last 1 day</b> + <b>≤2 yrs</b>. These show the real current market — not cached results.</div>
+  <div class="grid" id="lanes"></div>
+
+  <!-- ============ WEEKLY TREND ============ -->
+  <h2>📈 Qualified-jobs trend</h2>
+  <div class="trend">
+    <div class="bar"><div class="fill" style="height:70%">1</div><div class="lab">2026-08-05<br>auto-qualified</div></div>
+    <div class="bar"><div class="fill" style="height:4%;background:var(--muted)">0</div><div class="lab">2026-10-10<br>(API down)</div></div>
+  </div>
+  <div class="hint" style="text-align:left">Only two runs on record. Today’s 0 reflects the data-source outage, not a quiet market — the live searches above will show what’s actually open.</div>
+
+  <!-- ============ RESTORE ============ -->
+  <h2>🔧 Restore full automation</h2>
+  <div class="note">
+    The automated discovery &amp; scoring (fraud checks, match scoring, cover-letter generation) works — it just needs a live jobs feed. To bring it back:
+    <ol style="margin:8px 0 0;padding-left:20px">
+      <li><b>Re-subscribe / fix JSearch</b> on RapidAPI (the <code>RAPIDAPI_KEY</code> reaches the host, but <code>/search</code> now 404s — the plan likely lapsed or the endpoint was deprecated), <b>or</b></li>
+      <li>Subscribe the same key to an alternative jobs API (e.g. <i>Active Jobs DB</i> / <i>LinkedIn Job Search API</i> on RapidAPI) and tell me the host &amp; endpoint — I’ll wire it in.</li>
+      <li>Once a feed responds, tomorrow’s run resumes full fraud-detection, match-scoring, and cover-letter generation automatically.</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>Generated by the LinkedIn morning-scan routine · 2026-10-10 · degraded mode (discovery API unavailable). No job listings were fabricated.</footer>
+
+<script>
+  // ---- Live filtered search URLs (real, current results) ----
+  // LinkedIn: f_TPR=r86400 => past 24h ; f_E=2,3 => entry + associate ; sortBy=DD => most recent
+  const LI = (kw, loc) =>
+    "https://www.linkedin.com/jobs/search/?keywords=" + encodeURIComponent(kw) +
+    "&location=" + encodeURIComponent(loc) + "&f_TPR=r86400&f_E=2%2C3&sortBy=DD";
+  // Naukri: jobAge=1 => last 1 day ; experience=1 (yrs)
+  const NK = (slug) => "https://www.naukri.com/" + slug + "?jobAge=1&experience=1";
+
+  const lanes = [
+    { title: "Backend Developer", links: [
+        ["li","LinkedIn · Delhi NCR (24h)", LI("Backend Developer","Delhi, India")],
+        ["li","LinkedIn · Gurugram (24h)", LI("Backend Developer","Gurugram, Haryana, India")],
+        ["nk","Naukri · Delhi NCR (1d)", NK("backend-developer-jobs-in-delhi-ncr")],
+    ]},
+    { title: "Java / Spring Boot", links: [
+        ["li","LinkedIn · Delhi NCR (24h)", LI("Java Spring Boot Developer","Delhi, India")],
+        ["nk","Naukri · Delhi NCR (1d)", NK("java-spring-boot-developer-jobs-in-delhi-ncr")],
+    ]},
+    { title: "Full Stack / MERN", links: [
+        ["li","LinkedIn · Delhi NCR (24h)", LI("Full Stack Developer","Delhi, India")],
+        ["nk","Naukri · Noida (1d)", NK("full-stack-developer-jobs-in-noida")],
+    ]},
+    { title: "Software Engineer / SDE", links: [
+        ["li","LinkedIn · Delhi NCR (24h)", LI("Software Engineer","Delhi, India")],
+        ["nk","Naukri · Gurugram (1d)", NK("software-developer-jobs-in-gurgaon")],
+    ]},
+    { title: "AI / ML / GenAI", links: [
+        ["li","LinkedIn · Delhi NCR (24h)", LI("AI ML Engineer","Delhi, India")],
+        ["li","LinkedIn · Remote India (24h)", LI("Machine Learning Engineer","India")],
+    ]},
+    { title: "Node.js / Remote", links: [
+        ["li","LinkedIn · Remote India (24h)", LI("Node.js Backend Developer","India")],
+    ]},
+  ];
+
+  // Build the grid + collect all URLs for Open-All
+  const allUrls = [];
+  const host = document.getElementById("lanes");
+  lanes.forEach(l => {
+    const d = document.createElement("div"); d.className = "lane";
+    d.innerHTML = "<h3>" + l.title + "</h3>";
+    l.links.forEach(([kind,label,url]) => {
+      allUrls.push(url);
+      const a = document.createElement("a");
+      a.className = kind; a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = label;
+      d.appendChild(a);
+    });
+    host.appendChild(d);
+  });
+
+  function openAll(){
+    allUrls.forEach((u,i) => setTimeout(() => window.open(u, "_blank", "noopener"), i * 250));
+  }
+</script>
+</body>
+</html>
