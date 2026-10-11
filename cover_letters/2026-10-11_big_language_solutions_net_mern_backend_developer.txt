@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would like to apply for the Backend Developer (.NET / MERN Stack) role at BIG Language Solutions in Noida, and I am comfortable with the US-shift schedule.
+
+On the Node.js side of this role I bring direct experience: I build backend services with Node.js and Express.js, and I designed RESTful APIs and microservices for a distributed payment gateway handling 30 endpoints. I have shipped order and payment microservices backed by MySQL and MongoDB, containerized with Docker, and integrated AWS services (S3, Lambda) into production pipelines — matching your needs around API development, authentication, SQL/MongoDB data operations, and cloud exposure.
+
+As an immediate joiner with a strong foundation in system design and clean, testable code (JUnit, Mockito, Postman), I can take ownership of scalable server-side services quickly.
+
+Best regards,
+Bhumi Bhatt

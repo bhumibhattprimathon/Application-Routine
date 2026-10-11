@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Associate Java Developer role within PwC's GCC Advisory team in Noida, where building reliable business-application backends is central to the work.
+
+At Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems using Java and Spring Boot, and I architected a distributed payment gateway of 30 REST APIs spanning Order, Payment, Merchant, and Vault microservices. My Paytm experience optimizing QR-lifecycle microservices, together with my AWS Developer – Associate certification and hands-on CI/CD and Docker work, maps directly to delivering and integrating scalable business applications for your clients.
+
+As an immediate joiner with a 9.3 CGPA and 5-Star Gold Java on HackerRank, I can contribute to client delivery from day one and ramp quickly on PwC's consulting stack.
+
+Best regards,
+Bhumi Bhatt

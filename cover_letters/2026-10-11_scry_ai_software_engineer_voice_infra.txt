@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Software Engineer – Voice Infra position at Scry AI, where strong Python backend skills and real-time, distributed systems experience drive the role.
+
+My background is a close fit: at Paytm I developed microservices powering real-time transaction notifications across the QR-code lifecycle, and my distributed payment gateway project applied system-design principles for fault tolerance across four services. I work daily with REST API integration, Kafka for event streaming, Redis, and MongoDB, and have deployed backend pipelines on AWS (EC2, S3, Lambda) with Docker — the toolkit needed for scalable, production-grade voice and communication infrastructure.
+
+I am an immediate joiner who moves fast on unfamiliar domains, backed by 250+ solved DSA problems and a research paper on Generative AI, and I would welcome the chance to build reliable real-time systems at Scry AI.
+
+Best regards,
+Bhumi Bhatt

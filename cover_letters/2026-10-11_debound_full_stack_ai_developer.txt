@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am interested in the Full Stack AI Developer contract role at Debound, building end-to-end applications where an LLM or agent workflow is the core logic.
+
+This aligns with both my engineering and AI work: I integrated AI-driven daily alerts into my distributed payment gateway to surface transaction insights automatically, and my research paper covered Generative AI applications in personalized systems. On the full-stack side I build interfaces in React.js and orchestration backends in Node.js and Python, with REST APIs, Docker, and CI/CD for reliable deployment — the span from prototype to deployable product this role requires.
+
+I am available immediately for the freelance engagement, pick up new frameworks like LangGraph quickly, and would enjoy owning complete agentic application builds for your clients.
+
+Best regards,
+Bhumi Bhatt

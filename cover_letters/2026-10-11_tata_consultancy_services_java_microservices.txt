@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Java Microservices position at Tata Consultancy Services in Gurugram, a role built squarely on the stack I use every day.
+
+I have strong hands-on experience in Java Core, Spring Boot, and microservices architecture: I architected a production-ready payment gateway of 30 REST APIs across four services with fault tolerance in mind, and at Paytm I optimized microservices driving real-time transaction flows. I work with Kafka for event-driven processing, apply clean coding and design patterns, and have built CI/CD pipelines with Jenkins and Git Actions plus Docker-based deployment — directly matching your requirements around distributed systems, REST APIs, and deployment automation.
+
+As an immediate joiner with 5-Star Gold Java certification and proven production debugging experience, I am ready to contribute to your engineering teams from the start.
+
+Best regards,
+Bhumi Bhatt
