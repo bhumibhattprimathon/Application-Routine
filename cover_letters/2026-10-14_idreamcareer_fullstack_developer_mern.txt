@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Fullstack Developer (MERN) position at iDreamCareer, and I would be glad to bring my backend-heavy full-stack experience to a product that helps students shape their careers.
+
+My day-to-day at Primathon centers on Node.js and Express services, REST API design and MySQL/MongoDB data layers, and I have shipped 30+ optimized REST endpoints with JUnit/Mockito and Postman-backed testing across my internships. On the front end I build React.js interfaces, so I can move comfortably across the MongoDB-Express-React-Node stack your role requires, and my 5-Star Gold Java rating and 250+ solved DSA problems keep my fundamentals sharp for the Agile, test-driven work you describe.
+
+As an immediate joiner eager to grow inside an edtech team, I am ready to contribute from week one and learn your domain fast.
+
+Best regards,
+Bhumi Bhatt

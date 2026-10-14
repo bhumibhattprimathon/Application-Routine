@@ -1,15 +1,16 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-14",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "completed_degraded",
+  "data_source": "India job boards via WebFetch (Internshala - real relative post dates; Cutshort - active listings). WebSearch is US-only; LinkedIn guest search geo-pins to US IP; JSearch RapidAPI subscription lapsed (404 for configured key).",
+  "resume_source": "repo resumes/resume_master.pdf (read OK)",
+  "notify": "routine push/email channel (ntfy disabled per prior user instruction)",
+  "jobs_found": 16,
+  "jobs_qualified": 0,
+  "jobs_review": 8,
+  "jobs_skipped": 8,
+  "fraud_detected": 1,
+  "avg_match_review": 60.4,
+  "action_required": "Renew the JSearch RapidAPI subscription for the configured RAPIDAPI_KEY to restore live daily LinkedIn/India matches. Without it, scans fall back to aggregator pages with weaker recency.",
+  "notes": "No listing cleared the fresh+trusted+in-range bar cleanly today (0 ready_to_apply). Strongest company fits (BASIC Home Loan, iDreamCareer) are legit but their listings are stale (2021/2022) - cover letters prepared for when live roles open. 8 review leads, 8 skipped incl. 1 fraud (VIP Gifts Article)."
 }

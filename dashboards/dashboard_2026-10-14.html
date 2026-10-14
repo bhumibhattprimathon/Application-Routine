@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-10-14</title>
+<style>
+  :root { --green:#22c55e; --yellow:#eab308; --red:#ef4444; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:28px 20px; }
+  header h1 { margin:0 0 4px; font-size:22px; letter-spacing:.3px; }
+  header .sub { color:#94a3b8; font-size:13px; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 16px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:20px 0; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center; }
+  .card .n { font-size:28px; font-weight:700; }
+  .card .l { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-top:4px; }
+  .card.green .n{color:var(--green)} .card.yellow .n{color:var(--yellow)} .card.red .n{color:var(--red)}
+  .banner { background:#fffbeb; border:1px solid #fde68a; border-left:5px solid var(--yellow); border-radius:10px; padding:14px 16px; margin:18px 0; font-size:14px; }
+  .banner b { color:#92400e; }
+  .action { text-align:center; margin:26px 0; }
+  .openall { background:var(--green); color:#fff; border:none; font-size:18px; font-weight:700; padding:18px 34px; border-radius:14px; cursor:pointer; box-shadow:0 6px 16px rgba(34,197,94,.3); }
+  .openall.disabled { background:#94a3b8; box-shadow:none; cursor:not-allowed; }
+  .openall.review { background:var(--yellow); box-shadow:0 6px 16px rgba(234,179,8,.3); }
+  .action .hint { color:var(--muted); font-size:13px; margin-top:8px; }
+  section { background:#fff; border:1px solid var(--line); border-radius:14px; margin:18px 0; overflow:hidden; }
+  .sec-h { padding:14px 18px; font-size:16px; font-weight:700; color:#fff; }
+  .sec-green{background:var(--green)} .sec-yellow{background:var(--yellow)} .sec-red{background:var(--red)} .sec-dark{background:#334155}
+  .sec-body { padding:4px 0; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f8fafc; font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:var(--muted); }
+  .reason-cell { max-width:360px; color:#334155; }
+  .nowrap { white-space:nowrap; }
+  .score-badge { background:#fef9c3; color:#854d0e; font-weight:700; padding:2px 8px; border-radius:20px; }
+  .btn { display:inline-block; border:none; border-radius:8px; padding:6px 10px; font-size:12px; cursor:pointer; text-decoration:none; }
+  .btn-open { background:#1e293b; color:#fff; }
+  .btn-copy { background:#e2e8f0; color:#0f172a; margin-left:4px; }
+  .btn-copy:hover { background:#cbd5e1; }
+  .status-skip { color:var(--red); font-weight:600; }
+  .status-fraud { background:var(--red); color:#fff; padding:2px 8px; border-radius:6px; font-weight:600; }
+  .empty { padding:22px; text-align:center; color:var(--muted); font-style:italic; }
+  .rec { padding:14px 18px; border-bottom:1px solid var(--line); }
+  .rec-h { font-size:15px; }
+  .rec-num { display:inline-block; width:22px; height:22px; line-height:22px; text-align:center; background:var(--ink); color:#fff; border-radius:50%; font-size:12px; }
+  .rec p { margin:6px 0; color:#334155; font-size:13.5px; }
+  .rec-meta { font-size:12px; color:var(--muted); }
+  .pill { font-size:11px; padding:2px 8px; border-radius:20px; margin-left:6px; }
+  .pill-score { background:#dcfce7; color:#166534; }
+  .pill-trust { background:#dbeafe; color:#1e40af; }
+  .trend { display:flex; gap:28px; align-items:flex-end; padding:22px; height:180px; }
+  .bar-col { text-align:center; }
+  .bar { width:54px; background:linear-gradient(180deg,#22c55e,#16a34a); border-radius:8px 8px 0 0; margin:0 auto; }
+  .bar-val { font-weight:700; margin-top:6px; }
+  .bar-lbl { font-size:11px; color:var(--muted); margin-top:2px; }
+  .cover-box { margin:16px 18px; border:1px solid var(--line); border-radius:10px; }
+  .cover-h { background:#f8fafc; padding:10px 14px; font-weight:700; font-size:14px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
+  .cover-box pre { margin:0; padding:14px; white-space:pre-wrap; font-family:inherit; font-size:13px; line-height:1.5; }
+  footer { text-align:center; color:var(--muted); font-size:12px; padding:30px 16px; }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--ink); color:#fff; padding:12px 20px; border-radius:10px; opacity:0; transition:opacity .2s; font-size:14px; }
+  .toast.show { opacity:1; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-14</h1>
+  <div class="sub">Daily job scan for Bhumi Bhatt &middot; Backend / Full-Stack &middot; Delhi NCR &amp; Remote &middot; target 5.5–12 LPA</div>
+</div></header>
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">16</div><div class="l">Jobs Found</div></div>
+    <div class="card green"><div class="n">0</div><div class="l">Qualified</div></div>
+    <div class="card yellow"><div class="n">8</div><div class="l">Review</div></div>
+    <div class="card red"><div class="n">8</div><div class="l">Skipped</div></div>
+    <div class="card red"><div class="n">1</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">61.6</div><div class="l">Avg Match (review)</div></div>
+  </div>
+
+  <div class="banner">
+    <b>Pipeline note — read me.</b> The live LinkedIn/JSearch feed the Aug run relied on is degraded in this environment:
+    (1) the RapidAPI <b>JSearch subscription has lapsed</b> (the API now returns 404 for this key), and
+    (2) LinkedIn's guest job search geo-pins to a US IP from here, returning Ohio jobs instead of Delhi NCR.
+    Today's results were therefore sourced from India job boards (Internshala — real post dates; Cutshort — active but often old listings).
+    <b>Nothing cleared the fresh + trusted + in-range bar cleanly today, so 0 are marked ready-to-apply.</b>
+    To restore daily live LinkedIn matches, renew the JSearch RapidAPI subscription for the configured key.
+  </div>
+
+  <div class="action">
+    <button class="openall disabled" disabled title="No clean qualified jobs today">OPEN ALL 0 QUALIFIED JOBS</button>
+    <div class="hint">No listing qualified cleanly today. The actionable leads are the Review candidates below:</div>
+    <div style="margin-top:12px">
+      <button class="openall review" onclick="openAll()">OPEN ALL 7 REVIEW LEADS</button>
+    </div>
+    <div class="hint">Opens each review listing in a new tab (allow pop-ups).</div>
+  </div>
+
+  <section>
+    <div class="sec-h sec-green">✅ Qualified — Ready to Apply (0)</div>
+    <div class="empty">No listing cleared trust ≥ 60, match ≥ 65, in-range salary and genuine recency today. The two strongest company matches (BASIC Home Loan, iDreamCareer) are in Review because their postings are stale — check those employers' careers pages for live roles.</div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-yellow">🟡 Review — Verify Before Applying (8)</div>
+    <div class="sec-body">
+      <table>
+        <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Reason for Review</th><th>Actions</th></tr></thead>
+        <tbody><tr>
+      <td>1</td><td><span class="score-badge">80</span></td><td>85</td>
+      <td>BASIC Home Loan</td><td>MERN Stack Developer</td><td>Delhi / Gurugram / Noida</td>
+      <td>₹13–17 LPA + ESOP</td><td>fullstack</td>
+      <td class="reason-cell">Excellent fit &amp; highly trusted (funded fintech, Series B $10.6M led by Bertelsmann India, 170+ employees). Stack = her exact Node.js/MERN/Redis/AWS/microservices. BUT the Cutshort posting is from Jun 2021 — verify a current opening on basichomeloan.com/careers or their LinkedIn before applying.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://cutshort.io/job/MERN-Stack-Developer-NCR-Delhi-Gurgaon-Noida-Basic-Home-Loan-6nurfKf5" target="_blank" rel="noopener">Open</a> <button class="btn btn-copy" onclick="copyCover('bhl')">Copy cover letter</button></td>
+    </tr><tr>
+      <td>2</td><td><span class="score-badge">78</span></td><td>72</td>
+      <td>iDreamCareer</td><td>Fullstack Developer – MERN</td><td>Delhi / Gurugram / Noida</td>
+      <td>₹7–15 LPA</td><td>fullstack</td>
+      <td class="reason-cell">Established edtech (founded 2012, ~250 employees). MERN/Redux/REST stack fits well and exp band 1–8 yrs includes her 1.5. BUT the Cutshort posting is from Jan 2022 — check iDreamCareer&#x27;s careers page/LinkedIn for a live role.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open</a> <button class="btn btn-copy" onclick="copyCover('idc')">Copy cover letter</button></td>
+    </tr><tr>
+      <td>3</td><td><span class="score-badge">70</span></td><td>48</td>
+      <td>Rickshesh Manchanda</td><td>Full Stack Developer</td><td>Chennai / Delhi / Pune</td>
+      <td>₹5.5 LPA</td><td>fullstack</td>
+      <td class="reason-cell">Fresh fresher-friendly full-stack role, Delhi included, ₹5.5 LPA = bottom of target range. Posted under an individual&#x27;s name with no verifiable company page — confirm the employer and that it is office/remote-appropriate before applying.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-full-stack-developer-job-in-multiple-locations-at-rickshesh-manchanda1790926300" target="_blank" rel="noopener">Open</a> </td>
+    </tr><tr>
+      <td>4</td><td><span class="score-badge">58</span></td><td>45</td>
+      <td>Humanity Founders</td><td>Full Stack Mobile Engineer</td><td>Remote (WFH)</td>
+      <td>₹5–10 LPA</td><td>fullstack</td>
+      <td class="reason-cell">Remote and in salary range, posted today. Role leans mobile (React Native) which is adjacent to — not core to — her Java/Node backend focus, and the company could not be verified in public records. Due-diligence before applying.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-remote-full-stack-mobile-engineer-job-at-humanity-founders1791890546" target="_blank" rel="noopener">Open</a> </td>
+    </tr><tr>
+      <td>5</td><td><span class="score-badge">55</span></td><td>48</td>
+      <td>Mellow Vault</td><td>Software Developer</td><td>Noida</td>
+      <td>₹3–4 LPA</td><td>master</td>
+      <td class="reason-cell">Genuinely recent (9 Oct) and local (Noida); stack (JS, MongoDB, C++, Python) partially overlaps. Salary ₹3–4 LPA is below the 5.5 LPA target (salary risk) and the company is unverified. A fallback, not a priority.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-software-developer-job-in-noida-at-mellow-vault1791657067" target="_blank" rel="noopener">Open</a> </td>
+    </tr><tr>
+      <td>6</td><td><span class="score-badge">52</span></td><td>45</td>
+      <td>PROQAAI Private Limited</td><td>Full Stack Developer</td><td>Remote (WFH)</td>
+      <td>₹5–7 LPA</td><td>fullstack</td>
+      <td class="reason-cell">Remote and inside the salary band. Company is lightly verifiable; confirm legitimacy (MCA registration, LinkedIn presence) before sharing documents.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-remote-full-stack-developer-job-at-proqaai-private-limited1790661356" target="_blank" rel="noopener">Open</a> </td>
+    </tr><tr>
+      <td>7</td><td><span class="score-badge">50</span></td><td>45</td>
+      <td>Honhr</td><td>Software Engineer / Full Stack / Python</td><td>Multi-city incl. Delhi</td>
+      <td>₹4.8 LPA</td><td>master</td>
+      <td class="reason-cell">Same role posted across many cities by an unverified recruiter-style account; salary ₹4.8 LPA is just under target. Low confidence — treat as a volume application only.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://internshala.com/job/detail/fresher-software-engineer-job-in-multiple-locations-at-honhr1790572349" target="_blank" rel="noopener">Open</a> </td>
+    </tr><tr>
+      <td>8</td><td><span class="score-badge">50</span></td><td>42</td>
+      <td>Zentrix Nexus</td><td>Java Developer</td><td>Multi-city incl. Delhi/Noida/Gurugram</td>
+      <td>₹4–7 LPA</td><td>backend</td>
+      <td class="reason-cell">Java + 0–2 yrs matches her level, but the role is listed simultaneously across 10+ cities — a classic mass-posting / churn signal — and the company is unverifiable. Verify before engaging.</td>
+      <td class="nowrap"><a class="btn btn-open" href="https://cutshort.io/job/Java-Developer-Chennai-Bengaluru-Bangalore-Mumbai-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Pune-Hyderabad-Zentrix-nexus-ErbJchjq" target="_blank" rel="noopener">Open</a> </td>
+    </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-red">🔴 Skipped (8, incl. 1 fraud)</div>
+    <div class="sec-body">
+      <table>
+        <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Status</th><th>Skip Reason</th></tr></thead>
+        <tbody><tr>
+      <td>1</td><td>VIP Gifts Article</td><td>Forward Deployed AI Engineer (FDE)</td>
+      <td><span class="status-fraud">fraud_skip</span></td><td class="reason-cell">FRAUD SIGNAL: garbled/unidentifiable company name, a gifting business advertising an &#x27;AI FDE&#x27; role, no public footprint. Trust &lt; 40. Location Pune (outside NCR) regardless.</td>
+    </tr><tr>
+      <td>2</td><td>Spear &amp; Shield LLP</td><td>Software Developer</td>
+      <td><span class="status-skip">salary_skip</span></td><td class="reason-cell">Salary: ₹4 LPA, below the 5–5.5 LPA floor.</td>
+    </tr><tr>
+      <td>3</td><td>Servotech</td><td>Software Engineer</td>
+      <td><span class="status-skip">salary_skip</span></td><td class="reason-cell">Salary: ₹2–3 LPA, well below target; posting ~3 weeks old.</td>
+    </tr><tr>
+      <td>4</td><td>IoTfy Solutions</td><td>iOS App Developer</td>
+      <td><span class="status-skip">low_match_skip</span></td><td class="reason-cell">Skill: iOS/Swift mobile — off her Java/JavaScript backend stack.</td>
+    </tr><tr>
+      <td>5</td><td>Ploceus Software</td><td>Junior Software Engineer</td>
+      <td><span class="status-skip">low_match_skip</span></td><td class="reason-cell">Location: Bangalore (outside Delhi NCR / remote); salary ₹3–4 LPA below target.</td>
+    </tr><tr>
+      <td>6</td><td>EduplusCampus</td><td>Java Developer</td>
+      <td><span class="status-skip">low_match_skip</span></td><td class="reason-cell">Location: Pune (outside NCR); salary ₹2–3 LPA below target.</td>
+    </tr><tr>
+      <td>7</td><td>Quavento Technologies</td><td>Full-stack Engineer</td>
+      <td><span class="status-skip">low_match_skip</span></td><td class="reason-cell">Location: Pune hybrid (outside NCR/remote).</td>
+    </tr><tr>
+      <td>8</td><td>Desnor Destination</td><td>Associate Backend Developer (Java)</td>
+      <td><span class="status-skip">salary_skip</span></td><td class="reason-cell">Part-time + WFH, ₹3–4.5 LPA below target.</td>
+    </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-dark">⭐ Top 5 Recommendations</div>
+    <div class="rec">
+      <div class="rec-h"><span class="rec-num">1</span> <strong>MERN Stack Developer</strong> — BASIC Home Loan
+        <span class="pill pill-score">Match 80</span><span class="pill pill-trust">Trust 85</span></div>
+      <p>Excellent fit &amp; highly trusted (funded fintech, Series B $10.6M led by Bertelsmann India, 170+ employees). Stack = her exact Node.js/MERN/Redis/AWS/microservices. BUT the Cutshort posting is from Jun 2021 — verify a current opening on basichomeloan.com/careers or their LinkedIn before applying.</p>
+      <div class="rec-meta">Delhi / Gurugram / Noida &middot; ₹13–17 LPA + ESOP &middot; <em>Listing dated Jun 2021 — STALE</em> &middot; <a href="https://cutshort.io/job/MERN-Stack-Developer-NCR-Delhi-Gurgaon-Noida-Basic-Home-Loan-6nurfKf5" target="_blank" rel="noopener">Open listing ↗</a></div>
+    </div><div class="rec">
+      <div class="rec-h"><span class="rec-num">2</span> <strong>Fullstack Developer – MERN</strong> — iDreamCareer
+        <span class="pill pill-score">Match 78</span><span class="pill pill-trust">Trust 72</span></div>
+      <p>Established edtech (founded 2012, ~250 employees). MERN/Redux/REST stack fits well and exp band 1–8 yrs includes her 1.5. BUT the Cutshort posting is from Jan 2022 — check iDreamCareer&#x27;s careers page/LinkedIn for a live role.</p>
+      <div class="rec-meta">Delhi / Gurugram / Noida &middot; ₹7–15 LPA &middot; <em>Listing dated Jan 2022 — STALE</em> &middot; <a href="https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq" target="_blank" rel="noopener">Open listing ↗</a></div>
+    </div><div class="rec">
+      <div class="rec-h"><span class="rec-num">3</span> <strong>Full Stack Developer</strong> — Rickshesh Manchanda
+        <span class="pill pill-score">Match 70</span><span class="pill pill-trust">Trust 48</span></div>
+      <p>Fresh fresher-friendly full-stack role, Delhi included, ₹5.5 LPA = bottom of target range. Posted under an individual&#x27;s name with no verifiable company page — confirm the employer and that it is office/remote-appropriate before applying.</p>
+      <div class="rec-meta">Chennai / Delhi / Pune &middot; ₹5.5 LPA &middot; <em>~1 week ago</em> &middot; <a href="https://internshala.com/job/detail/fresher-full-stack-developer-job-in-multiple-locations-at-rickshesh-manchanda1790926300" target="_blank" rel="noopener">Open listing ↗</a></div>
+    </div><div class="rec">
+      <div class="rec-h"><span class="rec-num">4</span> <strong>Full Stack Mobile Engineer</strong> — Humanity Founders
+        <span class="pill pill-score">Match 58</span><span class="pill pill-trust">Trust 45</span></div>
+      <p>Remote and in salary range, posted today. Role leans mobile (React Native) which is adjacent to — not core to — her Java/Node backend focus, and the company could not be verified in public records. Due-diligence before applying.</p>
+      <div class="rec-meta">Remote (WFH) &middot; ₹5–10 LPA &middot; <em>Posted today</em> &middot; <a href="https://internshala.com/job/detail/fresher-remote-full-stack-mobile-engineer-job-at-humanity-founders1791890546" target="_blank" rel="noopener">Open listing ↗</a></div>
+    </div><div class="rec">
+      <div class="rec-h"><span class="rec-num">5</span> <strong>Software Developer</strong> — Mellow Vault
+        <span class="pill pill-score">Match 55</span><span class="pill pill-trust">Trust 48</span></div>
+      <p>Genuinely recent (9 Oct) and local (Noida); stack (JS, MongoDB, C++, Python) partially overlaps. Salary ₹3–4 LPA is below the 5.5 LPA target (salary risk) and the company is unverified. A fallback, not a priority.</p>
+      <div class="rec-meta">Noida &middot; ₹3–4 LPA &middot; <em>~5 days ago (9 Oct)</em> &middot; <a href="https://internshala.com/job/detail/fresher-software-developer-job-in-noida-at-mellow-vault1791657067" target="_blank" rel="noopener">Open listing ↗</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-dark">📈 Weekly Trend — Qualified per run</div>
+    <div class="trend"><div class="bar-col"><div class="bar" style="height:120px" title="1 qualified"></div><div class="bar-val">1</div><div class="bar-lbl">2026-08-05</div></div><div class="bar-col"><div class="bar" style="height:8px" title="0 qualified"></div><div class="bar-val">0</div><div class="bar-lbl">2026-10-14 (today)</div></div></div>
+    <div class="empty" style="text-align:left;padding:0 22px 18px">Only two runs recorded (08-05 and today). Qualified volume is gated by the live-data pipeline being down, not by a weak market — restore JSearch to see this recover.</div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-dark">✉️ Cover Letters (ready to send)</div>
+    
+<div class="cover-box">
+  <div class="cover-h">BASIC Home Loan — MERN Stack Developer <button class="btn btn-copy" onclick="copyCover('bhl')">COPY</button></div>
+  <pre id="cover-bhl">Dear Hiring Manager,
+
+I am excited to apply for the MERN Stack Developer role at BASIC Home Loan, where building multitenant fintech products from inception to scale is exactly the kind of work I want to own.
+
+At Primathon I engineer Node.js admin APIs and backend syncing automation across seven merchant systems, and my Distributed Payment Gateway project put 30 REST APIs across four services into production with Redis caching and AWS (S3, Lambda) — the same microservices, Node.js, Redis and AWS foundation your loan platform runs on. Having built real-time transaction notification microservices during my Paytm internship, I understand the reliability demands of payments and lending systems, and my React.js work rounds out the full MERN picture.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your product roadmap right away and ramp quickly on a fast-moving codebase.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+<div class="cover-box">
+  <div class="cover-h">iDreamCareer — Fullstack Developer (MERN) <button class="btn btn-copy" onclick="copyCover('idc')">COPY</button></div>
+  <pre id="cover-idc">Dear Hiring Manager,
+
+I am writing to apply for the Fullstack Developer (MERN) position at iDreamCareer, and I would be glad to bring my backend-heavy full-stack experience to a product that helps students shape their careers.
+
+My day-to-day at Primathon centers on Node.js and Express services, REST API design and MySQL/MongoDB data layers, and I have shipped 30+ optimized REST endpoints with JUnit/Mockito and Postman-backed testing across my internships. On the front end I build React.js interfaces, so I can move comfortably across the MongoDB-Express-React-Node stack your role requires, and my 5-Star Gold Java rating and 250+ solved DSA problems keep my fundamentals sharp for the Agile, test-driven work you describe.
+
+As an immediate joiner eager to grow inside an edtech team, I am ready to contribute from week one and learn your domain fast.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div>
+  </section>
+
+</div>
+<footer>Generated 2026-10-14 &middot; Jobs are real listings pulled from Internshala &amp; Cutshort &middot; Verify recency &amp; legitimacy before applying.</footer>
+<div id="toast" class="toast"></div>
+<script>
+  var REVIEW_URLS = ["https://cutshort.io/job/MERN-Stack-Developer-NCR-Delhi-Gurgaon-Noida-Basic-Home-Loan-6nurfKf5", "https://cutshort.io/job/Fullstack-Developer-MERN-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-iDreamCareer-com-Jr4yaFTq", "https://internshala.com/job/detail/fresher-full-stack-developer-job-in-multiple-locations-at-rickshesh-manchanda1790926300", "https://internshala.com/job/detail/fresher-remote-full-stack-mobile-engineer-job-at-humanity-founders1791890546", "https://internshala.com/job/detail/fresher-software-developer-job-in-noida-at-mellow-vault1791657067", "https://internshala.com/job/detail/fresher-remote-full-stack-developer-job-at-proqaai-private-limited1790661356", "https://internshala.com/job/detail/fresher-software-engineer-job-in-multiple-locations-at-honhr1790572349"];
+  var COVERS = { "bhl": "Dear Hiring Manager,\n\nI am excited to apply for the MERN Stack Developer role at BASIC Home Loan, where building multitenant fintech products from inception to scale is exactly the kind of work I want to own.\n\nAt Primathon I engineer Node.js admin APIs and backend syncing automation across seven merchant systems, and my Distributed Payment Gateway project put 30 REST APIs across four services into production with Redis caching and AWS (S3, Lambda) \u2014 the same microservices, Node.js, Redis and AWS foundation your loan platform runs on. Having built real-time transaction notification microservices during my Paytm internship, I understand the reliability demands of payments and lending systems, and my React.js work rounds out the full MERN picture.\n\nAs an immediate joiner with a 0-day notice period, I can start contributing to your product roadmap right away and ramp quickly on a fast-moving codebase.\n\nBest regards,\nBhumi Bhatt", "idc": "Dear Hiring Manager,\n\nI am writing to apply for the Fullstack Developer (MERN) position at iDreamCareer, and I would be glad to bring my backend-heavy full-stack experience to a product that helps students shape their careers.\n\nMy day-to-day at Primathon centers on Node.js and Express services, REST API design and MySQL/MongoDB data layers, and I have shipped 30+ optimized REST endpoints with JUnit/Mockito and Postman-backed testing across my internships. On the front end I build React.js interfaces, so I can move comfortably across the MongoDB-Express-React-Node stack your role requires, and my 5-Star Gold Java rating and 250+ solved DSA problems keep my fundamentals sharp for the Agile, test-driven work you describe.\n\nAs an immediate joiner eager to grow inside an edtech team, I am ready to contribute from week one and learn your domain fast.\n\nBest regards,\nBhumi Bhatt" };
+  function openAll() { REVIEW_URLS.forEach(function(u){ window.open(u,'_blank','noopener'); }); }
+  function toast(msg) { var t=document.getElementById('toast'); t.textContent=msg; t.className='toast show'; setTimeout(function(){t.className='toast';},1600); }
+  function copyCover(id) {
+    var txt = COVERS[id] || (document.getElementById('cover-'+id) ? document.getElementById('cover-'+id).textContent : '');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function(){toast('Cover letter copied ✓');}, function(){fallbackCopy(txt);});
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt) {
+    var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); toast('Cover letter copied ✓'); } catch(e) { toast('Copy failed — select manually'); }
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>

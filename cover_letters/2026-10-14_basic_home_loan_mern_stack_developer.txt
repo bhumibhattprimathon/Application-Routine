@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the MERN Stack Developer role at BASIC Home Loan, where building multitenant fintech products from inception to scale is exactly the kind of work I want to own.
+
+At Primathon I engineer Node.js admin APIs and backend syncing automation across seven merchant systems, and my Distributed Payment Gateway project put 30 REST APIs across four services into production with Redis caching and AWS (S3, Lambda) — the same microservices, Node.js, Redis and AWS foundation your loan platform runs on. Having built real-time transaction notification microservices during my Paytm internship, I understand the reliability demands of payments and lending systems, and my React.js work rounds out the full MERN picture.
+
+As an immediate joiner with a 0-day notice period, I can start contributing to your product roadmap right away and ramp quickly on a fast-moving codebase.
+
+Best regards,
+Bhumi Bhatt
