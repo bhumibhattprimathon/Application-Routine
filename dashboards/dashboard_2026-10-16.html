@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-10-16</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f8fafc;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  header{background:var(--ink);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.35rem;letter-spacing:.3px}
+  header .sub{color:#cbd5e1;font-size:.9rem}
+  .wrap{max-width:1040px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:1.9rem;font-weight:700}
+  .card .l{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+  .banner{border-radius:12px;padding:16px 18px;margin:16px 0;font-size:.95rem}
+  .banner.warn{background:#fef9c3;border:1px solid #fde047;color:#713f12}
+  .banner.warn b{color:#854d0e}
+  .btn{display:inline-block;border:none;border-radius:10px;padding:12px 18px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn-primary{background:var(--green);color:#063}
+  .openall{width:100%;font-size:1.15rem;padding:18px;background:var(--ink);color:#fff;border-radius:14px}
+  .openall:hover{background:#1e293b}
+  section{margin:26px 0}
+  h2{font-size:1.1rem;border-left:5px solid var(--muted);padding-left:10px;margin-bottom:12px}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.9rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f1f5f9;font-size:.78rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:600}
+  .pill.y{background:#fef9c3;color:#854d0e}
+  .mini{font-size:.82rem;color:var(--muted)}
+  .lead{background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .lead a{color:#1d4ed8}
+  .rec{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:160px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0;transition:height .3s}
+  .bar .cap{margin-top:6px;font-size:.78rem;color:var(--muted);text-align:center}
+  .bar .v{font-size:.8rem;font-weight:700;margin-bottom:4px}
+  a.src{color:#1d4ed8;word-break:break-all}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-16</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Immediate joiner · Target 5.5–12 LPA</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">5</div><div class="l">Jobs Considered</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Ready to Apply</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">1</div><div class="l">Review (verified open)</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">4</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+
+  <div class="banner warn">
+    <b>⚠️ Discovery was degraded today — please read.</b><br>
+    The automated fresh-link pipeline (JSearch API, used on previous runs) is <b>disabled in this environment</b>
+    (its <code>/search</code> endpoint returns 404; the key is valid but search is gated, and no alternate jobs API is subscribed).
+    The fallback — WebSearch — is US-only and returned mostly <b>undated or stale aggregator pages</b> for India roles, so
+    <b>"posted in the last 24 hours" could not be verified</b> for most leads. I ran <b>14 searches</b> across all five role batches
+    and <b>directly verified 8</b> of the most promising specific postings. Of those, several were stale (2022) or removed
+    (HTTP 410 Gone). <b>Only one currently-open, entry-level role with a live apply link could be confirmed</b> (below) — and it is a
+    stretch fit. <b>Recommendation: also run LinkedIn / Naukri "Past 24 hours" filters directly today</b> (buttons below), and
+    restore the JSearch subscription so tomorrow's run works as designed.
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN VERIFIED LEAD + LIVE "PAST 24h" JOB SEARCHES ↗</button>
+  <p class="mini">Opens the 1 verified lead plus pre-filtered LinkedIn &amp; Naukri searches for Backend / Full-Stack roles in Delhi NCR posted in the last 24h. (Allow pop-ups.)</p>
+
+  <section>
+    <h2 class="y">Review — verified open, worth a look (1)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Variant</th><th>Apply</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="pill y">56</span></td>
+          <td>80</td>
+          <td>Intellinet Systems</td>
+          <td>Junior AI Engineer (0–1 yr)</td>
+          <td>Gurugram</td>
+          <td>5–8 LPA (est)</td>
+          <td>ai_ml</td>
+          <td><a class="btn btn-primary" href="https://intellinetsystem.keka.com/careers/jobdetails/105156" target="_blank" rel="noopener">Open Job ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mini">Why "review", not "ready-to-apply": verified currently OPEN on the company's Keka ATS and the experience bar (0–1 yr) fits — but the
+    <b>core requirement is Python + classic ML</b> (scikit-learn, TensorFlow, PyTorch, time-series/ARIMA/Prophet/LSTM), which is <b>not on Bhumi's
+    Java/Spring Boot/Node resume</b>. She overlaps on AWS, Git, SQL and has AI-adjacent work (AI-driven alerts in her payment-gateway project + a
+    GenAI research paper), so it's a genuine upskill stretch rather than a direct match. Trust is solid (established Gurugram IT firm, website,
+    37 Glassdoor reviews ≈3.6).</p>
+  </section>
+
+  <section>
+    <h2 class="y">Unverified leads — I could not confirm these are current; check the source yourself</h2>
+    <p class="mini">These surfaced in search but I could not verify freshness or open-status (JS-rendered, blocked, or undated). Listed transparently so you can check — not scored, not fabricated.</p>
+    <div class="lead"><b>Java Developer – Spring Boot</b> · Hirist (NCR) — <a class="src" href="https://www.hirist.tech/j/java-developer-spring-boot-1650319" target="_blank" rel="noopener">hirist.tech/j/…1650319</a><br><span class="mini">Hirist is a legit India tech board; page is JS-rendered so title/experience/date couldn't be read. Verify directly.</span></div>
+    <div class="lead"><b>Full Stack Developer – Java + React.js</b> · Hirist — <a class="src" href="https://www.hirist.tech/j/full-stack-developer-java-reactjs-1650927" target="_blank" rel="noopener">hirist.tech/j/…1650927</a><br><span class="mini">Same caveat — could not read details. Good potential stack fit if entry/mid level.</span></div>
+    <div class="lead"><b>Backend Developer (Node.js)</b> · Kuvaka via PitchNHire — <a class="src" href="https://jobs.pitchnhire.com/hiretobykuvaka/backend-developer-nodejs/69031c818fc1fc5c53dd0757" target="_blank" rel="noopener">jobs.pitchnhire.com/…</a><br><span class="mini">Node.js backend — aligns with her Node/Express experience. Confirm experience band and location.</span></div>
+    <div class="lead"><b>Backend Developer (NestJS &amp; TypeScript), Remote India</b> · BoomerangFX (1–3 yrs) — <span class="mini">surfaced on aggregators; no clean direct apply URL captured. Search "BoomerangFX backend developer India remote" on LinkedIn. Note: US-Eastern hours (8am–4pm ET).</span></div>
+  </section>
+
+  <section>
+    <h2 class="r">Skipped (4)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Consultbae India</td><td>SDE 1</td><td><b>Posting removed</b> — returned HTTP 410 Gone on verification; no longer available.</td></tr>
+        <tr><td>2</td><td>Luxoft</td><td>Java FullStack (React), Gurugram</td><td><b>Experience</b> — senior role; also dated Apr 2026 (stale).</td></tr>
+        <tr><td>3</td><td>Foundit (multi-city)</td><td>Senior Java Full Stack Developer</td><td><b>Experience</b> — 6–13 yrs required. Far above 1.5 yrs.</td></tr>
+        <tr><td>4</td><td>Volmint Technologies</td><td>MERN Stack Developer, Delhi</td><td><b>Salary</b> — ₹20k–40k/mo ≈ 2.4–4.8 LPA, below the 5 LPA floor; also undated.</td></tr>
+      </tbody>
+    </table>
+    <p class="mini">Also seen and dropped during verification: Corpseed ITES "Backend/Java Developer" (Noida) — careers pages dated 2022-03 / 2022-08 with sales-oriented duties, not a current dev role.</p>
+  </section>
+
+  <section>
+    <h2>Top recommendation</h2>
+    <div class="rec">
+      <b>1. Intellinet Systems — Junior AI Engineer (Gurugram)</b> — the only role I could confirm is live and open to a 0–1 yr candidate today.
+      It's not a core-skill match (it wants Python/ML, not her Java backend stack), but it is a real, open door in Gurugram at an established firm,
+      and Bhumi's AWS + SQL + GenAI research give her a credible angle. Treat it as an <i>upskill/stretch</i> application, not a slam-dunk.
+      <br><br>
+      <b>Bigger recommendation for today:</b> because the automated pipeline is degraded, the highest-value move is to open LinkedIn Jobs and Naukri
+      with the <b>"Past 24 hours"</b> filter set to <i>Backend / Full-Stack / Java / Node, Delhi NCR &amp; Remote</i> (use the big button above) and
+      apply to 3–5 fresh matches directly — a 15-minute manual pass will beat today's degraded automated yield.
+    </div>
+  </section>
+
+  <section>
+    <h2>Weekly trend — jobs "ready to apply" per run</h2>
+    <div class="trend">
+      <div class="bar"><div class="v">1</div><div class="fill" style="height:90%"></div><div class="cap">Aug&nbsp;05<br>(prev run)</div></div>
+      <div class="bar"><div class="v">0</div><div class="fill" style="height:2%;background:#cbd5e1"></div><div class="cap">Oct&nbsp;16<br>(today)</div></div>
+    </div>
+    <p class="mini">Only one prior run exists (2026-08-05) and it was &gt;2 months ago, so a true 7-day trend isn't available. Today's 0 reflects the
+    degraded data source, not an empty market — see the banner.</p>
+  </section>
+
+  <section>
+    <h2>Cover letters</h2>
+    <p class="mini">None generated today. The rule is: generate only for jobs scoring <b>match ≥ 75 &amp; trust ≥ 60</b>. No role cleared that bar
+    (the one verified-open role scored 56 on fit). A cover letter will be auto-generated as soon as a strong, verified match appears.</p>
+  </section>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-10-16 · deduped against 17 prior entries ·
+  resume: resume_master.pdf · data source: WebSearch (US-only) — JSearch disabled this run.
+</footer>
+
+<script>
+  // Verified lead + pre-filtered "Past 24h" direct searches (the reliable path today).
+  var urls = [
+    "https://intellinetsystem.keka.com/careers/jobdetails/105156",
+    "https://www.linkedin.com/jobs/search/?keywords=backend%20developer&location=Delhi%20NCR&f_TPR=r86400&f_E=1%2C2",
+    "https://www.linkedin.com/jobs/search/?keywords=full%20stack%20developer&location=Delhi%20NCR&f_TPR=r86400&f_E=1%2C2",
+    "https://www.naukri.com/backend-developer-jobs-in-delhi-ncr?experience=1&jobAge=1"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank", "noopener"); }); }
+</script>
+</body>
+</html>
