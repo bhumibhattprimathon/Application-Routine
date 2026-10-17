@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Java Full-Stack Developer role at Cognizant, building resilient web applications that power global business platforms.
+
+On the backend my fit is direct: Java with Spring Boot, microservices, REST APIs, and strong system-design fundamentals, with MySQL and MongoDB for persistence and AWS plus Docker for delivery. On the frontend I work in React.js and JavaScript (ES6+); while my component experience is in React rather than Angular, the SPA patterns, state handling, and API integration transfer directly, and I'm a fast learner — I earned a Spring Boot advanced certification building four real-world projects. I'm eager to pick up Angular and GraphQL quickly on the job.
+
+As an immediate joiner with an AWS Developer certification and a 5-Star Java rating, I can contribute to secure, high-performing services from the start.
+
+Best regards,
+Bhumi Bhatt

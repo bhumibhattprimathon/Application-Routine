@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd be glad to join PFI Innovation Centre India as an Associate Software Engineer, helping a new Prudential-backed centre build software that improves people's financial lives.
+
+My experience spans the full stack you're hiring for: Java and Spring Boot microservices and REST APIs on the backend, React.js and JavaScript (ES6+) on the frontend, and AWS (EC2, S3, Lambda) for deployment. At Paytm I built microservices managing the QR-code lifecycle that powered real-time merchant transaction notifications, and at Primathon I ship custom admin APIs and automated backend workflows across seven merchant systems. That financial-systems background maps directly to an innovation centre in the insurance and investment space.
+
+I'm an immediate joiner, comfortable owning features end to end, and I pick up new frameworks quickly — a Spring Boot advanced certification and four real-world projects back that up.
+
+Best regards,
+Bhumi Bhatt

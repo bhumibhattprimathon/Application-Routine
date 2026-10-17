@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+An early-stage Full-Stack Developer role with real ownership is exactly what I'm after, so I'm applying for this position through HuntingCube.
+
+I work across the stack: Node.js and Express with REST APIs on the backend, React.js and JavaScript (ES6+) on the frontend, and MySQL and MongoDB for data — all deployed on AWS with Docker. At Primathon I build custom admin APIs and backend automation end to end across seven merchant systems, and my certified Distributed Payment Gateway shipped 30 REST APIs across four services, so I'm comfortable owning a feature from database to UI.
+
+Being one of the first engineers, moving fast, and taking responsibility for outcomes suits how I like to work. As an immediate joiner, I can start contributing from week one and grow with the team.
+
+Best regards,
+Bhumi Bhatt

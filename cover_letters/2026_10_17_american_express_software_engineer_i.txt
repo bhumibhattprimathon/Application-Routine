@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer I role at American Express, building scalable, intelligent software for a company whose scale depends on dependable payment systems — the domain I've worked in throughout my career.
+
+I design microservices and REST APIs with strong system-design fundamentals, using React.js and JavaScript on the frontend and MySQL and MongoDB for data. At Paytm I optimized QR-code-lifecycle microservices, improving service reliability and performance by 67%, and my certified Distributed Payment Gateway integrated AI-driven daily alerts to surface transaction insights automatically — relevant to your AI/ML-infused platform. My B.Tech research paper on Generative AI applications reflects genuine interest in the ML side of this role.
+
+As an immediate joiner with an AWS Developer certification and a 5-Star Java rating, I'm ready to contribute to Amex's engineering platform quickly.
+
+Best regards,
+Bhumi Bhatt

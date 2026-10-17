@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Engineer I (Java Backend) role at Precisely, where reliable, high-integrity data pipelines sit at the core of the product — exactly the kind of backend work I do today.
+
+At Primathon I build Java and Spring Boot services and integrated AWS Timestream, S3, and Lambda into real-time data-ingestion pipelines, cutting manual operational effort by 70%. My Distributed Payment Gateway project put 30 REST APIs across four Spring Boot microservices, using Kafka and Redis for scalable, fault-tolerant event handling, backed by MySQL and MongoDB. I hold a 5-Star Gold HackerRank Java rating (250+ DSA problems) and an AWS Certified Developer – Associate credential, so Go on the backend is a step I'm ready to grow into.
+
+As an immediate joiner, I can contribute to Precisely's data-integrity services from day one and ramp quickly on new tooling.
+
+Best regards,
+Bhumi Bhatt

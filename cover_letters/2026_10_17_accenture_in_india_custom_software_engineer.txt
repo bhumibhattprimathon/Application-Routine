@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd welcome the chance to join Accenture as a Custom Software Engineer, designing and coding scalable components with modern frameworks and agile practices.
+
+My core strength is exactly this stack: Java with Spring Boot microservices and REST APIs, Kafka and Redis for messaging and caching, Docker for containerization, and CI/CD pipelines (Jenkins, Git Actions) for consistent delivery. At CodeAlpha I built containerized order and payment microservices and optimized 30+ REST endpoints; at Primathon I engineer admin APIs and backend automation across seven merchant systems on AWS. I pair that with React.js on the frontend when a feature needs it.
+
+Delivering high-performing, client-ready solutions across varied projects is work I enjoy, and as an immediate joiner I can slot into a delivery team right away and ramp fast on new client domains.
+
+Best regards,
+Bhumi Bhatt

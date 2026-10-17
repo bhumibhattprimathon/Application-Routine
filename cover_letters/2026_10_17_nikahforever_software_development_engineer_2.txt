@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+The SDE-2 role at NikahForever — built for engineers who love solving hard problems, shipping fast, and owning outcomes — is the kind of product ownership I'm looking for, and I'm based right here in Delhi.
+
+I bring strong system-design fundamentals and backend depth: Java and Spring Boot microservices, Node.js and Express, REST APIs, and MySQL/MongoDB, with Kafka and Redis for scale. My Distributed Payment Gateway project architected 30 REST APIs across four fault-tolerant services, and at Paytm I improved microservice reliability and performance by 67%. A 5-Star Gold HackerRank Java rating and 250+ DSA problems mean I can move quickly on hard problems.
+
+I'm an immediate joiner who likes owning features end to end, and I'd enjoy helping NikahForever build fast while keeping the platform reliable.
+
+Best regards,
+Bhumi Bhatt

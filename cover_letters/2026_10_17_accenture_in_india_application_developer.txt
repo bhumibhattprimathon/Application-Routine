@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Application Developer role at Accenture, designing, building, and configuring applications to meet business process and requirements.
+
+I develop production applications end to end: Java with Spring Boot for backend services, REST APIs, and MySQL/MongoDB for data, with React.js on the frontend when a feature needs a UI. At Primathon I engineer custom admin APIs and backend automation across seven merchant systems; at CodeAlpha I built containerized order and payment microservices and optimized 30+ REST endpoints with Git Actions pipelines. My certified Distributed Payment Gateway delivered 30 REST APIs across four services, so translating requirements into working, scalable applications is routine for me.
+
+I hold an AWS Certified Developer – Associate credential and a 5-Star Gold HackerRank Java rating, and as an immediate joiner I can ramp onto a client application team quickly and contribute from the start.
+
+Best regards,
+Bhumi Bhatt
