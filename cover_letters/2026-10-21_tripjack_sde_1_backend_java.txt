@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in the SDE 1 - Backend (Java) role at TripJack, whose platform serves 60,000+ travel agents and 750+ airlines at real scale.
+
+In my current role at Primathon and during my Paytm internship, I designed and shipped production microservices and REST APIs in Java and Spring Boot, including a distributed payment gateway of 30 REST APIs across four services (Order, Payment, Merchant, Vault). I work daily with MySQL and MongoDB, deploy on AWS (EC2, S3, Lambda), and use Kafka, Docker, and Git-based CI/CD pipelines, the exact backend stack this role calls for. My 5-Star Gold Java rating on HackerRank, with 250+ DSA problems solved, backs the data structures, algorithms, and low-level design your team values.
+
+As an immediate joiner with zero notice period, I can begin contributing to TripJack's high-availability backend services from day one, and I ramp up on new systems quickly.
+
+Best regards,
+Bhumi Bhatt

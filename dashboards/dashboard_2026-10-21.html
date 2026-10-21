@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-21</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#15803d; --yellow:#eab308; --yellow-d:#a16207;
+    --red:#ef4444; --red-d:#b91c1c; --ink:#0f172a; --muted:#64748b;
+    --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0b1220,#1e293b);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:13px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+  .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;color:#cbd5e1;text-transform:uppercase;letter-spacing:.5px}
+  .card.q .n{color:#4ade80}.card.s .n{color:#f87171}.card.f .n{color:#fbbf24}
+  main{padding:22px 0 60px}
+  .meta{display:flex;flex-wrap:wrap;gap:16px;margin:4px 0 18px;color:var(--muted);font-size:13px}
+  .meta b{color:var(--ink)}
+  .cta{display:block;width:100%;border:0;cursor:pointer;background:var(--green);color:#042f12;
+    font-size:18px;font-weight:800;padding:18px;border-radius:14px;margin:6px 0 10px;
+    box-shadow:0 6px 18px rgba(34,197,94,.35);transition:transform .08s ease,filter .15s ease}
+  .cta:hover{filter:brightness(1.05)}.cta:active{transform:translateY(1px)}
+  .hint{font-size:12px;color:var(--muted);margin:0 0 26px;text-align:center}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 6px;margin-bottom:22px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  section h2{margin:2px 0 12px;font-size:17px;display:flex;align-items:center;gap:8px}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .dot.g{background:var(--green)}.dot.y{background:var(--yellow)}.dot.r{background:var(--red)}
+  .tablewrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:620px}
+  th,td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);background:#f8fafc}
+  tbody tr:hover{background:#f8fafc}
+  .score{font-weight:800;border-radius:8px;padding:3px 8px;display:inline-block;color:#fff;font-size:12px}
+  .sc-g{background:var(--green-d)}.sc-y{background:var(--yellow-d)}.sc-r{background:var(--red-d)}
+  .trust{font-weight:700}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;
+    font-size:12px;cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn:hover{background:#f1f5f9}
+  .btn.open{border-color:var(--green-d);color:var(--green-d);font-weight:700}
+  .btn.copy{border-color:#334155;color:#334155;font-weight:700}
+  .pill{font-size:11px;padding:2px 8px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:600}
+  .rec{border-left:4px solid var(--green);background:#f0fdf4;padding:12px 14px;border-radius:0 10px 10px 0;margin-bottom:12px}
+  .rec h4{margin:0 0 4px;font-size:14px}.rec p{margin:0;font-size:13px;color:#334155}
+  .rec .rank{color:var(--green-d);font-weight:800}
+  /* weekly trend */
+  .trend{display:flex;align-items:flex-end;gap:26px;height:170px;padding:10px 6px 0}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:90px}
+  .bar .fill{width:46px;background:linear-gradient(180deg,#34d399,#059669);border-radius:8px 8px 0 0;min-height:4px;position:relative}
+  .bar .v{font-weight:800;font-size:14px;margin-bottom:4px}
+  .bar .x{margin-top:8px;font-size:11px;color:var(--muted);text-align:center}
+  /* cover letters */
+  .cl{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;background:#fafafa}
+  .cl .head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .cl .head strong{font-size:14px}
+  .cl pre{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;margin:0;color:#1e293b}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;
+    padding:10px 18px;border-radius:10px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:50}
+  .toast.show{opacity:1}
+  .note{font-size:12px;color:var(--muted);background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 12px;margin-bottom:18px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:10px 0 40px}
+  @media(max-width:560px){header h1{font-size:18px}.card .n{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-21</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · Immediate joiner</div>
+    <div class="cards">
+      <div class="card"><div class="n">16</div><div class="l">Jobs Found</div></div>
+      <div class="card q"><div class="n">2</div><div class="l">Qualified</div></div>
+      <div class="card"><div class="n">4</div><div class="l">Review</div></div>
+      <div class="card s"><div class="n">10</div><div class="l">Skipped</div></div>
+      <div class="card f"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="meta">
+    <span>Avg match (qualified): <b>85</b></span>
+    <span>Avg salary est (qualified): <b>~9 LPA</b></span>
+    <span>Target: <b>5.5–12 LPA</b></span>
+    <span>Cover letters ready: <b>2</b></span>
+  </div>
+
+  <button class="cta" onclick="openAll()">OPEN ALL 2 QUALIFIED JOBS ↗</button>
+  <p class="hint">Opens each qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page, or use the individual “Open Job” buttons below.</p>
+
+  <div class="note">
+    <b>Data-source note:</b> Jobs were discovered via WebSearch across all 5 batches and verified against official career pages and job boards. WebSearch cannot reliably return India LinkedIn “posted-today” listings with direct URLs, so posting freshness varies by listing (shown per row). Only real, search-found jobs are included — nothing fabricated. Always confirm the role is still open and the salary/level on the employer’s own page before applying.
+  </div>
+
+  <!-- QUALIFIED -->
+  <section>
+    <h2><span class="dot g"></span>Qualified — Ready to Apply (2)</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th>
+        <th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="score sc-g">90</span></td>
+          <td class="trust" style="color:var(--green-d)">95</td>
+          <td><b>TripJack</b></td>
+          <td>SDE 1 — Backend (Java)</td>
+          <td>Connaught Place, New Delhi</td>
+          <td>7–14 LPA</td>
+          <td><span class="pill">backend</span></td>
+          <td>External (Keka)</td>
+          <td>
+            <a class="btn open" href="https://tripjack.keka.com/careers/jobdetails/48681" target="_blank" rel="noopener">Open Job ↗</a>
+            <button class="btn copy" onclick="copyCL('cl-tripjack')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="score sc-g">80</span></td>
+          <td class="trust" style="color:var(--green-d)">80</td>
+          <td><b>Wobot.ai</b></td>
+          <td>Backend Developer (Node.js / Express)</td>
+          <td>New Delhi / Remote</td>
+          <td>7–11 LPA</td>
+          <td><span class="pill">backend</span></td>
+          <td>External (Hirist)</td>
+          <td>
+            <a class="btn open" href="https://www.hirist.tech/j/wobot-ai-backend-developer-nodejs-expressjs-1677985" target="_blank" rel="noopener">Open Job ↗</a>
+            <button class="btn copy" onclick="copyCL('cl-wobot')">Copy Cover Letter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section>
+    <h2><span class="dot y"></span>Review — Promising but Verify (4)</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th>Link</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score sc-y">60</span></td><td class="trust" style="color:var(--yellow-d)">92</td>
+          <td><b>VML (WPP)</b></td><td>Backend Engineer</td><td>New Delhi</td>
+          <td>Highly legit (WPP, 26k staff), but VML’s Delhi backend roles skew to AEM/Hybris (specialized CMS) or senior (Architect 10+ yrs). Verify this role’s stack &amp; level.</td>
+          <td><a class="btn" href="https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8164460002" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score sc-y">68</span></td><td class="trust" style="color:var(--yellow-d)">60</td>
+          <td><b>Corpseed ITES</b></td><td>Backend Developer (Java)</td><td>Noida</td>
+          <td>1–3 yr range fits exactly &amp; Java/Spring/MySQL overlap, but Corpseed is a compliance/ITES firm (dev not core); site listing is stale (2022) and partly legacy (JSP/Servlet/Tomcat). Confirm it’s open.</td>
+          <td><a class="btn" href="https://in.indeed.com/cmp/Corpseed/jobs" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="score sc-y">62</span></td><td class="trust" style="color:var(--red-d)">45</td>
+          <td><b>The Agency Way</b></td><td>Full Stack Developer (MERN)</td><td>Gurugram</td>
+          <td>MERN stack (React/Node/Mongo) fits, but company is thinly verified with no strong footprint found. Low trust (45) — verify legitimacy first.</td>
+          <td><a class="btn" href="https://career.io/job/full-stack-developer-mern-gurugram-the-agency-way-40791b966ca3da144cbf0361bc9bfdb3" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+        <tr>
+          <td>4</td><td><span class="score sc-y">55</span></td><td class="trust" style="color:var(--red-d)">45</td>
+          <td><b>via Weekday</b></td><td>AI / AI-ML Engineer (0–1 yr)</td><td>Gurugram</td>
+          <td>Entry-level (0–1 yr) matches her level, but needs Python/ML modelling not on her core stack, and the listing URL/title is mislabeled (“data analyst”/“Enerture”) so the real employer is unclear.</td>
+          <td><a class="btn" href="https://jobs.weekday.works/data-analyst-at-enerture-technologies-pvt-ltd-wkdyccypwu" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- SKIPPED -->
+  <section>
+    <h2><span class="dot r"></span>Skipped (10)</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Smart Working Solutions</td><td>Senior Backend Engineer (Node.js)</td><td>Experience: “Senior” — beyond her 1.5 yrs.</td></tr>
+        <tr><td>2</td><td>LeewayHertz</td><td>Senior Software Developer (Gen AI)</td><td>Experience: Senior (3–5 yrs) + Python/FastAPI/RAG — too senior &amp; off-stack.</td></tr>
+        <tr><td>3</td><td>Luxoft</td><td>Java Full Stack Developer (React)</td><td>Experience: Senior-level (stack fits, seniority does not).</td></tr>
+        <tr><td>4</td><td>NIIT Technologies / Coforge</td><td>Java Full Stack Developer</td><td>Experience: 4–6 yrs required.</td></tr>
+        <tr><td>5</td><td>via aijobs.net</td><td>Backend Developer (Python) — GenAI/LLM</td><td>Skill: Python/FastAPI/Django + vector DBs, senior (~20–40 LPA) — off her Java/Node core &amp; above level.</td></tr>
+        <tr><td>6</td><td>Just Charge Media</td><td>MERN Stack Developer (Fresher)</td><td>Salary: 3–4 LPA — below 5.5 LPA floor.</td></tr>
+        <tr><td>7</td><td>Nile Technologies</td><td>Trainee Java Developer</td><td>Salary: ~4 LPA “Trainee” — below floor &amp; below her level.</td></tr>
+        <tr><td>8</td><td>HR Placers (staffing)</td><td>Junior Node.js &amp; React Developer</td><td>Salary: ₹30–38k/mo (~3.6–4.5 LPA) — below floor.</td></tr>
+        <tr><td>9</td><td>via Rojgaar Sangam (UP govt)</td><td>Junior Software Engineer (Node/Nest/React)</td><td>Salary: 3 LPA — below floor; inconsistent location.</td></tr>
+        <tr><td>10</td><td>Jak Software Pvt Ltd</td><td>Trainee React.js / Node.js (3 months)</td><td>Level: 3-month trainee, not a full-time SDE role.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- TOP 5 -->
+  <section>
+    <h2>⭐ Top Recommendations</h2>
+    <div class="rec">
+      <h4><span class="rank">#1</span> TripJack — SDE 1, Backend (Java) · New Delhi · match 90</h4>
+      <p>The cleanest fit of the day and verified live on TripJack’s own Keka careers page. The stack reads like Bhumi’s resume: Java, Spring Boot, microservices, REST APIs, Kafka, MySQL/MongoDB, AWS and Git-based CI/CD — all present, plus the LLD/DSA focus her 5-Star Gold Java (250+ problems) directly backs. TripJack is an established 700+ employee B2B travel platform (Glassdoor ~3.8–4.1), so trust is high. The only stretch is the “2–4 yrs” ask vs her 1.5, but SDE-1 is the entry tier — apply with the tailored cover letter.</p>
+    </div>
+    <div class="rec">
+      <h4><span class="rank">#2</span> Wobot.ai — Backend Developer (Node.js) · New Delhi / Remote · match 80</h4>
+      <p>A VC-backed AI video-analytics startup (Peak XV/Sequoia, Titan Capital; clients IRCTC, Barista, Rebel Foods). The role centres on Node.js, Express, MongoDB/PostgreSQL and REST APIs — Bhumi’s exact Node side — and her Kafka experience maps to their RabbitMQ/Socket.io messaging. Remote-friendly and entry-to-mid (2–3 yrs). A strong, realistic application for an immediate joiner.</p>
+    </div>
+    <div class="rec">
+      <h4><span class="rank">#3</span> VML (WPP) — Backend Engineer · New Delhi · review</h4>
+      <p>Top-tier employer trust (global WPP agency). Worth a look <em>if</em> the specific “Backend Engineer” requisition is core Java backend rather than AEM/Hybris or senior-architect level — confirm the stack on the Greenhouse posting before investing time.</p>
+    </div>
+    <div class="rec">
+      <h4><span class="rank">#4</span> Corpseed ITES — Backend Developer (Java) · Noida · review</h4>
+      <p>The experience band (1–3 yrs) fits her perfectly and the core Java/Spring/MySQL/microservices overlap is real. Caveats: it’s a compliance/ITES services firm where dev isn’t the core product, and the on-site listing is dated — verify the opening is current and ask about the legacy JSP/Servlet/Tomcat portion.</p>
+    </div>
+    <div class="rec">
+      <h4><span class="rank">#5</span> The Agency Way — Full Stack (MERN) · Gurugram · review</h4>
+      <p>A genuine MERN fit for her React + Node + Mongo skills, but the company footprint is thin (trust 45). If she wants a full-stack role, this is a candidate — do a quick legitimacy check (website, team size, Glassdoor/AmbitionBox) before applying.</p>
+    </div>
+  </section>
+
+  <!-- WEEKLY TREND -->
+  <section>
+    <h2>📈 Qualified-per-Run Trend</h2>
+    <p style="font-size:12.5px;color:var(--muted);margin:0 0 6px">Runs are sparse (no daily history yet), so this shows qualified matches per completed scan rather than per calendar day.</p>
+    <div class="trend">
+      <div class="bar"><div class="v">1</div><div class="fill" style="height:60px"></div><div class="x">2026-08-05</div></div>
+      <div class="bar"><div class="v">2</div><div class="fill" style="height:120px"></div><div class="x">2026-10-21</div></div>
+    </div>
+  </section>
+
+  <!-- COVER LETTERS -->
+  <section>
+    <h2>✉️ Cover Letters</h2>
+    <div class="cl">
+      <div class="head"><strong>TripJack — SDE 1, Backend (Java)</strong>
+        <button class="btn copy" onclick="copyCL('cl-tripjack')">COPY</button></div>
+      <pre id="cl-tripjack">Dear Hiring Manager,
+
+I am writing to express my strong interest in the SDE 1 - Backend (Java) role at TripJack, whose platform serves 60,000+ travel agents and 750+ airlines at real scale.
+
+In my current role at Primathon and during my Paytm internship, I designed and shipped production microservices and REST APIs in Java and Spring Boot, including a distributed payment gateway of 30 REST APIs across four services (Order, Payment, Merchant, Vault). I work daily with MySQL and MongoDB, deploy on AWS (EC2, S3, Lambda), and use Kafka, Docker, and Git-based CI/CD pipelines, the exact backend stack this role calls for. My 5-Star Gold Java rating on HackerRank, with 250+ DSA problems solved, backs the data structures, algorithms, and low-level design your team values.
+
+As an immediate joiner with zero notice period, I can begin contributing to TripJack's high-availability backend services from day one, and I ramp up on new systems quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+    <div class="cl">
+      <div class="head"><strong>Wobot.ai — Backend Developer (Node.js)</strong>
+        <button class="btn copy" onclick="copyCL('cl-wobot')">COPY</button></div>
+      <pre id="cl-wobot">Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer (Node.js) position at Wobot.ai and to help scale the video-intelligence platform trusted by brands like IRCTC, Barista, and Rebel Foods.
+
+My backend work spans both the Node.js and Java worlds: I build services with Node.js and Express.js, design and optimize REST APIs, and model data in MongoDB and MySQL. At Paytm I developed microservices powering real-time transaction notifications, and at Primathon I automate backend syncing across seven merchant systems, experience that maps directly to the event-driven, API-integration work in this role. I am also comfortable with message-driven architectures through Kafka, which translates cleanly to your RabbitMQ and Socket.io stack.
+
+As an immediate joiner with no notice period, I can ramp up on Wobot's services right away, and I genuinely enjoy learning the new tools a fast-moving startup demands.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+  </section>
+
+  <footer>Generated by the LinkedIn Smart Apply routine · 2026-10-21 · state persisted in the Application-Routine repo</footer>
+</div>
+</main>
+
+<div class="toast" id="toast">Copied to clipboard ✓</div>
+
+<script>
+  var QUALIFIED_URLS = [
+    "https://tripjack.keka.com/careers/jobdetails/48681",
+    "https://www.hirist.tech/j/wobot-ai-backend-developer-nodejs-expressjs-1677985"
+  ];
+  function openAll(){
+    QUALIFIED_URLS.forEach(function(u){ window.open(u, "_blank", "noopener"); });
+  }
+  function showToast(msg){
+    var t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); }, 1600);
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.innerText : "";
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(
+        function(){ showToast("Cover letter copied ✓"); },
+        function(){ fallbackCopy(text); }
+      );
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand("copy"); showToast("Cover letter copied ✓"); }
+    catch(e){ showToast("Copy failed — select manually"); }
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>

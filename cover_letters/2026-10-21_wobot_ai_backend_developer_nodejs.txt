@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer (Node.js) position at Wobot.ai and to help scale the video-intelligence platform trusted by brands like IRCTC, Barista, and Rebel Foods.
+
+My backend work spans both the Node.js and Java worlds: I build services with Node.js and Express.js, design and optimize REST APIs, and model data in MongoDB and MySQL. At Paytm I developed microservices powering real-time transaction notifications, and at Primathon I automate backend syncing across seven merchant systems, experience that maps directly to the event-driven, API-integration work in this role. I am also comfortable with message-driven architectures through Kafka, which translates cleanly to your RabbitMQ and Socket.io stack.
+
+As an immediate joiner with no notice period, I can ramp up on Wobot's services right away, and I genuinely enjoy learning the new tools a fast-moving startup demands.
+
+Best regards,
+Bhumi Bhatt
