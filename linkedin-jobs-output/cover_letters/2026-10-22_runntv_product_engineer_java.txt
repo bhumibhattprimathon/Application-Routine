@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Product Engineer – Java role at RunnTV in Noida, excited by the engineering behind dynamic, personalized FAST streaming channels.
+
+I have 1.5+ years building backend products in Java and Spring Boot, with real exposure to high-throughput, event-driven systems: at Paytm I optimized microservices for real-time transaction notifications, and at Primathon I use Kafka and AWS (S3, Lambda, Timestream) to handle real-time data ingestion and meta-event processing — relevant to streaming and personalization pipelines. I also designed a distributed payment gateway with 30 REST APIs, applying system-design principles for scalability and fault tolerance.
+
+As an immediate joiner with strong fundamentals and a product mindset, I am eager to help RunnTV ship features that scale to a growing viewer base.
+
+Best regards,
+Bhumi Bhatt

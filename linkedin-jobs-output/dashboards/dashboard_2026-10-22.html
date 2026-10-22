@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-22</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--bg:#0f172a;--ink:#0f172a;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#f1f5f9}
+header{background:var(--bg);color:#fff;padding:28px 16px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+.sub{color:#94a3b8;font-size:.9rem}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.card{flex:1 1 150px;background:#1e293b;border-radius:12px;padding:16px;text-align:center}
+.card .v{font-size:1.8rem;font-weight:700}
+.card .l{color:#94a3b8;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.card.green .v{color:var(--green)} .card.yellow .v{color:var(--yellow)} .card.red .v{color:var(--red)}
+main{max-width:1180px;margin:0 auto;padding:20px 16px 60px;background:#f1f5f9}
+.openall{display:block;width:100%;padding:20px;margin:22px 0;border:0;border-radius:14px;
+  background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;font-size:1.15rem;font-weight:800;
+  cursor:pointer;box-shadow:0 6px 18px rgba(34,197,94,.35)}
+.openall:hover{filter:brightness(1.05)}
+.hint{text-align:center;color:#64748b;font-size:.8rem;margin:-12px 0 20px}
+section{background:#fff;border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+h2{margin:0 0 12px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+.tag{width:12px;height:12px;border-radius:3px;display:inline-block}
+.tag.g{background:var(--green)} .tag.y{background:var(--yellow)} .tag.r{background:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{padding:9px 8px;text-align:left;border-bottom:1px solid #e2e8f0;vertical-align:top}
+th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:#475569}
+.table-scroll{overflow-x:auto}
+.score{display:inline-block;min-width:30px;text-align:center;font-weight:700;border-radius:6px;padding:2px 6px;color:#fff}
+.s-green{background:var(--green)} .s-yellow{background:var(--yellow)}
+.pill{background:#e0e7ff;color:#3730a3;border-radius:20px;padding:2px 10px;font-size:.75rem}
+.btn{display:inline-block;border:0;border-radius:7px;padding:6px 11px;font-size:.78rem;font-weight:600;
+  cursor:pointer;text-decoration:none;margin:2px 4px 2px 0}
+.btn.open{background:#2563eb;color:#fff} .btn.copy{background:#334155;color:#fff}
+.btn:hover{filter:brightness(1.08)}
+.hidden-cl{display:none}
+.reason{color:#475569;font-size:.8rem;max-width:380px}
+.muted{color:#94a3b8} .small{font-size:.8rem}
+.reco{border-left:4px solid var(--green);background:#f0fdf4;padding:10px 14px;border-radius:0 10px 10px 0;margin:10px 0}
+.reco-h{font-size:.95rem;margin-bottom:4px} .reco p{margin:4px 0 0;font-size:.85rem;color:#374151}
+.inline{font-size:.78rem;margin-left:6px}
+.clbox{border:1px solid #e2e8f0;border-radius:10px;margin:12px 0;overflow:hidden}
+.clbox-h{background:#f8fafc;padding:9px 12px;display:flex;align-items:center;gap:10px;font-size:.9rem}
+.clbox-h .btn{margin-left:auto}
+.clbox pre{margin:0;padding:14px;white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:.8rem;line-height:1.5;background:#fff}
+.trend{display:flex;align-items:flex-end;gap:18px;height:230px;padding:10px 4px}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar{width:60px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;padding-top:6px}
+.bar-lbl{font-size:.72rem;color:#64748b;text-align:center}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#16a34a;color:#fff;padding:12px 20px;border-radius:10px;opacity:0;transition:.3s;font-size:.9rem;z-index:50}
+.toast.show{opacity:1}
+footer{text-align:center;color:#94a3b8;font-size:.78rem;padding:20px}
+@media(max-width:640px){.card .v{font-size:1.4rem}h1{font-size:1.2rem}}
+</style></head>
+<body>
+<header><div class="wrap">
+<h1>🔎 LinkedIn Smart Apply Dashboard — 2026-10-22</h1>
+<div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · immediate joiner · target 5.5–12 LPA</div>
+<div class="cards">
+<div class="card "><div class="v">23</div><div class="l">Jobs Processed</div></div>
+<div class="card green"><div class="v">9</div><div class="l">Qualified</div></div>
+<div class="card yellow"><div class="v">9</div><div class="l">Review</div></div>
+<div class="card red"><div class="v">5</div><div class="l">Skipped</div></div>
+<div class="card red"><div class="v">0</div><div class="l">Fraud Detected</div></div>
+<div class="card "><div class="v">74.7</div><div class="l">Avg Match (qualified)</div></div>
+<div class="card "><div class="v">9.8 LPA</div><div class="l">Avg Salary Est.</div></div>
+</div></div></header>
+<main>
+
+<button class="openall" onclick="openAll()">🚀 OPEN ALL 9 QUALIFIED JOBS</button>
+<div class="hint">Tip: allow pop-ups for this page so every job opens in its own tab.</div>
+
+<section>
+<h2><span class="tag g"></span> Qualified Jobs — ready to apply (9)</h2>
+<div class="table-scroll"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Actions</th></tr></thead>
+<tbody>
+<tr>
+<td>1</td><td><span class="score s-green">82</span></td><td>92</td>
+<td>Precisely</td><td>Software Engineer I (Java Backend, Go Preferred)</td><td>Noida, UP</td>
+<td>7-11 LPA</td><td><span class="pill">backend</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4479342927" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl_4479342927')">Copy Cover Letter</button><div id="cl_4479342927" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the Software Engineer I (Java Backend) role at Precisely in Noida, where building reliable data-driven backend services is central to the work.
+
+Over the past 1.5 years I have shipped production backend systems in Java and Spring Boot, including a distributed payment gateway with 30 REST APIs across four microservices and admin APIs that synced data across seven merchant systems. I work daily with SQL (MySQL), REST API design, and AWS (S3, Lambda, Timestream) for real-time data ingestion, which maps directly to backend and data-platform responsibilities. My 5-Star Java rating on HackerRank and 250+ solved DSA problems reflect the problem-solving depth this role rewards.
+
+I am an immediate joiner, comfortable picking up new stacks quickly (I would be glad to ramp on Go), and eager to contribute to Precisely&#x27;s engineering team from day one.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>2</td><td><span class="score s-green">78</span></td><td>98</td>
+<td>American Express</td><td>Software Engineer I</td><td>Gurugram, Haryana</td>
+<td>10-14 LPA</td><td><span class="pill">backend</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4479359324" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl_4479359324')">Copy Cover Letter</button><div id="cl_4479359324" class="hidden-cl">Dear Hiring Manager,
+
+I am excited to apply for the Software Engineer I position at American Express in Gurugram, and the opportunity to build resilient backend systems at the scale financial services demand.
+
+My experience is a close fit: at Primathon I engineer custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and during my internship at Paytm I built and optimized microservices managing the QR-code lifecycle that powered real-time merchant transaction notifications. I work with Java, Spring Boot, microservices, Kafka, Redis, and SQL, and I architected a distributed payment gateway applying system-design principles for fault tolerance and scalability — directly relevant to payments engineering.
+
+As an immediate joiner with a strong DSA foundation and a track record of shipping production-ready services, I am keen to grow and contribute on your team.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>3</td><td><span class="score s-green">76</span></td><td>75</td>
+<td>Recro</td><td>Back End Developer</td><td>Noida, UP</td>
+<td>6-10 LPA</td><td><span class="pill">backend</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4479131093" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl_4479131093')">Copy Cover Letter</button><div id="cl_4479131093" class="hidden-cl">Dear Hiring Manager,
+
+I would like to apply for the Back End Developer role at Recro in Noida, and the chance to build backend services for fast-moving product teams.
+
+I bring 1.5+ years of hands-on backend engineering across Java, Spring Boot, Node.js, and Express.js, designing REST APIs and microservices that run in production. At CodeAlpha I built order and payment microservices with MySQL and containerized them with Docker, and optimized 30+ REST endpoints while automating build pipelines — the kind of end-to-end ownership Recro&#x27;s client teams value. I am also comfortable with MongoDB, Redis, Kafka, and AWS, so I can adapt quickly to whichever stack a project requires.
+
+Being an immediate joiner with a quick ramp-up and a strong DSA foundation, I am ready to deliver value on client engagements right away.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>4</td><td><span class="score s-green">75</span></td><td>65</td>
+<td>neurIOT Labs</td><td>MERN Stack Developer (PostgreSQL)</td><td>Noida, UP</td>
+<td>5.5-8 LPA</td><td><span class="pill">fullstack</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4478987448" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl_4478987448')">Copy Cover Letter</button><div id="cl_4478987448" class="hidden-cl">Dear Hiring Manager,
+
+I am applying for the MERN Stack Developer (PostgreSQL) role at neurIOT Labs in Noida, drawn to building full-stack products around your AI and IoT platforms.
+
+On the front end I work with React.js, HTML5, CSS3, and Bootstrap, and on the back end with Node.js and Express.js, so the MERN stack is squarely in my wheelhouse. I have shipped REST APIs and microservices in production and worked with MongoDB and relational SQL databases like MySQL, which transfers directly to your PostgreSQL requirement. My background building AI-driven alerting into a distributed payment gateway means I am comfortable working alongside ML and data-heavy systems.
+
+I am an immediate joiner and a fast learner, and I would be glad to contribute to neurIOT Labs&#x27; product engineering from the start.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>5</td><td><span class="score s-green">75</span></td><td>70</td>
+<td>RunnTV</td><td>Product Engineer - Java</td><td>Noida, UP</td>
+<td>6-10 LPA</td><td><span class="pill">backend</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4479944113" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl_4479944113')">Copy Cover Letter</button><div id="cl_4479944113" class="hidden-cl">Dear Hiring Manager,
+
+I am writing to apply for the Product Engineer – Java role at RunnTV in Noida, excited by the engineering behind dynamic, personalized FAST streaming channels.
+
+I have 1.5+ years building backend products in Java and Spring Boot, with real exposure to high-throughput, event-driven systems: at Paytm I optimized microservices for real-time transaction notifications, and at Primathon I use Kafka and AWS (S3, Lambda, Timestream) to handle real-time data ingestion and meta-event processing — relevant to streaming and personalization pipelines. I also designed a distributed payment gateway with 30 REST APIs, applying system-design principles for scalability and fault tolerance.
+
+As an immediate joiner with strong fundamentals and a product mindset, I am eager to help RunnTV ship features that scale to a growing viewer base.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+</tr>
+<tr>
+<td>6</td><td><span class="score s-green">74</span></td><td>98</td>
+<td>PwC India</td><td>Java Full Stack Developer - Consultant</td><td>Gurugram, Haryana</td>
+<td>9-13 LPA</td><td><span class="pill">fullstack</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4291059996" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+<tr>
+<td>7</td><td><span class="score s-green">72</span></td><td>90</td>
+<td>Syfe</td><td>Backend Engineer (SDE II)</td><td>Gurugram, Haryana</td>
+<td>12-18 LPA</td><td><span class="pill">backend</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4462854650" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+<tr>
+<td>8</td><td><span class="score s-green">70</span></td><td>88</td>
+<td>Foxit</td><td>Software Development Engineer</td><td>Noida, UP</td>
+<td>8-12 LPA</td><td><span class="pill">master</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4471418874" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+<tr>
+<td>9</td><td><span class="score s-green">70</span></td><td>75</td>
+<td>HuntingCube</td><td>Full Stack Developer</td><td>Noida, UP</td>
+<td>6-10 LPA</td><td><span class="pill">fullstack</span></td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4482052162" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td>
+</tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2>⭐ Top 5 Recommendations</h2>
+<div class="reco"><div class="reco-h"><span class="score s-green">82</span> <strong>Software Engineer I (Java Backend, Go Preferred)</strong> &middot; Precisely <a class="inline" href="https://in.linkedin.com/jobs/view/4479342927" target="_blank" rel="noopener">open ↗</a></div><p>Precisely&#x27;s Software Engineer I is an entry-level title at an established data-software MNC — exactly Bhumi&#x27;s level. Her Java + Spring Boot + SQL + AWS backend experience and a distributed payment gateway (30 REST APIs) map straight onto a data-platform backend role. Go is only &#x27;preferred&#x27;, so the gap is minor.</p></div>
+<div class="reco"><div class="reco-h"><span class="score s-green">78</span> <strong>Software Engineer I</strong> &middot; American Express <a class="inline" href="https://in.linkedin.com/jobs/view/4479359324" target="_blank" rel="noopener">open ↗</a></div><p>American Express Software Engineer I is a premier payments-engineering seat. Bhumi&#x27;s Paytm QR-lifecycle microservices and her own distributed payment gateway are directly on-domain, and her Kafka/Redis/system-design toolkit fits financial-scale backends. Top salary band (10-14 LPA).</p></div>
+<div class="reco"><div class="reco-h"><span class="score s-green">76</span> <strong>Back End Developer</strong> &middot; Recro <a class="inline" href="https://in.linkedin.com/jobs/view/4479131093" target="_blank" rel="noopener">open ↗</a></div><p>Recro places vetted developers into product teams — a low-friction way for a 1.5-yr engineer to reach good startups. Bhumi&#x27;s Java/Node/Spring Boot REST + Docker experience and broad stack adaptability suit the rotating client work.</p></div>
+<div class="reco"><div class="reco-h"><span class="score s-green">75</span> <strong>MERN Stack Developer (PostgreSQL)</strong> &middot; neurIOT Labs <a class="inline" href="https://in.linkedin.com/jobs/view/4478987448" target="_blank" rel="noopener">open ↗</a></div><p>neurIOT Labs&#x27; MERN + PostgreSQL role fits Bhumi&#x27;s full-stack side (React + Node/Express), her SQL background transfers to Postgres, and her AI-alerting project experience pairs well with an AI/IoT product team. Freshest posting (16h) = early-applicant edge.</p></div>
+<div class="reco"><div class="reco-h"><span class="score s-green">75</span> <strong>Product Engineer - Java</strong> &middot; RunnTV <a class="inline" href="https://in.linkedin.com/jobs/view/4479944113" target="_blank" rel="noopener">open ↗</a></div><p>RunnTV (funded FAST-streaming) needs a Java Product Engineer for event-driven, personalized channel pipelines. Bhumi&#x27;s Kafka + AWS real-time ingestion work at Primathon and real-time notification microservices at Paytm are a strong thematic match.</p></div>
+</section>
+
+<section>
+<h2><span class="tag y"></span> Review — verify before applying (9)</h2>
+<div class="table-scroll"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Link</th><th>Reason for Review</th></tr></thead>
+<tbody>
+<tr>
+<td>1</td><td><span class="score s-yellow">85</span></td><td>52</td>
+<td>Mobility Global</td><td>Associate Software Engineer (React+Java)</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4452582848" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">Company name &#x27;Mobility Global&#x27; could not be verified online (possible match: Mobility Infotech). Excellent role fit - verify employer before applying.</td>
+</tr>
+<tr>
+<td>2</td><td><span class="score s-yellow">85</span></td><td>42</td>
+<td>General Tech Works</td><td>Junior MERN Stack Developer</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4480463273" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">No web/LinkedIn company presence found for &#x27;General Tech Works&#x27;. Great role fit but unverifiable employer.</td>
+</tr>
+<tr>
+<td>3</td><td><span class="score s-yellow">82</span></td><td>52</td>
+<td>Mobility Global</td><td>Software Engineer (Core Java, Microservices)</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4470188052" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">Company name not verifiable online. Strong skill fit; confirm legitimacy before applying.</td>
+</tr>
+<tr>
+<td>4</td><td><span class="score s-yellow">80</span></td><td>55</td>
+<td>Babaclick</td><td>Full-Stack Software Engineer I (SDE-1)</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4479954977" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">Real but very early-stage cross-border e-commerce startup (~1 yr old, founder Gautam Chadha). Small-team risk.</td>
+</tr>
+<tr>
+<td>5</td><td><span class="score s-yellow">75</span></td><td>45</td>
+<td>NuSwipe Technology Pvt Ltd</td><td>Backend Developer - Node.js / NestJS</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4480780660" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">Company could not be verified online. Node/NestJS fit is good; verify employer first.</td>
+</tr>
+<tr>
+<td>6</td><td><span class="score s-yellow">72</span></td><td>52</td>
+<td>BDSD Technology Pvt Ltd</td><td>Node.js Developer</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4479414961" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">Real travel-tech firm but thin/negative directory profile (TechBehemoths rated &#x27;Poor&#x27;, no verified reviews).</td>
+</tr>
+<tr>
+<td>7</td><td><span class="score s-yellow">72</span></td><td>55</td>
+<td>Cladbe</td><td>Backend Engineer</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4480421730" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">Bootstrapped PropTech startup (founded 2024, ~15 employees). Small-team / early-stage risk.</td>
+</tr>
+<tr>
+<td>8</td><td><span class="score s-yellow">70</span></td><td>58</td>
+<td>Nuaav</td><td>Full Stack Engineer</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4480443384" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">New (2024) boutique consulting, US-HQ with India team; Noida office unconfirmed.</td>
+</tr>
+<tr>
+<td>9</td><td><span class="score s-yellow">70</span></td><td>42</td>
+<td>Kaaliber</td><td>Back End Developer</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/4477095007" target="_blank" rel="noopener">Open</a></td>
+<td class="reason">No company web/LinkedIn presence found for &#x27;Kaaliber&#x27;. Unverifiable employer.</td>
+</tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="tag r"></span> Skipped (5)</h2>
+<div class="table-scroll"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody>
+<tr>
+<td>1</td><td>SITA</td><td>Senior Software Developer (Java)</td><td class="reason">Experience: Senior role (typically 5+ yrs); too senior for 1.5 yrs exp.</td>
+</tr>
+<tr>
+<td>2</td><td>Agoda</td><td>Software Development Engineer - BackEnd (Staff - Level 4)</td><td class="reason">Experience: Staff/L4 role; requires many years of experience.</td>
+</tr>
+<tr>
+<td>3</td><td>Credgenics</td><td>Senior Backend Developer</td><td class="reason">Experience: Senior role; requires 4+ yrs.</td>
+</tr>
+<tr>
+<td>4</td><td>Wingify</td><td>Lead Backend Engineer - Data Platform</td><td class="reason">Experience: Lead role; requires 6+ yrs.</td>
+</tr>
+<tr>
+<td>5</td><td>Payoneer</td><td>Senior Backend Engineer</td><td class="reason">Experience: Senior role; requires 5+ yrs.</td>
+</tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2>📈 Weekly Trend — qualified per day</h2>
+<div class="trend">
+<div class="bar-wrap"><div class="bar" style="height:182px"><span>9</span></div><div class="bar-lbl">2026-10-22<br>(today)</div></div>
+</div>
+<p class="muted small">Only today's run is available — this is a fresh environment, so prior days' dashboards were not retained. The bar chart will fill in as future runs accumulate history.</p>
+</section>
+
+<section>
+<h2>✉️ Cover Letters</h2>
+<div class="clbox"><div class="clbox-h"><strong>Precisely</strong> — Software Engineer I (Java Backend, Go Preferred)<button class="btn copy" onclick="copyCL('clb_4479342927')">COPY</button></div><pre id="clb_4479342927">Dear Hiring Manager,
+
+I am writing to apply for the Software Engineer I (Java Backend) role at Precisely in Noida, where building reliable data-driven backend services is central to the work.
+
+Over the past 1.5 years I have shipped production backend systems in Java and Spring Boot, including a distributed payment gateway with 30 REST APIs across four microservices and admin APIs that synced data across seven merchant systems. I work daily with SQL (MySQL), REST API design, and AWS (S3, Lambda, Timestream) for real-time data ingestion, which maps directly to backend and data-platform responsibilities. My 5-Star Java rating on HackerRank and 250+ solved DSA problems reflect the problem-solving depth this role rewards.
+
+I am an immediate joiner, comfortable picking up new stacks quickly (I would be glad to ramp on Go), and eager to contribute to Precisely&#x27;s engineering team from day one.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+<div class="clbox"><div class="clbox-h"><strong>American Express</strong> — Software Engineer I<button class="btn copy" onclick="copyCL('clb_4479359324')">COPY</button></div><pre id="clb_4479359324">Dear Hiring Manager,
+
+I am excited to apply for the Software Engineer I position at American Express in Gurugram, and the opportunity to build resilient backend systems at the scale financial services demand.
+
+My experience is a close fit: at Primathon I engineer custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and during my internship at Paytm I built and optimized microservices managing the QR-code lifecycle that powered real-time merchant transaction notifications. I work with Java, Spring Boot, microservices, Kafka, Redis, and SQL, and I architected a distributed payment gateway applying system-design principles for fault tolerance and scalability — directly relevant to payments engineering.
+
+As an immediate joiner with a strong DSA foundation and a track record of shipping production-ready services, I am keen to grow and contribute on your team.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+<div class="clbox"><div class="clbox-h"><strong>Recro</strong> — Back End Developer<button class="btn copy" onclick="copyCL('clb_4479131093')">COPY</button></div><pre id="clb_4479131093">Dear Hiring Manager,
+
+I would like to apply for the Back End Developer role at Recro in Noida, and the chance to build backend services for fast-moving product teams.
+
+I bring 1.5+ years of hands-on backend engineering across Java, Spring Boot, Node.js, and Express.js, designing REST APIs and microservices that run in production. At CodeAlpha I built order and payment microservices with MySQL and containerized them with Docker, and optimized 30+ REST endpoints while automating build pipelines — the kind of end-to-end ownership Recro&#x27;s client teams value. I am also comfortable with MongoDB, Redis, Kafka, and AWS, so I can adapt quickly to whichever stack a project requires.
+
+Being an immediate joiner with a quick ramp-up and a strong DSA foundation, I am ready to deliver value on client engagements right away.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+<div class="clbox"><div class="clbox-h"><strong>neurIOT Labs</strong> — MERN Stack Developer (PostgreSQL)<button class="btn copy" onclick="copyCL('clb_4478987448')">COPY</button></div><pre id="clb_4478987448">Dear Hiring Manager,
+
+I am applying for the MERN Stack Developer (PostgreSQL) role at neurIOT Labs in Noida, drawn to building full-stack products around your AI and IoT platforms.
+
+On the front end I work with React.js, HTML5, CSS3, and Bootstrap, and on the back end with Node.js and Express.js, so the MERN stack is squarely in my wheelhouse. I have shipped REST APIs and microservices in production and worked with MongoDB and relational SQL databases like MySQL, which transfers directly to your PostgreSQL requirement. My background building AI-driven alerting into a distributed payment gateway means I am comfortable working alongside ML and data-heavy systems.
+
+I am an immediate joiner and a fast learner, and I would be glad to contribute to neurIOT Labs&#x27; product engineering from the start.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+<div class="clbox"><div class="clbox-h"><strong>RunnTV</strong> — Product Engineer - Java<button class="btn copy" onclick="copyCL('clb_4479944113')">COPY</button></div><pre id="clb_4479944113">Dear Hiring Manager,
+
+I am writing to apply for the Product Engineer – Java role at RunnTV in Noida, excited by the engineering behind dynamic, personalized FAST streaming channels.
+
+I have 1.5+ years building backend products in Java and Spring Boot, with real exposure to high-throughput, event-driven systems: at Paytm I optimized microservices for real-time transaction notifications, and at Primathon I use Kafka and AWS (S3, Lambda, Timestream) to handle real-time data ingestion and meta-event processing — relevant to streaming and personalization pipelines. I also designed a distributed payment gateway with 30 REST APIs, applying system-design principles for scalability and fault tolerance.
+
+As an immediate joiner with strong fundamentals and a product mindset, I am eager to help RunnTV ship features that scale to a growing viewer base.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+</section>
+
+</main>
+<div class="toast" id="toast">Copied to clipboard ✔</div>
+<footer>Generated by Bhumi's LinkedIn Smart Apply routine · 2026-10-22 · 23 real LinkedIn postings evaluated.</footer>
+<script>
+var QUALIFIED_URLS = ["https://in.linkedin.com/jobs/view/4479342927","https://in.linkedin.com/jobs/view/4479359324","https://in.linkedin.com/jobs/view/4479131093","https://in.linkedin.com/jobs/view/4478987448","https://in.linkedin.com/jobs/view/4479944113","https://in.linkedin.com/jobs/view/4291059996","https://in.linkedin.com/jobs/view/4462854650","https://in.linkedin.com/jobs/view/4471418874","https://in.linkedin.com/jobs/view/4482052162"];
+function openAll(){ QUALIFIED_URLS.forEach(function(u){ window.open(u,'_blank'); }); }
+function toast(){ var t=document.getElementById('toast'); t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1600); }
+function copyCL(id){
+  var el=document.getElementById(id); if(!el) return;
+  var txt=el.innerText||el.textContent;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(toast,function(){fallback(txt);});
+  } else { fallback(txt); }
+}
+function fallback(txt){
+  var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta);
+  ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); toast();
+}
+</script>
+</body></html>

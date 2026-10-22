@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Software Engineer I (Java Backend) role at Precisely in Noida, where building reliable data-driven backend services is central to the work.
+
+Over the past 1.5 years I have shipped production backend systems in Java and Spring Boot, including a distributed payment gateway with 30 REST APIs across four microservices and admin APIs that synced data across seven merchant systems. I work daily with SQL (MySQL), REST API design, and AWS (S3, Lambda, Timestream) for real-time data ingestion, which maps directly to backend and data-platform responsibilities. My 5-Star Java rating on HackerRank and 250+ solved DSA problems reflect the problem-solving depth this role rewards.
+
+I am an immediate joiner, comfortable picking up new stacks quickly (I would be glad to ramp on Go), and eager to contribute to Precisely's engineering team from day one.
+
+Best regards,
+Bhumi Bhatt

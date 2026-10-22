@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Software Engineer I position at American Express in Gurugram, and the opportunity to build resilient backend systems at the scale financial services demand.
+
+My experience is a close fit: at Primathon I engineer custom admin APIs and automated backend workflows that cut manual operational effort by 70%, and during my internship at Paytm I built and optimized microservices managing the QR-code lifecycle that powered real-time merchant transaction notifications. I work with Java, Spring Boot, microservices, Kafka, Redis, and SQL, and I architected a distributed payment gateway applying system-design principles for fault tolerance and scalability — directly relevant to payments engineering.
+
+As an immediate joiner with a strong DSA foundation and a track record of shipping production-ready services, I am keen to grow and contribute on your team.
+
+Best regards,
+Bhumi Bhatt

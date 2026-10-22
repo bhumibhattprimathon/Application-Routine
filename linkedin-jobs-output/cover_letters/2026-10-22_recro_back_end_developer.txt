@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would like to apply for the Back End Developer role at Recro in Noida, and the chance to build backend services for fast-moving product teams.
+
+I bring 1.5+ years of hands-on backend engineering across Java, Spring Boot, Node.js, and Express.js, designing REST APIs and microservices that run in production. At CodeAlpha I built order and payment microservices with MySQL and containerized them with Docker, and optimized 30+ REST endpoints while automating build pipelines — the kind of end-to-end ownership Recro's client teams value. I am also comfortable with MongoDB, Redis, Kafka, and AWS, so I can adapt quickly to whichever stack a project requires.
+
+Being an immediate joiner with a quick ramp-up and a strong DSA foundation, I am ready to deliver value on client engagements right away.
+
+Best regards,
+Bhumi Bhatt

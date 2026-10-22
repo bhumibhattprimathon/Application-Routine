@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the MERN Stack Developer (PostgreSQL) role at neurIOT Labs in Noida, drawn to building full-stack products around your AI and IoT platforms.
+
+On the front end I work with React.js, HTML5, CSS3, and Bootstrap, and on the back end with Node.js and Express.js, so the MERN stack is squarely in my wheelhouse. I have shipped REST APIs and microservices in production and worked with MongoDB and relational SQL databases like MySQL, which transfers directly to your PostgreSQL requirement. My background building AI-driven alerting into a distributed payment gateway means I am comfortable working alongside ML and data-heavy systems.
+
+I am an immediate joiner and a fast learner, and I would be glad to contribute to neurIOT Labs' product engineering from the start.
+
+Best regards,
+Bhumi Bhatt
