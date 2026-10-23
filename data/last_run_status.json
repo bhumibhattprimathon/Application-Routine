@@ -1,15 +1,24 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-23",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
+  "data_source": "Live WebSearch (standard + extended) and WebFetch across public job boards (jobsora, Wellfound). US-indexed WebSearch could not surface a fresh, open <24h LinkedIn feed for Delhi NCR; discovery fell back to real public listings with observed posting ages. No JSearch/RapidAPI key available this run.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt, backend/full-stack, Java/Spring Boot/Node.js, 1.5 yrs)",
+  "ntfy": "NOT sent. ntfy.sh is disabled per prior user instruction and was blocked by the environment egress policy; reported via the routine's native push/email channel instead.",
   "jobs_found": 17,
   "jobs_qualified": 1,
   "jobs_review": 6,
   "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "fraud_detected": 0,
+  "avg_match_qualified": 82.0,
+  "top_pick": "Ipsator — Java Back End Developer (Noida/Bengaluru), match 82, trust 80",
+  "link_verification": "Top-fit deep-links checked directly: Ipsator exact posting returned HTTP 404 (stale); SaveIN entry-level role 'reposted ~3 months ago' with current live opening at SDE-2/4yr+. Qualified/review rows therefore point to live company jobs pages or aggregator cards and are flagged 'verify current opening before applying'. Only Training Basket's two postings were genuinely <24h, but that company is an unreviewed IT-training institute (trust ~55, review-tier).",
+  "deliverables": {
+    "dashboard": "dashboards/dashboard_2026-10-23.html",
+    "cover_letters": [
+      "cover_letters/2026-10-23_ipsator_java_back_end_developer.txt",
+      "cover_letters/2026-10-23_savein_backend_engineer_java.txt"
+    ]
+  },
+  "notes": "Every listed job is a real posting discovered live; nothing fabricated. Honesty-first run: because fresh verified <24h LinkedIn application links were not obtainable via WebSearch, the dashboard surfaces the best real company/role fits with explicit verify-before-apply caveats rather than overclaiming readiness. Recommend reconnecting a job-data API (e.g. JSearch/RapidAPI) or granting LinkedIn access for reliable fresh-feed discovery, as the Aug-05 run did."
 }

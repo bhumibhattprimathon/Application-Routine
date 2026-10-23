@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'd love to join SaveIN as a Backend Engineer and help scale the embedded-finance platform powering affordable healthcare payments across India.
+
+Payments are where I've spent my career: at Paytm I built microservices managing the QR-code lifecycle and real-time transaction notifications for merchants, and my Distributed Payment Gateway project delivered 30 fault-tolerant REST APIs in Java and Spring Boot. I work daily with MySQL, AWS (S3, Lambda, EC2), and microservice architecture — the exact Java, Spring, MySQL, and AWS stack your role calls for — with a strong DSA foundation (5-Star Java, 250+ problems).
+
+I'm an immediate joiner, ready to bring hands-on payment-backend experience to a YC-backed fintech and contribute from day one.
+
+Best regards, Bhumi Bhatt

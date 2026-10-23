@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Back End Developer role at Ipsator, where your focus on scalable, outcome-driven enterprise backends mirrors the work I do every day.
+
+At Primathon I engineer Spring Boot microservices and custom admin REST APIs across seven merchant systems, and I architected a Distributed Payment Gateway of 30 REST APIs spanning Order, Payment, Merchant, and Vault services — directly matching your Java, Spring Boot, Microservices, RESTful API, and RDBMS requirements. My MySQL and system-design background, backed by a 5-Star HackerRank Java rating and 250+ DSA problems solved, lets me ship reliable, well-tested services from day one.
+
+As an immediate joiner with a zero-day notice period, I can start contributing to your Noida backend team right away and ramp quickly on your stack.
+
+Best regards, Bhumi Bhatt

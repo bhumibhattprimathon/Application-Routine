@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-23</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;}
+  header{background:#0f172a;color:#fff;padding:28px 20px;}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px;}
+  header .sub{color:#94a3b8;font-size:14px;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+  .card .n{font-size:28px;font-weight:700;}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+  .card.g .n{color:var(--green);} .card.y .n{color:var(--yellow);} .card.r .n{color:var(--red);}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--yellow);border-radius:8px;padding:14px 16px;margin:16px 0;font-size:14px;color:#78350f;}
+  .note b{color:#92400e;}
+  .openall{display:block;width:100%;background:var(--green);color:#042f16;border:none;border-radius:12px;padding:18px;font-size:18px;font-weight:800;cursor:pointer;margin:18px 0;letter-spacing:.3px;}
+  .openall:hover{filter:brightness(.95);}
+  .openall.secondary{background:#1e293b;color:#fff;font-size:15px;padding:13px;}
+  h2{font-size:18px;margin:28px 0 6px;padding-bottom:6px;border-bottom:2px solid var(--line);}
+  h2.sec-g{border-color:var(--green);} h2.sec-y{border-color:var(--yellow);} h2.sec-r{border-color:var(--red);}
+  .tbl-wrap{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px;}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+  tr:last-child td{border-bottom:none;}
+  .score{font-weight:700;border-radius:6px;padding:2px 8px;display:inline-block;color:#fff;font-size:12px;}
+  .s-hi{background:var(--green);} .s-mid{background:var(--yellow);color:#422006;} .s-lo{background:var(--red);}
+  .btn{display:inline-block;padding:5px 10px;border-radius:6px;font-size:12px;text-decoration:none;border:none;cursor:pointer;margin:2px 2px 0 0;}
+  .btn-open{background:#2563eb;color:#fff;}
+  .btn-copy{background:#334155;color:#fff;}
+  .pill{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600;}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:8px;padding:14px 16px;margin:12px 0;}
+  .rec h3{margin:0 0 6px;font-size:15px;}
+  .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px;}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:160px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:10px;}
+  .bar-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%;}
+  .bar{width:46px;background:var(--green);border-radius:6px 6px 0 0;min-height:4px;transition:height .3s;}
+  .bar-col .v{font-weight:700;margin-bottom:4px;font-size:13px;}
+  .bar-col .d{font-size:11px;color:var(--muted);margin-top:6px;text-align:center;}
+  .cl-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0;}
+  .cl-box h3{margin:0 0 4px;font-size:15px;}
+  .cl-box pre{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#334155;background:#f8fafc;border-radius:8px;padding:12px;margin:10px 0 0;}
+  .hidden{display:none;}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:30px 20px;}
+  .src{font-size:11px;color:var(--muted);}
+  @media(max-width:600px){ header h1{font-size:18px;} .card .n{font-size:22px;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-10-23</h1>
+  <div class="sub">Daily job scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Immediate joiner</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">17</div><div class="l">Jobs Found</div></div>
+    <div class="card g"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">6</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">10</div><div class="l">Skipped</div></div>
+    <div class="card r"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="n">82</div><div class="l">Avg Match (Qualified)</div></div>
+    <div class="card"><div class="n">₹10–21L</div><div class="l">Top Pick Salary Est.</div></div>
+  </div>
+
+  <div class="note">
+    <b>⚠️ Today's discovery note — please read.</b> Live web search (US-indexed) could not surface a fresh, open <24h LinkedIn feed for Delhi NCR today, so results were verified against public job boards (jobsora, Wellfound). On direct check, the top-fit deep-links were <b>stale</b>: Ipsator's exact posting 404'd and SaveIN's entry-level role was "reposted 3 months ago" (its only live opening is now SDE-2 / 4 yr+). Links below therefore point to each company's <b>live jobs page</b> or the aggregator card — <b>confirm the opening is current before applying.</b> The only genuinely <24h postings today are Training Basket's (review-tier). Nothing here is fabricated; every row is a real posting with its real source and observed age.
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 1 QUALIFIED JOB</button>
+  <button class="openall secondary" onclick="openReview()">Open all 6 review leads in new tabs</button>
+
+  <!-- ===================== QUALIFIED ===================== -->
+  <h2 class="sec-g">✅ Qualified — recommended to apply</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="score s-hi">82</span></td>
+        <td>80</td>
+        <td><b>Ipsator</b><div class="src">Glassdoor 4.2 · 51–200 emp</div></td>
+        <td>Java Back End Developer<div class="src">Spring Boot, Microservices, REST, RDBMS · 2–4 yr (mild stretch at 1.5 yr) · immediate joiners preferred</div></td>
+        <td>Noida / Bengaluru</td>
+        <td>₹10–21 LPA</td>
+        <td><span class="pill">backend</span></td>
+        <td>External (Wellfound)</td>
+        <td>
+          <a class="btn btn-open" href="https://wellfound.com/company/ipsator/jobs" target="_blank" rel="noopener">Open Jobs Page</a>
+          <button class="btn btn-copy" onclick="copyCL('cl-ipsator')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <h2 class="sec-y">🟡 Review — promising but verify first</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location · Posted</th><th>Reason to review</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2</td><td><span class="score s-mid">80</span></td><td>85</td>
+        <td><b>SaveIN Money</b></td>
+        <td>Backend Engineer – Java</td>
+        <td>Gurgaon · reposted ~3 mo</td>
+        <td>YC-backed healthcare fintech, excellent payments fit. But current live opening is SDE-2 / 4 yr+; the entry-level role looks stale — verify level. Cover letter ready.</td>
+        <td><a class="btn btn-open" href="https://wellfound.com/company/savein-money/jobs" target="_blank" rel="noopener">Open</a> <button class="btn btn-copy" onclick="copyCL('cl-savein')">Copy CL</button></td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="score s-mid">70</span></td><td>55</td>
+        <td><b>Training Basket</b></td>
+        <td>Java REST API Developer</td>
+        <td>Noida · ~10 h ago (freshest)</td>
+        <td>Genuinely fresh. But it's an IT-training institute with no independent AmbitionBox/Glassdoor reviews — confirm it's a real dev role, not a training/placement funnel; salary likely low.</td>
+        <td><a class="btn btn-open" href="https://in.jobsora.com/job-54240710476?source=1" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>4</td><td><span class="score s-mid">65</span></td><td>55</td>
+        <td><b>Training Basket</b></td>
+        <td>Backend Developer</td>
+        <td>Noida · ~10 h ago (freshest)</td>
+        <td>Same company caveat as #3. Fresh posting, backend fit, but verify legitimacy of the role and pay band.</td>
+        <td><a class="btn btn-open" href="https://in.jobsora.com/job-50908706143?source=1" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>5</td><td><span class="score s-mid">72</span></td><td>75</td>
+        <td><b>Inshorts</b><div class="src">via Nexthire</div></td>
+        <td>Backend Developer</td>
+        <td>Noida · ~4 days ago</td>
+        <td>Well-known product company; strong brand. Experience level not shown in the listing — verify it's entry/mid before applying.</td>
+        <td><a class="btn btn-open" href="https://in.jobsora.com/job-50996098961?source=1" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>6</td><td><span class="score s-mid">68</span></td><td>85</td>
+        <td><b>Emerson</b></td>
+        <td>Software Developer – Backend</td>
+        <td>Noida · ~4 days ago</td>
+        <td>Large, legitimate US MNC. Level and exact stack fit unconfirmed — check the requirements; may skew toward 2–4 yr.</td>
+        <td><a class="btn btn-open" href="https://in.jobsora.com/job-52907147791?source=1" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+      <tr>
+        <td>7</td><td><span class="score s-mid">66</span></td><td>60</td>
+        <td><b>Epergne Solutions</b></td>
+        <td>Java Full Stack Developer (Remote)</td>
+        <td>Noida / Remote · ~4 days ago</td>
+        <td>Remote Java full-stack — good stack fit, but asks 3–5 yrs (stretch at 1.5 yr). Worth a stretch application if remote is a priority.</td>
+        <td><a class="btn btn-open" href="https://in.jobsora.com/job-50996083058?source=1" target="_blank" rel="noopener">Open</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ===================== SKIPPED ===================== -->
+  <h2 class="sec-r">🔴 Skipped</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>8</td><td>ION Group</td><td>Senior Full Stack (Java + React)</td><td>Experience: Senior role — beyond 1.5 yrs.</td></tr>
+      <tr><td>9</td><td>Innovaccer</td><td>Staff Engineer – Backend (Gravity)</td><td>Experience: Staff-level, ~8+ yrs.</td></tr>
+      <tr><td>10</td><td>Epergne Solutions</td><td>Java Developer – Secure Payment Systems</td><td>Experience: Requires 3 / 5 / 8+ yrs across variants.</td></tr>
+      <tr><td>11</td><td>Impact Infotech</td><td>Sr Java Full Stack Developer</td><td>Experience: Requires 10–12 yrs.</td></tr>
+      <tr><td>12</td><td>Algotale / Lumiq.AI</td><td>Backend Data Engineer</td><td>Experience: Requires ~5 yrs; data-engineering focus.</td></tr>
+      <tr><td>13</td><td>Nexthire (client undisclosed)</td><td>Java Developer</td><td>Experience: Requires 5–10 yrs (budget up to 30 LPA).</td></tr>
+      <tr><td>14</td><td>Fifty Five Technologies</td><td>DotNet Backend / Full Stack Developer</td><td>Skill: .NET / C# stack — resume is Java / JavaScript, no .NET.</td></tr>
+      <tr><td>15</td><td>Movodream</td><td>Senior Backend Engineer (Node.js)</td><td>Experience/Salary: "Senior"; ₹80k–1L reads monthly — verify, likely off-target.</td></tr>
+      <tr><td>16</td><td>AppIncubator Technologies</td><td>Node JS Developer</td><td>Location: tied to Hyderabad +2, not Delhi NCR.</td></tr>
+      <tr><td>17</td><td>Ipsator</td><td>Senior Java Backend Developer (Bangalore)</td><td>Experience: Senior variant, 4–5 yrs, Bengaluru-based.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ===================== TOP 5 ===================== -->
+  <h2>⭐ Top 5 Recommendations</h2>
+
+  <div class="rec">
+    <h3>1. Ipsator — Java Back End Developer <span class="pill">backend</span></h3>
+    <div class="meta">Noida / Bengaluru · ₹10–21 LPA · Match 82 · Trust 80</div>
+    This is the single best stack match of the day: the role names Java, Spring Boot, Microservices, RESTful APIs, and RDBMS — the exact backbone of Bhumi's Primathon work and her 30-API Distributed Payment Gateway. Glassdoor sits at 4.2 (19 reviews) and the posting explicitly prefers immediate joiners, which matches her zero-day notice. The only gap is the 2–4 yr ask versus her 1.5 yr, a mild stretch. <b>Action:</b> open Ipsator's live Wellfound jobs page, confirm the Noida backend role is still open, and apply with the ready cover letter.
+  </div>
+  <div class="rec">
+    <h3>2. SaveIN Money — Backend Engineer, Java <span class="pill">backend</span></h3>
+    <div class="meta">Gurgaon · ₹10–15 LPA · Match 80 · Trust 85</div>
+    A YC-backed healthcare fintech (₹100 Cr+ raised) whose Java + Spring + MySQL + AWS stack maps one-to-one onto Bhumi's resume, and whose payments domain lines up with her Paytm QR-lifecycle microservices and payment-gateway project. The catch: the entry-level listing is ~3 months old and the current live role is SDE-2 / 4 yr+. <b>Action:</b> check SaveIN's live jobs page for a junior/SDE-1 opening; a tailored cover letter is ready either way.
+  </div>
+  <div class="rec">
+    <h3>3. Inshorts — Backend Developer <span class="pill">backend</span></h3>
+    <div class="meta">Noida · ~4 days ago · Match 72 · Trust 75</div>
+    A recognizable consumer-product company with real engineering scale — a strong brand on a resume and a backend role in Bhumi's city. Experience level isn't stated in the listing, so this is a verify-then-apply: open it, confirm it isn't a senior role, and if it's entry/mid, it's a high-value application.
+  </div>
+  <div class="rec">
+    <h3>4. Emerson — Software Developer, Backend <span class="pill">backend</span></h3>
+    <div class="meta">Noida · ~4 days ago · Match 68 · Trust 85</div>
+    A large, stable US MNC (industrial automation) — high trust, structured onboarding, good for an early-career engineer. Backend-developer title fits; confirm the required years and stack on the live posting, as MNC listings often expect 2–4 yrs.
+  </div>
+  <div class="rec">
+    <h3>5. Training Basket — Java REST API Developer <span class="pill">backend</span></h3>
+    <div class="meta">Noida · ~10 h ago (freshest) · Match 70 · Trust 55</div>
+    The freshest posting today and a direct backend/Java title. It ranks fifth only because the company is an IT-training institute with no independent reviews — before applying, confirm this is a genuine product dev role (not a training-to-placement funnel) and check the salary band against Bhumi's ₹5.5 LPA floor.
+  </div>
+
+  <!-- ===================== WEEKLY TREND ===================== -->
+  <h2>📈 Qualified-per-day Trend</h2>
+  <p class="src">History is sparse — the routine last ran on 2026-08-05 (different week). Two available data points shown.</p>
+  <div class="trend">
+    <div class="bar-col"><div class="v">1</div><div class="bar" style="height:50%"></div><div class="d">Aug 05</div></div>
+    <div class="bar-col"><div class="v">1</div><div class="bar" style="height:50%"></div><div class="d">Oct 23</div></div>
+  </div>
+
+  <!-- ===================== COVER LETTERS ===================== -->
+  <h2>✉️ Cover Letters</h2>
+
+  <div class="cl-box">
+    <h3>Ipsator — Java Back End Developer <button class="btn btn-copy" onclick="copyCL('cl-ipsator')">COPY</button></h3>
+    <pre id="cl-ipsator">Dear Hiring Manager,
+
+I'm excited to apply for the Java Back End Developer role at Ipsator, where your focus on scalable, outcome-driven enterprise backends mirrors the work I do every day.
+
+At Primathon I engineer Spring Boot microservices and custom admin REST APIs across seven merchant systems, and I architected a Distributed Payment Gateway of 30 REST APIs spanning Order, Payment, Merchant, and Vault services — directly matching your Java, Spring Boot, Microservices, RESTful API, and RDBMS requirements. My MySQL and system-design background, backed by a 5-Star HackerRank Java rating and 250+ DSA problems solved, lets me ship reliable, well-tested services from day one.
+
+As an immediate joiner with a zero-day notice period, I can start contributing to your Noida backend team right away and ramp quickly on your stack.
+
+Best regards, Bhumi Bhatt</pre>
+  </div>
+
+  <div class="cl-box">
+    <h3>SaveIN Money — Backend Engineer, Java <button class="btn btn-copy" onclick="copyCL('cl-savein')">COPY</button></h3>
+    <pre id="cl-savein">Dear Hiring Manager,
+
+I'd love to join SaveIN as a Backend Engineer and help scale the embedded-finance platform powering affordable healthcare payments across India.
+
+Payments are where I've spent my career: at Paytm I built microservices managing the QR-code lifecycle and real-time transaction notifications for merchants, and my Distributed Payment Gateway project delivered 30 fault-tolerant REST APIs in Java and Spring Boot. I work daily with MySQL, AWS (S3, Lambda, EC2), and microservice architecture — the exact Java, Spring, MySQL, and AWS stack your role calls for — with a strong DSA foundation (5-Star Java, 250+ problems).
+
+I'm an immediate joiner, ready to bring hands-on payment-backend experience to a YC-backed fintech and contribute from day one.
+
+Best regards, Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-10-23 · All listings are real postings discovered via live web search/fetch; posting ages and source links are shown as observed. Verify each opening on its live page before applying.
+</footer>
+
+<script>
+  // Qualified job URLs (the "Open All" set)
+  var qualifiedUrls = [
+    "https://wellfound.com/company/ipsator/jobs"
+  ];
+  // Review lead URLs
+  var reviewUrls = [
+    "https://wellfound.com/company/savein-money/jobs",
+    "https://in.jobsora.com/job-54240710476?source=1",
+    "https://in.jobsora.com/job-50908706143?source=1",
+    "https://in.jobsora.com/job-50996098961?source=1",
+    "https://in.jobsora.com/job-52907147791?source=1",
+    "https://in.jobsora.com/job-50996083058?source=1"
+  ];
+  function openAll(){ qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function openReview(){ reviewUrls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var d = document.createElement("div");
+    d.textContent = "✓ Cover letter copied";
+    d.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#16a34a;color:#fff;padding:10px 18px;border-radius:8px;font-size:14px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.2)";
+    document.body.appendChild(d);
+    setTimeout(function(){ d.remove(); }, 1600);
+  }
+</script>
+</body>
+</html>
