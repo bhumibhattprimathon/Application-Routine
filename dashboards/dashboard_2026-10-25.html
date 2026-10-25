@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-25</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.4rem;letter-spacing:.5px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .alert{background:#7f1d1d;color:#fff;border-left:6px solid var(--red);padding:16px 18px;border-radius:10px;margin:18px 0}
+  .alert h2{margin:0 0 6px;font-size:1.05rem}
+  .alert p{margin:4px 0;font-size:.92rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:2rem;font-weight:700}
+  .card .l{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+  .openall{display:block;width:100%;padding:18px;margin:10px 0 24px;border:0;border-radius:12px;background:var(--yellow);color:#422006;font-size:1.1rem;font-weight:700;cursor:pointer}
+  .openall:hover{filter:brightness(.95)}
+  .openall small{display:block;font-weight:500;font-size:.75rem;margin-top:4px;color:#713f12}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0}
+  h2.secttl{margin:0 0 12px;font-size:1.1rem;padding-left:10px}
+  .yellow h2.secttl{border-left:5px solid var(--yellow)}
+  .red h2.secttl{border-left:5px solid var(--red)}
+  .green h2.secttl{border-left:5px solid var(--green)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+  .b-y{background:#fef9c3;color:#713f12}
+  .b-r{background:#fee2e2;color:#7f1d1d}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#f8fafc;color:var(--ink);text-decoration:none;font-size:.8rem;cursor:pointer}
+  .btn:hover{background:#eef2f7}
+  .rec{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fafafa}
+  .rec h3{margin:0 0 4px;font-size:.98rem}
+  .rec .meta{color:var(--muted);font-size:.8rem;margin-bottom:6px}
+  .cl{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:#fcfcfd}
+  .cl pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0;font-size:.9rem}
+  .bars{display:flex;align-items:flex-end;gap:18px;height:140px;padding-top:10px}
+  .bar{display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 70px}
+  .bar .col{width:46px;background:var(--green);border-radius:6px 6px 0 0}
+  .bar .cap{font-size:.75rem;color:var(--muted);text-align:center}
+  .note{color:var(--muted);font-size:.82rem;margin-top:8px}
+  footer{color:var(--muted);font-size:.78rem;text-align:center;padding:24px}
+  a{color:#2563eb}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-25</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · Immediate joiner</div>
+</header>
+
+<div class="wrap">
+
+  <div class="alert">
+    <h2>⚠️ Pipeline degraded — live job data source is down</h2>
+    <p>The <strong>JSearch (RapidAPI)</strong> subscription that supplied fresh, date-verified jobs has <strong>lapsed</strong> — the key now returns <code>404 "Endpoint /search does not exist"</code>. Today's run fell back to <strong>WebSearch only</strong>, which returns undated / stale aggregator pages, not verifiable last-24h LinkedIn postings.</p>
+    <p><strong>Action needed:</strong> renew the JSearch subscription on RapidAPI for the configured key (or wire in an alternative live jobs API). Until then, daily discovery runs blind and the roles below could not be confirmed as freshly posted or still open.</p>
+    <p><strong>Honesty note:</strong> 0 jobs are shown as "ready to apply today" because freshness could not be verified and fabricating listings is not allowed. The 5 roles below are <em>real</em> and a genuine skill fit — treat them as leads to verify, not confirmed fresh postings.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">9</div><div class="l">Jobs Found</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">0</div><div class="l">Qualified (fresh)</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">5</div><div class="l">Review</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">4</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+    <div class="card"><div class="n">74</div><div class="l">Avg Match (review)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">
+    OPEN ALL 5 REVIEW JOBS
+    <small>Opens each lead in a new tab — verify the posting is still open before applying</small>
+  </button>
+
+  <section class="yellow">
+    <h2 class="secttl">Review Jobs — real roles, freshness unverified</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="badge b-y">82</span></td><td>60</td><td>Anlight Consulting Services</td><td>Associate Software Engineer (Backend)</td><td>Noida</td><td>5–8 LPA</td><td>backend</td><td><a class="btn" href="https://www.weekday.works/jobs/java-developer-jobs-in-noida" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>2</td><td><span class="badge b-y">75</span></td><td>50</td><td>Vigilant Technology Pvt Ltd</td><td>Java Backend Developer</td><td>Gurugram</td><td>4–7 LPA</td><td>backend</td><td><a class="btn" href="https://www.foundit.in/job/java-backend-developer-avp-vigilant-technology-pvt-ltd-gurugram-58538443" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>3</td><td><span class="badge b-y">72</span></td><td>70</td><td>HealthEdge</td><td>Associate SWE (Full Stack — React + Spring Boot)</td><td>Verify (India)</td><td>8–14 LPA</td><td>fullstack</td><td><a class="btn" href="https://nodeflair.com/jobs/healthedge-associate-software-engineer-489605" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>4</td><td><span class="badge b-y">68</span></td><td>48</td><td>WebCoir IT Solutions</td><td>Full Stack Developer (Java / Spring Boot)</td><td>Noida</td><td>4–6 LPA</td><td>fullstack</td><td><a class="btn" href="https://in.indeed.com/q-java-full-stack-jobs.html" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>5</td><td><span class="badge b-y">60</span></td><td>50</td><td>Silverline IT</td><td>Associate SWE (React + Spring Boot)</td><td>Remote (US hours)</td><td>n/a</td><td>fullstack</td><td><a class="btn" href="https://itpro.lk/job/13484/associate-software-engineer-react-spring-boot-at-silverline-it/" target="_blank" rel="noopener">Open</a></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Each row is a real posting found via WebSearch today. None could be confirmed as posted in the last 24 hours (the live date-verified source is offline). Verify the role is still open and the location/level match before applying.</p>
+  </section>
+
+  <section class="red">
+    <h2 class="secttl">Skipped Jobs</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Speqto Technologies</td><td>Java Developer (1–2 yrs, Spring Boot + Microservices)</td><td>Posting EXPIRED — link returns HTTP 404. Would have been a strong fit; illustrates today's staleness problem.</td></tr>
+        <tr><td>2</td><td>KartAi</td><td>Golang Developer Intern</td><td>Skill + level: Go (off her Java/JS stack) AND an internship — a step down from 1.5 yrs full-time backend.</td></tr>
+        <tr><td>3</td><td>AdiSoftronics</td><td>PHP Developer</td><td>Skill: PHP + front-end (off-stack); ~2 weeks old; very small firm (2–10 employees).</td></tr>
+        <tr><td>4</td><td>Various (Hughes Systique, Air India, Teeoff, UKG, SADA, Baazi, Vyntelligence)</td><td>Senior / Lead / AVP backend &amp; cloud roles</td><td>Experience: all require 3–11+ yrs or are Senior/Lead titles — beyond 1.5 yrs.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="green">
+    <h2 class="secttl">Top Recommendations</h2>
+
+    <div class="rec">
+      <h3>1. Anlight Consulting Services — Associate Software Engineer (Backend) · Noida</h3>
+      <div class="meta">Match 82 · Trust 60 · backend variant · cover letter ready</div>
+      <p>The cleanest fit today. It's a backend Java role at the "Associate" level with a 1–5 yr band that comfortably includes Bhumi's 1.5 yrs, and Noida is squarely in her target area. Her Spring Boot + REST + SQL + microservices experience across Primathon and Paytm maps directly. The only caveat is freshness — confirm the posting is still live on the employer's site or Naukri before applying. A tailored cover letter is prepared below.</p>
+    </div>
+
+    <div class="rec">
+      <h3>2. Vigilant Technology — Java Backend Developer · Gurugram</h3>
+      <div class="meta">Match 75 · Trust 50 · backend variant</div>
+      <p>Requirements (Spring Boot, Spring MVC, Spring Data JPA, REST APIs, SQL) read almost like Bhumi's skills section, and it explicitly accepts freshers. Trust is held low because the listing page was inaccessible (403) and the title carries an ambiguous "AVP" tag — verify the actual seniority and that it's open before investing time.</p>
+    </div>
+
+    <div class="rec">
+      <h3>3. HealthEdge — Associate SWE (Full Stack, React + Spring Boot)</h3>
+      <div class="meta">Match 72 · Trust 70 · fullstack variant</div>
+      <p>A real product company with the highest trust of today's set. React + Spring Boot at 1–2 yrs fits her stack and level, and the estimated 8–14 LPA would be a strong jump from 4 LPA. The open question is location — confirm it's Delhi NCR (or remote-eligible) rather than another India office.</p>
+    </div>
+
+    <div class="rec">
+      <h3>4. WebCoir IT Solutions — Full Stack Developer (Java / Spring Boot) · Noida</h3>
+      <div class="meta">Match 68 · Trust 48 · fullstack variant</div>
+      <p>Junior-friendly and on-stack (Java/Spring Boot backend plus dynamic web pages). A reasonable entry-level apply, but it's a small/unverified firm with no posting date and a likely low-end salary — treat as a backup rather than a priority.</p>
+    </div>
+
+    <div class="rec">
+      <h3>5. Silverline IT — Associate SWE (React + Spring Boot) · Remote</h3>
+      <div class="meta">Match 60 · Trust 50 · fullstack variant</div>
+      <p>Good on paper (React + Spring Boot, 1–2 yrs, remote), but the schedule is tied to US Eastern Time, i.e. a night shift from India. Only worth pursuing if Bhumi is open to those hours.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="secttl">Weekly / Run Trend — qualified jobs per run</h2>
+    <div class="bars">
+      <div class="bar"><div class="col" style="height:40px;background:var(--green)"></div><div class="cap">2026-08-05<br>1 qualified</div></div>
+      <div class="bar"><div class="col" style="height:4px;background:var(--red)"></div><div class="cap">2026-10-25<br>0 qualified*</div></div>
+    </div>
+    <p class="note">*0 is a data-availability artifact, not a dry job market: the live source is offline, so freshly-posted roles can't be confirmed. Only two dashboards exist so far (runs are sparse), so this is a run-over-run trend, not a full week.</p>
+  </section>
+
+  <section>
+    <h2 class="secttl">Cover Letters</h2>
+    <div class="cl">
+      <strong>Anlight Consulting Services — Associate Software Engineer (Backend)</strong>
+      <button class="btn" style="float:right" onclick="copyCL('cl1')">COPY</button>
+      <pre id="cl1">Dear Hiring Manager,
+
+I am writing to apply for the Associate Software Engineer (Backend) role at Anlight Consulting Services, where my backend-focused engineering background maps directly to what the position calls for.
+
+Over 1.5+ years I have built and shipped production backend systems in Java and Spring Boot — engineering custom admin APIs and backend syncing automation across 7 merchant systems at Primathon, and developing microservices that managed the QR-code lifecycle for merchants at Paytm. My work centres on REST APIs, microservices, and SQL (MySQL), with Redis and Kafka for scale, which lines up closely with the backend stack this role requires. I hold a 5-Star Gold HackerRank rating in Java (250+ DSA problems) and an AWS Developer – Associate certification.
+
+As an immediate joiner (0-day notice period) I can contribute from day one, and I pick up new systems and codebases quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+    <p class="note">One cover letter was generated — only the Anlight role cleared the match ≥ 75 &amp; trust ≥ 60 bar. More will be generated automatically once the live data source is restored and fresh, verified matches return.</p>
+  </section>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-10-25 · degraded run (WebSearch fallback).<br>
+  Restore full discovery by renewing the JSearch / RapidAPI subscription.
+</footer>
+
+<script>
+  var urls = [
+    "https://www.weekday.works/jobs/java-developer-jobs-in-noida",
+    "https://www.foundit.in/job/java-backend-developer-avp-vigilant-technology-pvt-ltd-gurugram-58538443",
+    "https://nodeflair.com/jobs/healthedge-associate-software-engineer-489605",
+    "https://in.indeed.com/q-java-full-stack-jobs.html",
+    "https://itpro.lk/job/13484/associate-software-engineer-react-spring-boot-at-silverline-it/"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var txt = el.innerText || el.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ flash(); }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt){
+    var ta = document.createElement("textarea");
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var b = event && event.target ? event.target : null;
+    if(!b) return; var old = b.textContent; b.textContent = "COPIED ✓";
+    setTimeout(function(){ b.textContent = old; }, 1400);
+  }
+</script>
+</body>
+</html>

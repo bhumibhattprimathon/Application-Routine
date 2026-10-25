@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Associate Software Engineer (Backend) role at Anlight Consulting Services, where my backend-focused engineering background maps directly to what the position calls for.
+
+Over 1.5+ years I have built and shipped production backend systems in Java and Spring Boot — engineering custom admin APIs and backend syncing automation across 7 merchant systems at Primathon, and developing microservices that managed the QR-code lifecycle for merchants at Paytm. My work centres on REST APIs, microservices, and SQL (MySQL), with Redis and Kafka for scale, which lines up closely with the backend stack this role requires. I hold a 5-Star Gold HackerRank rating in Java (250+ DSA problems) and an AWS Developer – Associate certification.
+
+As an immediate joiner (0-day notice period) I can contribute from day one, and I pick up new systems and codebases quickly.
+
+Best regards,
+Bhumi Bhatt
