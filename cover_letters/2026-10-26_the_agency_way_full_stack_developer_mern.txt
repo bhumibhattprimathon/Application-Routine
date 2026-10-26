@@ -1,0 +1,11 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Developer (MERN) role at The Agency Way, where my hands-on work across the MERN stack maps directly to your requirements. At Primathon and Paytm I built and shipped production microservices and REST APIs using Node.js, Express.js, and MongoDB on the backend, paired with React.js and reusable, component-based UIs on the frontend. I've implemented JWT-secured endpoints, optimized 30+ REST APIs for faster response times, and containerized services with Docker for reliable deployment — the same end-to-end ownership this role calls for.
+
+As an immediate joiner (0-day notice period), I can start contributing to your web applications right away and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt
+
+---
+NOTE (auto-generated 2026-10-26): Verify this employer before applying. "The Agency Way" appears only on aggregators (career.io, foundit) with an ambiguous posting age (listed 5 days ago on one, ~1 month ago on another); no official company website or employee reviews were found. Confirm it is a legitimate current opening first.

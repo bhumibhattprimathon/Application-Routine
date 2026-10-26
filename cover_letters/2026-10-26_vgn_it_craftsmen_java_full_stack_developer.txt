@@ -1,0 +1,11 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Java / Full Stack Developer position at VGN IT Craftsmen. My 1.5+ years building backend systems align closely with your stack: I design Java and Spring Boot microservices exposing REST APIs, back them with MySQL and MongoDB, and pair them with React.js front-ends to deliver complete, production-ready features. At Primathon I engineered admin APIs and automated backend workflows across seven merchant systems, and I hold a 5-Star Gold Java rating on HackerRank with 250+ DSA problems solved — a solid foundation for writing clean, scalable J2EE code.
+
+Available to join immediately on a 0-day notice period, I'm eager to bring this backend depth and full-stack range to your team.
+
+Best regards,
+Bhumi Bhatt
+
+---
+NOTE (auto-generated 2026-10-26): Verify this employer before applying. The listing (Noida, 1-3 yrs, page dated Oct 2026) surfaced via an aggregator; no company reviews or an official site were found. Confirm legitimacy and the live posting before sending.

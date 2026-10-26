@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-10-26</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --bg:#f4f6f8; --card:#ffffff; --ink:#111827; --muted:#6b7280;
+    --line:#e5e7eb; --head:#0f172a; --accent:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--head);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#cbd5e1;font-size:.9rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 60px}
+  .banner{background:#fef3c7;border:1px solid #f59e0b;border-left:6px solid #f59e0b;border-radius:10px;padding:14px 16px;margin:18px 0;color:#7c2d12}
+  .banner b{color:#92400e}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .card .l{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+  .card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:none;border-radius:12px;
+    padding:18px;font-size:1.1rem;font-weight:700;cursor:pointer;margin:10px 0 6px}
+  .openall:disabled{background:#9ca3af;cursor:not-allowed}
+  .openall.review{background:var(--yellow);color:#1f2937}
+  .hint{color:var(--muted);font-size:.82rem;margin:0 0 20px;text-align:center}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+  h2{margin:0 0 12px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px}
+  .score{font-weight:700;border-radius:6px;padding:2px 8px;display:inline-block;color:#fff;font-size:.8rem}
+  .s-hi{background:var(--green)} .s-mid{background:var(--yellow);color:#1f2937} .s-lo{background:var(--red)}
+  .btn{border:1px solid var(--line);background:#f9fafb;border-radius:8px;padding:6px 10px;font-size:.8rem;cursor:pointer;text-decoration:none;color:var(--ink);display:inline-block;margin:2px 0}
+  .btn.open{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .rec{border-left:4px solid var(--accent);background:#f8fafc;border-radius:8px;padding:12px 14px;margin:10px 0}
+  .rec h4{margin:0 0 4px;font-size:.98rem}
+  .rec .meta{color:var(--muted);font-size:.8rem;margin-bottom:6px}
+  .cl{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:#fcfcfd}
+  .cl pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0;font-size:.86rem}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:160px;padding:10px 4px;border-bottom:2px solid var(--line)}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:0 0 70px}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0;min-height:4px;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-weight:700;font-size:.8rem;padding-top:4px}
+  .bar .fill.zero{background:#cbd5e1;color:#374151}
+  .bar .lbl{margin-top:8px;font-size:.74rem;color:var(--muted);text-align:center}
+  td.reason{color:#374151;font-size:.83rem}
+  .muted{color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:30px}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 18px;border-radius:8px;opacity:0;transition:opacity .25s;font-size:.85rem;z-index:50}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-26</h1>
+  <div class="sub">Daily job scan for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · 1.5+ yrs · immediate joiner</div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <b>⚠ Data source degraded today.</b> The live jobs API this routine relies on (JSearch / RapidAPI) returned
+    <b>HTTP 404 — the key's subscription appears to have lapsed</b>, so no fresh last-24h feed was available.
+    The run fell back to WebSearch, which <b>cannot read LinkedIn's live job feed</b> and returns only third-party
+    aggregator listings with <b>unverifiable or stale posting dates</b>. Because of this, <b>no listing could be confirmed
+    as both posted-in-24h and trust-verified</b> — nothing is marked "ready to apply." The jobs below are <b>genuine leads
+    found via search, logged as "review"</b> for you to verify manually. <b>Action:</b> renew the JSearch RapidAPI
+    subscription (or switch to another live jobs API) to restore automated fresh discovery.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">14</div><div class="l">Jobs Found</div></div>
+    <div class="card g"><div class="n">0</div><div class="l">Verified Qualified</div></div>
+    <div class="card y"><div class="n">5</div><div class="l">Leads to Review</div></div>
+    <div class="card r"><div class="n">9</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">74.8</div><div class="l">Avg Match (review)</div></div>
+  </div>
+
+  <button id="openAllBtn" class="openall review" onclick="openAll()">OPEN ALL 5 LEADS TO REVIEW</button>
+  <p class="hint">No <em>verified</em> qualified jobs today, so this opens the 5 leads worth checking. Allow pop-ups if your browser blocks them.</p>
+
+  <!-- ============ REVIEW (YELLOW) ============ -->
+  <section>
+    <h2><span class="dot y"></span>Leads to Review (verify before applying)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Why Review</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score s-hi">85</span></td><td>85</td><td><b>Adobe</b></td>
+          <td>Software Development Engineer (Early Career)</td><td>Noida</td><td>12–18 LPA (reported)</td><td>master</td>
+          <td><a class="btn open" href="https://www.talentd.in/jobs/adobe-is-hiring-graduate-member-of-technical-staff-noida" target="_blank" rel="noopener">Open</a></td>
+          <td class="reason">Excellent fit & top employer, but only on aggregators; one listing's apply-by (17 Oct 2026) has passed. Verify a current opening on careers.adobe.com.</td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score s-hi">82</span></td><td>55</td><td><b>The Agency Way</b></td>
+          <td>Full Stack Developer (MERN)</td><td>Gurugram (on-site)</td><td>5–8 LPA (est)</td><td>fullstack</td>
+          <td><a class="btn open" href="https://career.io/job/full-stack-developer-mern-gurugram-the-agency-way-40791b966ca3da144cbf0361bc9bfdb3" target="_blank" rel="noopener">Open</a>
+              <button class="btn" onclick="copyCL('cl1')">Copy Cover Letter</button></td>
+          <td class="reason">Strong MERN fit (React/Node/Express/MongoDB/REST/JWT); ~2-yr ask fits her 1.5 yr. But no official site or reviews found and posting age ambiguous — verify the employer.</td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="score s-hi">80</span></td><td>90</td><td><b>Amazon</b></td>
+          <td>Software Development Engineer I (SDE-I)</td><td>Delhi (+ others)</td><td>High (MNC)</td><td>master</td>
+          <td><a class="btn open" href="https://freshershunt.in/amazon-off-campus-drive-2026-sde-1/" target="_blank" rel="noopener">Open</a></td>
+          <td class="reason">Top employer, 0–1 yr rolling drive incl. Delhi — but batch-based off-campus (2024/2025) via aggregator. Confirm eligibility & live link on amazon.jobs.</td>
+        </tr>
+        <tr>
+          <td>4</td><td><span class="score s-hi">75</span></td><td>45</td><td><b>VGN IT Craftsmen</b></td>
+          <td>Java / Full Stack Developer</td><td>Noida</td><td>5–8 LPA (est)</td><td>fullstack</td>
+          <td><a class="btn open" href="https://in.indeed.com/q-entry-level-full-stack-developer-react-java-jobs.html" target="_blank" rel="noopener">Open</a>
+              <button class="btn" onclick="copyCL('cl2')">Copy Cover Letter</button></td>
+          <td class="reason">Java/Full-Stack 1–3 yr Noida fits her range, but no company reviews/official site found. Confirm legitimacy and the live posting.</td>
+        </tr>
+        <tr>
+          <td>5</td><td><span class="score s-mid">52</span></td><td>75</td><td><b>Tech Mahindra</b></td>
+          <td>AI/ML Engineer (Fresher/Trainee)</td><td>Gurugram</td><td>5–11 LPA (field garbled)</td><td>ai_ml</td>
+          <td><a class="btn open" href="https://cloudsoftsol.com/jobs/tech-mahindra-ai-ml-engineer-fresher-gurugram-2026/" target="_blank" rel="noopener">Open</a></td>
+          <td class="reason">Reputable, 2024–26 grads — but Python/ML-centric (scikit/PyTorch), off her Java/JS core, and salary field unreliable. Review on techmahindra.com.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ SKIPPED (RED) ============ -->
+  <section>
+    <h2><span class="dot r"></span>Skipped (9)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Nile Technologies</td><td>Trainee Java Developer (Spring Boot), Noida</td><td class="reason">Salary: ₹4 LPA trainee — below her 5.5 LPA floor (no raise over current 4 LPA). Spring Boot/REST skills otherwise fit.</td></tr>
+        <tr><td>2</td><td>Enerture Technologies</td><td>AI Engineer, Gurugram</td><td class="reason">Skill: Python/ML role at a solar/renewable firm (inconsistent AI side-listing) — off her Java/JS backend stack.</td></tr>
+        <tr><td>3</td><td>Tech4Logic</td><td>MERN Stack Developer, Gurugram</td><td class="reason">Experience: requires 3+ yrs MERN — beyond 1.5 yrs.</td></tr>
+        <tr><td>4</td><td>TekWissen</td><td>MERN Stack Engineer, Gurugram/Noida</td><td class="reason">Experience: requires 3–8 yrs.</td></tr>
+        <tr><td>5</td><td>Luxoft</td><td>Java FullStack Developer (React), Gurugram</td><td class="reason">Experience: senior role; listing dated Apr 2026 (stale).</td></tr>
+        <tr><td>6</td><td>Ericsson</td><td>Cloud Integration Engineer, Noida</td><td class="reason">Experience: mid-level, 3+ yrs.</td></tr>
+        <tr><td>7</td><td>Desirous Global Consulting</td><td>Java Developer, Gurugram</td><td class="reason">Stale: page dated Mar 2026 (consultancy) — almost certainly closed; unverified.</td></tr>
+        <tr><td>8</td><td>WeBuildTech</td><td>AI Engineer, Gurugram</td><td class="reason">Listing archived/closed; also Python/ML (off-stack).</td></tr>
+        <tr><td>9</td><td>Taggd</td><td>AI/ML Engineer, Gurugram</td><td class="reason">Expired listing; required 3–5 yrs.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ TOP RECOMMENDATIONS ============ -->
+  <section>
+    <h2>Top 5 Recommendations — why they fit Bhumi</h2>
+    <div class="rec">
+      <h4>1. Adobe — Software Development Engineer (Early Career), Noida</h4>
+      <div class="meta">Match 85 · Trust 85 · 12–18 LPA (reported)</div>
+      The strongest match on paper: a Noida-based early-career SDE at a top product company, well inside her 0–2 yr window and far above her salary floor. Her distributed payment gateway project, microservices experience, and 5-Star Java / 250+ DSA record are exactly what Adobe's coding rounds reward. The catch is freshness — verify a live 2026 opening on careers.adobe.com, because one aggregator's apply-by date (17 Oct) has already passed.
+    </div>
+    <div class="rec">
+      <h4>2. The Agency Way — Full Stack Developer (MERN), Gurugram</h4>
+      <div class="meta">Match 82 · Trust 55 (unverified) · 5–8 LPA (est)</div>
+      The cleanest skills fit among the actionable leads: React, Node.js, Express.js, MongoDB, REST APIs and JWT — she has shipped all of these in production. The ~2-year requirement is a comfortable stretch over her 1.5 years. Only blocker is trust: no official website or employee reviews surfaced, so confirm the company is real before applying. A tailored cover letter is ready below.
+    </div>
+    <div class="rec">
+      <h4>3. Amazon — SDE-I (rolling off-campus), Delhi</h4>
+      <div class="meta">Match 80 · Trust 90 · High (MNC)</div>
+      A 0–1 yr SDE track at a tier-1 employer covering Delhi, on a rolling basis — her DSA strength and backend/system-design background fit the bar well. It's a batch-based drive (2024/2025 grads) routed through an online assessment, so confirm eligibility and apply through amazon.jobs directly rather than the aggregator.
+    </div>
+    <div class="rec">
+      <h4>4. VGN IT Craftsmen — Java / Full Stack Developer, Noida</h4>
+      <div class="meta">Match 75 · Trust 45 (unverified) · 5–8 LPA (est)</div>
+      Java + Spring Boot + React is her exact wheelhouse, and the 1–3 yr band fits comfortably. The page is dated Oct 2026 — the freshest in-range listing found — but the company is unverified with no reviews. Worth a quick legitimacy check; a cover letter is drafted below.
+    </div>
+    <div class="rec">
+      <h4>5. Tech Mahindra — AI/ML Engineer (Trainee), Gurugram</h4>
+      <div class="meta">Match 52 · Trust 75 · 5–11 LPA (unreliable)</div>
+      A reputable-employer trainee slot open to recent grads and aligned with her stated AI interest and research background. Lower match because it is Python/ML-first (PyTorch/TensorFlow), which is outside her Java/JavaScript core — a stretch, not a core fit. Only pursue if she wants to pivot toward ML.
+    </div>
+  </section>
+
+  <!-- ============ WEEKLY TREND ============ -->
+  <section>
+    <h2>Trend — verified-qualified per run</h2>
+    <div class="trend">
+      <div class="bar"><div class="fill" style="height:60px">1</div><div class="lbl">2026-08-05</div></div>
+      <div class="bar"><div class="fill zero" style="height:8px">0</div><div class="lbl">2026-10-26<br>(API down)</div></div>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:.82rem">Only two scan runs exist on record. 2026-08-05 used the live JSearch API (1 verified qualified: TravClan SDE-1). Today's run had no live feed (API 404), so no job could be verified as a fresh qualified match. Restoring the API should return this to normal daily numbers.</p>
+  </section>
+
+  <!-- ============ COVER LETTERS ============ -->
+  <section>
+    <h2>Pre-drafted Cover Letters</h2>
+    <p class="muted" style="font-size:.84rem;margin-top:0">Both drafted for genuine role fits, but <b>verify the employer first</b> (neither company could be confirmed via an official site or reviews).</p>
+    <div class="cl">
+      <b>The Agency Way — Full Stack Developer (MERN)</b>
+      <button class="btn" style="float:right" onclick="copyCL('cl1')">COPY</button>
+      <pre id="cl1">Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Developer (MERN) role at The Agency Way, where my hands-on work across the MERN stack maps directly to your requirements. At Primathon and Paytm I built and shipped production microservices and REST APIs using Node.js, Express.js, and MongoDB on the backend, paired with React.js and reusable, component-based UIs on the frontend. I've implemented JWT-secured endpoints, optimized 30+ REST APIs for faster response times, and containerized services with Docker for reliable deployment — the same end-to-end ownership this role calls for.
+
+As an immediate joiner (0-day notice period), I can start contributing to your web applications right away and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+    <div class="cl">
+      <b>VGN IT Craftsmen — Java / Full Stack Developer</b>
+      <button class="btn" style="float:right" onclick="copyCL('cl2')">COPY</button>
+      <pre id="cl2">Dear Hiring Manager,
+
+I'd like to apply for the Java / Full Stack Developer position at VGN IT Craftsmen. My 1.5+ years building backend systems align closely with your stack: I design Java and Spring Boot microservices exposing REST APIs, back them with MySQL and MongoDB, and pair them with React.js front-ends to deliver complete, production-ready features. At Primathon I engineered admin APIs and automated backend workflows across seven merchant systems, and I hold a 5-Star Gold Java rating on HackerRank with 250+ DSA problems solved — a solid foundation for writing clean, scalable J2EE code.
+
+Available to join immediately on a 0-day notice period, I'm eager to bring this backend depth and full-stack range to your team.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+  </section>
+
+  <footer>
+    Generated 2026-10-26 · Jobs shown are real listings found via web search; none could be verified as posted in the last 24 h because the live jobs API was unavailable. Verify each posting and employer before applying.
+  </footer>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  // Leads to review (no verified-qualified jobs today)
+  var urls = [
+    "https://www.talentd.in/jobs/adobe-is-hiring-graduate-member-of-technical-staff-noida",
+    "https://career.io/job/full-stack-developer-mern-gurugram-the-agency-way-40791b966ca3da144cbf0361bc9bfdb3",
+    "https://freshershunt.in/amazon-off-campus-drive-2026-sde-1/",
+    "https://in.indeed.com/q-entry-level-full-stack-developer-react-java-jobs.html",
+    "https://cloudsoftsol.com/jobs/tech-mahindra-ai-ml-engineer-fresher-gurugram-2026/"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+
+  function showToast(msg){
+    var t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); }, 1600);
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.innerText : "";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(
+        function(){ showToast("Cover letter copied ✓"); },
+        function(){ fallbackCopy(text); }
+      );
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); showToast("Cover letter copied ✓"); }
+    catch(e){ showToast("Copy failed — select manually"); }
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>
