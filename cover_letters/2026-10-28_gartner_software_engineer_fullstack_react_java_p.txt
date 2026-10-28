@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm applying for the Fullstack Software Engineer role on Gartner IT, where your React-with-Java stack and relational-database work are precisely where I'm strongest.
+
+I build Java and Spring Boot backend services at Primathon and pair them with React.js front-ends, writing and tuning SQL against MySQL to keep queries efficient. I architected a distributed payment gateway with 30 REST APIs and have hands-on AWS experience (EC2, S3, Lambda) that transfers directly to the Azure App Service and AI-services work your team does. I already use AI-assisted development daily, matching your plus for AI-assisted engineering practices.
+
+With 250+ DSA problems solved and a 5-star Gold Java rating, I bring strong fundamentals to Gartner's outcome-driven, Agile teams, and as an immediate joiner I can start delivering Research & Consulting features right away.
+
+Best regards,
+Bhumi Bhatt

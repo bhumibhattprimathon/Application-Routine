@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join Mobility Global as an Associate Software Engineer building automotive-intelligence applications, because the role's Java-plus-React, cloud-native brief maps almost exactly to how I work today.
+
+I develop backend services in Java and Spring Boot at Primathon and ship React.js interfaces backed by REST APIs, so I'm comfortable owning a feature from the UI down to the database. I've integrated AWS services (EC2, S3, Lambda) into production pipelines and run CI/CD through Jenkins and Git Actions — directly matching your cloud-native development and build-automation goals. Across internships at Paytm and CodeAlpha I optimized 30+ REST endpoints and improved service reliability by nearly 67%.
+
+As an AWS Certified Developer and 5-star Java coder on HackerRank, I ramp on new domains fast and would get up to speed on your automotive data stack quickly. I'm an immediate joiner ready to contribute to your agile team from day one.
+
+Best regards,
+Bhumi Bhatt

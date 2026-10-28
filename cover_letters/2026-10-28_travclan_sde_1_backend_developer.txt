@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the SDE-1 Backend Developer role at TravClan, where scaling a B2B travel platform doing INR 1000 crore+ GMV calls for exactly the kind of reliable backend engineering I've focused on for the past 1.5 years.
+
+At Primathon I build and maintain backend syncing automation across 7 merchant systems, and I architected a distributed payment gateway with 30 REST APIs spanning Order, Payment, Merchant and Vault services using Java, Spring Boot and microservices — the same stack and scale-minded design your flights, hotels and holidays booking flows depend on. My Paytm internship optimizing QR-lifecycle microservices for real-time transactions taught me to keep high-throughput services fast and fault-tolerant.
+
+As a 5-star Gold Java coder on HackerRank (250+ DSA problems) and an immediate joiner on 0-day notice, I can contribute to your APIs from week one and grow quickly in a high-ownership environment.
+
+Best regards,
+Bhumi Bhatt

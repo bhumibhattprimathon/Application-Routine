@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm keen to join JPMorganChase's Payments Technology team in Noida as a Software Engineer II, where secure, scalable Java backend work on real payment systems is exactly what I've built my early career around.
+
+At Primathon I engineer backend automation across 7 merchant systems, and my distributed payment gateway — 30 REST APIs across Order, Payment, Merchant and Vault services in Java and Spring Boot — was designed for the idempotency and fault tolerance that money movement demands. My Paytm internship on QR-lifecycle microservices gave me direct exposure to high-volume, real-time transaction processing. I also work daily with AI coding assistants, aligning with your agentic-AI and AI-assisted-development focus.
+
+As a 5-star Gold Java coder (250+ DSA problems) and AWS Certified Developer, I write clean, secure code and validate it through tests and peer review. I'm an immediate joiner ready to contribute to your payments products from day one.
+
+Best regards,
+Bhumi Bhatt
