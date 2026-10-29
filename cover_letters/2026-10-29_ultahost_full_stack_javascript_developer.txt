@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Full-Stack JavaScript Developer (AI-Native) role at UltaHost. My core JavaScript stack fits this position directly: I build with Node.js, Express.js, and React (ES6+), back them with MySQL and MongoDB, and have shipped REST APIs in production at Paytm and Primathon. I also integrated AI-driven daily alerts into a distributed payment gateway I architected, so adding AI-native features to a JavaScript codebase is familiar territory. My strong DSA foundation (5-Star Java on HackerRank, 250+ problems solved) means I pick up new frameworks fast, and as a 0-day-notice immediate joiner I can contribute to UltaHost's team from week one.
+
+Best regards,
+Bhumi Bhatt

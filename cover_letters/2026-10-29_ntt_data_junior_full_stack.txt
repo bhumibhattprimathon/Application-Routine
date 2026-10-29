@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Junior Full Stack role at NTT DATA, where I can contribute across the stack from day one. In 1.5 years at Primathon and Paytm I've shipped production microservices in Java and Spring Boot and built React front-ends backed by Node.js/Express APIs, so I'm comfortable owning a feature end to end. At Paytm I optimized QR-lifecycle microservices that improved service reliability by 67%, and I work daily with MySQL, MongoDB, REST APIs, Docker, and Git CI/CD — the toolkit a full-stack role at NTT DATA relies on. As an immediate joiner with a 0-day notice period, I can start contributing to your delivery teams right away and ramp quickly on new codebases.
+
+Best regards,
+Bhumi Bhatt

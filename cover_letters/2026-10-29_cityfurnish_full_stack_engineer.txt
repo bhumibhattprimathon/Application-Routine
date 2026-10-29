@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd love to join Cityfurnish as a Full Stack Engineer and help scale the platform behind your furniture-rental experience. My background maps closely to a MERN-style product: I build React interfaces and Node.js/Express services, model data in MongoDB and MySQL, and have designed 30+ REST API endpoints across order and payment services. At Primathon I engineered backend syncing automation across seven merchant systems and cut manual operational effort by 70%, so I'm used to shipping reliable features in a fast-moving product team. I can join immediately (0-day notice) and would bring both backend depth and front-end comfort to Cityfurnish's engineering roadmap.
+
+Best regards,
+Bhumi Bhatt

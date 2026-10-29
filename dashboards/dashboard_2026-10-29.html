@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-10-29</title>
+<style>
+:root{--grn:#22c55e;--yel:#eab308;--red:#ef4444;--bg:#0f172a;--ink:#0f172a;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f1f5f9;color:#0f172a}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+.card{flex:1 1 150px;background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-top:4px solid #cbd5e1}
+.card .n{font-size:28px;font-weight:700}
+.card .l{font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:.5px}
+.card.g{border-top-color:var(--grn)} .card.y{border-top-color:var(--yel)}
+.card.r{border-top-color:var(--red)} .card.b{border-top-color:#3b82f6}
+.openall{display:block;width:100%;margin:8px 0 22px;padding:18px;font-size:18px;font-weight:700;
+ color:#fff;background:var(--grn);border:none;border-radius:12px;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.4)}
+.openall:hover{filter:brightness(1.05)}
+.note{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:12px 14px;font-size:13px;margin:0 0 18px}
+section{background:#fff;border-radius:12px;padding:18px;margin:0 0 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+section h2{margin:0 0 14px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.g{background:var(--grn)} .dot.y{background:var(--yel)} .dot.r{background:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+th{color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:.4px;background:#f8fafc}
+.reason{color:#475569;max-width:420px}
+.score{display:inline-block;min-width:34px;text-align:center;padding:2px 7px;border-radius:6px;font-weight:700;color:#fff}
+.s-hi{background:var(--grn)} .s-mid{background:var(--yel)}
+.tag{background:#e0e7ff;color:#3730a3;padding:2px 8px;border-radius:20px;font-size:11px}
+.btn{display:inline-block;padding:6px 11px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;border:none;margin:2px 4px 2px 0;text-decoration:none}
+.btn.open{background:#3b82f6;color:#fff} .btn.copy{background:#334155;color:#fff}
+.btn.sm{padding:4px 10px;font-size:11px;margin-left:10px}
+.muted{color:#94a3b8}
+.hidden{display:none}
+.tablescroll{overflow-x:auto}
+.rec{border-left:4px solid var(--grn);padding:4px 0 4px 14px;margin:0 0 16px}
+.rec h4{margin:0 0 5px;font-size:14px} .rec p{margin:0;font-size:13px;color:#334155;line-height:1.55}
+.trend{display:flex;align-items:flex-end;gap:26px;height:200px;padding:10px 6px 0}
+.barwrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.bar{width:60px;background:linear-gradient(180deg,#22c55e,#16a34a);color:#fff;font-weight:700;
+ display:flex;align-items:flex-start;justify-content:center;padding-top:6px;border-radius:8px 8px 0 0}
+.blabel{font-size:12px;color:#64748b;margin-top:7px}
+.clcard{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin:0 0 14px;background:#fafafa}
+.clhead{display:flex;align-items:center;font-size:14px;margin-bottom:8px;flex-wrap:wrap}
+pre{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.5;margin:0;color:#1e293b}
+footer{color:#64748b;font-size:12px;text-align:center;padding:24px 16px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;
+ padding:12px 20px;border-radius:10px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
+#toast.show{opacity:1}
+@media(max-width:640px){th:nth-child(3),td:nth-child(3){display:none}}
+</style></head>
+<body>
+<header><div class="wrap">
+<h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-29</h1>
+<div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · entry–associate · target 5.5–12 LPA<br>
+Source: live LinkedIn postings (&lt;24h, entry/associate filter) — every link verified &amp; dated at scan time.</div>
+</div></header>
+<div class="wrap">
+<div class="cards">
+<div class="card b"><div class="n">33</div><div class="l">Jobs Found</div></div>
+<div class="card g"><div class="n">7</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">9</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">17</div><div class="l">Skipped</div></div>
+<div class="card r"><div class="n">0</div><div class="l">Fraud Detected</div></div>
+<div class="card"><div class="n">74.3</div><div class="l">Avg Match (qual.)</div></div>
+<div class="card"><div class="n">~10.1</div><div class="l">Avg Salary LPA (qual.)</div></div>
+</div>
+
+<button class="openall" onclick="openAll()">OPEN ALL 7 QUALIFIED JOBS</button>
+<div class="note"><b>Heads-up:</b> ntfy push is disabled per your earlier instruction — today's summary was delivered to your routine push/email channel instead. The JSearch API key is no longer subscribed, so discovery ran on LinkedIn's public job feed. 0 scam/spam listings surfaced today.</div>
+
+<section>
+<h2><span class="dot g"></span>Qualified — ready to apply (7)</h2>
+<div class="tablescroll"><table>
+<tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr>
+<tr>
+<td>1</td><td><span class="score s-hi">84</span></td><td>90</td>
+<td><b>NTT DATA North America</b></td><td>Junior Full Stack</td><td>Gurgaon</td>
+<td>7-9 LPA (est)</td><td><span class="tag">fullstack</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/junior-full-stack-at-ntt-data-north-america-4484470994" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl0')">Copy Cover Letter</button><div id="cl0" class="hidden">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Junior Full Stack role at NTT DATA, where I can contribute across the stack from day one. In 1.5 years at Primathon and Paytm I&#x27;ve shipped production microservices in Java and Spring Boot and built React front-ends backed by Node.js/Express APIs, so I&#x27;m comfortable owning a feature end to end. At Paytm I optimized QR-lifecycle microservices that improved service reliability by 67%, and I work daily with MySQL, MongoDB, REST APIs, Docker, and Git CI/CD — the toolkit a full-stack role at NTT DATA relies on. As an immediate joiner with a 0-day notice period, I can start contributing to your delivery teams right away and ramp quickly on new codebases.
+
+Best regards,
+Bhumi Bhatt</div></td></tr><tr>
+<td>2</td><td><span class="score s-hi">80</span></td><td>78</td>
+<td><b>Cityfurnish</b></td><td>Full Stack Engineer</td><td>Gurugram</td>
+<td>6-10 LPA (est)</td><td><span class="tag">fullstack</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-cityfurnish-4483855798" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl1')">Copy Cover Letter</button><div id="cl1" class="hidden">Dear Hiring Manager,
+
+I&#x27;d love to join Cityfurnish as a Full Stack Engineer and help scale the platform behind your furniture-rental experience. My background maps closely to a MERN-style product: I build React interfaces and Node.js/Express services, model data in MongoDB and MySQL, and have designed 30+ REST API endpoints across order and payment services. At Primathon I engineered backend syncing automation across seven merchant systems and cut manual operational effort by 70%, so I&#x27;m used to shipping reliable features in a fast-moving product team. I can join immediately (0-day notice) and would bring both backend depth and front-end comfort to Cityfurnish&#x27;s engineering roadmap.
+
+Best regards,
+Bhumi Bhatt</div></td></tr><tr>
+<td>3</td><td><span class="score s-hi">76</span></td><td>65</td>
+<td><b>UltaHost</b></td><td>Full-Stack JavaScript Developer (AI-Native)</td><td>Delhi / Remote</td>
+<td>6-10 LPA (est)</td><td><span class="tag">fullstack</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-javascript-developer-ai-native-at-ultahost-4483868788" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl2')">Copy Cover Letter</button><div id="cl2" class="hidden">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Full-Stack JavaScript Developer (AI-Native) role at UltaHost. My core JavaScript stack fits this position directly: I build with Node.js, Express.js, and React (ES6+), back them with MySQL and MongoDB, and have shipped REST APIs in production at Paytm and Primathon. I also integrated AI-driven daily alerts into a distributed payment gateway I architected, so adding AI-native features to a JavaScript codebase is familiar territory. My strong DSA foundation (5-Star Java on HackerRank, 250+ problems solved) means I pick up new frameworks fast, and as a 0-day-notice immediate joiner I can contribute to UltaHost&#x27;s team from week one.
+
+Best regards,
+Bhumi Bhatt</div></td></tr><tr>
+<td>4</td><td><span class="score s-hi">73</span></td><td>90</td>
+<td><b>Macquarie Group</b></td><td>Executive - Full Stack Developer</td><td>Gurugram</td>
+<td>10-14 LPA (est)</td><td><span class="tag">fullstack</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/executive-full-stack-developer-at-macquarie-group-4475412416" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td></tr><tr>
+<td>5</td><td><span class="score s-hi">70</span></td><td>88</td>
+<td><b>Atlys</b></td><td>Backend Engineer</td><td>Delhi</td>
+<td>10-16 LPA (est)</td><td><span class="tag">backend</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/backend-engineer-at-atlys-4472617490" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td></tr><tr>
+<td>6</td><td><span class="score s-hi">70</span></td><td>85</td>
+<td><b>EXL</b></td><td>Full Stack Engineer</td><td>Gurugram</td>
+<td>7-11 LPA (est)</td><td><span class="tag">fullstack</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-exl-4482289223" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td></tr><tr>
+<td>7</td><td><span class="score s-hi">67</span></td><td>80</td>
+<td><b>Spreetail</b></td><td>Software Engineer-II</td><td>Greater Delhi Area</td>
+<td>10-16 LPA (est)</td><td><span class="tag">fullstack</span></td><td>LinkedIn Apply</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-ii-at-spreetail-4483850309" target="_blank" rel="noopener">Open Job</a><span class="muted">—</span></td></tr>
+</table></div></section>
+
+<section>
+<h2><span class="dot y"></span>Review — worth a look, with a caveat (9)</h2>
+<div class="tablescroll"><table>
+<tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th></th></tr>
+<tr>
+<td>1</td><td><span class="score s-mid">78</span></td><td>50</td>
+<td><b>Mobility Global</b></td><td>Associate Software Engineer (Full Stack)</td>
+<td class="reason">Strong level/fit (&#x27;Associate&#x27;, full-stack) BUT company could not be verified (no clear LinkedIn page / reviews found). Confirm it&#x27;s a real employer before applying.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/associate-software-engineer-full-stack-at-mobility-global-4482289075" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>2</td><td><span class="score s-mid">62</span></td><td>88</td>
+<td><b>Payoneer</b></td><td>Backend Engineer</td>
+<td class="reason">Reputable fintech, but Payoneer&#x27;s Gurugram backend stack is largely C#/.NET and this generic role likely targets 3+ yrs. Stretch on both stack and seniority.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/backend-engineer-at-payoneer-4475404864" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>3</td><td><span class="score s-mid">64</span></td><td>92</td>
+<td><b>Accenture in India</b></td><td>AI Native Software Engineer</td>
+<td class="reason">Top-tier employer and SWE-flavoured, but &#x27;AI-Native&#x27; likely expects hands-on GenAI/LLM tooling not yet on Bhumi&#x27;s resume. Worth a look if JD is generalist.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/ai-native-software-engineer-at-accenture-in-india-4484452042" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>4</td><td><span class="score s-mid">60</span></td><td>95</td>
+<td><b>Amazon</b></td><td>SDE II, Ship With Amazon</td>
+<td class="reason">Aspirational: Amazon SDE-II typically wants 3+ yrs. Bhumi&#x27;s DSA (5-star Java, 250+) makes the interview bar reachable, but it&#x27;s an experience stretch at 1.5 yrs.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/sde-ii-ship-with-amazon-ship-with-amazon-at-amazon-4484729409" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>5</td><td><span class="score s-mid">55</span></td><td>80</td>
+<td><b>Matomo</b></td><td>Full Stack Product Engineer (100% Remote India)</td>
+<td class="reason">Legit open-source analytics company and fully remote, but its stack is PHP/Vue — Bhumi has JS/React but no PHP. Skill gap.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-product-engineer-100%25-remote-india-at-matomo-4484773338" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>6</td><td><span class="score s-mid">58</span></td><td>82</td>
+<td><b>Miratech</b></td><td>Full Stack Engineer (Go and React)</td>
+<td class="reason">React side fits well; Go backend is not on her resume. Doable stretch if they accept Java-&gt;Go transition.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-engineer-go-and-react-at-miratech-4482514538" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>7</td><td><span class="score s-mid">52</span></td><td>60</td>
+<td><b>Nestor Services</b></td><td>Software Engineer - Python/Django</td>
+<td class="reason">Backend role but Python/Django-centric; Bhumi is Java/Node. Transferable fundamentals, but not a core-stack match.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-%E2%80%93-python-django-at-nestor-services-4482284278" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>8</td><td><span class="score s-mid">68</span></td><td>50</td>
+<td><b>Globeia</b></td><td>Full Stack Engineer</td>
+<td class="reason">Good role title/level fit, but company is small and unverified in this scan. Do a quick LinkedIn/AmbitionBox check before applying.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-globeia-4484439653" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>9</td><td><span class="score s-mid">72</span></td><td>42</td>
+<td><b>Pallav Technologies</b></td><td>Backend Engineer (Java)</td>
+<td class="reason">Java backend is a bullseye on skills, BUT the company could not be verified (no reviews/company page found; only similarly-named firms). Verify legitimacy first.</td>
+<td><a class="btn open" href="https://in.linkedin.com/jobs/view/backend-engineer-java-at-pallav-technologies-4483894970" target="_blank" rel="noopener">Open</a></td></tr>
+</table></div></section>
+
+<section>
+<h2><span class="dot r"></span>Skipped (17)</h2>
+<div class="tablescroll"><table>
+<tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr>
+<tr><td>1</td><td><b>AgileEngine</b></td><td>Senior Java Developer ID90127</td><td class='reason'>Experience: Senior role — beyond 1.5 yrs.</td></tr><tr><td>2</td><td><b>AgileEngine</b></td><td>Senior Full Stack Engineer ID85606</td><td class='reason'>Experience: Senior — beyond 1.5 yrs.</td></tr><tr><td>3</td><td><b>PAR Technology</b></td><td>Staff Software Engineer</td><td class='reason'>Experience: Staff-level — far beyond entry.</td></tr><tr><td>4</td><td><b>Mobility Global</b></td><td>Senior Software Engineer (Full Stack)</td><td class='reason'>Experience: Senior variant of the Associate role already in Review.</td></tr><tr><td>5</td><td><b>PFI Innovation Centre India</b></td><td>Senior Software Engineer</td><td class='reason'>Experience: Senior — beyond 1.5 yrs.</td></tr><tr><td>6</td><td><b>Stryker</b></td><td>Senior Software Engineer - Full stack developer</td><td class='reason'>Experience: Senior — beyond 1.5 yrs.</td></tr><tr><td>7</td><td><b>ETS</b></td><td>Senior Software Developer</td><td class='reason'>Experience: Senior — beyond 1.5 yrs.</td></tr><tr><td>8</td><td><b>Incedo Inc.</b></td><td>Senior Full stack Developer</td><td class='reason'>Experience: Senior — beyond 1.5 yrs.</td></tr><tr><td>9</td><td><b>Deservely Technologies</b></td><td>Senior Full Stack Developer (AI-Powered)</td><td class='reason'>Experience: Senior — beyond 1.5 yrs.</td></tr><tr><td>10</td><td><b>TBO.COM</b></td><td>Lead Software Engineer</td><td class='reason'>Experience: Lead/ownership role — beyond 1.5 yrs.</td></tr><tr><td>11</td><td><b>ReNew</b></td><td>Senior Engineer - AI &amp; Data Science</td><td class='reason'>Experience + Skill: Senior AI/Data-Science, off core stack.</td></tr><tr><td>12</td><td><b>EY</b></td><td>Agentic AI Engineer - Senior</td><td class='reason'>Experience + Skill: Senior agentic-AI/cyber role, off stack.</td></tr><tr><td>13</td><td><b>TrueFan AI</b></td><td>SDE-2 (Applied AI Engineer)</td><td class='reason'>Skill: Applied-AI/content-systems, Python/LLM focus — off Bhumi&#x27;s Java/JS stack.</td></tr><tr><td>14</td><td><b>Saxo Bank</b></td><td>Dot Net Developer</td><td class='reason'>Skill: .NET/C# — resume is Java/JavaScript.</td></tr><tr><td>15</td><td><b>Barclays</b></td><td>AI/ML Data Scientist</td><td class='reason'>Skill: Data-science/modelling role, not backend engineering.</td></tr><tr><td>16</td><td><b>MongoDB</b></td><td>Forward Deployed Engineer, Industry Solutions</td><td class='reason'>Skill: Customer-facing solutions engineering, not core dev.</td></tr><tr><td>17</td><td><b>InvoLead</b></td><td>Generative AI Engineer</td><td class='reason'>Skill: GenAI/Python/LLM focus; also a reposted/older listing. Off stack.</td></tr>
+</table></div></section>
+
+<section>
+<h2>⭐ Top 5 Recommendations</h2>
+<div class="rec"><h4>1. NTT DATA North America — Junior Full Stack (Gurgaon)</h4><p>The single best-fit role today. It's explicitly <b>Junior</b> — exactly Bhumi's level — at a large, rock-solid MNC (trust 90). Her Java/Spring Boot backend plus React + Node.js/Express front-end experience covers both halves of a full-stack brief, and a 0-day notice period is a real edge for a delivery-team hire. Cover letter ready.</p></div><div class="rec"><h4>2. Cityfurnish — Full Stack Engineer (Gurugram)</h4><p>A verified, funded Gurugram startup (angel-backed, ~200 employees). Product likely runs on a MERN-style stack that maps directly to Bhumi's React + Node + MongoDB + MySQL + REST-API experience, and startups at this stage hire 1–2 yr engineers who can ship end-to-end. Cover letter ready.</p></div><div class="rec"><h4>3. UltaHost — Full-Stack JavaScript Developer, AI-Native (Delhi / Remote)</h4><p>A pure JavaScript full-stack role — Node.js, Express, React — which is squarely in Bhumi's toolkit, with a remote option. The 'AI-Native' angle fits her payment-gateway project where she integrated AI-driven alerts. Cover letter ready.</p></div><div class="rec"><h4>4. Macquarie Group — Executive, Full Stack Developer (Gurugram)</h4><p>A global bank with a strong engineering org (trust 90). 'Executive' is Macquarie's early-professional band, so the seniority is plausible for 1.5 yrs. Strong Java/JS fit and likely a salary comfortably inside the target band. Tailor the resume toward reliability/testing (JUnit, Mockito) before applying.</p></div><div class="rec"><h4>5. Atlys — Backend Engineer (Delhi)</h4><p>A well-funded ($36M Series C) Delhi-based product startup. A non-senior 'Backend Engineer' title is worth a stretch application: Bhumi's microservices + REST API + Node.js background is relevant, and the brand/comp (est. 10–16 LPA) are excellent. Expect a tougher DSA/system-design bar — her 5-Star Java + 250 problems is the right prep.</p></div>
+</section>
+
+<section>
+<h2>📈 Weekly Trend — qualified jobs per run</h2>
+<div class="trend"><div class="barwrap"><div class="bar" style="height:38px">1</div><div class="blabel">2026-08-05</div></div><div class="barwrap"><div class="bar" style="height:158px">7</div><div class="blabel">2026-10-29</div></div></div>
+<p class="muted" style="font-size:12px;margin-top:10px">Only two runs on record so far (2026-08-05 and today). The bar chart will fill out as the daily routine accumulates history.</p>
+</section>
+
+<section>
+<h2>✉️ Cover Letters (3)</h2>
+<div class="clcard"><div class="clhead"><b>NTT DATA North America</b> — Junior Full Stack<button class="btn copy sm" onclick="copyText('clx0')">COPY</button></div><pre id="clx0">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Junior Full Stack role at NTT DATA, where I can contribute across the stack from day one. In 1.5 years at Primathon and Paytm I&#x27;ve shipped production microservices in Java and Spring Boot and built React front-ends backed by Node.js/Express APIs, so I&#x27;m comfortable owning a feature end to end. At Paytm I optimized QR-lifecycle microservices that improved service reliability by 67%, and I work daily with MySQL, MongoDB, REST APIs, Docker, and Git CI/CD — the toolkit a full-stack role at NTT DATA relies on. As an immediate joiner with a 0-day notice period, I can start contributing to your delivery teams right away and ramp quickly on new codebases.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard"><div class="clhead"><b>Cityfurnish</b> — Full Stack Engineer<button class="btn copy sm" onclick="copyText('clx1')">COPY</button></div><pre id="clx1">Dear Hiring Manager,
+
+I&#x27;d love to join Cityfurnish as a Full Stack Engineer and help scale the platform behind your furniture-rental experience. My background maps closely to a MERN-style product: I build React interfaces and Node.js/Express services, model data in MongoDB and MySQL, and have designed 30+ REST API endpoints across order and payment services. At Primathon I engineered backend syncing automation across seven merchant systems and cut manual operational effort by 70%, so I&#x27;m used to shipping reliable features in a fast-moving product team. I can join immediately (0-day notice) and would bring both backend depth and front-end comfort to Cityfurnish&#x27;s engineering roadmap.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard"><div class="clhead"><b>UltaHost</b> — Full-Stack JavaScript Developer (AI-Native)<button class="btn copy sm" onclick="copyText('clx2')">COPY</button></div><pre id="clx2">Dear Hiring Manager,
+
+I&#x27;m writing to apply for the Full-Stack JavaScript Developer (AI-Native) role at UltaHost. My core JavaScript stack fits this position directly: I build with Node.js, Express.js, and React (ES6+), back them with MySQL and MongoDB, and have shipped REST APIs in production at Paytm and Primathon. I also integrated AI-driven daily alerts into a distributed payment gateway I architected, so adding AI-native features to a JavaScript codebase is familiar territory. My strong DSA foundation (5-Star Java on HackerRank, 250+ problems solved) means I pick up new frameworks fast, and as a 0-day-notice immediate joiner I can contribute to UltaHost&#x27;s team from week one.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+</section>
+</div>
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-10-29 · 33 postings evaluated · not affiliated with LinkedIn</footer>
+<div id="toast"></div>
+<script>
+var urls=["https://in.linkedin.com/jobs/view/junior-full-stack-at-ntt-data-north-america-4484470994", "https://in.linkedin.com/jobs/view/full-stack-engineer-at-cityfurnish-4483855798", "https://in.linkedin.com/jobs/view/full-stack-javascript-developer-ai-native-at-ultahost-4483868788", "https://in.linkedin.com/jobs/view/executive-full-stack-developer-at-macquarie-group-4475412416", "https://in.linkedin.com/jobs/view/backend-engineer-at-atlys-4472617490", "https://in.linkedin.com/jobs/view/full-stack-engineer-at-exl-4482289223", "https://in.linkedin.com/jobs/view/software-engineer-ii-at-spreetail-4483850309"];
+function openAll(){
+  if(!confirm("Open "+urls.length+" job tabs? Allow pop-ups for this page if nothing happens.")) return;
+  urls.forEach(function(u){ window.open(u,'_blank','noopener'); });
+}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.className='show';
+  setTimeout(function(){t.className='';},1600);}
+function copyFrom(el){
+  var txt=el.innerText||el.textContent;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){toast('Copied ✓');},function(){fallback(txt);});}
+  else fallback(txt);
+}
+function fallback(txt){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);
+  ta.select();try{document.execCommand('copy');toast('Copied ✓');}catch(e){toast('Copy failed');}document.body.removeChild(ta);}
+function copyCL(id){copyFrom(document.getElementById(id));}
+function copyText(id){copyFrom(document.getElementById(id));}
+</script>
+</body></html>
