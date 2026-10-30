@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join Digiaccel Learning as a Software Engineer (SDE I) — building MERN products for an education platform is a chance to pair real backend engineering with direct user impact.
+
+My work at Primathon and my Paytm internship centered on Node.js and Express services, REST APIs, and MongoDB and MySQL data layers, with React front-ends shipped alongside them — the exact JavaScript, React, Node.js, Express, and Git stack this role calls for. My Distributed Payment Gateway project, 30 REST APIs across four services, shows I can design and deliver scalable full-stack systems, and my 5-Star Gold Java rating with 250+ DSA problems solved reflects the fundamentals you're looking for in an SDE I.
+
+As a 0-notice immediate joiner, I'm ready to take ownership of features from day one and grow quickly inside a small, fast-moving engineering team.
+
+Best regards,
+Bhumi Bhatt

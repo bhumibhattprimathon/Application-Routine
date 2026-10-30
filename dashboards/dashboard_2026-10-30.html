@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--bg:#f1f5f9;--card:#fff;--line:#e2e8f0;--muted:#64748b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:var(--ink);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+header .sub{color:#cbd5e1;font-size:.9rem}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:-36px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 4px 14px rgba(15,23,42,.06)}
+.card .n{font-size:1.9rem;font-weight:700}
+.card .l{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)}
+.cta{margin:22px 0}
+.cta button{width:100%;padding:20px;font-size:1.15rem;font-weight:700;color:#fff;background:linear-gradient(135deg,#16a34a,#22c55e);border:0;border-radius:14px;cursor:pointer;box-shadow:0 6px 18px rgba(34,197,94,.35)}
+.cta button:hover{filter:brightness(1.05)}
+h2{margin:30px 0 10px;font-size:1.2rem;display:flex;align-items:center;gap:8px}
+h2 .dot{width:12px;height:12px;border-radius:50%}
+.sec-g .dot{background:var(--green)} .sec-y .dot{background:var(--yellow)} .sec-r .dot{background:var(--red)}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:620px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.score{display:inline-block;min-width:30px;text-align:center;padding:3px 8px;border-radius:8px;font-weight:700;color:#fff}
+.score.hi{background:var(--green)} .score.mid{background:var(--yellow)}
+.chip{background:#eef2ff;color:#4338ca;padding:2px 8px;border-radius:6px;font-size:.78rem;font-weight:600}
+.reason{color:#475569;font-size:.83rem;max-width:520px}
+.act{white-space:nowrap}
+.btn{display:inline-block;padding:6px 11px;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;border:0;cursor:pointer;margin:2px 4px 2px 0}
+.btn.open{background:#2563eb;color:#fff} .btn.copy{background:#e2e8f0;color:#0f172a}
+.btn.open:hover{background:#1d4ed8} .btn.copy:hover{background:#cbd5e1}
+.hidden{display:none}
+.muted{color:var(--muted)}
+.rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.rec-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rank{background:var(--ink);color:#fff;border-radius:6px;padding:2px 8px;font-size:.78rem;font-weight:700}
+.rec-score{margin-left:auto;color:#fff;padding:2px 9px;border-radius:7px;font-weight:700}
+.rec-score.hi{background:var(--green)} .rec-score.mid{background:var(--yellow)}
+.rec p{margin:8px 0;color:#334155;font-size:.9rem}
+.trend{display:flex;gap:14px;align-items:flex-end;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;overflow-x:auto}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:42px}
+.bar{width:30px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:6px 6px 0 0}
+.bar-val{font-weight:700;font-size:.85rem} .bar-lbl{font-size:.72rem;color:var(--muted)}
+.clbox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.clbox-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.clbox pre{white-space:pre-wrap;font-family:inherit;font-size:.88rem;color:#334155;margin:0;background:#f8fafc;padding:12px;border-radius:8px}
+footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:30px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;opacity:0;transition:opacity .3s;pointer-events:none;font-size:.9rem}
+.toast.show{opacity:1}
+</style></head>
+<body>
+<header><h1>LINKEDIN SMART APPLY DASHBOARD &mdash; 2026-10-30</h1>
+<div class="sub">Bhumi Bhatt &middot; Backend / Full-Stack / SDE &middot; Delhi NCR, Gurugram, Noida, Remote &middot; Immediate joiner</div></header>
+<div class="wrap">
+<div class="cards">
+<div class="card"><div class="n">20</div><div class="l">Jobs Found</div></div>
+<div class="card g"><div class="n">2</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">9</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">9</div><div class="l">Skipped</div></div>
+<div class="card r"><div class="n">2</div><div class="l">Trust-Flagged</div></div>
+<div class="card"><div class="n">81.5</div><div class="l">Avg Match (Qual.)</div></div>
+</div>
+<p class="muted" style="font-size:.85rem">Source: LinkedIn public guest job API, filtered to postings from the last 24 hours (f_TPR=r86400) with entry-level filters, across Delhi NCR / Gurugram / Noida / Remote. Avg salary estimate (qualified): ~6-10 LPA.</p>
+
+<div class="cta"><button onclick="openAll()">OPEN ALL 2 QUALIFIED JOBS</button></div>
+
+<h2 class="sec-g"><span class="dot"></span>Qualified Jobs (Ready to Apply)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score hi">83</span></td><td>92</td>
+<td>Brevo</td><td>Software Engineer, ReactJS FullStack</td><td>Noida</td>
+<td>8-13 LPA (est)</td><td><span class="chip">fullstack</span></td><td>LinkedIn Apply</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-reactjs-fullstack-at-brevo-4482591700" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl1')">Copy Cover Letter</button><div id="cl1" class="hidden">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Engineer, ReactJS Full-Stack role at Brevo — building full-stack products at a global SaaS company is exactly the direction I want to take my backend-focused engineering career.
+
+At Primathon I ship React front-ends backed by Node.js and Spring Boot services, and during my Paytm internship I built and optimized microservices that powered real-time transaction notifications — so your React, Node.js, and REST API stack maps directly onto what I do every day. I own features end to end, from data modeling in MySQL and MongoDB to CI/CD pipelines, and I back that with a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved.
+
+As a 0-notice immediate joiner, I can start contributing to Brevo&#x27;s codebase right away, and I pick up new tooling such as TypeScript and monorepos quickly.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr><tr>
+<td>2</td><td><span class="score hi">80</span></td><td>75</td>
+<td>Digiaccel Learning</td><td>Software Engineer (SDE I)</td><td>Gurugram</td>
+<td>5-7 LPA (est)</td><td><span class="chip">fullstack</span></td><td>LinkedIn Apply</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-at-digiaccel-learning-4484902373" target="_blank" rel="noopener">Open Job</a><button class="btn copy" onclick="copyCL('cl2')">Copy Cover Letter</button><div id="cl2" class="hidden">Dear Hiring Manager,
+
+I&#x27;d love to join Digiaccel Learning as a Software Engineer (SDE I) — building MERN products for an education platform is a chance to pair real backend engineering with direct user impact.
+
+My work at Primathon and my Paytm internship centered on Node.js and Express services, REST APIs, and MongoDB and MySQL data layers, with React front-ends shipped alongside them — the exact JavaScript, React, Node.js, Express, and Git stack this role calls for. My Distributed Payment Gateway project, 30 REST APIs across four services, shows I can design and deliver scalable full-stack systems, and my 5-Star Gold Java rating with 250+ DSA problems solved reflects the fundamentals you&#x27;re looking for in an SDE I.
+
+As a 0-notice immediate joiner, I&#x27;m ready to take ownership of features from day one and grow quickly inside a small, fast-moving engineering team.
+
+Best regards,
+Bhumi Bhatt
+</div></td></tr></tbody></table></div>
+
+<h2 class="sec-y"><span class="dot"></span>Review Jobs (Verify / Stretch)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Link</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score mid">74</span></td><td>95</td>
+<td>Airtel Digital</td><td>Back End Developer</td><td class="reason">Near-perfect stack match (Spring Boot, Hibernate, Kafka, Redis, React, Node, Mongo/Postgres) but role is mid-senior and mentions building and mentoring engineering teams - a stretch for 1.5 yrs. Strong company; worth a stretch application.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/back-end-developer-at-airtel-digital-4482586451" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>2</td><td><span class="score mid">72</span></td><td>42</td>
+<td>BRT Multi Software LLP</td><td>Full Stack Developer (TypeScript, Next.js, Node.js)</td><td class="reason">Skills fit well (Node, React, Mongo, Express, Redis, Docker, Git) and 2-4 yrs range includes her, BUT trust ~42: company focus listed as MLM software / real-money betting games / NFT; only marketplace (IndiaMART) reviews, templated SEO across cities, rebranded 2024. Listed salary 4-6 LPA sits at/below the 5.5 LPA target floor. Verify legitimacy before applying.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-developer-typescript-next-js-and-node-js-at-brt-multi-software-llp-4483009150" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>3</td><td><span class="score mid">70</span></td><td>88</td>
+<td>Luxoft India</td><td>Senior Backend Java Developer (Immediate Joiner)</td><td class="reason">Java/Spring Boot backend fit and &#x27;immediate joiner&#x27; matches her 0-day notice, but titled Senior (likely 4-6+ yrs). Reputable (Luxoft/DXC). Stretch for 1.5 yrs.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/senior-backend-java-developer-immediate-joiner-at-luxoft-india-4484968270" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>4</td><td><span class="score mid">62</span></td><td>88</td>
+<td>BOLD</td><td>Senior Software Engineer (Node.js)</td><td class="reason">Node.js matches her backend stack and BOLD is a large, legitimate product company, but titled Senior (4-6+ yrs). Stretch.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/senior-software-engineer-node-js-at-bold-4484931858" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>5</td><td><span class="score mid">60</span></td><td>98</td>
+<td>Amazon</td><td>Software Development Engineer (Last Mile Platform, SDE-II)</td><td class="reason">JD states &#x27;3+ years non-internship professional software development experience&#x27; and is SDE-II / mid-senior. Excellent brand but a big reach at 1.5 yrs - reach application only.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-last-mile-platform-services-sde-at-amazon-4476945823" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>6</td><td><span class="score mid">60</span></td><td>88</td>
+<td>noon</td><td>Software Development Engineer - 3/4</td><td class="reason">Reputable product company (noon.com) and general SWE fit, but SDE 3/4 is mid-senior (3-6+ yrs). Stretch.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-development-engineer-3-4-at-noon-4484947858" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>7</td><td><span class="score mid">60</span></td><td>90</td>
+<td>Netspend</td><td>Senior Software Engineer, Java</td><td class="reason">Java backend fit at a reputable fintech (Netspend / Global Payments), but Senior (4-6+ yrs). Stretch.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/senior-software-engineer-java-at-netspend-4448850372" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>8</td><td><span class="score mid">55</span></td><td>95</td>
+<td>Optum India</td><td>AI/ML Engineer</td><td class="reason">She has AI exposure (GenAI research paper, AI-driven alerts project) but JD wants deep NLP/LLM, deep learning, MLOps, distributed ML (Spark/Ray) at mid-senior level. Partial fit; reputable (UnitedHealth). Review.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/ai-ml-engineer-at-optum-india-4485262106" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>9</td><td><span class="score mid">52</span></td><td>92</td>
+<td>LSEG</td><td>Software Engineer</td><td class="reason">Reputable (London Stock Exchange Group) but stack is Python 3.7+/Flask/Vue.js - off her core Java/JS backend profile - and JD asks for an experienced engineer. Review.</td>
+<td class="act"><a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-at-lseg-4475462628" target="_blank" rel="noopener">Open</a></td></tr></tbody></table></div>
+
+<h2 class="sec-r"><span class="dot"></span>Skipped Jobs</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr>
+<td>1</td><td>MongoDB</td><td>Senior Software Engineer</td>
+<td class="reason">experience_skip: Senior role (5+ yrs). Too senior for 1.5 yrs.</td></tr><tr>
+<td>2</td><td>Gartner</td><td>Sr Software Engineer</td>
+<td class="reason">experience_skip: Senior role (5+ yrs). Too senior.</td></tr><tr>
+<td>3</td><td>Oracle</td><td>Senior Application Software Engineer</td>
+<td class="reason">experience_skip: Senior role (5+ yrs). Too senior.</td></tr><tr>
+<td>4</td><td>Stryker</td><td>Lead Full Stack Engineer, EDT Innovation Lab</td>
+<td class="reason">experience_skip: Lead role (7+ yrs). Too senior.</td></tr><tr>
+<td>5</td><td>Saxo Bank</td><td>Dotnet Developer</td>
+<td class="reason">low_match_skip: .NET/C# stack - not her Java/JavaScript backend profile.</td></tr><tr>
+<td>6</td><td>Alignerr</td><td>Software Engineer (AI Training)</td>
+<td class="reason">low_match_skip: AI data-training/labeling contributor gig (rate-based), not a conventional SWE role.</td></tr><tr>
+<td>7</td><td>Jarvis Technology and Strategy Consulting</td><td>Voice AI Internship</td>
+<td class="reason">low_match_skip: Internship - below her 1.5 yrs of full-time experience.</td></tr><tr>
+<td>8</td><td>Revun</td><td>Full-Stack Developer</td>
+<td class="reason">low_match_skip: PHP/Laravel/Vue stack + requires 4+ yrs. Location inconsistent (Gurugram title, Toronto company, Council Bluffs IA header, EST schedule, CAD salary). Off-stack and over-experience.</td></tr><tr>
+<td>9</td><td>Sharda Consultancy Services</td><td>.Net Full Stack Developer (Travel Domain)</td>
+<td class="reason">low_match_skip: .NET stack via a consultancy - not her Java/JS profile.</td></tr></tbody></table></div>
+
+<h2>Top 5 Recommendations</h2>
+<div class="rec">
+<div class="rec-h"><span class="rank">#1</span> <strong>Software Engineer, ReactJS FullStack</strong> &mdash; Brevo
+<span class="rec-score hi">83</span></div>
+<p>A global, well-funded SaaS (ex-Sendinblue, 600+ staff) with a React + Node.js + REST API stack that mirrors Bhumi&#x27;s day-to-day at Primathon and Paytm. The 2-3 yr ask is only a slight stretch above her 1.5 yrs, and her end-to-end ownership (MySQL/MongoDB to CI/CD) plus 5-Star Java fundamentals make this a clean, high-trust apply.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-reactjs-fullstack-at-brevo-4482591700" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-h"><span class="rank">#2</span> <strong>Software Engineer (SDE I)</strong> &mdash; Digiaccel Learning
+<span class="rec-score hi">80</span></div>
+<p>A funded Gurugram EdTech (founded ~2021, named founders, real press + Glassdoor presence) hiring an SDE I on the exact MERN stack - JavaScript, React, Node.js, Express, MongoDB, Git - Bhumi already works in. The 1-3 yr range squarely includes her, the title fits entry level, and her Distributed Payment Gateway project shows she can design scalable full-stack systems.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/software-engineer-at-digiaccel-learning-4484902373" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-h"><span class="rank">#3</span> <strong>Back End Developer</strong> &mdash; Airtel Digital
+<span class="rec-score mid">74</span></div>
+<p>The strongest pure stack match of the day - Spring Boot, Hibernate, Kafka, Redis, React, Node, Mongo/Postgres - at a top-tier Indian product org. It&#x27;s a mid-senior/mentoring role so it&#x27;s a reach, but if Bhumi wants one ambitious stretch application, this is it.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/back-end-developer-at-airtel-digital-4482586451" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-h"><span class="rank">#4</span> <strong>Full Stack Developer (TypeScript, Next.js, Node.js)</strong> &mdash; BRT Multi Software LLP
+<span class="rec-score mid">72</span></div>
+<p>Skills line up well (Node, React, Mongo, Express, Redis, Docker) and the 2-4 yr range includes her, but trust is low (~42): MLM/real-money-betting focus and marketplace-only reviews. Listed 4-6 LPA also brushes her floor. Verify the company before spending effort here.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/full-stack-developer-typescript-next-js-and-node-js-at-brt-multi-software-llp-4483009150" target="_blank" rel="noopener">Open Job</a></div><div class="rec">
+<div class="rec-h"><span class="rank">#5</span> <strong>Senior Backend Java Developer (Immediate Joiner)</strong> &mdash; Luxoft India
+<span class="rec-score mid">70</span></div>
+<p>Java/Spring Boot backend at a reputable global firm, explicitly seeking an immediate joiner - which fits her 0-day notice perfectly. Senior-titled, so apply as a confident stretch.</p>
+<a class="btn open" href="https://in.linkedin.com/jobs/view/senior-backend-java-developer-immediate-joiner-at-luxoft-india-4484968270" target="_blank" rel="noopener">Open Job</a></div>
+
+<h2>Weekly Trend &mdash; Qualified per Day</h2>
+<div class="trend"><div class="bar-wrap"><div class="bar" style="height:64px" title="1 qualified"></div><span class="bar-val">1</span><span class="bar-lbl">08-05</span></div><div class="bar-wrap"><div class="bar" style="height:124px" title="2 qualified"></div><span class="bar-val">2</span><span class="bar-lbl">10-30</span></div></div>
+
+<h2>Cover Letters</h2>
+<div class="clbox"><div class="clbox-h"><strong>Brevo Software Engineer Reactjs Fullstack</strong>
+<button class="btn copy" onclick="copyText('box_2026_10_30_brevo_software_engineer_reactjs_fullstack_txt')">COPY</button></div>
+<pre id="box_2026_10_30_brevo_software_engineer_reactjs_fullstack_txt">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Engineer, ReactJS Full-Stack role at Brevo — building full-stack products at a global SaaS company is exactly the direction I want to take my backend-focused engineering career.
+
+At Primathon I ship React front-ends backed by Node.js and Spring Boot services, and during my Paytm internship I built and optimized microservices that powered real-time transaction notifications — so your React, Node.js, and REST API stack maps directly onto what I do every day. I own features end to end, from data modeling in MySQL and MongoDB to CI/CD pipelines, and I back that with a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved.
+
+As a 0-notice immediate joiner, I can start contributing to Brevo&#x27;s codebase right away, and I pick up new tooling such as TypeScript and monorepos quickly.
+
+Best regards,
+Bhumi Bhatt
+</pre></div><div class="clbox"><div class="clbox-h"><strong>Digiaccel Learning Software Engineer Sde I</strong>
+<button class="btn copy" onclick="copyText('box_2026_10_30_digiaccel_learning_software_engineer_sde_i_txt')">COPY</button></div>
+<pre id="box_2026_10_30_digiaccel_learning_software_engineer_sde_i_txt">Dear Hiring Manager,
+
+I&#x27;d love to join Digiaccel Learning as a Software Engineer (SDE I) — building MERN products for an education platform is a chance to pair real backend engineering with direct user impact.
+
+My work at Primathon and my Paytm internship centered on Node.js and Express services, REST APIs, and MongoDB and MySQL data layers, with React front-ends shipped alongside them — the exact JavaScript, React, Node.js, Express, and Git stack this role calls for. My Distributed Payment Gateway project, 30 REST APIs across four services, shows I can design and deliver scalable full-stack systems, and my 5-Star Gold Java rating with 250+ DSA problems solved reflects the fundamentals you&#x27;re looking for in an SDE I.
+
+As a 0-notice immediate joiner, I&#x27;m ready to take ownership of features from day one and grow quickly inside a small, fast-moving engineering team.
+
+Best regards,
+Bhumi Bhatt
+</pre></div>
+
+<footer>Generated 2026-10-30 &middot; LinkedIn Smart Apply routine &middot; 20 jobs evaluated, 2 qualified, 9 to review, 9 skipped.</footer>
+</div>
+<div class="toast" id="toast">Copied to clipboard</div>
+<script>
+var urls=["https://in.linkedin.com/jobs/view/software-engineer-reactjs-fullstack-at-brevo-4482591700", "https://in.linkedin.com/jobs/view/software-engineer-at-digiaccel-learning-4484902373"];
+function openAll(){ if(!urls.length){toast('No qualified jobs today');return;} urls.forEach(function(u){window.open(u,'_blank');}); }
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1600);}
+function copyText(id){var el=document.getElementById(id);var txt=el.innerText||el.textContent;navigator.clipboard.writeText(txt).then(function(){toast('Cover letter copied');},function(){var r=document.createRange();r.selectNode(el);window.getSelection().removeAllRanges();window.getSelection().addRange(r);try{document.execCommand('copy');toast('Cover letter copied');}catch(e){toast('Copy failed');}window.getSelection().removeAllRanges();});}
+function copyCL(id){copyText(id);}
+</script>
+</body></html>

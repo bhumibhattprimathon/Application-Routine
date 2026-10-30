@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer, ReactJS Full-Stack role at Brevo — building full-stack products at a global SaaS company is exactly the direction I want to take my backend-focused engineering career.
+
+At Primathon I ship React front-ends backed by Node.js and Spring Boot services, and during my Paytm internship I built and optimized microservices that powered real-time transaction notifications — so your React, Node.js, and REST API stack maps directly onto what I do every day. I own features end to end, from data modeling in MySQL and MongoDB to CI/CD pipelines, and I back that with a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved.
+
+As a 0-notice immediate joiner, I can start contributing to Brevo's codebase right away, and I pick up new tooling such as TypeScript and monorepos quickly.
+
+Best regards,
+Bhumi Bhatt

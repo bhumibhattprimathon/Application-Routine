@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-10-30",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "LinkedIn public guest job API (seeMoreJobPostings/search) with f_TPR=r86400 (last 24h) and entry-level filters; locations Delhi NCR / Gurugram / Noida / Remote. WebSearch returned mostly stale/undated aggregator pages, so the live LinkedIn guest endpoint was used (as in the prior run's pivot away from stale WebSearch links).",
+  "resume_source": "repo resumes/resume_master.pdf (read OK)",
+  "ntfy": "disabled per earlier user instruction + egress policy; reported via routine push/email channel (PushNotification)",
+  "jobs_found": 20,
+  "jobs_qualified": 2,
+  "jobs_review": 9,
+  "jobs_skipped": 9,
+  "trust_flagged": 1,
+  "avg_match_qualified": 81.5,
+  "top_pick": "Brevo - Software Engineer, ReactJS FullStack (Noida), match 83 / trust 92",
+  "cover_letters_generated": 2,
+  "notes": "All 20 evaluated postings were live and posted within the last 24h. 2 clean entry-to-mid matches on Bhumi's stack (Brevo full-stack React/Node; Digiaccel Learning SDE I MERN). 9 stretch/verify (mostly senior-titled roles with strong stack fit, e.g. Airtel Digital, Luxoft, Amazon SDE-II). 1 trust-flagged: BRT Multi Software LLP (MLM/real-money-betting focus, marketplace-only reviews, salary 4-6 LPA near floor). 9 skipped (off-stack .NET/PHP or clearly senior/lead)."
 }
