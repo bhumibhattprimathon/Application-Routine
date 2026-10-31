@@ -290,11 +290,18 @@
       "easy_apply": null
     }
   ],
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-10-31",
   "source": "JSearch API (RapidAPI), date_posted=today, country=in",
   "total_found": 17,
   "total_applied": 1,
   "total_review": 6,
   "total_skipped": 10,
-  "fraud_detected": 2
+  "fraud_detected": 2,
+  "latest_run": {
+    "run_date": "2026-10-31",
+    "status": "blocked_data_source",
+    "new_jobs_added": 0,
+    "reason": "JSearch/RapidAPI no longer subscribed (404/403); WebSearch fallback (US-only) returned only stale aggregator content and dead (404) posting links. No listings fabricated; no new entries appended. See data/last_run_status.json and dashboards/dashboard_2026-10-31.html.",
+    "action_needed": "Re-subscribe to JSearch on RapidAPI (free Basic tier) with the existing RAPIDAPI_KEY, or supply an alternative job-data source."
+  }
 }

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply Dashboard — 2026-10-31</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;}
+  header{background:var(--ink);color:#fff;padding:28px 20px;}
+  header .wrap{max-width:1080px;margin:0 auto;}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px;}
+  header p{margin:0;color:#cbd5e1;font-size:14px;}
+  .main{max-width:1080px;margin:0 auto;padding:20px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center;}
+  .card .num{font-size:30px;font-weight:700;}
+  .card .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+  .banner{border-radius:12px;padding:18px 20px;margin:18px 0;border:1px solid;}
+  .banner.warn{background:#fef9c3;border-color:#fde047;color:#713f12;}
+  .banner h2{margin:0 0 8px;font-size:17px;}
+  .banner p{margin:6px 0;font-size:14px;}
+  .section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0;}
+  .section h2{margin:0 0 12px;font-size:16px;display:flex;align-items:center;gap:8px;}
+  .pill{display:inline-block;width:12px;height:12px;border-radius:3px;}
+  .pill.g{background:var(--green);} .pill.y{background:var(--yellow);} .pill.r{background:var(--red);} .pill.b{background:var(--blue);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px;}
+  .btn{display:inline-block;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;color:#fff;}
+  .btn.open{background:var(--blue);}
+  .btn.big{display:block;width:100%;background:var(--green);color:#042f11;font-size:18px;padding:18px;border-radius:12px;margin:8px 0 4px;text-align:center;}
+  .btn.big:hover{filter:brightness(1.05);}
+  a.jlink{color:var(--blue);text-decoration:none;font-weight:600;}
+  a.jlink:hover{text-decoration:underline;}
+  .muted{color:var(--muted);font-size:13px;}
+  code{background:#f1f5f9;padding:2px 6px;border-radius:5px;font-size:12.5px;}
+  ol,ul{margin:8px 0;padding-left:22px;}
+  li{margin:5px 0;font-size:14px;}
+  .grid2{display:grid;grid-template-columns:1fr;gap:10px;}
+  @media(min-width:720px){.grid2{grid-template-columns:1fr 1fr;}}
+  footer{max-width:1080px;margin:0 auto;padding:10px 20px 40px;color:var(--muted);font-size:12px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-10-31</h1>
+    <p>Daily morning scan for Bhumi Bhatt · Backend / Full-Stack / SDE · Delhi NCR &amp; Remote · Immediate joiner</p>
+  </div>
+</header>
+
+<div class="main">
+
+  <div class="cards">
+    <div class="card"><div class="num" style="color:var(--muted)">0</div><div class="lbl">Verified Fresh Jobs</div></div>
+    <div class="card"><div class="num" style="color:var(--green)">0</div><div class="lbl">Qualified</div></div>
+    <div class="card"><div class="num" style="color:var(--yellow)">0</div><div class="lbl">Review</div></div>
+    <div class="card"><div class="num" style="color:var(--red)">3</div><div class="lbl">Links Dead (404)</div></div>
+    <div class="card"><div class="num" style="color:var(--blue)">10</div><div class="lbl">Searches Run</div></div>
+  </div>
+
+  <div class="banner warn">
+    <h2>⚠️ Automated discovery is blocked today — no fresh jobs could be verified</h2>
+    <p><strong>What happened:</strong> The reliable job feed this routine depends on (JSearch via RapidAPI) returned
+    <code>404 — Endpoint does not exist</code> and the RapidAPI key is no longer subscribed to any job API
+    (JSearch, Active-Jobs-DB and LinkedIn-Job-Search all returned <code>403 — not subscribed</code>).</p>
+    <p>The fallback (WebSearch) is US-only and for the Indian market returns mostly aggregator pages, salary blogs and
+    stale listings. Every individual posting link that looked promising was verified and came back
+    <strong>404 / removed</strong> (Jobgether, Codewinglet, Netomi). Presenting those as "apply now" links would be misleading,
+    and this routine never fabricates listings — so today's qualified list is empty <em>by design, not because no jobs exist.</em></p>
+    <p><strong>Bottom line:</strong> real jobs are out there; the automated pipeline just can't see them cleanly today.
+    Use the one-click manual searches below (they carry your exact filters), and fix the data source to restore automation.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="pill b"></span> Apply-in-5-Minutes: one-click searches (your filters pre-applied)</h2>
+    <p class="muted">Each button opens a live search already filtered to <strong>entry/associate level, Delhi NCR &amp; remote, posted in the last 24 hours</strong>. These are live queries, not cached links, so results are always current.</p>
+    <button class="btn big" onclick="openAll()">🔎 OPEN ALL 8 LIVE SEARCHES IN NEW TABS</button>
+    <p class="muted" style="text-align:center">(If your browser blocks pop-ups, allow them for this page, or use the individual links below.)</p>
+    <div class="grid2" style="margin-top:12px">
+      <div>
+        <h3 style="font-size:14px;margin:6px 0">LinkedIn (24h · entry/associate)</h3>
+        <ul>
+          <li><a class="jlink" target="_blank" href="https://www.linkedin.com/jobs/search/?keywords=Backend%20Developer&location=Delhi%20NCR%2C%20India&f_E=2%2C3&f_TPR=r86400">Backend Developer</a></li>
+          <li><a class="jlink" target="_blank" href="https://www.linkedin.com/jobs/search/?keywords=Java%20Spring%20Boot%20Developer&location=Delhi%20NCR%2C%20India&f_E=2%2C3&f_TPR=r86400">Java / Spring Boot Developer</a></li>
+          <li><a class="jlink" target="_blank" href="https://www.linkedin.com/jobs/search/?keywords=Full%20Stack%20Developer&location=Delhi%20NCR%2C%20India&f_E=2%2C3&f_TPR=r86400">Full Stack Developer (MERN / React)</a></li>
+          <li><a class="jlink" target="_blank" href="https://www.linkedin.com/jobs/search/?keywords=Software%20Engineer%20Backend&location=India&f_E=2%2C3&f_TPR=r86400&f_WT=2">SDE / Software Engineer (Remote India)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:14px;margin:6px 0">Naukri &amp; Indeed (fresh · 0–2 yrs)</h3>
+        <ul>
+          <li><a class="jlink" target="_blank" href="https://www.naukri.com/backend-developer-jobs-in-delhi-ncr?experience=1&jobAge=1">Naukri · Backend Developer · Delhi NCR</a></li>
+          <li><a class="jlink" target="_blank" href="https://www.naukri.com/java-developer-jobs-in-delhi-ncr?experience=2&jobAge=1">Naukri · Java Developer · Delhi NCR</a></li>
+          <li><a class="jlink" target="_blank" href="https://in.indeed.com/jobs?q=backend%20developer%20spring%20boot&l=Delhi%20NCR&fromage=1&sc=0kf%3Aexplvl(entry_level)%3B">Indeed · Backend / Spring Boot · 24h</a></li>
+          <li><a class="jlink" target="_blank" href="https://in.indeed.com/jobs?q=full%20stack%20developer%20react%20node&l=Delhi%20NCR&fromage=1">Indeed · Full Stack (React/Node) · 24h</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="pill r"></span> Why the automated list is empty — searches run &amp; what they returned</h2>
+    <table>
+      <thead><tr><th>#</th><th>Search / Source</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>JSearch API (RapidAPI) — primary feed used by last run</td><td><strong style="color:var(--red)">404</strong> endpoint gone; key not subscribed</td></tr>
+        <tr><td>2</td><td>Active-Jobs-DB / LinkedIn-Job-Search API (RapidAPI)</td><td><strong style="color:var(--red)">403</strong> not subscribed</td></tr>
+        <tr><td>3</td><td>WebSearch: Backend Developer Delhi NCR entry level (Oct 2026)</td><td>Aggregator/salary pages only; no verifiable fresh posting</td></tr>
+        <tr><td>4</td><td>WebSearch: Java/Spring Boot fresher Gurugram/Noida</td><td>Mostly stale (one listing dated 2021); ₹4 LPA trainee below target</td></tr>
+        <tr><td>5</td><td>WebSearch: Full Stack MERN Delhi NCR entry level</td><td>Salary guides + candidate-pool stats, no live openings</td></tr>
+        <tr><td>6</td><td>WebSearch: SDE/Software Engineer fresher Delhi/Gurugram/Noida</td><td>Internships &amp; stipend roles; dates unreliable</td></tr>
+        <tr><td>7</td><td>WebSearch: Node.js backend remote India 1 yr</td><td>Links surfaced; <strong style="color:var(--red)">verified dead (404)</strong></td></tr>
+        <tr><td>8</td><td>WebSearch: AI/ML junior Python Delhi NCR</td><td>Career blogs + Deloitte intern (Mar 2026); no live match</td></tr>
+        <tr><td>9</td><td>WebSearch: Java 1–2 yrs Gurugram/Noida careers</td><td>Alphech Global 1–2 yr match found but <strong>no direct link</strong>; others 3–10 yrs</td></tr>
+        <tr><td>10</td><td>WebSearch: ATS (Lever/Greenhouse) backend India entry level</td><td>Netomi SDE-II &amp; RemoFirst Senior — too senior; Netomi link <strong style="color:var(--red)">404</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:12px">Lead worth a manual check (could not be auto-verified): <strong>Alphech Global</strong> (Noida) advertised a 1–2 yr Java (Spring Boot) + React.js role — a close fit for your stack — but no direct, verifiable apply link was available. Search "Alphech Global careers" on LinkedIn/Naukri if interested.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="pill g"></span> Restore automation — fix the data source (one-time, ~5 min)</h2>
+    <ol>
+      <li>Go to <a class="jlink" target="_blank" href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch">RapidAPI → JSearch</a> and re-subscribe (the free Basic tier covers this routine's daily volume).</li>
+      <li>Confirm the same <code>RAPIDAPI_KEY</code> is attached to your subscription (it's already set in this environment).</li>
+      <li>Re-run tomorrow's scan — it will automatically return to the full verified-jobs dashboard with trust scores, match scores and cover letters.</li>
+      <li><em>Alternative:</em> if you'd rather not use RapidAPI, reply with a preferred source (e.g. an Adzuna or SerpApi key, or a Naukri/LinkedIn export) and the routine can be pointed at it.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2><span class="pill b"></span> Weekly trend</h2>
+    <table>
+      <thead><tr><th>Date</th><th>Qualified</th><th>Review</th><th>Source status</th></tr></thead>
+      <tbody>
+        <tr><td>2026-08-05</td><td>1 (TravClan SDE-1)</td><td>6</td><td style="color:var(--green)">JSearch API working</td></tr>
+        <tr><td>2026-10-31</td><td>0</td><td>0</td><td style="color:var(--red)">Data source blocked</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">No scans ran between these dates. Once the feed is restored, this section resumes showing daily qualified counts.</p>
+  </div>
+
+</div>
+
+<footer>
+  Generated by the LinkedIn Smart Apply routine · 2026-10-31. No job listings were fabricated: the qualified list is empty because no current posting could be verified through an available data source today, not because none exist. Manual search links above are live and will always show current results.
+</footer>
+
+<script>
+  // Live search URLs — these are queries (not cached job links), so they always return current results.
+  var urls = [
+    "https://www.linkedin.com/jobs/search/?keywords=Backend%20Developer&location=Delhi%20NCR%2C%20India&f_E=2%2C3&f_TPR=r86400",
+    "https://www.linkedin.com/jobs/search/?keywords=Java%20Spring%20Boot%20Developer&location=Delhi%20NCR%2C%20India&f_E=2%2C3&f_TPR=r86400",
+    "https://www.linkedin.com/jobs/search/?keywords=Full%20Stack%20Developer&location=Delhi%20NCR%2C%20India&f_E=2%2C3&f_TPR=r86400",
+    "https://www.linkedin.com/jobs/search/?keywords=Software%20Engineer%20Backend&location=India&f_E=2%2C3&f_TPR=r86400&f_WT=2",
+    "https://www.naukri.com/backend-developer-jobs-in-delhi-ncr?experience=1&jobAge=1",
+    "https://www.naukri.com/java-developer-jobs-in-delhi-ncr?experience=2&jobAge=1",
+    "https://in.indeed.com/jobs?q=backend%20developer%20spring%20boot&l=Delhi%20NCR&fromage=1",
+    "https://in.indeed.com/jobs?q=full%20stack%20developer%20react%20node&l=Delhi%20NCR&fromage=1"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+</script>
+</body>
+</html>
