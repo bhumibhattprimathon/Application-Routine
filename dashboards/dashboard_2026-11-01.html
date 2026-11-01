@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinkedIn Smart Apply Dashboard — 2026-11-01</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --bg:#f1f5f9; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --head:#0b1220; --line:#e2e8f0; --blue:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--head);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.45rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.92rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .banner{background:#7f1d1d;color:#fff;border-radius:12px;padding:16px 18px;margin:18px auto;max-width:1080px}
+  .banner b{color:#fecaca}
+  .banner code{background:#450a0a;padding:2px 6px;border-radius:5px;font-size:.85em}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:8px 0 4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:2rem;font-weight:700;line-height:1}
+  .card .l{color:var(--muted);font-size:.8rem;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+  .card.green .n{color:var(--green)} .card.yellow .n{color:var(--yellow)} .card.red .n{color:var(--red)}
+  .metarow{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0 4px;color:var(--muted);font-size:.9rem}
+  .metarow span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+  .actionbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0}
+  button.big{font-size:1rem;font-weight:700;border:0;border-radius:12px;padding:14px 22px;cursor:pointer;color:#fff}
+  button.big.disabled{background:#94a3b8;cursor:not-allowed}
+  button.big.open{background:var(--yellow);color:#422006}
+  .note{color:var(--muted);font-size:.85rem}
+  section{margin:26px 0}
+  h2{font-size:1.1rem;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.9rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.78rem;font-weight:700}
+  .pill.y{background:#fef9c3;color:#854d0e} .pill.g{background:#dcfce7;color:#166534} .pill.r{background:#fee2e2;color:#991b1b}
+  a.btn{display:inline-block;text-decoration:none;background:var(--blue);color:#fff;padding:6px 10px;border-radius:8px;font-size:.8rem;font-weight:600}
+  .rec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h3{margin:0 0 6px;font-size:1rem}
+  .rec .meta{color:var(--muted);font-size:.82rem;margin-bottom:6px}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:160px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%}
+  .bar .fill{width:46px;border-radius:6px 6px 0 0;background:var(--green);display:flex;align-items:flex-start;justify-content:center;color:#052e16;font-weight:700;font-size:.8rem;padding-top:4px}
+  .bar .lab{margin-top:8px;font-size:.78rem;color:var(--muted);text-align:center}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:30px 20px}
+  .empty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:18px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding:0">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-01</h1>
+    <div class="sub">Candidate: Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · Immediate joiner</div>
+  </div>
+</header>
+
+<div class="banner">
+  ⚠️ <b>DEGRADED RUN — primary job feed is DOWN.</b> The JSearch (RapidAPI) jobs API, used by the
+  last successful run, now returns <code>Endpoint '/search' does not exist</code> — the RapidAPI
+  subscription has lapsed. The run fell back to WebSearch, which today returned mostly aggregator/blog
+  pages and expired listings with no live LinkedIn links and no reliable &lt;24h posting signal.
+  <br><br>
+  <b>Action needed:</b> re-subscribe to <b>JSearch on RapidAPI</b> (and confirm <code>RAPIDAPI_KEY</code>)
+  to restore daily fresh-job discovery. Until then, results below are limited to the few listings that
+  could be independently verified as currently live — none could be confirmed as posted in the last 24h.
+</div>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">3</div><div class="l">Leads Evaluated</div></div>
+    <div class="card green"><div class="n">0</div><div class="l">Qualified</div></div>
+    <div class="card yellow"><div class="n">3</div><div class="l">Review</div></div>
+    <div class="card red"><div class="n">0</div><div class="l">Fraud</div></div>
+  </div>
+  <div class="metarow">
+    <span>Avg match score (evaluated): <b>71</b></span>
+    <span>Avg salary estimate: <b>~8–14 LPA (wide, mostly unverified)</b></span>
+    <span>Cover letters generated: <b>0</b> (no lead met match&nbsp;≥&nbsp;75 <b>and</b> trust&nbsp;≥&nbsp;60)</span>
+    <span>Data source: <b>WebSearch fallback + manual verification</b></span>
+  </div>
+
+  <div class="actionbar">
+    <button class="big disabled" disabled title="No jobs were confidently qualified today">OPEN ALL 0 QUALIFIED JOBS</button>
+    <button class="big open" onclick="openReview()">Open all 3 review leads</button>
+    <span class="note">No job cleared the qualify bar today, so the primary button is disabled. The review leads below need a manual check before applying.</span>
+  </div>
+
+  <!-- QUALIFIED (none) -->
+  <section>
+    <h2 class="g">✅ Qualified Jobs</h2>
+    <div class="empty">No jobs were confidently qualified today. With the structured feed down, no listing could be
+      verified as both a strong resume match (≥65) <em>and</em> sufficiently trusted (≥60). See review leads below.</div>
+  </section>
+
+  <!-- REVIEW -->
+  <section>
+    <h2 class="y">🟡 Review Leads — verify before applying</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Variant</th><th>Posted</th><th>Reason for review</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="pill y">77</span></td><td><span class="pill y">48</span></td>
+          <td>Anlight Consulting Services</td><td>Associate Software Engineer (Backend)</td><td>Noida (on-site)</td>
+          <td>~4.5–6.5 LPA (est)</td><td>backend</td><td>~1 month ago</td>
+          <td>Strong backend/DSA + experience fit (1–2 yrs), but company has a very thin footprint — no AmbitionBox/Glassdoor/LinkedIn reviews; a small staffing/consulting firm. Verify it's a product role, not bench placement. Salary likely near/below target.</td>
+          <td><a class="btn" href="https://www.weekday.works/jobs/java-developer-jobs-in-noida" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="pill y">60</span></td><td><span class="pill g">88</span></td>
+          <td>TeamViewer</td><td>Software Engineer</td><td>Noida (on-site)</td>
+          <td>~10–18 LPA (est)</td><td>master</td><td>~3 days ago</td>
+          <td>Well-established public company (high trust) and a recent posting, but the JD is generic (software dev / AI / APIs) with experience level unstated — backend/Java fit unconfirmed. Worth a manual look; may expect more than 1.5 yrs.</td>
+          <td><a class="btn" href="https://www.weekday.works/jobs/java-developer-jobs-in-noida" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="pill y">76</span></td><td><span class="pill y">50</span></td>
+          <td>Weekday Partner Network (employer masked)</td><td>Backend Engineer</td><td>Remote (India)</td>
+          <td>15–30 LPA (listed)</td><td>backend</td><td>~5 days ago</td>
+          <td>Remote backend, 1–3 yrs stated, which overlaps her range — but the real employer is hidden behind the aggregator network and the ₹15–30 LPA band signals a senior/high-ownership (0→1) bar. Confirm the actual company and seniority before investing time.</td>
+          <td><a class="btn" href="https://jobs.weekday.works/weekday-partner-network-backend-engineer-bw29j7" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SKIPPED -->
+  <section>
+    <h2 class="r">🔴 Skipped / Not Usable</h2>
+    <table>
+      <thead><tr><th>#</th><th>Source</th><th>Role</th><th>Skip reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>jobs.clanx.ai</td><td>Backend Engineer – Java (Gurugram)</td><td>Dead link: page returns HTTP 404 — posting closed/removed.</td></tr>
+        <tr><td>2</td><td>jobs.lever.co (Stable Money)</td><td>Software Engineer I (Backend), 1–2 yrs</td><td>Location: role is Bengaluru (on-site) — outside Delhi NCR / remote.</td></tr>
+        <tr><td>3</td><td>WebSearch (Indeed / Jooble / Hirist / foundit / weekday)</td><td>Numerous Java / MERN / backend listings</td><td>Experience: the large majority require 3+ yrs; many pages undated or 1–12 months old. Not confidently current or entry-level.</td></tr>
+        <tr><td>4</td><td>bayt.com</td><td>GenAI / AI-ML Engineer (Gurugram)</td><td>Unverifiable: page blocked (HTTP 403); internally inconsistent dates in snippet. Could not confirm it's live.</td></tr>
+        <tr><td>5</td><td>career.io (Taggd) / peerlist (WeBuildTech)</td><td>AI/ML &amp; AI Engineer (Gurugram)</td><td>Expired / archived per the listing pages.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- TOP RECOMMENDATIONS -->
+  <section>
+    <h2 class="y">⭐ Top Recommendations (today, all review-tier)</h2>
+    <div class="rec">
+      <h3>1. Anlight Consulting — Associate Software Engineer (Backend), Noida</h3>
+      <div class="meta">Match 77 · Trust 48 · ~4.5–6.5 LPA (est) · backend variant</div>
+      This is the single closest fit to Bhumi's profile today: an explicitly <em>backend</em>, <em>1–2 year</em> role in
+      Noida that leans on data structures &amp; algorithms — her strength (5-star Java, 250+ DSA). The only reason it's
+      "review" and not "qualified" is trust: the company has almost no public footprint and is a staffing/consulting firm,
+      so a quick check (MCA registration, the actual client/project, and whether it's a product vs. bench role) is worth 5
+      minutes before applying.
+    </div>
+    <div class="rec">
+      <h3>2. TeamViewer — Software Engineer, Noida</h3>
+      <div class="meta">Match 60 · Trust 88 · ~10–18 LPA (est) · master variant</div>
+      A rare recent (≈3 days) posting from a genuinely reputable product company in Noida, well within her preferred
+      location and salary ceiling. The catch is fit clarity — the JD reads generic (software dev / AI / APIs) with no stated
+      experience band — so it may target more than 1.5 yrs. High upside if the real requirements match; open it and read the
+      full JD on TeamViewer's own careers site.
+    </div>
+    <div class="rec">
+      <h3>3. Weekday Partner Network — Backend Engineer, Remote</h3>
+      <div class="meta">Match 76 · Trust 50 · 15–30 LPA (listed) · backend variant</div>
+      Fully remote backend role with a stated 1–3 yr band and a strong salary — attractive on paper and aligned with her
+      stack. But the employer is masked behind the aggregator and the pay band points to a senior/0→1 bar, so treat it as a
+      stretch: find out who the actual company is and the true seniority before writing a tailored application.
+    </div>
+  </section>
+
+  <!-- WEEKLY TREND -->
+  <section>
+    <h2>📊 Qualified-per-run Trend</h2>
+    <div class="trend">
+      <div class="bar"><div class="fill" style="height:70%">1</div><div class="lab">2026-08-05<br>(JSearch live)</div></div>
+      <div class="bar"><div class="fill" style="height:4%;background:#cbd5e1;color:#334155">0</div><div class="lab">2026-11-01<br>(feed down)</div></div>
+    </div>
+    <p class="note">Only two runs exist in history. The drop to 0 qualified reflects the data-source outage, not a dry
+      market — restoring the JSearch feed should bring discovery back to normal.</p>
+  </section>
+
+  <!-- COVER LETTERS -->
+  <section>
+    <h2>✉️ Cover Letters</h2>
+    <div class="empty">No cover letters were generated today. The routine only drafts a letter when a job scores
+      <b>match ≥ 75 and trust ≥ 60</b>; none of today's leads cleared both bars (the two high-match leads are gated by low
+      trust, and the high-trust lead didn't reach the match threshold). Letters will resume automatically once the feed is
+      restored and real qualifying roles appear.</div>
+  </section>
+
+</div>
+
+<footer>
+  Generated 2026-11-01 (UTC) · Discovery: WebSearch fallback (JSearch/RapidAPI feed down) · Notifications via routine
+  push/email (ntfy disabled per user instruction &amp; egress policy) · Data persisted in repo
+  <code>Application-Routine</code>.
+</footer>
+
+<script>
+  // Confidently-qualified jobs today: none.
+  var qualifiedUrls = [];
+  // Review leads worth a manual look.
+  var reviewUrls = [
+    "https://www.weekday.works/jobs/java-developer-jobs-in-noida",
+    "https://jobs.weekday.works/weekday-partner-network-backend-engineer-bw29j7"
+  ];
+  function openAll(){ qualifiedUrls.forEach(function(u){ window.open(u,'_blank'); }); }
+  function openReview(){ reviewUrls.forEach(function(u){ window.open(u,'_blank'); }); }
+</script>
+</body>
+</html>

@@ -1,15 +1,23 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-01",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "degraded",
+  "degraded_reason": "Primary job feed down: JSearch (RapidAPI) endpoint returns \"Endpoint '/search' does not exist\" — RapidAPI subscription lapsed. Fell back to WebSearch, which returned mostly aggregator/blog pages and expired listings with no live LinkedIn links and no reliable <24h posting signal.",
+  "action_required": "Re-subscribe to JSearch on RapidAPI (and confirm RAPIDAPI_KEY) to restore daily fresh-job discovery.",
+  "data_source": "WebSearch fallback + manual WebFetch verification (country=in intent)",
+  "resume_source": "repo resumes/resume_master.pdf",
+  "ntfy": "disabled per user instruction + blocked by egress policy; reported via routine push/email channel",
+  "leads_evaluated": 3,
+  "jobs_qualified": 0,
+  "jobs_review": 3,
+  "jobs_skipped": 0,
+  "fraud_detected": 0,
+  "cover_letters_generated": 0,
+  "avg_match_evaluated": 71.0,
+  "verified_live_leads": [
+    "Anlight Consulting — Associate Software Engineer (Backend), Noida (match 77 / trust 48)",
+    "TeamViewer — Software Engineer, Noida (match 60 / trust 88)",
+    "Weekday Partner Network — Backend Engineer, Remote (match 76 / trust 50)"
+  ],
+  "notes": "No lead met both match>=75 and trust>=60, so no cover letters were drafted (intentional, not a failure). All 3 leads are review-tier and need manual verification. The 0-qualified outcome is driven by the feed outage, not a dry market."
 }
