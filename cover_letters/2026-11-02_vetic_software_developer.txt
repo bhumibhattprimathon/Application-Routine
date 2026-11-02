@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Software Developer role at Vetic in Gurugram, where I can bring hands-on backend engineering to a fast-growing product team.
+
+Your stack maps closely to my daily work: I build REST APIs and microservices and have integrated AWS EC2, S3, and Lambda into production backend pipelines, alongside MongoDB and Redis for data and caching. At Primathon I engineered custom admin APIs and backend automation across seven merchant systems, cutting manual operational effort by 70%, and at Paytm I optimized microservices powering real-time merchant transactions. I ship with Git-based CI/CD and have working knowledge of Java (5-Star Gold on HackerRank) to complement your Python services.
+
+As a 2025 Computer Science graduate (9.3 CGPA) with 1.5+ years of backend experience and a 0-day notice period, I can join immediately and contribute to Vetic's APIs from day one while quickly ramping on FastAPI/Django.
+
+Best regards,
+Bhumi Bhatt

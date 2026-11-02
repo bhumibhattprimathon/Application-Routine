@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Smart Apply — 2026-11-02</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:var(--ink);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:13px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .banner{background:#fff7ed;border:1px solid #fdba74;border-left:5px solid #f97316;border-radius:10px;padding:14px 16px;margin:16px 0;font-size:14px;line-height:1.5}
+  .banner b{color:#9a3412}
+  .openall{display:block;width:100%;background:var(--green);color:#042f12;border:none;border-radius:12px;padding:18px;font-size:18px;font-weight:800;cursor:pointer;margin:14px 0;transition:.15s}
+  .openall:hover{filter:brightness(.95)}
+  h2{margin:28px 0 10px;font-size:17px;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+  th,td{padding:10px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .score{font-weight:700}
+  .btn{display:inline-block;padding:6px 10px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-size:12px;cursor:pointer;white-space:nowrap}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn+.btn{margin-top:6px}
+  .pill{font-size:11px;padding:2px 7px;border-radius:999px;background:#e2e8f0;color:#334155}
+  .rec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+  .rec h4{margin:0 0 6px;font-size:14px}
+  .rec p{margin:0;font-size:13px;color:#334155;line-height:1.5}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.55;margin:10px 0 0;color:#1e293b}
+  .trend{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+  .bar-row .date{width:92px;color:var(--muted)}
+  .bar{height:22px;border-radius:5px;background:var(--green);min-width:3px}
+  .foot{color:var(--muted);font-size:12px;text-align:center;margin:26px 0 10px;line-height:1.6}
+  .hidden{display:none}
+  a{color:#2563eb}
+  @media (max-width:640px){ table{font-size:12px} th,td{padding:8px 6px} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-02</h1>
+    <div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · Immediate joiner</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">8</div><div class="l">Jobs Found</div></div>
+    <div class="card"><div class="n" style="color:var(--green)">1</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n" style="color:var(--yellow)">4</div><div class="l">Review</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">3</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">87</div><div class="l">Avg Match (Qual.)</div></div>
+    <div class="card"><div class="n">8–12</div><div class="l">Avg Salary Est. (LPA)</div></div>
+  </div>
+
+  <div class="banner">
+    <b>⚠ Discovery pipeline degraded today.</b> The JSearch <code>/search</code> endpoint — the reliable "jobs posted in the last 24h" source used on the 2026-08-05 run — now returns <b>HTTP 404</b> on the current RapidAPI key (the key is still subscribed; <code>/estimated-salary</code> and <code>/job-details</code> work, but <code>/search</code> is disabled on this plan). US-based WebSearch can't reliably surface fresh, verifiable India postings, so today's results are thin and several leads could not be date-verified.
+    <b>Fix:</b> renew/upgrade the JSearch plan or add an alternate jobs API to restore daily last-24h discovery.
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB ▸</button>
+
+  <h2><span class="dot" style="background:var(--green)"></span> Qualified Jobs</h2>
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="score" style="color:var(--green)">87</td>
+        <td>85</td>
+        <td><b>Vetic</b></td>
+        <td>Software Developer</td>
+        <td>Gurugram</td>
+        <td>8–12 LPA</td>
+        <td><span class="pill">backend</span></td>
+        <td>External</td>
+        <td>
+          <a class="btn primary" href="https://jobfound.org/job/vetic-is-hiring-for-software-developer-gurugram-haryana-india-30-october-2026" target="_blank" rel="noopener">Open Job</a>
+          <button class="btn" onclick="copyCL('cl-vetic')">Copy Cover Letter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2><span class="dot" style="background:var(--yellow)"></span> Review Jobs <span class="pill">verify before applying</span></h2>
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="score">85</td><td>50</td><td><b>Nile Technologies</b></td><td>Spring Boot Developer</td><td>Delhi NCR</td><td>Near-perfect skill fit (Spring Core/MVC/REST/Data/Security, 1–2 yrs) but the posting couldn't be verified (link went to the aggregator homepage) and the company is unverified.</td><td><a class="btn" href="https://jobs.theindiajobs.com/c/Nile-Technologies-Private-Limited/jobs/Spring-Boot-Developer-tN7cN2s7FJ" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>2</td><td class="score">74</td><td>72</td><td><b>Pidge</b></td><td>Backend Developer (Node.js)</td><td>Gurgaon</td><td>Real funded Delhi-NCR logistics startup; Node.js/MongoDB/JS fit is good. Posting page is 403-blocked so date/level unverified (Next.js is a gap).</td><td><a class="btn" href="https://www.instahyre.com/job-384916-backend-developer-node-js-at-pidge-gurgaon/" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>3</td><td class="score">70</td><td>80</td><td><b>Taxmann</b></td><td>Full Stack Developer (MERN)</td><td>Delhi</td><td>Established, reputable company; React/Node fit, 10–13 LPA. Stretch: asks 2–4 yrs (she has 1.5) and the posting is ~1 month old — verify it's still open.</td><td><a class="btn" href="https://www.mployee.me/jobs/view/full-stack-developer-mern-in-delhi-at-taxmann--jid--447293944940550/s1" target="_blank" rel="noopener">Open</a></td></tr>
+      <tr><td>4</td><td class="score">58</td><td>55</td><td><b>Gravity Engineering</b></td><td>Python Backend Developer</td><td>Delhi / Gurugram / Noida</td><td>Experience range 1–10 yrs includes her, but it's Python/FastAPI-first (off her Java/JS core) and the listing couldn't be verified (404).</td><td><a class="btn" href="https://cutshort.io/job/Python-Backend-Developer-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Kolkata-Mumbai-Hyderabad-Gravity-Engineering-Services-Pvt-Ltd-3IXLFZiA" target="_blank" rel="noopener">Open</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="dot" style="background:var(--red)"></span> Skipped Jobs</h2>
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>SaveIN Money</td><td>Backend Engineer - Java</td><td>Stale: Wellfound shows this posted ~2 years ago — almost certainly closed (despite a strong Java fit, YC-funded, 10–15 LPA).</td></tr>
+      <tr><td>2</td><td>Daxko</td><td>Associate Software Engineer</td><td>Stale: posted 2026-02-01 (9 months ago). Fresher drive via SmartRecruiters — likely closed.</td></tr>
+      <tr><td>3</td><td>Deloitte</td><td>Senior Consultant - Backend (Java)</td><td>Experience: requires 6+ years (Senior Consultant) — beyond her 1.5 yrs.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h4>1. Vetic — Software Developer (Gurugram) · Score 87 · <b>Apply today</b></h4>
+    <p>The one clean, recently-posted (2026-10-30), well-fitting match this run. It's fresher-tagged at 8–12 LPA — comfortably above Bhumi's 5.5 LPA floor and right in her target band. The stack overlaps heavily with her resume: REST APIs, microservices, AWS (EC2/S3/Lambda), MongoDB, Redis, Git-based CI/CD, plus "working knowledge of Java" (her 5-Star HackerRank strength). The gap is Python/FastAPI, which she can ramp into quickly given her backend depth. Vetic is a real, funded pet-healthcare company with a Gurugram office. Cover letter is ready below.</p>
+  </div>
+  <div class="rec">
+    <h4>2. Nile Technologies — Spring Boot Developer (Delhi NCR) · Score 85 · <b>Verify first</b></h4>
+    <p>On skills this is her strongest match — the JD is pure Spring (Core, MVC, REST, Data, Boot, Security) at 1–2 years, exactly her lane. The only reason it isn't "qualified" is that the live posting couldn't be confirmed and the company is unverified. If she can find it on LinkedIn/Naukri and the company checks out, this is a priority apply.</p>
+  </div>
+  <div class="rec">
+    <h4>3. Pidge — Backend Developer, Node.js (Gurgaon) · Score 74 · <b>Verify level</b></h4>
+    <p>A real, funded Delhi-NCR logistics startup. Node.js + MongoDB + JavaScript match her full-stack side well. The posting is 403-blocked so the level and date couldn't be verified — worth checking directly on Instahyre/LinkedIn for an entry/mid opening.</p>
+  </div>
+  <div class="rec">
+    <h4>4. Taxmann — Full Stack Developer, MERN (Delhi) · Score 70 · <b>Stretch</b></h4>
+    <p>Established Delhi company at 10–13 LPA with a React/Node stack she knows. It asks 2–4 years (she has 1.5) and is ~1 month old, so treat it as a stretch application if still open.</p>
+  </div>
+  <div class="rec">
+    <h4>5. Gravity Engineering — Python Backend (NCR) · Score 58 · <b>Low priority</b></h4>
+    <p>Its 1–10 year range technically includes her, but it's Python/FastAPI-first (off her core) and couldn't be verified. Only pursue if the higher picks don't pan out.</p>
+  </div>
+
+  <h2>📈 Weekly Trend — Qualified per run</h2>
+  <div class="trend">
+    <div class="bar-row"><span class="date">2026-08-05</span><div class="bar" style="width:40px"></div><span>1 qualified</span></div>
+    <div class="bar-row"><span class="date">2026-11-02</span><div class="bar" style="width:40px"></div><span>1 qualified</span></div>
+    <p style="color:var(--muted);font-size:12px;margin:10px 0 0">Only two runs exist in <code>dashboards/</code> (the routine ran 2026-08-05, then today). Daily cadence has not been producing files in between — consistent with the degraded discovery source noted above. Restoring JSearch <code>/search</code> should return the richer ~17-jobs/day volume seen on 2026-08-05.</p>
+  </div>
+
+  <h2>✉ Cover Letters</h2>
+  <div class="cl">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <b>Vetic — Software Developer</b>
+      <button class="btn" onclick="copyCL('cl-vetic')">COPY</button>
+    </div>
+    <pre id="cl-vetic">Dear Hiring Manager,
+
+I am writing to apply for the Software Developer role at Vetic in Gurugram, where I can bring hands-on backend engineering to a fast-growing product team.
+
+Your stack maps closely to my daily work: I build REST APIs and microservices and have integrated AWS EC2, S3, and Lambda into production backend pipelines, alongside MongoDB and Redis for data and caching. At Primathon I engineered custom admin APIs and backend automation across seven merchant systems, cutting manual operational effort by 70%, and at Paytm I optimized microservices powering real-time merchant transactions. I ship with Git-based CI/CD and have working knowledge of Java (5-Star Gold on HackerRank) to complement your Python services.
+
+As a 2025 Computer Science graduate (9.3 CGPA) with 1.5+ years of backend experience and a 0-day notice period, I can join immediately and contribute to Vetic's APIs from day one while quickly ramping on FastAPI/Django.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <div class="foot">
+    Generated 2026-11-02 by the LinkedIn Morning Scan routine · 8 found · 1 qualified · 4 review · 3 skipped · 0 fraud<br>
+    Source: WebSearch (JSearch /search disabled on current key) · Notifications via routine push channel (ntfy disabled)
+  </div>
+</div>
+
+<script>
+  // Qualified job URLs for "Open All"
+  var urls = [
+    "https://jobfound.org/job/vetic-is-hiring-for-software-developer-gurugram-haryana-india-30-october-2026"
+  ];
+  function openAll(){
+    if(!urls.length){ alert("No qualified jobs to open."); return; }
+    urls.forEach(function(u){ window.open(u, "_blank", "noopener"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.innerText : "";
+    function done(){ alert("Cover letter copied to clipboard."); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text); });
+    } else { fallback(text); }
+    function fallback(t){
+      var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+      ta.select(); try{document.execCommand("copy"); done();}catch(e){alert("Copy failed — select the text manually.");}
+      document.body.removeChild(ta);
+    }
+  }
+</script>
+</body>
+</html>

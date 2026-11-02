@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-02",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "status": "completed_degraded",
+  "data_source": "WebSearch only",
+  "resume_source": "repo resumes/resume_master.pdf (present)",
+  "ntfy": "disabled per user instruction + egress policy; reported via routine push/email channel (PushNotification)",
+  "discovery_health": "DEGRADED: JSearch /search endpoint (the reliable fresh-jobs source used on 2026-08-05) now returns HTTP 404 'Endpoint does not exist' on the current RAPIDAPI_KEY. The key is still subscribed to JSearch (unsubscribed APIs return 403) and its /estimated-salary and /job-details endpoints return 200, but /search and /search-filters are disabled on this plan. US-based WebSearch cannot reliably surface India jobs posted in the last 24h with live, verifiable apply links.",
+  "action_needed": "Re-enable the JSearch /search endpoint (upgrade/renew the RapidAPI JSearch plan) or add an alternate jobs API so daily discovery returns fresh last-24h postings again.",
+  "jobs_found": 8,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 4,
+  "jobs_skipped": 3,
+  "fraud_detected": 0,
+  "avg_match_qualified": 87.0,
+  "notes": "Only 1 solidly-verified recent qualified match today: Vetic Software Developer (Gurugram, posted 2026-10-30, 8-12 LPA, fresher-tagged, strong backend overlap). 4 real-company review leads whose freshness/level could not be verified (Nile Technologies, Pidge, Taxmann, Gravity Engineering). 3 skipped: SaveIN and Daxko are stale (posted ~2yr and 9mo ago), Deloitte requires 6+ yrs. No fraud/spam listings detected this run."
 }
