@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-03</title>
+<style>
+  :root {
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#2563eb;
+    --ink:#0f172a; --mut:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:28px 20px; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 16px; }
+  header h1 { margin:0 0 4px; font-size:22px; letter-spacing:.3px; }
+  header .sub { color:#94a3b8; font-size:13px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-top:18px; }
+  .card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:14px; }
+  .card .n { font-size:28px; font-weight:700; }
+  .card .l { font-size:12px; color:#cbd5e1; text-transform:uppercase; letter-spacing:.5px; }
+  .card.found .n{color:#93c5fd} .card.qual .n{color:#4ade80} .card.rev .n{color:#fde047}
+  .card.skip .n{color:#fca5a5} .card.fraud .n{color:#f87171}
+  main { padding:22px 0 60px; }
+  .openall { display:block; width:100%; margin:18px 0 8px; padding:18px; font-size:17px; font-weight:700;
+    color:#fff; background:var(--green); border:0; border-radius:14px; cursor:pointer; box-shadow:0 6px 16px rgba(34,197,94,.3); }
+  .openall:hover { filter:brightness(1.05); }
+  .openall:disabled { background:#94a3b8; box-shadow:none; cursor:not-allowed; }
+  .hint { font-size:12px; color:var(--mut); text-align:center; margin-bottom:22px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:14px; margin:18px 0; overflow:hidden; }
+  .sec-h { padding:13px 16px; font-weight:700; font-size:15px; color:#fff; display:flex; align-items:center; gap:8px; }
+  .sec-green { background:var(--green); } .sec-yellow { background:var(--yellow); } .sec-red { background:var(--red); }
+  .sec-blue { background:var(--blue); } .sec-slate{background:#334155}
+  .sec-h .count { background:rgba(255,255,255,.25); border-radius:20px; padding:1px 10px; font-size:13px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f8fafc; font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:var(--mut); position:sticky; top:0; }
+  tr:last-child td { border-bottom:0; }
+  .co { font-weight:600; white-space:nowrap; }
+  .note { color:var(--mut); font-size:12px; margin-top:4px; max-width:420px; }
+  .reason { color:#475569; font-size:12.5px; max-width:460px; }
+  .pill { display:inline-block; min-width:30px; text-align:center; padding:2px 8px; border-radius:20px; font-weight:700; color:#fff; font-size:12px; }
+  .pill-g { background:var(--green); } .pill-y { background:var(--yellow); } .pill-r { background:var(--red); } .pill-na{background:#cbd5e1;color:#475569}
+  .tag { background:#e0e7ff; color:#3730a3; padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600; }
+  .skip-tag { padding:2px 8px; border-radius:6px; font-size:11px; font-weight:700; color:#fff; white-space:nowrap; }
+  .skip-fraud_skip{background:#b91c1c} .skip-low_match_skip{background:#f59e0b} .skip-salary_skip{background:#d97706} .skip-experience_skip{background:#0ea5e9}
+  .btn { display:inline-block; padding:6px 11px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:0; text-decoration:none; margin:2px 4px 2px 0; }
+  .btn-open { background:var(--blue); color:#fff; }
+  .btn-copy { background:#0f172a; color:#fff; }
+  .btn-ghost { background:#eef2ff; color:#3730a3; }
+  .actions { white-space:nowrap; }
+  .hidden { display:none; }
+  .muted { color:var(--mut); }
+  .tablewrap { overflow-x:auto; }
+  .reco { padding:14px 16px; border-bottom:1px solid var(--line); }
+  .reco:last-child{border-bottom:0}
+  .reco-h { font-size:14px; }
+  .reco-num { display:inline-block; width:22px; height:22px; line-height:22px; text-align:center; background:var(--blue); color:#fff; border-radius:50%; font-size:12px; font-weight:700; }
+  .reco-scores { color:var(--mut); font-size:12px; margin-left:6px; }
+  .reco p { color:#475569; font-size:13px; margin:7px 0 9px; }
+  .trend { display:flex; align-items:flex-end; gap:26px; padding:20px 16px; height:170px; }
+  .bar-col { display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }
+  .bar { width:54px; background:linear-gradient(180deg,#4ade80,#22c55e); border-radius:6px 6px 0 0; }
+  .bar-val { font-weight:700; margin-bottom:5px; }
+  .bar-lbl { font-size:11px; color:var(--mut); text-align:center; margin-top:7px; }
+  .cl-box { border:1px solid var(--line); border-radius:10px; margin:14px 16px; overflow:hidden; }
+  .cl-head { background:#f8fafc; padding:9px 12px; font-size:13px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .cl-box pre { margin:0; padding:13px 14px; white-space:pre-wrap; font-family:inherit; font-size:13px; line-height:1.5; }
+  .foot { text-align:center; color:var(--mut); font-size:12px; padding:24px 0; }
+  .toast { position:fixed; bottom:22px; left:50%; transform:translateX(-50%); background:#0f172a; color:#fff; padding:11px 18px; border-radius:10px; font-size:13px; opacity:0; transition:opacity .2s; pointer-events:none; }
+  .toast.show { opacity:1; }
+  .srcnote { font-size:12px; color:var(--mut); padding:0 16px 14px; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-03</h1>
+  <div class="sub">Automated morning scan · live roles via JSearch (posted ≤3 days, India) · resume-matched to Bhumi Bhatt</div>
+  <div class="cards">
+    <div class="card found"><div class="n">35</div><div class="l">Jobs Found</div></div>
+    <div class="card qual"><div class="n">2</div><div class="l">Qualified</div></div>
+    <div class="card rev"><div class="n">7</div><div class="l">Review</div></div>
+    <div class="card skip"><div class="n">26</div><div class="l">Skipped</div></div>
+    <div class="card fraud"><div class="n">2</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">78.0</div><div class="l">Avg Match (Qual)</div></div>
+    <div class="card"><div class="n">11.5 L</div><div class="l">Avg Salary Est</div></div>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <button id="openAllBtn" class="openall" onclick="openAll()">OPEN ALL 2 QUALIFIED JOBS ↗</button>
+  <div class="hint">Opens each qualified job in a new tab. If the browser blocks pop-ups, allow them for this page and click again.</div>
+
+  <section>
+    <div class="sec-h sec-green">✅ Qualified — ready to apply <span class="count">2</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Resume</th><th>Apply via</th><th>Actions</th></tr></thead>
+      <tbody><tr>
+      <td>1</td>
+      <td><span class="pill pill-g">84</span></td>
+      <td><span class="pill pill-g">95</span></td>
+      <td class="co">Deloitte</td>
+      <td>Consultant | Java Springboot Backend | Delhi | Engineering | Platform Development &amp; Integration<div class="note">Exact stack fit: Java + Spring Boot backend, REST APIs, AWS, CI/CD, Kubernetes at a top-tier firm. Role is a Java Springboot backend developer (req 115840). Apply now.</div></td>
+      <td>New Delhi</td>
+      <td>8-14 LPA (est)</td>
+      <td><span class="tag">backend</span></td>
+      <td>SimplyHired</td>
+      <td class="actions"><a class="btn btn-open" href="https://www.simplyhired.co.in/job/4ydwYBRkB05PDnHh_Nvu_PpAuiIYrV72vQsXGzSPQIauhWTkuvlibA" target="_blank" rel="noopener">Open job</a><button class="btn btn-copy" onclick="copyCL('cl1')">Copy cover letter</button><div id="cl1" class="hidden">Dear Hiring Manager,
+
+I am writing to apply for the Consultant - Java Springboot Backend role (Req 115840) within Deloitte&#x27;s Platform Development &amp; Integration team in Delhi, which maps directly to the backend systems I build every day.
+
+Over the past 1.5+ years I have designed and shipped production Java and Spring Boot microservices with REST APIs. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, cutting manual operational effort by 70%, and integrated AWS (Timestream, S3, Lambda) into real-time data pipelines. At Paytm I optimized microservices powering the QR-code transaction lifecycle, improving service reliability by 67%. My certified Distributed Payment Gateway project (30 REST APIs across four services) applied the system-design and fault-tolerance principles this platform role calls for.
+
+With hands-on Spring Boot, microservices, AWS, Docker, and CI/CD experience, plus an AWS Developer - Associate certification, I can contribute to Deloitte&#x27;s integration platforms from day one. I am an immediate joiner, able to start with zero notice, and I ramp quickly on new codebases.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+    </tr><tr>
+      <td>2</td>
+      <td><span class="pill pill-g">72</span></td>
+      <td><span class="pill pill-g">63</span></td>
+      <td class="co">NEXTHIRE</td>
+      <td>Backend Developer - Python &amp; Node.js<div class="note">Strong Node.js/Express + MySQL/Redis/Docker/Kubernetes fit and 12 LPA listed. Stretch: asks 3-5 yrs (she has 1.5) and Python/Django is co-primary. Worth a confident stretch application.</div></td>
+      <td>New Delhi</td>
+      <td>12 LPA (listed)</td>
+      <td><span class="tag">backend</span></td>
+      <td>LinkedIn</td>
+      <td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-developer-python-node-js-at-nexthire-4485472054" target="_blank" rel="noopener">Open job</a><button class="btn btn-copy" onclick="copyCL('cl2')">Copy cover letter</button><div id="cl2" class="hidden">Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer (Python/Django &amp; Node.js) role in New Delhi, where my core strength in building scalable Node.js backend systems fits the platform you are growing.
+
+I work hands-on with Node.js and Express.js to design and maintain REST APIs, and I am comfortable across the exact server stack in your description: MySQL and Redis for data and caching, and Docker and Kubernetes for deployment. At CodeAlpha I built order and payment microservices with REST APIs and MySQL, containerized with Docker, and optimized 30+ endpoints with automated CI/CD pipelines. At Primathon I now build backend automation across seven merchant systems, reducing manual effort by 70%. My distributed payment gateway project (30 REST APIs, four services) demonstrates the scalable, secure, high-performance backends this role requires, and I pick up new frameworks like Django quickly.
+
+As an immediate joiner with zero notice period, I can start contributing to your backend systems right away and grow fast alongside your team.
+
+Best regards,
+Bhumi Bhatt
+</div></td>
+    </tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-blue">⭐ Top 5 recommendations</div>
+    <div class="reco">
+      <div class="reco-h"><span class="reco-num">1</span> <b>Consultant | Java Springboot Backend | Delhi | Engineering | Platform Development &amp; Integration</b> — Deloitte
+        <span class="reco-scores">match 84 · trust 95 · 8-14 LPA (est)</span></div>
+      <p>Exact stack fit: Java + Spring Boot backend, REST APIs, AWS, CI/CD, Kubernetes at a top-tier firm. Role is a Java Springboot backend developer (req 115840). Apply now.</p>
+      <a class="btn btn-open" href="https://www.simplyhired.co.in/job/4ydwYBRkB05PDnHh_Nvu_PpAuiIYrV72vQsXGzSPQIauhWTkuvlibA" target="_blank" rel="noopener">Open job ↗</a>
+    </div><div class="reco">
+      <div class="reco-h"><span class="reco-num">2</span> <b>Backend Developer - Python &amp; Node.js</b> — NEXTHIRE
+        <span class="reco-scores">match 72 · trust 63 · 12 LPA (listed)</span></div>
+      <p>Strong Node.js/Express + MySQL/Redis/Docker/Kubernetes fit and 12 LPA listed. Stretch: asks 3-5 yrs (she has 1.5) and Python/Django is co-primary. Worth a confident stretch application.</p>
+      <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-developer-python-node-js-at-nexthire-4485472054" target="_blank" rel="noopener">Open job ↗</a>
+    </div><div class="reco">
+      <div class="reco-h"><span class="reco-num">3</span> <b>Backend Engineer - Distributed Systems (India)</b> — Onehouse
+        <span class="reco-scores">match 68 · trust 88 · 18-30 LPA (est)</span></div>
+      <p>Well-funded ($68M) data-lakehouse company (Apache Hudi), remote India, core Java + microservices. Deep distributed-systems bar and ~3 yrs; strong stretch for her payments/microservices background.</p>
+      <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-engineer-distributed-systems-india-at-onehouse-4255527098" target="_blank" rel="noopener">Open job ↗</a>
+    </div><div class="reco">
+      <div class="reco-h"><span class="reco-num">4</span> <b>Backend Engineer, Java - Web 3 Wallet</b> — Binance
+        <span class="reco-scores">match 70 · trust 60 · 20-40 LPA (est)</span></div>
+      <p>Java/Spring/MySQL fit and asks only ~2 yrs (fits!), fully remote. Caveats: crypto/Web3 domain and an extremely competitive global hiring bar. Apply if open to crypto.</p>
+      <a class="btn btn-open" href="https://www.learn4good.com/jobs/online_remote/software_development/5578562394/e/" target="_blank" rel="noopener">Open job ↗</a>
+    </div><div class="reco">
+      <div class="reco-h"><span class="reco-num">5</span> <b>Software Engineer- Agentic AI &amp; Integrations</b> — WIN Home Inspection
+        <span class="reco-scores">match 63 · trust 70 · 8-15 LPA (est)</span></div>
+      <p>Legit #1-ranked US franchise with an in-house tech team (Noida roles on Indeed). REST/microservices/AWS + agentic-AI integrations align with her AI-alerts project. Confirm seniority/level before applying.</p>
+      <a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-engineer-agentic-ai-integrations-at-win-home-inspection-4486193690" target="_blank" rel="noopener">Open job ↗</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-yellow">🟡 Review — promising but verify <span class="count">7</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Why review</th><th></th></tr></thead>
+      <tbody><tr>
+      <td>1</td>
+      <td><span class="pill pill-g">70</span></td>
+      <td><span class="pill pill-g">60</span></td>
+      <td class="co">Binance</td>
+      <td>Backend Engineer, Java - Web 3 Wallet</td>
+      <td>Anywhere</td>
+      <td>20-40 LPA (est)</td>
+      <td class="reason">Java/Spring/MySQL fit and asks only ~2 yrs (fits!), fully remote. Caveats: crypto/Web3 domain and an extremely competitive global hiring bar. Apply if open to crypto.</td>
+      <td><a class="btn btn-ghost" href="https://www.learn4good.com/jobs/online_remote/software_development/5578562394/e/" target="_blank" rel="noopener">Open</a></td>
+    </tr><tr>
+      <td>2</td>
+      <td><span class="pill pill-g">68</span></td>
+      <td><span class="pill pill-g">88</span></td>
+      <td class="co">Onehouse</td>
+      <td>Backend Engineer - Distributed Systems (India)</td>
+      <td>Anywhere</td>
+      <td>18-30 LPA (est)</td>
+      <td class="reason">Well-funded ($68M) data-lakehouse company (Apache Hudi), remote India, core Java + microservices. Deep distributed-systems bar and ~3 yrs; strong stretch for her payments/microservices background.</td>
+      <td><a class="btn btn-ghost" href="https://in.linkedin.com/jobs/view/backend-engineer-distributed-systems-india-at-onehouse-4255527098" target="_blank" rel="noopener">Open</a></td>
+    </tr><tr>
+      <td>3</td>
+      <td><span class="pill pill-y">63</span></td>
+      <td><span class="pill pill-g">70</span></td>
+      <td class="co">WIN Home Inspection</td>
+      <td>Software Engineer- Agentic AI &amp; Integrations</td>
+      <td>Noida, Uttar Pradesh</td>
+      <td>8-15 LPA (est)</td>
+      <td class="reason">Legit #1-ranked US franchise with an in-house tech team (Noida roles on Indeed). REST/microservices/AWS + agentic-AI integrations align with her AI-alerts project. Confirm seniority/level before applying.</td>
+      <td><a class="btn btn-ghost" href="https://in.linkedin.com/jobs/view/software-engineer-agentic-ai-integrations-at-win-home-inspection-4486193690" target="_blank" rel="noopener">Open</a></td>
+    </tr><tr>
+      <td>4</td>
+      <td><span class="pill pill-y">58</span></td>
+      <td><span class="pill pill-y">55</span></td>
+      <td class="co">Workforce Next</td>
+      <td>Full-Stack Developer (PHP Background, React.js / Node.js)</td>
+      <td>Noida, Uttar Pradesh</td>
+      <td>5-9 LPA (est)</td>
+      <td class="reason">Experience fits perfectly (1+ yr) and React/Node.js match, but &#x27;strong PHP background is a must&#x27; — she has no PHP. Small (~11-employee) Noida product. Apply only if willing to pick up PHP.</td>
+      <td><a class="btn btn-ghost" href="https://bebee.com/in/jobs/full-stack-developer-php-background-reactjs-nodejs-workforce-next-noida--t7xk-913819279" target="_blank" rel="noopener">Open</a></td>
+    </tr><tr>
+      <td>5</td>
+      <td><span class="pill pill-y">55</span></td>
+      <td><span class="pill pill-y">42</span></td>
+      <td class="co">Vishwa karma Hiring For Sunil</td>
+      <td>Java Programmer test prod</td>
+      <td>Anywhere</td>
+      <td>5-9 LPA (est)</td>
+      <td class="reason">Java/Spring Boot/Hibernate/MySQL stack matches well, but posted by an individual recruiter (&#x27;Hiring For Sunil&#x27;) on Shine with no company identity/website, vague location and ~5 yrs. Verify the real employer before applying.</td>
+      <td><a class="btn btn-ghost" href="https://www.shine.com/jobs/java-programmer-test-prod/vishwa-karma/19983356?jobtype=oj&amp;position_in_results=3" target="_blank" rel="noopener">Open</a></td>
+    </tr><tr>
+      <td>6</td>
+      <td><span class="pill pill-y">52</span></td>
+      <td><span class="pill pill-y">48</span></td>
+      <td class="co">RMREKRUIT SOLUTION PRIVATE LIMITED</td>
+      <td>Backend</td>
+      <td>Noida</td>
+      <td>5-9 LPA (est)</td>
+      <td class="reason">Generic &#x27;Backend&#x27; listing from a recruiter with no description details and an unverified company page. Low information; verify role, stack and employer before spending time.</td>
+      <td><a class="btn btn-ghost" href="https://www.workindia.in/jobs/backend-sector_16_noida-delhi-11730411/" target="_blank" rel="noopener">Open</a></td>
+    </tr><tr>
+      <td>7</td>
+      <td><span class="pill pill-y">50</span></td>
+      <td><span class="pill pill-y">40</span></td>
+      <td class="co">IT Firm</td>
+      <td>Java Full Stack Lead Engineer</td>
+      <td>New Delhi, Delhi</td>
+      <td>12-20 LPA (est)</td>
+      <td class="reason">Java full-stack stack fits, but the employer is listed literally as &#x27;IT Firm&#x27; (anonymized), it&#x27;s a Lead-level role and there&#x27;s no verifiable company page. Treat with caution.</td>
+      <td><a class="btn btn-ghost" href="https://in.jooble.org/rjdp/5169914364330174098" target="_blank" rel="noopener">Open</a></td>
+    </tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-red">🚫 Skipped <span class="count">26</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Type</th><th>Reason</th></tr></thead>
+      <tbody><tr>
+      <td>1</td>
+      <td class="co">Aerospace and Defense Deep Logictech India Pvt LTD</td>
+      <td>ERP/Python Development Internship in Gurgaon at Searchosis Marketing</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: ERP/Python Development Internship. Internship + ERP/Python, below target level and pay.</td>
+    </tr><tr>
+      <td>2</td>
+      <td class="co">Information Technology AR Robotics India Pvt Ltd</td>
+      <td>Mid-level Python QA Engineer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: Mid-level Python QA Engineer. QA/Python focus, not backend dev.</td>
+    </tr><tr>
+      <td>3</td>
+      <td class="co">PlanetSpark</td>
+      <td>Ruby on Rails Internship</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: Ruby on Rails Internship. Ruby/Rails internship, off-stack and below level.</td>
+    </tr><tr>
+      <td>4</td>
+      <td class="co">algoleap</td>
+      <td>Senior Python with AI Engineer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill/level: Senior Python &#x27;FDE&#x27; on GCP (GenAI/RAG/voice), 3-5 yrs and mentoring juniors. Python/GCP-primary, not her Java core.</td>
+    </tr><tr>
+      <td>5</td>
+      <td class="co">Recrew AI</td>
+      <td>SDE III - Backend</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience: SDE-III, 5-8 yrs, senior; Go is a hard requirement. Too senior and off-stack.</td>
+    </tr><tr>
+      <td>6</td>
+      <td class="co">Group Bayport</td>
+      <td>Senior Product Manager – AI &amp; ML</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: Senior Product Manager (AI &amp; ML). Product management, not a developer role.</td>
+    </tr><tr>
+      <td>7</td>
+      <td class="co">Neysa</td>
+      <td>Network Security Engineer L3 / Noida</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill: Network Security Engineer L3. Security domain, off-stack.</td>
+    </tr><tr>
+      <td>8</td>
+      <td class="co">BCforward</td>
+      <td>Database Engineer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: Database Engineer, ~6 yrs. DBA/data-platform focus, not app backend.</td>
+    </tr><tr>
+      <td>9</td>
+      <td class="co">Festo India</td>
+      <td>Senior Application Engineer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill/level: Senior Application Engineer (.NET/industrial automation). Senior + off-stack.</td>
+    </tr><tr>
+      <td>10</td>
+      <td class="co">PW (PhysicsWallah)</td>
+      <td>DevOps SDE-2</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: DevOps SDE-2 (Golang/K8s/infra). DevOps-focused, off her app-backend stack.</td>
+    </tr><tr>
+      <td>11</td>
+      <td class="co">itg telematics pvt. ltd. - india</td>
+      <td>Senior.NET Backend Developer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill: Senior .NET/C# backend. Resume is Java/JavaScript, no .NET.</td>
+    </tr><tr>
+      <td>12</td>
+      <td class="co">Techostinger India Private</td>
+      <td>Senior Backend Developer (Mern Stack) (Greater Noida)</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience: Senior Backend (MERN), 6-8 yrs required. Stack (Node/Mongo/React) partly fits but far too senior for 1.5 yrs.</td>
+    </tr><tr>
+      <td>13</td>
+      <td class="co">Grabitts Softech Services Pvt.Ltd.</td>
+      <td>.Net Developer (Immediate Joiner)</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill: .NET Developer (C#). Resume is Java/JavaScript, no .NET.</td>
+    </tr><tr>
+      <td>14</td>
+      <td class="co">Kyndryl Solutions Private Limited</td>
+      <td>Software Engineer - Mainframe Modernization and Cloud Integration</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience/skill: Mainframe modernization, 5-14 yrs. Too senior and mainframe-focused.</td>
+    </tr><tr>
+      <td>15</td>
+      <td class="co">Kumars House Enterprises</td>
+      <td>Urgent Hiring Backend Chat</td>
+      <td><span class="skip-tag skip-fraud_skip">FRAUD</span></td>
+      <td class="reason">Fraud/low-trust: generic &#x27;Urgent Hiring Backend Chat&#x27; with no description, no website and no verifiable company presence. Trust ~28.</td>
+    </tr><tr>
+      <td>16</td>
+      <td class="co">Amantya Technologies</td>
+      <td>Software Engineer – Golang, Python &amp; Automation</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill: Golang + Python automation. Off her Java/Node core.</td>
+    </tr><tr>
+      <td>17</td>
+      <td class="co">Speechify</td>
+      <td>Senior Software Engineer, Windows/desktop Applications - Delhi, India</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience: Senior SWE for Windows/desktop applications. Senior + desktop (off her web-backend stack).</td>
+    </tr><tr>
+      <td>18</td>
+      <td class="co">Clearwater Analytics India Private Limited</td>
+      <td>Software Development Manager</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience: Software Development Manager — management/senior role. Not an IC entry/mid role.</td>
+    </tr><tr>
+      <td>19</td>
+      <td class="co">PrimeTalentBridge</td>
+      <td>AI Computer Vision Engineer — India Remote/Hybrid</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill: AI Computer Vision Engineer (CV/ML), 3-6 yrs. Specialist CV/ML, not her backend profile.</td>
+    </tr><tr>
+      <td>20</td>
+      <td class="co">khwaaish</td>
+      <td>Junior Backend Developer Intern (Remote, Unpaid)</td>
+      <td><span class="skip-tag skip-salary_skip">SALARY</span></td>
+      <td class="reason">Salary: Junior Backend Developer Intern, explicitly Remote/Unpaid. Below minimum salary target.</td>
+    </tr><tr>
+      <td>21</td>
+      <td class="co">Sherweb</td>
+      <td>Senior Fullstack Developer, Software</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience: Senior Fullstack, ~10 yrs; .NET/C# stack. Too senior and off-stack.</td>
+    </tr><tr>
+      <td>22</td>
+      <td class="co">khwaaish</td>
+      <td>Junior Backend Developer Intern (Remote, Unpaid)</td>
+      <td><span class="skip-tag skip-salary_skip">SALARY</span></td>
+      <td class="reason">Salary: Junior Backend Developer Intern, explicitly Remote/Unpaid. Below minimum salary target.</td>
+    </tr><tr>
+      <td>23</td>
+      <td class="co">DXC Luxoft</td>
+      <td>Fullstack Developer (FastAPI Python + React)</td>
+      <td><span class="skip-tag skip-experience_skip">EXPERIENCE</span></td>
+      <td class="reason">Experience: 7+ yrs; primary stack is Python/FastAPI + Snowflake (not her core). Too senior and off-stack.</td>
+    </tr><tr>
+      <td>24</td>
+      <td class="co">remote quest jobs</td>
+      <td>Lead Backend Developer – reputed company Systems (Remote, reputed company)</td>
+      <td><span class="skip-tag skip-fraud_skip">FRAUD</span></td>
+      <td class="reason">Fraud: anonymized aggregator spam (dedyn.io) with &#x27;reputed company&#x27; placeholder text throughout and no real employer identity; actual role is Senior PHP/Symfony. Trust ~22.</td>
+    </tr><tr>
+      <td>25</td>
+      <td class="co">Infovision HR Consulting Services Pvt Ltd</td>
+      <td>Senior ELK Stack Engineer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Skill: Senior ELK Stack Engineer. Observability/ELK specialist, senior; off-stack.</td>
+    </tr><tr>
+      <td>26</td>
+      <td class="co">Nippon Data Systems</td>
+      <td>Linux Build and Release Engineer</td>
+      <td><span class="skip-tag skip-low_match_skip">LOW MATCH</span></td>
+      <td class="reason">Role: Linux Build and Release Engineer. Build/release infra, off her app-backend stack.</td>
+    </tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-slate">📈 Run trend (qualified per scan)</div>
+    <div class="trend"><div class="bar-col">
+      <div class="bar-val">1</div>
+      <div class="bar" style="height:50px"></div>
+      <div class="bar-lbl">08-05<br><span class="muted">17 found</span></div>
+    </div><div class="bar-col">
+      <div class="bar-val">2</div>
+      <div class="bar" style="height:100px"></div>
+      <div class="bar-lbl">11-03<br><span class="muted">35 found</span></div>
+    </div></div>
+    <div class="srcnote">Runs are sparse (the scheduled routine last ran 2026-08-05), so this shows per-run history rather than a continuous week.</div>
+  </section>
+
+  <section>
+    <div class="sec-h sec-slate">✍️ Cover letters</div>
+    <div class="cl-box">
+      <div class="cl-head"><b>Deloitte</b> — Consultant | Java Springboot Backend | Delhi | Engineering | Platform Development &amp; Integration
+        <button class="btn btn-copy" onclick="copyText('clt1')">Copy</button></div>
+      <pre id="clt1">Dear Hiring Manager,
+
+I am writing to apply for the Consultant - Java Springboot Backend role (Req 115840) within Deloitte&#x27;s Platform Development &amp; Integration team in Delhi, which maps directly to the backend systems I build every day.
+
+Over the past 1.5+ years I have designed and shipped production Java and Spring Boot microservices with REST APIs. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, cutting manual operational effort by 70%, and integrated AWS (Timestream, S3, Lambda) into real-time data pipelines. At Paytm I optimized microservices powering the QR-code transaction lifecycle, improving service reliability by 67%. My certified Distributed Payment Gateway project (30 REST APIs across four services) applied the system-design and fault-tolerance principles this platform role calls for.
+
+With hands-on Spring Boot, microservices, AWS, Docker, and CI/CD experience, plus an AWS Developer - Associate certification, I can contribute to Deloitte&#x27;s integration platforms from day one. I am an immediate joiner, able to start with zero notice, and I ramp quickly on new codebases.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+    </div><div class="cl-box">
+      <div class="cl-head"><b>NEXTHIRE</b> — Backend Developer - Python &amp; Node.js
+        <button class="btn btn-copy" onclick="copyText('clt2')">Copy</button></div>
+      <pre id="clt2">Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer (Python/Django &amp; Node.js) role in New Delhi, where my core strength in building scalable Node.js backend systems fits the platform you are growing.
+
+I work hands-on with Node.js and Express.js to design and maintain REST APIs, and I am comfortable across the exact server stack in your description: MySQL and Redis for data and caching, and Docker and Kubernetes for deployment. At CodeAlpha I built order and payment microservices with REST APIs and MySQL, containerized with Docker, and optimized 30+ endpoints with automated CI/CD pipelines. At Primathon I now build backend automation across seven merchant systems, reducing manual effort by 70%. My distributed payment gateway project (30 REST APIs, four services) demonstrates the scalable, secure, high-performance backends this role requires, and I pick up new frameworks like Django quickly.
+
+As an immediate joiner with zero notice period, I can start contributing to your backend systems right away and grow fast alongside your team.
+
+Best regards,
+Bhumi Bhatt
+</pre>
+    </div>
+  </section>
+
+  <div class="foot">Generated by the LinkedIn morning-scan routine · data source: JSearch API (RapidAPI), date_posted ≤ 3 days, country=in · 35 unique roles evaluated.</div>
+</main>
+
+<div id="toast" class="toast"></div>
+<script>
+  var QUALIFIED_URLS = ["https://www.simplyhired.co.in/job/4ydwYBRkB05PDnHh_Nvu_PpAuiIYrV72vQsXGzSPQIauhWTkuvlibA", "https://in.linkedin.com/jobs/view/backend-developer-python-node-js-at-nexthire-4485472054"];
+  function openAll() {
+    if (!QUALIFIED_URLS.length) { showToast('No qualified jobs to open'); return; }
+    QUALIFIED_URLS.forEach(function(u, i) { setTimeout(function(){ window.open(u, '_blank'); }, i*350); });
+    showToast('Opening ' + QUALIFIED_URLS.length + ' job' + (QUALIFIED_URLS.length>1?'s':'') + '…');
+  }
+  function copyText(id) {
+    var el = document.getElementById(id); if(!el) return;
+    var t = el.innerText || el.textContent;
+    navigator.clipboard.writeText(t).then(function(){ showToast('Cover letter copied ✓'); },
+      function(){ fallbackCopy(t); });
+  }
+  function copyCL(id) { copyText(id); }
+  function fallbackCopy(t) {
+    var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); showToast('Cover letter copied ✓'); } catch(e) { showToast('Copy failed'); }
+    document.body.removeChild(ta);
+  }
+  var toastTimer;
+  function showToast(msg) {
+    var el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){ el.classList.remove('show'); }, 2200);
+  }
+  if (!QUALIFIED_URLS.length) { document.getElementById('openAllBtn').disabled = true; }
+</script>
+</body>
+</html>

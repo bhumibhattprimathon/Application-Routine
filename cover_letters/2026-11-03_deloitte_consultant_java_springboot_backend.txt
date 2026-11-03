@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Consultant - Java Springboot Backend role (Req 115840) within Deloitte's Platform Development & Integration team in Delhi, which maps directly to the backend systems I build every day.
+
+Over the past 1.5+ years I have designed and shipped production Java and Spring Boot microservices with REST APIs. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, cutting manual operational effort by 70%, and integrated AWS (Timestream, S3, Lambda) into real-time data pipelines. At Paytm I optimized microservices powering the QR-code transaction lifecycle, improving service reliability by 67%. My certified Distributed Payment Gateway project (30 REST APIs across four services) applied the system-design and fault-tolerance principles this platform role calls for.
+
+With hands-on Spring Boot, microservices, AWS, Docker, and CI/CD experience, plus an AWS Developer - Associate certification, I can contribute to Deloitte's integration platforms from day one. I am an immediate joiner, able to start with zero notice, and I ramp quickly on new codebases.
+
+Best regards,
+Bhumi Bhatt

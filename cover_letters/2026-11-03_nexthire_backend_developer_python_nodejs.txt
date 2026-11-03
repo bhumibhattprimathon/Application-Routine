@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Backend Developer (Python/Django & Node.js) role in New Delhi, where my core strength in building scalable Node.js backend systems fits the platform you are growing.
+
+I work hands-on with Node.js and Express.js to design and maintain REST APIs, and I am comfortable across the exact server stack in your description: MySQL and Redis for data and caching, and Docker and Kubernetes for deployment. At CodeAlpha I built order and payment microservices with REST APIs and MySQL, containerized with Docker, and optimized 30+ endpoints with automated CI/CD pipelines. At Primathon I now build backend automation across seven merchant systems, reducing manual effort by 70%. My distributed payment gateway project (30 REST APIs, four services) demonstrates the scalable, secure, high-performance backends this role requires, and I pick up new frameworks like Django quickly.
+
+As an immediate joiner with zero notice period, I can start contributing to your backend systems right away and grow fast alongside your team.
+
+Best regards,
+Bhumi Bhatt
