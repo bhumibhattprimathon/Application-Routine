@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the SDE-1 (Backend Developer) role at TravClan, where my backend work maps directly to your stack.
+
+At Primathon I build and sync admin APIs across seven merchant systems, and during my Paytm internship I developed QR-lifecycle microservices powering real-time transaction notifications — so your requirements around REST API design, microservices, Node.js/Express, Redis, Kafka, MongoDB and MySQL are tools I use day to day. My Distributed Payment Gateway project (30 REST APIs across Order, Payment, Merchant and Vault services, with JWT-secured access) shows I can design fault-tolerant, Dockerised backend services end to end.
+
+As a 5-Star Java engineer on HackerRank with 250+ DSA problems solved, I bring the problem-solving depth TravClan's travel-scale systems need. I can join immediately and would contribute to your APIs from day one.
+
+Best regards,
+Bhumi Bhatt

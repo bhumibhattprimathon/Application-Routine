@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Backend Developer - Java position at Deservely Technologies, as your required stack mirrors mine almost exactly.
+
+I work in Java and Spring Boot building microservices and REST APIs, and have shipped them to production with Docker, JUnit and Mockito test coverage, and Git-based CI/CD pipelines. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines for real-time ingestion, and my Paytm internship centred on Kafka-style event processing for merchant QR microservices — so Kafka, AWS and microservice architecture are already part of how I build. My certified Distributed Payment Gateway (30 REST APIs, four services) demonstrates the fault-tolerant design your role calls for.
+
+With Spring Boot Advanced certification and an AWS Developer - Associate credential behind me, I can be productive quickly. I'm available to join immediately.
+
+Best regards,
+Bhumi Bhatt

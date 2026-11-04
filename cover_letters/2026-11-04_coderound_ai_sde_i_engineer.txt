@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to apply for the SDE I Engineer role you're hiring for, which fits my entry-level backend profile precisely.
+
+My foundation in Data Structures, Algorithms and OOP is strong — I'm a 5-Star Java engineer on HackerRank with 250+ problems solved — and I apply it in production: at Primathon I automate backend workflows that cut manual effort by 70%, and I built a distributed payment gateway of 30 REST APIs across four microservices using system-design principles for scalability. I work across Node.js and Java, design REST APIs, model data in both MySQL and MongoDB, and have used Kafka and Redis for event-driven, distributed processing.
+
+The 0-2 year scope matches my 1.5 years exactly, and I'm genuinely drawn to joining an early, fast-moving team. I'm an immediate joiner ready to own features from day one.
+
+Best regards,
+Bhumi Bhatt

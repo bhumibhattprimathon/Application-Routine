@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to be considered for the Fullstack Developer - React + Java role at Deservely Technologies, which spans exactly the full-stack range I work across.
+
+On the backend I build Java and Spring Boot microservices with REST APIs, JUnit tests and AWS deployment; on the frontend I develop in React.js with HTML5/CSS3, and I've also delivered Node.js/Express services and MySQL-backed data layers. My Distributed Payment Gateway project wired 30 REST APIs across four services, and at Primathon I build admin APIs and automation across seven merchant systems using Git-based workflows — so React + Java + REST + MySQL + Git is my everyday toolkit, not a learning curve.
+
+I enjoy owning a feature from database to UI, and my CGPA of 9.3 and HackerRank 5-Star Java reflect the rigour I bring. I'm an immediate joiner, ready to contribute from week one.
+
+Best regards,
+Bhumi Bhatt
