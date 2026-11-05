@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en" data-qualified="3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-05</title>
+<style>
+  :root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--bg:#f1f5f9;--ink:#0f172a;--muted:#64748b;--card:#fff;--line:#e2e8f0;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px 34px}
+  header .wrap{max-width:1180px;margin:0 auto}
+  h1{margin:0 0 4px;font-size:1.55rem;letter-spacing:.3px}
+  .sub{color:#94a3b8;font-size:.9rem;margin-bottom:18px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:6px}
+  .c{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+  .c .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .c .l{font-size:.78rem;color:#cbd5e1;text-transform:uppercase;letter-spacing:.6px;margin-top:6px}
+  .c.green .n{color:#4ade80} .c.red .n{color:#f87171} .c.yellow .n{color:#facc15} .c.blue .n{color:#60a5fa}
+  main{max-width:1180px;margin:0 auto;padding:22px 16px 60px}
+  .applybar{background:#052e16;border:1px solid #166534;border-radius:14px;padding:18px;margin:18px 0 10px;text-align:center}
+  .applybtn{background:var(--green);color:#052e16;border:0;font-size:1.12rem;font-weight:800;padding:15px 26px;border-radius:12px;cursor:pointer;letter-spacing:.3px}
+  .applybtn:hover{filter:brightness(1.07)}
+  .applynote{color:#86efac;font-size:.8rem;margin-top:10px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 6px;margin:18px 0}
+  h2{font-size:1.1rem;margin:4px 0 12px;display:flex;align-items:center;gap:9px}
+  .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)} .dot.b{background:#3b82f6}
+  .tablewrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  th{text-align:left;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num{color:var(--muted);font-weight:700} .company{font-weight:700}
+  .score{display:inline-block;min-width:34px;text-align:center;font-weight:800;border-radius:7px;padding:3px 7px;color:#fff}
+  .score.hi{background:var(--green)} .score.mid{background:var(--yellow);color:#422006}
+  .trust{display:inline-block;min-width:30px;text-align:center;font-weight:700;border-radius:7px;padding:3px 7px;background:#e0e7ff;color:#3730a3}
+  .variant{font-size:.74rem;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px}
+  .v-backend{background:#dbeafe;color:#1e40af} .v-fullstack{background:#dcfce7;color:#166534} .v-ai_ml{background:#fae8ff;color:#86198f} .v-master{background:#f1f5f9;color:#334155}
+  .actions{white-space:nowrap}
+  .btn{display:inline-block;border:0;border-radius:8px;padding:7px 12px;font-size:.82rem;font-weight:700;cursor:pointer;text-decoration:none;margin:2px 3px 2px 0}
+  .btn.open{background:#1e293b;color:#fff} .btn.open.sm{padding:5px 10px;font-size:.78rem} .btn.copy{background:#e2e8f0;color:#0f172a}
+  .btn.copy.done{background:var(--green);color:#052e16}
+  .noterow td.note{color:var(--muted);font-size:.82rem;padding-top:0;border-bottom:1px solid var(--line)}
+  .reason{color:#475569;font-size:.85rem;max-width:560px}
+  .skiptag{font-size:.74rem;font-weight:700;background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:20px;white-space:nowrap}
+  .recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding-bottom:10px}
+  .rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:13px 15px;background:#f8fafc}
+  .rec-h{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+  .rec-score{background:var(--green);color:#052e16;font-weight:800;font-size:1.05rem;border-radius:9px;padding:7px 11px}
+  .rec-title{font-weight:700} .rec-co{color:var(--muted);font-size:.82rem}
+  .rec p{margin:4px 0 0;font-size:.88rem;color:#334155}
+  .trend{display:flex;align-items:flex-end;gap:20px;height:200px;padding:10px 6px 0}
+  .bar-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .bar{width:46px;background:#cbd5e1;border-radius:7px 7px 0 0;display:flex;align-items:flex-start;justify-content:center;color:#334155;font-weight:800;padding-top:5px;min-height:28px}
+  .bar.cur{background:var(--green);color:#052e16}
+  .bar-date{font-size:.78rem;color:var(--muted)}
+  .clgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;padding-bottom:10px}
+  .clcard{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .clcard-h{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#f8fafc;padding:10px 13px;border-bottom:1px solid var(--line);font-size:.9rem}
+  .clflag{color:#b45309;font-weight:700;font-size:.8rem}
+  .clcard pre{margin:0;padding:13px;white-space:pre-wrap;font-family:inherit;font-size:.85rem;color:#1e293b;max-height:280px;overflow:auto}
+  .banner{background:#fffbeb;border:1px solid #fcd34d;color:#92400e;border-radius:12px;padding:12px 15px;font-size:.86rem;margin:16px 0}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px}
+  @media (max-width:640px){h1{font-size:1.25rem} .reason{max-width:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>💼 LINKEDIN SMART APPLY DASHBOARD — 2026-11-05</h1>
+  <div class="sub">Prepared for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner</div>
+  <div class="cards">
+    <div class="c blue"><div class="n">18</div><div class="l">Jobs Found</div></div>
+    <div class="c green"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="c yellow"><div class="n">7</div><div class="l">Review</div></div>
+    <div class="c red"><div class="n">8</div><div class="l">Skipped</div></div>
+    <div class="c"><div class="n">87.0</div><div class="l">Avg Match (Qual.)</div></div>
+    <div class="c"><div class="n">~7.5<span style="font-size:.9rem"> LPA</span></div><div class="l">Avg Salary Est.</div></div>
+  </div>
+</div></header>
+<main>
+  <div class="applybar">
+    <button class="applybtn" onclick="openAll()">🚀 OPEN ALL 3 QUALIFIED JOBS</button>
+    <div class="applynote">Opens each qualified posting in a new tab. If nothing opens, allow pop-ups for this page. Cover letters for these roles are ready below — copy &amp; paste.</div>
+  </div>
+
+  <div class="banner">⚠️ <strong>Discovery note:</strong> JSearch's job-search endpoint is unavailable on the current RapidAPI plan today, so this run used <strong>web search</strong> (LinkedIn direct listings aren't accessible to the scanner). Companies were verified for legitimacy, but <strong>posting freshness can't be guaranteed to 24h</strong> — each row shows the best date signal found. Click through and confirm the role is still open before applying. Salary anchors cross-checked against JSearch /estimated-salary (Glassdoor).</div>
+
+  <section>
+    <h2><span class="dot g"></span>Qualified — Ready to Apply (3)</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody><tr>
+      <td class="num">1</td>
+      <td><span class="score hi">88</span></td>
+      <td><span class="trust">70</span></td>
+      <td class="company">LiaPlus AI</td>
+      <td>SDE-1 (Software Development Engineer, Node.js)</td>
+      <td>New Delhi</td>
+      <td>6-10 LPA (est)</td>
+      <td><span class="variant v-backend">backend</span></td>
+      <td>External (Weekday)</td>
+      <td class="actions">
+        <a class="btn open" href="https://jobs.weekday.works/liaplus-ai-sde-1-(software-development-engineer)" target="_blank" rel="noopener">Open Job ↗</a>
+        <button class="btn copy" onclick="copyCL('cl_liaplus-sde1',this)">Copy Cover Letter</button>
+        <div id="cl_liaplus-sde1" style="display:none">Dear Hiring Manager,
+
+I would love to join LiaPlus AI as an SDE-1 helping scale your AI-driven customer support platform from your New Delhi office.
+
+I build backend services with Node.js and Express.js in production, and my Distributed Payment Gateway project already integrates AI-driven daily alerts that surface insights and monitor system health automatically, so working on an AI product feels natural to me. At Primathon I reduced manual operational effort by 70% by building automated backend workflows for analytics and event processing, and I wired AWS Timestream, S3, and Lambda into real-time data pipelines. My research paper on Generative AI Applications in Personalized Systems reflects a genuine interest in your problem space.
+
+As a CGPA 9.3 CS graduate and an immediate joiner (0-day notice), I am a fast learner ready to own features end to end at an early-stage startup.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td></tr>
+    <tr class="noterow"><td></td><td colspan="9" class="note">📌 Freshers role, Node.js. IPV-backed AI startup (seed Sep 2024, ~35 emp). Strongest clean fit today — matches her Node.js/Express backend work; her payment-gateway project already ships AI-driven alerts. &nbsp;·&nbsp; <em>Discovery: Weekday aggregator (verify live)</em></td></tr><tr>
+      <td class="num">2</td>
+      <td><span class="score hi">87</span></td>
+      <td><span class="trust">78</span></td>
+      <td class="company">CredFlow</td>
+      <td>MERN Stack Developer</td>
+      <td>Noida</td>
+      <td>6-10 LPA (est)</td>
+      <td><span class="variant v-fullstack">fullstack</span></td>
+      <td>External (Weekday)</td>
+      <td class="actions">
+        <a class="btn open" href="https://jobs.weekday.works/mern-stack-developer-at-credflow-ai-4404562690" target="_blank" rel="noopener">Open Job ↗</a>
+        <button class="btn copy" onclick="copyCL('cl_credflow-mern',this)">Copy Cover Letter</button>
+        <div id="cl_credflow-mern" style="display:none">Dear Hiring Manager,
+
+I am writing to apply for the MERN Stack Developer role at CredFlow, supporting your SaaS cash-flow platform for SMEs in Noida.
+
+I work across the full MERN stack in real projects: React.js on the frontend, and Node.js with Express.js, MongoDB, and REST APIs on the backend. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, improving data flow and reliability — directly relevant to a product that integrates with ERP systems like Tally and Busy to automate receivables and payments. My fintech background from Paytm and my distributed payment gateway project mean I understand the financial-data correctness your platform depends on.
+
+With strong fundamentals (CGPA 9.3, 5-Star Java on HackerRank) and availability as an immediate joiner (0-day notice), I can quickly take ownership of features across your React and Node codebase.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td></tr>
+    <tr class="noterow"><td></td><td colspan="9" class="note">📌 Funded SME fintech ($3.7M pre-Series B, NBFC licence Dec 2025, AmbitionBox 3.4/63). 1-3 yrs. Exact MERN fit (MongoDB/Express/React/Node) + her fintech background. &nbsp;·&nbsp; <em>Discovery: Weekday aggregator (verify live)</em></td></tr><tr>
+      <td class="num">3</td>
+      <td><span class="score hi">86</span></td>
+      <td><span class="trust">70</span></td>
+      <td class="company">Speqto Technologies</td>
+      <td>Java Developer (Spring Boot / Microservices)</td>
+      <td>Noida</td>
+      <td>5-8 LPA (est)</td>
+      <td><span class="variant v-backend">backend</span></td>
+      <td>External (Recooty)</td>
+      <td class="actions">
+        <a class="btn open" href="https://jobs.recooty.com/speqto-technologies-pvt-ltd/java-developer-1-2-years-" target="_blank" rel="noopener">Open Job ↗</a>
+        <button class="btn copy" onclick="copyCL('cl_speqto-java',this)">Copy Cover Letter</button>
+        <div id="cl_speqto-java" style="display:none">Dear Hiring Manager,
+
+I am writing to apply for the Java Developer (Spring Boot / Microservices) role at Speqto Technologies in Noida.
+
+My 1.5+ years of backend work maps directly to this position: at Primathon I build and maintain Spring Boot services and custom admin APIs across seven merchant systems, and in my Distributed Payment Gateway project I architected 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) applying system-design principles for scalability and fault tolerance. I work daily with Java, Spring Boot, REST APIs, MySQL, and Git-based CI/CD, backed by a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your microservices team from week one and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt</div>
+      </td></tr>
+    <tr class="noterow"><td></td><td colspan="9" class="note">📌 Legit Noida IT firm (est 2017, 100+ emp, AmbitionBox 4.2/47). 1-2 yrs Java/Spring Boot/Microservices = bullseye for her stack. Caveat: the found posting URL may be dated; confirm a current Java opening before applying. &nbsp;·&nbsp; <em>Listing date uncertain — VERIFY current opening on company LinkedIn/careers</em></td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2><span class="dot b"></span>Top Recommendations</h2>
+    <div class="recs"><div class="rec">
+      <div class="rec-h"><span class="rec-score">88</span>
+        <div><div class="rec-title">SDE-1 (Software Development Engineer, Node.js)</div><div class="rec-co">LiaPlus AI · New Delhi · 6-10 LPA (est)</div></div></div>
+      <p>The cleanest match today. It's an explicit <strong>freshers</strong> SDE-1 role on a Node.js stack she already uses, at a funded, fast-growing AI startup in her home city. Her payment-gateway project even ships AI-driven alerts, so the domain resonates — and immediate-joiner status is a plus for an early-stage team.</p></div><div class="rec">
+      <div class="rec-h"><span class="rec-score">87</span>
+        <div><div class="rec-title">MERN Stack Developer</div><div class="rec-co">CredFlow · Noida · 6-10 LPA (est)</div></div></div>
+      <p>A near-perfect <strong>MERN</strong> fit (MongoDB, Express, React, Node — all on her resume) at a well-funded Noida SME fintech with an NBFC licence. Her Paytm + payment-gateway fintech background and backend-automation work map directly onto a cash-flow SaaS that integrates with ERP systems.</p></div><div class="rec">
+      <div class="rec-h"><span class="rec-score">86</span>
+        <div><div class="rec-title">Java Developer (Spring Boot / Microservices)</div><div class="rec-co">Speqto Technologies · Noida · 5-8 LPA (est)</div></div></div>
+      <p>A textbook fit for her core stack — <strong>Java, Spring Boot, Microservices</strong> at the 1-2 year level — at a legitimate Noida firm with solid employee ratings (4.2/47). The one caveat is listing freshness: confirm a current Java opening on their LinkedIn/careers before applying, but the profile alignment is as strong as it gets.</p></div><div class="rec">
+      <div class="rec-h"><span class="rec-score">84</span>
+        <div><div class="rec-title">SDE-1 Backend (Java)</div><div class="rec-co">Tripjack · New Delhi (Connaught Place) · 8-14 LPA (est)</div></div></div>
+      <p>A strong stretch: her Java/Spring microservices skills and her <strong>SABRE travel-migration</strong> project make her unusually relevant to a leading B2B travel platform. It asks 2-4 yrs vs her 1.5, but it's an SDE-1 title and her 5-star Java + DSA record argues she can punch above her tenure.</p></div><div class="rec">
+      <div class="rec-h"><span class="rec-score">80</span>
+        <div><div class="rec-title">Java Backend Developer</div><div class="rec-co">Fyp (Fyp Money) · Gurugram / Delhi (conflicting) · ~15 LPA (listed)</div></div></div>
+      <p>Fintech-backend alignment is excellent given her Paytm QR and payment-gateway experience. Worth a shot <em>if still open</em> — the posting is ~5 months old and the 15 LPA level hints at a more senior scope, so verify before investing time.</p></div></div>
+  </section>
+
+  <section>
+    <h2><span class="dot y"></span>Review — Worth a Look / Verify (7)</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Why Review</th><th></th></tr></thead>
+      <tbody><tr>
+      <td class="num">1</td>
+      <td><span class="score mid">84</span></td>
+      <td><span class="trust">76</span></td>
+      <td class="company">Tripjack</td>
+      <td>SDE-1 Backend (Java)</td>
+      <td>New Delhi (Connaught Place)</td>
+      <td class="reason">Established B2B travel platform; excellent Java/Spring skill fit and her SABRE travel-migration project is directly relevant. Listed as SDE-1 but asks 2-4 yrs vs her 1.5 — a worthwhile stretch application.</td>
+      <td><a class="btn open sm" href="https://echojobs.io/job/tripjack-sde-1-backend-java-tyzlg" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td class="num">2</td>
+      <td><span class="score mid">80</span></td>
+      <td><span class="trust">68</span></td>
+      <td class="company">Fyp (Fyp Money)</td>
+      <td>Java Backend Developer</td>
+      <td>Gurugram / Delhi (conflicting)</td>
+      <td class="reason">Real fintech (Pockket Payment Tech, $2M seed). Strong fintech-backend fit with her Paytm + payment-gateway experience. BUT posting is ~5 months old, pay 15 LPA and a Gurugram/CP location conflict suggest a more senior scope — verify it&#x27;s open and the level before applying.</td>
+      <td><a class="btn open sm" href="https://builtin.com/job/fyp-money-java-developer/9644215" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td class="num">3</td>
+      <td><span class="score mid">72</span></td>
+      <td><span class="trust">80</span></td>
+      <td class="company">InsuranceDekho</td>
+      <td>Software Development Engineer I/II/III (MERN)</td>
+      <td>Gurugram</td>
+      <td class="reason">Large, well-funded insurtech. The SDE-I band could fit, but the combined 2-8 yrs range and a Feb-2026 date mean you should confirm the SDE-I level is still hiring.</td>
+      <td><a class="btn open sm" href="https://www.hirist.tech/j/insurancedekho-software-development-engineer-i-ii-iii-mern-stack-1612524" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td class="num">4</td>
+      <td><span class="score mid">70</span></td>
+      <td><span class="trust">62</span></td>
+      <td class="company">CG Infinity</td>
+      <td>Java Developer (Spring Boot)</td>
+      <td>Noida (remote)</td>
+      <td class="reason">Java/Spring Boot fit and remote, but asks 2+ yrs (she has 1.5). Reasonable stretch; verify the posting is current.</td>
+      <td><a class="btn open sm" href="https://jobs.y-axis.com/jobs/java-developer-spring-boot-cg-infinity" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td class="num">5</td>
+      <td><span class="score mid">70</span></td>
+      <td><span class="trust">48</span></td>
+      <td class="company">Whinta</td>
+      <td>Node.js Backend Developer (SaaS APIs)</td>
+      <td>New Delhi</td>
+      <td class="reason">Entry-level Node.js SaaS role matches her stack, BUT the employer is unverified: very new (founded 2024), only company-sourced PR, no employee reviews on Glassdoor/AmbitionBox. Trust 48 — do your own diligence (ask for registered entity + official email domain) before applying.</td>
+      <td><a class="btn open sm" href="https://www.tryapplynow.com/jobs/whinta-node-js-backend-developer-saas-apis-5f6de94a-a268-4aa3-9207-070a66ceeab2" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td class="num">6</td>
+      <td><span class="score mid">66</span></td>
+      <td><span class="trust">55</span></td>
+      <td class="company">Codify Indi</td>
+      <td>Node.js (MongoDB) Backend Developer</td>
+      <td>NCR (Delhi/Gurgaon/Noida, remote)</td>
+      <td class="reason">Node/Mongo stack fits her, remote with a clear 6-9 LPA band, but asks 2-5 yrs and the company has limited public footprint (trust 55). Verify before applying.</td>
+      <td><a class="btn open sm" href="https://cutshort.io/job/Node-Js-MongoDB-Backend-Developer-NCR-Delhi-Gurgaon-Noida-Codify-Indi-gIcE40mw" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td class="num">7</td>
+      <td><span class="score mid">55</span></td>
+      <td><span class="trust">75</span></td>
+      <td class="company">Algoworks</td>
+      <td>Associate Engineer (AI/ML Models)</td>
+      <td>Delhi NCR / Noida</td>
+      <td class="reason">Established Noida IT services firm, fresher-friendly &#x27;Associate&#x27; title. But AI/ML work expects Python + ML frameworks (PyTorch/TensorFlow), which aren&#x27;t on her resume (Java/C++/JS). Skill gap keeps this in review despite her GenAI research interest.</td>
+      <td><a class="btn open sm" href="https://www.hirist.tech/j/algoworks-associate-engineer-ai-ml-models-1628386" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2><span class="dot r"></span>Skipped (8)</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Reason</th><th>Detail</th></tr></thead>
+      <tbody><tr>
+      <td class="num">1</td>
+      <td class="company">TravClan</td>
+      <td>SDE 1 (Backend)</td>
+      <td><span class="skiptag">Duplicate</span></td>
+      <td class="reason">Duplicate — already logged and recommended on 2026-08-05 (travclan-sde1).</td>
+    </tr><tr>
+      <td class="num">2</td>
+      <td class="company">Aftershoot</td>
+      <td>Backend SDE-1</td>
+      <td><span class="skiptag">Stale Posting</span></td>
+      <td class="reason">Great fit on paper (Techstars-backed, 51-200 emp) and a cover letter is drafted, BUT the official Techstars listing says &#x27;no longer accepting applications&#x27; and it&#x27;s off the careers page (only a Backend Intern remains). Skipped as closed; re-check if it reopens.</td>
+    </tr><tr>
+      <td class="num">3</td>
+      <td class="company">Observe.AI</td>
+      <td>Junior Machine Learning Engineer (Speech AI / NLP)</td>
+      <td><span class="skiptag">Low Match</span></td>
+      <td class="reason">Skill mismatch — Speech/NLP ML in Python; resume is Java/JavaScript backend with no Python or ML-framework experience.</td>
+    </tr><tr>
+      <td class="num">4</td>
+      <td class="company">Snapdeal</td>
+      <td>Software Engineer 1</td>
+      <td><span class="skiptag">Stale Posting</span></td>
+      <td class="reason">Stale — posted ~6 months ago (Apr 2026) and scoped mid-level. Skipped for freshness.</td>
+    </tr><tr>
+      <td class="num">5</td>
+      <td class="company">RegisterKaro</td>
+      <td>Full Stack Developer (MERN)</td>
+      <td><span class="skiptag">Stale Posting</span></td>
+      <td class="reason">Good 0-2 yr MERN fit, but the posting is ~11 months old (Dec 2025) and almost certainly filled. Skipped for freshness.</td>
+    </tr><tr>
+      <td class="num">6</td>
+      <td class="company">AHEAD</td>
+      <td>Associate Cloud Engineer - AWS</td>
+      <td><span class="skiptag">Low Match</span></td>
+      <td class="reason">Role focus mismatch — cloud infrastructure / DevOps operations rather than backend software development. She has AWS/Docker/CI-CD but her trajectory is backend engineering.</td>
+    </tr><tr>
+      <td class="num">7</td>
+      <td class="company">Sky Systems (SkySys)</td>
+      <td>Junior Cloud Engineer (AWS/Azure)</td>
+      <td><span class="skiptag">Low Match</span></td>
+      <td class="reason">Cloud infra/automation focus (not backend dev) and the posting is stale (Apr 2026).</td>
+    </tr><tr>
+      <td class="num">8</td>
+      <td class="company">Elevator HQ Technologies</td>
+      <td>Backend Engineer</td>
+      <td><span class="skiptag">Fraud / Unverified</span></td>
+      <td class="reason">Could not verify the legal entity &#x27;Elevator HQ Technologies Pvt Ltd&#x27; — web results only surface a different, unrelated &#x27;ElevateHQ&#x27; (Bangalore). No confirmable company footprint, so trust &lt; 40. Also asks 2-4 yrs. Treat with caution / verify independently before sharing any details.</td>
+    </tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>📈 Recent Qualified Trend</h2>
+    <div class="trend"><div class="bar-wrap"><div class="bar " style="height:74px" title="1 qualified"><span>1</span></div><div class="bar-date">08-05</div></div><div class="bar-wrap"><div class="bar cur" style="height:168px" title="3 qualified"><span>3</span></div><div class="bar-date">11-05</div></div></div>
+    <p style="color:var(--muted);font-size:.82rem;padding:4px 6px 12px">Qualified jobs per scan. (Previous scan: 2026-08-05.)</p>
+  </section>
+
+  <section>
+    <h2>✉️ Cover Letters (6)</h2>
+    <div class="clgrid"><div class="clcard">
+      <div class="clcard-h"><div><strong>LiaPlus AI</strong> — SDE-1 (Software Development Engineer, Node.js)</div>
+        <button class="btn copy" onclick="copyText('clbox_liaplus-sde1',this)">COPY</button></div>
+      <pre id="clbox_liaplus-sde1">Dear Hiring Manager,
+
+I would love to join LiaPlus AI as an SDE-1 helping scale your AI-driven customer support platform from your New Delhi office.
+
+I build backend services with Node.js and Express.js in production, and my Distributed Payment Gateway project already integrates AI-driven daily alerts that surface insights and monitor system health automatically, so working on an AI product feels natural to me. At Primathon I reduced manual operational effort by 70% by building automated backend workflows for analytics and event processing, and I wired AWS Timestream, S3, and Lambda into real-time data pipelines. My research paper on Generative AI Applications in Personalized Systems reflects a genuine interest in your problem space.
+
+As a CGPA 9.3 CS graduate and an immediate joiner (0-day notice), I am a fast learner ready to own features end to end at an early-stage startup.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+      <div class="clcard-h"><div><strong>CredFlow</strong> — MERN Stack Developer</div>
+        <button class="btn copy" onclick="copyText('clbox_credflow-mern',this)">COPY</button></div>
+      <pre id="clbox_credflow-mern">Dear Hiring Manager,
+
+I am writing to apply for the MERN Stack Developer role at CredFlow, supporting your SaaS cash-flow platform for SMEs in Noida.
+
+I work across the full MERN stack in real projects: React.js on the frontend, and Node.js with Express.js, MongoDB, and REST APIs on the backend. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, improving data flow and reliability — directly relevant to a product that integrates with ERP systems like Tally and Busy to automate receivables and payments. My fintech background from Paytm and my distributed payment gateway project mean I understand the financial-data correctness your platform depends on.
+
+With strong fundamentals (CGPA 9.3, 5-Star Java on HackerRank) and availability as an immediate joiner (0-day notice), I can quickly take ownership of features across your React and Node codebase.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+      <div class="clcard-h"><div><strong>Speqto Technologies</strong> — Java Developer (Spring Boot / Microservices)</div>
+        <button class="btn copy" onclick="copyText('clbox_speqto-java',this)">COPY</button></div>
+      <pre id="clbox_speqto-java">Dear Hiring Manager,
+
+I am writing to apply for the Java Developer (Spring Boot / Microservices) role at Speqto Technologies in Noida.
+
+My 1.5+ years of backend work maps directly to this position: at Primathon I build and maintain Spring Boot services and custom admin APIs across seven merchant systems, and in my Distributed Payment Gateway project I architected 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) applying system-design principles for scalability and fault tolerance. I work daily with Java, Spring Boot, REST APIs, MySQL, and Git-based CI/CD, backed by a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your microservices team from week one and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+      <div class="clcard-h"><div><strong>Tripjack</strong> — SDE-1 Backend (Java) · <span class='clflag'>review tier</span></div>
+        <button class="btn copy" onclick="copyText('clbox_tripjack-sde1',this)">COPY</button></div>
+      <pre id="clbox_tripjack-sde1">Dear Hiring Manager,
+
+I am applying for the SDE-1 Backend (Java) role at Tripjack, contributing to the backend that powers one of India&#x27;s leading B2B travel platforms from your Connaught Place office.
+
+High-throughput travel systems demand reliable, well-designed services, which is where my background fits. I build Spring Boot microservices and REST APIs in production at Primathon, and I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services using Java, Spring Boot, and Kafka, applying system-design principles for scalability and fault tolerance. I also migrated a legacy SABRE travel solution to a modern Java/Spring stack, so travel-domain backend work is familiar territory.
+
+Though your listing mentions 2-4 years, my 1.5 years of focused Java backend experience, 5-Star Gold Java rating, and 250+ DSA problems solved let me operate above my tenure. As an immediate joiner, I can start contributing right away.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+      <div class="clcard-h"><div><strong>Fyp (Fyp Money)</strong> — Java Backend Developer · <span class='clflag'>review tier</span></div>
+        <button class="btn copy" onclick="copyText('clbox_fyp-java',this)">COPY</button></div>
+      <pre id="clbox_fyp-java">Dear Hiring Manager,
+
+I am excited to apply for the Java Backend Developer role at Fyp (Fyp Money), building scalable APIs for real-world financial workflows in Gurugram.
+
+Fintech backend is exactly where my experience sits. As a Software Engineer Intern at Paytm I developed and optimized microservices managing the QR-code lifecycle for merchants, powering real-time transaction notifications and improving service reliability by 67%. I also architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services using Java, Spring Boot, and Kafka. These map well to loan-workflow and payment APIs where correctness, scalability, and fault tolerance matter.
+
+With hands-on Java, Spring Boot, MySQL, Redis, and AWS (EC2, S3, Lambda), plus a 0-day notice period as an immediate joiner, I am ready to ship production backend features for your team right away.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clcard">
+      <div class="clcard-h"><div><strong>Aftershoot</strong> — Backend SDE-1 · <span class='clflag'>role may be closed/stale — verify</span></div>
+        <button class="btn copy" onclick="copyText('clbox_aftershoot-sde1',this)">COPY</button></div>
+      <pre id="clbox_aftershoot-sde1">Dear Hiring Manager,
+
+I am applying for the Backend SDE-1 role at Aftershoot to help build and maintain the scalable cloud infrastructure behind your AI photography products.
+
+Scalable, cloud-backed backends are my core strength. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion and scalable event handling, and across my internships I built order and payment microservices containerized with Docker for production-ready deployment. My Distributed Payment Gateway spans 30 REST APIs across four services designed for fault tolerance, and I automated build pipelines with Git Actions to improve delivery consistency.
+
+My toolkit — Java, Node.js, Spring Boot, AWS (EC2, S3, Lambda), Docker, Jenkins, and CI/CD — fits a startup that needs someone who can both write services and keep infrastructure healthy. As an immediate joiner with a 0-day notice period, I can start contributing to your backend right away.
+
+Best regards,
+Bhumi Bhatt</pre></div></div>
+  </section>
+
+  <footer>Generated 2026-11-05 · LinkedIn Smart Apply routine · Not affiliated with LinkedIn. Verify every posting before applying.</footer>
+</main>
+<script>
+  var QUAL_URLS = ["https://jobs.weekday.works/liaplus-ai-sde-1-(software-development-engineer)", "https://jobs.weekday.works/mern-stack-developer-at-credflow-ai-4404562690", "https://jobs.recooty.com/speqto-technologies-pvt-ltd/java-developer-1-2-years-"];
+  function openAll(){
+    if(!QUAL_URLS.length){alert('No qualified jobs today.');return;}
+    var blocked=0;
+    QUAL_URLS.forEach(function(u){ var w=window.open(u,'_blank','noopener'); if(!w) blocked++; });
+    if(blocked) alert('Your browser blocked '+blocked+' pop-up(s). Please allow pop-ups for this page and click again.');
+  }
+  function copyText(id,btn){
+    var el=document.getElementById(id); var t=el.innerText||el.textContent;
+    navigator.clipboard.writeText(t).then(function(){flash(btn);},function(){fallback(t,btn);});
+  }
+  function copyCL(id,btn){ copyText(id,btn); }
+  function flash(btn){ var o=btn.textContent; btn.textContent='✓ Copied'; btn.classList.add('done'); setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},1600); }
+  function fallback(t,btn){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');flash(btn);}catch(e){alert('Copy failed — select the text manually.');} document.body.removeChild(ta); }
+</script>
+</body></html>

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the MERN Stack Developer role at CredFlow, supporting your SaaS cash-flow platform for SMEs in Noida.
+
+I work across the full MERN stack in real projects: React.js on the frontend, and Node.js with Express.js, MongoDB, and REST APIs on the backend. At Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, improving data flow and reliability — directly relevant to a product that integrates with ERP systems like Tally and Busy to automate receivables and payments. My fintech background from Paytm and my distributed payment gateway project mean I understand the financial-data correctness your platform depends on.
+
+With strong fundamentals (CGPA 9.3, 5-Star Java on HackerRank) and availability as an immediate joiner (0-day notice), I can quickly take ownership of features across your React and Node codebase.
+
+Best regards,
+Bhumi Bhatt

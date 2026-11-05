@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Java Developer (Spring Boot / Microservices) role at Speqto Technologies in Noida.
+
+My 1.5+ years of backend work maps directly to this position: at Primathon I build and maintain Spring Boot services and custom admin APIs across seven merchant systems, and in my Distributed Payment Gateway project I architected 30 REST APIs across four microservices (Order, Payment, Merchant, Vault) applying system-design principles for scalability and fault tolerance. I work daily with Java, Spring Boot, REST APIs, MySQL, and Git-based CI/CD, backed by a 5-Star Gold Java rating on HackerRank and 250+ DSA problems solved.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your microservices team from week one and ramp quickly on your codebase.
+
+Best regards,
+Bhumi Bhatt

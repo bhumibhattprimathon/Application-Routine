@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Java Backend Developer role at Fyp (Fyp Money), building scalable APIs for real-world financial workflows in Gurugram.
+
+Fintech backend is exactly where my experience sits. As a Software Engineer Intern at Paytm I developed and optimized microservices managing the QR-code lifecycle for merchants, powering real-time transaction notifications and improving service reliability by 67%. I also architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services using Java, Spring Boot, and Kafka. These map well to loan-workflow and payment APIs where correctness, scalability, and fault tolerance matter.
+
+With hands-on Java, Spring Boot, MySQL, Redis, and AWS (EC2, S3, Lambda), plus a 0-day notice period as an immediate joiner, I am ready to ship production backend features for your team right away.
+
+Best regards,
+Bhumi Bhatt

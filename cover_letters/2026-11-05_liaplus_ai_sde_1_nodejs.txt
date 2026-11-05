@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would love to join LiaPlus AI as an SDE-1 helping scale your AI-driven customer support platform from your New Delhi office.
+
+I build backend services with Node.js and Express.js in production, and my Distributed Payment Gateway project already integrates AI-driven daily alerts that surface insights and monitor system health automatically, so working on an AI product feels natural to me. At Primathon I reduced manual operational effort by 70% by building automated backend workflows for analytics and event processing, and I wired AWS Timestream, S3, and Lambda into real-time data pipelines. My research paper on Generative AI Applications in Personalized Systems reflects a genuine interest in your problem space.
+
+As a CGPA 9.3 CS graduate and an immediate joiner (0-day notice), I am a fast learner ready to own features end to end at an early-stage startup.
+
+Best regards,
+Bhumi Bhatt

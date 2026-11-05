@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the SDE-1 Backend (Java) role at Tripjack, contributing to the backend that powers one of India's leading B2B travel platforms from your Connaught Place office.
+
+High-throughput travel systems demand reliable, well-designed services, which is where my background fits. I build Spring Boot microservices and REST APIs in production at Primathon, and I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services using Java, Spring Boot, and Kafka, applying system-design principles for scalability and fault tolerance. I also migrated a legacy SABRE travel solution to a modern Java/Spring stack, so travel-domain backend work is familiar territory.
+
+Though your listing mentions 2-4 years, my 1.5 years of focused Java backend experience, 5-Star Gold Java rating, and 250+ DSA problems solved let me operate above my tenure. As an immediate joiner, I can start contributing right away.
+
+Best regards,
+Bhumi Bhatt

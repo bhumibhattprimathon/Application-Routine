@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Backend SDE-1 role at Aftershoot to help build and maintain the scalable cloud infrastructure behind your AI photography products.
+
+Scalable, cloud-backed backends are my core strength. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion and scalable event handling, and across my internships I built order and payment microservices containerized with Docker for production-ready deployment. My Distributed Payment Gateway spans 30 REST APIs across four services designed for fault tolerance, and I automated build pipelines with Git Actions to improve delivery consistency.
+
+My toolkit — Java, Node.js, Spring Boot, AWS (EC2, S3, Lambda), Docker, Jenkins, and CI/CD — fits a startup that needs someone who can both write services and keep infrastructure healthy. As an immediate joiner with a 0-day notice period, I can start contributing to your backend right away.
+
+Best regards,
+Bhumi Bhatt
