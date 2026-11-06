@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Backend Engineer (Java) role at RD&X Network, where real-time, data-heavy adtech is exactly the kind of system I enjoy building.
+
+In my current role at Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and I've integrated AWS Timestream, S3, and Lambda into production pipelines for real-time data ingestion and event handling — directly relevant to high-throughput, ReBid-style reporting. My core stack is Java and Spring Boot: I architected a distributed payment gateway of 30 REST APIs across four microservices, and at Paytm I built microservices powering real-time transaction notifications, improving service reliability by 67%. I also work daily with Kafka, Redis, and MySQL for scalable, fault-tolerant processing.
+
+As an immediate joiner (0-day notice) with 5-Star Gold Java on HackerRank and 250+ DSA problems solved, I can contribute to your backend team from day one and ramp quickly on a new domain.
+
+Best regards,
+Bhumi Bhatt

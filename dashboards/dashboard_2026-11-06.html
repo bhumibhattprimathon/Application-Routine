@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-06</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --ink:#0f172a; --muted:#64748b;
+    --bg:#f1f5f9; --card:#ffffff; --border:#e2e8f0; --amber-bg:#fffbeb; --amber-br:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+  header{background:#0b1220;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .banner{background:var(--amber-bg);border:1px solid var(--amber-br);border-left:6px solid var(--amber-br);
+    border-radius:10px;padding:16px 18px;margin:18px 0}
+  .banner h2{margin:0 0 6px;font-size:16px;color:#92400e}
+  .banner p{margin:4px 0;font-size:14px;color:#78350f}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .c-green{color:var(--green)} .c-yellow{color:var(--yellow)} .c-red{color:var(--red)} .c-ink{color:var(--ink)}
+  .openall{display:block;width:100%;background:var(--green);color:#063;border:none;border-radius:12px;
+    padding:18px;font-size:18px;font-weight:800;cursor:pointer;margin:10px 0 4px;color:#04300f}
+  .openall:hover{filter:brightness(.96)}
+  .hint{font-size:12px;color:var(--muted);text-align:center;margin-bottom:18px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:16px 0}
+  h2.sec{font-size:16px;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+  h2.sec.green{border-color:var(--green)} h2.sec.yellow{border-color:var(--yellow)} h2.sec.red{border-color:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700}
+  .pill.g{background:#dcfce7;color:#166534} .pill.y{background:#fef9c3;color:#854d0e} .pill.r{background:#fee2e2;color:#991b1b}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:#fff;
+    font-size:12px;cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn.primary{background:#0b1220;color:#fff;border-color:#0b1220}
+  .btn:hover{filter:brightness(.97)}
+  .rec{border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fcfdff}
+  .rec h3{margin:0 0 4px;font-size:15px}
+  .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .trend{display:flex;gap:18px;align-items:flex-end;height:140px;padding-top:8px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:0 0 70px}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0}
+  .bar .cap{font-size:12px;color:var(--muted);margin-top:6px;text-align:center}
+  .cl{border:1px solid var(--border);border-radius:10px;padding:14px;margin:12px 0;background:#fcfdff}
+  .cl pre{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;margin:8px 0 0}
+  .note{font-size:12px;color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+  @media(max-width:620px){ table{font-size:12px} th,td{padding:7px 5px} }
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-06</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Entry–Junior · Target 5.5–12 LPA</div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <h2>⚠️ Degraded run — live &lt;24h feed unavailable</h2>
+    <p><strong>The daily job feed (JSearch / RapidAPI) is down</strong> — its endpoint now returns "does not exist", meaning the subscription has lapsed since the last good run (2026-08-05). Without it, no source exposes verified LinkedIn postings from the last 24 hours; plain web search only returns stale aggregator category pages.</p>
+    <p><strong>What this means:</strong> the roles below were pulled from live job boards (Cutshort, Wellfound) and are <strong>real but NOT verified as posted in the last 24h</strong> — the freshest relevant one is ~1 week old. <strong>Verify each is still open before applying.</strong></p>
+    <p><strong>Action to restore fresh daily scans:</strong> renew the RapidAPI JSearch subscription (or add another live jobs-API key). The <code>RAPIDAPI_KEY</code> env var is set but no longer maps to JSearch.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n c-ink">10</div><div class="l">Jobs Evaluated</div></div>
+    <div class="card"><div class="n c-green">1</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n c-yellow">3</div><div class="l">To Review</div></div>
+    <div class="card"><div class="n c-red">6</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n c-ink">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n c-ink">80</div><div class="l">Avg Match (scored)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB ↗</button>
+  <div class="hint">Opens every qualified job link in new tabs. If your browser blocks pop-ups, allow them for this page.</div>
+
+  <section>
+    <h2 class="sec green">✅ Qualified — ready to apply</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Variant</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="pill g">87</span></td><td>78</td>
+          <td>RD&amp;X Network</td><td>Backend Engineer (Java)</td>
+          <td>Gurgaon <span class="note">(verify)</span></td><td>10–15 LPA</td><td>backend</td>
+          <td>External (Wellfound)</td>
+          <td>
+            <a class="btn primary" href="https://wellfound.com/jobs/1048325-backend-engineer_java" target="_blank" rel="noopener">Open job ↗</a>
+            <button class="btn" onclick="copyCL('cl-rdx')">Copy cover letter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note" style="margin-top:10px">⚠️ Posting is ~1 month old and the Gurgaon location is unconfirmed (firm is Mumbai-HQ). Strong profile match, but confirm the role is still open and location fits before applying.</p>
+  </section>
+
+  <section>
+    <h2 class="sec yellow">🟡 Review — worth a look, with caveats</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Reason to review</th><th>Open</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="pill y">86</span></td><td>55</td>
+          <td>Surety Seven Technologies</td><td>Software Development Engineer-1</td><td>Delhi, Noida</td><td>6–12 LPA</td>
+          <td>Excellent fit (SDE-1, 1–2 yrs, in range) but company data is murky — conflicting size (0–20 vs 100–500) &amp; founding year. Verify it's a real, funded employer.</td>
+          <td><a class="btn" href="https://cutshort.io/job/Software-Development-Engineer-1-Delhi-Noida-Surety-Seven-Technologies-KaGJZZLh" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="pill y">76</span></td><td>75</td>
+          <td>Antino</td><td>Senior Java Developer</td><td>Gurgaon</td><td>10–15 LPA</td>
+          <td>Freshest relevant role (~1 week) &amp; legit dev studio, but "Senior" / 3 yrs — a reach for 1.5 yrs. Aim-up application.</td>
+          <td><a class="btn" href="https://wellfound.com/jobs/4901340-senior-java-developer" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="pill y">70</span></td><td>45</td>
+          <td>Zentrix Nexus</td><td>Java Developer</td><td>Delhi/Gurugram/Noida</td><td>4–7 LPA</td>
+          <td>0–2 yr Java fit, but ~18 months old, mass-posted across 10 cities, salary partly below target. Low trust.</td>
+          <td><a class="btn" href="https://cutshort.io/job/Java-Developer-Chennai-Bengaluru-Bangalore-Mumbai-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Pune-Hyderabad-Zentrix-nexus-ErbJchjq" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="sec red">🔴 Skipped</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Lalitech</td><td>Full Stack Engineer</td><td>Salary: 3.5–4.5 LPA below 5.5 LPA minimum (stale, Jul 2025).</td></tr>
+        <tr><td>2</td><td>PrimaFelicitas</td><td>MEAN Stack Developer</td><td>Salary: 2–5 LPA below minimum.</td></tr>
+        <tr><td>3</td><td>NeoGenCode Technologies</td><td>Full Stack Engineer</td><td>Salary: 2–5 LPA below minimum; agency mass-posting (stale, Sep 2025).</td></tr>
+        <tr><td>4</td><td>Mellow Vault</td><td>SDE — Intern/Fresher</td><td>Salary: 2–5 LPA below minimum; intern/fresher level below 1.5 yrs exp.</td></tr>
+        <tr><td>5</td><td>fi ellements</td><td>Node Js Developer</td><td>Skill/trust: small WordPress/PHP/mobile services shop, off core stack; ~14 months old.</td></tr>
+        <tr><td>6</td><td>Deqode</td><td>Java + Angular Developer</td><td>Experience: requires 5–12 yrs (beyond 1.5); stale (Jun 2025).</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="sec">⭐ Top recommendations</h2>
+    <div class="rec">
+      <h3>1. RD&amp;X Network — Backend Engineer (Java)</h3>
+      <div class="meta">Match 87 · Trust 78 · Gurgaon · 10–15 LPA · backend</div>
+      <p>The best genuine match today. RD&amp;X is a real, funded adtech (product <em>ReBid</em>; founders Rajiv Dingra and Ashish Bhasin, 51–200 employees) and the role targets ~1 yr experience — squarely where Bhumi sits at 1.5 yrs. It plays to her strengths: Java/Spring Boot microservices, AWS (Timestream/S3/Lambda) real-time pipelines, and Kafka/Redis event handling, all of which map to high-throughput adtech reporting. Tailored cover letter is ready below. <strong>Caveat:</strong> posting is ~1 month old and Gurgaon location is unconfirmed — verify before applying.</p>
+    </div>
+    <div class="rec">
+      <h3>2. Surety Seven Technologies — SDE-1</h3>
+      <div class="meta">Match 86 · Trust 55 · Delhi/Noida · 6–12 LPA</div>
+      <p>On paper the cleanest fit — entry SDE-1, 1–2 yrs, Delhi/Noida, salary dead-center in range. Held back only by thin, inconsistent company data. If a quick check (website suretyseven.com, LinkedIn page, MCA record) confirms it's a real employer, this jumps to a priority apply.</p>
+    </div>
+    <div class="rec">
+      <h3>3. Antino — Senior Java Developer</h3>
+      <div class="meta">Match 76 · Trust 75 · Gurgaon · 10–15 LPA</div>
+      <p>A legitimate, recent (~1 week) Gurgaon Java role at a 201–500-person studio. It's a "Senior/3 yrs" ask, so a stretch — but with strong Java + microservices + AWS credentials and 5-star DSA, it's a reasonable aim-up application if she wants to push on comp.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">📈 Qualified per run</h2>
+    <div class="trend">
+      <div class="bar"><div class="fill" style="height:40px"></div><div class="cap">2026-08-05<br>1 qualified</div></div>
+      <div class="bar"><div class="fill" style="height:40px"></div><div class="cap">2026-11-06<br>1 qualified</div></div>
+    </div>
+    <p class="note" style="margin-top:12px">Only two completed runs exist in history (the routine's prior runs are ~3 months apart, not daily). A true weekly trend will populate once the live feed is restored and the scan runs daily.</p>
+  </section>
+
+  <section>
+    <h2 class="sec">✉️ Cover letters</h2>
+    <div class="cl">
+      <strong>RD&amp;X Network — Backend Engineer (Java)</strong>
+      <button class="btn" style="float:right" onclick="copyCL('cl-rdx')">COPY</button>
+      <pre id="cl-rdx">Dear Hiring Manager,
+
+I'm excited to apply for the Backend Engineer (Java) role at RD&X Network, where real-time, data-heavy adtech is exactly the kind of system I enjoy building.
+
+In my current role at Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems, and I've integrated AWS Timestream, S3, and Lambda into production pipelines for real-time data ingestion and event handling — directly relevant to high-throughput, ReBid-style reporting. My core stack is Java and Spring Boot: I architected a distributed payment gateway of 30 REST APIs across four microservices, and at Paytm I built microservices powering real-time transaction notifications, improving service reliability by 67%. I also work daily with Kafka, Redis, and MySQL for scalable, fault-tolerant processing.
+
+As an immediate joiner (0-day notice) with 5-Star Gold Java on HackerRank and 250+ DSA problems solved, I can contribute to your backend team from day one and ramp quickly on a new domain.
+
+Best regards,
+Bhumi Bhatt</pre>
+    </div>
+    <p class="note">Cover letters are generated only for roles with match ≥ 75 and trust ≥ 60. Surety Seven (trust 55) and Antino (review) did not qualify for an auto-letter this run.</p>
+  </section>
+
+  <footer>Generated 2026-11-06 · Backend/Full-Stack job scan · Data: live job boards (fallback) · Live &lt;24h feed offline</footer>
+</div>
+
+<script>
+  var qualifiedUrls = ["https://wellfound.com/jobs/1048325-backend-engineer_java"];
+  function openAll(){
+    if(!qualifiedUrls.length){ alert("No qualified jobs to open today."); return; }
+    qualifiedUrls.forEach(function(u){ window.open(u, "_blank", "noopener"); });
+  }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.innerText : "";
+    function done(){ /* lightweight feedback */ }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallback(text); });
+    } else { fallback(text); }
+  }
+  function fallback(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); flash(); }catch(e){ alert("Copy failed — select the text manually."); }
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var n=document.createElement("div");
+    n.textContent="Cover letter copied ✓";
+    n.style.cssText="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0b1220;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:9999";
+    document.body.appendChild(n); setTimeout(function(){ n.remove(); },1600);
+  }
+</script>
+</body>
+</html>
