@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the MERN Stack Developer role at GoodSpace. Your platform blends full-stack engineering with AI, which matches my background precisely: I work across React, Node.js, Express, and MongoDB, and my experience spans AI-driven features - I integrated automated daily AI alerts into my distributed payment gateway and authored a research paper on Generative AI applications in personalized systems. At Primathon I build backend automation and REST APIs across seven merchant systems, so I can own both ends of a MERN stack. Strong JavaScript (ES6+) fundamentals and a 5-star Java HackerRank rating round out my profile. As an immediate joiner excited by applied AI, I'd contribute quickly to building intelligent, user-facing product features.
+
+Best regards,
+Bhumi Bhatt

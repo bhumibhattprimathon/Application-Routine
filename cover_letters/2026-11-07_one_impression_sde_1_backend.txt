@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+The SDE-1 Backend opening at One Impression is a strong fit for me. Scaling an influencer-marketing platform means dependable APIs and clean data flows, and I've shipped exactly that: at Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and I architected a distributed payment gateway with 30 REST APIs spanning Order, Payment, Merchant, and Vault services. I'm fluent in Java, Spring Boot, Node.js, Express, REST APIs, MongoDB, and MySQL, and I use Kafka and Redis for real-time event handling. With a 9.3 CGPA and a 5-star Java HackerRank rating, I pair solid CS fundamentals with shipping experience. As an immediate joiner, I'm excited to grow fast with a Krafton-backed team.
+
+Best regards,
+Bhumi Bhatt

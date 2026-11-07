@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm applying for the SDE-1 Backend role at InstaFix. Building a 30-minute doorstep-repair operation demands backend systems that stay reliable under rapid growth - the kind I've built at Primathon, where automated backend workflows reduced manual effort by 70% and real-time AWS pipelines (Timestream, S3, Lambda) handled scalable event ingestion. I bring hands-on strength in Java, Spring Boot, Node.js, Express, REST APIs, MySQL, and MongoDB, plus Docker and CI/CD for production-ready delivery. Having developed order and payment microservices end-to-end in earlier roles, I'm comfortable owning features from design to deployment. As a 5-star Java coder and immediate joiner, I'd love to help an early, fast-moving team build backend foundations that scale.
+
+Best regards,
+Bhumi Bhatt

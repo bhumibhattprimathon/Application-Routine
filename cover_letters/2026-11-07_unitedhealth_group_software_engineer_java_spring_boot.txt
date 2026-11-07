@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer, Java Spring Boot role at UnitedHealth Group (Optum) in Gurugram. At Primathon I build production Spring Boot microservices and custom admin REST APIs across seven merchant systems, and during my Paytm internship I developed microservices managing the QR-code lifecycle for real-time transactions. My core toolkit - Java, Spring Boot, REST APIs, MySQL, and JUnit/Mockito testing - maps directly to your stack, and my distributed payment gateway project (30 REST APIs across four services) shows I design for scale and fault tolerance. As a 5-star Java coder on HackerRank with 250+ DSA problems solved, I bring strong fundamentals. I'm an immediate joiner, eager to contribute to healthcare-scale systems from day one.
+
+Best regards,
+Bhumi Bhatt

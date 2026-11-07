@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd welcome the chance to join Snapdeal as a Software Engineer 1 on the backend team. E-commerce runs on reliable, high-throughput services, and that's exactly where I've worked: at Primathon I cut manual operational effort by 70% building automated backend workflows and real-time data pipelines on AWS (Timestream, S3, Lambda), and at Paytm I improved microservice reliability and performance by 67%. I work day-to-day in Java, Spring Boot, Node.js, REST APIs, and SQL, with Kafka and Redis for event-driven, low-latency flows. My HackerRank 5-star Java rating and 250+ solved DSA problems reflect the problem-solving depth an SDE-1 role demands. Available to join immediately, I'm keen to help Snapdeal ship resilient backend features at scale.
+
+Best regards,
+Bhumi Bhatt

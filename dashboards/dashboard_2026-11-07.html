@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard - 2026-11-07</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--ink);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:1.4rem;letter-spacing:.3px}
+  header p{margin:0;color:#cbd5e1;font-size:.9rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:1.8rem;font-weight:700}
+  .card .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .c-green{color:var(--green)} .c-yellow{color:#b45309} .c-red{color:var(--red)}
+  .banner{background:#fffbeb;border:1px solid #fde68a;color:#78350f;border-radius:10px;padding:12px 14px;font-size:.86rem;margin:14px 0}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:0;border-radius:12px;padding:18px;font-size:1.15rem;font-weight:700;cursor:pointer;margin:18px 0;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+  .openall:hover{filter:brightness(.95)}
+  h2{margin:26px 0 10px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.84rem}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-weight:700;font-size:.78rem}
+  .b-green{background:#dcfce7;color:#166534} .b-yellow{background:#fef9c3;color:#854d0e} .b-red{background:#fee2e2;color:#991b1b}
+  .btn{border:0;border-radius:8px;padding:6px 10px;font-size:.78rem;cursor:pointer;font-weight:600;white-space:nowrap}
+  .btn-open{background:#1d4ed8;color:#fff;text-decoration:none;display:inline-block}
+  .btn-copy{background:#e2e8f0;color:#0f172a;margin-top:4px}
+  .btn-copy:hover,.btn-open:hover{filter:brightness(.95)}
+  .scroll{overflow-x:auto}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin:10px 0}
+  .rec h4{margin:0 0 4px;font-size:.95rem}
+  .rec .meta{font-size:.76rem;color:var(--muted);margin-bottom:6px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+  .cl h4{margin:0 0 8px;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.84rem;margin:0;color:#1e293b}
+  .trend{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .bars{display:flex;align-items:flex-end;gap:16px;height:150px;margin-top:10px}
+  .bar-col{display:flex;flex-direction:column;align-items:center;flex:1;max-width:80px}
+  .bar{width:100%;background:var(--green);border-radius:6px 6px 0 0;min-height:4px;display:flex;align-items:flex-start;justify-content:center;color:#fff;font-size:.72rem;font-weight:700;padding-top:3px}
+  .bar-lbl{font-size:.72rem;color:var(--muted);margin-top:6px;text-align:center}
+  .hidden{display:none}
+  footer{color:var(--muted);font-size:.78rem;text-align:center;padding:24px}
+  a.joblink{color:#1d4ed8}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD &mdash; 2026-11-07</h1>
+  <p>Daily job discovery &amp; screening for Bhumi Bhatt &middot; Backend / Full-Stack Engineer &middot; Delhi NCR / Remote</p>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <strong>How to read this:</strong> Live LinkedIn &ldquo;past-24h&rdquo; listings and direct linkedin.com/jobs URLs are behind a login and are not reachable via automated web search. The jobs below are <strong>specific, real postings surfaced from job boards</strong> (foundit, hirist, weekday, tryapplynow, cutshort, builtin). Each links to its source; <strong>confirm the role is still open on the employer&rsquo;s page before applying</strong>, and re-run LinkedIn&rsquo;s own &ldquo;Past 24 hours&rdquo; filter to catch today-only posts.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">17</div><div class="l">Leads Found</div></div>
+    <div class="card"><div class="n c-green">5</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n c-yellow">9</div><div class="l">For Review</div></div>
+    <div class="card"><div class="n c-red">3</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n c-red">2</div><div class="l">Low-Trust Flagged</div></div>
+    <div class="card"><div class="n">88</div><div class="l">Avg Match (Qual.)</div></div>
+    <div class="card"><div class="n">~9.5<span style="font-size:.9rem"> LPA</span></div><div class="l">Avg Salary Est.</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 5 QUALIFIED JOBS</button>
+
+  <!-- QUALIFIED -->
+  <h2><span class="dot" style="background:var(--green)"></span>Qualified &mdash; Ready to Apply</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr>
+      <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Action</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td><td><span class="badge b-green">96</span></td><td>98</td>
+        <td>UnitedHealth Group (Optum)</td><td>Software Engineer &ndash; Java Spring Boot</td><td>Gurugram</td><td>7&ndash;10 LPA</td><td>backend</td><td>External</td>
+        <td><a class="btn btn-open" href="https://www.tryapplynow.com/jobs/unitedhealth-group-software-engineer-java-spring-boot-9af95fa0-9e77-4ea5-9f25-e821c79de921" target="_blank" rel="noopener">Open Job</a><br><button class="btn btn-copy" onclick="copyCL('cl1')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>2</td><td><span class="badge b-green">91</span></td><td>90</td>
+        <td>Snapdeal</td><td>Software Engineer 1 (Backend)</td><td>Gurugram</td><td>9&ndash;14 LPA</td><td>backend</td><td>External</td>
+        <td><a class="btn btn-open" href="https://www.tryapplynow.com/jobs/snapdeal-software-engineer-1-c24f816d-f3fd-4bb8-aaa4-a5241060fc4d" target="_blank" rel="noopener">Open Job</a><br><button class="btn btn-copy" onclick="copyCL('cl2')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>3</td><td><span class="badge b-green">86</span></td><td>82</td>
+        <td>One Impression</td><td>SDE 1 &ndash; Backend</td><td>Gurugram</td><td>8&ndash;12 LPA</td><td>backend</td><td>External</td>
+        <td><a class="btn btn-open" href="https://www.foundit.in/job/sde-1-backend-one-impression-gurugram-38152571" target="_blank" rel="noopener">Open Job</a><br><button class="btn btn-copy" onclick="copyCL('cl3')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>4</td><td><span class="badge b-green">85</span></td><td>70</td>
+        <td>InstaFix</td><td>SDE 1 &ndash; Backend</td><td>Gurgaon</td><td>7&ndash;11 LPA</td><td>backend</td><td>External</td>
+        <td><a class="btn btn-open" href="https://www.foundit.in/job/sde-1-backend-instafix-gurgaon-gurugram-55302156" target="_blank" rel="noopener">Open Job</a><br><button class="btn btn-copy" onclick="copyCL('cl4')">Copy Cover Letter</button></td>
+      </tr>
+      <tr>
+        <td>5</td><td><span class="badge b-green">83</span></td><td>62</td>
+        <td>GoodSpace <span style="color:#b45309">&#9888; culture</span></td><td>MERN Stack Developer (AI/LLM)</td><td>Noida / NCR</td><td>7&ndash;10 LPA</td><td>fullstack</td><td>Email</td>
+        <td><a class="btn btn-open" href="https://jobs.weekday.works/mern-stack-developer-at-goodspace-ai-4416143390" target="_blank" rel="noopener">Open Job</a><br><button class="btn btn-copy" onclick="copyCL('cl5')">Copy Cover Letter</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- REVIEW -->
+  <h2><span class="dot" style="background:var(--yellow)"></span>For Review &mdash; Match or Trust Borderline</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><span class="badge b-yellow">88</span></td><td><span class="badge b-red">42</span></td><td>ITCombine</td><td>Java Backend (claims Fintech)</td><td>AmbitionBox lists a low-cost web-design/marketing agency (est 2008, 2.5&#9733;), <strong>not a fintech</strong> &mdash; company misrepresentation risk</td><td><a class="joblink" href="https://getmereferred.com/job-listing/java-backend-developer_fintech_3-4yrs_immediate-gurugram-2-to-5-years-2edf220d-d685-4719-983c-0d4be0bbe4cd" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>2</td><td><span class="badge b-yellow">78</span></td><td><span class="badge b-red">45</span></td><td>AdGrid (stealth)</td><td>SDE &ndash; Java</td><td>Stealth company; applies via personal email + &ldquo;build a feature&rdquo; request &mdash; unverifiable</td><td><a class="joblink" href="https://www.foundit.in/job/software-engineer-adgrid-gurugram-47823312" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>3</td><td><span class="badge b-yellow">83</span></td><td>50</td><td>Fi Ellements</td><td>Node.js &ndash; Microservices</td><td>Trust unverified (small/unknown); strong skill fit (Node+microservices, 1&ndash;2 yr) &mdash; verify employer</td><td><a class="joblink" href="https://www.hirist.tech/j/node-js-developer-microservices-architecture-1622968" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>4</td><td><span class="badge b-yellow">76</span></td><td>50</td><td>Unnamed (Hirist)</td><td>Backend Developer &ndash; NestJS</td><td>Employer not named in listing; Node/NestJS fit good (1&ndash;2 yr) &mdash; verify first</td><td><a class="joblink" href="https://www.hirist.tech/j/backend-developer-nestjs-1587387" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>5</td><td><span class="badge b-yellow">75</span></td><td>50</td><td>ImmersiveData.ai</td><td>Full Stack (Java + React)</td><td>Requires 3&ndash;7 yrs (she has 1.5); strong stack match but experience gap + trust unverified</td><td><a class="joblink" href="https://jobs.weekday.works/full-stack-engineer-java-%252B-react-at-immersivedata-ai-4395691777" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>6</td><td><span class="badge b-yellow">62</span></td><td>72</td><td>Evolphin Software</td><td>AI/ML Engineer &ndash; Search (remote)</td><td>Legit (est 2007, Glassdoor 4.2) + junior + remote, but ML/search ranking depth is beyond a backend profile</td><td><a class="joblink" href="https://builtindelhi.in/job/ai-ml-engineer-search/7292620" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>7</td><td><span class="badge b-yellow">60</span></td><td>85</td><td>GoKwik</td><td>DevOps Engineer</td><td>Well-funded, legit; DevOps role is a partial fit (has AWS/Docker/CI, not core DevOps)</td><td><a class="joblink" href="https://career.io/job/devops-engineer-new-delhi-gokwik-cbab5221eb174d491a9d869255fbecfa" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>8</td><td><span class="badge b-yellow">58</span></td><td>58</td><td>DigitalXnode</td><td>Junior DevOps Engineer</td><td>Thin reviews (~51&ndash;200 staff IT consultancy) + DevOps is a stretch for backend focus</td><td><a class="joblink" href="https://www.foundit.in/job/junior-devops-engineer-gurugram-digitalxnode-gurugram-58670605" target="_blank" rel="noopener">open</a></td></tr>
+      <tr><td>9</td><td><span class="badge b-yellow">55</span></td><td>50</td><td>KedarX.AI</td><td>Backend &ndash; Python/FastAPI (remote)</td><td>Python/FastAPI-centric (not her core Java/Node); 2&ndash;5 yr; trust unverified</td><td><a class="joblink" href="https://getmereferred.com/in/job-listing/backend-engineer-python-fastapi-delhincr-remote-hybrid-kedarxai-indldelhi-indlnewdelhi-2-to-5-years-experience-a8edafcb-4130-4064-a7b8-455cfd7e1477" target="_blank" rel="noopener">open</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- SKIPPED -->
+  <h2><span class="dot" style="background:var(--red)"></span>Skipped</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>VAYUZ Technologies</td><td>NodeJS Developer (Remote/Noida)</td><td><strong>Salary:</strong> listed &#8377;3&ndash;4 LPA, below the 5 LPA minimum and well under target</td></tr>
+      <tr><td>2</td><td>AppSquadz Software</td><td>Backend Developer Trainee (Node.js), Noida</td><td><strong>Salary/level:</strong> trainee (0&ndash;1 yr), est. &lt;5 LPA &mdash; a step down from 1.5 yr experience</td></tr>
+      <tr><td>3</td><td>Mrsool</td><td>SDE-1 Backend, Gurugram</td><td><strong>Stale/closed:</strong> listing expiry 29 Jan 2026 (likely closed); requires 2+ yr Java/Golang</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TOP 5 -->
+  <h2>&#11088; Top 5 Recommendations</h2>
+
+  <div class="rec">
+    <h4>1. UnitedHealth Group / Optum &mdash; Software Engineer, Java Spring Boot (Gurugram)</h4>
+    <div class="meta">Match 96 &middot; Trust 98 &middot; 7&ndash;10 LPA &middot; backend resume</div>
+    The single best fit today. It is <strong>explicitly entry-level (0&ndash;2 yrs)</strong> and the stack &mdash; Java, Spring Boot, REST APIs &mdash; is exactly Bhumi&rsquo;s wheelhouse. A Fortune-500 employer means near-zero fraud risk and strong resume value. Her Paytm microservices work and payment-gateway project map directly to healthcare-scale backend systems.
+  </div>
+  <div class="rec">
+    <h4>2. Snapdeal &mdash; Software Engineer 1, Backend (Gurugram)</h4>
+    <div class="meta">Match 91 &middot; Trust 90 &middot; 9&ndash;14 LPA &middot; backend resume</div>
+    Established product company, strong SDE-1 compensation, and an e-commerce backend where her reliability/performance wins (67% at Paytm, 70% automation at Primathon) and Kafka/Redis experience shine. Verify the posting is still live (surfaced date ~Apr 2026).
+  </div>
+  <div class="rec">
+    <h4>3. One Impression &mdash; SDE 1, Backend (Gurugram)</h4>
+    <div class="meta">Match 86 &middot; Trust 82 &middot; 8&ndash;12 LPA &middot; backend resume</div>
+    Krafton-backed ($10M Series A), a credible, well-funded startup. An SDE-1 backend seat suits her experience level, and platform-scale API work matches her admin-API and syncing-automation background at Primathon.
+  </div>
+  <div class="rec">
+    <h4>4. InstaFix &mdash; SDE 1, Backend (Gurgaon)</h4>
+    <div class="meta">Match 85 &middot; Trust 70 &middot; 7&ndash;11 LPA &middot; backend resume</div>
+    Funded (Titan Capital, 8i Ventures) but very early (founded 2025) &mdash; high ownership and fast growth, with the trade-off of an unproven, small team. Great for an immediate joiner who wants to build backend foundations. Weigh stability vs. learning speed.
+  </div>
+  <div class="rec">
+    <h4>5. GoodSpace &mdash; MERN Stack Developer, AI/LLM (Noida / NCR)</h4>
+    <div class="meta">Match 83 &middot; Trust 62 &middot; 7&ndash;10 LPA &middot; fullstack resume</div>
+    Rare blend of MERN + applied AI that matches her React/Node/Mongo skills <em>and</em> her GenAI research + AI-alerts project. <strong>Caution:</strong> Glassdoor carries several &ldquo;toxic culture&rdquo; reviews &mdash; worth probing work-life balance in interviews before committing.
+  </div>
+
+  <!-- WEEKLY TREND -->
+  <h2>&#128202; Weekly Trend &mdash; Qualified / Day</h2>
+  <div class="trend">
+    <div class="bars">
+      <div class="bar-col"><div class="bar" style="height:0" title="no run">0</div><div class="bar-lbl">Mon 11/03</div></div>
+      <div class="bar-col"><div class="bar" style="height:0" title="no run">0</div><div class="bar-lbl">Tue 11/04</div></div>
+      <div class="bar-col"><div class="bar" style="height:0" title="no run">0</div><div class="bar-lbl">Wed 11/05</div></div>
+      <div class="bar-col"><div class="bar" style="height:0" title="no run">0</div><div class="bar-lbl">Thu 11/06</div></div>
+      <div class="bar-col"><div class="bar" style="height:125px">5</div><div class="bar-lbl"><strong>Fri 11/07</strong></div></div>
+    </div>
+    <p style="font-size:.8rem;color:var(--muted);margin:12px 0 0">First run &mdash; no prior dashboards found in <code>~/linkedin-jobs/dashboards/</code>. The trend will fill in as the routine runs on subsequent days.</p>
+  </div>
+
+  <!-- COVER LETTERS -->
+  <h2>&#9993; Cover Letters</h2>
+
+  <div class="cl">
+    <h4><span>UnitedHealth Group &mdash; Software Engineer, Java Spring Boot</span><button class="btn btn-copy" onclick="copyCL('cl1')">COPY</button></h4>
+    <pre id="cl1">Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer, Java Spring Boot role at UnitedHealth Group (Optum) in Gurugram. At Primathon I build production Spring Boot microservices and custom admin REST APIs across seven merchant systems, and during my Paytm internship I developed microservices managing the QR-code lifecycle for real-time transactions. My core toolkit - Java, Spring Boot, REST APIs, MySQL, and JUnit/Mockito testing - maps directly to your stack, and my distributed payment gateway project (30 REST APIs across four services) shows I design for scale and fault tolerance. As a 5-star Java coder on HackerRank with 250+ DSA problems solved, I bring strong fundamentals. I'm an immediate joiner, eager to contribute to healthcare-scale systems from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h4><span>Snapdeal &mdash; Software Engineer 1 (Backend)</span><button class="btn btn-copy" onclick="copyCL('cl2')">COPY</button></h4>
+    <pre id="cl2">Dear Hiring Manager,
+
+I'd welcome the chance to join Snapdeal as a Software Engineer 1 on the backend team. E-commerce runs on reliable, high-throughput services, and that's exactly where I've worked: at Primathon I cut manual operational effort by 70% building automated backend workflows and real-time data pipelines on AWS (Timestream, S3, Lambda), and at Paytm I improved microservice reliability and performance by 67%. I work day-to-day in Java, Spring Boot, Node.js, REST APIs, and SQL, with Kafka and Redis for event-driven, low-latency flows. My HackerRank 5-star Java rating and 250+ solved DSA problems reflect the problem-solving depth an SDE-1 role demands. Available to join immediately, I'm keen to help Snapdeal ship resilient backend features at scale.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h4><span>One Impression &mdash; SDE 1 Backend</span><button class="btn btn-copy" onclick="copyCL('cl3')">COPY</button></h4>
+    <pre id="cl3">Dear Hiring Manager,
+
+The SDE-1 Backend opening at One Impression is a strong fit for me. Scaling an influencer-marketing platform means dependable APIs and clean data flows, and I've shipped exactly that: at Primathon I engineered custom admin APIs and backend syncing automation across seven merchant systems, and I architected a distributed payment gateway with 30 REST APIs spanning Order, Payment, Merchant, and Vault services. I'm fluent in Java, Spring Boot, Node.js, Express, REST APIs, MongoDB, and MySQL, and I use Kafka and Redis for real-time event handling. With a 9.3 CGPA and a 5-star Java HackerRank rating, I pair solid CS fundamentals with shipping experience. As an immediate joiner, I'm excited to grow fast with a Krafton-backed team.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h4><span>InstaFix &mdash; SDE 1 Backend</span><button class="btn btn-copy" onclick="copyCL('cl4')">COPY</button></h4>
+    <pre id="cl4">Dear Hiring Manager,
+
+I'm applying for the SDE-1 Backend role at InstaFix. Building a 30-minute doorstep-repair operation demands backend systems that stay reliable under rapid growth - the kind I've built at Primathon, where automated backend workflows reduced manual effort by 70% and real-time AWS pipelines (Timestream, S3, Lambda) handled scalable event ingestion. I bring hands-on strength in Java, Spring Boot, Node.js, Express, REST APIs, MySQL, and MongoDB, plus Docker and CI/CD for production-ready delivery. Having developed order and payment microservices end-to-end in earlier roles, I'm comfortable owning features from design to deployment. As a 5-star Java coder and immediate joiner, I'd love to help an early, fast-moving team build backend foundations that scale.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <h4><span>GoodSpace &mdash; MERN Stack Developer</span><button class="btn btn-copy" onclick="copyCL('cl5')">COPY</button></h4>
+    <pre id="cl5">Dear Hiring Manager,
+
+I'm keen to apply for the MERN Stack Developer role at GoodSpace. Your platform blends full-stack engineering with AI, which matches my background precisely: I work across React, Node.js, Express, and MongoDB, and my experience spans AI-driven features - I integrated automated daily AI alerts into my distributed payment gateway and authored a research paper on Generative AI applications in personalized systems. At Primathon I build backend automation and REST APIs across seven merchant systems, so I can own both ends of a MERN stack. Strong JavaScript (ES6+) fundamentals and a 5-star Java HackerRank rating round out my profile. As an immediate joiner excited by applied AI, I'd contribute quickly to building intelligent, user-facing product features.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <footer>Generated 2026-11-07 &middot; 11 web searches across 5 role batches &middot; 17 specific leads evaluated &middot; Always verify role status on the employer page before applying.</footer>
+</div>
+
+<script>
+  var urls = [
+    "https://www.tryapplynow.com/jobs/unitedhealth-group-software-engineer-java-spring-boot-9af95fa0-9e77-4ea5-9f25-e821c79de921",
+    "https://www.tryapplynow.com/jobs/snapdeal-software-engineer-1-c24f816d-f3fd-4bb8-aaa4-a5241060fc4d",
+    "https://www.foundit.in/job/sde-1-backend-one-impression-gurugram-38152571",
+    "https://www.foundit.in/job/sde-1-backend-instafix-gurgaon-gurugram-55302156",
+    "https://jobs.weekday.works/mern-stack-developer-at-goodspace-ai-4416143390"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var txt = el ? el.innerText : "";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(flash, function(){ fallback(txt); });
+    } else { fallback(txt); }
+  }
+  function fallback(txt){
+    var ta = document.createElement("textarea");
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); flash();
+  }
+  function flash(){
+    if(window.event && window.event.target){
+      var b = window.event.target, old = b.textContent;
+      b.textContent = "Copied ✓";
+      setTimeout(function(){ b.textContent = old; }, 1400);
+    }
+  }
+</script>
+</body>
+</html>
