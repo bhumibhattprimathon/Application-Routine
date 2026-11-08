@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-08</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --ink:#0f172a;
+    --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0b1220;color:#fff;padding:28px 20px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .banner{margin:20px 0;padding:16px 18px;border-radius:12px;background:#fef2f2;border:1px solid #fecaca}
+  .banner.warn{background:#fffbeb;border-color:#fde68a}
+  .banner h2{margin:0 0 6px;font-size:17px;color:#b91c1c}
+  .banner.warn h2{color:#92400e}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .card .n{font-size:26px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+  section h2{margin:0 0 10px;font-size:16px}
+  p{margin:8px 0}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:var(--muted)}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600}
+  .p-stale{background:#fef9c3;color:#854d0e}
+  .p-dead{background:#fee2e2;color:#991b1b}
+  .p-unv{background:#e2e8f0;color:#334155}
+  code{background:#f1f5f9;padding:2px 6px;border-radius:6px;font-size:13px}
+  .fix{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px}
+  .fix ol{margin:8px 0 0 18px;padding:0}
+  .bars{display:flex;align-items:flex-end;gap:18px;height:120px;margin-top:8px}
+  .bar{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .bar .b{width:46px;border-radius:6px 6px 0 0;background:var(--green)}
+  .bar .b.zero{background:var(--red);height:4px}
+  .bar small{color:var(--muted);font-size:12px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-08</h1>
+    <div class="sub">Candidate: Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <h2>⚠ Run degraded — 0 verified jobs delivered today</h2>
+    <p>The routine's live job-data source (<strong>JSearch API via RapidAPI</strong>) returned
+    <code>404 — Endpoint '/search' does not exist</code>, which means the API key is <strong>no longer subscribed</strong>
+    to JSearch (the subscription appears to have lapsed since the last successful run on 2026-08-05).
+    The WebSearch fallback produced only third-party aggregator links of uncertain freshness, and
+    <strong>none</strong> of the 10 best leads could be verified as live, current, apply-ready postings.
+    <strong>No jobs were fabricated</strong> (routine Rule #2).</p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Verified live jobs</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n">9</div><div class="l">Leads checked</div></div>
+    <div class="card"><div class="n">9</div><div class="l">Failed verification</div></div>
+  </div>
+
+  <section class="fix-sec">
+    <h2>🔧 Action required to resume daily jobs</h2>
+    <div class="fix">
+      <p><strong>Root cause:</strong> the paid/free JSearch subscription on the RapidAPI key lapsed, so the pipeline that found live last-24h postings (used on 2026-08-05) no longer works. WebSearch alone cannot return verifiable LinkedIn postings with working apply links.</p>
+      <ol>
+        <li>Re-subscribe the RapidAPI key to <strong>JSearch</strong> (the free Basic tier is enough for one daily run), <em>or</em></li>
+        <li>Provide an alternative live job-data API (e.g. another RapidAPI jobs endpoint, or an official jobs API), <em>or</em></li>
+        <li>Let me know and I can wire the routine to whatever source you prefer.</li>
+      </ol>
+      <p style="margin-bottom:0">Once a working data source is in place, the full daily flow (discover → fraud-check → score → cover letters → dashboard) resumes automatically.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Leads surfaced today — none recommended (could not verify)</h2>
+    <p style="color:var(--muted);margin-top:0">These appeared in WebSearch but failed verification. Listed only for transparency — <strong>do not treat as apply-ready</strong>; confirm manually on LinkedIn if interested.</p>
+    <table>
+      <thead><tr><th>Company</th><th>Role</th><th>Location</th><th>Fit vs. resume</th><th>Verification</th></tr></thead>
+      <tbody>
+        <tr><td>Casa2 Stays (FabHotels)</td><td>Backend Developer — Java</td><td>Gurugram</td><td>Strong (Java, Spring Boot, Hibernate, microservices, Kafka, AWS; 0–4 yrs; ₹10–18 LPA)</td><td><span class="pill p-stale">Stale — posted Dec 2021</span></td></tr>
+        <tr><td>Holiday Tribe</td><td>Software Engineer (Java/Spring Boot)</td><td>Gurugram</td><td>Excellent on paper (0.5–1.5 yrs, microservices/payments)</td><td><span class="pill p-unv">Unverified — apply link resolved to unrelated US roles</span></td></tr>
+        <tr><td>iDesign.Market</td><td>Junior Backend Developer</td><td>New Delhi</td><td>Plausible</td><td><span class="pill p-unv">Unverified — stub page, no details</span></td></tr>
+        <tr><td>GrubPac Technologies</td><td>Backend Developer (Node.js)</td><td>Delhi</td><td>Plausible</td><td><span class="pill p-unv">Unverified — stub page, no details</span></td></tr>
+        <tr><td>ClanX</td><td>Backend Engineer (Java)</td><td>Gurugram</td><td>Plausible</td><td><span class="pill p-dead">Dead — HTTP 404</span></td></tr>
+        <tr><td>LiaPlus AI</td><td>SDE-1</td><td>New Delhi</td><td>Plausible (fresher)</td><td><span class="pill p-dead">Dead — HTTP 410 Gone</span></td></tr>
+        <tr><td>Diverse Lynx</td><td>Python Developer</td><td>Gurugram</td><td>Partial</td><td><span class="pill p-unv">Unverified — HTTP 403 (bot-blocked)</span></td></tr>
+        <tr><td>The Card Company</td><td>SDE I/II (Java/Spring Boot)</td><td>Gurugram</td><td>Partial (2–4 yrs, slightly senior)</td><td><span class="pill p-unv">Unverified — JS-rendered, no content; dated Apr 2026</span></td></tr>
+        <tr><td>Sutra AI</td><td>AI Engineer</td><td>Delhi NCR</td><td>Partial</td><td><span class="pill p-unv">Unverified — HTTP 403 (bot-blocked)</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Qualified jobs</h2>
+    <p style="color:var(--muted)">None today. The "Open All Qualified Jobs" action and cover-letter generation are skipped because there are no verified jobs to act on.</p>
+  </section>
+
+  <section>
+    <h2>Weekly / run trend — qualified jobs delivered</h2>
+    <div class="bars">
+      <div class="bar"><div class="b" style="height:90px" title="1 qualified"></div><small>Aug 05</small><small>1</small></div>
+      <div class="bar"><div class="b zero" title="0 qualified"></div><small>Nov 08</small><small>0</small></div>
+    </div>
+    <p style="color:var(--muted);font-size:13px">Only two runs on record. The 3-month gap reflects the lapsed data source; the routine has not delivered verified jobs since 2026-08-05.</p>
+  </section>
+
+</div>
+<footer>Generated by the LinkedIn morning-scan routine · 2026-11-08 · No listings fabricated.</footer>
+</body>
+</html>
