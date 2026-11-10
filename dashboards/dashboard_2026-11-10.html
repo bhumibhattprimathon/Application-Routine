@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-10</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--bg:#f1f5f9;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:.9rem}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+.card .n{font-size:1.9rem;font-weight:800;line-height:1}
+.card .l{color:var(--mut);font-size:.8rem;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)} .card.b .n{color:#3b82f6}
+.content{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0}
+h2{font-size:1.15rem;margin:26px 0 12px;display:flex;align-items:center;gap:8px}
+h2 .dot{width:12px;height:12px;border-radius:50%}
+.openall{display:block;width:100%;padding:18px;font-size:1.15rem;font-weight:800;color:#fff;background:var(--green);
+border:none;border-radius:12px;cursor:pointer;box-shadow:0 6px 16px rgba(34,197,94,.35);transition:.15s}
+.openall:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.note{font-size:.82rem;color:var(--mut);text-align:center;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--mut)}
+.sec-green th{border-top:3px solid var(--green)} .sec-yellow th{border-top:3px solid var(--yellow)} .sec-red th{border-top:3px solid var(--red)}
+.score{display:inline-block;min-width:34px;text-align:center;font-weight:800;padding:2px 6px;border-radius:6px;color:#fff}
+.score.hi{background:var(--green)} .score.mid{background:var(--yellow)}
+.trust{display:inline-block;min-width:30px;text-align:center;font-weight:700;color:var(--ink)}
+.pill{background:#eef2ff;color:#4338ca;padding:2px 8px;border-radius:999px;font-size:.74rem;font-weight:600}
+.reason{color:#475569;font-size:.82rem;max-width:520px}
+.act{white-space:nowrap}
+.btn{display:inline-block;border:none;border-radius:8px;padding:6px 10px;font-size:.78rem;font-weight:700;cursor:pointer;text-decoration:none;margin:2px 0}
+.btn.open{background:#1e293b;color:#fff} .btn.open:hover{background:#0f172a}
+.btn.copy{background:#e2e8f0;color:#0f172a} .btn.copy:hover{background:#cbd5e1}
+.btn.sm{padding:4px 10px;font-size:.74rem}
+.recs{display:grid;gap:12px}
+.rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px;background:#fafffb}
+.rec-co{font-weight:800} .rec-role{color:#334155}
+.rec-meta{display:block;color:var(--mut);font-size:.78rem;margin-top:3px}
+.rec p{margin:8px 0}
+.clbox{border:1px solid var(--line);border-radius:10px;margin:12px 0;overflow:hidden}
+.cl-h{background:#f8fafc;padding:10px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.clbox pre{margin:0;padding:14px;white-space:pre-wrap;font-family:inherit;font-size:.86rem;color:#1e293b}
+.trend{display:flex;gap:26px;align-items:flex-end;padding:10px 4px 0;overflow-x:auto}
+.bcol{text-align:center;min-width:90px}
+.bars{display:flex;gap:4px;align-items:flex-end;justify-content:center;height:170px}
+.bseg{width:18px;border-radius:4px 4px 0 0} .bseg.q{background:var(--green)} .bseg.r{background:var(--yellow)} .bseg.s{background:var(--red)}
+.blabel{font-size:.72rem;color:var(--mut);margin-top:6px}
+.leg{font-size:.76rem;color:var(--mut);margin-top:8px} .leg span{display:inline-block;margin-right:14px}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.banner{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;border-radius:10px;padding:12px 14px;font-size:.85rem;margin:14px 0}
+footer{color:var(--mut);font-size:.78rem;text-align:center;padding:24px}
+@media(max-width:640px){table{font-size:.78rem} th,td{padding:7px 5px} .reason{max-width:none}}
+</style></head>
+<body>
+<header><div class="wrap">
+<h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-11-10</h1>
+<div class="sub">Morning scan for Bhumi Bhatt · Backend / Full-Stack Engineer (1.5 yrs) · Delhi NCR / Remote · Immediate joiner</div>
+</div></header>
+<div class="wrap">
+
+<div class="cards">
+<div class="card g"><div class="n">4</div><div class="l">Qualified</div></div>
+<div class="card y"><div class="n">11</div><div class="l">Review</div></div>
+<div class="card r"><div class="n">10</div><div class="l">Skipped</div></div>
+<div class="card r"><div class="n">6</div><div class="l">Fraud / low-trust</div></div>
+<div class="card b"><div class="n">55</div><div class="l">Found (unique)</div></div>
+<div class="card b"><div class="n">84.5</div><div class="l">Avg match (qual.)</div></div>
+<div class="card b"><div class="n">~9.4L</div><div class="l">Avg salary est.</div></div>
+</div>
+
+<div class="banner"><b>Data source note:</b> JSearch (RapidAPI) is working again — its old <code>/search</code> endpoint now 404s; the provider renamed it to <code>/search-v2</code> (script updated). 83 raw / 55 unique postings pulled, 36 within 24h. Spice Money apply links verified live (HTTP 200).</div>
+
+<div class="content">
+<button class="openall" onclick="openAll()">🚀 OPEN ALL 4 QUALIFIED JOBS</button>
+<div class="note">Opens each qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page, or use the “Open Job” buttons below.</div>
+</div>
+
+<div class="content">
+<h2><span class="dot" style="background:var(--green)"></span>Qualified — ready to apply</h2>
+<table class="sec-green"><thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score hi">88</span></td><td><span class="trust">88</span></td>
+<td><b>Spice Money</b></td><td>SDE Full-Stack, Java</td><td>Noida</td>
+<td>7-12 LPA (est)</td><td><span class="pill">fullstack</span></td><td>External (Wellfound)</td>
+<td class="act"><a class="btn open" href="https://wellfound.com/jobs/5026953-sde-full-stack-java" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('spicemoney-sde-fs-java',this)">Copy Cover Letter</button></td></tr><tr>
+<td>2</td><td><span class="score hi">84</span></td><td><span class="trust">88</span></td>
+<td><b>Spice Money</b></td><td>SDE Full-Stack, Node.js</td><td>Noida</td>
+<td>7-12 LPA (est)</td><td><span class="pill">fullstack</span></td><td>External (Wellfound)</td>
+<td class="act"><a class="btn open" href="https://wellfound.com/jobs/5026955-sde-full-stack-node-js" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('spicemoney-sde-fs-node',this)">Copy Cover Letter</button></td></tr><tr>
+<td>3</td><td><span class="score hi">87</span></td><td><span class="trust">66</span></td>
+<td><b>Tekskills</b></td><td>Java Full Stack Developer (React / Node)</td><td>New Delhi</td>
+<td>6-11 LPA (est)</td><td><span class="pill">fullstack</span></td><td>External (Jobrapido → Tekskills)</td>
+<td class="act"><a class="btn open" href="https://in.jobrapido.com/jobpreview/4773876113585733632" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('tekskills-java-fullstack-delhi',this)">Copy Cover Letter</button></td></tr><tr>
+<td>4</td><td><span class="score hi">79</span></td><td><span class="trust">90</span></td>
+<td><b>HCLTech</b></td><td>Full Stack Java Technical Specialist (React.js)</td><td>Noida / Uttar Pradesh</td>
+<td>7-13 LPA (est)</td><td><span class="pill">fullstack</span></td><td>External (SimplyHired → HCLTech)</td>
+<td class="act"><a class="btn open" href="https://www.simplyhired.co.in/job/VGqwJME33x-qr2sSBwHnl_tu8eoggYRYbcqsax4pEt5cxotpzMfkbA" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('hcltech-fs-java-tech-specialist',this)">Copy Cover Letter</button></td></tr></tbody></table>
+
+<h2><span class="dot" style="background:var(--yellow)"></span>Review — strong but needs a check (stretch / verify / slightly older)</h2>
+<table class="sec-yellow"><thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason to review</th><th></th></tr></thead>
+<tbody><tr>
+<td>1</td><td><span class="score mid">80</span></td><td><span class="trust">55</span></td>
+<td><b>Infosys (listed via Neotech / Talents Jobs)</b></td><td>Power Programmer / Specialist Programmer – Java Full Stack</td><td>Greater Noida</td>
+<td class="reason">Strong Java full-stack fit and Infosys &#x27;Power/Specialist Programmer&#x27; is a well-paid early-career track (1-6 yrs) — but this is an aggregator relay under a staffing-vendor name with a thin JD. Verify it&#x27;s a genuine Infosys hire and apply via Infosys&#x27; own careers portal.</td>
+<td class="act"><a class="btn open" href="https://talentsjobs.in/power-programmer-specialist-programmer-java-full-stack-fy23-neotech-technology-1-to-6-years-12051" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>2</td><td><span class="score mid">80</span></td><td><span class="trust">90</span></td>
+<td><b>Insight Enterprises</b></td><td>Fullstack Software Engineer (React, Java/Kotlin)</td><td>Gurugram / Delhi NCR (hybrid)</td>
+<td class="reason">Fortune-500 employer, excellent React+Java fit, Delhi NCR hybrid — but titled &#x27;Software Engineer III&#x27; (mid-level) and lists Kotlin (not on her resume). Posted ~2 days ago, just outside the 24h window. A strong stretch application.</td>
+<td class="act"><a class="btn open" href="https://www.jobleads.com/in/job/fullstack-software-engineer-react-java-kotlin--gurugram-district--e536d73ac52791db779bd594e977e89ee" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>3</td><td><span class="score mid">58</span></td><td><span class="trust">90</span></td>
+<td><b>Gartner</b></td><td>Software Engineer – Cloud &amp; DevOps (2-4 yrs)</td><td>Gurugram</td>
+<td class="reason">Excellent employer and very fresh (~4h), experience band (2-4 yrs) is close — but the role is core Cloud/DevOps/Kubernetes/GitOps/Terraform, which is adjacent to (not the centre of) Bhumi&#x27;s backend-dev stack. Match sits below the qualify bar.</td>
+<td class="act"><a class="btn open" href="https://apna.co/job/gurgaon/software-engineer-2-4-yrs-in-aws-kubernetes-devops-1601313030" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>4</td><td><span class="score mid">72</span></td><td><span class="trust">58</span></td>
+<td><b>Cognizant</b></td><td>Software Engineering – Senior Engineer (Backend)</td><td>Greater Noida</td>
+<td class="reason">Major employer and a backend fit; aggregator lists 1-6 yrs — but the title says &#x27;Senior&#x27; and the JD is a thin relay. Confirm the real level/role on Cognizant&#x27;s careers site before applying.</td>
+<td class="act"><a class="btn open" href="https://talentsjobs.in/software-engineering-senior-engineer-backend-cognizant-1-to-6-years-38164" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>5</td><td><span class="score mid">70</span></td><td><span class="trust">45</span></td>
+<td><b>TALENT IT SOLUTIONS (staffing)</b></td><td>Software Engineer (Stack for 1-2 Years)</td><td>Greater Noida</td>
+<td class="reason">Experience level (1-2 yrs) is a perfect fit and it&#x27;s very fresh — but the employer is an unverified staffing listing with no website and no real JD. Verify the actual hiring company before investing time.</td>
+<td class="act"><a class="btn open" href="https://talentsjobs.in/software-engineer-stack-for-1-2-years-talent-it-solutions-1-to-6-years-17780" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>6</td><td><span class="score mid">58</span></td><td><span class="trust">48</span></td>
+<td><b>Vision mile (via Talents Jobs)</b></td><td>System Analyst (Java) – Associate</td><td>Faridabad</td>
+<td class="reason">Fresh Java &#x27;Associate&#x27; role (1-7 yrs) in Faridabad — but &#x27;System Analyst&#x27; is not core software development, the company is unverified (no website), and the URL slug mentions Pune. Verify role, location, and employer.</td>
+<td class="act"><a class="btn open" href="https://talentsjobs.in/system-analyst-java-associate-vision-mile-pune-1-to-7-years-209411" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>7</td><td><span class="score mid">58</span></td><td><span class="trust">65</span></td>
+<td><b>Nuaav</b></td><td>AI-Native Full Stack Engineer</td><td>Noida / Remote / Hybrid</td>
+<td class="reason">Real boutique AI/data consulting firm; aligns with Bhumi&#x27;s AI interest (research paper, AI alerts in her payment-gateway project). But it wants 3+ yrs and hands-on Generative AI / LLM / RAG / Agentic production experience she doesn&#x27;t yet have. Aspirational stretch.</td>
+<td class="act"><a class="btn open" href="https://in.jobrapido.com/jobpreview/872032603027275776" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>8</td><td><span class="score mid">70</span></td><td><span class="trust">70</span></td>
+<td><b>SMC Global Securities</b></td><td>Walk-in: Java Backend Developer (14 Nov &#x27;26)</td><td>New Delhi</td>
+<td class="reason">Legit listed brokerage with an in-person walk-in on 14 Nov in Delhi and a clean Java/Spring/microservices backend fit — but it asks 3-10 yrs (a stretch from 1.5). Worth considering given the walk-in is low-friction and local.</td>
+<td class="act"><a class="btn open" href="https://in.jobrapido.com/jobpreview/4648026012670492672" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>9</td><td><span class="score mid">76</span></td><td><span class="trust">52</span></td>
+<td><b>Platinus Technologies</b></td><td>Java Backend Professional</td><td>New Delhi</td>
+<td class="reason">Clean Java/Spring backend + microservices fit in Delhi — but the listing is marked Part-time and the company is lightly verified. Confirm it&#x27;s full-time and legitimate before applying.</td>
+<td class="act"><a class="btn open" href="https://www.shine.com/jobs/java-backend-professional-new-delhi/platinus-technologies/20037699" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>10</td><td><span class="score mid">70</span></td><td><span class="trust">52</span></td>
+<td><b>EMINENTURE</b></td><td>Full Stack Developer (MERN)</td><td>New Delhi</td>
+<td class="reason">MERN (React/Node) fit in Delhi, but the posting is explicitly aggregated &#x27;from an external source&#x27; and the company is lightly verified. Confirm details on the company site first.</td>
+<td class="act"><a class="btn open" href="https://www.shine.com/jobs/full-stack-developer-mern-new-delhi/eminenture/20040432" target="_blank" rel="noopener">Open</a></td></tr><tr>
+<td>11</td><td><span class="score mid">66</span></td><td><span class="trust">52</span></td>
+<td><b>Qubixl</b></td><td>Backend Developer (Node.js / Python)</td><td>Noida</td>
+<td class="reason">Node.js backend fit in Noida (Python optional), reasonable level — but a small, lightly-verified firm. Confirm the role and company before applying.</td>
+<td class="act"><a class="btn open" href="https://www.shine.com/jobs/backend-developer-node-js-python-noida/qubixl/20041157" target="_blank" rel="noopener">Open</a></td></tr></tbody></table>
+
+<h2><span class="dot" style="background:var(--red)"></span>Skipped</h2>
+<table class="sec-red"><thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th></tr></thead>
+<tbody><tr><td>1</td><td><b>&#x27;remote quest jobs&#x27; (reposter)</b></td><td>Backend/Java/Node/Frontend cluster (6 listings incl. crypto &#x27;Spot&#x27;)</td><td class="reason">LOW-TRUST / LIKELY SCRAPER: obfuscated &#x27;reputed company&#x27; placeholder JDs, free dynamic-DNS domain (dedyn.io), roles span crypto-exchange &#x27;Spot&#x27;, LATAM (Spanish) and Germany, all mid-to-senior (3-5+ yrs). Trust &lt;40 — blocked (6 listings).</td></tr><tr><td>2</td><td><b>Diglip7 Tech</b></td><td>Senior Full Stack Developer / Technical Lead</td><td class="reason">Experience: 6-10+ yrs, team-lead / full ownership role — well beyond 1.5 yrs.</td></tr><tr><td>3</td><td><b>Vellstone</b></td><td>Technical Lead – Python</td><td class="reason">Experience: Technical Lead, architecture-ownership + Python-centric — beyond level and off her core stack.</td></tr><tr><td>4</td><td><b>Stryker</b></td><td>Senior Software Engineer – C++</td><td class="reason">Skill/level: Senior + C++ — off her Java/JavaScript stack.</td></tr><tr><td>5</td><td><b>Level AI</b></td><td>Senior Backend Engineer – Python</td><td class="reason">Experience: Senior + Python-centric (Series C, Django) — beyond level and off her core.</td></tr><tr><td>6</td><td><b>Spice Money</b></td><td>SDE Full-Stack – Flutter</td><td class="reason">Skill: Flutter/mobile is off her stack (same great company as her two qualified Spice Money picks).</td></tr><tr><td>7</td><td><b>Planet Logics</b></td><td>Next.js / React Developer (Kerala only)</td><td class="reason">Location: restricted to candidates from Kerala only.</td></tr><tr><td>8</td><td><b>IT Monteur</b></td><td>Senior DevOps / Support Engineer (contract)</td><td class="reason">Role: DevOps/support contractor, senior — not a software-development fit.</td></tr><tr><td>9</td><td><b>SEEKA Technologies</b></td><td>Angular Frontend Developer (WFH)</td><td class="reason">Experience: requires 4+ yrs; Angular-frontend focus (she&#x27;s React).</td></tr><tr><td>10</td><td><b>Various</b></td><td>Senior/Staff/Principal &amp; off-stack roles (Thales Go, GitLab Go, GlobalLogic Staff Java, NatWest Principal, tiket.com Senior, Bright Data Senior, MegaNucleus .NET, Soul AI Ruby, Embedded C/C++, Tekskills DevOps 6-8yrs)</td><td class="reason">Experience/skill: senior-to-principal levels and/or off-stack languages (Go, .NET, Ruby, C/C++) — not entry-level or not her stack (10 roles).</td></tr></tbody></table>
+</div>
+
+<div class="content">
+<h2>⭐ Top 5 recommendations</h2>
+<div class="recs"><div class="rec">
+<div class="rec-h"><span class="rec-co">Spice Money</span> <span class="rec-role">SDE Full-Stack, Java</span>
+<span class="rec-meta">Noida &middot; match 88 &middot; trust 88 &middot; 7-12 LPA (est) &middot; <em>Qualified</em></span></div>
+<p>Her single best match today. Spice Money is India&#x27;s leading rural fintech (DiGiSPICE subsidiary, publicly listed, 1.6M+ agent network) and the role is Java full-stack on real payments infrastructure (AEPS, UPI, money transfer) — the exact domain of Bhumi&#x27;s Paytm QR microservices and her distributed payment-gateway project. SDE (not senior) level, Noida, verified-live apply link.</p>
+<a class="btn open sm" href="https://wellfound.com/jobs/5026953-sde-full-stack-java" target="_blank" rel="noopener">Open posting</a></div><div class="rec">
+<div class="rec-h"><span class="rec-co">Spice Money</span> <span class="rec-role">SDE Full-Stack, Node.js</span>
+<span class="rec-meta">Noida &middot; match 84 &middot; trust 88 &middot; 7-12 LPA (est) &middot; <em>Qualified</em></span></div>
+<p>Same strong fintech employer, Node.js/Express flavour — squarely in Bhumi&#x27;s backend wheelhouse (she built admin APIs and merchant-sync automation in Node at Primathon). Pairs naturally with the Java posting; applying to both doubles her odds at one well-verified company. Immediate-joiner + zero notice is a plus for Spice Money&#x27;s scale.</p>
+<a class="btn open sm" href="https://wellfound.com/jobs/5026955-sde-full-stack-node-js" target="_blank" rel="noopener">Open posting</a></div><div class="rec">
+<div class="rec-h"><span class="rec-co">Tekskills</span> <span class="rec-role">Java Full Stack Developer (React / Node)</span>
+<span class="rec-meta">New Delhi &middot; match 87 &middot; trust 66 &middot; 6-11 LPA (est) &middot; <em>Qualified</em></span></div>
+<p>The required-skills list reads almost verbatim from Bhumi&#x27;s resume: Java, Spring Boot microservices, REST APIs, React.js + Redux + ES6, MySQL/PostgreSQL/MongoDB, Git, CI/CD, Docker, AWS. Delhi-based. Tekskills Inc is a real IT staffing/services firm; the listing is via a Jobrapido relay, so apply and confirm the client/role. Posted ~27h ago (just outside the strict 24h window).</p>
+<a class="btn open sm" href="https://in.jobrapido.com/jobpreview/4773876113585733632" target="_blank" rel="noopener">Open posting</a></div><div class="rec">
+<div class="rec-h"><span class="rec-co">HCLTech</span> <span class="rec-role">Full Stack Java Technical Specialist (React.js)</span>
+<span class="rec-meta">Noida / Uttar Pradesh &middot; match 79 &middot; trust 90 &middot; 7-13 LPA (est) &middot; <em>Qualified</em></span></div>
+<p>A top-tier employer (HCLTech) with a full-stack Java + React.js role that also rewards her DevOps-adjacent skills (Docker, Jenkins, CI/CD, AWS). &#x27;Technical Specialist&#x27; may lean slightly mid-level, but the skill overlap and company strength make it well worth an application; strong brand for her resume.</p>
+<a class="btn open sm" href="https://www.simplyhired.co.in/job/VGqwJME33x-qr2sSBwHnl_tu8eoggYRYbcqsax4pEt5cxotpzMfkbA" target="_blank" rel="noopener">Open posting</a></div><div class="rec">
+<div class="rec-h"><span class="rec-co">Infosys (listed via Neotech / Talents Jobs)</span> <span class="rec-role">Power Programmer / Specialist Programmer – Java Full Stack</span>
+<span class="rec-meta">Greater Noida &middot; match 80 &middot; trust 55 &middot; 8-12 LPA (est) &middot; <em>Stretch / Review</em></span></div>
+<p>Strong Java full-stack fit and Infosys &#x27;Power/Specialist Programmer&#x27; is a well-paid early-career track (1-6 yrs) — but this is an aggregator relay under a staffing-vendor name with a thin JD. Verify it&#x27;s a genuine Infosys hire and apply via Infosys&#x27; own careers portal.</p>
+<a class="btn open sm" href="https://talentsjobs.in/power-programmer-specialist-programmer-java-full-stack-fy23-neotech-technology-1-to-6-years-12051" target="_blank" rel="noopener">Open posting</a></div></div>
+</div>
+
+<div class="content">
+<h2>📈 Run trend (qualified / review / skipped per scan)</h2>
+<div class="trend"><div class="bcol"><div class="bars">
+<div class="bseg q" style="height:6px" title="qualified 1"></div>
+<div class="bseg r" style="height:38px" title="review 6"></div>
+<div class="bseg s" style="height:64px" title="skipped 10"></div>
+</div><div class="blabel">2026-08-05<br><b>1</b> qual &middot; 17 total</div></div><div class="bcol"><div class="bars">
+<div class="bseg q" style="height:26px" title="qualified 4"></div>
+<div class="bseg r" style="height:70px" title="review 11"></div>
+<div class="bseg s" style="height:64px" title="skipped 10"></div>
+</div><div class="blabel">2026-11-10<br><b>4</b> qual &middot; 25 total</div></div></div>
+<div class="leg"><span><i style="background:var(--green)"></i>Qualified</span><span><i style="background:var(--yellow)"></i>Review</span><span><i style="background:var(--red)"></i>Skipped</span></div>
+<div class="note" style="text-align:left">Only two scans are on record so far (2026-11-10 and the prior run); the chart grows into a weekly view as more daily runs accumulate.</div>
+</div>
+
+<div class="content">
+<h2>✉️ Cover letters (ready to paste)</h2>
+<div class="clbox"><div class="cl-h"><b>Spice Money</b> &mdash; SDE Full-Stack, Java
+<button class="btn copy sm" onclick="copyCL('spicemoney-sde-fs-java',this)">COPY</button></div>
+<pre id="cl-spicemoney-sde-fs-java">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the SDE Full-Stack (Java) role at Spice Money, where my backend work on distributed payment systems maps directly to your mission of scaling assisted financial services for Bharat. At Primathon and during my Paytm internship I built and optimized Java and Spring Boot microservices handling the QR-code and transaction lifecycle for multiple merchants, improving service reliability by 67%. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, applying system-design principles for scalability and fault tolerance — exactly the kind of resilient, high-throughput backend that AEPS and UPI flows demand. On the full-stack side I pair this with React.js and Node.js/Express to ship end-to-end features. As an immediate joiner with an AWS Developer Associate certification and a 5-Star Java rating on HackerRank, I can contribute to your payments stack from day one.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clbox"><div class="cl-h"><b>Spice Money</b> &mdash; SDE Full-Stack, Node.js
+<button class="btn copy sm" onclick="copyCL('spicemoney-sde-fs-node',this)">COPY</button></div>
+<pre id="cl-spicemoney-sde-fs-node">Dear Hiring Manager,
+
+I&#x27;d welcome the chance to join Spice Money as an SDE Full-Stack (Node.js), bringing hands-on backend experience to India&#x27;s leading rural fintech network. I build REST APIs and backend services with Node.js and Express, and at Primathon I engineered admin APIs and syncing automation across seven merchant systems, cutting manual operational effort by 70% through automated backend workflows. My Paytm internship centered on real-time, merchant-facing transaction microservices — directly relevant to Spice Money&#x27;s assisted-payments and UPI flows — and I work comfortably across MySQL and MongoDB, Redis, and AWS (EC2, S3, Lambda). I complement the backend with React.js for full-stack delivery. With a strong DSA foundation (250+ problems solved, 5-Star Java) and zero notice period, I&#x27;m ready to start immediately and help ship reliable services for your 1.6 million-strong Adhikari network.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clbox"><div class="cl-h"><b>Tekskills</b> &mdash; Java Full Stack Developer (React / Node)
+<button class="btn copy sm" onclick="copyCL('tekskills-java-fullstack-delhi',this)">COPY</button></div>
+<pre id="cl-tekskills-java-fullstack-delhi">Dear Hiring Manager,
+
+I&#x27;m applying for the Java Full Stack Developer role in Delhi, which aligns almost one-to-one with my experience. I work daily with Java, Spring Boot microservices, and RESTful APIs on the backend, and build responsive interfaces with React.js and modern JavaScript (ES6+). I&#x27;ve delivered production microservices backed by MySQL and MongoDB, containerized with Docker, and wired up CI/CD pipelines with Git Actions to speed delivery. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and my certified distributed payment gateway project spans 30 REST APIs across four services. This combination of Spring Boot, React, SQL/NoSQL, Git, and cloud is exactly the stack your role requires. As an AWS-certified immediate joiner based in Delhi, I can onboard quickly and contribute across the full stack from the start.
+
+Best regards,
+Bhumi Bhatt</pre></div><div class="clbox"><div class="cl-h"><b>HCLTech</b> &mdash; Full Stack Java Technical Specialist (React.js)
+<button class="btn copy sm" onclick="copyCL('hcltech-fs-java-tech-specialist',this)">COPY</button></div>
+<pre id="cl-hcltech-fs-java-tech-specialist">Dear Hiring Manager,
+
+I&#x27;m keen to join HCLTech as a Full Stack Java Technical Specialist, combining backend depth with React.js delivery. I design scalable backend services and REST APIs using Java and Spring Boot microservices, and build performant frontends in React.js and JavaScript (ES6+). My DevOps-adjacent experience fits the role&#x27;s automation focus: I&#x27;ve set up CI/CD with Jenkins and Git Actions, containerized services with Docker, and deployed on AWS (EC2, S3, Lambda) — reducing manual effort by 70% at Primathon through automated backend workflows. I hold an AWS Developer Associate certification and a 5-Star Java rating on HackerRank with 250+ DSA problems solved. Comfortable collaborating across cross-functional teams to ship features end to end, and available to join immediately, I&#x27;d bring reliable full-stack Java engineering to your team from day one.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+</div>
+
+<footer>Generated by the LinkedIn Morning Scan routine · 2026-11-10 · This dashboard is self-contained and private.</footer>
+</div>
+
+<script>
+const COVER={"spicemoney-sde-fs-java": "Dear Hiring Manager,\n\nI'm excited to apply for the SDE Full-Stack (Java) role at Spice Money, where my backend work on distributed payment systems maps directly to your mission of scaling assisted financial services for Bharat. At Primathon and during my Paytm internship I built and optimized Java and Spring Boot microservices handling the QR-code and transaction lifecycle for multiple merchants, improving service reliability by 67%. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, applying system-design principles for scalability and fault tolerance — exactly the kind of resilient, high-throughput backend that AEPS and UPI flows demand. On the full-stack side I pair this with React.js and Node.js/Express to ship end-to-end features. As an immediate joiner with an AWS Developer Associate certification and a 5-Star Java rating on HackerRank, I can contribute to your payments stack from day one.\n\nBest regards,\nBhumi Bhatt", "spicemoney-sde-fs-node": "Dear Hiring Manager,\n\nI'd welcome the chance to join Spice Money as an SDE Full-Stack (Node.js), bringing hands-on backend experience to India's leading rural fintech network. I build REST APIs and backend services with Node.js and Express, and at Primathon I engineered admin APIs and syncing automation across seven merchant systems, cutting manual operational effort by 70% through automated backend workflows. My Paytm internship centered on real-time, merchant-facing transaction microservices — directly relevant to Spice Money's assisted-payments and UPI flows — and I work comfortably across MySQL and MongoDB, Redis, and AWS (EC2, S3, Lambda). I complement the backend with React.js for full-stack delivery. With a strong DSA foundation (250+ problems solved, 5-Star Java) and zero notice period, I'm ready to start immediately and help ship reliable services for your 1.6 million-strong Adhikari network.\n\nBest regards,\nBhumi Bhatt", "tekskills-java-fullstack-delhi": "Dear Hiring Manager,\n\nI'm applying for the Java Full Stack Developer role in Delhi, which aligns almost one-to-one with my experience. I work daily with Java, Spring Boot microservices, and RESTful APIs on the backend, and build responsive interfaces with React.js and modern JavaScript (ES6+). I've delivered production microservices backed by MySQL and MongoDB, containerized with Docker, and wired up CI/CD pipelines with Git Actions to speed delivery. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and my certified distributed payment gateway project spans 30 REST APIs across four services. This combination of Spring Boot, React, SQL/NoSQL, Git, and cloud is exactly the stack your role requires. As an AWS-certified immediate joiner based in Delhi, I can onboard quickly and contribute across the full stack from the start.\n\nBest regards,\nBhumi Bhatt", "hcltech-fs-java-tech-specialist": "Dear Hiring Manager,\n\nI'm keen to join HCLTech as a Full Stack Java Technical Specialist, combining backend depth with React.js delivery. I design scalable backend services and REST APIs using Java and Spring Boot microservices, and build performant frontends in React.js and JavaScript (ES6+). My DevOps-adjacent experience fits the role's automation focus: I've set up CI/CD with Jenkins and Git Actions, containerized services with Docker, and deployed on AWS (EC2, S3, Lambda) — reducing manual effort by 70% at Primathon through automated backend workflows. I hold an AWS Developer Associate certification and a 5-Star Java rating on HackerRank with 250+ DSA problems solved. Comfortable collaborating across cross-functional teams to ship features end to end, and available to join immediately, I'd bring reliable full-stack Java engineering to your team from day one.\n\nBest regards,\nBhumi Bhatt"};
+const QURLS=["https://wellfound.com/jobs/5026953-sde-full-stack-java", "https://wellfound.com/jobs/5026955-sde-full-stack-node-js", "https://in.jobrapido.com/jobpreview/4773876113585733632", "https://www.simplyhired.co.in/job/VGqwJME33x-qr2sSBwHnl_tu8eoggYRYbcqsax4pEt5cxotpzMfkbA"];
+function openAll(){
+  if(!QURLS.length){alert('No qualified jobs today.');return;}
+  let blocked=0;
+  QURLS.forEach(u=>{const w=window.open(u,'_blank');if(!w)blocked++;});
+  if(blocked)alert('Your browser blocked '+blocked+' pop-up tab(s). Please allow pop-ups for this page and click again.');
+}
+function copyCL(id,btn){
+  const txt=COVER[id]||(document.getElementById('cl-'+id)?document.getElementById('cl-'+id).innerText:'');
+  const done=()=>{const o=btn.textContent;btn.textContent='✓ Copied';setTimeout(()=>btn.textContent=o,1500);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(()=>fallback(txt,done));}
+  else fallback(txt,done);
+}
+function fallback(txt,done){const t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){alert('Copy failed — select the text manually.');}document.body.removeChild(t);}
+</script>
+</body></html>

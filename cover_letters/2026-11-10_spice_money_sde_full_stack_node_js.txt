@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd welcome the chance to join Spice Money as an SDE Full-Stack (Node.js), bringing hands-on backend experience to India's leading rural fintech network. I build REST APIs and backend services with Node.js and Express, and at Primathon I engineered admin APIs and syncing automation across seven merchant systems, cutting manual operational effort by 70% through automated backend workflows. My Paytm internship centered on real-time, merchant-facing transaction microservices — directly relevant to Spice Money's assisted-payments and UPI flows — and I work comfortably across MySQL and MongoDB, Redis, and AWS (EC2, S3, Lambda). I complement the backend with React.js for full-stack delivery. With a strong DSA foundation (250+ problems solved, 5-Star Java) and zero notice period, I'm ready to start immediately and help ship reliable services for your 1.6 million-strong Adhikari network.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm keen to join HCLTech as a Full Stack Java Technical Specialist, combining backend depth with React.js delivery. I design scalable backend services and REST APIs using Java and Spring Boot microservices, and build performant frontends in React.js and JavaScript (ES6+). My DevOps-adjacent experience fits the role's automation focus: I've set up CI/CD with Jenkins and Git Actions, containerized services with Docker, and deployed on AWS (EC2, S3, Lambda) — reducing manual effort by 70% at Primathon through automated backend workflows. I hold an AWS Developer Associate certification and a 5-Star Java rating on HackerRank with 250+ DSA problems solved. Comfortable collaborating across cross-functional teams to ship features end to end, and available to join immediately, I'd bring reliable full-stack Java engineering to your team from day one.
+
+Best regards,
+Bhumi Bhatt

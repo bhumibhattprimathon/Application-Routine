@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the SDE Full-Stack (Java) role at Spice Money, where my backend work on distributed payment systems maps directly to your mission of scaling assisted financial services for Bharat. At Primathon and during my Paytm internship I built and optimized Java and Spring Boot microservices handling the QR-code and transaction lifecycle for multiple merchants, improving service reliability by 67%. I architected a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services, applying system-design principles for scalability and fault tolerance — exactly the kind of resilient, high-throughput backend that AEPS and UPI flows demand. On the full-stack side I pair this with React.js and Node.js/Express to ship end-to-end features. As an immediate joiner with an AWS Developer Associate certification and a 5-Star Java rating on HackerRank, I can contribute to your payments stack from day one.
+
+Best regards,
+Bhumi Bhatt

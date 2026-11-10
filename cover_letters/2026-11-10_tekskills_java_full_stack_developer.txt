@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm applying for the Java Full Stack Developer role in Delhi, which aligns almost one-to-one with my experience. I work daily with Java, Spring Boot microservices, and RESTful APIs on the backend, and build responsive interfaces with React.js and modern JavaScript (ES6+). I've delivered production microservices backed by MySQL and MongoDB, containerized with Docker, and wired up CI/CD pipelines with Git Actions to speed delivery. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and my certified distributed payment gateway project spans 30 REST APIs across four services. This combination of Spring Boot, React, SQL/NoSQL, Git, and cloud is exactly the stack your role requires. As an AWS-certified immediate joiner based in Delhi, I can onboard quickly and contribute across the full stack from the start.
+
+Best regards,
+Bhumi Bhatt
