@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-11-12</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#15803d;
+    --yellow:#eab308; --yellow-d:#a16207;
+    --red:#ef4444; --red-d:#b91c1c;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#ffffff;
+    --blue:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#cbd5e1;font-size:.9rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:2rem;font-weight:700}
+  .card .l{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .card.green .n{color:var(--green-d)} .card.yellow .n{color:var(--yellow-d)} .card.red .n{color:var(--red-d)}
+  .banner{border-radius:12px;padding:16px 18px;margin:16px 0;border:1px solid}
+  .banner.alert{background:#fff7ed;border-color:#fdba74;color:#7c2d12}
+  .banner.alert h3{margin:0 0 6px;font-size:1rem}
+  .banner.alert p{margin:4px 0;font-size:.9rem}
+  .openall{display:block;width:100%;border:0;border-radius:14px;padding:18px;margin:10px 0 24px;
+    background:var(--green);color:#fff;font-size:1.15rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+  .openall:hover{background:var(--green-d)}
+  h2{margin:26px 0 10px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  h2 .dot{width:12px;height:12px;border-radius:50%}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:.88rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f1f5f9;font-size:.74rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .score{font-weight:700}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:600}
+  .pill.g{background:#dcfce7;color:var(--green-d)} .pill.y{background:#fef9c3;color:var(--yellow-d)} .pill.r{background:#fee2e2;color:var(--red-d)}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;font-size:.8rem;cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .btn:hover{filter:brightness(.97)}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h4{margin:0 0 4px} .rec .meta{color:var(--muted);font-size:.82rem;margin-bottom:6px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.88rem;margin:8px 0 0;color:#1e293b}
+  .trend{display:flex;align-items:flex-end;gap:24px;height:160px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .b{width:54px;background:var(--green);border-radius:8px 8px 0 0}
+  .bar .v{font-weight:700;margin-bottom:4px}
+  .bar .d{margin-top:8px;font-size:.78rem;color:var(--muted)}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:30px 20px}
+  .hidden{display:none}
+  a{color:var(--blue)}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-12</h1>
+  <div class="sub">Daily job scan for Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · 1.5 yrs exp · immediate joiner</div>
+</header>
+
+<div class="wrap">
+
+  <div class="banner alert">
+    <h3>⚠️ Data-pipeline notice — primary source is down</h3>
+    <p><strong>JSearch (RapidAPI) is no longer reachable</strong> — the <code>/search</code> endpoint returns 404 "Endpoint does not exist", i.e. the RapidAPI subscription that powered the reliable August scan has lapsed. Today's run fell back to WebSearch + direct job-board fetches.</p>
+    <p><strong>Impact:</strong> fresh, structured "posted in last 24h" coverage is limited. Verified matches below are real and current; the review/skip tiers are best-effort from WebSearch snippets and are not individually fraud-verified.</p>
+    <p><strong>Action for Bhumi:</strong> re-subscribe JSearch on RapidAPI (or swap in another job API key) to restore full daily coverage. ntfy.sh remains disabled/blocked by egress policy — reporting goes via the routine push/email channel.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">8</div><div class="l">Evaluated</div></div>
+    <div class="card green"><div class="n">2</div><div class="l">Qualified</div></div>
+    <div class="card yellow"><div class="n">3</div><div class="l">Review</div></div>
+    <div class="card red"><div class="n">3</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud</div></div>
+    <div class="card"><div class="n">84</div><div class="l">Avg Match (qual.)</div></div>
+    <div class="card"><div class="n">8–12</div><div class="l">Avg Salary Est. (LPA)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">🚀 OPEN ALL 2 QUALIFIED JOBS</button>
+
+  <h2><span class="dot g"></span>Qualified Jobs</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="score"><span class="pill g">94</span></td>
+          <td><span class="pill g">95</span></td>
+          <td>Aftershoot</td>
+          <td>Backend Engineer — SDE 1 <span class="pill g">New · ~1d</span></td>
+          <td>Delhi (Hybrid)</td>
+          <td>8–12 LPA (est)</td>
+          <td>backend</td>
+          <td>External (careers / Weekday)</td>
+          <td>
+            <a class="btn primary" href="https://careers.aftershoot.com/o/backend-engineer-sde-1" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl1')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="score"><span class="pill g">74</span></td>
+          <td><span class="pill g">95</span></td>
+          <td>Aftershoot</td>
+          <td>Cloud Platform Engineer — SDE 1 <span class="pill y">~5d</span></td>
+          <td>Delhi (Hybrid)</td>
+          <td>8–12 LPA (est)</td>
+          <td>backend / platform</td>
+          <td>External (careers)</td>
+          <td>
+            <a class="btn primary" href="https://careers.aftershoot.com/o/cloud-platform-engineer-sde-1" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl2')">Copy Cover Letter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="dot y"></span>Review Jobs (verify before applying)</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="pill y">~62</span></td><td><span class="pill y">n/v</span></td><td>Sunbeam World School</td><td>Full Stack App Developer (1+ yrs, New Delhi)</td><td>Experience fits, but employer is a school (non-tech); posted ~1 week ago; not individually fraud-verified.</td></tr>
+        <tr><td>2</td><td><span class="pill y">~58</span></td><td><span class="pill y">n/v</span></td><td>RevX Hospitality</td><td>Full Stack Developer (Entry level, Delhi)</td><td>Tagged entry-level but JD vague and employer is hospitality-sector; posted ~1 week ago; unverified.</td></tr>
+        <tr><td>3</td><td><span class="pill y">~60</span></td><td><span class="pill y">n/v</span></td><td>Niansec</td><td>MERN Stack Developer (1–3 yrs, Delhi NCR)</td><td>React/Node/Mongo/Express skills align, but surfaced via Foundit aggregator; posting date unclear; unverified.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.8rem;color:var(--muted)">n/v = not verified (fraud/trust checks need the live JSearch pipeline or per-company deep-dives, not run today).</p>
+
+  <h2><span class="dot r"></span>Skipped Jobs</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Source Integreta</td><td>Software Development Engineer (Noida)</td><td>Salary: ~₹20k/mo ≈ 2.4 LPA — below 5 LPA floor.</td></tr>
+        <tr><td>2</td><td>Big Feathers</td><td>Full Stack Developer – MERN (Karol Bagh)</td><td>Salary: ~₹15k/mo ≈ 1.8 LPA — well below range.</td></tr>
+        <tr><td>3</td><td>freehire / GIRI Consultancy</td><td>Node.js Backend Engineer Trainee</td><td>Salary: 3–5 LPA + "trainee" level — below 5.5 LPA target.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>⭐ Top Recommendations</h2>
+  <div class="rec">
+    <h4>1. Aftershoot — Backend Engineer (SDE 1) · Match 94 / Trust 95</h4>
+    <div class="meta">Delhi (Hybrid) · posted ~1 day ago · <a href="https://careers.aftershoot.com/o/backend-engineer-sde-1" target="_blank" rel="noopener">careers.aftershoot.com</a></div>
+    <p>The strongest, freshest match of the week. The JD asks for "1.5–2+ years building backend systems; strong in Go, Node.js, Python, or Java" plus API/data-model design (SQL/NoSQL) and Docker — which lines up almost one-to-one with Bhumi's 1.5+ yrs on Java/Spring Boot/Node.js microservices, 30+ REST APIs, MySQL/MongoDB, and day-to-day Docker. Aftershoot is a well-funded, reputable product company (Techstars/YC lineage; Left Lane, Headline, InfoEdge investors; 51–200 employees; strong press coverage), so trust is high. Only gap: cloud is AWS vs their GCP preference — a nice-to-have, not a blocker. Apply today with the tailored cover letter.</p>
+  </div>
+  <div class="rec">
+    <h4>2. Aftershoot — Cloud Platform Engineer (SDE 1) · Match 74 / Trust 95</h4>
+    <div class="meta">Delhi (Hybrid) · posted ~5 days ago · <a href="https://careers.aftershoot.com/o/cloud-platform-engineer-sde-1" target="_blank" rel="noopener">careers.aftershoot.com</a></div>
+    <p>A same-company, same-day second shot. Bhumi's AWS (Timestream, S3, Lambda), Docker, Jenkins, and CI/CD experience give her a real foothold, even though pure platform/infra roles usually want deeper DevOps (K8s/Terraform/GCP). Worth applying alongside the backend role — landing an interview at Aftershoot on either track is a strong outcome.</p>
+  </div>
+
+  <h2>📈 Weekly / Run Trend (qualified per run)</h2>
+  <div class="trend">
+    <div class="bar"><div class="v">1</div><div class="b" style="height:40%"></div><div class="d">2026-08-05</div></div>
+    <div class="bar"><div class="v">2</div><div class="b" style="height:80%"></div><div class="d">2026-11-12</div></div>
+  </div>
+  <p style="font-size:.8rem;color:var(--muted)">Note: runs are sparse (last scan was 2026-08-05). Restoring the JSearch pipeline would enable a true daily cadence.</p>
+
+  <h2>✉️ Cover Letters</h2>
+  <div class="cl">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <strong>Aftershoot — Backend Engineer (SDE 1)</strong>
+      <button class="btn" onclick="copyCL('cl1')">COPY</button>
+    </div>
+    <pre id="cl1">Dear Hiring Manager,
+
+I'm excited to apply for the Backend Engineer (SDE-1) role at Aftershoot — building the backend behind AI tools that photographers actually trust is exactly the kind of production work I want to go deeper on.
+
+Over 1.5+ years at Primathon and Paytm, I've built and optimized backend systems in Java, Spring Boot, and Node.js — engineering admin APIs and sync automation across 7 merchant systems, and developing QR-lifecycle microservices that power real-time transaction notifications. My distributed payment gateway project (30 REST APIs across Order, Payment, Merchant, and Vault services) maps directly to your need for clean API and data-model design across SQL and NoSQL (MySQL, MongoDB), and I ship with Docker day to day.
+
+I'm comfortable owning services end to end, and while my cloud depth is on AWS rather than GCP, I pick up new platforms quickly (5-Star Java on HackerRank, 250+ DSA problems solved). As an immediate joiner, I can start contributing to your backend from day one.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+  <div class="cl">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <strong>Aftershoot — Cloud Platform Engineer (SDE 1)</strong>
+      <button class="btn" onclick="copyCL('cl2')">COPY</button>
+    </div>
+    <pre id="cl2">Dear Hiring Manager,
+
+I'd love to join Aftershoot as a Cloud Platform Engineer (SDE-1) and help keep the infrastructure behind your AI photography products fast and reliable.
+
+In my current role at Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion and scalable event handling, and I build and maintain CI/CD with Jenkins, Git Actions, and Docker. Earlier, at CodeAlpha, I containerized order and payment microservices with Docker and automated build pipelines, improving delivery consistency. That combination of AWS services, containerization, and automation is the foundation your platform work needs.
+
+I'm hands-on with Java, Node.js, and system design, and I enjoy removing operational toil — I cut manual operational effort by 70% by automating backend workflows for analytics and event processing. As an immediate joiner eager to grow into platform engineering, I'd bring that same bias toward reliable, automated systems to your team.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+</div>
+
+<footer>
+  Generated 2026-11-12 · Data source: WebSearch + direct job-board fetch (JSearch/RapidAPI pipeline down) · Not affiliated with LinkedIn.
+</footer>
+
+<script>
+  var urls = [
+    "https://careers.aftershoot.com/o/backend-engineer-sde-1",
+    "https://careers.aftershoot.com/o/cloud-platform-engineer-sde-1"
+  ];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var txt = el ? el.innerText : "";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ flash(); }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt){
+    var ta = document.createElement("textarea");
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var n = document.createElement("div");
+    n.textContent = "Cover letter copied ✓";
+    n.style.cssText = "position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#15803d;color:#fff;padding:10px 16px;border-radius:10px;font:600 14px system-ui;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.2)";
+    document.body.appendChild(n);
+    setTimeout(function(){ n.remove(); }, 1600);
+  }
+</script>
+</body>
+</html>

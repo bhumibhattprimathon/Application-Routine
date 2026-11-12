@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Backend Engineer (SDE-1) role at Aftershoot — building the backend behind AI tools that photographers actually trust is exactly the kind of production work I want to go deeper on.
+
+Over 1.5+ years at Primathon and Paytm, I've built and optimized backend systems in Java, Spring Boot, and Node.js — engineering admin APIs and sync automation across 7 merchant systems, and developing QR-lifecycle microservices that power real-time transaction notifications. My distributed payment gateway project (30 REST APIs across Order, Payment, Merchant, and Vault services) maps directly to your need for clean API and data-model design across SQL and NoSQL (MySQL, MongoDB), and I ship with Docker day to day.
+
+I'm comfortable owning services end to end, and while my cloud depth is on AWS rather than GCP, I pick up new platforms quickly (5-Star Java on HackerRank, 250+ DSA problems solved). As an immediate joiner, I can start contributing to your backend from day one.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join Aftershoot as a Cloud Platform Engineer (SDE-1) and help keep the infrastructure behind your AI photography products fast and reliable.
+
+In my current role at Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion and scalable event handling, and I build and maintain CI/CD with Jenkins, Git Actions, and Docker. Earlier, at CodeAlpha, I containerized order and payment microservices with Docker and automated build pipelines, improving delivery consistency. That combination of AWS services, containerization, and automation is the foundation your platform work needs.
+
+I'm hands-on with Java, Node.js, and system design, and I enjoy removing operational toil — I cut manual operational effort by 70% by automating backend workflows for analytics and event processing. As an immediate joiner eager to grow into platform engineering, I'd bring that same bias toward reliable, automated systems to your team.
+
+Best regards,
+Bhumi Bhatt
