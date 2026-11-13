@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-13</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#15803d; --yellow:#eab308; --yellow-d:#a16207;
+    --red:#ef4444; --red-d:#b91c1c; --ink:#0f172a; --muted:#64748b;
+    --bg:#f1f5f9; --card:#ffffff; --border:#e2e8f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .card.g .n{color:var(--green-d)} .card.y .n{color:var(--yellow-d)} .card.r .n{color:var(--red-d)}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-left:5px solid var(--yellow);border-radius:10px;padding:14px 16px;font-size:13.5px;color:#713f12;margin:14px 0}
+  .note b{color:#713f12}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:0;border-radius:12px;padding:18px;font-size:18px;font-weight:700;cursor:pointer;margin:18px 0;box-shadow:0 2px 8px rgba(34,197,94,.3)}
+  .openall:hover{background:var(--green-d)}
+  h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--border)}
+  h2.g{color:var(--green-d);border-color:var(--green)}
+  h2.y{color:var(--yellow-d);border-color:var(--yellow)}
+  h2.r{color:var(--red-d);border-color:var(--red)}
+  .tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--border);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:#f8fafc;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .score{font-weight:700;border-radius:20px;padding:2px 10px;color:#fff;display:inline-block;font-size:12.5px}
+  .s-hi{background:var(--green)} .s-mid{background:var(--yellow)} .s-lo{background:#94a3b8}
+  .btn{display:inline-block;border:0;border-radius:8px;padding:6px 11px;font-size:12.5px;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn-open{background:#2563eb;color:#fff} .btn-open:hover{background:#1d4ed8}
+  .btn-copy{background:#e2e8f0;color:#0f172a;margin-left:6px} .btn-copy:hover{background:#cbd5e1}
+  .rec{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h3{margin:0 0 4px;font-size:15px} .rec .meta{font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .rec p{margin:0;font-size:13.5px}
+  .bars{display:flex;gap:22px;align-items:flex-end;height:160px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:120px}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0;transition:height .4s}
+  .bar .v{font-weight:700;margin-bottom:4px} .bar .d{font-size:12px;color:var(--muted);margin-top:8px}
+  .cl{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .cl .h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .cl .h b{font-size:14.5px} .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;margin:0;color:#334155}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  .hidden{display:none}
+  @media (max-width:560px){header h1{font-size:18px}.card .n{font-size:24px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-13</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR · Immediate joiner · Target 5.5–12 LPA</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">14</div><div class="l">Jobs Found</div></div>
+    <div class="card g"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="card y"><div class="n">3</div><div class="l">Review</div></div>
+    <div class="card r"><div class="n">8</div><div class="l">Skipped</div></div>
+    <div class="card r"><div class="n">0</div><div class="l">Fraud</div></div>
+  </div>
+  <div class="cards">
+    <div class="card g"><div class="n">82.3</div><div class="l">Avg Match (Qualified)</div></div>
+    <div class="card"><div class="n">~8.5</div><div class="l">Avg Salary Est (LPA)</div></div>
+  </div>
+
+  <div class="note">
+    <b>⚠️ Data &amp; method note — please read.</b> Today's discovery ran on general web search (US-based), which surfaces <b>job-aggregator pages</b> (Weekday, GetMeReferred, Cutshort, Foundit, AmbitionBox), not LinkedIn's live "past 24 hours" feed. The paid JSearch API used in the prior run was not available this session. As a result, <b>exact posting dates could not be verified</b> — treat every listing as a lead and confirm it is still open and recent on the company's own page before applying. One listing (Voiceoc) was confirmed <b>closed</b>. Trust scores below reflect real company verification (website, Glassdoor/AmbitionBox, headcount); match scores reflect your résumé fit.
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 3 QUALIFIED JOBS ↗</button>
+
+  <h2 class="g">✅ Qualified — Ready to Apply</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Résumé</th><th>Apply</th><th>Actions</th></tr></thead>
+    <tbody id="qtbody"></tbody>
+  </table>
+  </div>
+
+  <h2 class="y">🟡 Review — Worth a Look (verify first)</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th>Open</th></tr></thead>
+    <tbody id="rtbody"></tbody>
+  </table>
+  </div>
+
+  <h2 class="r">🔴 Skipped</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+    <tbody id="stbody"></tbody>
+  </table>
+  </div>
+
+  <h2 class="g">⭐ Top Recommendations</h2>
+  <div id="recs"></div>
+
+  <h2>📈 Weekly Trend — Qualified per Run</h2>
+  <div class="bars" id="bars"></div>
+  <p style="font-size:12.5px;color:#64748b;margin-top:8px">Only two scan runs on record (2026-08-05, 2026-11-13). The bar chart will fill in as daily runs accumulate.</p>
+
+  <h2>✉️ Cover Letters</h2>
+  <div id="letters"></div>
+
+  <footer>Generated by the LinkedIn Smart Apply routine · 2026-11-13 · All listings are leads — verify before applying.</footer>
+</div>
+
+<script>
+const qualified = [
+  {match:89,trust:90,company:"Impetus Technologies",role:"Full Stack Engineer (Java + React)",loc:"Gurugram",salary:"8–14 LPA (est)",variant:"fullstack",apply:"External (GetMeReferred)",url:"https://getmereferred.com/job-listing/full-stack-engineer-impetus-gurugram-2-to-5-years-experience-6ef17fd6-fe2c-4d2b-a8d3-d0e4f866999e",cl:"impetus"},
+  {match:82,trust:68,company:"Innspark Solutions",role:"Java Developer (Spring Boot)",loc:"New Delhi",salary:"5–9 LPA (est)",variant:"backend",apply:"External (Weekday)",url:"https://jobs.weekday.works/java-developer-spring-boot-focus-at-innspark-4406978478",cl:"innspark"},
+  {match:76,trust:82,company:"ThoughtSol Infotech",role:"Back End Engineer",loc:"Noida",salary:"6–9 LPA (est)",variant:"backend",apply:"External (Weekday)",url:"https://jobs.weekday.works/back-end-engineer-at-thoughtsol-infotech-ltd-4413344676",cl:"thoughtsol"}
+];
+const review = [
+  {match:80,trust:58,company:"PGC Digital / TechBlocks",role:"Java Full Stack Developer",loc:"Gurugram",url:"https://getmereferred.com/job-listing/immediate-hiring-java-full-stack-developer-pgc-digital-india-cmmi-level-3-company-gurugram-2-to-5-years-experience-5295a396-31a5-44c7-838a-cd6325ae2a58",reason:"Great stack fit (Java, React/Angular, SQL) and 'immediate joiner' matches her 0-day notice — but company verified only via aggregator (trust 58) and Angular is preferred. Confirm the role on the employer's site."},
+  {match:65,trust:85,company:"StatusNeo",role:"Junior GenAI Engineer",loc:"India (Remote)",url:"https://jobs.weekday.works/junior-genai-engineer-at-statusneo-wkdy56hzu7",reason:"High trust (800+ staff, 3.8★) and ideal entry-level band (0–1 yr, remote), aligning with her GenAI research interest — but core ask is Python + LLM/RAG tooling, outside her Java/JS stack."},
+  {match:62,trust:60,company:"Gravity Engineering Services",role:"Python Backend Developer",loc:"Delhi NCR (multi-city)",url:"https://cutshort.io/job/Python-Backend-Developer-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Kolkata-Mumbai-Hyderabad-Gravity-Engineering-Services-Pvt-Ltd-3IXLFZiA",reason:"Most recent found (posted ~4 Oct 2026) and 1+ yr band fits; Docker is on her résumé — but Python/FastAPI/Flask is adjacent to, not the core of, her stack."}
+];
+const skipped = [
+  {company:"Voiceoc",role:"Full Stack Developer (NodeJS)",reason:"Closed: posting no longer accepting applications (≈4 months old)."},
+  {company:"NEC Corporation India",role:"Software Engineer Apprentice (Noida)",reason:"Salary: ~3–4 LPA, below 5.5 LPA minimum; apprentice track."},
+  {company:"aijobs.net listing",role:"Junior GenAI Developer",reason:"Salary: ₹4–4.8 LPA, below minimum; Python/LLM/RAG focus off core stack."},
+  {company:"Biz2x",role:"Python Developer (Noida)",reason:"Experience: 3–6 yrs, above entry level; Python-centric."},
+  {company:"Cloudastra Technologies",role:"Backend Developer (Python, Django)",reason:"Skill/Exp: 2–3 yrs Python/Django — off her Java/Node core."},
+  {company:"Memorae AI",role:"Senior Backend Engineer (NodeJS)",reason:"Experience: 5–10 yrs, senior role."},
+  {company:"Movodream",role:"Senior Backend Engineer (Node.js)",reason:"Experience: 4+ yrs, senior role."},
+  {company:"Kognitive Networks",role:"Sr. Software Engineer – Backend (Node.js)",reason:"Experience: 3+ yrs; senior."}
+];
+const recs = [
+  {t:"Impetus Technologies — Full Stack Engineer (Java + React)",m:"Match 89 · Trust 90 · Gurugram · ~8–14 LPA",p:"The closest match to Bhumi's résumé this run. The stack is almost a mirror of hers — Java, Spring Boot, React.js, JavaScript (ES6+), SQL — and Impetus is a large, well-reviewed data/cloud engineering firm (489 AmbitionBox reviews, 3.6★, Premium Employer). The posting asks 2–5 yrs vs her 1.5, so it's a modest stretch, but her payment-gateway microservices project and 30+ REST API endpoints make a strong case. Cover letter ready."},
+  {t:"Innspark Solutions — Java Developer (Spring Boot)",m:"Match 82 · Trust 68 · New Delhi · ~5–9 LPA",p:"A clean core-backend fit: Java + Spring Boot is exactly Bhumi's day-to-day. Innspark is a real deeptech/cybersecurity company (website, Glassdoor presence) — Glassdoor reviews skew positive on learning, though AmbitionBox samples are small and lower, so weigh culture signals. Immediate-joiner framing suits her 0-day notice. Cover letter ready."},
+  {t:"ThoughtSol Infotech — Back End Engineer",m:"Match 76 · Trust 82 · Noida · ~6–9 LPA",p:"The best experience-band fit (1–2 yrs = her exact range) at a highly-rated Noida firm (4.5★, 239 reviews). Her Node.js/Java/REST/microservices background fits a general backend role well. One caveat: the role may be Python-leaning — confirm the stack on the listing. Cover letter ready."}
+];
+const letters = {
+  impetus:{title:"Impetus Technologies — Full Stack Engineer",text:`Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Engineer role at Impetus Technologies, where my Java/Spring Boot backend work and React frontend experience map directly to your stack. At Primathon I engineered custom admin APIs and backend automation across seven merchant systems, and in earlier roles I built and optimized 30+ REST API endpoints with MySQL. On the frontend I work in React.js with JavaScript (ES6+), HTML5, and CSS3, letting me own features end to end. My Distributed Payment Gateway project — 30 REST APIs across four Spring Boot microservices — reflects the system-design depth Impetus values in its data and cloud engineering work.
+
+As an immediate joiner with a 9.3 CGPA and 5-Star Gold in Java on HackerRank, I'm ready to contribute from day one and grow quickly within your team.
+
+Best regards,
+Bhumi Bhatt`},
+  innspark:{title:"Innspark Solutions — Java Developer (Spring Boot)",text:`Dear Hiring Manager,
+
+I'm writing to express my interest in the Java Developer (Spring Boot) position at Innspark Solutions. My 1.5 years of backend engineering center on exactly this stack: at Primathon I built admin APIs and automated backend workflows that cut manual effort by 70%, and at Paytm I developed microservices managing the QR-code lifecycle for real-time transaction notifications. I architected a Distributed Payment Gateway with 30 Spring Boot REST APIs across four services, applying system-design principles for scalability and fault tolerance — experience that transfers well to building reliable, high-performance products in a deeptech environment.
+
+With a 5-Star Gold in Java on HackerRank and 250+ DSA problems solved, I bring strong fundamentals alongside production experience. As a 0-day-notice immediate joiner, I can start right away and ramp up fast.
+
+Best regards,
+Bhumi Bhatt`},
+  thoughtsol:{title:"ThoughtSol Infotech — Back End Engineer",text:`Dear Hiring Manager,
+
+I'm keen to apply for the Back End Engineer role at ThoughtSol Infotech. As a backend-focused engineer with 1.5 years of experience, I design and ship scalable microservices and REST APIs using Java, Spring Boot, and Node.js, and I'm comfortable extending into new backend languages and frameworks where a project needs it. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and in an earlier role I containerized order and payment microservices with Docker for production-ready deployment.
+
+My work on a distributed payment gateway sharpened my grasp of fault-tolerant service design and REST API optimization. I'd bring that reliability-first mindset to ThoughtSol's engineering team in Noida. As an immediate joiner eager to learn and contribute quickly, I'm ready to add value from the start.
+
+Best regards,
+Bhumi Bhatt`}
+};
+const trend = [{d:"08-05",v:1},{d:"11-13",v:3}];
+
+function scoreClass(s){return s>=75?'s-hi':s>=50?'s-mid':'s-lo';}
+function openAll(){qualified.forEach(j=>window.open(j.url,'_blank'));}
+function copyText(t,btn){
+  navigator.clipboard.writeText(t).then(()=>{const o=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=o,1500);})
+  .catch(()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');btn.textContent='Copied ✓';setTimeout(()=>btn.textContent='Copy',1500);}catch(e){}document.body.removeChild(ta);});
+}
+
+// Qualified table
+document.getElementById('qtbody').innerHTML = qualified.map((j,i)=>`
+  <tr>
+    <td>${i+1}</td>
+    <td><span class="score ${scoreClass(j.match)}">${j.match}</span></td>
+    <td>${j.trust}</td>
+    <td><b>${j.company}</b></td>
+    <td>${j.role}</td>
+    <td>${j.loc}</td>
+    <td>${j.salary}</td>
+    <td>${j.variant}</td>
+    <td>${j.apply}</td>
+    <td><a class="btn btn-open" href="${j.url}" target="_blank" rel="noopener">Open ↗</a>${j.cl?`<button class="btn btn-copy" onclick="copyText(letters['${j.cl}'].text,this)">Copy CL</button>`:''}</td>
+  </tr>`).join('');
+
+// Review table
+document.getElementById('rtbody').innerHTML = review.map((j,i)=>`
+  <tr>
+    <td>${i+1}</td>
+    <td><span class="score ${scoreClass(j.match)}">${j.match}</span></td>
+    <td>${j.trust}</td>
+    <td><b>${j.company}</b></td>
+    <td>${j.role}</td>
+    <td>${j.loc}</td>
+    <td>${j.reason}</td>
+    <td><a class="btn btn-open" href="${j.url}" target="_blank" rel="noopener">Open ↗</a></td>
+  </tr>`).join('');
+
+// Skipped table
+document.getElementById('stbody').innerHTML = skipped.map((j,i)=>`
+  <tr><td>${i+1}</td><td><b>${j.company}</b></td><td>${j.role}</td><td>${j.reason}</td></tr>`).join('');
+
+// Recs
+document.getElementById('recs').innerHTML = recs.map(r=>`
+  <div class="rec"><h3>${r.t}</h3><div class="meta">${r.m}</div><p>${r.p}</p></div>`).join('');
+
+// Trend bars
+const maxV = Math.max(...trend.map(t=>t.v),1);
+document.getElementById('bars').innerHTML = trend.map(t=>`
+  <div class="bar"><div class="v">${t.v}</div><div class="fill" style="height:${Math.round(t.v/maxV*110)}px"></div><div class="d">${t.d}</div></div>`).join('');
+
+// Letters
+document.getElementById('letters').innerHTML = Object.values(letters).map(l=>`
+  <div class="cl"><div class="h"><b>${l.title}</b><button class="btn btn-copy" onclick="copyText(this.parentNode.nextElementSibling.textContent,this)">Copy</button></div><pre>${l.text.replace(/</g,'&lt;')}</pre></div>`).join('');
+</script>
+</body>
+</html>

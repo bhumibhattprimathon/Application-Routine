@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to express my interest in the Java Developer (Spring Boot) position at Innspark Solutions. My 1.5 years of backend engineering center on exactly this stack: at Primathon I built admin APIs and automated backend workflows that cut manual effort by 70%, and at Paytm I developed microservices managing the QR-code lifecycle for real-time transaction notifications. I architected a Distributed Payment Gateway with 30 Spring Boot REST APIs across four services, applying system-design principles for scalability and fault tolerance — experience that transfers well to building reliable, high-performance products in a deeptech environment.
+
+With a 5-Star Gold in Java on HackerRank and 250+ DSA problems solved, I bring strong fundamentals alongside production experience. As a 0-day-notice immediate joiner, I can start right away and ramp up fast.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm keen to apply for the Back End Engineer role at ThoughtSol Infotech. As a backend-focused engineer with 1.5 years of experience, I design and ship scalable microservices and REST APIs using Java, Spring Boot, and Node.js, and I'm comfortable extending into new backend languages and frameworks where a project needs it. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and in an earlier role I containerized order and payment microservices with Docker for production-ready deployment.
+
+My work on a distributed payment gateway sharpened my grasp of fault-tolerant service design and REST API optimization. I'd bring that reliability-first mindset to ThoughtSol's engineering team in Noida. As an immediate joiner eager to learn and contribute quickly, I'm ready to add value from the start.
+
+Best regards,
+Bhumi Bhatt

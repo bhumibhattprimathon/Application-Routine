@@ -1,15 +1,16 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-13",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "Web search (US-based) → job aggregators; JSearch API not available this session; LinkedIn live 24h feed not directly accessible",
+  "resume_source": "repo resumes/resume_master.pdf",
+  "notify": "routine push/email channel (ntfy disabled per prior user instruction)",
+  "jobs_found": 14,
+  "jobs_qualified": 3,
+  "jobs_review": 3,
+  "jobs_skipped": 8,
+  "fraud_detected": 0,
+  "avg_match_qualified": 82.3,
+  "cover_letters_generated": 3,
+  "notes": "Discovery limited to aggregator listings; posting dates could not be verified as <24h. Top pick Impetus Technologies Full Stack Engineer (match 89, trust 90). Voiceoc confirmed closed. All listings flagged as leads to verify before applying."
 }

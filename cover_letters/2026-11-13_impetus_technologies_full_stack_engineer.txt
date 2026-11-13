@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Full Stack Engineer role at Impetus Technologies, where my Java/Spring Boot backend work and React frontend experience map directly to your stack. At Primathon I engineered custom admin APIs and backend automation across seven merchant systems, and in earlier roles I built and optimized 30+ REST API endpoints with MySQL. On the frontend I work in React.js with JavaScript (ES6+), HTML5, and CSS3, letting me own features end to end. My Distributed Payment Gateway project — 30 REST APIs across four Spring Boot microservices — reflects the system-design depth Impetus values in its data and cloud engineering work.
+
+As an immediate joiner with a 9.3 CGPA and 5-Star Gold in Java on HackerRank, I'm ready to contribute from day one and grow quickly within your team.
+
+Best regards,
+Bhumi Bhatt
