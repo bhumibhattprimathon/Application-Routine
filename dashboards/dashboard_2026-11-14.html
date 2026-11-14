@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-14</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700;line-height:1}
+  .card .l{font-size:12px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+  .card.good .n{color:var(--green)} .card.warn .n{color:var(--yellow)} .card.bad .n{color:var(--red)} .card.info .n{color:var(--blue)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+  .pill b{color:var(--ink)}
+  .notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:12px 14px;font-size:13px;margin:14px 0}
+  .openall{display:block;width:100%;background:var(--green);color:#fff;border:none;border-radius:12px;padding:18px;
+    font-size:18px;font-weight:700;cursor:pointer;margin:18px 0;box-shadow:0 2px 8px rgba(34,197,94,.3)}
+  .openall:hover{filter:brightness(.95)}
+  .openall:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+  h2{font-size:17px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .tag{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .tag.g{background:var(--green)} .tag.y{background:var(--yellow)} .tag.r{background:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .score{font-weight:700}
+  .s-hi{color:var(--green)} .s-mid{color:var(--yellow)} .s-lo{color:var(--red)}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;
+    font-size:12px;cursor:pointer;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .btn:hover{filter:brightness(.97)}
+  .rec{border-left:3px solid var(--green);padding:8px 0 8px 14px;margin:12px 0}
+  .rec h3{margin:0 0 4px;font-size:15px}
+  .rec .why{font-size:13px;color:#334155}
+  .cl{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:#fcfdff}
+  .cl h3{margin:0 0 8px;font-size:14px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#334155;margin:0 0 10px}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:140px;padding-top:10px}
+  .bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;max-width:90px}
+  .bar{width:46px;background:var(--green);border-radius:6px 6px 0 0;min-height:4px;transition:height .3s}
+  .bar-lbl{font-size:11px;color:var(--muted);text-align:center}
+  .bar-val{font-size:12px;font-weight:700}
+  .muted{color:var(--muted);font-size:12px}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+  @media(max-width:620px){ .cards{grid-template-columns:repeat(2,1fr)} th:nth-child(6),td:nth-child(6){display:none} }
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-14</h1>
+  <div class="sub">Morning scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote India</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card info"><div class="n">13</div><div class="l">New Jobs Found</div></div>
+    <div class="card good"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card warn"><div class="n">4</div><div class="l">Review</div></div>
+    <div class="card bad"><div class="n">8</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+  </div>
+
+  <div class="meta-row">
+    <span class="pill">Avg match (qualified): <b>78</b></span>
+    <span class="pill">Avg salary (qualified): <b>₹8–11 LPA</b></span>
+    <span class="pill">Cover letters generated: <b>1</b></span>
+    <span class="pill">Duplicates skipped: <b>0</b></span>
+  </div>
+
+  <div class="notice">
+    <b>Data-source note:</b> The JSearch (RapidAPI) feed used in prior runs is no longer subscribed
+    (endpoint returns 404), and raw web search for "posted today" returns mostly stale aggregator pages.
+    Today's results were sourced from <b>Cutshort's date-sorted Delhi&nbsp;NCR / remote listings</b> with each
+    posting verified for date and experience. Posting dates are shown per row — verify a role is still open before applying.
+    The entry-level (0–2&nbsp;yr) market in NCR this week is thin; most current openings require 3–10+&nbsp;yrs or an off-stack (.NET / Odoo / Python-Azure) profile.
+  </div>
+
+  <button id="openAllBtn" class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB</button>
+
+  <section>
+    <h2><span class="tag g"></span> Qualified — Ready to Apply</h2>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="score s-hi">78</td>
+          <td>80</td>
+          <td>Quixta</td>
+          <td>Junior Backend &amp; Data Developer<br><span class="muted">Posted 11 Nov 2026 · 1–3 yrs</span></td>
+          <td>Remote</td>
+          <td>₹8–11 LPA</td>
+          <td>backend</td>
+          <td>Cutshort</td>
+          <td>
+            <a class="btn primary" href="https://cutshort.io/job/Junior-Backend-Data-Developer-Quixta-gq1BZPq6" target="_blank" rel="noopener">Open Job</a>
+            <button class="btn" onclick="copyCL('cl-quixta')">Copy Cover Letter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="tag y"></span> Review — Worth a Look / Stretch</h2>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Posted</th><th>Reason for Review</th><th>Open</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="score s-hi">78</td><td>70</td><td>NAM Info<br><span class="muted">(finance co)</span></td><td>Backend Java Developer</td><td>28 Jul 2026</td>
+          <td>Exact stack (Java, Spring Boot, microservices) but asks 3–6 yrs (Bhumi 1.5). Strong stretch; verify still open.</td>
+          <td><a class="btn" href="https://cutshort.io/job/Backend-Java-Developer-Delhi-Noida-NAM-Info-Pvt-Ltd-th7NU7Rp" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>2</td><td class="score s-mid">74</td><td>65</td><td>Lalitech</td><td>Full Stack Developer</td><td>16 Jul 2026</td>
+          <td>React / REST / JS match, salary in range — but asks 2.5–5 yrs and ~4 mo old (likely stale).</td>
+          <td><a class="btn" href="https://cutshort.io/job/Full-Stack-Developer-Noida-Lalitech-jItBLEkU" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>3</td><td class="score s-mid">62</td><td>65</td><td>Timble Technologies</td><td>L3 SDE (Python-Django)</td><td>2 Nov 2026</td>
+          <td>Recent &amp; in NCR, but Python/Django is off core (Java/Node) and salary floor (₹3L) is low.</td>
+          <td><a class="btn" href="https://cutshort.io/job/L3-SDE-Python-Django-Arjan-Garh-Gurgaon-Timble-Technologies-moUicyFY" target="_blank" rel="noopener">Open</a></td></tr>
+        <tr><td>4</td><td class="score s-mid">53</td><td>75</td><td>Webkul Software</td><td>Odoo Developer</td><td>30 Oct 2026</td>
+          <td>Recent, NCR, experience fits — but Odoo-specific (no Odoo experience) and ₹4–7L near floor.</td>
+          <td><a class="btn" href="https://cutshort.io/job/Odoo-Developer-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Webkul-Software-PvtLtd-uSHpN5aT" target="_blank" rel="noopener">Open</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="tag r"></span> Skipped</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>oneplacesolar</td><td>Software Developer</td><td>Salary: est ₹2–3 LPA — below current 4 LPA and the 5.5 LPA floor.</td></tr>
+        <tr><td>2</td><td>Springer Capital</td><td>Backend Development Internship</td><td>Salary: ₹3–4K/month internship; Bhumi wants a full-time 5.5 LPA+ role.</td></tr>
+        <tr><td>3</td><td>Cyber Infrastructure</td><td>Trainee Software Developer</td><td>Location: Indore (outside NCR) + trainee pay ₹0.6–3 LPA.</td></tr>
+        <tr><td>4</td><td>GeoIQ</td><td>Backend Engineer</td><td>Location: Bengaluru; Python/Flask/PostGIS stack off core.</td></tr>
+        <tr><td>5</td><td>Deltek</td><td>Java Engineer</td><td>Experience: requires 6–10 yrs (Bhumi has 1.5).</td></tr>
+        <tr><td>6</td><td>Confidential (via ReferCircle)</td><td>Backend Developer</td><td>Experience: requires 5–10 yrs.</td></tr>
+        <tr><td>7</td><td>Staffnix</td><td>Senior Backend Developer (Python, GenAI)</td><td>Experience: 3–6 yrs + Python/LLM/RAG stack gap.</td></tr>
+        <tr><td>8</td><td>Bean HR Consulting</td><td>Sr AI Engineer (.NET)</td><td>Experience: 10–16 yrs and .NET/C# AI stack — far too senior and off-stack.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Note: 0 fraud/scam listings today — Cutshort is a vetted hiring platform, so the usual LinkedIn "earn from home / course-ad" spam did not appear in this source.</p>
+  </section>
+
+  <section>
+    <h2>⭐ Top Recommendation</h2>
+    <div class="rec">
+      <h3>1. Quixta — Junior Backend &amp; Data Developer (Remote) · Score 78 / Trust 80</h3>
+      <div class="why">The single clean, fresh (posted 11 Nov) entry-level match this week. It explicitly welcomes 1–3 yrs
+      <i>and counts internships + strong projects</i>, fitting Bhumi's 1.5 yrs at Primathon/Paytm. The role is building backend
+      APIs, writing queries/migrations/data scripts and supporting integrations — squarely her Primathon work (admin APIs,
+      backend syncing across 7 merchant systems, AWS data pipelines). Salary ₹8–11 LPA sits comfortably in her 5.5–12 target,
+      it's fully remote, and they value familiarity with AI dev tools (Claude/Cursor) + an interest in data/ML, matching her
+      GenAI research background. The one gap is the primary stack is Python/Django vs her Java/Node — bridgeable for a junior role
+      and worth a strong application with the generated cover letter. <b>Apply today.</b></div>
+    </div>
+    <div class="rec" style="border-left-color:var(--yellow)">
+      <h3>2. NAM Info — Backend Java Developer (Delhi/Noida) · stretch</h3>
+      <div class="why">If Bhumi wants one ambitious stretch: this is her <i>exact</i> stack (Java, Spring Boot, microservices).
+      It asks 3–6 yrs and was posted in July, so confirm it's still open — but a tailored application highlighting her
+      payment-gateway and microservices work could land an interview despite the experience gap.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📈 Weekly / Run Trend — Qualified per run</h2>
+    <div class="trend" id="trend"></div>
+    <p class="muted">Qualified counts across recorded runs. Thin numbers reflect a genuinely tight entry-level NCR market for Bhumi's profile, not a lack of searching — 13 fresh postings were reviewed today across backend, full-stack, SWE and AI/ML.</p>
+  </section>
+
+  <section>
+    <h2>✉️ Cover Letters</h2>
+    <div class="cl">
+      <h3>Quixta — Junior Backend &amp; Data Developer</h3>
+      <pre id="cl-quixta">Dear Hiring Manager,
+
+I'm excited to apply for the Junior Backend &amp; Data Developer role at Quixta, where I'd contribute to building and maintaining backend APIs and data services from day one.
+
+Over the past 1.5 years at Primathon and Paytm, I've shipped production REST APIs and microservices — designing custom admin APIs and backend syncing automation across seven merchant systems, and optimizing 30+ REST endpoints in earlier work. I work daily with SQL (MySQL), Git, and both relational and NoSQL databases (MySQL, MongoDB), and I've integrated AWS services (S3, Lambda, Timestream) into backend pipelines for real-time data ingestion — directly matching your need for APIs, queries, migrations, and data scripts. I also build with modern AI development tools like Claude and completed a research project on Generative AI, which aligns well with your team's data and ML focus.
+
+As an immediate joiner (0-day notice) comfortable in a remote, senior-guided team, I'm ready to pick up Django quickly and contribute clean, well-tested backend code right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+      <button class="btn primary" onclick="copyCL('cl-quixta')">COPY</button>
+    </div>
+  </section>
+
+  <footer>Generated by the LinkedIn Morning Scan routine · 2026-11-14 · Not an official LinkedIn product.</footer>
+</div>
+
+<script>
+  // Qualified job URLs for "Open All"
+  var qualifiedUrls = [
+    "https://cutshort.io/job/Junior-Backend-Data-Developer-Quixta-gq1BZPq6"
+  ];
+  function openAll(){
+    if(!qualifiedUrls.length){ alert("No qualified jobs to open today."); return; }
+    qualifiedUrls.forEach(function(u){ window.open(u, "_blank"); });
+  }
+  (function(){ var b=document.getElementById("openAllBtn"); if(!qualifiedUrls.length){ b.disabled=true; b.textContent="NO QUALIFIED JOBS TODAY"; } })();
+
+  function copyCL(id){
+    var el=document.getElementById(id); if(!el) return;
+    var txt=el.innerText;
+    function done(){ /* lightweight feedback */ var old=event&&event.target?event.target.textContent:null;
+      if(event&&event.target){ event.target.textContent="Copied!"; setTimeout(function(){ event.target.textContent=old; },1400);} }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt); });
+    } else { fallback(txt); }
+  }
+  function fallback(txt){
+    var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){} document.body.removeChild(ta);
+  }
+
+  // Trend bar chart
+  var runs=[{d:"2026-08-05",q:1},{d:"2026-11-14",q:1}];
+  var max=Math.max.apply(null,[1].concat(runs.map(function(r){return r.q;})));
+  var host=document.getElementById("trend");
+  runs.forEach(function(r){
+    var w=document.createElement("div"); w.className="bar-wrap";
+    var v=document.createElement("div"); v.className="bar-val"; v.textContent=r.q;
+    var bar=document.createElement("div"); bar.className="bar"; bar.style.height=(10+ (r.q/max)*100)+"px";
+    var l=document.createElement("div"); l.className="bar-lbl"; l.textContent=r.d;
+    w.appendChild(v); w.appendChild(bar); w.appendChild(l); host.appendChild(w);
+  });
+</script>
+</body>
+</html>

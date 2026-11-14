@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-14",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "data_source": "Cutshort date-sorted Delhi NCR + remote listings (via WebSearch + WebFetch); each posting verified for date and experience.",
+  "discovery_note": "JSearch API (RapidAPI) subscription has lapsed — endpoint /search returns HTTP 404. Raw web search for 'posted today' returns mostly stale aggregator index pages. Falling back to Cutshort's dated listing pages gave the most reliable current, location-matched postings.",
+  "resume_source": "repo resumes/resume_master.pdf (home dir is ephemeral each run)",
+  "ntfy": "disabled per standing user instruction; reported via routine push/email channel instead",
+  "jobs_found_new": 13,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 4,
+  "jobs_skipped": 8,
+  "fraud_detected": 0,
+  "avg_match_qualified": 78.0,
+  "top_pick": "Quixta — Junior Backend & Data Developer (Remote, ₹8-11 LPA, posted 11 Nov 2026), match 78 / trust 80",
+  "notes": "Thin entry-level (0-2 yr) NCR market this week: most current openings require 3-10+ yrs or an off-stack (.NET/Odoo/Python-Azure) profile. Only one clean fresh match (Quixta). Four stretch/review roles incl. an exact-stack Java role (NAM Info) worth a stretch application. No fraud/scam listings (Cutshort is vetted). Action for user: re-subscribe JSearch on RapidAPI to restore reliable <24h dated discovery."
 }

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Junior Backend & Data Developer role at Quixta, where I'd contribute to building and maintaining backend APIs and data services from day one.
+
+Over the past 1.5 years at Primathon and Paytm, I've shipped production REST APIs and microservices — designing custom admin APIs and backend syncing automation across seven merchant systems, and optimizing 30+ REST endpoints in earlier work. I work daily with SQL (MySQL), Git, and both relational and NoSQL databases (MySQL, MongoDB), and I've integrated AWS services (S3, Lambda, Timestream) into backend pipelines for real-time data ingestion — directly matching your need for APIs, queries, migrations, and data scripts. I also build with modern AI development tools like Claude and completed a research project on Generative AI, which aligns well with your team's data and ML focus.
+
+As an immediate joiner (0-day notice) comfortable in a remote, senior-guided team, I'm ready to pick up Django quickly and contribute clean, well-tested backend code right away.
+
+Best regards,
+Bhumi Bhatt
