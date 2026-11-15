@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my interest in the Software Developer role at GLG (Gerson Lehrman Group), which aligns well with my full-stack toolkit and my comfort working inside large, existing codebases.
+
+I build across React, JavaScript, and TypeScript on the frontend and Node.js with SQL on the backend, and I am used to debugging complex systems and explaining technical trade-offs clearly — a habit I developed migrating a legacy mainframe travel application to a modern Java/Spring architecture and optimizing 30+ REST API endpoints for reliability. My testing discipline with JUnit, Mockito, and Postman helps me change unfamiliar code safely.
+
+As an immediate joiner with strong fundamentals and a 9.3 CGPA in Computer Science, I am eager to ramp up fast and contribute to GLG's engineering work.
+
+Best regards,
+Bhumi Bhatt

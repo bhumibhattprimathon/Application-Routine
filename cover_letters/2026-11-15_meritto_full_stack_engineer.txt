@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am keen to apply for the Full Stack Engineer, AI Native Platform role at Meritto, where end-to-end ownership across a modern TypeScript and Node.js stack is exactly how I like to build.
+
+I ship full-stack features daily: React on the frontend and Node.js/Express backends, backed by PostgreSQL and MongoDB, with Kafka and Redis for event-driven, high-throughput workloads I used while processing meta-events and analytics at Primathon. My microservices experience and system-design focus — demonstrated in a 30-API distributed payment gateway — prepare me to build scalable production services from 0 to 1.
+
+As an immediate joiner comfortable moving between frontend and backend, I am excited to help build Meritto's AI-native platform and would contribute from week one.
+
+Best regards,
+Bhumi Bhatt

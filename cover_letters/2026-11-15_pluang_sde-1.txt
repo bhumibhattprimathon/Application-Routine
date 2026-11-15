@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would like to apply for the Software Engineer (SDE-1) role at Pluang, a fintech mission that resonates strongly with my background in payment systems.
+
+My foundation is built for this: a 5-Star Gold Java rating on HackerRank with 250+ data-structures-and-algorithms problems solved, paired with real delivery experience building distributed payment infrastructure — a 30-API payment gateway spanning Order, Payment, Merchant, and Vault services, and QR-lifecycle microservices at Paytm. I bring solid Java, Spring Boot, SQL, and system-design fundamentals, backed by a 9.3 CGPA in Computer Science.
+
+As an immediate joiner who thrives on clean problem-solving, I am ready to take on SDE-1 ownership and grow quickly within your engineering team.
+
+Best regards,
+Bhumi Bhatt

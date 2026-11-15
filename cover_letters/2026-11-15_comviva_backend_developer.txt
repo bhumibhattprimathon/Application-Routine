@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Backend Developer role at Comviva, where my core strengths in Java and Spring Boot map directly to your microservices and REST API requirements.
+
+Over 1.5 years I have built and optimized production microservices — managing the QR-code lifecycle for merchants at Paytm and engineering admin APIs with AWS-backed pipelines at Primathon. My distributed payment gateway project (30 REST APIs across Order, Payment, Merchant, and Vault services) reflects exactly the Spring Boot, relational/NoSQL (MySQL, MongoDB), and JUnit/Mockito testing stack your role calls for, along with Git-based CI/CD and secure API design.
+
+As an immediate joiner with a 5-Star Gold Java rating on HackerRank and an AWS Developer Associate certification, I can contribute to your backend teams from day one.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Associate Software Engineer role at Moody's, drawn by the combination of cloud-native backend engineering and applied generative AI in the position.
+
+My work centers on building REST APIs and deploying services on AWS — I have integrated Lambda, S3, and Timestream into real-time backend pipelines and containerized order/payment services with Docker for production. My research paper on Generative AI Applications in Personalized Systems and an AI-driven alerting module I built into my payment gateway give me a practical starting point for the LLM, prompt-engineering, and RAG exposure your team values, and my strong SQL and testing habits round out the backend fundamentals.
+
+As an immediate joiner who already codes across Java, JavaScript, and SQL, I am confident I can pick up Python and FastAPI quickly and add value fast.
+
+Best regards,
+Bhumi Bhatt

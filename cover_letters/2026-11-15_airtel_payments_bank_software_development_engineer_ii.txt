@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am applying for the Software Development Engineer II role at Airtel Payments Bank, a position that sits right at the intersection of my Core Java expertise and my hands-on payments background.
+
+I have built payment-critical microservices in production — managing the QR-code lifecycle for merchants at Paytm and architecting a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services. My stack maps closely to your requirements: Core Java and Spring, Apache Kafka for event streaming, Redis for caching, microservice design patterns, MySQL, and Jenkins-based CI/CD, all tested with JUnit and Mockito.
+
+As an immediate joiner who already thinks in terms of reliability and scale for financial systems, I am confident I can contribute meaningfully to your banking platform.
+
+Best regards,
+Bhumi Bhatt

@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Software Engineer position at Sauce Labs, as a developer who genuinely enjoys building reliable test infrastructure that other engineers depend on.
+
+Your emphasis on tests that run dependably in CI and on debugging across systems you don't own matches my hands-on experience with Selenium and Playwright, plus automating build pipelines with Git Actions to improve delivery consistency across 30+ REST API endpoints. I work daily in Node.js and JavaScript (ES6+), and I am comfortable reading and modifying unfamiliar codebases — skills I sharpened migrating a legacy mainframe travel solution to a modern Java/Spring stack.
+
+Being an immediate joiner, I am eager to learn your Go and TypeScript tooling quickly and start contributing to your automation platform right away.
+
+Best regards,
+Bhumi Bhatt

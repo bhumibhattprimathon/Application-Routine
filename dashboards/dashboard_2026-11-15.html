@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#16a34a; --yellow:#eab308; --yellow-d:#ca8a04;
+    --red:#ef4444; --red-d:#dc2626; --ink:#0f172a; --mut:#64748b; --line:#e2e8f0;
+    --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  h1{font-size:1.5rem;margin:0 0 4px}
+  header .sub{color:#94a3b8;font-size:.9rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+  .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px}
+  .card .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .card .l{color:#cbd5e1;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+  .card.q .n{color:var(--green)} .card.s .n{color:var(--red)} .card.r .n{color:var(--yellow)}
+  main{padding:26px 0 60px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  h2{font-size:1.15rem;margin:0 0 14px;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+  .openall{display:block;width:100%;border:0;border-radius:12px;padding:18px;font-size:1.15rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--green),var(--green-d));cursor:pointer;box-shadow:0 4px 14px rgba(34,197,94,.35)}
+  .openall:hover{filter:brightness(1.05)}
+  .hint{color:var(--mut);font-size:.82rem;margin-top:8px;text-align:center}
+  .tablewrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:620px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+  .score{font-weight:700;border-radius:8px;padding:2px 8px;display:inline-block;color:#fff;font-size:.8rem}
+  .sc-hi{background:var(--green-d)} .sc-md{background:var(--yellow-d)} .sc-lo{background:var(--red-d)}
+  .trust{font-weight:600}
+  .btn{display:inline-block;border:0;border-radius:8px;padding:6px 10px;font-size:.78rem;font-weight:600;cursor:pointer;text-decoration:none;margin:2px 2px 0 0}
+  .btn-open{background:#1e293b;color:#fff}
+  .btn-copy{background:#e2e8f0;color:#0f172a}
+  .btn-copy.ok{background:var(--green);color:#fff}
+  .tag{font-size:.72rem;padding:2px 6px;border-radius:6px;background:#f1f5f9;color:var(--mut);border:1px solid var(--line)}
+  .reco{border-left:4px solid var(--green);background:#f0fdf4;border-radius:0 10px 10px 0;padding:12px 14px;margin:10px 0}
+  .reco h3{margin:0 0 4px;font-size:.98rem}
+  .reco .meta{color:var(--mut);font-size:.8rem;margin-bottom:6px}
+  .bars{display:flex;gap:18px;align-items:flex-end;height:170px;padding:10px 4px;border-bottom:2px solid var(--line)}
+  .bar{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;max-width:90px}
+  .bar .col{width:46px;background:linear-gradient(180deg,var(--green),var(--green-d));border-radius:6px 6px 0 0}
+  .bar .val{font-weight:700;font-size:.9rem}
+  .bar .day{color:var(--mut);font-size:.74rem;text-align:center}
+  .cl{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:#fafafa}
+  .cl h3{margin:0 0 8px;font-size:.95rem}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;margin:0;color:#334155}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:.84rem;color:#854d0e;margin:14px 0}
+  .skip-reason{color:#7f1d1d}
+  footer{color:var(--mut);font-size:.8rem;text-align:center;padding:30px 16px}
+  @media(max-width:560px){.card .n{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 15 November 2026</h1>
+    <div class="sub">Daily morning scan for Bhumi Bhatt · Backend / Full-Stack / SDE · Delhi NCR · Immediate joiner</div>
+    <div class="cards">
+      <div class="card"><div class="n">13</div><div class="l">Jobs Found</div></div>
+      <div class="card q"><div class="n">7</div><div class="l">Qualified</div></div>
+      <div class="card r"><div class="n">2</div><div class="l">Review</div></div>
+      <div class="card s"><div class="n">4</div><div class="l">Skipped</div></div>
+      <div class="card"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+      <div class="card"><div class="n">83</div><div class="l">Avg Match Score</div></div>
+      <div class="card"><div class="n">~14.9</div><div class="l">Avg Salary Est (LPA)</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <button class="openall" onclick="openAll()">OPEN ALL 7 QUALIFIED JOBS</button>
+    <div class="hint">Opens all 7 qualified postings in new tabs. If your browser blocks pop-ups, allow them for this page, or use the individual “Open Job” buttons below.</div>
+  </section>
+
+  <div class="note">
+    <strong>Freshness note:</strong> JSearch/RapidAPI (last run's source) is no longer reachable on this key, and ntfy.sh is blocked by the environment's egress policy. Today's jobs were discovered via web search and verified individually on their source pages. All listings below were posted <strong>5–14 November 2026</strong> (the freshest within ~48h), de-duplicated against your application history. Always confirm the role is still open on the employer's own careers page before applying — and never pay any fee to apply.
+  </div>
+
+  <section>
+    <h2><span class="dot g"></span>Qualified Jobs — Ready to Apply</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score sc-hi">90</span></td><td class="trust">92</td>
+          <td>Comviva</td><td>Backend Developer</td><td>Gurugram / Noida</td><td>12–15 LPA</td><td><span class="tag">backend</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://jobfound.org/job/comviva-is-hiring-for-backend-developer-gurugram-noida-india-12-november-2026">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-comviva')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score sc-hi">88</span></td><td class="trust">88</td>
+          <td>Sauce Labs</td><td>Software Engineer</td><td>Gurugram (Hybrid)</td><td>5–9 LPA</td><td><span class="tag">fullstack</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://jobfound.org/job/sauce-labs-is-hiring-for-software-engineer-gurgaon-haryana-india-india-13-november-2026">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-sauce')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td><td><span class="score sc-hi">88</span></td><td class="trust">75</td>
+          <td>Pluang</td><td>Software Engineer (SDE-1)</td><td>Gurugram</td><td>8–14 LPA (est)</td><td><span class="tag">backend</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://www.simplyhired.co.in/job/OpVbYFfDCOHvIiQDMInI1EVxYN35VyRELYp-vMQrLuIU04CgbptAmA">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-pluang')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td><td><span class="score sc-hi">80</span></td><td class="trust">95</td>
+          <td>Moody's</td><td>Associate Software Engineer</td><td>Gurugram</td><td>7–14 LPA</td><td><span class="tag">master</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://jobfound.org/job/moodys-corporation-is-hiring-for-associate-software-engineer-gurugram-haryana-india-india-12-november-2026">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-moodys')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td><td><span class="score sc-hi">80</span></td><td class="trust">80</td>
+          <td>Meritto</td><td>Full Stack Engineer (AI Native)</td><td>Gurugram</td><td>17–22 LPA</td><td><span class="tag">fullstack</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://jobfound.org/job/meritto-is-hiring-for-full-stack-engineer-ai-native-platform-gurugram-haryana-india-india-13-november-2026">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-meritto')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td><td><span class="score sc-md">78</span></td><td class="trust">90</td>
+          <td>GLG (Gerson Lehrman Group)</td><td>Software Developer</td><td>Gurugram</td><td>17–28 LPA</td><td><span class="tag">fullstack</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://jobfound.org/job/glg-is-hiring-for-software-developer-gurugram-haryana-india-india-6-november-2026">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-glg')">Copy Cover Letter</button>
+          </td>
+        </tr>
+        <tr>
+          <td>7</td><td><span class="score sc-md">77</span></td><td class="trust">95</td>
+          <td>Airtel Payments Bank</td><td>SDE II</td><td>Gurugram</td><td>17–23 LPA</td><td><span class="tag">backend</span></td><td>External</td>
+          <td>
+            <a class="btn btn-open" target="_blank" href="https://jobfound.org/job/airtel-payments-bank-is-hiring-for-software-development-engineer-ii-gurugram-haryana-india-india-11-november-2026">Open Job</a>
+            <button class="btn btn-copy" onclick="copyCL(this,'cl-airtel')">Copy Cover Letter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot y"></span>Review Jobs — Verify Before Applying</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th><th>Open</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><span class="score sc-md">76</span></td><td class="trust">52</td>
+          <td>Domgys India Services</td><td>Backend Web Developer</td><td>Noida</td>
+          <td>Strong skill fit (Java, Node, SQL) and fresher-friendly, but salary 4–6 LPA is below your 5.5 LPA floor, and the company has a thin public footprint (small web-hosting firm, few/no reviews). Verify entity on MCA + salary before applying.</td>
+          <td><a class="btn btn-open" target="_blank" href="https://jobfound.org/job/domgys-india-services-pvt-ltd-is-hiring-for-backend-web-developer-noida-india-11-november-2026">Open</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td><span class="score sc-md">73</span></td><td class="trust">52</td>
+          <td>Nuaav</td><td>Full Stack Engineer (AI-Native)</td><td>Noida / Remote</td>
+          <td>Good stack overlap (React, Node, SQL, AWS) but needs Python + LLM tooling you don't yet have, asks 3+ yrs, and the company is lightly verified (no AmbitionBox/Glassdoor reviews found). Confirm legitimacy and level.</td>
+          <td><a class="btn btn-open" target="_blank" href="https://jobfound.org/job/nuaav-is-hiring-for-full-stack-engineer-noida-uttar-pradesh-india-5-november-2026">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot r"></span>Skipped Jobs</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>NatWest Group</td><td>Software Engineer (GCP & Java, AVP)</td><td class="skip-reason">Experience: 5+ yrs incl. 8 yrs GCP, AVP-level ownership — far beyond 1.5 yrs.</td></tr>
+        <tr><td>2</td><td>Met Traders Limited</td><td>Software Developer (Noida)</td><td class="skip-reason">Skill: C++/C#-focused role — off your Java / JavaScript backend stack.</td></tr>
+        <tr><td>3</td><td>OLX India</td><td>Senior Frontend Developer</td><td class="skip-reason">Title/Level: Senior, pure-frontend (Angular/React specialist, 2–4 yrs min) — not your backend focus.</td></tr>
+        <tr><td>4</td><td>Observe.ai</td><td>Junior ML Engineer (Speech AI / NLP, Remote)</td><td class="skip-reason">Skill: Python + Speech/NLP research stack — off your Java/JS backend profile.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>⭐ Top 5 Recommendations</h2>
+
+    <div class="reco">
+      <h3>1. Comviva — Backend Developer <span class="meta">(Match 90 · Trust 92 · 12–15 LPA · Gurugram/Noida)</span></h3>
+      <div class="meta">Posted 12 Nov 2026 · External apply</div>
+      <p>The cleanest match of the day. The required stack — Java, Spring Boot, REST APIs, microservices, MySQL/MongoDB, JUnit/Mockito, Git CI/CD — mirrors Bhumi's resume almost line-for-line, and Comviva (a Tech Mahindra company) is a large, well-established employer. The 2–4 yr band is a mild stretch on her 1.5 yrs, but her payment-gateway and Paytm microservices work more than carry it. Apply today with the tailored cover letter.</p>
+    </div>
+
+    <div class="reco">
+      <h3>2. Sauce Labs — Software Engineer <span class="meta">(Match 88 · Trust 88 · 5–9 LPA · Gurugram Hybrid)</span></h3>
+      <div class="meta">Posted 13 Nov 2026 · Fresher-level · External apply</div>
+      <p>A rare fresher-friendly role at a respected test-automation company — and testing is squarely Bhumi's strength (Selenium, Playwright, JUnit, CI pipelines). It rewards reading unfamiliar codebases and shipping reliable CI tests, exactly what she did migrating the SABRE mainframe app and automating build pipelines. Salary sits inside target; a great, realistic fit.</p>
+    </div>
+
+    <div class="reco">
+      <h3>3. Pluang — Software Engineer (SDE-1) <span class="meta">(Match 88 · Trust 75 · ~8–14 LPA · Gurugram)</span></h3>
+      <div class="meta">Hiring drive 18–20 Nov 2026 · 0–1 yr · Verify live</div>
+      <p>A funded fintech running an SDE-1 drive next week — ideal for Bhumi's fintech/payments background and her strong DSA credentials (5-Star Gold Java, 250+ problems, 9.3 CGPA). Time-sensitive: the drive is 18–20 Nov, so prepare now. (I couldn't open the posting directly — it bot-blocked the fetch — so confirm dates/eligibility on the live page.)</p>
+    </div>
+
+    <div class="reco">
+      <h3>4. Moody's — Associate Software Engineer <span class="meta">(Match 80 · Trust 95 · 7–14 LPA · Gurugram)</span></h3>
+      <div class="meta">Posted 12 Nov 2026 · 1–3 yrs · External apply</div>
+      <p>Best experience fit on the board (1–3 yrs) at a top-tier global employer, blending cloud backend (AWS, Docker, REST, SQL) with applied GenAI/LLMs — a direction Bhumi already leans into via her GenAI research paper and AI alerting work. The gap is Python/FastAPI, which she can ramp quickly given her Java/JS foundation. High-value target.</p>
+    </div>
+
+    <div class="reco">
+      <h3>5. Meritto — Full Stack Engineer, AI Native <span class="meta">(Match 80 · Trust 80 · 17–22 LPA · Gurugram)</span></h3>
+      <div class="meta">Posted 13 Nov 2026 · External apply</div>
+      <p>End-to-end TypeScript/React/Node + PostgreSQL/Kafka/Redis role at an established edtech SaaS (formerly NoPaperForms). Bhumi's event-driven work (Kafka, Redis, analytics pipelines) and full-stack range fit well; the 0→1 build mandate suits her ownership mindset. A stretch on years but a strong upside play well above her salary target.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>📊 Weekly / Run Trend — Qualified Jobs</h2>
+    <div class="bars">
+      <div class="bar"><div class="val">1</div><div class="col" style="height:20px"></div><div class="day">05 Aug<br>(last run)</div></div>
+      <div class="bar"><div class="val">7</div><div class="col" style="height:140px"></div><div class="day">15 Nov<br>(today)</div></div>
+    </div>
+    <div class="hint" style="text-align:left;margin-top:12px">Only two scan runs are on record so far (05 Aug and today). As the daily routine runs, this chart will fill in a true 7-day view of qualified jobs per day.</div>
+  </section>
+
+  <section>
+    <h2>✉️ Cover Letters</h2>
+    <p class="hint" style="text-align:left">Tailored, unique letters for each qualified job. Click COPY, then paste into the application.</p>
+
+    <div class="cl"><h3>Comviva — Backend Developer <button class="btn btn-copy" onclick="copyCL(this,'cl-comviva')">COPY</button></h3>
+      <pre id="cl-comviva">Dear Hiring Manager,
+
+I am writing to apply for the Backend Developer role at Comviva, where my core strengths in Java and Spring Boot map directly to your microservices and REST API requirements.
+
+Over 1.5 years I have built and optimized production microservices — managing the QR-code lifecycle for merchants at Paytm and engineering admin APIs with AWS-backed pipelines at Primathon. My distributed payment gateway project (30 REST APIs across Order, Payment, Merchant, and Vault services) reflects exactly the Spring Boot, relational/NoSQL (MySQL, MongoDB), and JUnit/Mockito testing stack your role calls for, along with Git-based CI/CD and secure API design.
+
+As an immediate joiner with a 5-Star Gold Java rating on HackerRank and an AWS Developer Associate certification, I can contribute to your backend teams from day one.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+    <div class="cl"><h3>Sauce Labs — Software Engineer <button class="btn btn-copy" onclick="copyCL(this,'cl-sauce')">COPY</button></h3>
+      <pre id="cl-sauce">Dear Hiring Manager,
+
+I am excited to apply for the Software Engineer position at Sauce Labs, as a developer who genuinely enjoys building reliable test infrastructure that other engineers depend on.
+
+Your emphasis on tests that run dependably in CI and on debugging across systems you don't own matches my hands-on experience with Selenium and Playwright, plus automating build pipelines with Git Actions to improve delivery consistency across 30+ REST API endpoints. I work daily in Node.js and JavaScript (ES6+), and I am comfortable reading and modifying unfamiliar codebases — skills I sharpened migrating a legacy mainframe travel solution to a modern Java/Spring stack.
+
+Being an immediate joiner, I am eager to learn your Go and TypeScript tooling quickly and start contributing to your automation platform right away.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+    <div class="cl"><h3>Pluang — Software Engineer (SDE-1) <button class="btn btn-copy" onclick="copyCL(this,'cl-pluang')">COPY</button></h3>
+      <pre id="cl-pluang">Dear Hiring Manager,
+
+I would like to apply for the Software Engineer (SDE-1) role at Pluang, a fintech mission that resonates strongly with my background in payment systems.
+
+My foundation is built for this: a 5-Star Gold Java rating on HackerRank with 250+ data-structures-and-algorithms problems solved, paired with real delivery experience building distributed payment infrastructure — a 30-API payment gateway spanning Order, Payment, Merchant, and Vault services, and QR-lifecycle microservices at Paytm. I bring solid Java, Spring Boot, SQL, and system-design fundamentals, backed by a 9.3 CGPA in Computer Science.
+
+As an immediate joiner who thrives on clean problem-solving, I am ready to take on SDE-1 ownership and grow quickly within your engineering team.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+    <div class="cl"><h3>Moody's — Associate Software Engineer <button class="btn btn-copy" onclick="copyCL(this,'cl-moodys')">COPY</button></h3>
+      <pre id="cl-moodys">Dear Hiring Manager,
+
+I am applying for the Associate Software Engineer role at Moody's, drawn by the combination of cloud-native backend engineering and applied generative AI in the position.
+
+My work centers on building REST APIs and deploying services on AWS — I have integrated Lambda, S3, and Timestream into real-time backend pipelines and containerized order/payment services with Docker for production. My research paper on Generative AI Applications in Personalized Systems and an AI-driven alerting module I built into my payment gateway give me a practical starting point for the LLM, prompt-engineering, and RAG exposure your team values, and my strong SQL and testing habits round out the backend fundamentals.
+
+As an immediate joiner who already codes across Java, JavaScript, and SQL, I am confident I can pick up Python and FastAPI quickly and add value fast.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+    <div class="cl"><h3>Meritto — Full Stack Engineer (AI Native) <button class="btn btn-copy" onclick="copyCL(this,'cl-meritto')">COPY</button></h3>
+      <pre id="cl-meritto">Dear Hiring Manager,
+
+I am keen to apply for the Full Stack Engineer, AI Native Platform role at Meritto, where end-to-end ownership across a modern TypeScript and Node.js stack is exactly how I like to build.
+
+I ship full-stack features daily: React on the frontend and Node.js/Express backends, backed by PostgreSQL and MongoDB, with Kafka and Redis for event-driven, high-throughput workloads I used while processing meta-events and analytics at Primathon. My microservices experience and system-design focus — demonstrated in a 30-API distributed payment gateway — prepare me to build scalable production services from 0 to 1.
+
+As an immediate joiner comfortable moving between frontend and backend, I am excited to help build Meritto's AI-native platform and would contribute from week one.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+    <div class="cl"><h3>GLG — Software Developer <button class="btn btn-copy" onclick="copyCL(this,'cl-glg')">COPY</button></h3>
+      <pre id="cl-glg">Dear Hiring Manager,
+
+I am writing to express my interest in the Software Developer role at GLG (Gerson Lehrman Group), which aligns well with my full-stack toolkit and my comfort working inside large, existing codebases.
+
+I build across React, JavaScript, and TypeScript on the frontend and Node.js with SQL on the backend, and I am used to debugging complex systems and explaining technical trade-offs clearly — a habit I developed migrating a legacy mainframe travel application to a modern Java/Spring architecture and optimizing 30+ REST API endpoints for reliability. My testing discipline with JUnit, Mockito, and Postman helps me change unfamiliar code safely.
+
+As an immediate joiner with strong fundamentals and a 9.3 CGPA in Computer Science, I am eager to ramp up fast and contribute to GLG's engineering work.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+    <div class="cl"><h3>Airtel Payments Bank — SDE II <button class="btn btn-copy" onclick="copyCL(this,'cl-airtel')">COPY</button></h3>
+      <pre id="cl-airtel">Dear Hiring Manager,
+
+I am applying for the Software Development Engineer II role at Airtel Payments Bank, a position that sits right at the intersection of my Core Java expertise and my hands-on payments background.
+
+I have built payment-critical microservices in production — managing the QR-code lifecycle for merchants at Paytm and architecting a distributed payment gateway with 30 REST APIs across Order, Payment, Merchant, and Vault services. My stack maps closely to your requirements: Core Java and Spring, Apache Kafka for event streaming, Redis for caching, microservice design patterns, MySQL, and Jenkins-based CI/CD, all tested with JUnit and Mockito.
+
+As an immediate joiner who already thinks in terms of reliability and scale for financial systems, I am confident I can contribute meaningfully to your banking platform.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+  </section>
+
+  <footer>
+    Generated by the LinkedIn Morning Scan routine · 15 Nov 2026 · Verify every listing on the employer's official careers page before applying. Never pay a fee to apply.
+  </footer>
+</main>
+
+<script>
+  var qualifiedUrls = [
+    "https://jobfound.org/job/comviva-is-hiring-for-backend-developer-gurugram-noida-india-12-november-2026",
+    "https://jobfound.org/job/sauce-labs-is-hiring-for-software-engineer-gurgaon-haryana-india-india-13-november-2026",
+    "https://www.simplyhired.co.in/job/OpVbYFfDCOHvIiQDMInI1EVxYN35VyRELYp-vMQrLuIU04CgbptAmA",
+    "https://jobfound.org/job/moodys-corporation-is-hiring-for-associate-software-engineer-gurugram-haryana-india-india-12-november-2026",
+    "https://jobfound.org/job/meritto-is-hiring-for-full-stack-engineer-ai-native-platform-gurugram-haryana-india-india-13-november-2026",
+    "https://jobfound.org/job/glg-is-hiring-for-software-developer-gurugram-haryana-india-india-6-november-2026",
+    "https://jobfound.org/job/airtel-payments-bank-is-hiring-for-software-development-engineer-ii-gurugram-haryana-india-india-11-november-2026"
+  ];
+  function openAll(){ qualifiedUrls.forEach(function(u){ window.open(u,'_blank'); }); }
+  function copyCL(btn, id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var text = el.innerText || el.textContent;
+    var done = function(){ var o=btn.textContent; btn.textContent='Copied ✓'; btn.classList.add('ok'); setTimeout(function(){btn.textContent=o; btn.classList.remove('ok');},1500); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text, done); });
+    } else { fallbackCopy(text, done); }
+  }
+  function fallbackCopy(text, cb){
+    var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta); if(cb) cb();
+  }
+</script>
+</body>
+</html>
