@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Back End Developer role at EnglishYaari, where backend engineering and AI sit at the center of a fast-growing learning product.
+
+My backend work is a close match: I design Node.js/Express services and REST APIs, model data in MongoDB and MySQL, and use Redis and Kafka for performance and event handling. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and improved service reliability on real-time systems at Paytm by 67%. AI is already part of how I build — my payment-gateway project ships AI-driven daily alerts, and my research paper covered Generative AI in personalized systems — so I can contribute to the AI-powered parts of your platform from day one.
+
+As an immediate joiner who thrives in small, fast-moving teams, I can start adding value to your product right away.
+
+Best regards,
+Bhumi Bhatt

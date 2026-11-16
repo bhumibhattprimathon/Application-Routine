@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd love to join Zero1 by Zerodha as a Full Stack Software Engineer (via Flexiple) and help ship end-to-end features for a finance brand reaching millions.
+
+My background sits squarely in full-stack product work: Java and Spring Boot microservices on the backend, React.js on the front end, and Node.js/Express where lighter services fit. At Paytm I built and optimized QR-code lifecycle microservices powering real-time transaction notifications, and my Distributed Payment Gateway project spans 30 REST APIs across Order, Payment, Merchant, and Vault services — so fintech scale and reliability are second nature. I'm comfortable owning a feature from MySQL/MongoDB schema through API to UI, with AWS (EC2, S3, Lambda) and Docker in the pipeline.
+
+As an immediate joiner, I can start contributing to Zero1's roadmap right away and I pick up new codebases fast.
+
+Best regards,
+Bhumi Bhatt

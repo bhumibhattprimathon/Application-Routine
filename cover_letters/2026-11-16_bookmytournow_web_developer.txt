@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Web Developer role at BookMyTourNow — a travel-and-technology company where my stack and domain experience line up unusually well.
+
+I build full-stack web applications with React.js on the front end and Node.js/Express with REST APIs on the back end, backed by MongoDB and MySQL. Just as relevant: one of my core projects was the SABRE Travel modern migration, where I re-implemented legacy travel-booking backend modules on a Java/Spring stack with XML and FreeMarker templating — so travel-domain workflows and booking systems aren't new to me. At Primathon I've also built automation that cut manual operational effort by 70%, which fits a team focused on AI-powered business automation.
+
+I'm an immediate joiner and would bring both the web engineering and the travel-tech context to deliver seamless booking experiences quickly.
+
+Best regards,
+Bhumi Bhatt

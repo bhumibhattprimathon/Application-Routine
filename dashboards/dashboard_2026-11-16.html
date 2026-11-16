@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LinkedIn Smart Apply — 2026-11-16</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--bg:#f1f5f9;--card:#fff;--line:#e2e8f0;--muted:#64748b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1{margin:0 0 4px;font-size:1.55rem;letter-spacing:.3px}
+.sub{color:#94a3b8;font-size:.9rem;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+.card .n{font-size:1.9rem;font-weight:700}
+.card .l{font-size:.78rem;color:#cbd5e1;text-transform:uppercase;letter-spacing:.5px}
+.card.q .n{color:var(--green)} .card.s .n{color:var(--red)} .card.f .n{color:#f87171}
+main{padding:24px 0 60px}
+.openall{display:block;width:100%;background:var(--green);color:#06260f;border:none;border-radius:14px;
+  padding:20px;font-size:1.2rem;font-weight:800;cursor:pointer;margin:20px 0;box-shadow:0 6px 18px rgba(34,197,94,.35);transition:transform .08s}
+.openall:hover{transform:translateY(-1px)} .openall:active{transform:translateY(1px)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:20px 0;overflow:hidden}
+.sec-head{padding:14px 18px;font-weight:700;font-size:1.05rem;border-left:6px solid var(--line)}
+.sec-green .sec-head{border-color:var(--green);background:#f0fdf4}
+.sec-yellow .sec-head{border-color:var(--yellow);background:#fefce8}
+.sec-red .sec-head{border-color:var(--red);background:#fef2f2}
+.sec-blue .sec-head{border-color:#3b82f6;background:#eff6ff}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8fafc;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+tr:hover td{background:#fafcff}
+.score{display:inline-block;min-width:34px;text-align:center;font-weight:700;padding:3px 8px;border-radius:999px;color:#fff;font-size:.82rem}
+.score.good{background:var(--green)} .score.mid{background:var(--yellow);color:#422006}
+.score.trust{background:#0ea5e9} .score.trust-mid{background:#94a3b8}
+.variant{background:#eef2ff;color:#4338ca;padding:2px 8px;border-radius:6px;font-size:.78rem;font-weight:600}
+.actions{white-space:nowrap}
+.btn{display:inline-block;border:none;border-radius:8px;padding:7px 11px;font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;margin:2px 3px 2px 0}
+.btn-open{background:#0f172a;color:#fff} .btn-open:hover{background:#1e293b}
+.btn-copy{background:#e0f2fe;color:#075985} .btn-copy:hover{background:#bae6fd}
+.btn-copy.done{background:var(--green);color:#06260f}
+.reason{color:#475569;font-size:.85rem;max-width:560px}
+.mini{font-size:.75rem;color:#2563eb}
+.tag{font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:6px;color:#fff}
+.tag-low_match_skip{background:#fb923c} .tag-salary_skip{background:#a855f7}
+.tag-experience_skip{background:#64748b} .tag-fraud_skip{background:var(--red)}
+.hidden-cl{display:none}
+.rec{padding:14px 18px;border-bottom:1px solid var(--line)}
+.rec-head{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:4px}
+.rec-rank{background:var(--green);color:#06260f;font-weight:800;border-radius:6px;padding:1px 9px}
+.rec-title{font-weight:700} .rec-score{color:var(--muted);font-size:.82rem}
+.rec p{margin:6px 0 10px;color:#334155;font-size:.9rem}
+.cl-box{border:1px solid var(--line);border-radius:10px;margin:14px 18px}
+.cl-box-head{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;padding:10px 14px;font-weight:700;font-size:.9rem}
+.cl-box pre{margin:0;padding:14px;white-space:pre-wrap;font-family:inherit;font-size:.86rem;color:#1e293b}
+.trend{display:flex;gap:16px;align-items:flex-end;padding:22px 18px;overflow-x:auto}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:46px}
+.bar{width:34px;background:linear-gradient(180deg,#34d399,#22c55e);border-radius:6px 6px 0 0}
+.bar-val{font-weight:700;font-size:.85rem} .bar-lbl{font-size:.72rem;color:var(--muted)}
+.muted{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px}
+@media(max-width:640px){h1{font-size:1.25rem} .card .n{font-size:1.5rem}}
+</style></head>
+<body>
+<header><div class="wrap">
+<h1>🔎 LINKEDIN SMART APPLY DASHBOARD — 2026-11-16</h1>
+<div class="sub">Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · immediate joiner · source: JSearch live (posted &lt;24h)</div>
+<div class="cards">
+<div class="card"><div class="n">56</div><div class="l">Jobs Found</div></div>
+<div class="card q"><div class="n">5</div><div class="l">Qualified</div></div>
+<div class="card"><div class="n">18</div><div class="l">Review</div></div>
+<div class="card s"><div class="n">33</div><div class="l">Skipped</div></div>
+<div class="card f"><div class="n">1</div><div class="l">Fraud Blocked</div></div>
+<div class="card"><div class="n">79.4</div><div class="l">Avg Match (qual.)</div></div>
+<div class="card"><div class="n">8.4</div><div class="l">Avg Salary LPA</div></div>
+</div></div></header>
+
+<main class="wrap">
+<button class="openall" onclick="openAll()">🚀 OPEN ALL 5 QUALIFIED JOBS</button>
+<p class="muted" style="font-size:.82rem;margin-top:-10px">Tip: allow pop-ups for this page so every job opens in its own tab. Then copy the matching cover letter per role.</p>
+
+<section class="sec-green"><div class="sec-head">✅ Qualified — Ready to Apply (5)</div>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Via</th><th>Actions</th></tr></thead>
+<tbody><tr>
+<td>1</td>
+<td><span class="score good">89</span></td>
+<td><span class="score trust">95</span></td>
+<td><strong>EXL</strong></td>
+<td>Full Stack Web Developer – React / Node.js</td>
+<td>Gurugram, Haryana, India</td>
+<td>7–11 LPA (est)</td>
+<td><span class="variant">fullstack</span></td>
+<td>LinkedIn</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/full-stack-web-developer-%E2%80%93-react-node-js-at-exl-4446577561" target="_blank" rel="noopener">Open Job ↗</a><button class="btn btn-copy" onclick="copyCL('cl_1',this)">Copy Cover Letter</button></td>
+</tr><tr>
+<td>2</td>
+<td><span class="score good">84</span></td>
+<td><span class="score trust">90</span></td>
+<td><strong>Flexiple</strong></td>
+<td>Software Engineer (Full Stack)</td>
+<td>Noida, Uttar Pradesh, India</td>
+<td>8–14 LPA (est)</td>
+<td><span class="variant">fullstack</span></td>
+<td>LinkedIn</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-engineer-full-stack-at-flexiple-4491262324" target="_blank" rel="noopener">Open Job ↗</a><button class="btn btn-copy" onclick="copyCL('cl_2',this)">Copy Cover Letter</button></td>
+</tr><tr>
+<td>3</td>
+<td><span class="score good">80</span></td>
+<td><span class="score trust">62</span></td>
+<td><strong>BookMyTourNow</strong></td>
+<td>Web Developer</td>
+<td>Gurugram, Haryana, India</td>
+<td>5.5–8 LPA (est)</td>
+<td><span class="variant">fullstack</span></td>
+<td>LinkedIn</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/web-developer-at-bookmytournow-4489873304" target="_blank" rel="noopener">Open Job ↗</a><button class="btn btn-copy" onclick="copyCL('cl_3',this)">Copy Cover Letter</button></td>
+</tr><tr>
+<td>4</td>
+<td><span class="score good">76</span></td>
+<td><span class="score trust">70</span></td>
+<td><strong>EnglishYaari: English For Professionals</strong></td>
+<td>Back End Developer</td>
+<td>Gurugram, Haryana, India</td>
+<td>6–9 LPA (est)</td>
+<td><span class="variant">backend</span></td>
+<td>LinkedIn</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/back-end-developer-at-englishyaari-english-for-professionals-4490238935" target="_blank" rel="noopener">Open Job ↗</a><button class="btn btn-copy" onclick="copyCL('cl_4',this)">Copy Cover Letter</button></td>
+</tr><tr>
+<td>5</td>
+<td><span class="score good">68</span></td>
+<td><span class="score trust">90</span></td>
+<td><strong>Conduent</strong></td>
+<td>App Dev &amp; Support Engineer II</td>
+<td>Noida, Uttar Pradesh, India</td>
+<td>6–10 LPA (est)</td>
+<td><span class="variant">backend</span></td>
+<td>LinkedIn</td>
+<td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/app-dev-support-engineer-ii-at-conduent-4457534859" target="_blank" rel="noopener">Open Job ↗</a><span class="muted">—</span></td>
+</tr></tbody></table></div></section>
+
+<section class="sec-blue"><div class="sec-head">⭐ Top 5 Recommendations</div>
+<div class="rec">
+<div class="rec-head"><span class="rec-rank">#1</span>
+<span class="rec-title">EXL — Full Stack Web Developer – React / Node.js</span>
+<span class="rec-score">89 match · 95 trust · 7–11 LPA (est)</span></div>
+<p>Exact React/Node.js + HTML/CSS fit; builds enterprise web reporting UIs. EXL is NYSE-listed (EXLS). Strongest match today.</p>
+<a class="btn btn-open" href="https://in.linkedin.com/jobs/view/full-stack-web-developer-%E2%80%93-react-node-js-at-exl-4446577561" target="_blank" rel="noopener">Open Job ↗</a>
+</div><div class="rec">
+<div class="rec-head"><span class="rec-rank">#2</span>
+<span class="rec-title">Flexiple — Software Engineer (Full Stack)</span>
+<span class="rec-score">84 match · 90 trust · 8–14 LPA (est)</span></div>
+<p>Role is &#x27;Zero1 by Zerodha&#x27; (via Flexiple as recruiter). End-to-end full-stack (Java/React/Node). Zerodha JV — strong backer, Noida.</p>
+<a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-engineer-full-stack-at-flexiple-4491262324" target="_blank" rel="noopener">Open Job ↗</a>
+</div><div class="rec">
+<div class="rec-head"><span class="rec-rank">#3</span>
+<span class="rec-title">BookMyTourNow — Web Developer</span>
+<span class="rec-score">80 match · 62 trust · 5.5–8 LPA (est)</span></div>
+<p>Verified travel company (Google 4.5/58 reviews, est. 2014). React/Node/MongoDB/REST web role matches her stack; JD asks ~2–3 yrs (mild stretch).</p>
+<a class="btn btn-open" href="https://in.linkedin.com/jobs/view/web-developer-at-bookmytournow-4489873304" target="_blank" rel="noopener">Open Job ↗</a>
+</div><div class="rec">
+<div class="rec-head"><span class="rec-rank">#4</span>
+<span class="rec-title">EnglishYaari: English For Professionals — Back End Developer</span>
+<span class="rec-score">76 match · 70 trust · 6–9 LPA (est)</span></div>
+<p>Verified funded edtech (₹1 Cr raise; Apni Yaari Education Pvt Ltd). Backend Node.js/MongoDB/REST + AI product. Small fast-moving team.</p>
+<a class="btn btn-open" href="https://in.linkedin.com/jobs/view/back-end-developer-at-englishyaari-english-for-professionals-4490238935" target="_blank" rel="noopener">Open Job ↗</a>
+</div><div class="rec">
+<div class="rec-head"><span class="rec-rank">#5</span>
+<span class="rec-title">Conduent — App Dev &amp; Support Engineer II</span>
+<span class="rec-score">68 match · 90 trust · 6–10 LPA (est)</span></div>
+<p>Conduent (NASDAQ: CNDT), large &amp; legit. App-dev + support (Engineer II); REST/SQL/Docker. Partly maintenance-leaning — valid entry application.</p>
+<a class="btn btn-open" href="https://in.linkedin.com/jobs/view/app-dev-support-engineer-ii-at-conduent-4457534859" target="_blank" rel="noopener">Open Job ↗</a>
+</div></section>
+
+<section class="sec-yellow"><div class="sec-head">🟡 Review — Verify Before Applying (18)</div>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for Review</th></tr></thead>
+<tbody><tr>
+<td>1</td>
+<td><span class="score mid">85</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>BookMyTourNow</strong></td>
+<td>Mobile Application Developer</td>
+<td class="reason">Borderline: match 85, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/mobile-application-developer-at-bookmytournow-4490223475" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>2</td>
+<td><span class="score mid">70</span></td>
+<td><span class="score trust-mid">92</span></td>
+<td><strong>UKG</strong></td>
+<td>Software Engineer III- Eng</td>
+<td class="reason">Legit (UKG) + strong stack (Java/JS/AWS/Docker), but &#x27;Software Engineer III&#x27; is mid-level (~4+ yrs) — a stretch for 1.5 yrs. <a class="mini" href="https://in.linkedin.com/jobs/view/software-engineer-iii-eng-at-ukg-4490245234" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>3</td>
+<td><span class="score mid">68</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>Joblet-AI</strong></td>
+<td>Fullstack Software Engineer (Remote)</td>
+<td class="reason">Borderline: match 68, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/fullstack-software-engineer-remote-at-joblet-ai-4490204671" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>4</td>
+<td><span class="score mid">65</span></td>
+<td><span class="score trust-mid">88</span></td>
+<td><strong>NTT DATA North America</strong></td>
+<td>Software Development Specialist</td>
+<td class="reason">Legit (NTT DATA) with good backend stack listed, but role is ITSM / incident &amp; change-management support, not core development. <a class="mini" href="https://in.linkedin.com/jobs/view/software-development-specialist-at-ntt-data-north-america-4447529418" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>5</td>
+<td><span class="score mid">65</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>Bain &amp; Company</strong></td>
+<td>Associate – Data Engineer (Data Business CoE)</td>
+<td class="reason">Borderline: match 65, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/associate-%E2%80%93-data-engineer-data-business-coe-at-bain-company-4450060599" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>6</td>
+<td><span class="score mid">65</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>MongoDB</strong></td>
+<td>Senior Engineer - GTM Tech</td>
+<td class="reason">Borderline: match 65, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/senior-engineer-gtm-tech-at-mongodb-4457048331" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>7</td>
+<td><span class="score mid">64</span></td>
+<td><span class="score trust-mid">95</span></td>
+<td><strong>EXL</strong></td>
+<td>Developer (IC)</td>
+<td class="reason">Borderline: match 64, trust 95 <a class="mini" href="https://in.linkedin.com/jobs/view/developer-ic-at-exl-4446735311" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>8</td>
+<td><span class="score mid">64</span></td>
+<td><span class="score trust-mid">90</span></td>
+<td><strong>EXL</strong></td>
+<td>Data Engineer Snowflake</td>
+<td class="reason">Borderline: match 64, trust 90 <a class="mini" href="https://in.linkedin.com/jobs/view/data-engineer-snowflake-at-exl-4446723423" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>9</td>
+<td><span class="score mid">63</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>Teledgers</strong></td>
+<td>DevOps Engineer</td>
+<td class="reason">Borderline: match 63, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/devops-engineer-at-teledgers-4490234269" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>10</td>
+<td><span class="score mid">62</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>Systream Tech India</strong></td>
+<td>Model Based Engineer - Automotive - 3-5 years - Gurgaon</td>
+<td class="reason">Borderline: match 62, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/model-based-engineer-automotive-3-5-years-gurgaon-at-systream-tech-india-4490244096" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>11</td>
+<td><span class="score mid">61</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>Xceedance</strong></td>
+<td>Generative AI Engineer</td>
+<td class="reason">Borderline: match 61, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/generative-ai-engineer-at-xceedance-4490227193" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>12</td>
+<td><span class="score mid">60</span></td>
+<td><span class="score trust-mid">95</span></td>
+<td><strong>Deloitte</strong></td>
+<td>SAP FI+Tax Engine-Vertex - Tax Technology Services Consultant II</td>
+<td class="reason">Borderline: match 60, trust 95 <a class="mini" href="https://in.linkedin.com/jobs/view/sap-fi%2Btax-engine-vertex-tax-technology-services-consultant-ii-at-deloitte-4446400355" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>13</td>
+<td><span class="score mid">60</span></td>
+<td><span class="score trust-mid">50</span></td>
+<td><strong>Cascovia</strong></td>
+<td>Software Engineer</td>
+<td class="reason">Unverified — no independent LinkedIn/Glassdoor/website footprint found; match was inflated by sparse skill data. Verify before applying. <a class="mini" href="https://in.linkedin.com/jobs/view/software-engineer-at-cascovia-4491238090" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>14</td>
+<td><span class="score mid">57</span></td>
+<td><span class="score trust-mid">60</span></td>
+<td><strong>SMC Group</strong></td>
+<td>Sr. C++ Developer - Walkin Drive 21st Nov&#x27;26</td>
+<td class="reason">Borderline: match 57, trust 60 <a class="mini" href="https://in.linkedin.com/jobs/view/sr-c%2B%2B-developer-walkin-drive-21st-nov-26-at-smc-group-4491242728" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>15</td>
+<td><span class="score mid">56</span></td>
+<td><span class="score trust-mid">90</span></td>
+<td><strong>EXL</strong></td>
+<td>Associate Consultant - Technology Infrastructure Compliance</td>
+<td class="reason">Borderline: match 56, trust 90 <a class="mini" href="https://in.linkedin.com/jobs/view/associate-consultant-technology-infrastructure-compliance-at-exl-4446743046" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>16</td>
+<td><span class="score mid">55</span></td>
+<td><span class="score trust-mid">95</span></td>
+<td><strong>EXL</strong></td>
+<td>241440-Lead Assistant Manager</td>
+<td class="reason">Borderline: match 55, trust 95 <a class="mini" href="https://in.linkedin.com/jobs/view/241440-lead-assistant-manager-at-exl-4446728409" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>17</td>
+<td><span class="score mid">55</span></td>
+<td><span class="score trust-mid">95</span></td>
+<td><strong>Google</strong></td>
+<td>Cloud AI Engineer, Technical Onboarding Center</td>
+<td class="reason">Borderline: match 55, trust 95 <a class="mini" href="https://in.linkedin.com/jobs/view/cloud-ai-engineer-technical-onboarding-center-at-google-4464511495" target="_blank" rel="noopener">view</a></td>
+</tr><tr>
+<td>18</td>
+<td><span class="score mid">53</span></td>
+<td><span class="score trust-mid">55</span></td>
+<td><strong>SITA</strong></td>
+<td>Manager Software Development</td>
+<td class="reason">Borderline: match 53, trust 55 <a class="mini" href="https://in.linkedin.com/jobs/view/manager-software-development-at-sita-4428236076" target="_blank" rel="noopener">view</a></td>
+</tr></tbody></table></div></section>
+
+<section class="sec-red"><div class="sec-head">⛔ Skipped (33)</div>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Type</th><th>Company</th><th>Role</th><th>Skip Reason</th></tr></thead>
+<tbody><tr>
+<td>1</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>Shyam &amp; Co</strong></td>
+<td>Web Developer (Part-time, Remote) (Freshers / Entry Level)</td>
+<td class="reason">Part-time role — Bhumi seeks full-time employment</td>
+</tr><tr>
+<td>2</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>Vortenza Systems</strong></td>
+<td>FULL STACK WEB DEVELOPMENT INTERN</td>
+<td class="reason">Internship — not a full-time role (outside 5.5–12 LPA target)</td>
+</tr><tr>
+<td>3</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>WebBoost Solutions by UM</strong></td>
+<td>REACT JS DEVELOPMENT INTERN</td>
+<td class="reason">Internship — not a full-time role (outside 5.5–12 LPA target)</td>
+</tr><tr>
+<td>4</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>Dexter&#x27;s Tech</strong></td>
+<td>Web Development Intern</td>
+<td class="reason">Internship — not a full-time role (outside 5.5–12 LPA target)</td>
+</tr><tr>
+<td>5</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>Talent to Job</strong></td>
+<td>MERN STACK DEVELOPMENT INTERN</td>
+<td class="reason">Internship — not a full-time role (outside 5.5–12 LPA target)</td>
+</tr><tr>
+<td>6</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>Talent to Job</strong></td>
+<td>PYTHON DEVELOPMENT INTERN</td>
+<td class="reason">Internship — not a full-time role (outside 5.5–12 LPA target)</td>
+</tr><tr>
+<td>7</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>Magnawiz Technologies</strong></td>
+<td>WordPress Developer</td>
+<td class="reason">Skill: WordPress/PHP CMS development — off her Java/Spring/React/Node stack; small SEO/web agency.</td>
+</tr><tr>
+<td>8</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>NCR Voyix</strong></td>
+<td>ServiceNow Developer</td>
+<td class="reason">Skill: ServiceNow platform development (ITSM) — off her Java/JS/React/Node stack, despite trusted employer (NCR Voyix).</td>
+</tr><tr>
+<td>9</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>BlackRock</strong></td>
+<td>Models Infrastructure Platform Enablement (Python + React), Multi-Asset Strategies &amp; Solutions (MASS), Analyst</td>
+<td class="reason">Low match 40 (skills 33%, title 10)</td>
+</tr><tr>
+<td>10</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>SHARDA CONSULTANCY SERVICES</strong></td>
+<td>Net Full stack Developer(Travel Domain)</td>
+<td class="reason">Skill: .NET/C#/ASP.NET stack (not her Java/JS); JD states ~25 yrs experience — off stack and far too senior.</td>
+</tr><tr>
+<td>11</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>EXL</strong></td>
+<td>Data Scientist Gen AI- Offshore</td>
+<td class="reason">Low match 32 (skills 12%, title 10)</td>
+</tr><tr>
+<td>12</td>
+<td><span class="tag tag-low_match_skip">Low match</span></td>
+<td><strong>D. E. Shaw India Private Limited</strong></td>
+<td>Principal Manager, Tech (GAITech)</td>
+<td class="reason">Low match 27 (skills 0%, title 10)</td>
+</tr><tr>
+<td>13</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>ION</strong></td>
+<td>Senior Full Stack Developer (Java + React), Noida</td>
+<td class="reason">Experience: 5+ yr, requires 8+ yrs</td>
+</tr><tr>
+<td>14</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Agoda</strong></td>
+<td>Staff Software Engineer - BackEnd (Level 4): Fast track 1-Day Program (26th November) (Gurugram, IND)</td>
+<td class="reason">Experience: 5+ yr, requires 10+ yrs</td>
+</tr><tr>
+<td>15</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Dyson</strong></td>
+<td>Workday Integration Specialist</td>
+<td class="reason">Experience: 3-5 yr, requires 5+ yrs</td>
+</tr><tr>
+<td>16</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>remote quest jobs</strong></td>
+<td>Junior Software Engineer/Remote</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>17</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>McDermott International, Ltd</strong></td>
+<td>Senior IT Pillar Specialist</td>
+<td class="reason">Experience: 5+ yr, requires 8+ yrs</td>
+</tr><tr>
+<td>18</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Flexiple</strong></td>
+<td>Founding Full Stack Staff Engineer - Frontier Cyber Security</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>19</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>WorldQuant</strong></td>
+<td>Senior Engineer</td>
+<td class="reason">Experience: 3-5 yr, requires 5+ yrs</td>
+</tr><tr>
+<td>20</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Boston Consulting Group (BCG)</strong></td>
+<td>Full-Stack Engineer Senior Manager, SDLC Platforms</td>
+<td class="reason">Experience: 5+ yr, requires 8+ yrs</td>
+</tr><tr>
+<td>21</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Deloitte</strong></td>
+<td>T&amp;T | EAD | HCE | Senior Consultant | Full Stack | Delhi</td>
+<td class="reason">Experience: 5+ yr, requires 10+ yrs</td>
+</tr><tr>
+<td>22</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Bloom AI</strong></td>
+<td>AI Solutions Architect</td>
+<td class="reason">Experience: 5+ yr, requires 7+ yrs</td>
+</tr><tr>
+<td>23</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Aviate</strong></td>
+<td>AI Product Manager (ID # 894)</td>
+<td class="reason">Experience: 3-5 yr, requires 5+ yrs</td>
+</tr><tr>
+<td>24</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>PwC India</strong></td>
+<td>Associate</td>
+<td class="reason">Experience: 5+ yr, requires 8+ yrs</td>
+</tr><tr>
+<td>25</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Publicis Sapient</strong></td>
+<td>Senior Associate Technology L2_Python</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>26</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>EXL</strong></td>
+<td>4604091-Manager</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>27</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>EXL</strong></td>
+<td>Automation Lead-Application Development-Backend Development</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>28</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Netafim</strong></td>
+<td>Officer Digital Farming</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>29</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Databricks</strong></td>
+<td>Solutions Architect - Public Sector</td>
+<td class="reason">Experience: 5+ yr, requires 8+ yrs</td>
+</tr><tr>
+<td>30</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>EXL</strong></td>
+<td>Manager, GenAI Full Stack Developer</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>31</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>BlackRock</strong></td>
+<td>AI Data Science Solutions Lead, Aladdin, Vice President</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>32</td>
+<td><span class="tag tag-experience_skip">Experience</span></td>
+<td><strong>Spore N Sprouts</strong></td>
+<td>Senior Manager, GenAI Full Stack</td>
+<td class="reason">Experience: senior (no yrs)</td>
+</tr><tr>
+<td>33</td>
+<td><span class="tag tag-fraud_skip">Fraud</span></td>
+<td><strong>remote quest jobs</strong></td>
+<td>Junior ML Engineer (Remote)</td>
+<td class="reason">Fraud/low-trust: trust 15 (base:real-posting,logo,desc&gt;300,spam-name)</td>
+</tr></tbody></table></div></section>
+
+<section class="sec-blue"><div class="sec-head">📈 Qualified-Jobs Trend (run history)</div>
+<div class="trend"><div class="bar-wrap"><div class="bar" style="height:34px" title="1 qualified"></div><div class="bar-val">1</div><div class="bar-lbl">08-05</div></div><div class="bar-wrap"><div class="bar" style="height:146px" title="5 qualified"></div><div class="bar-val">5</div><div class="bar-lbl">11-16</div></div></div></section>
+
+<section class="sec-green"><div class="sec-head">✉️ Cover Letters (4)</div>
+<div class="cl-box">
+<div class="cl-box-head"><span>BookMyTourNow — Web Developer</span>
+<button class="btn btn-copy" onclick="copyText('box_20261116bookmytournowwebdevelopertxt',this)">COPY</button></div>
+<pre id="box_20261116bookmytournowwebdevelopertxt">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Web Developer role at BookMyTourNow — a travel-and-technology company where my stack and domain experience line up unusually well.
+
+I build full-stack web applications with React.js on the front end and Node.js/Express with REST APIs on the back end, backed by MongoDB and MySQL. Just as relevant: one of my core projects was the SABRE Travel modern migration, where I re-implemented legacy travel-booking backend modules on a Java/Spring stack with XML and FreeMarker templating — so travel-domain workflows and booking systems aren&#x27;t new to me. At Primathon I&#x27;ve also built automation that cut manual operational effort by 70%, which fits a team focused on AI-powered business automation.
+
+I&#x27;m an immediate joiner and would bring both the web engineering and the travel-tech context to deliver seamless booking experiences quickly.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div><div class="cl-box">
+<div class="cl-box-head"><span>EnglishYaari — Back End Developer</span>
+<button class="btn btn-copy" onclick="copyText('box_20261116englishyaaribackenddevelopertxt',this)">COPY</button></div>
+<pre id="box_20261116englishyaaribackenddevelopertxt">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Back End Developer role at EnglishYaari, where backend engineering and AI sit at the center of a fast-growing learning product.
+
+My backend work is a close match: I design Node.js/Express services and REST APIs, model data in MongoDB and MySQL, and use Redis and Kafka for performance and event handling. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and improved service reliability on real-time systems at Paytm by 67%. AI is already part of how I build — my payment-gateway project ships AI-driven daily alerts, and my research paper covered Generative AI in personalized systems — so I can contribute to the AI-powered parts of your platform from day one.
+
+As an immediate joiner who thrives in small, fast-moving teams, I can start adding value to your product right away.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div><div class="cl-box">
+<div class="cl-box-head"><span>EXL — Full Stack Web Developer</span>
+<button class="btn btn-copy" onclick="copyText('box_20261116exlfullstackwebdevelopertxt',this)">COPY</button></div>
+<pre id="box_20261116exlfullstackwebdevelopertxt">Dear Hiring Manager,
+
+I&#x27;m applying for the Full Stack Web Developer (React / Node.js) role at EXL, where building pixel-perfect, enterprise-grade reporting UIs over stored procedures and APIs maps directly to my day-to-day work.
+
+At Primathon I build React.js front-ends backed by Node.js/Express services and REST APIs, and I&#x27;ve shipped admin dashboards and backend syncing automation across seven merchant systems. Rendering complex, reliable layouts on top of SQL stored procedures is familiar territory — I work with MySQL and have optimized 30+ REST endpoints for response time and consistency. I pair that with HTML5/CSS3 and a strong eye for performance, so the invoice- and receipt-style reports this role calls for would feel native to me.
+
+I&#x27;m an immediate joiner (0-day notice) who ramps quickly and ships production-ready code end to end.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div><div class="cl-box">
+<div class="cl-box-head"><span>Flexiple / Zero1 by Zerodha — Software Engineer (Full Stack)</span>
+<button class="btn btn-copy" onclick="copyText('box_20261116flexiplesoftwareengineerfullstacktxt',this)">COPY</button></div>
+<pre id="box_20261116flexiplesoftwareengineerfullstacktxt">Dear Hiring Manager,
+
+I&#x27;d love to join Zero1 by Zerodha as a Full Stack Software Engineer (via Flexiple) and help ship end-to-end features for a finance brand reaching millions.
+
+My background sits squarely in full-stack product work: Java and Spring Boot microservices on the backend, React.js on the front end, and Node.js/Express where lighter services fit. At Paytm I built and optimized QR-code lifecycle microservices powering real-time transaction notifications, and my Distributed Payment Gateway project spans 30 REST APIs across Order, Payment, Merchant, and Vault services — so fintech scale and reliability are second nature. I&#x27;m comfortable owning a feature from MySQL/MongoDB schema through API to UI, with AWS (EC2, S3, Lambda) and Docker in the pipeline.
+
+As an immediate joiner, I can start contributing to Zero1&#x27;s roadmap right away and I pick up new codebases fast.
+
+Best regards,
+Bhumi Bhatt</pre>
+</div></section>
+
+<div id="cl_1" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m applying for the Full Stack Web Developer (React / Node.js) role at EXL, where building pixel-perfect, enterprise-grade reporting UIs over stored procedures and APIs maps directly to my day-to-day work.
+
+At Primathon I build React.js front-ends backed by Node.js/Express services and REST APIs, and I&#x27;ve shipped admin dashboards and backend syncing automation across seven merchant systems. Rendering complex, reliable layouts on top of SQL stored procedures is familiar territory — I work with MySQL and have optimized 30+ REST endpoints for response time and consistency. I pair that with HTML5/CSS3 and a strong eye for performance, so the invoice- and receipt-style reports this role calls for would feel native to me.
+
+I&#x27;m an immediate joiner (0-day notice) who ramps quickly and ships production-ready code end to end.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl_2" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;d love to join Zero1 by Zerodha as a Full Stack Software Engineer (via Flexiple) and help ship end-to-end features for a finance brand reaching millions.
+
+My background sits squarely in full-stack product work: Java and Spring Boot microservices on the backend, React.js on the front end, and Node.js/Express where lighter services fit. At Paytm I built and optimized QR-code lifecycle microservices powering real-time transaction notifications, and my Distributed Payment Gateway project spans 30 REST APIs across Order, Payment, Merchant, and Vault services — so fintech scale and reliability are second nature. I&#x27;m comfortable owning a feature from MySQL/MongoDB schema through API to UI, with AWS (EC2, S3, Lambda) and Docker in the pipeline.
+
+As an immediate joiner, I can start contributing to Zero1&#x27;s roadmap right away and I pick up new codebases fast.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl_3" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Web Developer role at BookMyTourNow — a travel-and-technology company where my stack and domain experience line up unusually well.
+
+I build full-stack web applications with React.js on the front end and Node.js/Express with REST APIs on the back end, backed by MongoDB and MySQL. Just as relevant: one of my core projects was the SABRE Travel modern migration, where I re-implemented legacy travel-booking backend modules on a Java/Spring stack with XML and FreeMarker templating — so travel-domain workflows and booking systems aren&#x27;t new to me. At Primathon I&#x27;ve also built automation that cut manual operational effort by 70%, which fits a team focused on AI-powered business automation.
+
+I&#x27;m an immediate joiner and would bring both the web engineering and the travel-tech context to deliver seamless booking experiences quickly.
+
+Best regards,
+Bhumi Bhatt</div><div id="cl_4" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;d like to apply for the Back End Developer role at EnglishYaari, where backend engineering and AI sit at the center of a fast-growing learning product.
+
+My backend work is a close match: I design Node.js/Express services and REST APIs, model data in MongoDB and MySQL, and use Redis and Kafka for performance and event handling. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and improved service reliability on real-time systems at Paytm by 67%. AI is already part of how I build — my payment-gateway project ships AI-driven daily alerts, and my research paper covered Generative AI in personalized systems — so I can contribute to the AI-powered parts of your platform from day one.
+
+As an immediate joiner who thrives in small, fast-moving teams, I can start adding value to your product right away.
+
+Best regards,
+Bhumi Bhatt</div>
+</main>
+<footer>Generated by Claude Code · LinkedIn morning scan · 2026-11-16 · Review each role before applying.</footer>
+
+<script>
+var QUAL_URLS=["https://in.linkedin.com/jobs/view/full-stack-web-developer-%E2%80%93-react-node-js-at-exl-4446577561", "https://in.linkedin.com/jobs/view/software-engineer-full-stack-at-flexiple-4491262324", "https://in.linkedin.com/jobs/view/web-developer-at-bookmytournow-4489873304", "https://in.linkedin.com/jobs/view/back-end-developer-at-englishyaari-english-for-professionals-4490238935", "https://in.linkedin.com/jobs/view/app-dev-support-engineer-ii-at-conduent-4457534859"];
+function openAll(){
+  if(!QUAL_URLS.length){alert('No qualified jobs today.');return;}
+  var blocked=0;
+  QUAL_URLS.forEach(function(u){var w=window.open(u,'_blank');if(!w)blocked++;});
+  if(blocked)alert('Pop-ups were blocked for '+blocked+' tab(s). Please allow pop-ups for this page and click again.');
+}
+function flash(btn,txt){var o=btn.textContent;btn.textContent=txt;btn.classList.add('done');setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},1500);}
+function copyEl(el,btn){
+  var t=el.innerText||el.textContent;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){flash(btn,'Copied ✓');},function(){fallback(t,btn);});}
+  else fallback(t,btn);
+}
+function fallback(t,btn){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash(btn,'Copied ✓');}catch(e){alert('Copy failed');}document.body.removeChild(ta);}
+function copyCL(id,btn){copyEl(document.getElementById(id),btn);}
+function copyText(id,btn){copyEl(document.getElementById(id),btn);}
+</script>
+</body></html>
