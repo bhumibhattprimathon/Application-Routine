@@ -1,15 +1,26 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-18",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
+  "status": "completed_degraded",
+  "data_source": "WebSearch fallback. PRIMARY FEED DOWN: JSearch via RapidAPI returned HTTP 404 'Endpoint /search does not exist' — the RAPIDAPI_KEY is no longer subscribed to JSearch (subscription appears lapsed since 2026-08-05).",
+  "action_required": "Re-subscribe the RapidAPI key to the JSearch API (rapidapi.com -> JSearch -> Subscribe). Until then, daily discovery is limited to web search, which cannot return live India LinkedIn postings with direct apply links.",
+  "resume_source": "resumes/resume_master.pdf (present, read OK)",
+  "ntfy": "disabled per user instruction; reported via routine push/email channel (PushNotification).",
+  "new_jobs_found": 2,
   "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_review": 1,
+  "jobs_skipped": 0,
+  "fraud_detected": 0,
+  "avg_match_qualified": 84.0,
+  "top_pick": {
+    "company": "Comviva (Tech Mahindra)",
+    "title": "Java Backend Developer",
+    "location": "Gurugram",
+    "match_score": 84,
+    "trust_score": 88,
+    "salary_estimate": "12-15 LPA (listed)",
+    "url": "https://www.linkedin.com/jobs/view/4388367842/",
+    "note": "Exact Java/Spring Boot/microservices stack fit; experience stretch (role 2-4 yrs vs ~1.5). Cover letter generated."
+  },
+  "notes": "Only one solid verified lead today because the primary data feed is offline, not because the market is empty. WebSearch surfaced mostly aggregator listing pages and senior/stale roles; only the Comviva backend role was independently verifiable as real, reputable, and recent. Dashboard, cover letter, and log updated. Renewing the JSearch subscription should restore ~15-20 fresh postings per scan."
 }

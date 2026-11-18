@@ -1,0 +1,8 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Java Backend Developer role at Comviva in Gurugram, where my day-to-day work maps almost directly onto your stack. At Primathon I build and maintain production Java and Spring Boot microservices with REST APIs across seven merchant systems, and during my Paytm internship I developed microservices powering real-time QR-code transaction flows. Your requirements around Spring Boot, RESTful microservices, SQL databases such as MySQL, JUnit and Mockito testing, Git and CI/CD are all part of my daily work, and I have also shipped with the technologies you list as desirable — Docker, Kafka, Redis and AWS (EC2, S3, Lambda). My certified Distributed Payment Gateway project, 30 REST APIs across four services designed for scalability and fault tolerance, reflects the distributed-systems thinking this role calls for.
+
+As an immediate joiner with a 5-star Java rating on HackerRank and an AWS Developer Associate certification, I can contribute to Comviva's backend services from day one and ramp quickly on anything new.
+
+Best regards,
+Bhumi Bhatt

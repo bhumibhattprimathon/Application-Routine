@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-18</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0f172a;color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header p{margin:0;color:#94a3b8;font-size:14px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px 56px}
+  .banner{background:#7f1d1d;color:#fee2e2;border:1px solid #ef4444;border-radius:12px;padding:16px 18px;margin:18px 0;font-size:14px}
+  .banner strong{color:#fff}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-top:4px}
+  .c-green .n{color:var(--green)} .c-yellow .n{color:var(--yellow)} .c-red .n{color:var(--red)}
+  .openall{display:block;width:100%;background:var(--green);color:#06230f;border:0;border-radius:12px;padding:18px;font-size:17px;font-weight:700;cursor:pointer;margin:10px 0 6px}
+  .openall:hover{filter:brightness(.96)}
+  .hint{font-size:12px;color:var(--muted);text-align:center;margin:0 0 20px}
+  h2{font-size:16px;margin:30px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h2.g{border-color:var(--green)} h2.y{border-color:var(--yellow)} h2.r{border-color:var(--red)}
+  .tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:13px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px}
+  .pill.g{background:#dcfce7;color:#166534} .pill.y{background:#fef9c3;color:#854d0e} .pill.r{background:#fee2e2;color:#991b1b}
+  .btn{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:12px;cursor:pointer;text-decoration:none}
+  .btn.p{background:var(--green);color:#06230f;border-color:var(--green);font-weight:600}
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;margin:10px 0}
+  .rec h3{margin:0 0 4px;font-size:15px}
+  .rec .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:13px;margin:8px 0 0}
+  .trend{display:flex;align-items:flex-end;gap:22px;height:150px;padding:14px 8px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0}
+  .bar .cap{font-size:12px;margin-top:6px;color:var(--muted);text-align:center}
+  .bar .val{font-size:12px;font-weight:700;margin-bottom:4px}
+  .note{font-size:12px;color:var(--muted);margin-top:8px}
+  a{color:#2563eb}
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:36px}
+  @media(max-width:560px){header h1{font-size:18px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-18</h1>
+  <p>Morning scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Immediate joiner</p>
+</header>
+
+<div class="wrap">
+
+  <div class="banner">
+    <strong>⚠ Data feed degraded — action needed.</strong> The primary job source (JSearch via RapidAPI) returned
+    <strong>HTTP 404 "Endpoint /search does not exist"</strong>, meaning the RapidAPI key is no longer subscribed to JSearch
+    (the subscription appears to have lapsed since the last run on 2026-08-05). Today's scan fell back to general web search,
+    which <strong>cannot</strong> surface live LinkedIn postings with direct apply links for India, so volume is low and only
+    independently-verified leads are shown. <strong>To restore full daily discovery, renew/re-subscribe the RapidAPI JSearch
+    API</strong> (rapidapi.com → JSearch → Subscribe) so the key regains access.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">2</div><div class="l">New Jobs Found</div></div>
+    <div class="card c-green"><div class="n">1</div><div class="l">Qualified</div></div>
+    <div class="card c-yellow"><div class="n">1</div><div class="l">Review</div></div>
+    <div class="card c-red"><div class="n">0</div><div class="l">Fraud Blocked</div></div>
+    <div class="card"><div class="n">84</div><div class="l">Top Match Score</div></div>
+    <div class="card"><div class="n">12–15</div><div class="l">LPA (qualified)</div></div>
+  </div>
+
+  <button class="openall" onclick="openAll()">OPEN ALL 1 QUALIFIED JOB</button>
+  <p class="hint">Opens each qualified posting in a new tab. If your browser blocks pop-ups, allow them for this page.</p>
+
+  <h2 class="g">✅ Qualified — ready to apply</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th></th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="pill g">84</span></td>
+          <td>88</td>
+          <td>Comviva<br><span class="note">(Tech Mahindra)</span></td>
+          <td>Java Backend Developer</td>
+          <td>Gurugram</td>
+          <td>12–15 LPA<br><span class="note">(listed)</span></td>
+          <td>backend</td>
+          <td><a class="btn p" href="https://www.linkedin.com/jobs/view/4388367842/" target="_blank" rel="noopener">Open Job</a></td>
+          <td><button class="btn" onclick="copyCL('cl-comviva')">Copy Cover Letter</button></td>
+          <td><a class="btn" href="https://www.foundit.in/job/java-backend-developer-comviva-gurugram-48090408" target="_blank" rel="noopener">Alt link</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note"><strong>Stretch note:</strong> the posting asks for 2–4 years and Bhumi has ~1.5 — but the Java/Spring Boot/
+  microservices/REST stack matches almost exactly and the employer is reputable, so this is a confident application, not a long shot.
+  Posted within the last ~week (not confirmed &lt;24h). Verify the role is still open on Comviva's careers page before applying.</p>
+
+  <h2 class="y">🟡 Review — verify before applying</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Reason for review</th><th>Link</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="pill y">68</span></td>
+          <td>88</td>
+          <td>Comviva (Tech Mahindra)</td>
+          <td>Full Stack Developer (Java 17 + Angular)</td>
+          <td>Backend (Java 17 / Spring Boot) fits well, but the frontend is <strong>Angular</strong> — Bhumi's frontend is React, not Angular. Confirm the experience level too.</td>
+          <td><a href="https://www.linkedin.com/jobs/view/4417746525/" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="r">🔴 Skipped / not surfaced today</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>#</th><th>Category</th><th>Skip reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Feed down</td><td>JSearch/RapidAPI returned 404 (not subscribed) — the normal source of ~15–20 fresh LinkedIn postings/day produced none.</td></tr>
+        <tr><td>2</td><td>Aggregator noise</td><td>Most web-search hits (Foundit, Cutshort, Glassdoor, Internshala) were listing/category pages, not individual live postings with verifiable apply URLs — excluded to avoid stale/dead links.</td></tr>
+        <tr><td>3</td><td>Experience</td><td>Several concrete roles seen (Deloitte Sr Consultant – Java, NEC Sr Java Developer, TechAhead 6+ yrs, Comviva 3–8 yr Full Stack) require 4–8+ years — too senior for 1.5 yrs.</td></tr>
+        <tr><td>4</td><td>Salary / level</td><td>Fresher "trainee" openings seen (KiwiTech Software Trainee, Smalsus React Trainee) are 0–1 yr training roles whose pay typically sits below the 5.5 LPA target.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="g">⭐ Top recommendation</h2>
+  <div class="rec">
+    <h3>Comviva — Java Backend Developer (Gurugram)</h3>
+    <div class="meta">Match 84 · Trust 88 · 12–15 LPA · Resume variant: backend · <a href="https://www.linkedin.com/jobs/view/4388367842/" target="_blank" rel="noopener">Open posting</a></div>
+    <p>This is the single best-fit role surfaced today. Comviva (a Tech Mahindra / Mahindra Group company) is a large, well-known
+    telecom-software firm, so there's no fraud risk. The requirements — Java, Spring Boot, RESTful microservices, SQL (MySQL),
+    JUnit/Mockito, Git and CI/CD — line up point-for-point with Bhumi's Primathon and Paytm experience, and the "desirable" list
+    (Docker, Kafka, Redis, AWS) is also on her resume. The one gap is tenure: the role targets 2–4 years and she has ~1.5. Given the
+    near-exact stack match, her certified Distributed Payment Gateway project, 5-star HackerRank Java and AWS Developer Associate cert,
+    this is worth a confident application with the tailored cover letter below.</p>
+  </div>
+  <p class="note">Only one qualified lead today because the primary feed is offline — this is a floor set by the data outage, not a
+  reflection of the market. Restoring the JSearch subscription should return daily discovery to the ~15–20 postings/scan seen in August.</p>
+
+  <h2>📈 Run trend</h2>
+  <div class="trend">
+    <div class="bar"><div class="val">1</div><div class="fill" style="height:30%"></div><div class="cap">Aug 05<br>17 found</div></div>
+    <div class="bar"><div class="val">1</div><div class="fill" style="height:30%;background:#eab308"></div><div class="cap">Nov 18<br>2 found*</div></div>
+  </div>
+  <p class="note">Qualified jobs per run. *Nov 18 ran on the web-search fallback (JSearch offline), so "found" reflects the outage, not
+  demand. No scans ran between these dates. Bars show qualified count; yellow marks the degraded run.</p>
+
+  <h2>✉️ Cover letter — Comviva (Java Backend Developer)</h2>
+  <div class="cl">
+    <button class="btn p" onclick="copyCL('cl-comviva')">COPY</button>
+    <pre id="cl-comviva">Dear Hiring Manager,
+
+I'm writing to apply for the Java Backend Developer role at Comviva in Gurugram, where my day-to-day work maps almost directly onto your stack. At Primathon I build and maintain production Java and Spring Boot microservices with REST APIs across seven merchant systems, and during my Paytm internship I developed microservices powering real-time QR-code transaction flows. Your requirements around Spring Boot, RESTful microservices, SQL databases such as MySQL, JUnit and Mockito testing, Git and CI/CD are all part of my daily work, and I have also shipped with the technologies you list as desirable — Docker, Kafka, Redis and AWS (EC2, S3, Lambda). My certified Distributed Payment Gateway project, 30 REST APIs across four services designed for scalability and fault tolerance, reflects the distributed-systems thinking this role calls for.
+
+As an immediate joiner with a 5-star Java rating on HackerRank and an AWS Developer Associate certification, I can contribute to Comviva's backend services from day one and ramp quickly on anything new.
+
+Best regards,
+Bhumi Bhatt</pre>
+  </div>
+
+  <footer>Generated 2026-11-18 · Data source: web-search fallback (JSearch feed inactive) · Only independently-verified leads shown.</footer>
+</div>
+
+<script>
+  // Qualified job URLs for the "Open All" button.
+  var urls = ["https://www.linkedin.com/jobs/view/4388367842/"];
+  function openAll(){ urls.forEach(function(u){ window.open(u, "_blank"); }); }
+  function copyCL(id){
+    var el = document.getElementById(id);
+    var text = el ? el.innerText : "";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(); }, function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); flash(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  function flash(){
+    var old = event && event.target ? event.target.textContent : null;
+    if(event && event.target){ event.target.textContent = "Copied ✓"; setTimeout(function(){ event.target.textContent = old; }, 1400); }
+  }
+</script>
+</body>
+</html>
