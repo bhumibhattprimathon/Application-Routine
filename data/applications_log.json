@@ -290,11 +290,17 @@
       "easy_apply": null
     }
   ],
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-11-19",
   "source": "JSearch API (RapidAPI), date_posted=today, country=in",
   "total_found": 17,
   "total_applied": 1,
   "total_review": 6,
   "total_skipped": 10,
-  "fraud_detected": 2
+  "fraud_detected": 2,
+  "last_run": {
+    "date": "2026-11-19",
+    "status": "degraded_no_new_jobs",
+    "reason": "JSearch RapidAPI subscription lapsed (gateway 404); WebSearch fallback yielded only stale/removed/undated listings. 0 verified fresh jobs; nothing added to applications (no fabrication). See data/last_run_status.json and dashboards/dashboard_2026-11-19.html.",
+    "new_jobs_added": 0
+  }
 }
