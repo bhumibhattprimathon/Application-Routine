@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'd like to apply for the Full-Stack Developer (React.js + Node.js) role at Bellurbis Technologies in Delhi NCR, a stack that lines up well with both my backend depth and my front-end experience.
+
+On the backend I work daily with Node.js and Express.js alongside Java and Spring Boot — at Primathon I build automated backend workflows and integrate AWS services (Timestream, S3, Lambda) into production pipelines, and at CodeAlpha I built order and payment microservices with REST APIs, MySQL, and Docker. On the front end I use React.js, HTML5, and CSS3 to deliver complete, user-facing features. This combination lets me own a feature from database to interface rather than just one layer.
+
+As an immediate joiner (0-day notice period) who learns new codebases quickly, I'm ready to contribute to your React and Node.js projects from day one.
+
+Best regards,
+Bhumi Bhatt

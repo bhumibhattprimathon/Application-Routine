@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm writing to apply for the Software Developer – Backend (Java) role at SaveIN, where building reliable financial infrastructure is exactly the kind of work I enjoy most.
+
+In my current role at Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems using Java and Spring Boot, and during my Paytm internship I built and optimized microservices managing the QR-code lifecycle for real-time merchant transactions. My Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant, and Vault services, designed with JUnit test coverage and Git-based CI/CD — maps directly to the Java, Spring Boot, microservices, and JUnit stack this role calls for. As a fintech, SaveIN would also benefit from my hands-on experience with payment reliability and event-driven design using Kafka and Redis.
+
+I am an immediate joiner (0-day notice) and a fast, practical learner who ships production-ready code and owns it through to deployment.
+
+Best regards,
+Bhumi Bhatt

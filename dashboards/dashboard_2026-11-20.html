@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-11-20</title>
+<style>
+  :root{
+    --green:#22c55e; --green-d:#15803d; --yellow:#eab308; --yellow-d:#a16207;
+    --red:#ef4444; --red-d:#b91c1c; --ink:#0f172a; --muted:#64748b;
+    --bg:#f1f5f9; --card:#ffffff; --line:#e2e8f0; --blue:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:28px 20px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:.92rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 6px}
+  .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+  .card .n{font-size:1.9rem;font-weight:700;line-height:1}
+  .card .l{color:#cbd5e1;font-size:.8rem;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+  .card.q .n{color:var(--green)} .card.r .n{color:var(--yellow)} .card.s .n{color:var(--red)} .card.f .n{color:#f87171}
+  main{padding:22px 0 60px}
+  .banner{background:#fffbeb;border:1px solid #fde68a;border-left:5px solid var(--yellow);border-radius:10px;padding:16px 18px;margin:18px 0}
+  .banner h2{margin:0 0 8px;font-size:1.05rem;color:var(--yellow-d)}
+  .banner p{margin:6px 0;font-size:.92rem;color:#334155}
+  .banner code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:.85em}
+  .metarow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.86rem;color:var(--muted)}
+  .chip b{color:var(--ink)}
+  .openall{display:block;width:100%;border:0;border-radius:12px;padding:18px;margin:16px 0 4px;background:var(--blue);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+  .openall:hover{background:#1d4ed8}
+  .openall:disabled{background:#94a3b8;cursor:not-allowed;box-shadow:none}
+  .note{font-size:.8rem;color:var(--muted);text-align:center;margin:2px 0 10px}
+  section.block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 8px;margin:20px 0}
+  h2.sec{margin:0 0 4px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+  .sec .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .sec small{color:var(--muted);font-weight:400;font-size:.8rem}
+  .tablewrap{overflow-x:auto;margin-top:12px}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:620px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);background:#f8fafc}
+  tr:last-child td{border-bottom:0}
+  .score{font-weight:700;border-radius:6px;padding:2px 8px;display:inline-block;color:#fff;font-size:.82rem}
+  .s-hi{background:var(--green-d)} .s-mid{background:var(--yellow-d)} .s-lo{background:#64748b}
+  .btn{display:inline-block;border:1px solid var(--line);background:#fff;color:var(--blue);border-radius:7px;padding:5px 10px;font-size:.8rem;text-decoration:none;cursor:pointer;margin:2px 4px 2px 0}
+  .btn:hover{background:#eff6ff}
+  .btn.copy{color:var(--green-d);border-color:#bbf7d0}
+  .reco{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin:12px 0;background:#f8fffb}
+  .reco h3{margin:0 0 4px;font-size:1rem}
+  .reco .tag{font-size:.74rem;color:#fff;background:var(--yellow-d);border-radius:999px;padding:2px 9px;margin-left:6px}
+  .reco p{margin:6px 0 0;font-size:.9rem;color:#334155}
+  .bars{display:flex;align-items:flex-end;gap:26px;height:170px;padding:14px 8px 0;border-left:2px solid var(--line);border-bottom:2px solid var(--line)}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .col{width:46px;background:var(--green);border-radius:6px 6px 0 0;transition:height .4s;min-height:3px}
+  .bar .col.zero{background:#cbd5e1}
+  .bar .v{font-weight:700;margin-bottom:4px;font-size:.9rem}
+  .bar .lab{margin-top:8px;font-size:.78rem;color:var(--muted);text-align:center}
+  .cl{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:#fcfcfd}
+  .cl h3{margin:0 0 4px;font-size:.98rem}
+  .cl .meta{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .cl pre{white-space:pre-wrap;font-family:inherit;font-size:.88rem;color:#1e293b;margin:0 0 10px;background:#fff;border:1px dashed var(--line);border-radius:8px;padding:10px}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px}
+  a.src{color:var(--blue)}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;font-size:.88rem;opacity:0;transition:.3s;z-index:50}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-20</h1>
+    <div class="sub">Daily job scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Immediate joiner</div>
+    <div class="cards">
+      <div class="card"><div class="n" id="c-found">0</div><div class="l">Leads Evaluated</div></div>
+      <div class="card q"><div class="n" id="c-qual">0</div><div class="l">Ready to Apply</div></div>
+      <div class="card r"><div class="n" id="c-rev">0</div><div class="l">Review / Verify</div></div>
+      <div class="card s"><div class="n" id="c-skip">0</div><div class="l">Skipped</div></div>
+      <div class="card f"><div class="n" id="c-fraud">0</div><div class="l">Fraud Blocked</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="banner">
+    <h2>⚠️ Data-source notice — today's run is degraded</h2>
+    <p><b>0 jobs could be confirmed as a fresh, open, entry-level Delhi-NCR match today.</b> This is not "no jobs exist" — it's a tooling limitation, and it's worth fixing because it was working before.</p>
+    <p>1. The structured source that powered previous runs — <b>JSearch (RapidAPI)</b> — now returns <code>Endpoint '/search' does not exist</code> on this API key (only <code>/estimated-salary</code> still works). The key's plan no longer includes the job-search endpoint. <b>Fix:</b> re-subscribe this <code>RAPIDAPI_KEY</code> to JSearch (or add a job-search API) at rapidapi.com.</p>
+    <p>2. The web-search index is US-centric and <b>stale for India</b>: of the listings it surfaced, live checks showed them expired/closed (e.g. One&nbsp;Impression SDE-1 removed, two others returned 404/410) or too senior (PayPay 4+ yrs, Agoda staff/lead, SaveIN SDE-II).</p>
+    <p>So instead of presenting dead links as "ready to apply," the leads below are <b>real companies &amp; roles to verify live</b> — ranked by fit, with cover-letter drafts prepared for the closest skill matches.</p>
+  </div>
+
+  <div class="metarow">
+    <span class="chip">Avg match (review leads): <b>70</b></span>
+    <span class="chip">Entry-level backend salary, Delhi: <b>₹2.3L–₹7.3L</b> (median ₹5.0L)</span>
+    <span class="chip">Entry-level full-stack salary, Delhi: <b>₹3.7L–₹8.9L</b> (median ₹7.7L)</span>
+    <span class="chip">Target range: <b>₹5.5L–₹12L</b></span>
+    <span class="chip">Source: JSearch estimated-salary API (live)</span>
+  </div>
+
+  <button class="openall" id="openAllBtn" onclick="openAll()">OPEN ALL 9 LEADS TO VERIFY</button>
+  <div class="note">Opens each lead's live page/careers board in a new tab. If your browser blocks pop-ups, allow them for this page and click again.</div>
+
+  <!-- QUALIFIED -->
+  <section class="block">
+    <h2 class="sec"><span class="dot" style="background:var(--green)"></span>Ready to Apply <small>— verified open + entry-level + in-location</small></h2>
+    <p style="color:var(--muted);font-size:.9rem;margin:10px 2px">None today. No role could be confirmed as simultaneously (a)&nbsp;currently open, (b)&nbsp;0–2&nbsp;years, and (c)&nbsp;in Delhi NCR / remote. The strongest real fits are in <b>Review</b> below — verify each is live and at your level, then apply with the prepared cover letters.</p>
+  </section>
+
+  <!-- REVIEW -->
+  <section class="block">
+    <h2 class="sec"><span class="dot" style="background:var(--yellow)"></span>Review / Verify Live <small>— real fits; confirm the posting is open at your level before applying</small></h2>
+    <div class="tablewrap">
+      <table id="reviewTable">
+        <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Variant</th><th>Why review</th><th>Link</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SKIP -->
+  <section class="block">
+    <h2 class="sec"><span class="dot" style="background:var(--red)"></span>Skipped <small>— verified too senior, off-stack, or closed</small></h2>
+    <div class="tablewrap">
+      <table id="skipTable">
+        <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Skip reason</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TOP RECOS -->
+  <section class="block">
+    <h2 class="sec">⭐ Top Recommendations <small>— where to spend your 5 minutes</small></h2>
+    <div id="recos"></div>
+  </section>
+
+  <!-- WEEKLY TREND -->
+  <section class="block">
+    <h2 class="sec">📊 Run History <small>— "ready to apply" per scan</small></h2>
+    <div class="bars" id="bars"></div>
+    <p style="color:var(--muted);font-size:.84rem;margin:12px 2px">Runs are sparse (last was 2026-08-05). The Aug run hit 1 clean qualified match via the JSearch API; today's 0 reflects the lost job-search endpoint, not a worse market. Restoring JSearch should return results to the Aug baseline.</p>
+  </section>
+
+  <!-- COVER LETTERS -->
+  <section class="block">
+    <h2 class="sec">✍️ Prepared Cover Letters <small>— tailored drafts; verify the role first</small></h2>
+    <div id="letters"></div>
+  </section>
+
+</div>
+</main>
+
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-11-20 · resume_master.pdf · All leads are real postings surfaced today; freshness unverified where noted.</footer>
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+const review = [
+  {m:79,t:78,company:"SaveIN (via Uplers)",role:"Software Developer – Backend (Java)",loc:"Gurugram",sal:"10–15 LPA",variant:"backend",why:"Skills match exactly (Java, Spring Boot, microservices, JUnit, Git) and it's a YC-backed fintech — but SaveIN's current Java postings skew SDE-II/3–5 yrs. Verify a junior/SDE-I opening exists.",url:"https://wellfound.com/company/savein-money/jobs"},
+  {m:75,t:55,company:"Alphech Global",role:"Java Full Stack Developer (Spring Boot + React)",loc:"Noida",sal:"5–8 LPA",variant:"fullstack",why:"Best experience-level fit — explicitly 1–2 yrs, Java Spring Boot + React.js. Company is lightly verified; confirm it's legitimate and the listing is live.",url:"https://www.linkedin.com/jobs/search/?keywords=Alphech%20Global%20Java%20Full%20Stack&location=Noida%2C%20India"},
+  {m:74,t:62,company:"Hashstudioz Technologies",role:"Java Developer (Spring Boot, Microservices)",loc:"Noida / Gurugram",sal:"5–8 LPA",variant:"backend",why:"Strong exp fit (6 months–2 yrs) and core Java/Spring Boot stack. Surfaced via aggregator; confirm on Hashstudioz careers.",url:"https://www.hashstudioz.com/career"},
+  {m:72,t:60,company:"Bellurbis Technologies",role:"Full-Stack Developer (React.js + Node.js)",loc:"Delhi NCR",sal:"6–9 LPA",variant:"fullstack",why:"React + Node fit and a recent-looking post (~6 days), but the aggregator page couldn't be verified (403). Confirm it's open.",url:"https://www.foundit.in/job/mern-stack-developer-bellurbis-technologies-gurugram-53599850"},
+  {m:70,t:70,company:"Recro",role:"Node.js Developer (SDE 1 / SDE 2)",loc:"Noida",sal:"7–12 LPA",variant:"backend",why:"Node.js fit and an SDE-1 track exists. Recro is a product-eng/vetting firm; confirm the SDE-1 band and current opening.",url:"https://www.linkedin.com/company/recro/jobs/"},
+  {m:68,t:60,company:"taqtics",role:"Backend Engineer (Node.js)",loc:"Remote, India",sal:"3–7 LPA ⚠",variant:"backend",why:"Good exp fit (~1 yr) and fully remote, but the salary band starts at ₹3L — below your ₹5.5L floor. Only worth it toward the top of the range.",url:"https://wellfound.com/role/node-js-developer"},
+  {m:65,t:72,company:"CredFlow",role:"Backend Engineer",loc:"Gurgaon",sal:"8–14 LPA",variant:"backend",why:"Funded fintech, solid backend fit. Seniority not confirmed; verify it's open to ~1.5 yrs.",url:"https://www.foundit.in/job/backend-engineer-credflow-ai-gurgaon-gurugram-52531007"},
+  {m:62,t:75,company:"AiPrise",role:"Software Engineer I",loc:"Bangalore (hybrid)",sal:"8–15 LPA",variant:"backend",why:"VERIFIED OPEN (Ashby) and a great level fit (0–2 yrs, REST/SQL/Git/Docker) — but Bangalore, outside your Delhi-NCR filter. Apply only if open to relocation/remote.",url:"https://jobs.ashbyhq.com/aiprise/3763c791-a387-4078-9ca4-00cbfbf9b1a6"},
+  {m:60,t:80,company:"Hevo Data",role:"SDE I / Associate SDE",loc:"Bangalore",sal:"8–14 LPA",variant:"backend",why:"Excellent level fit (0–1 yr, Java/TS/Python, strong DSA) at a funded product company, but Bangalore and the post is ~3+ months old. Check if still open.",url:"https://jobs.lever.co/hevodata/6cbbe304-e065-4711-bf3e-756795d2bc2a"}
+];
+
+const skip = [
+  {company:"PayPay India",role:"Backend Engineer (Gurugram)",reason:"Experience: JD verified — requires 4+ yrs Java (or 5+ yrs equivalent). Too senior for 1.5 yrs."},
+  {company:"Agoda",role:"Staff / Lead Software Engineer – Backend (Gurugram)",reason:"Experience: 8–12 yrs (Staff) / 11+ yrs (Lead). Far too senior."},
+  {company:"Agoda",role:"Software Developer – 6-month contract (Gurugram)",reason:"Stale/closed: fresh-grad contract role but posting is ~349 days old; almost certainly filled."},
+  {company:"SaveIN",role:"Senior Backend Engineer / SDE-II (Gurugram)",reason:"Experience: 3–5+ yrs senior track (separate from the junior Java role in Review)."},
+  {company:"One Impression",role:"SDE 1 Backend (Gurugram)",reason:"Closed + off-stack: listing removed Nov 2025; stack was Python/Django, not Java/JS."},
+  {company:"Netomi",role:"SDE I – Frontend (Gurugram)",reason:"Low match: frontend-only role (1–3 yrs); off Bhumi's backend focus."},
+  {company:"Smart Working Solutions",role:"Senior Software Engineer – Node.js (Remote)",reason:"Experience: Senior, 4+ yrs."},
+  {company:"RevenueBase",role:"Full Stack Developer (Backend) – Python/FastAPI",reason:"Experience/stack: 4+ yrs, Python/FastAPI-centric."},
+  {company:"Two95 / Incedo / DHI / Luxoft / Bulwark",role:"GenAI / LLM Engineer (Gurugram)",reason:"Experience + stack: 3–8 yrs and Python/PyTorch/RAG focus — too senior and off her core stack."},
+  {company:"Gartner",role:"Sr Software Engineer – GenAI/ML (carried from Aug)",reason:"Experience: Senior, 4–6 yrs, off-stack."},
+  {company:"BairesDev",role:".NET Software Engineer (Remote, carried from Aug)",reason:"Stack: .NET/C# — resume is Java/JavaScript."}
+];
+
+const recos = [
+  {company:"SaveIN (via Uplers)",tag:"Best skill match",text:"The Java + Spring Boot + microservices + JUnit + Git requirement is almost a line-by-line copy of Bhumi's resume, and SaveIN's fintech domain mirrors her Paytm QR-lifecycle and Distributed Payment Gateway work. A YC-backed fintech is a credible employer. The one open question is seniority — confirm there's an SDE-I / junior opening before applying with the prepared letter."},
+  {company:"Alphech Global",tag:"Best level fit",text:"This is the only lead that explicitly states 1–2 years — matching Bhumi's 1.5 yrs exactly — while still asking for her real stack (Spring Boot backend + React front end). Noida is in range. The trade-off is a lightly-verified employer, so a quick Glassdoor/AmbitionBox check is worth it before applying."},
+  {company:"Hashstudioz Technologies",tag:"Core stack",text:"A 6-month-to-2-year Java/Spring Boot/microservices role in Noida/Gurugram — squarely entry-level and squarely her backend stack. It's an established IT-services company, so it's a realistic, lower-risk application once you confirm the posting is current on their careers page."},
+  {company:"Bellurbis Technologies",tag:"Recent full-stack",text:"The most recently-posted full-stack lead (~6 days) in Delhi NCR, and React.js + Node.js lets Bhumi use both her front-end and Node/Express backend experience. A cover letter is ready; just confirm it's still open since the aggregator page couldn't be auto-verified."},
+  {company:"AiPrise (if relocation-open)",tag:"Verified open",text:"The single lead confirmed live today (on Ashby) with a clean 0–2-year, REST/SQL/Git/Docker fit. The catch is Bangalore, not NCR — so it only makes the list if Bhumi is open to relocating or a remote arrangement. If she is, it's the highest-confidence 'actually open' option here."}
+];
+
+const trend = [
+  {lab:"2026-08-05", v:1},
+  {lab:"2026-11-20\n(today)", v:0}
+];
+
+const letters = [
+  {company:"SaveIN", role:"Software Developer – Backend (Java)", file:"2026-11-20_savein_software_developer_backend_java.txt",
+   text:`Dear Hiring Manager,
+
+I'm writing to apply for the Software Developer – Backend (Java) role at SaveIN, where building reliable financial infrastructure is exactly the kind of work I enjoy most.
+
+In my current role at Primathon I engineer custom admin APIs and backend syncing automation across seven merchant systems using Java and Spring Boot, and during my Paytm internship I built and optimized microservices managing the QR-code lifecycle for real-time merchant transactions. My Distributed Payment Gateway project — 30 REST APIs across Order, Payment, Merchant, and Vault services, designed with JUnit test coverage and Git-based CI/CD — maps directly to the Java, Spring Boot, microservices, and JUnit stack this role calls for. As a fintech, SaveIN would also benefit from my hands-on experience with payment reliability and event-driven design using Kafka and Redis.
+
+I am an immediate joiner (0-day notice) and a fast, practical learner who ships production-ready code and owns it through to deployment.
+
+Best regards,
+Bhumi Bhatt`},
+  {company:"Alphech Global", role:"Java Full Stack Developer", file:"2026-11-20_alphech_global_java_full_stack_developer.txt",
+   text:`Dear Hiring Manager,
+
+I'm excited to apply for the Java Full Stack Developer position at Alphech Global in Noida, which pairs the Spring Boot backend work I specialize in with React.js on the front end.
+
+My 1.5 years of experience fit this role's 1–2 year requirement closely: at Primathon I build Java and Spring Boot backend workflows and admin APIs, and I pair that with React.js, HTML5, and CSS3 on the UI side, exactly the full-stack split this position needs. I've shipped end-to-end features before — my Distributed Payment Gateway delivered 30 REST APIs across four microservices, and at CodeAlpha I optimized 30+ REST endpoints with MySQL and Docker-based deployment. My 5-Star Gold rating in Java on HackerRank and 250+ solved DSA problems reflect the strong fundamentals I'd bring to your team.
+
+Being an immediate joiner with a 0-day notice period, I can start contributing to your Java and React codebase right away.
+
+Best regards,
+Bhumi Bhatt`},
+  {company:"Bellurbis Technologies", role:"Full-Stack Developer (React.js + Node.js)", file:"2026-11-20_bellurbis_technologies_full_stack_developer.txt",
+   text:`Dear Hiring Manager,
+
+I'd like to apply for the Full-Stack Developer (React.js + Node.js) role at Bellurbis Technologies in Delhi NCR, a stack that lines up well with both my backend depth and my front-end experience.
+
+On the backend I work daily with Node.js and Express.js alongside Java and Spring Boot — at Primathon I build automated backend workflows and integrate AWS services (Timestream, S3, Lambda) into production pipelines, and at CodeAlpha I built order and payment microservices with REST APIs, MySQL, and Docker. On the front end I use React.js, HTML5, and CSS3 to deliver complete, user-facing features. This combination lets me own a feature from database to interface rather than just one layer.
+
+As an immediate joiner (0-day notice period) who learns new codebases quickly, I'm ready to contribute to your React and Node.js projects from day one.
+
+Best regards,
+Bhumi Bhatt`}
+];
+
+// ---- render ----
+function scoreClass(s){return s>=75?'s-hi':s>=60?'s-mid':'s-lo'}
+document.getElementById('c-found').textContent = review.length + skip.length;
+document.getElementById('c-qual').textContent = 0;
+document.getElementById('c-rev').textContent = review.length;
+document.getElementById('c-skip').textContent = skip.length;
+document.getElementById('c-fraud').textContent = 0;
+
+const rtb = document.querySelector('#reviewTable tbody');
+review.forEach((j,i)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${i+1}</td>
+    <td><span class="score ${scoreClass(j.m)}">${j.m}</span></td>
+    <td><span class="score ${scoreClass(j.t)}">${j.t}</span></td>
+    <td><b>${j.company}</b></td><td>${j.role}</td><td>${j.loc}</td>
+    <td>${j.sal}</td><td>${j.variant}</td><td style="max-width:280px">${j.why}</td>
+    <td><a class="btn" href="${j.url}" target="_blank" rel="noopener">Open →</a></td>`;
+  rtb.appendChild(tr);
+});
+
+const stb = document.querySelector('#skipTable tbody');
+skip.forEach((j,i)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${i+1}</td><td><b>${j.company}</b></td><td>${j.role}</td><td>${j.reason}</td>`;
+  stb.appendChild(tr);
+});
+
+const rc=document.getElementById('recos');
+recos.forEach(r=>{
+  const d=document.createElement('div');d.className='reco';
+  d.innerHTML=`<h3>${r.company}<span class="tag">${r.tag}</span></h3><p>${r.text}</p>`;
+  rc.appendChild(d);
+});
+
+const maxV=Math.max(1,...trend.map(t=>t.v));
+const bars=document.getElementById('bars');
+trend.forEach(t=>{
+  const h=Math.round((t.v/maxV)*130);
+  const d=document.createElement('div');d.className='bar';
+  d.innerHTML=`<div class="v">${t.v}</div><div class="col ${t.v===0?'zero':''}" style="height:${t.v===0?3:h}px"></div><div class="lab">${t.lab.replace('\n','<br>')}</div>`;
+  bars.appendChild(d);
+});
+
+const lt=document.getElementById('letters');
+letters.forEach((l,i)=>{
+  const d=document.createElement('div');d.className='cl';
+  d.innerHTML=`<h3>${l.company} — ${l.role}</h3>
+    <div class="meta">Saved: cover_letters/${l.file}</div>
+    <pre id="cl-${i}">${l.text.replace(/</g,'&lt;')}</pre>
+    <button class="btn copy" onclick="copyText('cl-${i}')">📋 Copy cover letter</button>`;
+  lt.appendChild(d);
+});
+
+function copyText(id){
+  const el=document.getElementById(id);
+  const txt=el.innerText;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>toast('Cover letter copied')).catch(()=>fallbackCopy(txt));
+  } else fallbackCopy(txt);
+}
+function fallbackCopy(txt){
+  const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');toast('Cover letter copied');}catch(e){toast('Copy failed — select manually');}
+  document.body.removeChild(ta);
+}
+function openAll(){
+  const urls=review.map(j=>j.url);
+  let opened=0;
+  urls.forEach((u,idx)=>{setTimeout(()=>{window.open(u,'_blank','noopener');},idx*250);opened++;});
+  toast('Opening '+opened+' leads…');
+}
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
+}
+</script>
+</body>
+</html>

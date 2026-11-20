@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java Full Stack Developer position at Alphech Global in Noida, which pairs the Spring Boot backend work I specialize in with React.js on the front end.
+
+My 1.5 years of experience fit this role's 1–2 year requirement closely: at Primathon I build Java and Spring Boot backend workflows and admin APIs, and I pair that with React.js, HTML5, and CSS3 on the UI side, exactly the full-stack split this position needs. I've shipped end-to-end features before — my Distributed Payment Gateway delivered 30 REST APIs across four microservices, and at CodeAlpha I optimized 30+ REST endpoints with MySQL and Docker-based deployment. My 5-Star Gold rating in Java on HackerRank and 250+ solved DSA problems reflect the strong fundamentals I'd bring to your team.
+
+Being an immediate joiner with a 0-day notice period, I can start contributing to your Java and React codebase right away.
+
+Best regards,
+Bhumi Bhatt

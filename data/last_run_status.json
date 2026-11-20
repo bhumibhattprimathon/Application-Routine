@@ -1,15 +1,16 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-20",
   "run_type": "linkedin-morning-scan",
-  "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "status": "completed_degraded",
+  "data_source": "WebSearch (US-centric web index, stale for India) + Greenhouse/Lever/Ashby ATS verification + JSearch estimated-salary (live).",
+  "resume_source": "repo resumes/resume_master.pdf (read OK)",
+  "ntfy": "disabled per prior user instruction; reported via routine push/email channel (PushNotification).",
+  "jobs_evaluated": 18,
+  "jobs_ready_to_apply": 0,
+  "jobs_review": 9,
+  "jobs_skipped": 9,
+  "fraud_detected": 0,
+  "blocker": "JSearch /search endpoint no longer subscribed on RAPIDAPI_KEY (returns \"Endpoint '/search' does not exist\"; only /estimated-salary works). This was the source that powered the 2026-08-05 run. LinkedIn guest-jobs API blocked by sandbox egress policy. Major India aggregators (foundit/monster/apna) return HTTP 403 to fetch.",
+  "remedy": "Re-subscribe this RAPIDAPI_KEY to JSearch (or add an active job-search API) at rapidapi.com so the scan can retrieve verified <24h India postings again.",
+  "notes": "0 roles could be confirmed as simultaneously open + entry-level (0-2 yrs) + Delhi NCR/remote. Web-index listings were either expired (verified: One Impression removed, 2 others 404/410) or too senior (verified: PayPay 4+ yrs, Agoda staff/lead, SaveIN SDE-II). 9 real, best-fit leads surfaced for live verification; 3 cover-letter drafts prepared (SaveIN, Alphech, Bellurbis). No fabricated listings."
 }
