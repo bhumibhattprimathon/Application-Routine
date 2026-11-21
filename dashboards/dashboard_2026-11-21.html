@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-21</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+    --bg:#f1f5f9; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --head:#0b1220; --border:#e2e8f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:var(--head);color:#fff;padding:28px 20px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#94a3b8;font-size:14px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .banner{border-radius:12px;padding:18px 20px;margin:18px 0;border:1px solid}
+  .banner.warn{background:#fef9c3;border-color:#fde047;color:#713f12}
+  .banner.warn h2{margin:0 0 8px;font-size:17px}
+  .banner.warn code{background:#fff7cc;padding:1px 5px;border-radius:4px;font-size:13px}
+  .banner.warn ul{margin:8px 0 0;padding-left:20px}
+  .btn{display:inline-block;background:var(--green);color:#fff;border:none;border-radius:10px;
+       padding:16px 26px;font-size:17px;font-weight:700;cursor:pointer;width:100%;margin:10px 0}
+  .btn:disabled{background:#cbd5e1;color:#64748b;cursor:not-allowed}
+  section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin:18px 0}
+  section h2{margin:0 0 12px;font-size:17px;display:flex;align-items:center;gap:8px}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .dot.g{background:var(--green)} .dot.y{background:var(--yellow)} .dot.r{background:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+  a.joblink{color:#2563eb;text-decoration:none;font-weight:600}
+  a.joblink:hover{text-decoration:underline}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px}
+  .tag.unver{background:#fef3c7;color:#92400e}
+  .empty{color:var(--muted);font-style:italic;padding:8px 0}
+  .trend{display:flex;align-items:flex-end;gap:18px;height:160px;padding:10px 4px;border-left:2px solid var(--border);border-bottom:2px solid var(--border)}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;height:100%}
+  .bar .fill{width:46px;background:var(--green);border-radius:6px 6px 0 0;min-height:3px}
+  .bar .v{font-weight:700;margin-bottom:4px}
+  .bar .d{font-size:11px;color:var(--muted);margin-top:6px;text-align:center}
+  .foot{color:var(--muted);font-size:12px;margin-top:30px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-21</h1>
+  <div class="sub">Daily job scan for Bhumi Bhatt · Backend / Full-Stack / SDE · Delhi NCR · Remote</div>
+</header>
+
+<div class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="n">0</div><div class="l">Jobs Verified</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Qualified</div></div>
+    <div class="card"><div class="n">4</div><div class="l">Unverified Leads</div></div>
+    <div class="card"><div class="n" style="color:var(--red)">—</div><div class="l">Fraud Detected</div></div>
+  </div>
+
+  <div class="banner warn">
+    <h2>⚠️ Degraded run — live job feed is offline</h2>
+    <p>Today's scan could <b>not confirm any job posted in the last 24 hours</b>. The reliable live source used since August — the <b>JSearch API on RapidAPI</b> — now returns <code>404 "Endpoint does not exist"</code> on every endpoint with a <code>x-rapidapi-proxy-response</code> header, which means <b>this RapidAPI key is no longer subscribed to JSearch</b> (the subscription has lapsed since the 2026-08-05 run).</p>
+    <p>The fallback (web search) only surfaced job-aggregator pages that, on direct checking, were <b>stale or closed</b> — e.g. a "MERN" listing actually dated <b>Jan 2022</b>, a Cutshort backend role from <b>Sep 2021</b>, and Air India / NEC roles marked <b>"position filled."</b> No jobs were fabricated.</p>
+    <b>To restore daily results, do one of:</b>
+    <ul>
+      <li>Re-subscribe to <b>JSearch</b> (RapidAPI) on the plan tied to this key, or</li>
+      <li>Rotate <code>RAPIDAPI_KEY</code> to a key with an active JSearch (or equivalent jobs-API) subscription, or</li>
+      <li>Tell the assistant a preferred live source (e.g. an Adzuna / SerpApi / LinkedIn-jobs key) to wire in.</li>
+    </ul>
+  </div>
+
+  <button class="btn" id="openAll" disabled>No qualified jobs to open today</button>
+
+  <section>
+    <h2><span class="dot g"></span> Qualified Jobs (score ≥ 65, trust ≥ 60)</h2>
+    <div class="empty">None today — the live feed is offline, so no posting could be freshness-verified and scored. See the warning above.</div>
+  </section>
+
+  <section>
+    <h2><span class="dot y"></span> Unverified Leads (found via web search — freshness NOT confirmed)</h2>
+    <p style="color:var(--muted);font-size:13px;margin-top:0">These appeared in search results and plausibly fit Bhumi's profile, but the assistant could <b>not</b> confirm they are live or recently posted (many similar links tested were years old or filled). Treat as manual-check starting points, not recommendations. Verify the posting date and status on the source before spending time.</p>
+    <table>
+      <thead><tr><th>#</th><th>Role</th><th>Company</th><th>Location</th><th>Exp.</th><th>Fit note</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Graduate Software Engineer (Entry Level)</td>
+          <td>Infogain</td>
+          <td>Noida (hybrid)</td>
+          <td>0–2 yr</td>
+          <td>Entry-level SDE, matches experience band well.</td>
+          <td><span class="tag unver">unverified</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Fresher Software Engineer</td>
+          <td>DigitalXNode</td>
+          <td>Gurugram (on-site)</td>
+          <td>Fresher</td>
+          <td>Fresher SDE track; verify company legitimacy before applying.</td>
+          <td><span class="tag unver">unverified</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Junior Fullstack AI/ML Engineer</td>
+          <td>SettleMint India</td>
+          <td>New Delhi</td>
+          <td>1–3 yr</td>
+          <td>Full-stack + AI; aligns with her AI interest and JS/backend stack.</td>
+          <td><span class="tag unver">unverified</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>AI/ML Engineer I</td>
+          <td>Astreya</td>
+          <td>Remote (India)</td>
+          <td>1–2 yr</td>
+          <td>Remote, junior band; page blocked automated check — verify manually.</td>
+          <td><span class="tag unver">unverified</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="dot r"></span> Skipped / Could Not Verify</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>iDreamCareer (via Cutshort)</td><td>Fullstack Developer — MERN</td><td>Stale: posting dated <b>10 Jan 2022</b>.</td></tr>
+        <tr><td>2</td><td>Bijnis (via Cutshort)</td><td>Backend Engineer</td><td>Stale (<b>Sep 2021</b>) & senior (5–8 yr).</td></tr>
+        <tr><td>3</td><td>Air India</td><td>Engineer — Backend</td><td>"Position has been filled."</td></tr>
+        <tr><td>4</td><td>NEC Corporation</td><td>Graduate Engineer Trainee</td><td>"Position has been filled."</td></tr>
+        <tr><td>5</td><td>Paytm</td><td>Backend Engineer (Node.js)</td><td>Listing returns 404 (removed).</td></tr>
+        <tr><td>6</td><td>Movodream</td><td>Machine Learning Engineer</td><td>Salary ₹2–3 LPA — below 5 LPA floor.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Weekly / Run Trend</h2>
+    <p style="color:var(--muted);font-size:13px;margin-top:0">Qualified jobs per completed run. Note: the routine last ran on 2026-08-05 — there is a gap before today's run.</p>
+    <div class="trend">
+      <div class="bar"><div class="v">1</div><div class="fill" style="height:70%"></div><div class="d">2026-08-05</div></div>
+      <div class="bar"><div class="v">0</div><div class="fill" style="height:2%;background:#cbd5e1"></div><div class="d">2026-11-21<br>(feed offline)</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cover Letters</h2>
+    <div class="empty">No cover letters generated today — none required (criterion: match ≥ 75 &amp; trust ≥ 60 on a verified job). They will resume automatically once the live feed is restored.</div>
+  </section>
+
+  <div class="foot">Generated by the LinkedIn Smart Apply routine · 2026-11-21 · No job listings were fabricated; unverifiable results were excluded.</div>
+</div>
+
+<script>
+  // Qualified job URLs for the "Open All" button. Empty today (no verified qualified jobs).
+  var urls = [];
+  function openAll(){ urls.forEach(function(u){ window.open(u, '_blank'); }); }
+  (function(){
+    var btn = document.getElementById('openAll');
+    if (urls.length > 0){
+      btn.disabled = false;
+      btn.textContent = 'OPEN ALL ' + urls.length + ' QUALIFIED JOBS';
+      btn.addEventListener('click', openAll);
+    }
+  })();
+</script>
+</body>
+</html>
