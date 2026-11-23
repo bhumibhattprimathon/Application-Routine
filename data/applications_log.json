@@ -288,13 +288,48 @@
       "cover_letter_generated": false,
       "skip_reason": "Experience: Senior, 4\u20136 yrs, GenAI/ML \u2014 too senior and off-stack.",
       "easy_apply": null
+    },
+    {
+      "job_id": "bayt-senior-backend-nodejs-74915771",
+      "url": "https://www.bayt.com/en/india/jobs/senior-backend-developer-node-js-74915771/",
+      "company": "(via Bayt)",
+      "title": "Senior Backend Developer (Node.js)",
+      "location": "India (Remote)",
+      "date_found": "2026-11-23",
+      "posted": "2026-11-19 (verified recent)",
+      "status": "experience_skip",
+      "match_score": null,
+      "trust_score": null,
+      "salary_estimate": null,
+      "resume_variant": null,
+      "cover_letter_generated": false,
+      "skip_reason": "Experience: Senior Node.js role. Genuinely recent (posted 19 Nov 2026) but targets senior backend experience \u2014 beyond Bhumi's 1.5 yrs.",
+      "easy_apply": null
+    },
+    {
+      "job_id": "laksh-aiml-risk-fraud-1682342",
+      "url": "https://www.hirist.tech/j/ai-ml-engineer-risk-fraud-1682342",
+      "company": "Laksh Consultants (via Hirist)",
+      "title": "AI/ML Engineer (Risk & Fraud)",
+      "location": "North Delhi",
+      "date_found": "2026-11-23",
+      "posted": "2026-11-05",
+      "status": "low_match_skip",
+      "match_score": null,
+      "trust_score": null,
+      "salary_estimate": null,
+      "resume_variant": null,
+      "cover_letter_generated": false,
+      "skip_reason": "Skill: Python/PyTorch/TensorFlow ML role, 2\u20135 yrs. Off Bhumi's Java/Node backend core stack and slightly senior \u2014 recent (5 Nov) but not a fit.",
+      "easy_apply": null
     }
   ],
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-11-23",
   "source": "JSearch API (RapidAPI), date_posted=today, country=in",
-  "total_found": 17,
+  "total_found": 19,
   "total_applied": 1,
   "total_review": 6,
-  "total_skipped": 10,
-  "fraud_detected": 2
+  "total_skipped": 12,
+  "fraud_detected": 2,
+  "last_run_note": "2026-11-23 DEGRADED run: primary job-data source (JSearch/RapidAPI) subscription lapsed (HTTP 404); LinkedIn fresh-job fetch blocked; WebSearch returned only undated/stale/senior/off-stack results. 0 verified fresh entry-level matches today. No jobs fabricated. 2 genuinely-recent but non-matching listings logged above."
 }

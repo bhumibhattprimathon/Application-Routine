@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-11-23</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:#0b1220;color:#fff;padding:28px 20px}
+  header .wrap{max-width:1080px;margin:0 auto}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#93a4bf;font-size:14px}
+  main{max-width:1080px;margin:0 auto;padding:20px 16px 60px}
+  .banner{border-radius:12px;padding:16px 18px;margin:18px 0;border:1px solid}
+  .banner.warn{background:#fffbeb;border-color:#fcd34d;color:#713f12}
+  .banner.warn b{color:#92400e}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card .n{font-size:28px;font-weight:700}
+  .card .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .card.good .n{color:var(--green)} .card.warn .n{color:var(--yellow)} .card.bad .n{color:var(--red)}
+  .openall{width:100%;padding:16px;border:0;border-radius:12px;font-size:16px;font-weight:700;color:#fff;cursor:pointer;margin:8px 0 4px}
+  .openall.on{background:var(--green)} .openall.off{background:#94a3b8;cursor:not-allowed}
+  .hint{font-size:13px;color:var(--muted);margin:0 0 20px}
+  section h2{font-size:16px;margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  .sec-green{border-color:var(--green)!important} .sec-yellow{border-color:var(--yellow)!important} .sec-red{border-color:var(--red)!important} .sec-blue{border-color:var(--blue)!important}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:14px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  a.btn{display:inline-block;padding:6px 10px;border-radius:7px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-size:13px;border:1px solid #bfdbfe}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.red{background:#fee2e2;color:#991b1b} .pill.yellow{background:#fef9c3;color:#854d0e}
+  .trend{display:flex;align-items:flex-end;gap:22px;height:160px;padding:14px 10px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .col{width:46px;border-radius:6px 6px 0 0;background:var(--green)}
+  .bar .col.zero{background:#cbd5e1;height:4px}
+  .bar .cap{font-size:12px;color:var(--muted);margin-top:6px;text-align:center}
+  .bar .val{font-size:12px;font-weight:700;margin-bottom:4px}
+  .fix{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .fix ol{margin:8px 0 0;padding-left:20px} .fix li{margin:6px 0}
+  code{background:#f1f5f9;padding:1px 6px;border-radius:5px;font-size:13px}
+  footer{max-width:1080px;margin:0 auto;padding:20px 16px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-23</h1>
+    <div class="sub">Daily scan for Bhumi Bhatt · Backend / Full-Stack · Delhi NCR · Entry level (1.5 yrs)</div>
+  </div>
+</header>
+
+<main>
+  <div class="banner warn">
+    <b>⚠️ Degraded run — no verified fresh matches today.</b><br>
+    The primary job-data source (JSearch via RapidAPI) returned <code>HTTP 404 — "Endpoint /search does not exist"</code>,
+    which means the RapidAPI key is no longer subscribed to that API. The fallbacks could not fill the gap:
+    direct LinkedIn fresh-job fetching is blocked, and plain web search returned only undated, mostly stale or
+    senior/off-stack listings with no reliable "posted in the last 24h" feed. <b>No jobs were fabricated.</b>
+    See <b>How to restore the daily scan</b> below.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">2</div><div class="l">Verifiable listings</div></div>
+    <div class="card good"><div class="n">0</div><div class="l">Qualified</div></div>
+    <div class="card bad"><div class="n">2</div><div class="l">Skipped (non-match)</div></div>
+    <div class="card warn"><div class="n">OFF</div><div class="l">Data source</div></div>
+  </div>
+
+  <button class="openall off" id="openAllBtn" disabled onclick="openAll()">OPEN ALL 0 QUALIFIED JOBS</button>
+  <p class="hint">Disabled — there are no qualified jobs to open this cycle. The button re-enables automatically on the next run that finds qualified matches.</p>
+
+  <section>
+    <h2 class="sec-green">✅ Qualified jobs (score ≥ 65, trust ≥ 60)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Score</th><th>Company</th><th>Role</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:18px">
+          None this cycle. The data source that supplies fresh, date-verified LinkedIn postings is offline (see banner).
+        </td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="sec-yellow">🔎 Leads surfaced (genuinely recent, but not a match)</h2>
+    <p class="hint">The only listings I could date-verify as current. Both fall outside Bhumi's entry-level Java/Node backend profile — listed for transparency, not recommended.</p>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Posted</th><th>Why skipped</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>(via Bayt)</td><td>Senior Backend Developer (Node.js)</td><td>India · Remote</td><td>19 Nov 2026</td>
+          <td><span class="pill red">Experience</span> Senior role — beyond 1.5 yrs.</td>
+          <td><a class="btn" href="https://www.bayt.com/en/india/jobs/senior-backend-developer-node-js-74915771/" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td>Laksh Consultants (via Hirist)</td><td>AI/ML Engineer (Risk &amp; Fraud)</td><td>North Delhi</td><td>5 Nov 2026</td>
+          <td><span class="pill yellow">Off-stack</span> Python/PyTorch/TensorFlow, 2–5 yrs — off her Java/Node core.</td>
+          <td><a class="btn" href="https://www.hirist.tech/j/ai-ml-engineer-risk-fraud-1682342" target="_blank" rel="noopener">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="sec-blue">📊 Weekly / historical trend — qualified per run</h2>
+    <div class="trend">
+      <div class="bar"><div class="val">1</div><div class="col" style="height:70%"></div><div class="cap">2026-08-05</div></div>
+      <div class="bar"><div class="val">0</div><div class="col zero"></div><div class="cap">2026-11-23<br>(degraded)</div></div>
+    </div>
+    <p class="hint">Only two completed runs are on record. The gap reflects the lapsed data source rather than a dry job market — restoring the API should return the scan to normal volume.</p>
+  </section>
+
+  <section>
+    <h2 class="sec-red">🛠 How to restore the daily scan</h2>
+    <div class="fix">
+      <p>The scan logic, resume parsing, scoring, dashboard and notifications all work — the only broken piece is the fresh-jobs feed. To fix:</p>
+      <ol>
+        <li><b>Re-subscribe the RapidAPI key to JSearch</b> (or another jobs API). The stored <code>RAPIDAPI_KEY</code> currently returns 404 for <code>jsearch.p.rapidapi.com/search</code>, i.e. the subscription has lapsed.</li>
+        <li>Alternatively, configure a different jobs data source (e.g. an official LinkedIn/Indeed/Naukri partner API) and point the routine at it.</li>
+        <li>Once a live feed is connected, the next morning run will again produce date-verified, entry-level matches, cover letters, and an enabled "Open All" button.</li>
+      </ol>
+      <p class="hint" style="margin-top:12px">Resume read OK from <code>resumes/resume_master.pdf</code>. Deduplication history is intact (19 jobs tracked). ntfy remains disabled per your instruction; today's report was delivered via the routine push/email channel.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Generated by the LinkedIn morning-scan routine · 2026-11-23 · No listings fabricated. Leads above are unverified aggregator postings — verify on the source site before applying.
+</footer>
+
+<script>
+  // Qualified job URLs for the "Open All" button. Empty this cycle (data source offline).
+  var urls = [];
+  function openAll(){
+    if(!urls.length){ return; }
+    urls.forEach(function(u){ window.open(u, '_blank'); });
+  }
+  // Enable the button only when there are qualified jobs.
+  (function(){
+    var btn = document.getElementById('openAllBtn');
+    if(urls.length){
+      btn.textContent = 'OPEN ALL ' + urls.length + ' QUALIFIED JOBS';
+      btn.classList.remove('off'); btn.classList.add('on'); btn.disabled = false;
+    }
+  })();
+</script>
+</body>
+</html>
