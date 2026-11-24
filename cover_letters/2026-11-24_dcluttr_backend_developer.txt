@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'd love to join Dcluttr as a Backend Developer and help build the AI copilot that replaces gut-feel decisions for quick-commerce brands. You want someone who can build entire systems and solve high-ambiguity problems with accountability — that is how I work. At Primathon I built backend syncing automation across seven merchant systems and real-time pipelines on AWS Timestream, S3, and Lambda, cutting manual operational effort by 70%.
+
+I design and ship end-to-end backend services in Java and Spring Boot alongside Node.js, and I architected a distributed payment gateway of 30 REST APIs applying system-design principles for scalability and fault tolerance. My analytics and meta-event processing work means I'm comfortable owning data-heavy backend systems in a fast-moving, early-stage team.
+
+As an immediate joiner with a 0-day notice period, I can start building with you right away.
+
+Best regards, Bhumi Bhatt

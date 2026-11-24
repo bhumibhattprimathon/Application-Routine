@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Software Engineer (Java Backend) role at IDEMIA, where secure, high-performance backend systems are mission-critical. My day-to-day work is exactly this stack: at Primathon I engineer custom admin APIs and backend automation across seven merchant systems, and I architected a distributed payment gateway with 30 REST APIs across four Spring Boot microservices (Order, Payment, Merchant, Vault) built for scalability and fault tolerance.
+
+I work fluently in Java and Spring Boot with Microservices, REST APIs, and SQL/MySQL, and I test rigorously with JUnit and Mockito. For a security-focused platform, my experience building reliable, well-tested transaction services at Paytm — optimizing microservices for real-time notifications — maps directly to your requirements. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I'd apply from day one.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your backend team right away.
+
+Best regards, Bhumi Bhatt

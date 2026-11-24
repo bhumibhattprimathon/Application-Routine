@@ -1,15 +1,15 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-24",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "JSearch API (RapidAPI) /search-v2 — 10 queries, date_posted=today, country=in; all postings <24h, LinkedIn-published",
+  "resume_source": "repo resumes/resume_master.pdf (re-fetched from provided Google Drive link; byte-identical to committed copy)",
+  "ntfy": "disabled/blocked by egress policy — reported via routine push/email channel (PushNotification)",
+  "jobs_found": 74,
+  "jobs_qualified": 3,
+  "jobs_review": 5,
+  "jobs_skipped": 66,
+  "fraud_detected": 0,
+  "avg_match_qualified": 88.7,
+  "notes": "JSearch '/search' now 404s (renamed to '/search-v2'); fixed. WebSearch confirmed it still returns NO real LinkedIn job links, so JSearch remains the data source. Of 74 live postings, 57 were outside Delhi-NCR/remote, 6 senior, 3 off-stack; 3 clean qualified (IDEMIA Java backend / Dcluttr backend / Joblet.ai remote fullstack) + Tower Research as a verified stretch. Cover letters generated for 4."
 }

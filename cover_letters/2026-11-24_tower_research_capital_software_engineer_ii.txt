@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm applying for the Software Engineer II role at Tower Research Capital, drawn by your 25-year track record of building high-performance trading platforms. Performance-critical backend engineering is where my strengths lie: I hold a 5-Star Gold HackerRank rating in Java with 250+ data-structures-and-algorithms problems solved, and I architected a distributed payment gateway of 30 REST APIs across four microservices using system-design principles for low-latency, fault-tolerant processing.
+
+At Paytm I optimized microservices managing real-time transaction notifications, improving service reliability and performance by 67%, and at Primathon I build backend pipelines on AWS for real-time data ingestion. I work in Java and C++ with strong fundamentals in data structures, concurrency, and clean API design — the foundation your independent trading teams depend on.
+
+As an immediate joiner with a 0-day notice period, I'm ready to contribute to your engineering team right away.
+
+Best regards, Bhumi Bhatt

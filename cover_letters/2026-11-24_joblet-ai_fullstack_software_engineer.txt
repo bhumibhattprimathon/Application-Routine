@@ -1,0 +1,9 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the remote Fullstack Software Engineer role at Joblet.ai, building the human-data platforms behind your AI-native hiring product. I own features end-to-end today: at Primathon I build backend APIs and automation while integrating AWS Lambda, S3, and Timestream into real-time data pipelines, and across my projects I've paired Java and Node.js backends with React frontends.
+
+The role's mix of backend services, data pipelines, and expert-facing frontends fits my experience closely — I've shipped 30+ REST API endpoints, worked with MySQL and MongoDB, and containerized services with Docker and CI/CD for production. Having built a distributed payment gateway across four microservices, I'm comfortable taking a feature from database design through to the UI.
+
+As an immediate joiner comfortable in a remote, fast-moving team, I can start contributing from day one.
+
+Best regards, Bhumi Bhatt

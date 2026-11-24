@@ -1,0 +1,251 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Apply — 2026-11-24</title>
+<style>
+:root{--green:#22c55e;--yellow:#eab308;--red:#ef4444;--ink:#0f172a;--mut:#64748b;--line:#e2e8f0;--bg:#f1f5f9;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:26px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{color:#94a3b8;font-size:13px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+.card{flex:1 1 150px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card .n{font-size:28px;font-weight:700}
+.card .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.card.q .n{color:var(--green)} .card.r .n{color:var(--yellow)} .card.s .n{color:var(--red)}
+.content{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 26px;margin:14px 0}
+h2{font-size:16px;margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+h2 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.openall{display:block;width:100%;padding:16px;font-size:17px;font-weight:700;color:#fff;background:var(--green);
+  border:0;border-radius:12px;cursor:pointer;margin:6px 0 2px;box-shadow:0 3px 8px rgba(34,197,94,.3)}
+.openall:hover{filter:brightness(1.05)}
+.hint{font-size:12px;color:var(--mut);margin:6px 0 0}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);background:#f8fafc;position:sticky;top:0}
+.score{display:inline-block;min-width:34px;text-align:center;font-weight:700;border-radius:6px;padding:2px 6px;color:#fff}
+.s-green{background:var(--green)} .s-yellow{background:var(--yellow)}
+.trust{display:inline-block;min-width:30px;text-align:center;font-weight:600;border-radius:6px;padding:2px 6px;background:#e2e8f0;color:#334155}
+.chip{background:#eef2ff;color:#4338ca;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
+.actions{white-space:nowrap}
+.btn{display:inline-block;border:0;border-radius:7px;padding:6px 10px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;margin:1px 2px}
+.btn-open{background:#0ea5e9;color:#fff} .btn-open-sm{background:#0ea5e9;color:#fff}
+.btn-copy{background:#334155;color:#fff}
+.reason{color:#475569;max-width:430px}
+.hidden-cl{display:none}
+.muted{color:var(--mut);font-size:12px;font-weight:400}
+.rec{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fcfdff}
+.rec-head a{color:var(--ink);text-decoration:none} .rec-head a:hover{text-decoration:underline}
+.rec-badge{font-size:10px;font-weight:800;letter-spacing:.5px;padding:2px 7px;border-radius:5px;margin-right:8px;color:#fff}
+.b-green{background:var(--green)} .b-yellow{background:var(--yellow)}
+.rec-meta{display:block;color:var(--mut);font-size:12px;margin-top:3px}
+.rec p{margin:8px 0 0;font-size:13px;color:#334155}
+.cover-box{border:1px solid var(--line);border-radius:10px;margin:10px 0;overflow:hidden}
+.cover-head{background:#f8fafc;padding:9px 12px;font-size:13px;border-bottom:1px solid var(--line)}
+.cover-head .btn{float:right;margin-top:-2px}
+pre{margin:0;padding:12px 14px;white-space:pre-wrap;font-family:inherit;font-size:13px;color:#1e293b}
+.trend{display:flex;gap:16px;align-items:flex-end;height:180px;padding:10px 4px;border:1px solid var(--line);border-radius:10px;background:#fcfdff}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.bar{width:54px;background:linear-gradient(180deg,#34d399,#22c55e);border-radius:7px 7px 0 0;color:#fff;font-weight:700;
+  display:flex;align-items:flex-start;justify-content:center;padding-top:4px;font-size:13px}
+.bar-lbl{font-size:11px;color:var(--mut);margin-top:6px}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#713f12;margin:14px 0}
+.note b{color:#92400e}
+details{margin-top:8px} summary{cursor:pointer;font-weight:600;font-size:13px;color:#334155}
+.scroll{max-height:360px;overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:8px}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:18px}
+@media(max-width:640px){.card .n{font-size:22px} th,td{padding:6px 6px} .reason{max-width:200px}}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;transition:.25s;pointer-events:none}
+#toast.show{opacity:1}
+</style></head><body>
+<header><div class="wrap">
+  <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-24</h1>
+  <div class="sub">Bhumi Bhatt · Backend / Full-Stack Engineer · Delhi NCR &amp; Remote · immediate joiner · target 5.5–12 LPA</div>
+</div></header>
+<div class="wrap">
+  <div class="cards">
+    <div class="card"><div class="n">74</div><div class="l">Jobs Found (24h)</div></div>
+    <div class="card q"><div class="n">3</div><div class="l">Qualified</div></div>
+    <div class="card r"><div class="n">5</div><div class="l">Review</div></div>
+    <div class="card s"><div class="n">66</div><div class="l">Skipped</div></div>
+    <div class="card"><div class="n">0</div><div class="l">Fraud blocked</div></div>
+    <div class="card"><div class="n">88.7</div><div class="l">Avg match (qual)</div></div>
+    <div class="card"><div class="n">7.0</div><div class="l">Avg salary est (LPA)</div></div>
+  </div>
+
+  <div class="content">
+    <button class="openall" onclick="openAll()">OPEN ALL 3 QUALIFIED JOBS ↗</button>
+    <p class="hint">Opens each qualified LinkedIn posting in a new tab. If your browser blocks pop-ups, allow them for this page or use the per-row “Open job” buttons. Est. time to apply to all qualified with the prepared cover letters: ~5 minutes.</p>
+
+    <div class="note"><b>How to read this:</b> All 74 jobs were pulled live from the JSearch jobs API (LinkedIn-published postings, <i>date_posted=today</i>, India) — every link is a real LinkedIn apply page. <b>Match</b> scores your resume vs the job (skills 40%, experience 25%, title 20%, salary 15%). <b>Trust</b> is a heuristic (posting quality + employer recognition) refined by a live web check on each shortlisted company — it is <i>not</i> a LinkedIn-internal metric. Salaries marked “(est)” are modelled, not quoted by the employer. Verify details on each posting before applying.</div>
+
+    <h2><span class="dot" style="background:var(--green)"></span>Qualified — ready to apply (3)</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead>
+      <tbody><tr>
+      <td>1</td><td><span class="score s-green">91</span></td><td><span class="trust">95</span></td>
+      <td><b>IDEMIA</b></td><td>Software Engineer</td><td>Noida, Uttar Pradesh, India</td><td>5.5–9.5 LPA (est)</td><td><span class="chip">backend</span></td>
+      <td>LinkedIn apply</td>
+      <td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/software-engineer-at-idemia-4493639320" target="_blank" rel="noopener">Open job ↗</a><button class="btn btn-copy" onclick="copyCL('cl-1')">Copy cover letter</button><div id="cl-1" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Engineer (Java Backend) role at IDEMIA, where secure, high-performance backend systems are mission-critical. My day-to-day work is exactly this stack: at Primathon I engineer custom admin APIs and backend automation across seven merchant systems, and I architected a distributed payment gateway with 30 REST APIs across four Spring Boot microservices (Order, Payment, Merchant, Vault) built for scalability and fault tolerance.
+
+I work fluently in Java and Spring Boot with Microservices, REST APIs, and SQL/MySQL, and I test rigorously with JUnit and Mockito. For a security-focused platform, my experience building reliable, well-tested transaction services at Paytm — optimizing microservices for real-time notifications — maps directly to your requirements. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I&#x27;d apply from day one.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your backend team right away.
+
+Best regards, Bhumi Bhatt</div></td>
+    </tr><tr>
+      <td>2</td><td><span class="score s-green">90</span></td><td><span class="trust">72</span></td>
+      <td><b>Dcluttr</b></td><td>Backend Developer</td><td>Gurugram, Haryana, India</td><td>5.0–8.5 LPA (est)</td><td><span class="chip">backend</span></td>
+      <td>LinkedIn apply</td>
+      <td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/backend-developer-at-dcluttr-4493794183" target="_blank" rel="noopener">Open job ↗</a><button class="btn btn-copy" onclick="copyCL('cl-2')">Copy cover letter</button><div id="cl-2" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;d love to join Dcluttr as a Backend Developer and help build the AI copilot that replaces gut-feel decisions for quick-commerce brands. You want someone who can build entire systems and solve high-ambiguity problems with accountability — that is how I work. At Primathon I built backend syncing automation across seven merchant systems and real-time pipelines on AWS Timestream, S3, and Lambda, cutting manual operational effort by 70%.
+
+I design and ship end-to-end backend services in Java and Spring Boot alongside Node.js, and I architected a distributed payment gateway of 30 REST APIs applying system-design principles for scalability and fault tolerance. My analytics and meta-event processing work means I&#x27;m comfortable owning data-heavy backend systems in a fast-moving, early-stage team.
+
+As an immediate joiner with a 0-day notice period, I can start building with you right away.
+
+Best regards, Bhumi Bhatt</div></td>
+    </tr><tr>
+      <td>3</td><td><span class="score s-green">85</span></td><td><span class="trust">72</span></td>
+      <td><b>Joblet-AI</b></td><td>Fullstack Software Engineer (Remote)</td><td>India (Remote)</td><td>5.0–8.5 LPA (est)</td><td><span class="chip">fullstack</span></td>
+      <td>LinkedIn apply</td>
+      <td class="actions"><a class="btn btn-open" href="https://in.linkedin.com/jobs/view/fullstack-software-engineer-remote-at-joblet-ai-4493702039" target="_blank" rel="noopener">Open job ↗</a><button class="btn btn-copy" onclick="copyCL('cl-3')">Copy cover letter</button><div id="cl-3" class="hidden-cl">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the remote Fullstack Software Engineer role at Joblet.ai, building the human-data platforms behind your AI-native hiring product. I own features end-to-end today: at Primathon I build backend APIs and automation while integrating AWS Lambda, S3, and Timestream into real-time data pipelines, and across my projects I&#x27;ve paired Java and Node.js backends with React frontends.
+
+The role&#x27;s mix of backend services, data pipelines, and expert-facing frontends fits my experience closely — I&#x27;ve shipped 30+ REST API endpoints, worked with MySQL and MongoDB, and containerized services with Docker and CI/CD for production. Having built a distributed payment gateway across four microservices, I&#x27;m comfortable taking a feature from database design through to the UI.
+
+As an immediate joiner comfortable in a remote, fast-moving team, I can start contributing from day one.
+
+Best regards, Bhumi Bhatt</div></td>
+    </tr></tbody></table></div>
+
+    <h2>★ Top recommendations</h2>
+    <div class="rec">
+      <div class="rec-head"><span class="rec-badge b-green">QUALIFIED</span>
+        <a href="https://in.linkedin.com/jobs/view/software-engineer-at-idemia-4493639320" target="_blank" rel="noopener"><b>IDEMIA</b> — Software Engineer</a>
+        <span class="rec-meta">Match 91 · Trust 95 · Noida, Uttar Pradesh, India · 5.5–9.5 LPA (est)</span></div>
+      <p>Your single best skills match today. The JD asks almost exactly for your resume — Java, Spring Boot, Microservices, REST APIs, SQL — at a large, legitimate global firm (biometrics/security) in Noida. The only gap is the 3–5 yr ask vs your 1.5, but the precision of the fit makes this worth a confident application with the prepared cover letter.</p></div><div class="rec">
+      <div class="rec-head"><span class="rec-badge b-green">QUALIFIED</span>
+        <a href="https://in.linkedin.com/jobs/view/backend-developer-at-dcluttr-4493794183" target="_blank" rel="noopener"><b>Dcluttr</b> — Backend Developer</a>
+        <span class="rec-meta">Match 90 · Trust 72 · Gurugram, Haryana, India · 5.0–8.5 LPA (est)</span></div>
+      <p>A verified, funded early-stage startup (Campus Fund pre-seed) building an AI copilot for quick commerce, in Gurugram. They explicitly want one sharp backend owner who can build whole systems under ambiguity — which matches your Primathon automation work and payment-gateway architecture. High-ownership role perfect for an ambitious 1.5-yr backend engineer who's an immediate joiner.</p></div><div class="rec">
+      <div class="rec-head"><span class="rec-badge b-green">QUALIFIED</span>
+        <a href="https://in.linkedin.com/jobs/view/fullstack-software-engineer-remote-at-joblet-ai-4493702039" target="_blank" rel="noopener"><b>Joblet-AI</b> — Fullstack Software Engineer (Remote)</a>
+        <span class="rec-meta">Match 85 · Trust 72 · India (Remote) · 5.0–8.5 LPA (est)</span></div>
+      <p>A verified AI startup (Joblet.ai / micro1) hiring a fully-remote fullstack engineer to own features end-to-end — backend services, data pipelines, and React frontends. Your Java/Node + React + AWS pipeline experience lines up, and remote + immediate-joiner is exactly your preference. Strong, flexible-location option.</p></div><div class="rec">
+      <div class="rec-head"><span class="rec-badge b-yellow">STRETCH</span>
+        <a href="https://in.linkedin.com/jobs/view/software-engineer-ii-at-tower-research-capital-4486124135" target="_blank" rel="noopener"><b>Tower Research Capital</b> — Software Engineer II</a>
+        <span class="rec-meta">Match 98 · Trust 92 · Gurgaon, Haryana, India · 5.0–8.5 LPA (est)</span></div>
+      <p>A reach, but a legitimate and prestigious one: Tower Research is a top quant trading firm in Gurgaon, and SWE-II screens heavily on Java + data-structures/algorithms — where your 5★ HackerRank Java and 250+ DSA problems genuinely shine. Comp is well above your range and the bar is high, so treat it as a high-value stretch; the cover letter is ready if you want to go for it.</p></div><div class="rec">
+      <div class="rec-head"><span class="rec-badge b-yellow">STRETCH</span>
+        <a href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-duruper-4458066063" target="_blank" rel="noopener"><b>Duruper</b> — Full Stack Engineer</a>
+        <span class="rec-meta">Match 92 · Trust 46 · India · 5.5–9.5 LPA (est)</span></div>
+      <p></p></div>
+
+    <h2><span class="dot" style="background:var(--yellow)"></span>Review — promising but verify first (5)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Why review</th><th></th></tr></thead>
+      <tbody><tr>
+      <td>1</td><td><span class="score s-yellow">98</span></td><td><span class="trust">92</span></td>
+      <td><b>Tower Research Capital</b></td><td>Software Engineer II</td><td>Gurgaon, Haryana, India</td>
+      <td class="reason">Cover letter prepared if she wants to go for it. Legit elite quant firm — her 5★ Java + 250+ DSA genuinely match their screen, but SWE-II bar is very high/competitive and comp sits above the 12 LPA ceiling. High-value stretch, not a quick apply.</td>
+      <td><a class="btn btn-open-sm" href="https://in.linkedin.com/jobs/view/software-engineer-ii-at-tower-research-capital-4486124135" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td>2</td><td><span class="score s-yellow">92</span></td><td><span class="trust">46</span></td>
+      <td><b>Duruper</b></td><td>Full Stack Engineer</td><td>India</td>
+      <td class="reason">Skills line up (Java, JS, MySQL, REST) BUT the employer &#x27;Duruper&#x27; has no verifiable website or online presence — confirm it&#x27;s a real company before applying. Generic JD.</td>
+      <td><a class="btn btn-open-sm" href="https://in.linkedin.com/jobs/view/full-stack-engineer-at-duruper-4458066063" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td>3</td><td><span class="score s-yellow">75</span></td><td><span class="trust">85</span></td>
+      <td><b>CNH</b></td><td>Machine Learning Engineer</td><td>Gurgaon, Haryana, India</td>
+      <td class="reason">Legit multinational (CNH Industrial, Gurgaon tech center) but the role needs production ML (TensorFlow/PyTorch/MLOps, Azure ML/Databricks) beyond her Java/JS backend stack; CNH ML roles lean 4–6 yrs.</td>
+      <td><a class="btn btn-open-sm" href="https://in.linkedin.com/jobs/view/machine-learning-engineer-at-cnh-4493619646" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td>4</td><td><span class="score s-yellow">67</span></td><td><span class="trust">48</span></td>
+      <td><b>Arkilos Inc.</b></td><td>Full Stack AI Developer</td><td>India</td>
+      <td class="reason">Unverifiable employer (no web presence found); JD requires 4+ yrs and a US-ET night shift (6:30 PM–2:30 AM IST). Low priority — verify company first.</td>
+      <td><a class="btn btn-open-sm" href="https://in.linkedin.com/jobs/view/full-stack-ai-developer-at-arkilos-inc-4487665644" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr><tr>
+      <td>5</td><td><span class="score s-yellow">62</span></td><td><span class="trust">72</span></td>
+      <td><b>Weekday AI (YC W21)</b></td><td>Python Developer</td><td>Noida, Uttar Pradesh, India</td>
+      <td class="reason">Great pay (10–12 LPA) and legit hiring marketplace (Weekday, YC W21, posts for a client), but Python/Django-primary and asks 3+ yrs — Python isn&#x27;t her core language.</td>
+      <td><a class="btn btn-open-sm" href="https://in.linkedin.com/jobs/view/python-developer-at-weekday-ai-yc-w21-4493643827" target="_blank" rel="noopener">Open ↗</a></td>
+    </tr></tbody></table>
+
+    <h2><span class="dot" style="background:var(--red)"></span>Skipped — off-fit / too senior (9)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Skip reason</th></tr></thead>
+      <tbody><tr><td>1</td><td><b>Srotas Health</b></td><td>Senior Backend Engineer</td><td>India</td><td class="reason">Experience: senior title; 4+ yr — beyond 1.5 yrs</td></tr><tr><td>2</td><td><b>HighLevel</b></td><td>Senior Software Development Engineer (Social Planner- AI)</td><td>India</td><td class="reason">Experience: senior title; 4+ yr — beyond 1.5 yrs</td></tr><tr><td>3</td><td><b>Flexxd</b></td><td>Senior Full Stack Developer</td><td>India</td><td class="reason">Experience: senior title; 5+ yr — beyond 1.5 yrs</td></tr><tr><td>4</td><td><b>Mphasis</b></td><td>Sr. Full Stack Developer</td><td>Noida, Uttar Pradesh, India</td><td class="reason">Experience: senior title; 6+ yr — beyond 1.5 yrs</td></tr><tr><td>5</td><td><b>Helloverify</b></td><td>Generative AI Engineer</td><td>Noida, Uttar Pradesh, India</td><td class="reason">Experience: senior title; 4+ yr — beyond 1.5 yrs</td></tr><tr><td>6</td><td><b>Data Eminence</b></td><td>Python Developer</td><td>India</td><td class="reason">Python/Django-primary — Python is not a listed language on her resume (Java/C++/JS/SQL); employer unverified.</td></tr><tr><td>7</td><td><b>Data Eminence</b></td><td>PHP Developer</td><td>India</td><td class="reason">PHP-primary role — PHP is not in Bhumi&#x27;s stack; employer &#x27;Data Eminence&#x27; is unverified.</td></tr><tr><td>8</td><td><b>Diverse Lynx</b></td><td>AIML Developer</td><td>New Delhi, Delhi</td><td class="reason">Computer-vision / deep-learning role (CNNs, image classification) — off her Java/JS backend stack. Diverse Lynx is a legit IT staffing firm, but zero skill overlap.</td></tr><tr><td>9</td><td><b>Veersa Technologies</b></td><td>Senior AI Engineer</td><td>Noida, Uttar Pradesh, India</td><td class="reason">Experience: senior title; 3+ yr — beyond 1.5 yrs</td></tr></tbody></table>
+    <details><summary>+ 57 more skipped for location (outside Delhi NCR / not remote)</summary>
+      <div class="scroll"><table>
+        <thead><tr><th>Company</th><th>Role</th><th>Location</th><th>Match</th></tr></thead>
+        <tbody><tr><td><b>Verisk</b></td><td>Software Engineer I</td><td>Hyderabad, Telangana, India</td><td>100</td></tr><tr><td><b>Arise TechGlobal</b></td><td>Junior Software Engineer</td><td>Bengaluru, Karnataka, India</td><td>100</td></tr><tr><td><b>Sysfort Inc.</b></td><td>Backend Engineer</td><td>Pune Division, Maharashtra, India</td><td>100</td></tr><tr><td><b>The Hosteller</b></td><td>Full Stack Engineer</td><td>Maharashtra, India</td><td>97</td></tr><tr><td><b>Birlasoft</b></td><td>Java API Developer</td><td>Greater Bengaluru Area</td><td>96</td></tr><tr><td><b>FortyV - Creative Technology Studio</b></td><td>Full Stack Engineer</td><td>Coimbatore, Tamil Nadu, India</td><td>96</td></tr><tr><td><b>NCR Voyix</b></td><td>Application Development Engineer (I)</td><td>Chennai, Tamil Nadu, India</td><td>96</td></tr><tr><td><b>Entain India</b></td><td>Software Development Engineer II</td><td>Hyderabad, Telangana, India</td><td>92</td></tr><tr><td><b>NatWest Group</b></td><td>Java Engineer, AVP</td><td>Chennai, Tamil Nadu, India</td><td>92</td></tr><tr><td><b>NatWest Group</b></td><td>Java Engineer, AVP</td><td>Bengaluru, Karnataka, India</td><td>92</td></tr><tr><td><b>Pyrite Technologies - Enterprise Digital Marketing Agency</b></td><td>Full Stack Developer</td><td>Hyderabad, Telangana, India</td><td>92</td></tr><tr><td><b>Platform Science</b></td><td>Software Engineer 2</td><td>Chennai, Tamil Nadu, India</td><td>92</td></tr><tr><td><b>Weekday AI (YC W21)</b></td><td>Full Stack Developer</td><td>Mumbai Metropolitan Region</td><td>92</td></tr><tr><td><b>Spore N Sprouts</b></td><td>Full Stack Developer – AI Agents</td><td>Bengaluru, Karnataka, India</td><td>92</td></tr><tr><td><b>Duruper</b></td><td>Senior Backend Developer</td><td>Bengaluru, Karnataka, India</td><td>92</td></tr><tr><td><b>turtil</b></td><td>Full Stack Engineer(Entry-Level)</td><td>Hyderabad, Telangana, India</td><td>86</td></tr><tr><td><b>Acceldata</b></td><td>Senior Software Engineer - Backend</td><td>Bengaluru, Karnataka, India</td><td>85</td></tr><tr><td><b>Franklin Templeton</b></td><td>Software Engineer</td><td>Greater Hyderabad Area</td><td>85</td></tr><tr><td><b>Wells Fargo</b></td><td>Senior Software Engineer - Java</td><td>Greater Hyderabad Area</td><td>85</td></tr><tr><td><b>Cubic Transportation Systems</b></td><td>Senior Software Engineer (Java)</td><td>Hyderabad, Telangana, India</td><td>85</td></tr><tr><td><b>Lenskart.com</b></td><td>Backend Engineer - Java</td><td>Bengaluru, Karnataka, India</td><td>85</td></tr><tr><td><b>FIS</b></td><td>Senior Java Backend Developer (J2EE, Docker) (4 to 6 Years)- Pune/Bangalore</td><td>Pune/Pimpri-Chinchwad Area</td><td>85</td></tr><tr><td><b>Ford Motor Company</b></td><td>Software Engineer</td><td>Chennai, Tamil Nadu, India</td><td>85</td></tr><tr><td><b>PwC India</b></td><td>IN_Associate _Node JS_Advisory Corporate_Advisory _Bangalore</td><td>Bengaluru, Karnataka, India</td><td>84</td></tr><tr><td><b>Bajaj Finserv</b></td><td>Associate Lead - AI/ML Engineer ( Python, AL/ML)</td><td>Pune Division, Maharashtra, India</td><td>84</td></tr><tr><td><b>NielsenIQ</b></td><td>Software Engineer (Python, GenAI, FastAPi)</td><td>Chennai, Tamil Nadu, India</td><td>82</td></tr><tr><td><b>Merit Tutoring</b></td><td>Full Stack Engineer</td><td>Coimbatore, Tamil Nadu, India</td><td>81</td></tr><tr><td><b>Flexiple</b></td><td>Platform Developer</td><td>Bengaluru, Karnataka, India</td><td>81</td></tr><tr><td><b>Incubyte</b></td><td>Software Craftsperson/Typescript- II</td><td>Ahmedabad, Gujarat, India</td><td>80</td></tr><tr><td><b>Incubyte</b></td><td>Software Craftsperson/ Node/ React/ Typescript- II</td><td>Ahmedabad, Gujarat, India</td><td>80</td></tr><tr><td><b>Cloud Raptor</b></td><td>Java React Full stack Developer</td><td>Bengaluru, Karnataka, India</td><td>80</td></tr><tr><td><b>Cisco</b></td><td>Software Engineer</td><td>Greater Hyderabad Area</td><td>80</td></tr><tr><td><b>PayPal</b></td><td>Sr Machine Learning Engineer, Fraud (Crypto &amp; Debit Card)</td><td>Chennai, Tamil Nadu, India</td><td>78</td></tr><tr><td><b>MyCareernet</b></td><td>Software Engineer - Java Full Stack Developer_106233</td><td>Kolkata, West Bengal, India</td><td>76</td></tr><tr><td><b>Lowe&#x27;s India</b></td><td>Associate Software Engineer</td><td>Bengaluru, Karnataka, India</td><td>76</td></tr><tr><td><b>Continental Industry</b></td><td>AI - ML Engineer</td><td>Bengaluru, Karnataka, India</td><td>76</td></tr><tr><td><b>Neo</b></td><td>Senior Software Engineer</td><td>Bangalore Urban, Karnataka, India</td><td>76</td></tr><tr><td><b>CNH</b></td><td>AI/ML Engineer</td><td>Pune Division, Maharashtra, India</td><td>75</td></tr><tr><td><b>Stitch</b></td><td>Back End Developer</td><td>Chennai, Tamil Nadu, India</td><td>74</td></tr><tr><td><b>Farmers Insurance</b></td><td>Full Stack Java/Angular Engineer</td><td>Hyderabad, Telangana, India</td><td>74</td></tr><tr><td><b>Innovapptive Inc</b></td><td>SDE III</td><td>Hyderabad, Telangana, India</td><td>74</td></tr><tr><td><b>Netra Labs</b></td><td>Python Developer</td><td>Pune Division, Maharashtra, India</td><td>73</td></tr><tr><td><b>Qualcomm</b></td><td>2027 Campus Hire_Engineer_SW</td><td>Greater Hyderabad Area</td><td>72</td></tr><tr><td><b>Qualcomm</b></td><td>2027 Campus Hire_Associate Engineer_SW</td><td>Chennai, Tamil Nadu, India</td><td>72</td></tr><tr><td><b>Northern Trust</b></td><td>Associate, SW Engineer, Microsoft Dynamics &amp; Power Platform</td><td>Bengaluru, Karnataka, India</td><td>72</td></tr><tr><td><b>IGEL Technology</b></td><td>Senior Software Engineer</td><td>Bengaluru, Karnataka, India</td><td>70</td></tr><tr><td><b>Bajaj Finserv</b></td><td>Data Scientist / AI Engineer (Python, ML, RAG)</td><td>Pune Division, Maharashtra, India</td><td>67</td></tr><tr><td><b>360 Technology</b></td><td>Lead Java Developer</td><td>Chennai, Tamil Nadu, India</td><td>66</td></tr><tr><td><b>U.S. Bank</b></td><td>Senior Software Engineer</td><td>Chennai, Tamil Nadu, India</td><td>65</td></tr><tr><td><b>U.S. Bank</b></td><td>Senior Software Engineer</td><td>Chennai, Tamil Nadu, India</td><td>64</td></tr><tr><td><b>TekWissen India</b></td><td>Senior Software Developer (Backend) - .Net with Microservices and Azure</td><td>Hyderabad, Telangana, India</td><td>63</td></tr><tr><td><b>UST</b></td><td>Lead II - Software Engineering - Java</td><td>Trivandrum, Kerala, India</td><td>62</td></tr><tr><td><b>Bluehost</b></td><td>Senior Backend Engineer</td><td>Mumbai Metropolitan Region</td><td>58</td></tr><tr><td><b>Standard Chartered India</b></td><td>AVP, Java Development</td><td>Bengaluru East, Karnataka, India</td><td>51</td></tr><tr><td><b>Spore N Sprouts</b></td><td>Senior Software Engineer (Platform — Backend / AI/ML / Integrations)</td><td>Hyderabad, Telangana, India</td><td>51</td></tr><tr><td><b>Honeywell Technologies</b></td><td>Software Engr I</td><td>Pune Division, Maharashtra, India</td><td>50</td></tr><tr><td><b>enGen Global</b></td><td>Senior AI ML Engineer</td><td>Chennai, Tamil Nadu, India</td><td>40</td></tr></tbody></table></div>
+    </details>
+
+    <h2>📈 Run trend (qualified per scan)</h2>
+    <div class="trend"><div class="bar-wrap"><div class="bar" style="height:68px">1</div><div class="bar-lbl">2026-08-05</div></div><div class="bar-wrap"><div class="bar" style="height:148px">3</div><div class="bar-lbl">2026-11-24</div></div></div>
+    <p class="hint">Previous recorded scan: 2026-08-05 (1 qualified). This is scan #2 on record.</p>
+
+    <h2>✉️ Cover letters (ready to paste)</h2>
+    <div class="cover-box">
+      <div class="cover-head"><b>IDEMIA</b> — Software Engineer <span class="muted">(157 words)</span>
+        <button class="btn btn-copy" onclick="copyText('cov-1')">Copy</button></div>
+      <pre id="cov-1">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Software Engineer (Java Backend) role at IDEMIA, where secure, high-performance backend systems are mission-critical. My day-to-day work is exactly this stack: at Primathon I engineer custom admin APIs and backend automation across seven merchant systems, and I architected a distributed payment gateway with 30 REST APIs across four Spring Boot microservices (Order, Payment, Merchant, Vault) built for scalability and fault tolerance.
+
+I work fluently in Java and Spring Boot with Microservices, REST APIs, and SQL/MySQL, and I test rigorously with JUnit and Mockito. For a security-focused platform, my experience building reliable, well-tested transaction services at Paytm — optimizing microservices for real-time notifications — maps directly to your requirements. My 5-Star HackerRank Java rating and 250+ DSA problems solved reflect the fundamentals I&#x27;d apply from day one.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your backend team right away.
+
+Best regards, Bhumi Bhatt</pre></div><div class="cover-box">
+      <div class="cover-head"><b>Dcluttr</b> — Backend Developer <span class="muted">(143 words)</span>
+        <button class="btn btn-copy" onclick="copyText('cov-2')">Copy</button></div>
+      <pre id="cov-2">Dear Hiring Manager,
+
+I&#x27;d love to join Dcluttr as a Backend Developer and help build the AI copilot that replaces gut-feel decisions for quick-commerce brands. You want someone who can build entire systems and solve high-ambiguity problems with accountability — that is how I work. At Primathon I built backend syncing automation across seven merchant systems and real-time pipelines on AWS Timestream, S3, and Lambda, cutting manual operational effort by 70%.
+
+I design and ship end-to-end backend services in Java and Spring Boot alongside Node.js, and I architected a distributed payment gateway of 30 REST APIs applying system-design principles for scalability and fault tolerance. My analytics and meta-event processing work means I&#x27;m comfortable owning data-heavy backend systems in a fast-moving, early-stage team.
+
+As an immediate joiner with a 0-day notice period, I can start building with you right away.
+
+Best regards, Bhumi Bhatt</pre></div><div class="cover-box">
+      <div class="cover-head"><b>Joblet-AI</b> — Fullstack Software Engineer (Remote) <span class="muted">(140 words)</span>
+        <button class="btn btn-copy" onclick="copyText('cov-3')">Copy</button></div>
+      <pre id="cov-3">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the remote Fullstack Software Engineer role at Joblet.ai, building the human-data platforms behind your AI-native hiring product. I own features end-to-end today: at Primathon I build backend APIs and automation while integrating AWS Lambda, S3, and Timestream into real-time data pipelines, and across my projects I&#x27;ve paired Java and Node.js backends with React frontends.
+
+The role&#x27;s mix of backend services, data pipelines, and expert-facing frontends fits my experience closely — I&#x27;ve shipped 30+ REST API endpoints, worked with MySQL and MongoDB, and containerized services with Docker and CI/CD for production. Having built a distributed payment gateway across four microservices, I&#x27;m comfortable taking a feature from database design through to the UI.
+
+As an immediate joiner comfortable in a remote, fast-moving team, I can start contributing from day one.
+
+Best regards, Bhumi Bhatt</pre></div><div class="cover-box">
+      <div class="cover-head"><b>Tower Research Capital</b> — Software Engineer II <span class="muted">(147 words)</span>
+        <button class="btn btn-copy" onclick="copyText('cov-4')">Copy</button></div>
+      <pre id="cov-4">Dear Hiring Manager,
+
+I&#x27;m applying for the Software Engineer II role at Tower Research Capital, drawn by your 25-year track record of building high-performance trading platforms. Performance-critical backend engineering is where my strengths lie: I hold a 5-Star Gold HackerRank rating in Java with 250+ data-structures-and-algorithms problems solved, and I architected a distributed payment gateway of 30 REST APIs across four microservices using system-design principles for low-latency, fault-tolerant processing.
+
+At Paytm I optimized microservices managing real-time transaction notifications, improving service reliability and performance by 67%, and at Primathon I build backend pipelines on AWS for real-time data ingestion. I work in Java and C++ with strong fundamentals in data structures, concurrency, and clean API design — the foundation your independent trading teams depend on.
+
+As an immediate joiner with a 0-day notice period, I&#x27;m ready to contribute to your engineering team right away.
+
+Best regards, Bhumi Bhatt</pre></div>
+  </div>
+  <footer>Generated 2026-11-24 · data: JSearch API (LinkedIn postings, last 24h) · for Bhumi Bhatt. Review each posting before applying.</footer>
+</div>
+<div id="toast">Copied</div>
+<script>
+var QURLS = ["https://in.linkedin.com/jobs/view/software-engineer-at-idemia-4493639320", "https://in.linkedin.com/jobs/view/backend-developer-at-dcluttr-4493794183", "https://in.linkedin.com/jobs/view/fullstack-software-engineer-remote-at-joblet-ai-4493702039"];
+function openAll(){ if(!QURLS.length){toast('No qualified jobs today');return;} QURLS.forEach(function(u){window.open(u,'_blank','noopener');}); toast('Opening '+QURLS.length+' jobs'); }
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.className='show';setTimeout(function(){t.className='';},1600);}
+function copyText(id){var el=document.getElementById(id);var s=el?el.innerText:'';navigator.clipboard.writeText(s).then(function(){toast('Cover letter copied');},function(){var r=document.createRange();r.selectNode(el);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);try{document.execCommand('copy');toast('Cover letter copied');}catch(e){toast('Select &amp; copy manually');}sel.removeAllRanges();});}
+function copyCL(id){copyText(id);}
+</script>
+</body></html>
