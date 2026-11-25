@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm excited to apply for the Java React Full Stack Developer role at Citi in Delhi, where the stack maps almost exactly to how I build software today. In my current role at Primathon I design Spring Boot microservices and REST APIs, and I architected a distributed payment gateway spanning 30 REST endpoints across four services using system-design principles for scalability and fault tolerance. On the front end I build features in React.js, and Git, CI/CD pipelines (Jenkins, Git Actions) and JUnit/Mockito testing are part of my daily workflow — the same unit, integration and functional testing this role calls for. My core Java foundation (collections, multithreading, OOP design patterns) is backed by a 5-Star Gold HackerRank Java certification and 250+ DSA problems solved. As a 2025 B.Tech graduate (CGPA 9.3) and an immediate joiner with zero notice period, I can contribute to your microservices and React features from day one and ramp quickly on Citi's engineering practices.
+
+Best regards,
+Bhumi Bhatt

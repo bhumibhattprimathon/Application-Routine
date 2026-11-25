@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'd love to join myKaarma as a Software Developer I, building dealership solutions across microservices, web and AI/ML features. My 1.5 years of backend engineering line up closely with your stack: I work daily in Java and Spring Boot microservices, build REST APIs, and have shipped services backed by MySQL, MongoDB and Redis, with Kafka for event processing — all technologies in your requirements. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines and containerized services with Docker, and at Paytm I optimized QR-lifecycle microservices powering real-time transaction notifications. I'm also hands-on with React on the front end and genuinely drawn to your AI/ML direction — my research paper covered Generative AI applications, and my payment-gateway project embedded AI-driven monitoring. As an immediate joiner with zero notice period who picks up new tools quickly, I'm ready to contribute to production services and LLM integrations right away.
+
+Best regards,
+Bhumi Bhatt

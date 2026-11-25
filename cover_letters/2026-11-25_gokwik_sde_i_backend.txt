@@ -1,0 +1,6 @@
+Dear Hiring Manager,
+
+I'm applying for the SDE I (Backend) role at GoKwik, where building and operating Node.js REST services is exactly the work I enjoy. I develop backend services with Node.js and Express and design REST APIs end to end, and I've tuned SQL on MySQL alongside MongoDB and Redis for caching — directly matching your focus on relational optimization, caching and queues. My distributed payment gateway project gave me hands-on experience with queue-driven, fault-tolerant processing and system design across multiple services, and at Paytm I built microservices handling real-time, high-throughput transaction flows where idempotency and reliability mattered. I already use AI coding assistants in my workflow, aligning with GoKwik's AI-assisted development culture, and my JavaScript (ES6+) background makes TypeScript an easy next step. As a 2025 graduate and immediate joiner with no notice period, I can take ownership of backend features — from data modeling through deployment and monitoring — from week one.
+
+Best regards,
+Bhumi Bhatt

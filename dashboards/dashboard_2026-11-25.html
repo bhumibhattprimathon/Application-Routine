@@ -1,0 +1,229 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>LinkedIn Smart Apply — 2026-11-25</title>
+<style>
+:root{--g:#22c55e;--y:#eab308;--r:#ef4444;--bg:#0f172a;--card:#1e293b;--line:#e5e7eb;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f1f5f9;color:#0f172a}
+header{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:28px 20px}
+header h1{margin:0 0 4px;font-size:22px;letter-spacing:.3px}
+header .sub{opacity:.8;font-size:13px}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.c{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-top:4px solid #94a3b8}
+.c .n{font-size:30px;font-weight:800}.c .l{font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:.5px}
+.c.q{border-top-color:var(--g)}.c.rv{border-top-color:var(--y)}.c.sk{border-top-color:var(--r)}.c.fr{border-top-color:#111}
+.openall{display:block;width:100%;background:var(--g);color:#fff;border:0;border-radius:12px;padding:18px;font-size:18px;font-weight:800;cursor:pointer;margin:8px 0 6px}
+.openall:hover{filter:brightness(1.05)}
+.note{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px 14px;border-radius:10px;font-size:13px;margin:10px 0 2px}
+h2{margin:26px 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
+h2 .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:13px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid #f1f5f9;vertical-align:top}
+th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#475569}
+.num{color:#94a3b8;font-weight:700}
+.score{font-weight:800;padding:2px 8px;border-radius:20px;color:#fff}
+.score.hi{background:var(--g)}.score.mid{background:var(--y)}
+.variant{background:#e0e7ff;color:#3730a3;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
+.acts{white-space:nowrap}
+.btn{display:inline-block;border:0;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;margin:2px 2px 2px 0}
+.btn.open{background:#1e3a8a;color:#fff}.btn.copy{background:#e2e8f0;color:#0f172a}
+.btn.sm{padding:5px 9px;font-size:11px}
+.hidden{display:none}
+.reason{color:#475569;max-width:520px}
+.mini a{font-size:11px;color:#1e3a8a}
+.rec{background:#fff;border:1px solid #e2e8f0;border-left:4px solid var(--g);border-radius:10px;padding:12px 14px;margin:10px 0}
+.rech{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.rnum{background:var(--g);color:#fff;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px}
+.rtag{font-size:11px;color:#64748b;background:#f1f5f9;padding:2px 8px;border-radius:20px}
+.rec p{margin:8px 0 0;color:#334155;font-size:13px}
+.trend{display:flex;gap:18px;align-items:flex-end;background:#fff;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.bar{display:flex;flex-direction:column;align-items:center;gap:6px}
+.barfill{width:46px;background:linear-gradient(180deg,#22c55e,#15803d);border-radius:8px 8px 0 0;color:#fff;font-weight:800;display:flex;align-items:flex-start;justify-content:center;padding-top:4px;font-size:13px}
+.barlbl{font-size:11px;color:#64748b}
+.clbox{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin:10px 0}
+.clh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.clbox pre{white-space:pre-wrap;font-family:inherit;font-size:13px;color:#1e293b;margin:10px 0 0;line-height:1.5}
+footer{color:#64748b;font-size:12px;text-align:center;padding:24px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:10px;opacity:0;transition:.2s;font-size:13px}
+.toast.show{opacity:1}
+</style></head><body>
+<header><div class=wrap><h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-25</h1>
+<div class=sub>Bhumi Bhatt · Backend / Full-Stack · Delhi NCR &amp; Remote · immediate joiner</div></div></header>
+<div class=wrap>
+<div class=cards>
+<div class="c"><div class=n>19</div><div class=l>Jobs Found</div></div>
+<div class="c q"><div class=n>3</div><div class=l>Qualified</div></div>
+<div class="c rv"><div class=n>9</div><div class=l>Review</div></div>
+<div class="c sk"><div class=n>7</div><div class=l>Skipped</div></div>
+<div class="c fr"><div class=n>0</div><div class=l>Fraud Detected</div></div>
+<div class="c"><div class=n>90.3</div><div class=l>Avg Match (qualified)</div></div>
+<div class="c"><div class=n>~13.5 LPA</div><div class=l>Avg Salary (est)</div></div>
+</div>
+
+<button class=openall onclick=openAll()>OPEN ALL 3 QUALIFIED JOBS</button>
+<div class=note><b>Data-source note (please read):</b> the live job API used previously (JSearch/RapidAPI) is no longer subscribed, so today's run used web search + company ATS pages. These are <b>real, verifiable openings with direct apply links</b>, but posting dates range from ~5 days to ~3 weeks old rather than strictly the last 24h. Verify each is still open before applying.</div>
+
+<h2><span class=dot style="background:var(--g)"></span>Qualified Jobs — ready to apply</h2>
+<table><thead><tr><th>#</th><th>Score</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Salary Est.</th><th>Resume</th><th>Apply</th><th>Actions</th></tr></thead><tbody>
+<tr>
+<td class=num>1</td><td><span class="score hi">95</span></td><td>98</td>
+<td><b>Citi</b></td><td>Java React Full Stack Developer</td><td>Delhi (Hybrid)</td>
+<td>10-16 LPA (est)</td><td><span class=variant>fullstack</span></td><td>External (Workday)</td>
+<td class=acts><a class="btn open" href="https://citi.wd5.myworkdayjobs.com/2/job/1124-SHIVAJI-GARDENS-MOONLI/Java-React-Full-stack-Developer_261002577" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('citi-java-react-fs-2026-11',this)">Copy Cover Letter</button>
+<div id="cl_citi-java-react-fs-2026-11" class=hidden>Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Java React Full Stack Developer role at Citi in Delhi, where the stack maps almost exactly to how I build software today. In my current role at Primathon I design Spring Boot microservices and REST APIs, and I architected a distributed payment gateway spanning 30 REST endpoints across four services using system-design principles for scalability and fault tolerance. On the front end I build features in React.js, and Git, CI/CD pipelines (Jenkins, Git Actions) and JUnit/Mockito testing are part of my daily workflow — the same unit, integration and functional testing this role calls for. My core Java foundation (collections, multithreading, OOP design patterns) is backed by a 5-Star Gold HackerRank Java certification and 250+ DSA problems solved. As a 2025 B.Tech graduate (CGPA 9.3) and an immediate joiner with zero notice period, I can contribute to your microservices and React features from day one and ramp quickly on Citi&#x27;s engineering practices.
+
+Best regards,
+Bhumi Bhatt</div></td></tr>
+<tr>
+<td class=num>2</td><td><span class="score hi">90</span></td><td>85</td>
+<td><b>myKaarma</b></td><td>Software Developer I</td><td>Noida (On-site)</td>
+<td>9-14 LPA (est)</td><td><span class=variant>backend</span></td><td>External (Rippling ATS)</td>
+<td class=acts><a class="btn open" href="https://ats.rippling.com/mykaarma/jobs/854ee9f5-885b-4c76-8e6f-0330a11cdc54" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('mykaarma-swd1-2026-11',this)">Copy Cover Letter</button>
+<div id="cl_mykaarma-swd1-2026-11" class=hidden>Dear Hiring Manager,
+
+I&#x27;d love to join myKaarma as a Software Developer I, building dealership solutions across microservices, web and AI/ML features. My 1.5 years of backend engineering line up closely with your stack: I work daily in Java and Spring Boot microservices, build REST APIs, and have shipped services backed by MySQL, MongoDB and Redis, with Kafka for event processing — all technologies in your requirements. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines and containerized services with Docker, and at Paytm I optimized QR-lifecycle microservices powering real-time transaction notifications. I&#x27;m also hands-on with React on the front end and genuinely drawn to your AI/ML direction — my research paper covered Generative AI applications, and my payment-gateway project embedded AI-driven monitoring. As an immediate joiner with zero notice period who picks up new tools quickly, I&#x27;m ready to contribute to production services and LLM integrations right away.
+
+Best regards,
+Bhumi Bhatt</div></td></tr>
+<tr>
+<td class=num>3</td><td><span class="score hi">86</span></td><td>88</td>
+<td><b>GoKwik</b></td><td>SDE I (Backend)</td><td>Gurugram (On-site)</td>
+<td>12-20 LPA (est)</td><td><span class=variant>backend</span></td><td>External (Keka)</td>
+<td class=acts><a class="btn open" href="https://gokwik.keka.com/careers/jobdetails/167259" target="_blank" rel="noopener">Open Job</a>
+<button class="btn copy" onclick="copyCL('gokwik-sde1-backend-2026-11',this)">Copy Cover Letter</button>
+<div id="cl_gokwik-sde1-backend-2026-11" class=hidden>Dear Hiring Manager,
+
+I&#x27;m applying for the SDE I (Backend) role at GoKwik, where building and operating Node.js REST services is exactly the work I enjoy. I develop backend services with Node.js and Express and design REST APIs end to end, and I&#x27;ve tuned SQL on MySQL alongside MongoDB and Redis for caching — directly matching your focus on relational optimization, caching and queues. My distributed payment gateway project gave me hands-on experience with queue-driven, fault-tolerant processing and system design across multiple services, and at Paytm I built microservices handling real-time, high-throughput transaction flows where idempotency and reliability mattered. I already use AI coding assistants in my workflow, aligning with GoKwik&#x27;s AI-assisted development culture, and my JavaScript (ES6+) background makes TypeScript an easy next step. As a 2025 graduate and immediate joiner with no notice period, I can take ownership of backend features — from data modeling through deployment and monitoring — from week one.
+
+Best regards,
+Bhumi Bhatt</div></td></tr>
+</tbody></table>
+
+<h2><span class=dot style="background:var(--y)"></span>Review Jobs — strong leads to verify</h2>
+<table><thead><tr><th>#</th><th>Match</th><th>Trust</th><th>Company</th><th>Role</th><th>Location</th><th>Reason for Review</th></tr></thead><tbody>
+<tr><td class=num>1</td><td><span class="score mid">80</span></td>
+<td>60</td><td><b>Weekday (Partner Network)</b></td><td>Backend Engineer (Remote)</td>
+<td>Remote (India)</td><td class=reason>Strong remote backend role, 1-3 yrs, high pay band. Weekday is a hiring NETWORK — confirm the actual end-client/company and that the posting is still live before applying.
+<div class=mini><a href="https://jobs.weekday.works/weekday-partner-network-backend-engineer-bw29j7" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>2</td><td><span class="score mid">78</span></td>
+<td>95</td><td><b>Siemens</b></td><td>Software Engineer</td>
+<td>Noida</td><td class=reason>Top MNC, recent posting. Verify level and stack — Siemens Noida engineering spans Java/C++/.NET and the role may target 2-4 yrs. Worth an application if the JD is Java/backend.
+<div class=mini><a href="https://careersat.tech/jobs/siemens-software-engineer" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>3</td><td><span class="score mid">76</span></td>
+<td>85</td><td><b>Leena AI</b></td><td>Backend Engineer</td>
+<td>Gurugram</td><td class=reason>Well-funded AI SaaS (HR/agentic AI). Surfaced via LinkedIn as a recent backend opening — individual apply link not confirmed; find the live posting on Leena AI&#x27;s careers page and verify the required level.
+<div class=mini><a href="https://in.linkedin.com/jobs/back-end-developer-jobs-gurugram" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>4</td><td><span class="score mid">74</span></td>
+<td>90</td><td><b>SOTI</b></td><td>Software Developer 2</td>
+<td>Gurugram</td><td class=reason>Established enterprise-mobility product company. &#x27;Developer 2&#x27; likely wants 2-4 yrs — a stretch for 1.5. Verify the JD/level.
+<div class=mini><a href="https://careersat.tech/jobs/soti-software-developer-2" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>5</td><td><span class="score mid">73</span></td>
+<td>85</td><td><b>Wadhwani AI Global</b></td><td>Associate Full Stack Engineer</td>
+<td>Delhi / Remote</td><td class=reason>Junior (0-3 yrs), remote-friendly, reputable non-profit AI institute. Fit on React/SQL/Docker/Git/CI-CD, but core is Python + FastAPI/Flask (gap). Learnable stretch — worth it for the remote + AI mission.
+<div class=mini><a href="https://careers.kula.ai/wadhwani-ai/69249-associate-full-stack-engineer" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>6</td><td><span class="score mid">70</span></td>
+<td>95</td><td><b>Keysight Technologies</b></td><td>IT Engineer, Software (Entry)</td>
+<td>Gurugram</td><td class=reason>Entry-level at a top MNC — good on experience fit. Confirm it is application-software engineering (the &#x27;IT Engineer&#x27; title can sometimes mean internal IT/infra).
+<div class=mini><a href="https://careersat.tech/jobs/keysight-technologies-it-engineer-software-entry-2026-11-10" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>7</td><td><span class="score mid">70</span></td>
+<td>85</td><td><b>Ginesys</b></td><td>SDE 2</td>
+<td>Gurugram / Kolkata</td><td class=reason>Retail-tech product company. SDE-2 typically 2-4 yrs — stretch for 1.5. Verify the JD.
+<div class=mini><a href="https://careersat.tech/jobs/ginesys-sde-2" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>8</td><td><span class="score mid">70</span></td>
+<td>90</td><td><b>Adani Digital Labs</b></td><td>Backend Engineer</td>
+<td>Gurugram / Ahmedabad</td><td class=reason>Digital arm of the Adani group; recent backend opening surfaced via LinkedIn. Confirm the exact location (some roles are Ahmedabad) and level before applying.
+<div class=mini><a href="https://in.linkedin.com/jobs/back-end-developer-jobs-gurugram" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+<tr><td class=num>9</td><td><span class="score mid">55</span></td>
+<td>98</td><td><b>Adobe</b></td><td>Computer Scientist-I (Java) [listing resolves to SDE-3]</td>
+<td>Noida</td><td class=reason>Aggregator labelled it entry &#x27;Java&#x27;, but the live JD/apply link is a SENIOR SDE-3 role, Python/ML-heavy (TensorFlow/PyTorch). Not an entry fit. Check Adobe careers directly for a true Computer Scientist-I Java opening.
+<div class=mini><a href="https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Noida/Software-Development-Engineer-3_R173668" target="_blank" rel="noopener">source ↗</a></div></td></tr>
+</tbody></table>
+
+<h2><span class=dot style="background:var(--r)"></span>Skipped Jobs</h2>
+<table><thead><tr><th>#</th><th>Company</th><th>Role</th><th>Location</th><th>Skip Reason</th></tr></thead><tbody>
+<tr><td class=num>1</td><td><b>GoKwik</b></td><td>Intern - Software Development</td>
+<td>Gurugram</td><td class=reason>Experience: internship — below her 1.5-yr full-time level (she is targeting full-time SDE roles).</td></tr>
+<tr><td class=num>2</td><td><b>Enveu</b></td><td>Full-Stack SWE Intern</td>
+<td>Noida</td><td class=reason>Experience: internship — below level.</td></tr>
+<tr><td class=num>3</td><td><b>Ascendion</b></td><td>UI - Angular</td>
+<td>Gurugram</td><td class=reason>Skill: frontend-only Angular role. Bhumi is backend-focused and uses React, not Angular.</td></tr>
+<tr><td class=num>4</td><td><b>ALIQAN Technologies</b></td><td>Mobile Application Developer (Android/iOS)</td>
+<td>Noida</td><td class=reason>Skill: mobile (Kotlin/Swift/Flutter) — off her Java/JS backend stack.</td></tr>
+<tr><td class=num>5</td><td><b>Hitachi</b></td><td>BO Developer</td>
+<td>Noida</td><td class=reason>Skill: SAP BusinessObjects / BI reporting — off-stack for a backend/full-stack engineer.</td></tr>
+<tr><td class=num>6</td><td><b>Amantya Technologies</b></td><td>Software Engineer (Golang, Python &amp; Automation)</td>
+<td>Gurugram</td><td class=reason>Skill: Go + Python + automation core — not her Java/JavaScript stack.</td></tr>
+<tr><td class=num>7</td><td><b>Team Computers</b></td><td>E-commerce Developer</td>
+<td>Noida</td><td class=reason>Skill: e-commerce platform/ops development with an unclear, likely non-core (platform-config) stack. Low alignment with her backend profile.</td></tr>
+</tbody></table>
+
+<h2>⭐ Top 5 Recommendations</h2>
+<div class=rec><div class=rech><span class=rnum>1</span>
+<b>Java React Full Stack Developer</b> @ Citi <span class=rtag>match 95 · trust 98</span>
+<a class="btn open sm" href="https://citi.wd5.myworkdayjobs.com/2/job/1124-SHIVAJI-GARDENS-MOONLI/Java-React-Full-stack-Developer_261002577" target="_blank" rel="noopener">Apply</a></div>
+<p>Near-exact stack match: Java/J2EE, Spring Boot, REST microservices, React, Git, CI/CD and unit/integration/functional testing — all on Bhumi&#x27;s resume. Explicitly 0-1 yr / batches incl. 2025, so her level fits perfectly, at a top-tier employer.</p></div>
+<div class=rec><div class=rech><span class=rnum>2</span>
+<b>Software Developer I</b> @ myKaarma <span class=rtag>match 90 · trust 85</span>
+<a class="btn open sm" href="https://ats.rippling.com/mykaarma/jobs/854ee9f5-885b-4c76-8e6f-0330a11cdc54" target="_blank" rel="noopener">Apply</a></div>
+<p>1-2 yr SDE-I at an established US auto-dealership SaaS. Core overlap is heavy — Java, Spring, microservices, MySQL/MongoDB/Redis, Kafka, Docker, React — plus an AI/ML angle that matches her GenAI research interest.</p></div>
+<div class=rec><div class=rech><span class=rnum>3</span>
+<b>SDE I (Backend)</b> @ GoKwik <span class=rtag>match 86 · trust 88</span>
+<a class="btn open sm" href="https://gokwik.keka.com/careers/jobdetails/167259" target="_blank" rel="noopener">Apply</a></div>
+<p>Well-funded e-commerce enablement startup. Backend JD (Node.js, REST, SQL optimization, Redis, caching, queues, idempotency) maps to her Node/Express/MySQL/Redis/queue experience; 1-3 yr band fits her 1.5.</p></div>
+<div class=rec><div class=rech><span class=rnum>4</span>
+<b>Backend Engineer (Remote)</b> @ Weekday (Partner Network) <span class=rtag>match 80 · trust 60</span>
+<a class="btn open sm" href="https://jobs.weekday.works/weekday-partner-network-backend-engineer-bw29j7" target="_blank" rel="noopener">Apply</a></div>
+<p>Strong remote backend role, 1-3 yrs, high pay band. Weekday is a hiring NETWORK — confirm the actual end-client/company and that the posting is still live before applying.</p></div>
+<div class=rec><div class=rech><span class=rnum>5</span>
+<b>Software Engineer</b> @ Siemens <span class=rtag>match 78 · trust 95</span>
+<a class="btn open sm" href="https://careersat.tech/jobs/siemens-software-engineer" target="_blank" rel="noopener">Apply</a></div>
+<p>Top MNC, recent posting. Verify level and stack — Siemens Noida engineering spans Java/C++/.NET and the role may target 2-4 yrs. Worth an application if the JD is Java/backend.</p></div>
+
+
+<h2>📈 Qualified-per-day Trend</h2>
+<div class=trend><div class=bar><div class=barfill style="height:58px">1</div><div class=barlbl>08-05</div></div><div class=bar><div class=barfill style="height:138px">3</div><div class=barlbl>11-25</div></div></div>
+
+<h2>✍️ Cover Letters</h2>
+<div class=clbox><div class=clh><b>Citi — Java React Full Stack Developer</b>
+<button class="btn copy sm" onclick="copyText('clt_citi-java-react-fs-2026-11',this)">COPY</button></div>
+<pre id="clt_citi-java-react-fs-2026-11">Dear Hiring Manager,
+
+I&#x27;m excited to apply for the Java React Full Stack Developer role at Citi in Delhi, where the stack maps almost exactly to how I build software today. In my current role at Primathon I design Spring Boot microservices and REST APIs, and I architected a distributed payment gateway spanning 30 REST endpoints across four services using system-design principles for scalability and fault tolerance. On the front end I build features in React.js, and Git, CI/CD pipelines (Jenkins, Git Actions) and JUnit/Mockito testing are part of my daily workflow — the same unit, integration and functional testing this role calls for. My core Java foundation (collections, multithreading, OOP design patterns) is backed by a 5-Star Gold HackerRank Java certification and 250+ DSA problems solved. As a 2025 B.Tech graduate (CGPA 9.3) and an immediate joiner with zero notice period, I can contribute to your microservices and React features from day one and ramp quickly on Citi&#x27;s engineering practices.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+<div class=clbox><div class=clh><b>myKaarma — Software Developer I</b>
+<button class="btn copy sm" onclick="copyText('clt_mykaarma-swd1-2026-11',this)">COPY</button></div>
+<pre id="clt_mykaarma-swd1-2026-11">Dear Hiring Manager,
+
+I&#x27;d love to join myKaarma as a Software Developer I, building dealership solutions across microservices, web and AI/ML features. My 1.5 years of backend engineering line up closely with your stack: I work daily in Java and Spring Boot microservices, build REST APIs, and have shipped services backed by MySQL, MongoDB and Redis, with Kafka for event processing — all technologies in your requirements. At Primathon I integrated AWS (Timestream, S3, Lambda) into backend pipelines and containerized services with Docker, and at Paytm I optimized QR-lifecycle microservices powering real-time transaction notifications. I&#x27;m also hands-on with React on the front end and genuinely drawn to your AI/ML direction — my research paper covered Generative AI applications, and my payment-gateway project embedded AI-driven monitoring. As an immediate joiner with zero notice period who picks up new tools quickly, I&#x27;m ready to contribute to production services and LLM integrations right away.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+<div class=clbox><div class=clh><b>GoKwik — SDE I (Backend)</b>
+<button class="btn copy sm" onclick="copyText('clt_gokwik-sde1-backend-2026-11',this)">COPY</button></div>
+<pre id="clt_gokwik-sde1-backend-2026-11">Dear Hiring Manager,
+
+I&#x27;m applying for the SDE I (Backend) role at GoKwik, where building and operating Node.js REST services is exactly the work I enjoy. I develop backend services with Node.js and Express and design REST APIs end to end, and I&#x27;ve tuned SQL on MySQL alongside MongoDB and Redis for caching — directly matching your focus on relational optimization, caching and queues. My distributed payment gateway project gave me hands-on experience with queue-driven, fault-tolerant processing and system design across multiple services, and at Paytm I built microservices handling real-time, high-throughput transaction flows where idempotency and reliability mattered. I already use AI coding assistants in my workflow, aligning with GoKwik&#x27;s AI-assisted development culture, and my JavaScript (ES6+) background makes TypeScript an easy next step. As a 2025 graduate and immediate joiner with no notice period, I can take ownership of backend features — from data modeling through deployment and monitoring — from week one.
+
+Best regards,
+Bhumi Bhatt</pre></div>
+
+
+</div>
+<footer>Generated by the LinkedIn Morning Scan routine · 2026-11-25 · 19 roles reviewed, 3 ready to apply</footer>
+<div id=toast class=toast>Copied to clipboard</div>
+<script>
+var QURLS=["https://citi.wd5.myworkdayjobs.com/2/job/1124-SHIVAJI-GARDENS-MOONLI/Java-React-Full-stack-Developer_261002577","https://ats.rippling.com/mykaarma/jobs/854ee9f5-885b-4c76-8e6f-0330a11cdc54","https://gokwik.keka.com/careers/jobdetails/167259"];
+function openAll(){ if(!QURLS.length){toast('No qualified jobs today');return;} QURLS.forEach(function(u){window.open(u,'_blank');}); }
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1400);}
+function copyFromEl(el){var txt=el.innerText||el.textContent;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){toast('Copied to clipboard');},function(){fallback(txt);});}else{fallback(txt);}}
+function fallback(txt){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copied to clipboard');}catch(e){toast('Copy failed');}document.body.removeChild(ta);}
+function copyCL(id,btn){copyFromEl(document.getElementById('cl_'+id));}
+function copyText(id,btn){copyFromEl(document.getElementById(id));}
+</script>
+</body></html>

@@ -1,15 +1,15 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-25",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
-  "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "data_source": "WebSearch (extended) + careersat.tech NCR aggregator + company ATS pages (Citi Workday, myKaarma Rippling, GoKwik Keka, Wadhwani/Kula). JSearch API (RapidAPI) is NO LONGER SUBSCRIBED — gateway returns 404 'endpoint does not exist'.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt, backend/full-stack, 1.5 yrs)",
+  "ntfy": "delivered OK (HTTP 200, priority 5) to topic bhumi-linkedin-jobs-2026; egress now allows ntfy.sh",
+  "jobs_found": 19,
+  "jobs_qualified": 3,
+  "jobs_review": 9,
+  "jobs_skipped": 7,
+  "fraud_detected": 0,
+  "avg_match_qualified": 90.3,
+  "notes": "Top picks with direct apply links: Citi Java React Full Stack (match 95, Delhi, 0-1yr/batch-2025), myKaarma Software Developer I (match 90, Noida, 1-2yr), GoKwik SDE-I Backend (match 86, Gurugram, 1-3yr). Caveat: without the live job API, postings are ~5 days to ~3 weeks old (not strictly <24h) and some review-row links are LinkedIn search pages, not individual postings. No fraud/course-ad spam surfaced today. ACTION FOR USER: re-subscribe to JSearch on RapidAPI (or provide another job-API key) to restore true 24h freshness + individual apply links."
 }
