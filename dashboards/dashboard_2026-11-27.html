@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Smart Apply Dashboard — 2026-11-27</title>
+<style>
+  :root{
+    --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+  header{background:#0b1220;color:#fff;padding:28px 20px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.3px}
+  header .sub{color:#9fb0c7;font-size:14px}
+  main{max-width:1040px;margin:0 auto;padding:20px 16px 60px}
+
+  .banner{border-radius:12px;padding:16px 18px;margin:18px 0;font-size:15px;border:1px solid}
+  .banner.warn{background:#fffbeb;border-color:#fcd34d;color:#78350f}
+  .banner.warn b{color:#92400e}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .card .n{font-size:30px;font-weight:700;line-height:1}
+  .card .l{font-size:12px;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.5px}
+  .card.g .n{color:var(--green)} .card.y .n{color:var(--yellow)} .card.r .n{color:var(--red)} .card.b .n{color:var(--blue)}
+
+  .cta{display:block;width:100%;border:0;border-radius:14px;padding:20px;margin:10px 0 6px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-size:18px;font-weight:700;cursor:pointer;
+    box-shadow:0 6px 18px rgba(37,99,235,.35)}
+  .cta:hover{filter:brightness(1.05)}
+  .cta small{display:block;font-weight:500;font-size:13px;opacity:.9;margin-top:4px}
+
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0}
+  section h2{margin:0 0 4px;font-size:18px}
+  section h2 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+  .sechint{color:var(--muted);font-size:13px;margin:0 0 14px}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.dead{background:#fee2e2;color:#991b1b}
+  .pill.closed{background:#fef3c7;color:#92400e}
+  .pill.unver{background:#e0e7ff;color:#3730a3}
+
+  .linklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+  @media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}.linklist{grid-template-columns:1fr}}
+  .lk{display:block;border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);background:#f8fafc}
+  .lk:hover{border-color:#94a3b8}
+  .lk b{display:block;font-size:14px}
+  .lk span{font-size:12px;color:var(--muted)}
+
+  .trend{display:flex;align-items:flex-end;gap:28px;height:160px;padding:10px 6px;border-left:2px solid var(--line);border-bottom:2px solid var(--line)}
+  .bar{width:70px;text-align:center}
+  .bar .col{border-radius:8px 8px 0 0;margin:0 auto;width:52px}
+  .bar .cap{font-size:12px;color:var(--muted);margin-top:6px}
+  .bar .val{font-size:13px;font-weight:700;margin-bottom:4px}
+
+  .note{background:#f8fafc;border:1px dashed var(--line);border-radius:10px;padding:14px;font-size:13px;color:#334155}
+  code{background:#f1f5f9;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 10px}
+  ul{margin:8px 0 0;padding-left:20px}
+  li{margin:4px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>LINKEDIN SMART APPLY DASHBOARD — 2026-11-27</h1>
+    <div class="sub">Candidate: Bhumi Bhatt · Backend / Full-Stack Engineer · Target 5.5–12 LPA · Delhi NCR / Remote · Immediate joiner</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="banner warn">
+    <b>⚠️ Degraded run — discovery source unavailable.</b> Today's scan could <b>not confirm any live, apply-ready job</b>.
+    The reliable job-search API this routine depends on (JSearch <code>/search</code>) is not enabled on the current RapidAPI plan
+    (returns <code>404 "Endpoint does not exist"</code>, while <code>/job-details</code> and <code>/estimated-salary</code> still work — i.e. the key is subscribed but the search tier is gone).
+    The web-search fallback only surfaces stale index entries: <b>all 11 individual postings checked today were already expired, filled, or closed.</b>
+    No jobs were fabricated. Use the <b>live pre-filtered searches</b> below to apply manually until the data source is restored.
+  </div>
+
+  <div class="cards">
+    <div class="card b"><div class="n">11</div><div class="l">Searches run</div></div>
+    <div class="card b"><div class="n">11</div><div class="l">Postings verified</div></div>
+    <div class="card g"><div class="n">0</div><div class="l">Live &amp; qualified</div></div>
+    <div class="card r"><div class="n">11</div><div class="l">Dead / closed</div></div>
+  </div>
+
+  <button class="cta" onclick="openAll()">
+    OPEN ALL 6 LIVE JOB SEARCHES (pre-filtered to Bhumi's criteria)
+    <small>Opens LinkedIn searches for Backend, Full-Stack, Java, Node.js, Software Engineer &amp; Remote — all filtered to entry level + last 24h</small>
+  </button>
+  <p class="sechint">If your browser blocks pop-ups, allow them for this page, or click the individual links in the “Apply now — live searches” section below.</p>
+
+  <section>
+    <h2>Apply now — live, pre-filtered searches</h2>
+    <p class="sechint">These are real search pages on each platform, filtered to Bhumi's role types, Delhi NCR / Remote, and recent postings. They are live (unlike indexed individual links, which expire within days).</p>
+
+    <h3 style="margin:12px 0 4px;font-size:15px">LinkedIn — entry level, posted last 24h</h3>
+    <div class="linklist" id="linkedin"></div>
+
+    <h3 style="margin:18px 0 4px;font-size:15px">Other boards — junior / 0–2 yrs</h3>
+    <div class="linklist" id="others"></div>
+  </section>
+
+  <section>
+    <h2><span class="dot" style="background:var(--red)"></span>Postings checked today (all expired/closed)</h2>
+    <p class="sechint">Each link below surfaced in web search but was verified dead on fetch — concrete evidence that the indexed-link fallback can't be trusted for this routine. This is why the run reports 0 qualified rather than listing stale links as “ready to apply”.</p>
+    <table>
+      <thead><tr><th>#</th><th>Role (as indexed)</th><th>Company</th><th>Source</th><th>Status on verify</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Backend Software Engineer (Node.js)</td><td>Paytm</td><td>lever.co</td><td><span class="pill dead">404 — removed</span></td></tr>
+        <tr><td>2</td><td>SDE-1 Backend (Node.js/TS)</td><td>Makunai Global</td><td>keka.com</td><td><span class="pill closed">Not available anymore</span></td></tr>
+        <tr><td>3</td><td>SDE I (Full Stack)</td><td>Netomi</td><td>lever.co</td><td><span class="pill dead">404 — removed</span></td></tr>
+        <tr><td>4</td><td>Full Stack (Node + React)</td><td>Zemetric</td><td>wellfound.com</td><td><span class="pill dead">410 — gone</span></td></tr>
+        <tr><td>5</td><td>Backend Developer (remote)</td><td>Kuvaka Tech</td><td>wellfound.com</td><td><span class="pill dead">410 — gone</span></td></tr>
+        <tr><td>6</td><td>Associate Software Engineer (Backend)</td><td>via Weekday</td><td>workable.com</td><td><span class="pill dead">404 — removed</span></td></tr>
+        <tr><td>7</td><td>SDE I Backend (2+ yrs, Node/blockchain)</td><td>Skeps</td><td>accel jobs</td><td><span class="pill closed">No longer accepting</span></td></tr>
+        <tr><td>8</td><td>Engineer — Backend</td><td>Air India</td><td>careers.airindia.com</td><td><span class="pill closed">Position filled</span></td></tr>
+        <tr><td>9</td><td>Backend Software Developer</td><td>(apna listing)</td><td>apna.co</td><td><span class="pill dead">410 — gone</span></td></tr>
+        <tr><td>10</td><td>Software Developer — Backend</td><td>(apna listing)</td><td>apna.co</td><td><span class="pill dead">410 — gone</span></td></tr>
+        <tr><td>11</td><td>AI/ML Engineer (DS)</td><td>Lenskart</td><td>recruitee.com</td><td><span class="pill unver">Unverified · off core stack</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Run history (qualified jobs per run)</h2>
+    <p class="sechint">Runs are sparse (last full run was 2026-08-05). Today is blocked on the data source, not on the market.</p>
+    <div class="trend">
+      <div class="bar">
+        <div class="val">1</div>
+        <div class="col" style="height:40px;background:var(--green)"></div>
+        <div class="cap">2026-08-05<br>(JSearch API live)</div>
+      </div>
+      <div class="bar">
+        <div class="val">0</div>
+        <div class="col" style="height:4px;background:var(--red)"></div>
+        <div class="cap">2026-11-27<br>(source down)</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What to fix to restore automatic discovery</h2>
+    <ul>
+      <li><b>Root cause:</b> the RapidAPI key is still valid, but its JSearch plan no longer includes the <code>/search</code> endpoint (search tier expired/downgraded). <code>/job-details</code> and <code>/estimated-salary</code> still return 200, which confirms the key itself works.</li>
+      <li><b>Fix option A:</b> re-subscribe / upgrade the JSearch plan on RapidAPI so <code>/search</code> works again, then re-run this routine — it will resume producing verified, last-24h listings as it did on 2026-08-05.</li>
+      <li><b>Fix option B:</b> subscribe to an equivalent jobs API and update <code>RAPIDAPI_KEY</code> (e.g. Active Jobs DB, LinkedIn Job Search API, JSearch — all were probed today and returned “not subscribed”).</li>
+      <li><b>Why not just use web search?</b> Web search is US-locale and its job index lags by days to weeks; every individual posting it returned today was already closed. It cannot meet the “posted in the last 24h, apply-ready” bar this routine promises.</li>
+    </ul>
+    <div class="note" style="margin-top:12px">
+      <b>Data &amp; method note.</b> 11 web searches were run across all five role batches (Backend, Full-Stack, Software Engineering, AI/ML, Platform/Cloud).
+      11 individual postings that looked entry-level and on-stack were fetched and verified; 10 returned 404/410/"filled/closed" and 1 (Lenskart) could not be verified and is off Bhumi's core backend/full-stack stack.
+      No cover letters were generated because no job cleared the match≥75 &amp; trust≥60 bar (nothing live to score). The application log was not padded with dead links.
+    </div>
+  </section>
+
+<footer>Generated by the LinkedIn Smart Apply routine · 2026-11-27 · degraded run (discovery API unavailable) · 11 postings verified, 0 live &amp; qualified · no listings fabricated</footer>
+</main>
+
+<script>
+  // Live, pre-filtered LinkedIn searches: f_TPR=r86400 = past 24h, f_E=1,2 = internship+entry, f_WT=2 = remote
+  var linkedin = [
+    {t:"Backend Developer", u:"https://www.linkedin.com/jobs/search/?keywords=Backend%20Developer&location=Delhi%20NCR%2C%20India&f_TPR=r86400&f_E=1%2C2", d:"Delhi NCR · entry · 24h"},
+    {t:"Full Stack Developer", u:"https://www.linkedin.com/jobs/search/?keywords=Full%20Stack%20Developer&location=Delhi%20NCR%2C%20India&f_TPR=r86400&f_E=1%2C2", d:"Delhi NCR · entry · 24h"},
+    {t:"Java / Spring Boot Developer", u:"https://www.linkedin.com/jobs/search/?keywords=Java%20Spring%20Boot%20Developer&location=Delhi%20NCR%2C%20India&f_TPR=r86400&f_E=1%2C2", d:"Delhi NCR · entry · 24h"},
+    {t:"Node.js Developer", u:"https://www.linkedin.com/jobs/search/?keywords=Node.js%20Developer&location=Delhi%20NCR%2C%20India&f_TPR=r86400&f_E=1%2C2", d:"Delhi NCR · entry · 24h"},
+    {t:"Software Engineer / SDE", u:"https://www.linkedin.com/jobs/search/?keywords=Software%20Engineer&location=Delhi%20NCR%2C%20India&f_TPR=r86400&f_E=1%2C2", d:"Delhi NCR · entry · 24h"},
+    {t:"Backend / Full-Stack (Remote India)", u:"https://www.linkedin.com/jobs/search/?keywords=Backend%20Developer&location=India&f_TPR=r86400&f_E=1%2C2&f_WT=2", d:"Remote India · entry · 24h"}
+  ];
+  var others = [
+    {t:"Naukri — Java backend (Delhi NCR, 1 yr)", u:"https://www.naukri.com/java-backend-developer-jobs-in-delhi-ncr?experience=1", d:"naukri.com"},
+    {t:"Naukri — Full stack (Delhi NCR, 1 yr)", u:"https://www.naukri.com/full-stack-developer-jobs-in-delhi-ncr?experience=1", d:"naukri.com"},
+    {t:"Hirist — Backend (Delhi NCR)", u:"https://www.hirist.tech/backend-development-jobs-in-delhi-ncr", d:"hirist.tech"},
+    {t:"Instahyre — Backend Development", u:"https://www.instahyre.com/search-jobs/?job_functions=Backend%20Development", d:"instahyre.com"},
+    {t:"Wellfound — Backend (India, remote-friendly)", u:"https://wellfound.com/role/l/backend-engineer/india", d:"wellfound.com"},
+    {t:"Cutshort — Backend (Delhi NCR/Gurgaon/Noida)", u:"https://cutshort.io/jobs/backend-developer-jobs-in-delhi-ncr-gurgaon-noida", d:"cutshort.io"}
+  ];
+  function render(id, arr){
+    var c = document.getElementById(id);
+    arr.forEach(function(j){
+      var a = document.createElement('a');
+      a.className='lk'; a.href=j.u; a.target='_blank'; a.rel='noopener';
+      a.innerHTML = '<b>'+j.t+'</b><span>'+j.d+'</span>';
+      c.appendChild(a);
+    });
+  }
+  render('linkedin', linkedin);
+  render('others', others);
+  function openAll(){ linkedin.forEach(function(j){ window.open(j.u,'_blank','noopener'); }); }
+</script>
+</body>
+</html>
