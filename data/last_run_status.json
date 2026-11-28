@@ -1,15 +1,24 @@
 {
-  "run_date": "2026-08-05",
+  "run_date": "2026-11-28",
   "run_type": "linkedin-morning-scan",
   "status": "completed",
-  "data_source": "JSearch API (RapidAPI) \u2014 10 queries, date_posted=today, country=in; all jobs posted within last 24h",
-  "resume_source": "uploaded by user (persisted to repo resumes/resume_master.pdf)",
-  "ntfy": "disabled per user instruction; report via routine push/email channel",
+  "data_source": "WebSearch (standard + extended, 8 queries across backend/fullstack/SWE/AI-ML) cross-checked against careersat.tech aggregator; 7 top candidates' requirements and employer ATS apply links verified via WebFetch.",
+  "resume_source": "repo resumes/resume_master.pdf (Bhumi Bhatt, Backend/Full-Stack, 1.5 yrs)",
+  "workspace_note": "Task paths use ~/linkedin-jobs/ which does not exist in this container; the git repo /home/user/Application-Routine/ has the identical structure and is the durable (git-tracked) store, so all outputs were written there and committed.",
+  "ntfy": "disabled per prior user instruction; reported via routine push/email channel (PushNotification).",
   "jobs_found": 17,
-  "jobs_qualified": 1,
-  "jobs_review": 6,
-  "jobs_skipped": 10,
-  "fraud_detected": 2,
-  "avg_match_qualified": 89.0,
-  "notes": "Replaces the earlier WebSearch run whose LinkedIn links were stale/expired. All 17 discovered jobs were posted <24h ago with live apply links; only 1 clean entry-level backend match today (TravClan SDE-1), 6 stretch/verify, 10 skipped incl. 2 course-ad spam."
+  "jobs_qualified": 4,
+  "jobs_review": 8,
+  "jobs_skipped": 5,
+  "fraud_detected": 0,
+  "cover_letters_generated": 3,
+  "avg_match_qualified": 84.0,
+  "top_pick": "Citi — Java React Full Stack Developer (Delhi, hybrid), match 94, trust 98",
+  "qualified": [
+    "Citi — Java React Full Stack Developer (94)",
+    "GoKwik — SDE I Backend (88)",
+    "myKaarma — Software Developer I (84)",
+    "Wadhwani AI — Associate Full Stack Engineer (70)"
+  ],
+  "notes": "WebSearch alone returned mostly undated aggregator landing pages (same staleness the Aug run hit); extended search + careersat.tech surfaced dated Nov-2026 postings with live employer ATS links. All qualified roles verified to real Workday/Keka/Rippling/Kula apply pages. Zero fraud/scam listings in today's set. Citi is a near-perfect skill match (Java+Spring Boot+REST+React+CI/CD). None of today's 17 duplicated the 17 from 2026-08-05."
 }

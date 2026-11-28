@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Software Development Engineer I (Backend) position at GoKwik, where production Node.js and resilient API design sit at the core of the role.
+
+I build backend services in Node.js and Express with REST APIs and MySQL, and I have used Redis and Kafka in event-driven pipelines at Primathon, where I automated backend syncing across seven merchant systems and cut manual operational effort by 70%. My Paytm internship had me optimizing microservices for the QR-code transaction lifecycle, giving me hands-on experience with caching, queues, and the idempotency concerns that matter in a multi-tenant commerce platform. With 250+ DSA problems solved and 5-star Java on HackerRank, my debugging and data-structure fundamentals are strong.
+
+I am an immediate joiner with a 0-day notice period, ready to own features and write clear design and incident documents from day one.
+
+Best regards,
+Bhumi Bhatt

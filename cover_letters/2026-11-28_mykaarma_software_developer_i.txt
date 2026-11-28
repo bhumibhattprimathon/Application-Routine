@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I would like to apply for the Software Developer I role at myKaarma and help build the cloud-native services this position centers on.
+
+My experience lines up closely with your stack. At Primathon I integrated AWS Timestream, S3, and Lambda into backend pipelines for real-time data ingestion, and I develop Spring Boot microservices and REST APIs backed by MySQL. I containerize services with Docker, work with Kafka for event streaming, and build React.js front ends — covering much of your Java, React, AWS, Kafka, and MySQL requirements. My Distributed Payment Gateway project, 30 REST APIs across Order, Payment, Merchant, and Vault services, reflects the multi-service, cloud-native thinking you are hiring for, and I am keen to grow into the ML, LLM, and embeddings work your team values.
+
+As a 0-day-notice immediate joiner, I can start contributing to your Noida team right away.
+
+Best regards,
+Bhumi Bhatt

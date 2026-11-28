@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to apply for the Java React Full Stack Developer role at Citi, where building microservices with Java and React maps directly to the work I do every day. At Primathon I engineer Spring Boot admin APIs and backend syncing automation across seven merchant systems, and my Distributed Payment Gateway project delivered 30 REST APIs across four services using Java, Spring Boot, and system-design principles for fault tolerance.
+
+I pair that backend depth with React.js on the front end and ship with Git, CI/CD pipelines, and JUnit/Mockito test coverage — the exact Java/J2EE, Spring Boot, REST, React, and CI/CD stack this role calls for. My 5-star Java rating on HackerRank and 250+ solved DSA problems back the core-Java and OOP fundamentals you expect.
+
+As an immediate joiner with a 0-day notice period, I can contribute to your Shivaji Gardens team from week one and ramp quickly on the Docker and Kubernetes tooling listed as nice-to-haves.
+
+Best regards,
+Bhumi Bhatt
